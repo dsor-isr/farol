@@ -78,7 +78,7 @@ sim/sensors:
     topics:
         subscribers: 
             position: "/#vehicle#/sim/dynamics/position"
-        publishers : 
+        publishers: 
             position: "/#vehicle#/measurement/position"
             velocity: "/#vehicle#/measurement/velocity"
             orientation: "/#vehicle#/measurement/orientation"
