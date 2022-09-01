@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>nav_tools</name>
+ <version>1.0.0</version>
+ <description>Navigation tools to convert messages to sensor fusion compatible measurements</description>
+
+ <license>MIT</license>
+
+ <author email="david.souto@tecnico.ulisboa.pt">David Souto</author>
+ <author email="jquintas@gmail.com">Joao Quintas</author>
+ <author email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</author>
+
+ <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+ <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>std_msgs</depend>
+ <depend>auv_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>farol_gimmicks_library</depend>
+ <depend>farol_msgs</depend>
+ <depend>dsor_msgs</depend>
+
+</package>

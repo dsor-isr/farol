@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+    <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+    
+    <!-- Parameters and Arguments -->
+    <arg name="name"            /> <!-- Name of the vehicle being launched -->   
+    <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+    <arg name="folder"             default="simulation" />  <!-- Name of the folder for the configuration files -->     
+    <arg name="namespace"          default="false" />
+
+    <arg name="broadcast_tf"       default="false" />
+
+    <!-- Define whether to put namespace or not in the tfs -->
+    <arg if="$(eval arg('namespace'))" name="tf_name" value="$(arg name)_"/>
+    <arg unless="$(eval arg('namespace'))" name="tf_name" value=""/>
+
+    <group if="$(arg broadcast_tf)">
+        <group ns="tfs/broadcaster">
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)gnss" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)gnss"/>
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)usbl" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)usbl"/>
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)dvlb" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)dvl_bt" />
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)dvlw" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)dvl_wt" />
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)ahrs" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)ahrs" />
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)imun" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)imu_noisy" />
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)dept" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)depth" />
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)rang" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)range" />
+            <node pkg="tf2_ros" type="static_transform_publisher" name="$(arg tf_name)alti" args="0 0 0 0 0 0 1 $(arg tf_name)base_link $(arg tf_name)altimeter" />
+        </group>
+    </group>
+
+</launch>

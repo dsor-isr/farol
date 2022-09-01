@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+    <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+    <!-- Parameters and Arguments -->
+    <arg name="name"            /> <!-- Name of the vehicle being launched -->   
+    <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+    <arg name="folder"             default="simulation" />  <!-- Name of the folder for the configuration files --> 
+    <arg name="namespace"          default="false" />
+
+    <arg name="dynamics"           default="false" />
+    <arg name="sensors"            default="false" />
+    <arg name="vehicle_id"         default="0" />
+
+    <group ns="sim">
+        
+        <!-- Vehicle Specific Config File -->
+        <arg name="dollar" value="$" />
+        <!-- Load default configurations (from farol)-->
+        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/sim.yaml" />-->
+        <!--[> Load "personal" configurations ro override the default ones <]-->
+        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/sim.yaml" />-->
+
+        <!-- Launch Nodes that are common to all vehicles -->
+        <!-- dynamics: simulates the dynamics of the vehicle -->
+        <group if="$(arg dynamics)">
+            <node pkg="auv_sim" type="auv_sim_node" name="auv_sim" respawn="false" output="screen" />
+        </group>
+
+        <!-- sensors: simulates the sensors -->
+        <group if="$(arg sensors)">
+          <node pkg="sensor_sim" type="sensor_sim" name="sensors" respawn="false" output="screen">
+              <param name="name_vehicle_id"   value="$(arg name)$(arg vehicle_id)"/>
+          </node>
+        </group>
+    </group>
+</launch>

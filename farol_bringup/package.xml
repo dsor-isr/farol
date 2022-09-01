@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>farol_bringup</name>
+  <version>1.0.0</version>
+  <description>The farol_bringup package</description>
+
+  <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+  <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+  <maintainer email="andre.potes@tecnico.ulisboa.pt">Andre Potes</maintainer>
+  <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+  <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>farol_msgs</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>farol_msgs</exec_depend>
+
+</package>

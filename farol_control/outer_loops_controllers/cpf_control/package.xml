@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>cpf_control</name>
+ <version>1.0.0</version>
+ <description>
+   A package used for producing the synchronization term for cooperative path following
+ </description>
+
+ <license>MIT</license>
+
+ <author email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</author>
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>std_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>farol_msgs</depend>
+
+ <!-- Farol Gimmicks is used for parameter loading -->
+ <depend>farol_gimmicks_library</depend>
+ <depend>dsor_paths</depend>
+
+ <!-- Eigen Library is required -->
+ <depend>eigen</depend>
+
+ <!-- Libraries to generate the message -->
+ <build_depend>message_generation</build_depend>
+ <exec_depend>message_runtime</exec_depend>
+
+</package>

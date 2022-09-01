@@ -1,0 +1,7 @@
+string inner_type
+float64 kp
+float64 ki
+float64 kd
+---
+bool success
+string message

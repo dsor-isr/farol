@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch> 
+
+  <!-- Logging Format -->
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}" />
+
+  <!-- Launch the Path Following Node -->
+  <node pkg="path_following" type="path_following_node" name="PathFollowingNode" respawn="false" output="screen">
+    <rosparam command="load" file="$(find path_following)/config/config.yaml"/>
+  </node>
+
+</launch>

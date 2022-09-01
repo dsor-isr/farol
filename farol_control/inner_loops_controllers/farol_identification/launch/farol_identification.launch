@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+ <!-- small description about your node -->
+ 
+ <!--<node pkg="my_package_name" type="my_node_name" name="my_node_name"
+ respawn="false" output="screen" args="$(find logitech_extreme)/config/my_arg_file.yaml"/>-->
+ 
+ <node pkg="farol_identification" type="farol_identification_node" name="FarolIdentificationNode" respawn="false" output="screen">
+   <rosparam command="load" file="$(find farol_identification)/config/config_farol_identification.yaml"/>
+</node>
+
+</launch>

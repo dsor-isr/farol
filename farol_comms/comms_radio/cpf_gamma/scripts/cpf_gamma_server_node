@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import cpf_gamma_ros.CpfGammaServerNode
+
+if __name__ == '__main__':
+ cpf_gamma_ros.CpfGammaServerNode.main()

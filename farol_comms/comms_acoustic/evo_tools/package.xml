@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>evo_tools</name>
+ <version>1.0.0</version>
+ <description>Convertion to DMAC standard</description>
+
+ <license>MIT</license>
+
+ <author email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</author>
+ <maintainer email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>std_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>auv_msgs</depend>
+ <depend>farol_msgs</depend>
+ <depend>farol_gimmicks_library</depend>
+ <depend>message_filters</depend>
+ <depend>geometry_msgs</depend>
+ <depend>tf</depend>
+ <depend>tf_conversions</depend>
+ <depend>dmac</depend>
+
+</package>

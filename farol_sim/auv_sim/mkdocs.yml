@@ -1,0 +1,4 @@
+site_name: AUV Simulation
+
+nav:
+  - Reference: "README.md"

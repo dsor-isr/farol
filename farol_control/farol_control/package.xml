@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <name>farol_control</name>
+  <version>1.0.0</version>
+  <description>
+	The farol_control metapackage contains all controllers for working with Farol
+	  
+	Institute for Systems and Robotics
+	Instituto Superior Tecnico
+	Lisbon, Portugal
+  </description>
+
+  <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+  <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+  <maintainer email="andre.potes@tecnico.ulisboa.pt">Andre Potes</maintainer>
+  <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+  <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+  <license>MIT</license>
+
+  <url type="website">http://dsor.isr.tecnico.ulisboa.pt</url>
+  <url type="repository">https://github.com/dsor-isr/farol</url>  
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>inner_loops_controllers</run_depend>
+  <run_depend>outer_loops_controllers</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

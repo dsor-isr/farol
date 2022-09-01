@@ -1,0 +1,6 @@
+string inner_type
+float64 max_out
+float64 min_out
+---
+bool success
+string message

@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import farol_bringup_ros.FarolBringupVxNode
+
+if __name__ == '__main__':
+ farol_bringup_ros.FarolBringupVxNode.main()

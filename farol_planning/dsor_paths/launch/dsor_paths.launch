@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!--Logging Format-->
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+  <!--Launch the path node-->
+  <node pkg="dsor_paths" type="dsor_paths_node" name="PathNode" respawn="false" output="screen">
+    <rosparam command="load" file="$(find dsor_paths)/config/config.yaml"/>
+  </node>
+</launch>

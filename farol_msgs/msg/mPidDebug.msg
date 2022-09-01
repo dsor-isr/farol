@@ -1,0 +1,15 @@
+Header header
+string controller
+float64 ref
+float64 ref_d
+float64 ref_d_filtered
+float64 state
+float64 error
+float64 error_saturated
+float64 ffTerm
+float64 ffDTerm
+float64 ffDragTerm
+float64 pTerm
+float64 iTerm
+float64 dTerm
+float64 output

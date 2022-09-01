@@ -1,0 +1,11 @@
+data_serializer:
+    vehicle_id: 4
+
+dmac2farol:
+    # false, vehicle acts as an achor, estimates other vehicles position 
+    # true, vehicle estimates its own position with respect to an anchor   
+    fix_type: true
+    # true, real vehcile
+    # false, simulation scenarios with evo emulator
+    real: false
+    installation_matrix: [0, 0, 0]

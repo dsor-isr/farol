@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>auv_sim</name>
+ <version>1.0.0</version>
+ <description>Package that implements AUV Farol simulation</description>
+
+ <license>MIT</license>
+ <author email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</author>
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>roscpp</depend>
+
+ <!-- Messages -->
+ <depend>dsor_msgs</depend>
+ <depend>nav_msgs</depend>
+
+ <!-- Eigen library is required -->
+ <depend>eigen</depend>
+
+ <!-- Libraries to generate the messages and services -->
+ <build_depend>message_generation</build_depend>
+ <exec_depend>message_runtime</exec_depend>
+
+</package>

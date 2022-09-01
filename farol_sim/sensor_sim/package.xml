@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>sensor_sim</name>
+ <version>1.0.0</version>
+ <description>Sensors simulation</description>
+
+ <license>MIT</license>
+
+ <author email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</author>
+ 
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+ <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+ <maintainer email="andre.potes@tecnico.ulisboa.pt">Andre Potes</maintainer>
+ <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+ <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+
+ <depend>sensor_msgs</depend>
+ <depend>std_msgs</depend>
+ <depend>auv_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>farol_gimmicks_library</depend>
+ <depend>geographiclib</depend>
+ <depend>geographiclib-tools</depend>
+ <depend>farol_msgs</depend>
+ <depend>dsor_msgs</depend>
+
+</package>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>farol_nav</name>
+    <version>1.0.0</version>
+    <description>Farol navigation metapackage</description>
+
+    <license>MIT</license>
+
+    <author email="david.souto@tecnico.ulisboa.pt">David Souto</author>
+    <author email="jquintas@gmail.com">Joao Quintas</author>
+    <author email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</author>
+
+    <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+    <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+    <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+    <buildtool_depend>catkin</buildtool_depend>
+</package>

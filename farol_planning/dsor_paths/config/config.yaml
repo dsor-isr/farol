@@ -1,0 +1,19 @@
+node_frequency: 5
+frame_id: "Path_frame"
+topics:
+  subscribers:
+    gamma: "/Gamma"
+    vehicle_state: "/nav/filter/state" 
+  publishers:
+    path_data: "/PathData"
+    virtual_target_state: "/Virtual/State"
+  services:
+    reset_path: "/ResetPath"
+    set_mode: "/SetMode"
+    arc2d_path: "/SpawnArc2DPath"
+    bernoulli_path: "/SpawnBernoulliPath"
+    circle2d_path: "/SpawnCircle2DPath"
+    line_path: "/SpawnLinePath"
+    speed:
+      const_rabbit_speed: "/SetConstVdRabbit"
+      const_vehicle_speed: "/SetConstVdVehicle"

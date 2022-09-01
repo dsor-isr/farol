@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<launch>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+  <!-- Parameters and Arguments -->
+  <arg name="name"            /> <!-- Name of the vehicle being launched -->   
+  <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+  <arg name="folder"              default="simulation" />  <!-- Name of the folder for the configuration files --> 
+  <arg name="namespace"           default="false" />
+  <arg name="vehicle_id"          default="0" />
+  
+  <arg name="common"              default="false" />
+  <arg name="simulation"          default="false" />
+  <arg name="addons"              default="false" />   
+  <arg name="navigation"          default="false" />
+  <arg name="controllers"         default="false" />
+  <arg name="cooperative"         default="false" />
+  <arg name="comms"               default="false" />
+  <arg name="acoustic_data"       default="false" />
+  <arg name="planning"            default="false" />
+  
+  <arg name="dollar" value="$" />
+    
+    <!--#########################
+        # Load ROS TOPICS names #
+        #########################-->
+  <!-- Load permanent topic names -->
+  <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/dev_configs/.ros_tmp/permanent_ros_$(arg name)$(arg vehicle_id).yaml" />
+  <!-- Load personal topic names -->
+  <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/dev_configs/.ros_tmp/personal_ros_$(arg name)$(arg vehicle_id).yaml" />
+  
+    <!--##############################
+        # Load common configurations #
+        ##############################-->
+  <!-- Load common configurations for all topics -->
+  <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/common.yaml" />
+  <!-- Load common configurations for all topics -->
+  <group if="$(arg common)">
+    <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/common.yaml" />
+  </group>
+
+    <!--#############################
+        # Load simulation Parameter #
+        #############################-->
+  <group ns="sim">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/sim.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg simulation)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/sim.yaml" />
+    </group>
+  </group>
+ 
+    <!--#########################
+        # Load addons Parameter #
+        #########################-->
+  <group ns="addons">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/addons.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg addons)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/addons.yaml" />
+    </group>
+  </group>
+  
+    <!--#############################
+        # Load navigation Parameter #
+        #############################-->
+  <group ns="nav">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/nav.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg navigation)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/nav.yaml" />
+    </group>
+  </group>
+ 
+    <!--##############################
+        # Load controllers Parameter #
+        ##############################-->
+  <group ns="controls">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/control.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg controllers)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/control.yaml" />
+    </group>
+  </group>
+ 
+    <!--##############################
+        # Load cooperative Parameter #
+        ##############################-->
+  <group ns="cooperative">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/cooperative.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg cooperative)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/cooperative.yaml" />
+    </group>
+  </group>
+ 
+    <!--#########################
+        # Load accoms Parameter #
+        #########################-->
+  <group ns="acomms">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/comms.yaml" />
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/acoustic_data.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg comms)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/comms.yaml" />
+    </group>
+    <group if="$(arg acoustic_data)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/acoustic_data.yaml" />
+    </group>
+  </group>
+ 
+    <!--###########################
+        # Load planning Parameter #
+        ###########################-->
+  <group ns="planning">
+    <!-- Load default configurations (from farol)-->
+    <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/planning.yaml" />
+    <!-- Load "personal" configurations ro override the default ones -->
+    <group if="$(arg planning)">
+      <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/planning.yaml" />
+    </group>
+  </group>
+ 
+</launch>

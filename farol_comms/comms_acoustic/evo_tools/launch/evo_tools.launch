@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- a wrapper to convert evologics usbl fixes to farol type -->
+<node pkg="evo_tools" type="dmac_to_farol_node" name="Dmac2Farol" respawn="false" output="screen">
+	<rosparam command="load" file="$(find evo_tools)/config/example/evo_tools.yaml"/>
+</node>
+
+</launch>

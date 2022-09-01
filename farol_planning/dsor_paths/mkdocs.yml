@@ -1,0 +1,4 @@
+site_name: DSOR Paths
+
+nav:
+  - Reference: "README.md"

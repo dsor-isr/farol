@@ -1,0 +1,6 @@
+site_name: Sensor Fusion - Kalman Filter
+
+nav:
+  - Theory: "theory.md"
+  - Overview: "user_guide.md"
+  - Developer Notes: "developer_notes.md"

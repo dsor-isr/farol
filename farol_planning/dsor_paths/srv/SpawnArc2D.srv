@@ -1,0 +1,8 @@
+float64[2] start_point
+float64[2] end_point
+float64[2] center_point
+int8 direction
+float64 z
+---
+bool success
+

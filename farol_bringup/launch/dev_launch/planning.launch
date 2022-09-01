@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+  <!-- Parameters and Arguments -->
+  <arg name="name"            /> <!-- Name of the vehicle being launched -->   
+  <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+  <arg name="folder"              default="simulation" />  <!-- Name of the folder for the configuration files --> 
+  <arg name="namespace"           default="false" />
+  
+  <arg name="dsor_paths"          default="false" />
+
+  <group ns="planning">
+    <!-- Vehicle Specific Config File -->
+    <arg name="dollar" value="$" />
+    <!-- Load default configurations (from farol)-->
+    <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/planning.yaml" />-->
+    <!--[> Load "personal" configurations ro override the default ones <]-->
+    <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/planning.yaml" />-->
+    <!-- Launch Nodes that are common to all vehicles -->
+    <!-- Paths node with service for different paths -->
+    <group if="$(arg dsor_paths)">
+      <node pkg="dsor_paths" type="dsor_paths_node" name="dsor_paths" output="screen" />
+    </group>
+  </group>
+</launch>

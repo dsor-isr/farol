@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <!--Logging Format-->
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+  <!-- Launch the CPF node -->
+  <node pkg="cpf_control" type="cpf_control_node" name="CpfNode" respawn="false" output="screen">
+    <rosparam command="load" file="$(find cpf_control)/config/config.yaml"/>
+  </node>
+
+</launch>

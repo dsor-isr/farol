@@ -1,0 +1,8 @@
+string inner_type
+float64 kff
+float64 kff_d
+float64 kff_lin_drag
+float64 kff_quad_drag
+---
+bool success
+string message

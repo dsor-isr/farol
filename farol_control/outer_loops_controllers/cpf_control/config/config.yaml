@@ -1,0 +1,29 @@
+node_frequency: 2
+topics:
+  publishers: 
+    vc: "/PF/vc"
+    cpf_server_input: "/Internal/Gamma"
+  subscribers:
+    internal_gamma: "/PathData"
+    external_gamma: "/External/Gamma"
+  services:
+    # Service names to start and stop the path following algorithm
+    start_cpf: "/CPFStart"
+    stop_cpf: "/CPFStop"
+    change_topology: "/CPFChangeTopology"
+
+
+# The current vehicle ID
+ID: 0
+# Network topology and algorithm gains and thresholds   
+adjency_matrix: [0, 0, 1, 
+                 1, 0, 0,
+                 1, 0, 0]
+gains:
+  event_triggered:
+    # The threshold for publishing the current gamma to the vehicle network
+    c0: 0.5
+    c1: 1.0
+    alpha: 0.1
+    # The gain for the synchronization control law
+    k_epsilon: 1.0 

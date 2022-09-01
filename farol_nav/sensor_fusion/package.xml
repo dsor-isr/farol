@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>sensor_fusion</name>
+ <version>1.0.0</version>
+ <description>Sensor fusion Kalman Filter</description>
+
+ <license>MIT</license>
+
+ <author email="david.souto@tecnico.ulisboa.pt">David Souto</author>
+ <author email="jquintas@gmail.com">Joao Quintas</author>
+ <author email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</author>
+
+ <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+ <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <build_depend>cmake_modules</build_depend>
+
+ <depend>std_msgs</depend>
+ <depend>tf2_geometry_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>geographiclib-tools</depend>
+ <depend>geographiclib</depend>
+ <depend>auv_msgs</depend>
+ <depend>farol_msgs</depend>
+ <depend>dsor_msgs</depend>
+ <depend>farol_gimmicks_library</depend>
+ <depend>tf2</depend>
+ <depend>tf2_ros</depend>
+
+</package>

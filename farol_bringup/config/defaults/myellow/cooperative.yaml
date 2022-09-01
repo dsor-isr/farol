@@ -1,0 +1,26 @@
+cpf_wifi_client:      
+  broadcast_port: 2808
+  broadcast_address: "127.255.255.255"
+  ID: 3
+
+cpf_wifi_server:
+  broadcast_port: 2808
+  broadcast_address: "127.255.255.255"
+  ID: 3
+
+# Configuration for the cooperative controller
+cpf_control:
+  ID: 3
+  # Network topology and algorithm gains and thresholds   
+  adjency_matrix: [0, 1, 1, 1,
+                   1, 0, 1, 1,
+                   1, 1, 0, 1,
+                   1, 1, 1, 0]
+  gains:
+    event_triggered: # Time dependent threshold=co+c1*exp(-alpha*t)
+      # The threshold for publishing the current gamma to the vehicle network
+      c0: 0.001
+      c1: 5.0
+      alpha: 1.0
+      # The gain for the synchronization control law
+      k_epsilon: 1.0 

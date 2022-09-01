@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>vehicle_stabilizer</name>
+ <version>1.0.0</version>
+ <description>Package that implements a generator of pre-defined references to send to inner-loops</description>
+
+ <license>MIT</license>
+
+ <author email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</author>
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>roscpp</depend>
+ <depend>std_msgs</depend>
+
+ <!-- Farol Gimmicks is used for parameter loading -->
+ <depend>farol_gimmicks_library</depend>
+
+</package>

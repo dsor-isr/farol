@@ -1,0 +1,10 @@
+Header header
+int32 number_of_packs
+int8 equalize
+bool charging
+float64 current
+float64 min_cell
+float64 max_cell
+float32 actual_charge
+float64 min_temp
+float64 max_temp

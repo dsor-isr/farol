@@ -1,0 +1,21 @@
+# topics
+#   subscribers
+#       gnss: topic to receive gps measurement
+#       merge: topic to receive rest of the Odometry data
+#   publishers
+#       state: topic to publish final converted state
+# default_depth: in case of invalid altitude, assign this depth
+# broadcast_tf: publish to tf tree 
+# world_frame_id: world frame id
+# measurement_type: tf subframe being estimated
+
+topics:
+    subscribers: [
+        "convert/gps",
+        "convert/merge"
+    ]
+    publishers: [
+        "convert/state",
+        "state/utmzone"
+    ]
+default_depth: 0.2

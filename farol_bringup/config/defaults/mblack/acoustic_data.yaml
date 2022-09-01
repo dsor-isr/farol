@@ -1,0 +1,27 @@
+# 1 - mred replier
+# 2 - mblack replier
+# 3 - myellow/mvector pinger
+#
+# latch = 0 publishes for ever
+#        >0 publishes for n number of slots even if nothing is received
+#
+# Check the following document for the acoustic description
+# https://docs.google.com/spreadsheets/d/1o_p9rl8eRqVtl4L3G4qtig7R__WBa42d7-IvHyCSmr0/edit#gid=0
+data_serializer:
+  acoustic_data_channels:
+    # Send Navigation Data in WGS84 from mblack (surface) to mvector (underwater)
+    - from: [2]
+      to: [3]
+      msg: "auv_msgs/NavigationStatus"
+      topic_in: "/mblack0/nav/filter/state"
+      topic_out: "/mblack0/acomms/nav/filter/gnss"
+      latch: 5
+      fields:
+        - field_name: "global_position.latitude"
+          min: -90
+          max: 90
+          bits: 25
+        - field_name: "global_position.longitude"
+          min: -180
+          max: 180
+          bits: 26

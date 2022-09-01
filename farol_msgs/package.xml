@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>farol_msgs</name>
+  <version>1.0.0</version>
+  <description>
+		Message Package for DSOR Farols
+			
+		Institute for Systems and Robotics
+		Instituto Superior Tecnico
+		Lisbon, Portugal
+  </description>
+
+  <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+  <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+  <maintainer email="andre.potes@tecnico.ulisboa.pt">Andre Potes</maintainer>
+  <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+  <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+  <author email="jorgeeribeiro@gmail.com">Jorge Ribeiro</author>
+  <author email="miguel.silva.ribeiro@tecnico.ulisboa.pt">Miguel Ribeiro</author>
+  <author email="henrique.ribeiro@tecnico.ulisboa.pt">Henrique Silva</author>
+  <author email="jquintas@gmail.com">Joao Quintas</author>
+  <author email="joao.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</author>
+  <author email="shubham.garg@tecnico.ulisboa.pt">Shubham Garg</author>
+  
+  <license>MIT</license>
+
+  <url type="website">http://dsor.isr.ist.utl.pt/</url>
+  <url type="repository">https://github.com/dsor-isr/farol</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>message_generation</depend>
+  <depend>message_runtime</depend>  
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+</package>

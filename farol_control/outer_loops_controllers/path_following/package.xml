@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>path_following</name>
+ <version>1.0.0</version>
+ <description>Package that implements path following controllers for the farol class of vehicles.
+	This package is based on the old implementation of path following package created by João Cruz and Hung
+ </description>
+
+ <license>MIT</license>
+
+ <author email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</author>
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>std_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>farol_msgs</depend>
+ <depend>waypoint</depend>
+
+ <!-- Messages in the dsor Paths library-->
+ <depend>dsor_paths</depend>
+
+ <!-- Farol Gimmicks is used for parameter loading -->
+ <depend>farol_gimmicks_library</depend>
+
+ <!-- Eigen library is required -->
+ <depend>eigen</depend>
+
+ <!-- Libraries to generate the messages and services -->
+ <build_depend>message_generation</build_depend>
+ <exec_depend>message_runtime</exec_depend>
+
+</package>

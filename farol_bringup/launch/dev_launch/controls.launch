@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+  <!-- Parameters and Arguments -->
+  <arg name="name"            /> <!-- Name of the vehicle being launched -->   
+  <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+  <arg name="folder"                      default="simulation" />  <!-- Name of the folder for the configuration files --> 
+  <arg name="namespace"                   default="false" />
+
+  <arg name="static_thruster_allocation"  default="false" />
+  <arg name="inner_loops_pid"             default="false" />   
+  <arg name="waypoint"                    default="false" />
+  <arg name="path_following"              default="false" />
+  <arg name="vehicle_stabilizer"          default="false" />
+  
+  <group ns="controls">
+
+    <!-- Vehicle Specific Config File -->
+    <arg name="dollar" value="$" />
+    <!-- Load default configurations (from farol)-->
+    <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/control.yaml" />-->
+    <!--[> Load "personal" configurations ro override the default ones <]-->
+    <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/control.yaml" />-->
+
+    <!-- Launch Nodes that are common to all vehicles -->
+
+    <!-- Thrust allocation: convert forces applied in body frame to desired thrust to apply to the motors -->
+    <group if="$(arg static_thruster_allocation)">
+      <node pkg="static_thruster_allocation" type="static_thruster_allocation" name="static_thruster_allocation" output="screen" />
+    </group>
+
+    <!-- innerloops: convert dynamic references to thruster force components -->
+    <group if="$(arg inner_loops_pid)">
+      <node pkg="inner_loops_pid" type="inner_loops_pid" name="inner_loops_pid" output="screen" />
+    </group>
+
+    <!-- outerloops: provides kinetic references and vehicle planning behaviors -->
+    <!-- waypoint behavior -->
+    <group if="$(arg waypoint)">
+      <node pkg="waypoint" type="waypoint_node" name="waypoint" output="screen" />
+    </group>
+
+    <!-- path following path following controllers   -->
+    <group if="$(arg path_following)">
+      <node pkg="path_following" type="path_following_node" name="path_following" output="screen" />
+    </group>
+
+    <!-- vehicle_stabilizer: node that stabilizes the vehicle according to pre-defined references in configuration files -->
+    <group if="$(arg vehicle_stabilizer)">
+        <node pkg="vehicle_stabilizer" type="vehicle_stabilizer_node" name="vehicle_stabilizer" respawn="true" output="screen" />
+    </group>
+
+  </group>
+</launch>

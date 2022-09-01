@@ -1,0 +1,3 @@
+topics:
+  publishers: 
+    allocation: "/controls/inner_loops_forces/thrust_body_request"

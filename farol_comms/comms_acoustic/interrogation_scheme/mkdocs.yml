@@ -1,0 +1,4 @@
+site_name: Interrogation Scheme
+
+nav:
+  - Reference: "README.md"

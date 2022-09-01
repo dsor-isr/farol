@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>interrogation_scheme</name>
+ <version>1.0.0</version>
+ <description>Pinger and Replier for USBL system</description>
+
+ <license>MIT</license>
+
+ <author email="jorgeeribeiro@gmail.com">Jorge Ribeiro</author>
+ <author email="miguel.silva.ribeiro@tecnico.ulisboa.pt">Miguel Ribeiro</author>
+ <author email="henrique.ribeiro@tecnico.ulisboa.pt">Henrique Silva</author>
+ 
+ <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+ <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>std_msgs</depend>
+ <depend>roscpp</depend>
+ <depend>farol_msgs</depend>
+ <depend>dmac</depend>
+ <depend>farol_gimmicks_library</depend>
+   
+</package>

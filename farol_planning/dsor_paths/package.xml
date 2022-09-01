@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dsor_paths</name>
+  <version>1.0.0</version>
+  <description> 
+    A package that implements Paths parameterized
+    by a parameter gamma for path following and 
+    trajectory tracking
+  </description>
+
+  <license>MIT</license>
+
+  <author email="dsor@gmail.com">DSOR GROUP</author>
+  <maintainer email="dsor@gmail.com">genX</maintainer>
+  <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>std_msgs</depend>
+
+  <depend>roscpp</depend>
+
+  <depend>farol_msgs</depend>
+
+  <depend>auv_msgs</depend>
+
+  <!--Farol Gimmicks is used for parameter loading-->
+  <depend>farol_gimmicks_library</depend>
+
+  <!-- Eigen library is required -->
+  <depend>eigen</depend>
+
+  <!-- Libraries to generate the messages -->
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+</package>

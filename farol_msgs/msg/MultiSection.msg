@@ -1,0 +1,10 @@
+Header header
+geometry_msgs/Point RefPoint
+int8[] type
+geometry_msgs/Point[] StartPoint
+geometry_msgs/Point[] CenterPoint
+geometry_msgs/Point[] EndPoint
+int8[] adirection
+float32 velocity
+float32[] Gamma_s
+float32[] Gamma_e

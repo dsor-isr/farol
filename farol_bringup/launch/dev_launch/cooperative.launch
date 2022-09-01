@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+
+    <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+    <!-- Parameters and Arguments -->
+    <arg name="name"            /> <!-- Name of the vehicle being launched -->   
+    <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+    <arg name="folder"                  default="simulation" />  <!-- Name of the folder for the configuration files --> 
+    <arg name="namespace"               default="false" />
+
+    <arg name="cpf_control"             default="false" /> 
+    <arg name="cpf_wifi_receiver"       default="false" />
+    <arg name="cpf_wifi_broadcaster"    default="false" />
+
+    <group ns="cooperative">
+        <!-- Vehicle Specific Config File -->
+        <arg name="dollar" value="$" />
+        <!-- Load default configurations (from farol)-->
+        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/cooperative.yaml" />-->
+        <!--[> Load "personal" configurations ro override the default ones <]-->
+        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/cooperative.yaml" />-->
+
+        <!-- CPF Controller -->
+        <group if="$(arg cpf_control)">
+            <node pkg="cpf_control" type="cpf_control_node" name="cpf_control" respawn="false" output="screen" />
+        </group>
+
+        <!-- CPF WIFI Broadcaster -->
+        <group if="$(arg cpf_wifi_receiver)">
+            <node pkg="cpf_gamma" type="cpf_gamma_client_node" name="cpf_wifi_client" respawn="false" output="screen" />
+        </group>
+
+        <!-- CPF WIFI Receiver -->
+        <group if="$(arg cpf_wifi_broadcaster)">
+            <node pkg="cpf_gamma" type="cpf_gamma_server_node" name="cpf_wifi_server" respawn="false" output="screen" />
+        </group>    
+
+    </group>    
+</launch>

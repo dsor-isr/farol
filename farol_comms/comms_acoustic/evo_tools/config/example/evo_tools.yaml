@@ -1,0 +1,11 @@
+# topics:
+#     publishers:
+#         farol_fix: publishes usbl fixes of comapitible with farol software
+#     subscribers:
+#         dmac_fix: receives third party usbl fixes, here - evologics-dmac 
+
+topics:
+    publishers:
+        farol_fix: "measurement/usbl_fix"
+    subscribers:
+        dmac_fix: "modem/measurement/usbl_fix"

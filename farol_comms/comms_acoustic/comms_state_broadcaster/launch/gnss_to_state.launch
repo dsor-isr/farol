@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Convert gnss-lat/lon to utm data type -->
+    <node pkg="comms_state_broadcaster" type="gnss_to_state" name="Gnss2State" respawn="false" output="screen">
+        <rosparam command="load" file="$(find comms_launch)/config/example/gnss_to_state.yaml"/>
+    </node>
+
+</launch>
