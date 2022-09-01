@@ -100,13 +100,14 @@ PACKAGE_XML_CONTENT="<?xml version=\"1.0\"?>
 # @.@ create folder structure
 mkdir ${PKG_NAME}
 cd ${PKG_NAME}
-mkdir -p config/dev_configs
+mkdir -p config/dev_configs/.ros_tmp
 mkdir -p config/vehicles/${VEHICLE_NAME}
 mkdir -p docs
 mkdir -p launch
 
 # @.@ create file structure
 touch config/dev_configs/personal_ros.yaml
+touch config/dev_configs/.ros_tmp/.gitkeep
 cp ../farol/farol_bringup/config/defaults/$VEHICLE_NAME/process.yaml config/vehicles/${VEHICLE_NAME}/
 touch docs/README.md
 touch launch/start_scenario.launch
