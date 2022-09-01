@@ -350,7 +350,7 @@ FiltersNode::readSensors(XmlRpc::XmlRpcValue valueXml) {
 FilterGimmicks::measurement
 FiltersNode::readManuallyInitialization(XmlRpc::XmlRpcValue valueXml) {
   FilterGimmicks::measurement sensor(
-      static_cast<std::string>(valueXml["frame_id"]),
+      name_vehicle_id_ + '_' + static_cast<std::string>(valueXml["frame_id"]),
       extractVectorDouble(valueXml["value"]),
       extractVectorDouble(valueXml["noise"]));
   return sensor;
