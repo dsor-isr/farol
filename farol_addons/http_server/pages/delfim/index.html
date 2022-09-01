@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+	<title>Delfim Homepage</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/scripts.js"></script>
+</head>
+
+<body onload = "init();">
+	<center>		
+
+		<h1>Delfim Homepage</h1>
+		
+		<table frame=box border="1" cellpadding="3" cellspacing="0">
+			<tr>
+				<th colspan="4">THRUSTERS</th>
+				<th colspan="4">BATTERIES</th>
+				<th colspan="2">GPS</th>
+				<th colspan="2">AHRS</th>
+			</tr>
+			<tr>
+				<td colspan="2" class="subtitle">PORT</td>
+				<td colspan="2" class="subtitle">STBD</td>
+				<td colspan="2" class="subtitle">PORT</td>
+				<td colspan="2" class="subtitle">STBD</td>
+				<td colspan="2" class="subtitle">STATUS</td>
+				<td colspan="2" class="subtitle">STATUS</td>			
+			</tr>
+			<tr>
+				<td>current [A]</td><td  class="value" id="plm_curr">NA</td>
+				<td>current [A]</td><td  class="value" id="prm_curr">NA</td>
+				<td>current [mA]</td><td  class="value" id="bp_curr">NA</td>
+				<td>current [mA]</td><td  class="value" id="bs_curr">NA</td>
+				<td>lat [º]</td><td  class="value" id="plat">NA</td>
+				<td>heading [º]</td><td  class="value" id="pheading">NA</td>
+			</tr>
+			<tr>
+				<td>voltage [mV]</td><td  class="value" id="pport_voltage">NA</td>
+				<td>voltage [mV]</td><td  class="value" id="pstbd_voltage">NA</td>
+				<td>min voltage [mV]</td><td  class="value" id="bp_min_volt">NA</td>
+				<td>min voltage [mV]</td><td  class="value" id="bs_min_volt">NA</td>
+				<td>lon [º]</td><td  class="value" id="plon">NA</td>
+				<td>heading rate [º/s]</td><td  class="value" id="pheading_rate">NA</td>
+			</tr>
+			<tr>
+				<td>speed [rpm]</td><td  class="value" id="plm_speed">NA</td>
+				<td>speed [rpm]</td><td  class="value" id="prm_speed">NA</td>
+				<td>max voltage [mV]</td><td  class="value" id="bp_max_volt">NA</td>
+				<td>max voltage [mV]</td><td  class="value" id="bs_max_volt">NA</td>
+				<td>sats</td><td  class="value" id="psats">NA</td>
+				<td class="noBorder" colspan="2"></td>
+			</tr>
+			<tr>
+				<td>errors</td><td class="value" id="plm_errors"></td>
+				<td>errors</td><td class="value" id="prm_errors"></td>
+				<td>temperature [ºC]</td><td  class="value" id="bp_temp">NA</td>
+				<td>temperature [ºC]</td><td  class="value" id="bs_temp">NA</td>
+			</tr>
+			<tr>
+				<th colspan="4">HULL LEAKS</th>
+				<td colspan="6" class="noBorder">
+				<th colspan="2">TOOLS</th>
+			</tr>
+			<tr>
+				<td colspan="2" class="subtitle">PORT</td>
+				<td colspan="2" class="subtitle">STBD</td>
+				<td colspan="6" class="noBorder">
+				<td colspan="2" class="noBorder center"><button onclick = 'testThrusters();' class='fancy_button'>test thrusters</button></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="center value" id="lp1">NA</td>
+				<td colspan="2" class="center value" id="ls1">NA</td>
+				<td colspan="6" class="noBorder">
+				<td colspan="2" class="noBorder center"><button onclick = 'pcDown();' class='fancy_button'>shutdown PC</button></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="center value" id="lp2">NA</td>
+				<td colspan="2" class="center value" id="ls2">NA</td>
+				<td colspan="8" class="noBorder">
+			</tr>
+		</table>
+
+		<table align="center">
+			<tr>
+				<td><div class="logos" id="dsor_logo" title="DSOR Logo"></div></td>
+				<td><div class="logos" id="isr_logo" title="ISR Logo"> </div></td>
+				<td><div class="logos" id="ist_logo" title="IST Logo"></div></td>
+			</tr>
+		</table>
+
+	</center>
+
+</body>
+</html>

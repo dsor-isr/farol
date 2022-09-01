@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="joystick"    default="gamesir"/>   <!-- Name of the joystick being used -->
+    <arg name="mode"        default="bluetooth"/> <!-- Configurations for both usb and bluetooth -->
+
+    <group ns="remote_controller">
+     
+      <!-- Load the configuration parameters for the topics-->
+      <rosparam command="load" file="$(find remote_controller)/config/topics_config/farol.yaml" />
+      
+      <!-- Load the configuration parameters for joystick mappings -->
+      <rosparam command="load" file="$(find remote_controller)/config/$(arg joystick)_config/$(arg mode).yaml" />
+    
+    </group>
+      
+      <!-- Define the logging format -->
+      <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+
+      <!-- Launch the actual simulation node -->
+      <node pkg="remote_controller" type="RemoteControllerNode.py" name="remote_controller" respawn="false" output="screen">
+      </node>
+  </launch>

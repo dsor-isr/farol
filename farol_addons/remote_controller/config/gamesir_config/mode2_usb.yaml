@@ -1,0 +1,52 @@
+# Button assignments follow the format:
+# A dictionary with the keys being either "axis", "hat" or "button", and each type of motion can have multiple inputs
+# Then each value corresponding to each key is a list that contains:
+# [ {"type": ("axis", "hat" or "button",
+# "id": (an integer with the id of the button)},
+# "gain": (the gain of the controller key),
+# "offset": (some buttons do not send exactly zero at rest such as L2 and R2 (which go from -1 to 1),
+# "integrate": (boolean - represents if the value of a variable should be integrated with the time the key is being pressed),
+# "index": (ONLY USE IF TYPE IS "hat", and indicates if we are up_down (usually 1) and left_right (usually 0)]
+#
+# The nomenclature:
+# hat -> is the d-pad
+# axis -> the analog joysticks
+# button -> self-explanatory
+#
+# Any control input can have assigned to it multiple buttons, axis or hats!
+button_assignment:
+
+  # Surge input
+  surge: {"inputs":[
+    {"type": "axis", "id": 4, "gain": -0.5, "offset": 0.0}],
+          "integrate": false}
+
+  # Sway input
+  sway: {"inputs":[
+    {"type": "axis", "id": 3, "gain": 0.5, "offset": 0.0}],
+          "integrate": false}
+
+  # Yaw-rate input
+  yaw_rate: {"inputs":[
+    {"type": "axis", "id": 0, "gain": 32.0, "offset": 0.0}],
+              "integrate": false}
+
+  # Yaw input
+  yaw:  {"inputs":[
+    {"type": "hat", "id": 0, "index": 0, "gain": 10.0, "offset": 0.0}],
+          "integrate": true}
+
+  # Depth input
+  depth: {"inputs":[],
+          "integrate": true,
+          "lower_limit": -1,
+          "upper_limit": 2.5}
+
+  #depth: {"inputs":[
+  #  {"type": "axis", "id": 1, "gain": 0.5, "offset": 0.0}],
+  #        "integrate": true,
+  #        "lower_limit": -1,
+  #        "upper_limit": 2.5}
+
+  # Heave input
+  heave: { "inputs": [], "integrate": false }

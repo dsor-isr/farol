@@ -1,0 +1,13 @@
+<launch>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+  <arg name="console_port" default="7080"/>
+  <arg name="ROOT_NAMESPACE" default="true"/>
+
+  <node pkg="http_server" type="console.py" name="console_server" args="console" output="screen">
+    <param name="Mission_Folder" value="$(find http_server)/../../Missions_FOLDER" />
+    <param name="pages_folder"   value="$(find http_server)/pages/" />
+    <param name="PORT" value="$(arg console_port)" />
+    <param name="ROOT_NAMESPACE" value="$(arg ROOT_NAMESPACE)"/> <!-- true to subscribe topics in root namespace, false to subscribe within ns -->
+  </node>
+  <!-- <node pkg="http_server" type="console_publisher.py" name="console_publisher" args="console" output="screen"/> -->
+</launch>

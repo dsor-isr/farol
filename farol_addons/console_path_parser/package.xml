@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>console_path_parser</name>
+ <version>1.0.0</version>
+ <description>
+	Package that serves as a middle man between the console and the farol stack.
+	Takes care of path following and waypoint controlling  
+ </description>
+
+ <license>MIT</license>
+
+ <author email="jorgeeribeiro@gmail.com">Jorge Ribeiro</author>
+ <author email="miguel.silva.ribeiro@tecnico.ulisboa.pt">Miguel Ribeiro</author>
+ <author email="henrique.ribeiro@tecnico.ulisboa.pt">Henrique Silva</author>
+
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+ <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+ <maintainer email="andre.potes@tecnico.ulisboa.pt">Andre Potes</maintainer>
+ <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+ <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+ <depend>std_msgs</depend>
+ <depend>roscpp</depend>
+
+ <!-- Custome made dependencies -->
+ <depend>farol_msgs</depend>
+ <depend>farol_gimmicks_library</depend>
+ <depend>dsor_paths</depend>
+ <depend>path_following</depend>
+ <depend>auv_msgs</depend>
+
+</package>

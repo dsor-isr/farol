@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+ <!-- Console Path Parser Node --> 
+ <node pkg="console_path_parser" type="console_path_parser_node" name="console_path_parser" respawn="false" output="screen">
+	<rosparam command="load" file="$(find console_path_parser)/config/config.yaml"/>
+	<param name="path_folder" value="$(env ROS_BAG_FOLDER)/paths_from_console"/>
+	<remap from="ID" to="ID_Comms"/>
+</node>
+
+</launch>

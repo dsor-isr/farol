@@ -1,0 +1,1 @@
+joystick-controller>=1.1.0

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>remote_controller</name>
+    <version>1.0.0</version>
+    <description>Package that adds joystick support to the AUV stack, using pygame</description>
+
+    <license>MIT</license>
+    <author email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</author>
+    <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <depend>rospy</depend>
+
+    <!-- Messages -->
+    <depend>std_msgs</depend>
+    <depend>auv_msgs</depend>
+
+</package>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>farol_addons</name>
+ <version>1.0.0</version>
+ <description>Farol utils and addons metapackage</description>
+
+ <license>MIT</license>
+
+ <author email="jquintas@gmail.com">Joao Quintas</author>
+ <author email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</author>
+
+ <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+ <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
+ <maintainer email="andre.potes@tecnico.ulisboa.pt">Andre Potes</maintainer>
+ <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+ <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+
+</package>

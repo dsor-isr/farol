@@ -1,0 +1,7 @@
+<launch>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
+  <node pkg="http_server" type="console.py" name="console" args="console" output="screen">
+	<param name="Mission_Folder" value="$(find HTTP_Server)/../../Missions_FOLDER" />
+	<param name="PORT" value="7081" />
+  </node>
+</launch>

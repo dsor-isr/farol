@@ -1,0 +1,19 @@
+node_frequency: 10 #Hz
+topics:
+  publishers:
+    # Linear velocity inner-loops
+    surge: "/ref/surge"
+    sway: "/ref/sway"
+    heave: "/ref/heave"
+
+    # Angular speed references
+    yaw_rate: "/ref/yaw_rate"
+
+    # Orientation references
+    yaw: "/ref/yaw"
+
+    # Depth references
+    depth: "/ref/depth"
+
+  subscribers:
+    state: "/nav/filter/state"

@@ -1,0 +1,1 @@
+echo 'TODO farol_ros installer'

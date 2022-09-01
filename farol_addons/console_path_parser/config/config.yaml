@@ -1,0 +1,26 @@
+node_frequency: 5
+path_folder: "../paths_from_console" 
+vehicle_id: 1
+topics:
+  subscribers: 
+    Mission_String: /Mission_String
+    state: /nav_filter/state
+    flag: /Flag
+    gamma: /Gamma
+    ID: /ID
+  publishers:
+    Path_Section: /Path_Section
+    Formation: /Formation
+    biased_formation: /biased_formation
+    WPRef: /WPRef
+    DepthRef: /ref/depth
+    AltRef: /ref/altitude
+    FullMission: /FullMission
+  services:
+    reset_path: "/ResetPath"
+    arc2d_path: "/SpawnArc2DPath"
+    line_path: "/SpawnLinePath"
+    pf_start: "/PFStart"
+    pf_stop: "/PFStop"
+    set_speed: "/SetConstVdVehicle"
+
