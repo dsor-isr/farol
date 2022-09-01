@@ -22,7 +22,7 @@ MAINTAINER_NAME="#DSORTeam"
 MAINTAINER_EMAIL="dsor.isr@gmail.com"
 
 # @.@ Setup file content
-START_SCENARIO_CONTENT="<?xml version="1.0"?>
+START_SCENARIO_CONTENT="<?xml version=\"1.0\"?>
 <launch>
     <!-- Flags to select GUI, frame of reference, vehicle and world-->
     <arg name=\"gui\"            default=\"true\"/>
@@ -44,10 +44,10 @@ START_SCENARIO_CONTENT="<?xml version="1.0"?>
 START_VEHICLE_CONTENT="<?xml version=\"1.0\"?>
 <launch>
     <!-- Parameters and Arguments -->
-    <arg name=\"name\"               default=\"myellow\" />            <!-- Name of the vehicle being launched --> 
-    <arg name=\"id\"                 default=\"0\" />                  <!-- Number of the vehicle -->
-    <arg name=\"config_package\"     default=\"dsor_sim_bringup\"/>  <!-- Name of the package where the configuration files are stored -->
-    <arg name=\"folder\"             default=\"vehicles\" />           <!-- Name of the folder for the configuration files -->     
+    <arg name=\"name\"               default=\"${VEHICLE_NAME}\" />     <!-- Name of the vehicle being launched --> 
+    <arg name=\"id\"                 default=\"0\" />                   <!-- Number of the vehicle -->
+    <arg name=\"config_package\"     default=\"${PKG_NAME}_bringup\"/>  <!-- Name of the package where the configuration files are stored -->
+    <arg name=\"folder\"             default=\"vehicles\" />            <!-- Name of the folder for the configuration files -->     
 
     <arg name=\"dollar\" value=\"$\" />
     <arg name=\"config_package_path\"  value=\"(find \$(arg config_package)\" />
