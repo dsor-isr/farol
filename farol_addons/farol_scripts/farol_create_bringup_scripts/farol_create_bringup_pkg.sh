@@ -140,8 +140,11 @@ sed -i '$d' package.xml
 echo -e $PERSONAL_ROS_CONTENT$ > config/dev_configs/personal_ros.yaml 
 sed -i '$d' config/dev_configs/personal_ros.yaml
 
+# @.@ Discard locally tracking in git the presonal_ros.yaml file
+git update-index --assume-unchanged config/dev_configs/personal_ros.yaml
+
 # @.@ Build the workspace
-#farol_cbt
+farol_cbt
 
 # @.@ Unset the created local variables of this file
 unset PKG_NAME
@@ -156,6 +159,8 @@ unset README_CONTENT
 unset CMAKELISTS_CONTENT
 unset MKDOCS_CONTENT
 unset PACKAGE_XML_CONTENT
+unset PERSONAL_ROS_CONTENT
+
 
 # @.@ Source bashrc
 source ~/.bashrc
