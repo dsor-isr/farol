@@ -72,6 +72,14 @@ README_CONTENT="${PKG_NAME} documentation"
 
 MKDOCS_CONTENT=""
 
+DEFAULT_CONSOLE_PORT=7080
+
+[ -z "$console_port" ] && CONSOLE_PORT=$DEFAULT_CONSOLE_PORT || CONSOLE_PORT=$console_port
+
+PERSONAL_ROS_CONTENT="addons/console_server:
+    PORT: $CONSOLE_PORT
+"
+
 CMAKELISTS_CONTENT="cmake_minimum_required(VERSION 3.1)
 project(${PKG_NAME})
 
@@ -129,9 +137,11 @@ echo -e $MKDOCS_CONTENT$ > mkdocks.yml
 sed -i '$d' mkdocks.yml 
 echo -e $PACKAGE_XML_CONTENT$ > package.xml
 sed -i '$d' package.xml 
+echo -e $PERSONAL_ROS_CONTENT$ > config/dev_configs/personal_ros.yaml 
+sed -i '$d' config/dev_configs/personal_ros.yaml
 
 # @.@ Build the workspace
-farol_cbt
+#farol_cbt
 
 # @.@ Unset the created local variables of this file
 unset PKG_NAME
