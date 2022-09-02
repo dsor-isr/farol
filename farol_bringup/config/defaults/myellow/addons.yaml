@@ -3,5 +3,4 @@ console_path_parser:
     vehicle_id: 4
 
 console_server:
-    PORT: 7080
     ROOT_NAMESPACE: true

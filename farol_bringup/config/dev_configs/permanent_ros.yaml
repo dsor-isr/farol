@@ -25,6 +25,7 @@ addons/console_path_parser:
             set_speed: "/#vehicle#/SetConstVdVehicle"
 
 addons/console_server:
+    PORT: 7080
     topics:
       services:
           wp_standard: "/#vehicle#/controls/send_wp_standard"
