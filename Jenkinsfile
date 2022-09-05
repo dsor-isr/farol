@@ -1,12 +1,9 @@
-// Developed by: Marcelo Jacinto
-// Date: 29/05/2022
+// Developed by: #DSORTeam
+// Date: 09/07/2022
 pipeline {
     agent {
         docker {
             image 'docker.io/dsorisr/farol_jenkins:latest'
-            //image 'harbor.dsor.isr.tecnico.ulisboa.pt/farol/farol:latest'
-            //registryUrl 'https://harbor.dsor.isr.tecnico.ulisboa.pt'
-            //registryCredentialsId 'harbor-robot-token'
             args '--entrypoint=""'
             reuseNode false
         }
