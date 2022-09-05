@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  farol_docs:
+    image: docker.io/dsorisr/farol_jenkins:latest
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    volumes: 
+      - ./..:/home/farol/catkin_ws/src
+    ports:
+      - 8000:8000
+    user: "${UID}:${GID}"
+    working_dir: /home/farol/catkin_ws/src
+    command: ['python3', 'docs/scripts/generate_documentation.py']
