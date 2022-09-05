@@ -1,18 +1,19 @@
-[submodule "3rd_party/auv_msgs"]
-	path = 3rd_party/auv_msgs
-	url = git@github.com:oceansystemslab/auv_msgs.git
+[submodule "dsor_utils"]
+	path = dsor_utils
+	url = ../dsor_utils.git
 [submodule "3rd_party/dmac"]
 	path = 3rd_party/dmac
-	url = git@github.com:EvoLogics/dmac.git
-[submodule "3rd_party/flexbe_app"]
-	path = 3rd_party/flexbe_app
-	url = git@github.com:FlexBE/flexbe_app.git
-[submodule "3rd_party/flexbe_behavior_engine"]
-	path = 3rd_party/flexbe_behavior_engine
-	url = git@github.com:team-vigir/flexbe_behavior_engine.git
+	url = https://github.com/EvoLogics/dmac.git
+[submodule "3rd_party/auv_msgs"]
+	path = 3rd_party/auv_msgs
+	url = https://github.com/oceansystemslab/auv_msgs.git
 [submodule "3rd_party/nmea_msgs"]
 	path = 3rd_party/nmea_msgs
-	url = git@github.com:ros-drivers/nmea_msgs.git
-[submodule "farol_addons/dsor_utils"]
-	path = farol_addons/dsor_utils
-	url = git@github.com:dsor-isr/dsor_utils.git
+	url = https://github.com/ros-drivers/nmea_msgs
+[submodule "3rd_party/flexbe_behavior_engine"]
+	path = 3rd_party/flexbe_behavior_engine
+	url = https://github.com/team-vigir/flexbe_behavior_engine.git
+[submodule "3rd_party/flexbe_app"]
+	path = 3rd_party/flexbe_app
+	url = https://github.com/FlexBE/flexbe_app.git
+
