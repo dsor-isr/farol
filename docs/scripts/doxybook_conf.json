@@ -1,0 +1,15 @@
+{
+  "copyImages": false,
+  "baseUrl": "",
+  "indexInFolders": true,
+  "linkSuffix": "/",
+  "foldersToGenerate": ["modules", "classes", "namespaces", "examples"],
+  "indexClassesName": "index",
+  "indexFilesName": "index",
+  "indexGroupsName": "index",
+  "indexNamespacesName": "index",
+  "indexRelatedPagesName": "index",
+  "indexExamplesName": "index",
+  "mainPageInRoot": true,
+  "mainPageName": "index"
+}

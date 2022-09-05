@@ -1,0 +1,14 @@
+auv_msgs
+dmac
+flexbe_app
+flexbe_behaviour_engine
+flexbe_core
+flexbe_input
+flexbe_mirror
+flexbe_msgs
+flexbe_onboard
+flexbe_states
+flexbe_testing
+flexeb_widget
+nmea_msgs
+uuv_descriptions
