@@ -16,7 +16,7 @@ shutil.rmtree('docs/api', ignore_errors=True)
 script_name = 'docs/scripts/get_packages_with_docs.sh'
 
 # Name of the file that will include the name of the packages to include in the documentation
-config_file = 'docs/mkdocs.yml'
+config_file = 'mkdocs.yml'
 
 # Name of the key inside the main mkdocs.yml file where the documentation for each package will be placed
 nav_key = 'Packages documentation'
