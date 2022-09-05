@@ -1,0 +1,1073 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPathSection" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>PathSection</compoundname>
+    <derivedcompoundref refid="classArc2D" prot="public" virt="non-virtual">Arc2D</derivedcompoundref>
+    <derivedcompoundref refid="classBernoulli" prot="public" virt="non-virtual">Bernoulli</derivedcompoundref>
+    <derivedcompoundref refid="classCircle2D" prot="public" virt="non-virtual">Circle2D</derivedcompoundref>
+    <derivedcompoundref refid="classLine" prot="public" virt="non-virtual">Line</derivedcompoundref>
+    <derivedcompoundref refid="classPolinomial5" prot="public" virt="non-virtual">Polinomial5</derivedcompoundref>
+    <derivedcompoundref refid="classPolynomial5" prot="public" virt="non-virtual">Polynomial5</derivedcompoundref>
+    <derivedcompoundref refid="classSinusoid2D" prot="public" virt="non-virtual">Sinusoid2D</derivedcompoundref>
+    <includes refid="PathSection_8h" local="no">PathSection.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPathSection_1abea445841de49ff22aa6f0622d67a589" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathSection::max_value_gamma_</definition>
+        <argsstring></argsstring>
+        <name>max_value_gamma_</name>
+        <initializer>{std::numeric_limits&lt;double&gt;::max() / 2}</initializer>
+        <briefdescription>
+<para>The min and max value for the gamma for a particular path section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="227" column="12" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1a7fca44fa66eeec58b85509dea590c5ef" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathSection::min_value_gamma_</definition>
+        <argsstring></argsstring>
+        <name>min_value_gamma_</name>
+        <initializer>{std::numeric_limits&lt;double&gt;::lowest() / 2}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="228" column="12" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1a767c0c12c1b28ec0f4e17d7d61cb321a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PathSection::can_be_composed_</definition>
+        <argsstring></argsstring>
+        <name>can_be_composed_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Variable to check whether this section can be used in a composition of sections or not. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="233" column="10" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1a433c271be0c1b1cd99e954b099cb87ff" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double PathSection::alpha_hat_</definition>
+        <argsstring></argsstring>
+        <name>alpha_hat_</name>
+        <initializer>{0.01}</initializer>
+        <briefdescription>
+<para>Auxiliar variables to use by the gradient descent algorithm when getting the closest point to the path by default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="239" column="18" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1ae4acee2f35e62663fe429ec2f39b9886" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double PathSection::epsilon_</definition>
+        <argsstring></argsstring>
+        <name>epsilon_</name>
+        <initializer>{0.0001}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="240" column="18" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1aace0d9e30980f53c97dfc279dc42b38f" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double PathSection::beta_</definition>
+        <argsstring></argsstring>
+        <name>beta_</name>
+        <initializer>{0.5}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="241" column="18" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1ab50e90f92e93224983f029590bba54c8" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double PathSection::tolerance_</definition>
+        <argsstring></argsstring>
+        <name>tolerance_</name>
+        <initializer>{0.1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="242" column="18" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1afd001703681d568b90abcda956934180" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathSection::gamma_o_</definition>
+        <argsstring></argsstring>
+        <name>gamma_o_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="243" column="12" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1a77d314585010274b2b0f5717f7f2d93b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PathSection::first_iteration_</definition>
+        <argsstring></argsstring>
+        <name>first_iteration_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="244" column="10" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1af4fafc57794cc88b1fae3491d5891fc6" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int PathSection::default_num_partitions_</definition>
+        <argsstring></argsstring>
+        <name>default_num_partitions_</name>
+        <initializer>{3}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="245" column="15" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathSection_1a4af68df8c5e4c93b31d840ab6b7a6799" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double PathSection::EP_bissection_</definition>
+        <argsstring></argsstring>
+        <name>EP_bissection_</name>
+        <initializer>{0.001}</initializer>
+        <briefdescription>
+<para>Auxiliar variables for bissection method. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="250" column="18" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>virtual Eigen::Vector3d PathSection::eq_pd</definition>
+        <argsstring>(double t)=0</argsstring>
+        <name>eq_pd</name>
+        <reimplementedby refid="classPolinomial5_1ab994b93afeed665a593c03069efdc374">eq_pd</reimplementedby>
+        <reimplementedby refid="classPolynomial5_1a912c6f47588d89cf0b4d785aeb1b02f7">eq_pd</reimplementedby>
+        <reimplementedby refid="classLine_1a689722d427610dc9d07d422f44679f21">eq_pd</reimplementedby>
+        <reimplementedby refid="classSinusoid2D_1a9f05f846dc06ace8a3ccda0717107bb3">eq_pd</reimplementedby>
+        <reimplementedby refid="classCircle2D_1a5373120cebf5966f05a6f00d120925c9">eq_pd</reimplementedby>
+        <reimplementedby refid="classBernoulli_1ae7c5b8d12658bb295a089d118d161101">eq_pd</reimplementedby>
+        <reimplementedby refid="classArc2D_1acb617ad9f6992159b979aba1d364595c">eq_pd</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>The <ref refid="classPath" kindref="compound">Path</ref> section equation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the equation of the path with respect to the path parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="37" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>virtual Eigen::Vector3d PathSection::eq_d_pd</definition>
+        <argsstring>(double t)=0</argsstring>
+        <name>eq_d_pd</name>
+        <reimplementedby refid="classPolinomial5_1a68acdc46f4082dfbb996b216ab8d2ee0">eq_d_pd</reimplementedby>
+        <reimplementedby refid="classPolynomial5_1a107c3e73884ca7cbb2d23d2f14666bb3">eq_d_pd</reimplementedby>
+        <reimplementedby refid="classLine_1ad67f78eeed41b1ac3f711d8181968959">eq_d_pd</reimplementedby>
+        <reimplementedby refid="classSinusoid2D_1aa554e940eba4cf385c203a9ae1603d43">eq_d_pd</reimplementedby>
+        <reimplementedby refid="classCircle2D_1a883ccdfde062da76232a0ddb7db7ec10">eq_d_pd</reimplementedby>
+        <reimplementedby refid="classBernoulli_1aed005d0fa35c887c0a94e73214bbe77e">eq_d_pd</reimplementedby>
+        <reimplementedby refid="classArc2D_1af6f2233ea69813d412b2b031426d6f36">eq_d_pd</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>First derivative of the path section equation with respect to path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the first derivative of the path equation with respect to the path parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="48" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>virtual Eigen::Vector3d PathSection::eq_dd_pd</definition>
+        <argsstring>(double t)=0</argsstring>
+        <name>eq_dd_pd</name>
+        <reimplementedby refid="classPolinomial5_1afbadb46f9a52c83af6f7dc183edac190">eq_dd_pd</reimplementedby>
+        <reimplementedby refid="classPolynomial5_1adc8f407c725fb5067908ff0ad3b525b8">eq_dd_pd</reimplementedby>
+        <reimplementedby refid="classLine_1a176ddd7d8a260b39eeb0de127331eace">eq_dd_pd</reimplementedby>
+        <reimplementedby refid="classCircle2D_1aba1a232913e95329296fd3917114455b">eq_dd_pd</reimplementedby>
+        <reimplementedby refid="classBernoulli_1ad454ebe95e1a56a9cbd55f798e8d0c8d">eq_dd_pd</reimplementedby>
+        <reimplementedby refid="classSinusoid2D_1abee5b7979ae92c1a556f62681d86e45a">eq_dd_pd</reimplementedby>
+        <reimplementedby refid="classArc2D_1aad5075548c3ebfecf363eb5fc8ff7f5e">eq_dd_pd</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the second derivative of the path equation with respect to the path paramter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="59" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a558020d4864409b74ef73ecd3f64456c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double PathSection::tangent</definition>
+        <argsstring>(double t)</argsstring>
+        <name>tangent</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Default method for computing the tangent to the path section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the angle of the tangent to the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="68" column="20" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="17" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1adffd7389e5870df945c682481713ba76" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double PathSection::curvature</definition>
+        <argsstring>(double t)</argsstring>
+        <name>curvature</name>
+        <reimplementedby refid="classLine_1a36a25292c83ae108d59bd19ee86115e2">curvature</reimplementedby>
+        <reimplementedby refid="classCircle2D_1af1da5e5fc8cd6a7ff9b7e6a9f92e93c0">curvature</reimplementedby>
+        <reimplementedby refid="classBernoulli_1a4ec726044ec8606b33cb03249b6f0a36">curvature</reimplementedby>
+        <reimplementedby refid="classArc2D_1a0adc1625748bec6ac098a8e9b1373590">curvature</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Default method for computing the curvature. The default implementation implements the general formula to compute the curvature based on the derivative equations of the path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the path curvature </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="79" column="20" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="32" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double PathSection::derivative_norm</definition>
+        <argsstring>(double t)</argsstring>
+        <name>derivative_norm</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Default method for computing the norm of the derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the norm of the derivative of the path position pd </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="88" column="20" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a78793a75681c551d37012591404af39c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double PathSection::getClosestPointGamma</definition>
+        <argsstring>(Eigen::Vector3d &amp;coordinate)</argsstring>
+        <name>getClosestPointGamma</name>
+        <reimplementedby refid="classPolinomial5_1a539e23585ab58cd76321bb7a221548fa">getClosestPointGamma</reimplementedby>
+        <reimplementedby refid="classPolynomial5_1a5a490d74027af95865e817e1dbb46730">getClosestPointGamma</reimplementedby>
+        <reimplementedby refid="classSinusoid2D_1a2ef2ceba0d4be9117e152f1d4f95157e">getClosestPointGamma</reimplementedby>
+        <reimplementedby refid="classLine_1adaff892c3f1bfa40993aaae817f205b9">getClosestPointGamma</reimplementedby>
+        <reimplementedby refid="classCircle2D_1a11543f18e9fa8d9d4c21492a904a853b">getClosestPointGamma</reimplementedby>
+        <reimplementedby refid="classBernoulli_1a808fe7388f94475d7c3a60911c908288">getClosestPointGamma</reimplementedby>
+        <reimplementedby refid="classArc2D_1a362dadaddc5cc2f3de2e1a7d7d96204f">getClosestPointGamma</reimplementedby>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Default method for getting the gamma of the closed point to the path. By default this method uses gradient Descent algorithm to compute the closest point in the path with the initial guess of gamma=0.0. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is not the most efficient way to compute the closest point for several kinds of paths, but it is the most general, hence used as the default one</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A Eigen::Vector3d with the coordinates of the vehicle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the closest point in the path</para>
+</simplesect>
+Method to return the closest point to the path By default just calls the Gradient Descent algorithm </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="102" column="20" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="118" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathSection::can_be_composed</definition>
+        <argsstring>()</argsstring>
+        <name>can_be_composed</name>
+        <briefdescription>
+<para>Method to return whether a pathSection can be composed with other path sections or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean indicating wether the pathsection can be composed with other sections or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="111" column="10" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::limitGamma</definition>
+        <argsstring>(double t)</argsstring>
+        <name>limitGamma</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Method to limit the gamma between the minimum and maximum value <linebreak/>
+ By default the maximum gamma is a very high number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter also known as gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the path parameter limited between the valid bounds </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="121" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="106" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::getMaxGammaValue</definition>
+        <argsstring>()</argsstring>
+        <name>getMaxGammaValue</name>
+        <briefdescription>
+<para>Method used to get the maximum gamma allowed by the path section By the default is the maximum valid number possible in c++. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A double with the maximum value that can be achieved with gamma </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="129" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::getMinGammaValue</definition>
+        <argsstring>()</argsstring>
+        <name>getMinGammaValue</name>
+        <briefdescription>
+<para>Method used to get the minimum gamma allowed by the path section By default is the minimum valid number possible in c++. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A double with the minimum value the can be achieved with gamma </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="137" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>PathSection::~PathSection</definition>
+        <argsstring>()</argsstring>
+        <name>~PathSection</name>
+        <briefdescription>
+<para>Virtual destructor for the abstract class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="142" column="13" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="14" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PathSection::PathSection</definition>
+        <argsstring>(bool can_be_composed)</argsstring>
+        <name>PathSection</name>
+        <param>
+          <type>bool</type>
+          <declname>can_be_composed</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the abstract class i NOTE: this class is virtual, therefore an object of type <ref refid="classPathSection" kindref="compound">PathSection</ref> cannot be instantiated in memory. Only derivatives of the class <ref refid="classPathSection" kindref="compound">PathSection</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>can_be_composed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A boolean that indicated that if this kind of path can be composed with other path sections or not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="155" column="5" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathSection::setMaxGammaValue</definition>
+        <argsstring>(double gamma_max)</argsstring>
+        <name>setMaxGammaValue</name>
+        <param>
+          <type>double</type>
+          <declname>gamma_max</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the max of the gamma parameter Validates if the value received is greater than gamma_min. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma_max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired max value for gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if new value was accepted </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="165" column="10" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="60" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathSection::setMinGammaValue</definition>
+        <argsstring>(double gamma_min)</argsstring>
+        <name>setMinGammaValue</name>
+        <param>
+          <type>double</type>
+          <declname>gamma_min</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the min value of the gamma parameter Validades if the value is received is smaller than gamma_max. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma_min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired min value for gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the new value was accepted</para>
+</simplesect>
+NOTE: for paths where can_be_composed == true, this function always returns false as it is required for those kinds of segments to start with 0 (but no limit is put on gamma max) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="179" column="10" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="73" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::GradientDescent</definition>
+        <argsstring>(double gamma_o, Eigen::Vector3d &amp;x_pos, double tolerance)</argsstring>
+        <name>GradientDescent</name>
+        <param>
+          <type>double</type>
+          <declname>gamma_o</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>x_pos</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tolerance</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the gradient descent to minimize the error of ||pd(gamma) - p_vehicle||. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma_o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial guess for the path paramter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tolerance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A constant tweaking parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the estimated gamma value that minimizes the error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="191" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="135" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1abf595d551b130edbec7a103391a0b6dc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::getInitialGammaEstimate</definition>
+        <argsstring>(Eigen::Vector3d &amp;x_pos, int num_partitions, double min_val, double max_val)</argsstring>
+        <name>getInitialGammaEstimate</name>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>x_pos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_partitions</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min_val</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max_val</declname>
+        </param>
+        <briefdescription>
+<para>Method to get an initial estimate for the gamma. It divides the section into n sections and search for local minimums in the function that computes the distance of the vehicle inside those sections. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Then grabs the gamma that minimizes the most from all sections</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_partitions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of divisions to make on the path </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum boundary to search in gamma </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum boundary to search in gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with a good gamma to use as an initialization for the estimation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="208" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="252" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1ad021a100a135860c764461bc289707e3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::bisection</definition>
+        <argsstring>(Eigen::Vector3d &amp;x_pos, double a, double b)</argsstring>
+        <name>bisection</name>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>x_pos</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Method to implement bisection method <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The left bound for the gamma value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The right bound for the gamma value</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The most likely value of gamma </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="219" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="294" bodyend="314"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPathSection_1aa68ecea7e5a894aa73f2049775d89ed7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::backtrack</definition>
+        <argsstring>(double gamma, Eigen::Vector3d &amp;x_pos, double d_k, double grad_f, double alpha_hat, double beta, double epsilon)</argsstring>
+        <name>backtrack</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>x_pos</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d_k</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>grad_f</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha_hat</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>epsilon</declname>
+        </param>
+        <briefdescription>
+<para>Method to implement backtrack for gradient descent (for adaptative step size) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d_k</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The descent direction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>grad_f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The derivative of the function we are minimizing </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alpha_hat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A constant tweaking parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>beta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A constant tweaking parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A constant tweaking parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the new value for alpha_k (the step size) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="265" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="204" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1ac482708bfb5b22ebfa946eaa12e9a639" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::F</definition>
+        <argsstring>(double gamma, Eigen::Vector3d &amp;x_pos)</argsstring>
+        <name>F</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>x_pos</declname>
+        </param>
+        <briefdescription>
+<para>Method to compute the error between ||pd(gamma) - vehicle_pos||. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position of the vehicle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with ||pd(gamma) - vehicle_pos|| </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="275" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="192" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathSection_1a05d05c03a2458176a1b867f60133f763" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathSection::grad_F</definition>
+        <argsstring>(double gamma, Eigen::Vector3d &amp;x_pos)</argsstring>
+        <name>grad_F</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>x_pos</declname>
+        </param>
+        <briefdescription>
+<para>Method to compute the derivative of ||pd(gamma) - vehicle_pos||. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position of the vehicle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the derivative of ||pd(gamma) - vehicle_pos|| with respect to gamma </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/PathSection.h" line="286" column="12" bodyfile="src/algorithms/path_sections/PathSection.cpp" bodystart="183" bodyend="189"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An abstract class that is used as a template for <ref refid="classPath" kindref="compound">Path</ref> Sections. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>For path sections that can_be_composed the minimum value of gamma will be defaulted to 0 (and cannot be changed) in order not to mess with the <ref refid="classPath" kindref="compound">Path</ref> section switching algorithm. The maximum value can be any greater than 0.</para>
+<para>For path sections where can_be_composed = false, the minimum value for gamma if -inf an the maximum value if +inf (but these can be changed) <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>Line</label>
+        <link refid="classLine"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Sinusoid2D</label>
+        <link refid="classSinusoid2D"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Polynomial5</label>
+        <link refid="classPolynomial5"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="2">
+        <label>Arc2D</label>
+        <link refid="classArc2D"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Circle2D</label>
+        <link refid="classCircle2D"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Polinomial5</label>
+        <link refid="classPolinomial5"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Bernoulli</label>
+        <link refid="classBernoulli"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/algorithms/path_sections/PathSection.h" line="25" column="18" bodyfile="include/algorithms/path_sections/PathSection.h" bodystart="25" bodyend="287"/>
+    <listofallmembers>
+      <member refid="classPathSection_1a433c271be0c1b1cd99e954b099cb87ff" prot="private" virt="non-virtual"><scope>PathSection</scope><name>alpha_hat_</name></member>
+      <member refid="classPathSection_1aa68ecea7e5a894aa73f2049775d89ed7" prot="private" virt="non-virtual"><scope>PathSection</scope><name>backtrack</name></member>
+      <member refid="classPathSection_1aace0d9e30980f53c97dfc279dc42b38f" prot="private" virt="non-virtual"><scope>PathSection</scope><name>beta_</name></member>
+      <member refid="classPathSection_1ad021a100a135860c764461bc289707e3" prot="protected" virt="non-virtual"><scope>PathSection</scope><name>bisection</name></member>
+      <member refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" prot="public" virt="non-virtual"><scope>PathSection</scope><name>can_be_composed</name></member>
+      <member refid="classPathSection_1a767c0c12c1b28ec0f4e17d7d61cb321a" prot="private" virt="non-virtual"><scope>PathSection</scope><name>can_be_composed_</name></member>
+      <member refid="classPathSection_1adffd7389e5870df945c682481713ba76" prot="public" virt="virtual"><scope>PathSection</scope><name>curvature</name></member>
+      <member refid="classPathSection_1af4fafc57794cc88b1fae3491d5891fc6" prot="private" virt="non-virtual"><scope>PathSection</scope><name>default_num_partitions_</name></member>
+      <member refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" prot="public" virt="virtual"><scope>PathSection</scope><name>derivative_norm</name></member>
+      <member refid="classPathSection_1a4af68df8c5e4c93b31d840ab6b7a6799" prot="private" virt="non-virtual"><scope>PathSection</scope><name>EP_bissection_</name></member>
+      <member refid="classPathSection_1ae4acee2f35e62663fe429ec2f39b9886" prot="private" virt="non-virtual"><scope>PathSection</scope><name>epsilon_</name></member>
+      <member refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe" prot="public" virt="pure-virtual"><scope>PathSection</scope><name>eq_d_pd</name></member>
+      <member refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad" prot="public" virt="pure-virtual"><scope>PathSection</scope><name>eq_dd_pd</name></member>
+      <member refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109" prot="public" virt="pure-virtual"><scope>PathSection</scope><name>eq_pd</name></member>
+      <member refid="classPathSection_1ac482708bfb5b22ebfa946eaa12e9a639" prot="private" virt="non-virtual"><scope>PathSection</scope><name>F</name></member>
+      <member refid="classPathSection_1a77d314585010274b2b0f5717f7f2d93b" prot="private" virt="non-virtual"><scope>PathSection</scope><name>first_iteration_</name></member>
+      <member refid="classPathSection_1afd001703681d568b90abcda956934180" prot="private" virt="non-virtual"><scope>PathSection</scope><name>gamma_o_</name></member>
+      <member refid="classPathSection_1a78793a75681c551d37012591404af39c" prot="public" virt="virtual"><scope>PathSection</scope><name>getClosestPointGamma</name></member>
+      <member refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" prot="protected" virt="non-virtual"><scope>PathSection</scope><name>getInitialGammaEstimate</name></member>
+      <member refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" prot="public" virt="non-virtual"><scope>PathSection</scope><name>getMaxGammaValue</name></member>
+      <member refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" prot="public" virt="non-virtual"><scope>PathSection</scope><name>getMinGammaValue</name></member>
+      <member refid="classPathSection_1a05d05c03a2458176a1b867f60133f763" prot="private" virt="non-virtual"><scope>PathSection</scope><name>grad_F</name></member>
+      <member refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" prot="protected" virt="non-virtual"><scope>PathSection</scope><name>GradientDescent</name></member>
+      <member refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" prot="public" virt="non-virtual"><scope>PathSection</scope><name>limitGamma</name></member>
+      <member refid="classPathSection_1abea445841de49ff22aa6f0622d67a589" prot="private" virt="non-virtual"><scope>PathSection</scope><name>max_value_gamma_</name></member>
+      <member refid="classPathSection_1a7fca44fa66eeec58b85509dea590c5ef" prot="private" virt="non-virtual"><scope>PathSection</scope><name>min_value_gamma_</name></member>
+      <member refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" prot="protected" virt="non-virtual"><scope>PathSection</scope><name>PathSection</name></member>
+      <member refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" prot="protected" virt="non-virtual"><scope>PathSection</scope><name>setMaxGammaValue</name></member>
+      <member refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" prot="protected" virt="non-virtual"><scope>PathSection</scope><name>setMinGammaValue</name></member>
+      <member refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" prot="public" virt="virtual"><scope>PathSection</scope><name>tangent</name></member>
+      <member refid="classPathSection_1ab50e90f92e93224983f029590bba54c8" prot="private" virt="non-virtual"><scope>PathSection</scope><name>tolerance_</name></member>
+      <member refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" prot="public" virt="virtual"><scope>PathSection</scope><name>~PathSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

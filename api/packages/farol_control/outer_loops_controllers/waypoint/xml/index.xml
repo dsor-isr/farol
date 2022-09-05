@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="structOutput__t" kind="struct"><name>Output_t</name>
+    <member refid="structOutput__t_1aec942716e087695389cfe750b3d48ca1" kind="variable"><name>eta2</name></member>
+    <member refid="structOutput__t_1a0541335f3868676e17cb2bf7b13df5d2" kind="variable"><name>v1</name></member>
+    <member refid="structOutput__t_1a39571018e847b6590fde96802b59637c" kind="variable"><name>v2</name></member>
+  </compound>
+  <compound refid="structVehicle__t" kind="struct"><name>Vehicle_t</name>
+    <member refid="structVehicle__t_1a031a7685b21d1d549b7b640c25ec5ccf" kind="variable"><name>eta1</name></member>
+    <member refid="structVehicle__t_1af2ef711044bb0a8b0a4922706b71f5b5" kind="variable"><name>eta2</name></member>
+    <member refid="structVehicle__t_1a71753a472c28917250aedd95656fe592" kind="variable"><name>v1</name></member>
+    <member refid="structVehicle__t_1a02dd3a3bb2d57926021b43ae9dec2e5d" kind="variable"><name>v2</name></member>
+  </compound>
+  <compound refid="classWaypointController" kind="class"><name>WaypointController</name>
+    <member refid="classWaypointController_1a7ec41b45cf02496b7c8af7021a66c3e7" kind="variable"><name>ts_</name></member>
+    <member refid="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" kind="variable"><name>gains_</name></member>
+    <member refid="classWaypointController_1a88610b5fd4a0e28a987f939e320c7e5b" kind="variable"><name>wp_out_</name></member>
+    <member refid="classWaypointController_1a5ea36d6bfdc995cef2b5f7d0aa0584d6" kind="function"><name>WaypointController</name></member>
+    <member refid="classWaypointController_1ab2de838f1c139ef237c25f935a55941b" kind="function"><name>~WaypointController</name></member>
+    <member refid="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" kind="function"><name>setFrequency</name></member>
+    <member refid="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" kind="function"><name>setGains</name></member>
+    <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" kind="function"><name>compute</name></member>
+    <member refid="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087" kind="function"><name>publish</name></member>
+    <member refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" kind="function"><name>calculateRef</name></member>
+    <member refid="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" kind="function"><name>getYawOut</name></member>
+    <member refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" kind="function"><name>getYawrateOut</name></member>
+    <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" kind="function"><name>getSurgeOut</name></member>
+    <member refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" kind="function"><name>getSwayOut</name></member>
+    <member refid="classWaypointController_1a3c5c2fdb5a1244d288cd61d69d832b43" kind="function"><name>setYawOut</name></member>
+    <member refid="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" kind="function"><name>setYawrateOut</name></member>
+    <member refid="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" kind="function"><name>setSurgeOut</name></member>
+    <member refid="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" kind="function"><name>setSwayOut</name></member>
+  </compound>
+  <compound refid="classWaypointNode" kind="class"><name>WaypointNode</name>
+    <member refid="classWaypointNode_1a087ef5694ff21d7442c9567e1dda1b04" kind="variable"><name>wp_controller_</name></member>
+    <member refid="classWaypointNode_1ae8bc0d6bc97c3bb3d52daa1967bb10fa" kind="variable"><name>wp_ref_</name></member>
+    <member refid="classWaypointNode_1a74f3e8191ee016497d669780c0d2c1ad" kind="variable"><name>veh_state_</name></member>
+    <member refid="classWaypointNode_1ae802ff254d2012447b1fdb000ec7d4a8" kind="variable"><name>node_frequency_</name></member>
+    <member refid="classWaypointNode_1a6b6cf8a6753c8545e1bbd9548bcbd4cd" kind="variable"><name>nh_</name></member>
+    <member refid="classWaypointNode_1acee0cec3245d3c4e1c9c908128925b94" kind="variable"><name>nh_p_</name></member>
+    <member refid="classWaypointNode_1a0ace5a6097665768ee011f994bc92e83" kind="variable"><name>flag_sub_</name></member>
+    <member refid="classWaypointNode_1a4e650a7521a9ece79ed5e8d6406c83d8" kind="variable"><name>state_sub_</name></member>
+    <member refid="classWaypointNode_1a4644e068e69f3d9a80de768c7fceec38" kind="variable"><name>u_ref_pub_</name></member>
+    <member refid="classWaypointNode_1aee38619f88d931adb80f0843b75c1fb8" kind="variable"><name>yaw_ref_pub_</name></member>
+    <member refid="classWaypointNode_1a6c86b1627e5a9c3e9590eaa2d66ada55" kind="variable"><name>flag_pub_</name></member>
+    <member refid="classWaypointNode_1acb3a21a816466d0d53bf970ba26fb5e4" kind="variable"><name>v_ref_pub_</name></member>
+    <member refid="classWaypointNode_1afe53cbcd63c47939e0497f10c77d8544" kind="variable"><name>yaw_rate_ref_pub_</name></member>
+    <member refid="classWaypointNode_1af01668fd19a2723be3f88ab762463f29" kind="variable"><name>wp_standard_srv_</name></member>
+    <member refid="classWaypointNode_1a090091a4b99fa99c81f1db201b2f3264" kind="variable"><name>wp_loose_srv_</name></member>
+    <member refid="classWaypointNode_1a7265e443dbaced587a84c4fa8df95923" kind="variable"><name>wp_heading_srv_</name></member>
+    <member refid="classWaypointNode_1a99bbf591da97af6ff2c8cf91355e2915" kind="variable"><name>timer_</name></member>
+    <member refid="classWaypointNode_1aa8e2912038dea7b384be7fe259ebd515" kind="variable"><name>cdist_</name></member>
+    <member refid="classWaypointNode_1a76d996813803ae3cae783ccad67f6902" kind="variable"><name>ku_</name></member>
+    <member refid="classWaypointNode_1a44396d07097d310526f7a35061467814" kind="variable"><name>ks_</name></member>
+    <member refid="classWaypointNode_1ad94139a4923c0a83fb1abeff72c61768" kind="variable"><name>delta_t_</name></member>
+    <member refid="classWaypointNode_1a74507016e83f8ccc707576b131037c5e" kind="variable"><name>speed_turn_</name></member>
+    <member refid="classWaypointNode_1ad97ec44e3e78f93b31a21ad93fd8617a" kind="variable"><name>k1_</name></member>
+    <member refid="classWaypointNode_1a3d7e848f4bfaee6cf8b582179fb961b0" kind="variable"><name>k2_</name></member>
+    <member refid="classWaypointNode_1a301ef83646b34dd3d7d619ac4641bc7c" kind="variable"><name>k3_</name></member>
+    <member refid="classWaypointNode_1a8ce53862e39e439d68c7ca04120438e9" kind="variable"><name>state_topic_</name></member>
+    <member refid="classWaypointNode_1abd8c9f13fbae4f9b658e3fea5929d271" kind="variable"><name>flag_topic_</name></member>
+    <member refid="classWaypointNode_1adcf0a026215d708e3388e3afc3ea53de" kind="variable"><name>wp_ref_topic_</name></member>
+    <member refid="classWaypointNode_1a1fe262481bec1ac84944eeceae10963e" kind="variable"><name>u_ref_topic_</name></member>
+    <member refid="classWaypointNode_1a4fafc9bcd6e1f06c7174ae4c23fe18f7" kind="variable"><name>v_ref_topic_</name></member>
+    <member refid="classWaypointNode_1ac7632c9d8ebff125ebdbf0c8a2892f74" kind="variable"><name>yaw_ref_topic_</name></member>
+    <member refid="classWaypointNode_1aaeba389334245a256db99ee9c7b1003d" kind="variable"><name>yaw_rate_ref_topic_</name></member>
+    <member refid="classWaypointNode_1ad1f725d866d90158ed3291449b389994" kind="variable"><name>wp_standard_topic_</name></member>
+    <member refid="classWaypointNode_1aeac44f9205307b5071fa89598a4f2b0f" kind="variable"><name>wp_loose_topic_</name></member>
+    <member refid="classWaypointNode_1a6d57a9f1be0f23c804bb94fb1675da94" kind="variable"><name>wp_heading_topic_</name></member>
+    <member refid="classWaypointNode_1a3e102d1f73b1bfab52e8bc5328318b86" kind="function"><name>WaypointNode</name></member>
+    <member refid="classWaypointNode_1ae80f950dc594a4314d314b12d2482da0" kind="function"><name>~WaypointNode</name></member>
+    <member refid="classWaypointNode_1a6308fbf7ade97e911d3e6d5c25ce61bf" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classWaypointNode_1ace54335fdebf5e8fccd9756c645540f8" kind="function"><name>initializePublishers</name></member>
+    <member refid="classWaypointNode_1a72f6dd13019328eb7bd21ad998307db6" kind="function"><name>initializeServices</name></member>
+    <member refid="classWaypointNode_1ac697c7c6efff700c45c50e98608a1a1a" kind="function"><name>initializeTimer</name></member>
+    <member refid="classWaypointNode_1ac1bd4ca805817bf789cc573274a68090" kind="function"><name>loadParams</name></member>
+    <member refid="classWaypointNode_1aca9ca6b432249537d44667d06628161d" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classWaypointNode_1a7c1128d42de735167ef033a2baa3d612" kind="function"><name>updateCallback</name></member>
+    <member refid="classWaypointNode_1aaed5f7ee74dc0434e9cde401fde8c286" kind="function"><name>flagCallback</name></member>
+    <member refid="classWaypointNode_1a0fdaf6b4845cbc9c6476e35fb593fbf5" kind="function"><name>timerCallback</name></member>
+    <member refid="classWaypointNode_1a6770ca3284e81a9d044f606c41929d94" kind="function"><name>sendWpStandardService</name></member>
+    <member refid="classWaypointNode_1a50c5e02f7d2e255f866ab11fe025b608" kind="function"><name>sendWpLooseService</name></member>
+    <member refid="classWaypointNode_1a7f9c92860981f2808046089f4946e5d3" kind="function"><name>sendWpHeadingService</name></member>
+    <member refid="classWaypointNode_1a9d23c787edfd629de112646c80a8da19" kind="function"><name>createWaypoint</name></member>
+    <member refid="classWaypointNode_1a0f61eab0790a9add760625d7c4d0d41f" kind="function"><name>decodeWaypoint</name></member>
+  </compound>
+  <compound refid="classWpHeading" kind="class"><name>WpHeading</name>
+    <member refid="classWpHeading_1aa92b6b5b4db4015eb5a849410f0a994e" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classWpHeading_1abfb24e3e0546119bf08e839517d6f3c3" kind="variable"><name>sway_pub_</name></member>
+    <member refid="classWpHeading_1ada49f14a9cfe6375c966fcdbd58e7e66" kind="variable"><name>yaw_rate_pub_</name></member>
+    <member refid="classWpHeading_1a69706eee842009312c061e2c962be64a" kind="function"><name>calculateRef</name></member>
+    <member refid="classWpHeading_1a55a81e1218559e5945b00d69c31b1c95" kind="function"><name>publish</name></member>
+    <member refid="classWpHeading_1a0db316dcd4039e008f910067203d5c80" kind="function"><name>WpHeading</name></member>
+    <member refid="classWpHeading_1ac2c5b9bef2007c98727d6882013a0a91" kind="function"><name>~WpHeading</name></member>
+  </compound>
+  <compound refid="classWpLoose" kind="class"><name>WpLoose</name>
+    <member refid="classWpLoose_1ad13bcaab0c502810fefe406e1861d5ee" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classWpLoose_1ab958eb7c9f0c76d834b66b6366eb7719" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classWpLoose_1a7096b938c7bf378082d2a0e37c5d0003" kind="function"><name>calculateRef</name></member>
+    <member refid="classWpLoose_1af7cb703f535ef51ac45b838d5f577aa0" kind="function"><name>publish</name></member>
+    <member refid="classWpLoose_1a723953780ff3fb9bb6e73c055f15b75f" kind="function"><name>WpLoose</name></member>
+    <member refid="classWpLoose_1a4aef6898c96e54ddde61b33ad1625c46" kind="function"><name>~WpLoose</name></member>
+  </compound>
+  <compound refid="structWPref__t" kind="struct"><name>WPref_t</name>
+    <member refid="structWPref__t_1a9c9907f2339411f738ff935f4190f6c1" kind="variable"><name>eta1</name></member>
+    <member refid="structWPref__t_1acdf2a65c2289bd0df6ce2651fe584c93" kind="variable"><name>eta2</name></member>
+  </compound>
+  <compound refid="classWpStandard" kind="class"><name>WpStandard</name>
+    <member refid="classWpStandard_1a2a0bbb7c92b8f4d30f51b36e670fb180" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classWpStandard_1ae9895dc537809636555bb35a5a9e6dc7" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classWpStandard_1afa553e861a88f9adfd349c0dff125db1" kind="function"><name>calculateRef</name></member>
+    <member refid="classWpStandard_1a0e182161bf809d5ea2c50ce0fe20f88b" kind="function"><name>publish</name></member>
+    <member refid="classWpStandard_1aaa40f20af7e4635a2188a25f2ab19579" kind="function"><name>WpStandard</name></member>
+    <member refid="classWpStandard_1ae717317319eb3dcb5f205fda89f2f2f7" kind="function"><name>~WpStandard</name></member>
+  </compound>
+  <compound refid="wp__controller_8h" kind="file"><name>wp_controller.h</name>
+  </compound>
+  <compound refid="wp__heading_8h" kind="file"><name>wp_heading.h</name>
+  </compound>
+  <compound refid="wp__loose_8h" kind="file"><name>wp_loose.h</name>
+  </compound>
+  <compound refid="wp__standard_8h" kind="file"><name>wp_standard.h</name>
+  </compound>
+  <compound refid="waypoint_8h" kind="file"><name>waypoint.h</name>
+  </compound>
+  <compound refid="wp__heading_8cpp" kind="file"><name>wp_heading.cpp</name>
+  </compound>
+  <compound refid="wp__loose_8cpp" kind="file"><name>wp_loose.cpp</name>
+  </compound>
+  <compound refid="wp__standard_8cpp" kind="file"><name>wp_standard.cpp</name>
+  </compound>
+  <compound refid="waypoint_8cpp" kind="file"><name>waypoint.cpp</name>
+  </compound>
+  <compound refid="waypoint__node_8cpp" kind="file"><name>waypoint_node.cpp</name>
+    <member refid="waypoint__node_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_f8873690e2904bca397818c33b3e9ca2" kind="dir"><name>src/waypoint_algorithms</name>
+  </compound>
+  <compound refid="dir_bac0166f6a33030c13c35b6ab1104aaa" kind="dir"><name>include/waypoint_algorithms</name>
+  </compound>
+  <compound refid="dir_90d51b54848fea250dc6982f7db08f81" kind="dir"><name>include/waypoint_ros</name>
+  </compound>
+  <compound refid="dir_40790f744e8df6bf78ccc9a9e2e82de4" kind="dir"><name>src/waypoint_ros</name>
+  </compound>
+</doxygenindex>

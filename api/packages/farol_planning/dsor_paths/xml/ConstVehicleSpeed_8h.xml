@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ConstVehicleSpeed_8h" kind="file" language="C++">
+    <compoundname>ConstVehicleSpeed.h</compoundname>
+    <includes refid="Speed_8h" local="yes">Speed.h</includes>
+    <includedby refid="PathNode_8h" local="yes">include/ros/PathNode.h</includedby>
+    <includedby refid="ConstVehicleSpeed_8cpp" local="yes">src/algorithms/speed_profiles/ConstVehicleSpeed.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/algorithms/speed_profiles/ConstVehicleSpeed.h</label>
+        <link refid="ConstVehicleSpeed_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/ros/PathNode.h</label>
+        <link refid="PathNode_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/algorithms/speed_profiles/ConstVehicleSpeed.h</label>
+        <link refid="ConstVehicleSpeed_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classConstVehicleSpeed" prot="public">ConstVehicleSpeed</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Speed.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classConstVehicleSpeed" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classConstVehicleSpeed" kindref="compound">ConstVehicleSpeed</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classSpeed" kindref="compound">Speed</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classConstVehicleSpeed_1a1a7255da5b0a4cc709cb14539b19964d" kindref="member">ConstVehicleSpeed</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vehicle_speed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>default_val);<sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstVehicleSpeed_1aac81ee1a32179f281ed69bd693825a58" kindref="member">getVd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstVehicleSpeed_1abe43b77b6647396792fdbc1587e79dba" kindref="member">get_d_Vd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstVehicleSpeed_1a164ee6184451deeaf754c2d6466e3969" kindref="member">getDefaultVd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vehicle_speed_{0.0};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>default_speed_{0.0};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/speed_profiles/ConstVehicleSpeed.h"/>
+  </compounddef>
+</doxygen>

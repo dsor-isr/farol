@@ -1,0 +1,705 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classMarcelo" kind="class" language="C++" prot="public">
+    <compoundname>Marcelo</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Marcelo_8h" local="no">Marcelo.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMarcelo_1a5825ff95a14b017655b2102a48706ee8" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Marcelo::epsilon_</definition>
+        <argsstring></argsstring>
+        <name>epsilon_</name>
+        <briefdescription>
+<para>Controller parameters for the <ref refid="classAguiar" kindref="compound">Aguiar</ref> Path Following Algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="94" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a8e69c7057a26c10da3bb52d5a280682c" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Marcelo::delta_</definition>
+        <argsstring></argsstring>
+        <name>delta_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="95" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a31d72b443ef7ddc20f71abeac2678ff0" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Marcelo::delta_inv_</definition>
+        <argsstring></argsstring>
+        <name>delta_inv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="96" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a2fcb436b0550aff5bc98e0cb5f1a0048" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Marcelo::kk_</definition>
+        <argsstring></argsstring>
+        <name>kk_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="97" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1af7cc69fe9ae997384c10f4e98de2a527" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::kz_</definition>
+        <argsstring></argsstring>
+        <name>kz_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="98" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a67a909f179110333e4296ed04d7407ec" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::k_currents_</definition>
+        <argsstring></argsstring>
+        <name>k_currents_</name>
+        <briefdescription>
+<para>Observer gains for the currents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="103" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a8b5ccb5c4b87abff55fad5f4e3723963" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::k_pos_</definition>
+        <argsstring></argsstring>
+        <name>k_pos_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="104" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1afd6dd8296f3ec292e7de57f5021073d6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Marcelo::first_iteration_</definition>
+        <argsstring></argsstring>
+        <name>first_iteration_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="105" column="10" bodyfile="include/algorithms/Marcelo.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1ae39ad6d5b561873622d268010b4b385d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The desired references to publish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="110" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1abe70a00a095a6203d5f903052f5cebf9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::desired_yaw_rate_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_rate_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="111" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a43bcaefc4d204ba35894978d2924a45c" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Marcelo::pos_hat_</definition>
+        <argsstring></argsstring>
+        <name>pos_hat_</name>
+        <initializer>{0.0, 0.0}</initializer>
+        <briefdescription>
+<para>Vector to old the estimator for the ocean currents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="116" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1ae366754aef15796ae43214339cc8d4c0" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Marcelo::currents_hat_</definition>
+        <argsstring></argsstring>
+        <name>currents_hat_</name>
+        <initializer>{0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="117" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1ac6b1e3dbcf9e751fe0640486d32fa865" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::gamma_ddot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_ddot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The values for the dynamics of the gamma (virtual rabbit) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="122" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1aeb27f32ac4a6be85f6d92c2c6f1cf5ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::gamma_dot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_dot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="123" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1af9a94279092bc6cedb023717733c4ae9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Marcelo::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="124" column="12" bodyfile="include/algorithms/Marcelo.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a39318ed0f45b40d406580baebf590c47" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Marcelo::rd_</definition>
+        <argsstring></argsstring>
+        <name>rd_</name>
+        <initializer>{0.0, 0.0, 1.0}</initializer>
+        <briefdescription>
+<para>The values for the offset on the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="129" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a40a22dffb3ea23a042c6fc18ec741972" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Marcelo::d_</definition>
+        <argsstring></argsstring>
+        <name>d_</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="130" column="21" bodyfile="include/algorithms/Marcelo.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a096c2be4b1652ab1ff5bb757d804a7ec" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Marcelo::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers to publish the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="135" column="20" bodyfile="include/algorithms/Marcelo.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1aaabaffea584cd05bb64cef7ce3672d1f" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Marcelo::yaw_rate_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="136" column="20" bodyfile="include/algorithms/Marcelo.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1a121bfe86f6f8fe572b5f39732c488306" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Marcelo::rabbit_pub_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="137" column="20" bodyfile="include/algorithms/Marcelo.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1abb84e76c8517695c0b2db789902f1481" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Marcelo::currents_estimation_x_pub_</definition>
+        <argsstring></argsstring>
+        <name>currents_estimation_x_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="138" column="20" bodyfile="include/algorithms/Marcelo.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMarcelo_1ab6ed8699b5b179fd21254ac969b41dc2" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Marcelo::currents_estimation_y_pub_</definition>
+        <argsstring></argsstring>
+        <name>currents_estimation_y_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="139" column="20" bodyfile="include/algorithms/Marcelo.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMarcelo_1a70de62e9cdca72e81b91753151ec88f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Marcelo::Marcelo</definition>
+        <argsstring>(double delta, double kk[2], double kz, double k_pos, double k_currents, double rd[3], double d[3], ros::Publisher surge_pub, ros::Publisher yaw_rate_pub, ros::Publisher rabbit_pub, ros::Publisher currents_estimation_x_pub, ros::Publisher currents_estimation_y_pub)</argsstring>
+        <name>Marcelo</name>
+        <param>
+          <type>double</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kk</declname>
+          <array>[2]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kz</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_pos</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_currents</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rd</declname>
+          <array>[3]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d</declname>
+          <array>[3]</array>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_rate_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>rabbit_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>currents_estimation_x_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>currents_estimation_y_pub</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control gains </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Observer gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_currents</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Observer gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_rate_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw rate publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rabbit_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS rabbit publisher </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="37" column="5" bodyfile="src/algorithms/Marcelo.cpp" bodystart="4" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1a0bcfa8cfd64f3db2400bbd977a08787c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Marcelo::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the gains, given a vector of doubles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains to update in the controller The default order is: delta, kk[0], kk[1], kz, k_pos, k_currents</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="47" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="30" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1a7c6bf0d19b0ca042068fd2e908ab8145" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Marcelo::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time step between last call and current call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="54" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="54" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Marcelo::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish_private the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="59" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="167" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1abc33f038979fa05a92c6b8df05127778" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Marcelo::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method used in the first run to do initial setup. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="64" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="182" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Marcelo::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="71" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="189" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1a5835e08725f01af3fb719423d523fe25" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Marcelo::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="79" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="201" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classMarcelo_1a4bf70b72554f4a87b0b8bf478631d753" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Marcelo::resetVirtualTarget</definition>
+        <argsstring>(float value) override</argsstring>
+        <name>resetVirtualTarget</name>
+        <reimplements refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429">resetVirtualTarget</reimplements>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Marcelo.h" line="87" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="223" bodyend="231"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classAguiar" kindref="compound">Aguiar</ref>&apos;s algorithm for path following Method6: based on the work of <ref refid="classAguiar" kindref="compound">Aguiar</ref> and Hespanha (2007) <linebreak/>
+ This algorithm support: Controls: </para>
+    </briefdescription>
+    <detaileddescription>
+<para><itemizedlist>
+<listitem><para>yaw-rate</para>
+</listitem><listitem><para>surge</para>
+</listitem><listitem><para>virtual-target (gamma) Supports Cooperative Path Following - True Contains Currents Observers - True</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+      <node id="1">
+        <label>Marcelo</label>
+        <link refid="classMarcelo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Marcelo</label>
+        <link refid="classMarcelo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Marcelo.h" line="21" column="35" bodyfile="include/algorithms/Marcelo.h" bodystart="21" bodyend="140"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>algConvert</name></member>
+      <member refid="classMarcelo_1a7c6bf0d19b0ca042068fd2e908ab8145" prot="public" virt="virtual"><scope>Marcelo</scope><name>callPFController</name></member>
+      <member refid="classMarcelo_1abb84e76c8517695c0b2db789902f1481" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>currents_estimation_x_pub_</name></member>
+      <member refid="classMarcelo_1ab6ed8699b5b179fd21254ac969b41dc2" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>currents_estimation_y_pub_</name></member>
+      <member refid="classMarcelo_1ae366754aef15796ae43214339cc8d4c0" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>currents_hat_</name></member>
+      <member refid="classMarcelo_1a40a22dffb3ea23a042c6fc18ec741972" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>d_</name></member>
+      <member refid="classMarcelo_1a8e69c7057a26c10da3bb52d5a280682c" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>delta_</name></member>
+      <member refid="classMarcelo_1a31d72b443ef7ddc20f71abeac2678ff0" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>delta_inv_</name></member>
+      <member refid="classMarcelo_1ae39ad6d5b561873622d268010b4b385d" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>desired_surge_</name></member>
+      <member refid="classMarcelo_1abe70a00a095a6203d5f903052f5cebf9" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>desired_yaw_rate_</name></member>
+      <member refid="classMarcelo_1a5825ff95a14b017655b2102a48706ee8" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>epsilon_</name></member>
+      <member refid="classMarcelo_1afd6dd8296f3ec292e7de57f5021073d6" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>first_iteration_</name></member>
+      <member refid="classMarcelo_1af9a94279092bc6cedb023717733c4ae9" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>gamma_</name></member>
+      <member refid="classMarcelo_1ac6b1e3dbcf9e751fe0640486d32fa865" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>gamma_ddot_</name></member>
+      <member refid="classMarcelo_1aeb27f32ac4a6be85f6d92c2c6f1cf5ca" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>gamma_dot_</name></member>
+      <member refid="classMarcelo_1a67a909f179110333e4296ed04d7407ec" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>k_currents_</name></member>
+      <member refid="classMarcelo_1a8b5ccb5c4b87abff55fad5f4e3723963" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>k_pos_</name></member>
+      <member refid="classMarcelo_1a2fcb436b0550aff5bc98e0cb5f1a0048" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>kk_</name></member>
+      <member refid="classMarcelo_1af7cc69fe9ae997384c10f4e98de2a527" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>kz_</name></member>
+      <member refid="classMarcelo_1a70de62e9cdca72e81b91753151ec88f1" prot="public" virt="non-virtual"><scope>Marcelo</scope><name>Marcelo</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classMarcelo_1a43bcaefc4d204ba35894978d2924a45c" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>pos_hat_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Marcelo</scope><name>publish</name></member>
+      <member refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" prot="public" virt="virtual"><scope>Marcelo</scope><name>publish_private</name></member>
+      <member refid="classMarcelo_1a121bfe86f6f8fe572b5f39732c488306" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>rabbit_pub_</name></member>
+      <member refid="classMarcelo_1a39318ed0f45b40d406580baebf590c47" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>rd_</name></member>
+      <member refid="classMarcelo_1a5835e08725f01af3fb719423d523fe25" prot="public" virt="virtual"><scope>Marcelo</scope><name>reset</name></member>
+      <member refid="classMarcelo_1a4bf70b72554f4a87b0b8bf478631d753" prot="public" virt="virtual"><scope>Marcelo</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual" ambiguityscope="PathFollowing::"><scope>Marcelo</scope><name>resetVirtualTarget</name></member>
+      <member refid="classMarcelo_1a0bcfa8cfd64f3db2400bbd977a08787c" prot="public" virt="virtual"><scope>Marcelo</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Marcelo</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classMarcelo_1abc33f038979fa05a92c6b8df05127778" prot="public" virt="virtual"><scope>Marcelo</scope><name>start</name></member>
+      <member refid="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" prot="public" virt="virtual"><scope>Marcelo</scope><name>stop</name></member>
+      <member refid="classMarcelo_1a096c2be4b1652ab1ff5bb757d804a7ec" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>surge_pub_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Marcelo</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Marcelo</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>vehicle_state_</name></member>
+      <member refid="classMarcelo_1aaabaffea584cd05bb64cef7ce3672d1f" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>yaw_rate_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Marcelo</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

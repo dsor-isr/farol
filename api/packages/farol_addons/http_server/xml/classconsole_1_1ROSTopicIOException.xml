@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1ROSTopicIOException" kind="class" language="Python" prot="public">
+    <compoundname>console::ROSTopicIOException</compoundname>
+    <basecompoundref refid="classconsole_1_1ROSTopicException" prot="public" virt="non-virtual">console.ROSTopicException</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>rostopic errors related to network I/O failures
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>console.ROSTopicException</label>
+        <link refid="classconsole_1_1ROSTopicException"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>console.ROSTopicIOException</label>
+        <link refid="classconsole_1_1ROSTopicIOException"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>console.ROSTopicException</label>
+        <link refid="classconsole_1_1ROSTopicException"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>console.ROSTopicIOException</label>
+        <link refid="classconsole_1_1ROSTopicIOException"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="54" column="1" bodyfile="src/console.py" bodystart="54" bodyend="60"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

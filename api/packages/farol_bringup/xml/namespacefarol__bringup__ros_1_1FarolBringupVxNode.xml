@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacefarol__bringup__ros_1_1FarolBringupVxNode" kind="namespace" language="Python">
+    <compoundname>farol_bringup_ros::FarolBringupVxNode</compoundname>
+    <innerclass refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode" prot="public">farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacefarol__bringup__ros_1_1FarolBringupVxNode_1a71e75e36192c59b0d89becfcf40435b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def farol_bringup_ros.FarolBringupVxNode.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="55" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="55" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Developers: DSOR Team -&gt; @isr.ist.pt Instituto Superior Tecnico
+Description: Please check the documentation of this package for more info.
+</verbatim> <linebreak/>
+ </para>
+    </detaileddescription>
+    <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

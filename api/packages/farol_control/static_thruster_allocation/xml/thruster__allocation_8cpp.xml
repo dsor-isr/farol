@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="thruster__allocation_8cpp" kind="file" language="C++">
+    <compoundname>thruster_allocation.cpp</compoundname>
+    <includes refid="thruster__allocation_8h" local="yes">thruster_allocation.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>auv_msgs/BodyForceRequest.h</label>
+      </node>
+      <node id="5">
+        <label>dsor_msgs/Thruster.h</label>
+      </node>
+      <node id="2">
+        <label>thruster_allocation.h</label>
+        <link refid="thruster__allocation_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/thruster_allocation.cpp</label>
+        <link refid="thruster__allocation_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="7">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="6">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="thruster__allocation_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/thruster_allocation.cpp" line="118" column="5" bodyfile="src/thruster_allocation.cpp" bodystart="118" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;thruster_allocation.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classThrustAllocation_1a794fa9979dd05139c32e4ece4e9e070e" kindref="member">ThrustAllocation::ThrustAllocation</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1a2709c031f3c1c3f56b98646d50fcbf2d" kindref="member">initializeSubscribers</ref>(nh);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1aec20bf714cbfe094aee1a570b3e504a9" kindref="member">initializePublishers</ref>(nh);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1a811564bc00e2ff750cc34a0e3233d84d" kindref="member">loadParams</ref>(nh);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a2709c031f3c1c3f56b98646d50fcbf2d" kindref="member">ThrustAllocation::initializeSubscribers</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>subscribe<sp/>to<sp/>thrust</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>ft_sub_<sp/>=<sp/>nh.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(nh,<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/thrust_body_request&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/thrust_body_request&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>10,<sp/>&amp;<ref refid="classThrustAllocation_1ab64d69f5a30a0be2c212c855a4c6b0e4" kindref="member">ThrustAllocation::thrusterAllocation</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1aec20bf714cbfe094aee1a570b3e504a9" kindref="member">ThrustAllocation::initializePublishers</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>thrusters_pub_<sp/>=<sp/>nh.advertise&lt;dsor_msgs::Thruster&gt;(</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>FarolGimmicks::getParameters&lt;std::string&gt;(nh,<sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/thrusters&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/thrusters/RPM_Command&quot;</highlight><highlight class="normal">),<sp/>1);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a811564bc00e2ff750cc34a0e3233d84d" kindref="member">ThrustAllocation::loadParams</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>max_thrust_norm_<sp/>=<sp/>nh.param(</highlight><highlight class="stringliteral">&quot;thrusters/max_thrust_norm&quot;</highlight><highlight class="normal">,<sp/>22);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>min_thrust_norm_<sp/>=<sp/>nh.param(</highlight><highlight class="stringliteral">&quot;thrusters/min_thrust_norm&quot;</highlight><highlight class="normal">,<sp/>-22);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1ac9ecc1b9d613eb681a97d8df01746d55" kindref="member">readTAM</ref>(nh);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1a4085fe7bfacb3338b43c3dbdca0bc887" kindref="member">readCT</ref>(nh);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1ae87beab53f670a62d614a1dd7b0d8117" kindref="member">readRPMGain</ref>(nh);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a83e7e6f79ac4afad7c3579b3d09c1a99" kindref="member">ThrustAllocation::saturateVector</ref>(Eigen::VectorXd<sp/>&amp;thr_thrust)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_ind,<sp/>min_ind;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>maximum<sp/>=<sp/>thr_thrust.maxCoeff(&amp;max_ind);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>minimum<sp/>=<sp/>thr_thrust.minCoeff(&amp;min_ind);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>normalize<sp/>vector<sp/>in<sp/>the<sp/>case<sp/>max_value<sp/>is<sp/>higher<sp/>than<sp/>max_value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>min<sp/>and<sp/>max<sp/>are<sp/>independent</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>normalize<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>normalize<sp/>=<sp/>std::max(fabs(minimum<sp/>/<sp/>min_thrust_norm_),<sp/>normalize);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>normalize<sp/>=<sp/>std::max(fabs(maximum<sp/>/<sp/>max_thrust_norm_),<sp/>normalize);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>thr_thrust.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>thr_thrust[i]<sp/>/=<sp/>normalize;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1ac9ecc1b9d613eb681a97d8df01746d55" kindref="member">ThrustAllocation::readTAM</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>XmlRpc::XmlRpcValue<sp/>allocation_matrix;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>nh.getParam(</highlight><highlight class="stringliteral">&quot;thrusters/allocation_matrix&quot;</highlight><highlight class="normal">,<sp/>allocation_matrix);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>Thruster<sp/>Allocation<sp/>Matrix<sp/>(B)<sp/>with<sp/>shape<sp/>[num<sp/>of<sp/>forces][num<sp/>of<sp/>thrusters]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>Eigen::MatrixXd<sp/>b(6,<sp/>allocation_matrix.size()<sp/>/<sp/>6);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>6;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>allocation_matrix.size()<sp/>/<sp/>6;<sp/>j++)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>b(i,<sp/>j)<sp/>=<sp/>allocation_matrix[i<sp/>+<sp/>j<sp/>*<sp/>6];</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>allocation_matrix.size()<sp/>/<sp/>6;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>b.block&lt;3,<sp/>1&gt;(3,<sp/>i)<sp/>=<sp/>b.block&lt;3,<sp/>1&gt;(3,<sp/>i).cross(b.block&lt;3,<sp/>1&gt;(0,<sp/>i));</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>b_inv_<sp/>=<sp/>b.completeOrthogonalDecomposition().pseudoInverse();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a4085fe7bfacb3338b43c3dbdca0bc887" kindref="member">ThrustAllocation::readCT</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>XmlRpc::XmlRpcValue<sp/>ctf;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>XmlRpc::XmlRpcValue<sp/>ctb;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>nh.getParam(</highlight><highlight class="stringliteral">&quot;thrusters/ctf&quot;</highlight><highlight class="normal">,<sp/>ctf);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>nh.getParam(</highlight><highlight class="stringliteral">&quot;thrusters/ctb&quot;</highlight><highlight class="normal">,<sp/>ctb);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>ctf_<sp/>&lt;&lt;<sp/>ctf[0],<sp/>ctf[1],<sp/>ctf[2];</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>ctb_<sp/>&lt;&lt;<sp/>ctb[0],<sp/>ctb[1],<sp/>ctb[2];</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1ae87beab53f670a62d614a1dd7b0d8117" kindref="member">ThrustAllocation::readRPMGain</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>XmlRpc::XmlRpcValue<sp/>actuators_gain;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>nh.getParam(</highlight><highlight class="stringliteral">&quot;thrusters/actuators_gain&quot;</highlight><highlight class="normal">,<sp/>actuators_gain);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>Eigen::VectorXd<sp/>aux(actuators_gain.size());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>actuators_gain.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>aux(i)<sp/>=<sp/>actuators_gain[i];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>rpm_gain_<sp/>=<sp/>aux;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1ab64d69f5a30a0be2c212c855a4c6b0e4" kindref="member">ThrustAllocation::thrusterAllocation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::BodyForceRequest<sp/>&amp;msg)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>Eigen::VectorXd<sp/>ft_req(6);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>ft_req<sp/>&lt;&lt;<sp/>float(msg.wrench.force.x),<sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float(msg.wrench.force.y),</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float(msg.wrench.force.z),<sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float(msg.wrench.torque.x),</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float(msg.wrench.torque.y),<sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>float(msg.wrench.torque.z);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>force<sp/>necessary<sp/>for<sp/>each<sp/>thruster</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>Eigen::VectorXd<sp/>thr_thrust<sp/>=<sp/>b_inv_<sp/>*<sp/>ft_req;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Saturate<sp/>thrust</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1a83e7e6f79ac4afad7c3579b3d09c1a99" kindref="member">saturateVector</ref>(thr_thrust);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Convert<sp/>from<sp/>force<sp/>to<sp/>%<sp/>of<sp/>RPM<sp/>(because<sp/>of<sp/>the<sp/>drivers<sp/>-<sp/>legacy)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>dsor_msgs::Thruster<sp/>thrust;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>Eigen::VectorXd<sp/>thr_RPM<sp/>=<sp/>thr_thrust;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>thr_thrust.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thr_thrust[i]<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>thr_RPM[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thr_thrust[i]<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>thr_RPM[i]<sp/>=<sp/>(-ctf_[1]<sp/>+<sp/>sqrt(ctf_[1]<sp/>*<sp/>ctf_[1]<sp/>-<sp/>4<sp/>*<sp/>ctf_[0]<sp/>*<sp/>(ctf_[2]<sp/>-<sp/>thr_thrust[i])))<sp/>/<sp/>(2<sp/>*<sp/>ctf_[0]);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(thr_thrust[i]<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>thr_RPM[i]<sp/>=<sp/>(-ctb_[1]<sp/>+<sp/>sqrt(ctb_[1]<sp/>*<sp/>ctb_[1]<sp/>-<sp/>4<sp/>*<sp/>ctb_[0]<sp/>*<sp/>(ctb_[2]<sp/>-<sp/>thr_thrust[i])))<sp/>/<sp/>(2<sp/>*<sp/>ctb_[0]);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>thrust.value.push_back(thr_RPM[i]<sp/>/<sp/>rpm_gain_[i]);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>thrusters_pub_.publish(thrust);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Create<sp/>the<sp/>Static<sp/>Thruster<sp/>Allocation<sp/>Object<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;Static<sp/>Thruster<sp/>Allocation&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>ros::NodeHandle<sp/>nh(</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation" kindref="compound">ThrustAllocation</ref><sp/>thr(nh);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>ros::spin();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/thruster_allocation.cpp"/>
+  </compounddef>
+</doxygen>

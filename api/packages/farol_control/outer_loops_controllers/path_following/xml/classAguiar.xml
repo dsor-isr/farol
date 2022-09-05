@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAguiar" kind="class" language="C++" prot="public">
+    <compoundname>Aguiar</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Aguiar_8h" local="no">Aguiar.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAguiar_1addcc46803d217c67c5b46d553407c00f" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Aguiar::epsilon_</definition>
+        <argsstring></argsstring>
+        <name>epsilon_</name>
+        <briefdescription>
+<para>Controller parameters for the <ref refid="classAguiar" kindref="compound">Aguiar</ref> Path Following Algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="97" column="21" bodyfile="include/algorithms/Aguiar.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a0e7e172776b9f8f54190dead62e5beaf" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Aguiar::delta_</definition>
+        <argsstring></argsstring>
+        <name>delta_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="98" column="21" bodyfile="include/algorithms/Aguiar.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a9867660c8fbe6e259ba36c519dffd159" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Aguiar::delta_inv_</definition>
+        <argsstring></argsstring>
+        <name>delta_inv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="99" column="21" bodyfile="include/algorithms/Aguiar.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1afae344cf15afdd9fba6cee759e8da1d8" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Aguiar::kk_</definition>
+        <argsstring></argsstring>
+        <name>kk_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="100" column="21" bodyfile="include/algorithms/Aguiar.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a43f0a30b6dd9c572042612c359535026" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::kz_</definition>
+        <argsstring></argsstring>
+        <name>kz_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="101" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a0b7f0a59204b7460f8a1d72cec2fdee5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::k_currents_</definition>
+        <argsstring></argsstring>
+        <name>k_currents_</name>
+        <briefdescription>
+<para>Observer gains for the currents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="106" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1ad89e08d376abbd6f9d8b0710ae76fb56" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::k_pos_</definition>
+        <argsstring></argsstring>
+        <name>k_pos_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="107" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1abfacd04fc996dd17df193a192d3791d1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Aguiar::first_iteration_</definition>
+        <argsstring></argsstring>
+        <name>first_iteration_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="108" column="10" bodyfile="include/algorithms/Aguiar.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1aa6f12962493be4c09ac046f8b75caac7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The desired references to publish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="113" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a13548938e6fe78b0940ba4346a36975c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::desired_yaw_rate_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_rate_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="114" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a402955e977f963a7c1807d8c4d2e3a6a" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Aguiar::pos_hat_</definition>
+        <argsstring></argsstring>
+        <name>pos_hat_</name>
+        <initializer>{0.0, 0.0}</initializer>
+        <briefdescription>
+<para>Vector to old the estimator for the ocean currents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="119" column="21" bodyfile="include/algorithms/Aguiar.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a2270812380229c498e632b5859599b5f" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Aguiar::currents_hat_</definition>
+        <argsstring></argsstring>
+        <name>currents_hat_</name>
+        <initializer>{0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="120" column="21" bodyfile="include/algorithms/Aguiar.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a0ccb5862e65ffc3c5708999959ea7f4b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::gamma_ddot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_ddot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The values for the dynamics of the gamma (virtual rabbit) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="125" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1acc2973169efe68a3f65455aa0d8357d7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::gamma_dot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_dot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="126" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a7ef372cfbee1d5c471b466f9eacc380f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Aguiar::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="127" column="12" bodyfile="include/algorithms/Aguiar.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1af3f76782bbc7d589f388b2c71c800012" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Aguiar::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers to publish the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="132" column="20" bodyfile="include/algorithms/Aguiar.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a6435b3064713c499cfab73b9297bd5a5" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Aguiar::yaw_rate_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="133" column="20" bodyfile="include/algorithms/Aguiar.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAguiar_1a29573093448fff4879ec54d80b4468b3" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Aguiar::rabbit_pub_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="134" column="20" bodyfile="include/algorithms/Aguiar.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAguiar_1a3276babf6cbd1c0dd3a3b3b76998c1b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Aguiar::Aguiar</definition>
+        <argsstring>(double delta, double kk[2], double kz, double k_pos, double k_currents, ros::Publisher surge_pub, ros::Publisher yaw_rate_pub, ros::Publisher rabbit_pub)</argsstring>
+        <name>Aguiar</name>
+        <param>
+          <type>double</type>
+          <declname>delta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kk</declname>
+          <array>[2]</array>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kz</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_pos</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_currents</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_rate_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>rabbit_pub</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control gains </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Control gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Observer gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_currents</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Observer gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_rate_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw rate publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rabbit_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS rabbit publisher </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="40" column="5" bodyfile="src/algorithms/Aguiar.cpp" bodystart="4" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1a2b8e255947da062e8a2ba05fb3765dc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Aguiar::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the gains, given a vector of doubles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains to update in the controller The default order is: delta, kk[0], kk[1], kz, k_pos, k_currents</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="50" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="24" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1a7e2b3f75d7936b9a6e79c8da8fbb2f09" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Aguiar::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time step between last call and current call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="57" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="48" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1a52bf1c7b6bd3944258ae6ad9cb3fae71" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Aguiar::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish_private the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="62" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="138" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1a6fc468667620e8499c9e50033f3bca65" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Aguiar::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method used in the first run to do initial setup. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="67" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="149" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1a58fd931b33569f377e4c2ddf82072075" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Aguiar::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="74" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="156" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1af26d4f03ef2d8c3b91226c2f450868a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Aguiar::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="82" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="168" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classAguiar_1a21955e6ba34dc1cdc69d2df5fcc579ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Aguiar::resetVirtualTarget</definition>
+        <argsstring>(float value) override</argsstring>
+        <name>resetVirtualTarget</name>
+        <reimplements refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429">resetVirtualTarget</reimplements>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Aguiar.h" line="90" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="190" bodyend="198"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classAguiar" kindref="compound">Aguiar</ref>&apos;s algorithm for path following Method6: based on the work of <ref refid="classAguiar" kindref="compound">Aguiar</ref> and Hespanha (2007) <linebreak/>
+ This algorithm support: Controls: </para>
+    </briefdescription>
+    <detaileddescription>
+<para><itemizedlist>
+<listitem><para>yaw-rate</para>
+</listitem><listitem><para>surge</para>
+</listitem><listitem><para>virtual-target (gamma) Supports Cooperative Path Following - True Contains Currents Observers - True</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+      <node id="1">
+        <label>Aguiar</label>
+        <link refid="classAguiar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Aguiar</label>
+        <link refid="classAguiar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Aguiar.h" line="24" column="34" bodyfile="include/algorithms/Aguiar.h" bodystart="24" bodyend="135"/>
+    <listofallmembers>
+      <member refid="classAguiar_1a3276babf6cbd1c0dd3a3b3b76998c1b4" prot="public" virt="non-virtual"><scope>Aguiar</scope><name>Aguiar</name></member>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>algConvert</name></member>
+      <member refid="classAguiar_1a7e2b3f75d7936b9a6e79c8da8fbb2f09" prot="public" virt="virtual"><scope>Aguiar</scope><name>callPFController</name></member>
+      <member refid="classAguiar_1a2270812380229c498e632b5859599b5f" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>currents_hat_</name></member>
+      <member refid="classAguiar_1a0e7e172776b9f8f54190dead62e5beaf" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>delta_</name></member>
+      <member refid="classAguiar_1a9867660c8fbe6e259ba36c519dffd159" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>delta_inv_</name></member>
+      <member refid="classAguiar_1aa6f12962493be4c09ac046f8b75caac7" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>desired_surge_</name></member>
+      <member refid="classAguiar_1a13548938e6fe78b0940ba4346a36975c" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>desired_yaw_rate_</name></member>
+      <member refid="classAguiar_1addcc46803d217c67c5b46d553407c00f" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>epsilon_</name></member>
+      <member refid="classAguiar_1abfacd04fc996dd17df193a192d3791d1" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>first_iteration_</name></member>
+      <member refid="classAguiar_1a7ef372cfbee1d5c471b466f9eacc380f" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>gamma_</name></member>
+      <member refid="classAguiar_1a0ccb5862e65ffc3c5708999959ea7f4b" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>gamma_ddot_</name></member>
+      <member refid="classAguiar_1acc2973169efe68a3f65455aa0d8357d7" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>gamma_dot_</name></member>
+      <member refid="classAguiar_1a0b7f0a59204b7460f8a1d72cec2fdee5" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>k_currents_</name></member>
+      <member refid="classAguiar_1ad89e08d376abbd6f9d8b0710ae76fb56" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>k_pos_</name></member>
+      <member refid="classAguiar_1afae344cf15afdd9fba6cee759e8da1d8" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>kk_</name></member>
+      <member refid="classAguiar_1a43f0a30b6dd9c572042612c359535026" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>kz_</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classAguiar_1a402955e977f963a7c1807d8c4d2e3a6a" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>pos_hat_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Aguiar</scope><name>publish</name></member>
+      <member refid="classAguiar_1a52bf1c7b6bd3944258ae6ad9cb3fae71" prot="public" virt="virtual"><scope>Aguiar</scope><name>publish_private</name></member>
+      <member refid="classAguiar_1a29573093448fff4879ec54d80b4468b3" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>rabbit_pub_</name></member>
+      <member refid="classAguiar_1af26d4f03ef2d8c3b91226c2f450868a9" prot="public" virt="virtual"><scope>Aguiar</scope><name>reset</name></member>
+      <member refid="classAguiar_1a21955e6ba34dc1cdc69d2df5fcc579ae" prot="public" virt="virtual"><scope>Aguiar</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual" ambiguityscope="PathFollowing::"><scope>Aguiar</scope><name>resetVirtualTarget</name></member>
+      <member refid="classAguiar_1a2b8e255947da062e8a2ba05fb3765dc4" prot="public" virt="virtual"><scope>Aguiar</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Aguiar</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classAguiar_1a6fc468667620e8499c9e50033f3bca65" prot="public" virt="virtual"><scope>Aguiar</scope><name>start</name></member>
+      <member refid="classAguiar_1a58fd931b33569f377e4c2ddf82072075" prot="public" virt="virtual"><scope>Aguiar</scope><name>stop</name></member>
+      <member refid="classAguiar_1af3f76782bbc7d589f388b2c71c800012" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>surge_pub_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Aguiar</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Aguiar</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>vehicle_state_</name></member>
+      <member refid="classAguiar_1a6435b3064713c499cfab73b9297bd5a5" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>yaw_rate_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Aguiar</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

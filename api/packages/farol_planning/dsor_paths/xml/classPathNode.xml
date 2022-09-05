@@ -1,0 +1,841 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPathNode" kind="class" language="C++" prot="public">
+    <compoundname>PathNode</compoundname>
+    <includes refid="PathNode_8h" local="no">PathNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPathNode_1a7ee2e4fa8dd388e9d8916ddae6b55a50" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt;double&gt; PathNode::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <briefdescription>
+<para><ref refid="classPath" kindref="compound">Path</ref> structure that will have all the logic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="74" column="19" bodyfile="include/ros/PathNode.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1ab66929a7d9a72f8355b267bf8e714bc2" prot="private" static="no" mutable="no">
+        <type><ref refid="classPath" kindref="compound">Path</ref> *</type>
+        <definition>Path* PathNode::path_</definition>
+        <argsstring></argsstring>
+        <name>path_</name>
+        <initializer>{NULL}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="75" column="11" bodyfile="include/ros/PathNode.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a9f1a2548e71cca7466041ddf89552402" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t PathNode::seq_</definition>
+        <argsstring></argsstring>
+        <name>seq_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Frame_id and seq for messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="80" column="14" bodyfile="include/ros/PathNode.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a6aa9cdfbeb2482561744dbd5763b5aee" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string PathNode::frame_id_</definition>
+        <argsstring></argsstring>
+        <name>frame_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="81" column="17" bodyfile="include/ros/PathNode.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1ab1c0441c1b67489b417599004ea0dd20" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d PathNode::vehicle_pos_</definition>
+        <argsstring></argsstring>
+        <name>vehicle_pos_</name>
+        <briefdescription>
+<para>Auxiliar variables to store the current vehicle position - usefull if we want the closest point to the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="88" column="21" bodyfile="include/ros/PathNode.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a34d4b44639fedc5063c538dc9db45b63" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PathNode::closer_point_mode_</definition>
+        <argsstring></argsstring>
+        <name>closer_point_mode_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="89" column="10" bodyfile="include/ros/PathNode.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a1de81afd0187edf0e40e2bbf81f873db" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle PathNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+<para>ROS NodeHandlers attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="94" column="21" bodyfile="include/ros/PathNode.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a79163565247a1f10a502ffc1a4392577" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle PathNode::nh_p_</definition>
+        <argsstring></argsstring>
+        <name>nh_p_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="95" column="21" bodyfile="include/ros/PathNode.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a19bd337288dc99912e1a3a9d5abdf83e" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber PathNode::gamma_sub_</definition>
+        <argsstring></argsstring>
+        <name>gamma_sub_</name>
+        <briefdescription>
+<para>ROS Subscribers attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="100" column="21" bodyfile="include/ros/PathNode.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a3a13e31039a0132aee463bb36f910493" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber PathNode::vehicle_sub_</definition>
+        <argsstring></argsstring>
+        <name>vehicle_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="101" column="21" bodyfile="include/ros/PathNode.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a87c614f42913e12dc0d64a0a0f78f246" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher PathNode::path_pub_</definition>
+        <argsstring></argsstring>
+        <name>path_pub_</name>
+        <briefdescription>
+<para>ROS Publishers attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="106" column="20" bodyfile="include/ros/PathNode.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a9674748b05d8c533e36da2ec98ada90b" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher PathNode::virtual_target_pub_</definition>
+        <argsstring></argsstring>
+        <name>virtual_target_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="107" column="20" bodyfile="include/ros/PathNode.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a68e8b6064801a31945620e6bf5b333a6" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::reset_path_srv_</definition>
+        <argsstring></argsstring>
+        <name>reset_path_srv_</name>
+        <briefdescription>
+<para>ROS Services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="112" column="24" bodyfile="include/ros/PathNode.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1abe453802927a7e4ac1a693ec72b37488" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::set_mode_srv_</definition>
+        <argsstring></argsstring>
+        <name>set_mode_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="113" column="24" bodyfile="include/ros/PathNode.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a0ef2d8f4aff71e6d395303f187f6121f" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::arc2d_srv_</definition>
+        <argsstring></argsstring>
+        <name>arc2d_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="114" column="24" bodyfile="include/ros/PathNode.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a1ac3d8354b40d441ccef6f607351938d" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::bernoulli_srv_</definition>
+        <argsstring></argsstring>
+        <name>bernoulli_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="115" column="24" bodyfile="include/ros/PathNode.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1afcf12f74d56b4cdc2422d502d87cd9e7" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::circle2D_srv_</definition>
+        <argsstring></argsstring>
+        <name>circle2D_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="116" column="24" bodyfile="include/ros/PathNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1adc911c0eb43aa2d3f90dabe8bf3237ec" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::line_srv_</definition>
+        <argsstring></argsstring>
+        <name>line_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="117" column="24" bodyfile="include/ros/PathNode.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a03bb129e45cb9455f74c13061329a433" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::rabbit_const_speed_srv_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_const_speed_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="118" column="24" bodyfile="include/ros/PathNode.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1adc69b99efd35f6cfca2af96de3e0eeb0" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathNode::vehicle_const_speed_srv_</definition>
+        <argsstring></argsstring>
+        <name>vehicle_const_speed_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="119" column="24" bodyfile="include/ros/PathNode.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathNode_1a3efcfef20c4a87ddb18c8a875d5093f1" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer PathNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>ROS Timers attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="124" column="16" bodyfile="include/ros/PathNode.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPathNode_1a7b28e61b64ecd0505b4612283cc5d493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PathNode::PathNode</definition>
+        <argsstring>(ros::NodeHandle *nh, ros::NodeHandle *nh_p)</argsstring>
+        <name>PathNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh_p</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classPathNode" kindref="compound">PathNode</ref> constructor. Receives the ROS node handles as inputs and initializes the subscribers, publishers, timers, parameters, etc...</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a public ROS NodeHandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a private ROS NodeHandle</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the public ROS node handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the private ROS node handle <linebreak/>
+ </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="62" column="5" bodyfile="src/ros/PathNode.cpp" bodystart="10" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a2bb54f07ceaa7548199960080b4b95a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PathNode::~PathNode</definition>
+        <argsstring>()</argsstring>
+        <name>~PathNode</name>
+        <briefdescription>
+<para>Destructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Class destructor. Called when deleting the class object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="67" column="5" bodyfile="src/ros/PathNode.cpp" bodystart="27" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPathNode_1aa1cedd4f2e13eb1e4ce94c323bcf92da" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>A method for initializing all the subscribers. This method is called by the constructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class upon object creation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="126" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="60" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1ab8c2efcf19d99f491109a8051cde2fff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>A method for initializing all the subscribers. This method is called by the constructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class upon object creation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="127" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="76" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1aa4e1d90cb37ba6979951b63ebbe5e2da" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>A method for initializing all the services. This method is called by the constructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class upon creation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="128" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="7" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a54b8e4ec57359d28f83da15defb715f0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>A method for initializing all the timers. This method is called by the constructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class upon object creation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="129" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1ad6b330a780e688722c39d7be3a4985bc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="130" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="50" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1ae6eb3a8e47720994af0b7ef397539aec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::shutdownServices</definition>
+        <argsstring>()</argsstring>
+        <name>shutdownServices</name>
+        <briefdescription>
+<para>A method for terminating all the services. This method is called by the destructor of the <ref refid="classPathNode" kindref="compound">PathNode</ref> class upon deletion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="131" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="24" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1ac8f1e92749adf21029884e50d69a3b0b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>A method do update the node update rate from the configurations in the ROS parameter server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A double with the frequency used </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="133" column="12" bodyfile="src/ros/PathNode.cpp" bodystart="103" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a0cbc954e23e8c73d3d59fc4eb71bb9e3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::timerIterCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerIterCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Method where is the logic for publishing the path information. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="138" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="109" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a26ff691c6f12fdb5ba39fc13b3e44443" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::gammaCallback</definition>
+        <argsstring>(const std_msgs::Float64 &amp;msg)</argsstring>
+        <name>gammaCallback</name>
+        <param>
+          <type>const std_msgs::Float64 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback to update the current gamma of the path.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A Float64/Double with the current value of gamma </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="143" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="205" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1adac5e235c0686fe7cf5ffd6342b2e341" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathNode::vehicleStateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>vehicleStateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback to update the current vehicle position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A auv_msgs/NavigationStatus messages with the current state of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="144" column="10" bodyfile="src/ros/PathNode.cpp" bodystart="216" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1acb4ec99a9f0345915eef9e9216b7bf74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::ResetPathService</definition>
+        <argsstring>(dsor_paths::ResetPath::Request &amp;req, dsor_paths::ResetPath::Response &amp;res)</argsstring>
+        <name>ResetPathService</name>
+        <param>
+          <type>dsor_paths::ResetPath::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::ResetPath::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Services Callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="149" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="77" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a7a925d3cdfe3cc22f7e3ff50846f8a17" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::SetModeService</definition>
+        <argsstring>(dsor_paths::SetMode::Request &amp;req, dsor_paths::SetMode::Response &amp;res)</argsstring>
+        <name>SetModeService</name>
+        <param>
+          <type>dsor_paths::SetMode::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SetMode::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="150" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="112" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a644556bc3adef7c52a4b95a130ed1aeb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::Arc2DService</definition>
+        <argsstring>(dsor_paths::SpawnArc2D::Request &amp;req, dsor_paths::SpawnArc2D::Response &amp;res)</argsstring>
+        <name>Arc2DService</name>
+        <param>
+          <type>dsor_paths::SpawnArc2D::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SpawnArc2D::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="151" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="132" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a7518c2577f010456541712a49031692a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::BernoulliService</definition>
+        <argsstring>(dsor_paths::SpawnBernoulli::Request &amp;req, dsor_paths::SpawnBernoulli::Response &amp;res)</argsstring>
+        <name>BernoulliService</name>
+        <param>
+          <type>dsor_paths::SpawnBernoulli::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SpawnBernoulli::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="152" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="171" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a5e3a2c6e79da22822552d1df49eb3a0d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::Circle2DService</definition>
+        <argsstring>(dsor_paths::SpawnCircle2D::Request &amp;req, dsor_paths::SpawnCircle2D::Response &amp;res)</argsstring>
+        <name>Circle2DService</name>
+        <param>
+          <type>dsor_paths::SpawnCircle2D::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SpawnCircle2D::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="153" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="200" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a841380bc5a997b24cf241a2b2ca900e8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::LineService</definition>
+        <argsstring>(dsor_paths::SpawnLine::Request &amp;req, dsor_paths::SpawnLine::Response &amp;res)</argsstring>
+        <name>LineService</name>
+        <param>
+          <type>dsor_paths::SpawnLine::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SpawnLine::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="154" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="229" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a90af6834e4ae24537b5c2b87236b2c13" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::RabbitConstSpeedService</definition>
+        <argsstring>(dsor_paths::SetConstSpeed::Request &amp;req, dsor_paths::SetConstSpeed::Response &amp;res)</argsstring>
+        <name>RabbitConstSpeedService</name>
+        <param>
+          <type>dsor_paths::SetConstSpeed::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SetConstSpeed::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="155" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="264" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a3d251f238b08bd7c7e264112d335220c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::VehicleConstSpeedService</definition>
+        <argsstring>(dsor_paths::SetConstSpeed::Request &amp;req, dsor_paths::SetConstSpeed::Response &amp;res)</argsstring>
+        <name>VehicleConstSpeedService</name>
+        <param>
+          <type>dsor_paths::SetConstSpeed::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_paths::SetConstSpeed::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="156" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="284" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a37a5870f9a5c1547ab1345217d4f4f19" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::loadSectionIntoPath</definition>
+        <argsstring>(PathSection *section)</argsstring>
+        <name>loadSectionIntoPath</name>
+        <param>
+          <type><ref refid="classPathSection" kindref="compound">PathSection</ref> *</type>
+          <declname>section</declname>
+        </param>
+        <briefdescription>
+<para>Auxiliar method to be called inside the callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Auxiliar method to try to load a path section into the path object. If the insertion is not valid, it deletes the object from memory and returns false.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>section</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the path section allocated in the heap</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A bool indicating whether the section was added successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="161" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="46" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathNode_1a17e889298c5a36240aebfb29fb7532d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathNode::loadSpeedIntoPath</definition>
+        <argsstring>(Speed *speed)</argsstring>
+        <name>loadSpeedIntoPath</name>
+        <param>
+          <type><ref refid="classSpeed" kindref="compound">Speed</ref> *</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+<para>Auxiliar method to try to load a speed section into the path object. If the insertion is not valid, it deletes the object from memory and returns false. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the speed section allocated in the heap</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A bool indicating whether the section was added successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathNode.h" line="162" column="10" bodyfile="src/ros/PathServices.cpp" bodystart="66" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of the <ref refid="classPathNode" kindref="compound">PathNode</ref>. Creates a <ref refid="classPath" kindref="compound">Path</ref>, adds elements to the path and publishes the path data when listening to the path parameter gamma. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/ros/PathNode.h" line="53" column="15" bodyfile="include/ros/PathNode.h" bodystart="53" bodyend="163"/>
+    <listofallmembers>
+      <member refid="classPathNode_1a0ef2d8f4aff71e6d395303f187f6121f" prot="private" virt="non-virtual"><scope>PathNode</scope><name>arc2d_srv_</name></member>
+      <member refid="classPathNode_1a644556bc3adef7c52a4b95a130ed1aeb" prot="private" virt="non-virtual"><scope>PathNode</scope><name>Arc2DService</name></member>
+      <member refid="classPathNode_1a1ac3d8354b40d441ccef6f607351938d" prot="private" virt="non-virtual"><scope>PathNode</scope><name>bernoulli_srv_</name></member>
+      <member refid="classPathNode_1a7518c2577f010456541712a49031692a" prot="private" virt="non-virtual"><scope>PathNode</scope><name>BernoulliService</name></member>
+      <member refid="classPathNode_1afcf12f74d56b4cdc2422d502d87cd9e7" prot="private" virt="non-virtual"><scope>PathNode</scope><name>circle2D_srv_</name></member>
+      <member refid="classPathNode_1a5e3a2c6e79da22822552d1df49eb3a0d" prot="private" virt="non-virtual"><scope>PathNode</scope><name>Circle2DService</name></member>
+      <member refid="classPathNode_1a34d4b44639fedc5063c538dc9db45b63" prot="private" virt="non-virtual"><scope>PathNode</scope><name>closer_point_mode_</name></member>
+      <member refid="classPathNode_1a6aa9cdfbeb2482561744dbd5763b5aee" prot="private" virt="non-virtual"><scope>PathNode</scope><name>frame_id_</name></member>
+      <member refid="classPathNode_1a7ee2e4fa8dd388e9d8916ddae6b55a50" prot="private" virt="non-virtual"><scope>PathNode</scope><name>gamma_</name></member>
+      <member refid="classPathNode_1a19bd337288dc99912e1a3a9d5abdf83e" prot="private" virt="non-virtual"><scope>PathNode</scope><name>gamma_sub_</name></member>
+      <member refid="classPathNode_1a26ff691c6f12fdb5ba39fc13b3e44443" prot="private" virt="non-virtual"><scope>PathNode</scope><name>gammaCallback</name></member>
+      <member refid="classPathNode_1ab8c2efcf19d99f491109a8051cde2fff" prot="private" virt="non-virtual"><scope>PathNode</scope><name>initializePublishers</name></member>
+      <member refid="classPathNode_1aa4e1d90cb37ba6979951b63ebbe5e2da" prot="private" virt="non-virtual"><scope>PathNode</scope><name>initializeServices</name></member>
+      <member refid="classPathNode_1aa1cedd4f2e13eb1e4ce94c323bcf92da" prot="private" virt="non-virtual"><scope>PathNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classPathNode_1a54b8e4ec57359d28f83da15defb715f0" prot="private" virt="non-virtual"><scope>PathNode</scope><name>initializeTimer</name></member>
+      <member refid="classPathNode_1adc911c0eb43aa2d3f90dabe8bf3237ec" prot="private" virt="non-virtual"><scope>PathNode</scope><name>line_srv_</name></member>
+      <member refid="classPathNode_1a841380bc5a997b24cf241a2b2ca900e8" prot="private" virt="non-virtual"><scope>PathNode</scope><name>LineService</name></member>
+      <member refid="classPathNode_1ad6b330a780e688722c39d7be3a4985bc" prot="private" virt="non-virtual"><scope>PathNode</scope><name>loadParams</name></member>
+      <member refid="classPathNode_1a37a5870f9a5c1547ab1345217d4f4f19" prot="private" virt="non-virtual"><scope>PathNode</scope><name>loadSectionIntoPath</name></member>
+      <member refid="classPathNode_1a17e889298c5a36240aebfb29fb7532d1" prot="private" virt="non-virtual"><scope>PathNode</scope><name>loadSpeedIntoPath</name></member>
+      <member refid="classPathNode_1a1de81afd0187edf0e40e2bbf81f873db" prot="private" virt="non-virtual"><scope>PathNode</scope><name>nh_</name></member>
+      <member refid="classPathNode_1a79163565247a1f10a502ffc1a4392577" prot="private" virt="non-virtual"><scope>PathNode</scope><name>nh_p_</name></member>
+      <member refid="classPathNode_1ac8f1e92749adf21029884e50d69a3b0b" prot="private" virt="non-virtual"><scope>PathNode</scope><name>nodeFrequency</name></member>
+      <member refid="classPathNode_1ab66929a7d9a72f8355b267bf8e714bc2" prot="private" virt="non-virtual"><scope>PathNode</scope><name>path_</name></member>
+      <member refid="classPathNode_1a87c614f42913e12dc0d64a0a0f78f246" prot="private" virt="non-virtual"><scope>PathNode</scope><name>path_pub_</name></member>
+      <member refid="classPathNode_1a7b28e61b64ecd0505b4612283cc5d493" prot="public" virt="non-virtual"><scope>PathNode</scope><name>PathNode</name></member>
+      <member refid="classPathNode_1a03bb129e45cb9455f74c13061329a433" prot="private" virt="non-virtual"><scope>PathNode</scope><name>rabbit_const_speed_srv_</name></member>
+      <member refid="classPathNode_1a90af6834e4ae24537b5c2b87236b2c13" prot="private" virt="non-virtual"><scope>PathNode</scope><name>RabbitConstSpeedService</name></member>
+      <member refid="classPathNode_1a68e8b6064801a31945620e6bf5b333a6" prot="private" virt="non-virtual"><scope>PathNode</scope><name>reset_path_srv_</name></member>
+      <member refid="classPathNode_1acb4ec99a9f0345915eef9e9216b7bf74" prot="private" virt="non-virtual"><scope>PathNode</scope><name>ResetPathService</name></member>
+      <member refid="classPathNode_1a9f1a2548e71cca7466041ddf89552402" prot="private" virt="non-virtual"><scope>PathNode</scope><name>seq_</name></member>
+      <member refid="classPathNode_1abe453802927a7e4ac1a693ec72b37488" prot="private" virt="non-virtual"><scope>PathNode</scope><name>set_mode_srv_</name></member>
+      <member refid="classPathNode_1a7a925d3cdfe3cc22f7e3ff50846f8a17" prot="private" virt="non-virtual"><scope>PathNode</scope><name>SetModeService</name></member>
+      <member refid="classPathNode_1ae6eb3a8e47720994af0b7ef397539aec" prot="private" virt="non-virtual"><scope>PathNode</scope><name>shutdownServices</name></member>
+      <member refid="classPathNode_1a3efcfef20c4a87ddb18c8a875d5093f1" prot="private" virt="non-virtual"><scope>PathNode</scope><name>timer_</name></member>
+      <member refid="classPathNode_1a0cbc954e23e8c73d3d59fc4eb71bb9e3" prot="private" virt="non-virtual"><scope>PathNode</scope><name>timerIterCallback</name></member>
+      <member refid="classPathNode_1adc69b99efd35f6cfca2af96de3e0eeb0" prot="private" virt="non-virtual"><scope>PathNode</scope><name>vehicle_const_speed_srv_</name></member>
+      <member refid="classPathNode_1ab1c0441c1b67489b417599004ea0dd20" prot="private" virt="non-virtual"><scope>PathNode</scope><name>vehicle_pos_</name></member>
+      <member refid="classPathNode_1a3a13e31039a0132aee463bb36f910493" prot="private" virt="non-virtual"><scope>PathNode</scope><name>vehicle_sub_</name></member>
+      <member refid="classPathNode_1a3d251f238b08bd7c7e264112d335220c" prot="private" virt="non-virtual"><scope>PathNode</scope><name>VehicleConstSpeedService</name></member>
+      <member refid="classPathNode_1adac5e235c0686fe7cf5ffd6342b2e341" prot="private" virt="non-virtual"><scope>PathNode</scope><name>vehicleStateCallback</name></member>
+      <member refid="classPathNode_1a9674748b05d8c533e36da2ec98ada90b" prot="private" virt="non-virtual"><scope>PathNode</scope><name>virtual_target_pub_</name></member>
+      <member refid="classPathNode_1a2bb54f07ceaa7548199960080b4b95a2" prot="public" virt="non-virtual"><scope>PathNode</scope><name>~PathNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

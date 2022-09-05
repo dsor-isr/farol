@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessNotFound" kind="class" language="Python" prot="public">
+    <compoundname>farol_bringup_algorithms::FarolSetup::ProcessNotFound</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>farol_bringup_algorithms.FarolSetup.ProcessNotFound</label>
+        <link refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessNotFound"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="1">
+        <label>farol_bringup_algorithms.FarolSetup.ProcessNotFound</label>
+        <link refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessNotFound"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/farol_bringup_algorithms/FarolSetup.py" line="42" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="42" bodyend="-1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

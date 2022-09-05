@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="HorizontalFilter_8cpp" kind="file" language="C++">
+    <compoundname>HorizontalFilter.cpp</compoundname>
+    <includes refid="HorizontalFilter_8h" local="yes">HorizontalFilter.h</includes>
+    <incdepgraph>
+      <node id="18">
+        <label>dsor_msgs/Measurement.h</label>
+      </node>
+      <node id="11">
+        <label>Eigen/Eigen</label>
+      </node>
+      <node id="8">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="15">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="7">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="17">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="10">
+        <label>geometry_msgs/TransformStamped.h</label>
+      </node>
+      <node id="14">
+        <label>FilterGimmicks.h</label>
+        <link refid="FilterGimmicks_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/algorithms/HorizontalFilter.cpp</label>
+        <link refid="HorizontalFilter_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>vector</label>
+      </node>
+      <node id="9">
+        <label>geometry_msgs/Vector3Stamped.h</label>
+      </node>
+      <node id="2">
+        <label>HorizontalFilter.h</label>
+        <link refid="HorizontalFilter_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="13">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="12">
+        <label>GeographicLib/GeoCoords.hpp</label>
+      </node>
+      <node id="4">
+        <label>tf2_ros/transform_listener.h</label>
+      </node>
+      <node id="5">
+        <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;HorizontalFilter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classHorizontalFilter_1ad7654142dd2d8704e446915f22392def" kindref="member">HorizontalFilter::HorizontalFilter</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/>initialized_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Initialize<sp/>All<sp/>Eigen<sp/>Matrices<sp/>and<sp/>Vectors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>reject_counter_.resize(MEAS_LEN);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>state_reject_counter_.resize(MEAS_LEN);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>state_reject_counter_.setZero();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>state_vec_.resize(STATE_LEN,<sp/>1);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>state_cov_.resize(STATE_LEN,<sp/>STATE_LEN);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>state_vec_.setZero();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>state_cov_.setZero();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>process_cov_.resize(STATE_LEN,<sp/>STATE_LEN);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>process_cov_.setZero();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1ac6f1f02d0916ed73238c71288e439b61" kindref="member">HorizontalFilter::computePredict</ref>(auv_msgs::NavigationStatus<sp/>&amp;state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ros::Time<sp/>&amp;t_request)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>predict(state_vec_,<sp/>state_cov_,<sp/>(t_request<sp/>-<sp/>last_predict_).toSec());</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>last_predict_<sp/>=<sp/>t_request;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Publish<sp/>part<sp/>transform<sp/>from<sp/>World<sp/>(Horizontal)<sp/>-&gt;<sp/>Horizontal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>geometry_msgs::TransformStamped<sp/>world_to_base;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>world_to_base.header.stamp<sp/>=<sp/>t_request;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>world_to_base.header.frame_id<sp/>=<sp/>world_frame_id_;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>world_to_base.child_frame_id<sp/>=<sp/>world_frame_id_<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_H&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>world_to_base.transform.translation.x<sp/>=<sp/>state_vec_(0);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>world_to_base.transform.translation.y<sp/>=<sp/>state_vec_(1);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>world_to_base.transform.rotation.w<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Only<sp/>broadcast<sp/>if<sp/>asked<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tf_broadcast_flag_)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tf_broadcast_.sendTransform(world_to_base);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(tf2::TransformException<sp/>&amp;ex)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ROS_ERROR_DELAYED_THROTTLE(10.0,<sp/></highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ex.what());</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>horizontal<sp/>state<sp/>estimate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>state.position.north<sp/>=<sp/>state_vec_(0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>state.position.east<sp/>=<sp/>state_vec_(1);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>state.seafloor_velocity.x<sp/>=<sp/>state_vec_(2);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>state.seafloor_velocity.y<sp/>=<sp/>state_vec_(3);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>state.position_variance.north<sp/>=<sp/>state_cov_(0,<sp/>0);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>state.position_variance.east<sp/>=<sp/>state_cov_(1,<sp/>1);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="classHorizontalFilter_1a2c072c54c6e27337f96b99a3e27dee3f" kindref="member">HorizontalFilter::getExtimateCurrents</ref>(){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>create<sp/>a<sp/>vector<sp/>to<sp/>retun<sp/>the<sp/>currents</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>currents;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>add<sp/>the<sp/>currents<sp/>to<sp/>the<sp/>vector<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>currents.emplace_back(state_vec_[6]);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>currents.emplace_back(state_vec_[7]);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>currents;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1a0ee25d3a0cb0155d907629d58d7fa5b7" kindref="member">HorizontalFilter::configure</ref>(<ref refid="structHorizontalFilter_1_1config" kindref="compound">HorizontalFilter::config</ref><sp/>&amp;configurations)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>TF<sp/>parameterrs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>init_frame_id_<sp/>=<sp/>configurations.meas_init.header.frame_id;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>world_frame_id_<sp/>=<sp/>configurations.world_frame;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>name_vehicle_id_<sp/>=<sp/>configurations.name_vehicle_id;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>tf_broadcast_<sp/>=<sp/>*configurations.br_node;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>tf_broadcast_flag_<sp/>=<sp/>configurations.broadcast_tf;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>kalman<sp/>filter<sp/>parameterrs</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//t_period_<sp/>=<sp/>configurations.kalman_config[0];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>t_save_measurement_<sp/>=<sp/>configurations.kalman_config[1];</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>t_reset_<sp/>=<sp/>configurations.kalman_config[2];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>initial<sp/>state<sp/>covariance<sp/>and<sp/>outlier<sp/>rejection<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>6;<sp/>i++)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>state_cov_(i,<sp/>i)<sp/>=<sp/>configurations.meas_init.noise(i);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>process_cov_.block&lt;2,<sp/>2&gt;(i<sp/>*<sp/>2,<sp/>i<sp/>*<sp/>2)<sp/>=</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Mat::Identity(2,<sp/>2)<sp/>*<sp/>configurations.process_noise[i];</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>reject_counter_.segment&lt;2&gt;(i<sp/>*<sp/>2)<sp/>=</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector2d(1,<sp/>1)<sp/>*<sp/>configurations.reject_counter[i];</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Parameters<sp/>for<sp/>currents<sp/>are<sp/>dependent<sp/>on<sp/>vehicle<sp/>velocity<sp/>because<sp/>currents<sp/>and<sp/>vehicles<sp/>velocity<sp/>are<sp/>derived<sp/>from<sp/>the<sp/>same<sp/>sensors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>state_cov_(6,<sp/>6)<sp/>=<sp/>configurations.meas_init.noise(2)<sp/>*<sp/>0.001;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>state_cov_(7,<sp/>7)<sp/>=<sp/>configurations.meas_init.noise(3)<sp/>*<sp/>0.001;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>process_cov_.block&lt;2,<sp/>2&gt;(6,<sp/>6)<sp/>=<sp/>Mat::Identity(2,<sp/>2)<sp/>*<sp/>configurations.process_noise[1]<sp/>*<sp/>0.001;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(configurations.initialized)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized_<sp/>=<sp/>initialize(configurations.meas_init);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1ae786c137e3dcb23c8d4beaeb6c852875" kindref="member">HorizontalFilter::newMeasurement</ref>(<ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>the<sp/>measurement<sp/>is<sp/>Invald</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(FilterGimmicks::isinvalid(m,<sp/>(last_update_.toSec()<sp/>-<sp/>t_save_measurement_)))<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>Measurement<sp/>%s<sp/>is<sp/>invalid<sp/>in<sp/>the<sp/>Horizontal<sp/>Filter&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m.header.frame_id.c_str());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Initialize<sp/>or<sp/>update<sp/>the<sp/>filter<sp/>state<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_<sp/>&amp;&amp;<sp/>m.header.frame_id<sp/>==<sp/>init_frame_id_)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized_<sp/>=<sp/>initialize(m);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(<sp/></highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>Initialized<sp/>With<sp/>%s<sp/>Measurement:<sp/>[%.2f,%.2f]&quot;</highlight><highlight class="normal">,<sp/>m.header.frame_id.c_str(),<sp/>m.value(0),<sp/>m.value(1));</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(initialized_)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>forwardPropagation(addMeasurementToBuffer(m));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1a0157428ae0e862dd3a7bdb1b0db065ab" kindref="member">HorizontalFilter::deleteMeasurementsInBuffer</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>the<sp/>filter<sp/>is<sp/>not<sp/>initialized</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Delete<sp/>all<sp/>but<sp/>one<sp/>measurements<sp/>older<sp/>than<sp/>save_measuement_interval</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>it_measurement<sp/>=<sp/>meas_list_.begin();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>If<sp/>the<sp/>list<sp/>measurement<sp/>has<sp/>only<sp/>one<sp/>measurement<sp/>is<sp/>beacause<sp/>we<sp/>have<sp/>clean<sp/>all<sp/>measurements<sp/><sp/>and<sp/>we<sp/>haven&apos;t<sp/>recived<sp/>any<sp/>measurement,<sp/>yet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(meas_list_.size()<sp/>==<sp/>1){</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((ros::Time::now()<sp/>-<sp/>(--meas_list_.end())-&gt;header.stamp).toSec()<sp/>&gt;<sp/>t_save_measurement_){</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>it_measurement<sp/>=<sp/>(--meas_list_.end());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>The<sp/>last<sp/>measurement<sp/>is<sp/>out<sp/>of<sp/>the<sp/>buffer<sp/>save<sp/>period<sp/>time<sp/>-<sp/>all<sp/>list<sp/>will<sp/>be<sp/>deleted&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Starting<sp/>from<sp/>the<sp/>first<sp/>masurement,<sp/>till<sp/>the<sp/>last<sp/>measurement<sp/>untill<sp/>save</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>time<sp/>period<sp/>exceeds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(it_measurement<sp/>!=<sp/>meas_list_.end()<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(ros::Time::now()<sp/>-<sp/>it_measurement-&gt;header.stamp).toSec()<sp/>&gt;<sp/>t_save_measurement_)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>it_measurement++;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>meas_list_.erase(meas_list_.begin(),<sp/>it_measurement);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>HorizontalFilter::initialize(<ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>state<sp/>vector<sp/>and<sp/>covariance<sp/>if<sp/>measurement<sp/>is<sp/>valid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.value.size()<sp/>==<sp/>MEAS_LEN)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec_.segment&lt;MEAS_LEN&gt;(0)<sp/>=<sp/>m.value;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.value.size()<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec_.segment&lt;2&gt;(0)<sp/>=<sp/>m.value;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>Could<sp/>not<sp/>initialize<sp/>with<sp/>measurement<sp/>%s,<sp/>passed<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;value<sp/>not<sp/>initializable&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m.header.frame_id.c_str());</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Initialize<sp/>eigen<sp/>vectors<sp/>and<sp/>clear<sp/>measurement<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>meas_list_.clear();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>m.state_copy.resize(STATE_LEN);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>m.state_cov_copy.resize(STATE_LEN,<sp/>STATE_LEN);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Add<sp/>measurement<sp/>to<sp/>measurement<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>m.state_copy<sp/>=<sp/>state_vec_;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>m.state_cov_copy<sp/>=<sp/>state_cov_;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>m.header.stamp<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>meas_list_.push_back(m);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>last_predict_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>last_update_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HorizontalFilter::predict(Vec<sp/>&amp;state_vec,<sp/>Mat<sp/>&amp;state_cov,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>prediction<sp/>period<sp/>is<sp/>small</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dt<sp/>&lt;<sp/>0.001)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Make<sp/>Kalman<sp/>State<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>Mat<sp/>state_mat<sp/>=<sp/>Mat::Identity(8,<sp/>8);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Add<sp/>currents<sp/>to<sp/>the<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>state_mat.block&lt;2,<sp/>2&gt;(0,<sp/>2)<sp/>&lt;&lt;<sp/>Mat::Identity(2,<sp/>2)<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//state_mat.block&lt;2,<sp/>2&gt;(0,<sp/>6)<sp/>&lt;&lt;<sp/>Mat::Identity(2,<sp/>2)<sp/>*<sp/>dt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Uncomment<sp/>this<sp/>to<sp/>add<sp/>the<sp/>acceleratio<sp/>ns<sp/>to<sp/>the<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//state_mat.block&lt;2,<sp/>2&gt;(0,<sp/>4)<sp/>&lt;&lt;<sp/>Mat::Identity(2,<sp/>2)<sp/>*<sp/>(dt<sp/>*<sp/>dt)<sp/>*<sp/>0.5;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//state_mat.block&lt;2,<sp/>2&gt;(2,<sp/>4)<sp/>&lt;&lt;<sp/>Mat::Identity(2,<sp/>2)<sp/>*<sp/>dt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>(NEW<sp/>STATE)<sp/>=<sp/>(STATE<sp/>TRANSITION<sp/>MATRIX)<sp/>*<sp/>(PREV<sp/>STATE)</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>X<sp/>(k+1)<sp/><sp/>|<sp/>=<sp/>|<sp/>1<sp/>0<sp/>dt<sp/>0<sp/><sp/>0<sp/>0<sp/>0<sp/>0<sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>X<sp/><sp/>|<sp/>position<sp/>x</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>Y<sp/>(k+1)<sp/><sp/>|<sp/>=<sp/>|<sp/>0<sp/>1<sp/>0<sp/><sp/>dt<sp/>0<sp/>0<sp/>0<sp/>0<sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>Y<sp/><sp/>|<sp/>position<sp/>y</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>vx<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>0<sp/>1<sp/><sp/>0<sp/><sp/>0<sp/>0<sp/>0<sp/>0<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>vx<sp/>|<sp/>Inertial<sp/>x<sp/>velocity</highlight></codeline>
+<codeline lineno="198"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>vy<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>0<sp/>0<sp/><sp/>1<sp/><sp/>0<sp/>0<sp/>0<sp/>0<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>vy<sp/>|<sp/>Inertial<sp/>y<sp/>velocity</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>ax<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>0<sp/>0<sp/><sp/>0<sp/><sp/>1<sp/>0<sp/>0<sp/>0<sp/><sp/>|<sp/><sp/>X<sp/><sp/>|<sp/>ax<sp/>|<sp/>Acceleration<sp/>x<sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>ay<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>0<sp/>0<sp/><sp/>0<sp/><sp/>0<sp/>1<sp/>0<sp/>0<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>ay<sp/>|<sp/>Acceleration<sp/>y<sp/></highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>cx<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>0<sp/>0<sp/><sp/>0<sp/><sp/>0<sp/>0<sp/>1<sp/>0<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>cx<sp/>|<sp/>Current<sp/>Velocity<sp/>x<sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/><sp/><sp/>*|<sp/>cy<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>0<sp/>0<sp/><sp/>0<sp/><sp/>0<sp/>0<sp/>0<sp/>1<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/>|<sp/>cy<sp/>|<sp/>Current<sp/>Velocity<sp/>y</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Propagate<sp/>State<sp/>and<sp/>Covariance<sp/>Matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>state_vec<sp/>=<sp/>state_mat<sp/>*<sp/>state_vec;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>state_cov<sp/>=<sp/>state_mat<sp/>*<sp/>state_cov<sp/>*<sp/>state_mat.transpose()<sp/>+<sp/>dt<sp/>*<sp/>process_cov_;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>HorizontalFilter::update(Vec<sp/>&amp;state_vec,<sp/>Mat<sp/>&amp;state_cov,<sp/>std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>&amp;it_measurement)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>kalman<sp/>filter<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>Vec<sp/>if_vec;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>Mat<sp/>observation_mat;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>Mat<sp/>meas_cov;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>the<sp/>filter<sp/>is<sp/>not<sp/>initialized</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>last_update_<sp/>=<sp/>it_measurement-&gt;header.stamp;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Find<sp/>active<sp/>sensor<sp/>and<sp/>create<sp/>state<sp/>observation<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>observation_mat.resize(2,<sp/>STATE_LEN);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>observation_mat.setZero();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>meas_cov.resize(2,<sp/>2);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>meas_cov.setZero(2,<sp/>2);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>observation_mat<sp/>=<sp/>Eigen::MatrixXd::Zero(2,<sp/>STATE_LEN);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temp<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>it_measurement-&gt;config.size();<sp/>i++)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it_measurement-&gt;config(i))</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>observation_mat(temp++,<sp/>i)<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if_vec<sp/>=<sp/>Measurment<sp/>-<sp/>state<sp/>mean</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>https://medium.com/blogyuxiglobal/kalman-filter-the-way-to-remove-outliers-bb6aa616788e</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>if_vec<sp/>=<sp/>it_measurement-&gt;value<sp/>-<sp/>(observation_mat<sp/>*<sp/>state_vec);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>meas_cov.diagonal()<sp/>=<sp/>it_measurement-&gt;noise;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Calculate<sp/>Kalman<sp/>Innovation<sp/>Matrix<sp/>and<sp/>Check<sp/>if<sp/>it<sp/>is<sp/>invertible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>Mat<sp/>innovation_mat<sp/>=</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>observation_mat<sp/>*<sp/>state_cov<sp/>*<sp/>observation_mat.transpose()<sp/>+<sp/>meas_cov;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>Eigen::FullPivLU&lt;Mat&gt;<sp/>lu(innovation_mat);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!lu.isInvertible())<sp/>{</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_ERROR(</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>Innovation<sp/>Matrix<sp/>&lt;innovation_mat&gt;<sp/>is<sp/>not<sp/>invertible&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Mahalanobis<sp/>distance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//double<sp/>normalized_error<sp/>=<sp/>if_vec.transpose()<sp/>*<sp/>innovation_mat.inverse()<sp/>*<sp/>if_vec;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//std::cout<sp/>&lt;&lt;<sp/>&quot;Mahalanobis<sp/>Distance<sp/>&quot;<sp/>&lt;&lt;<sp/>normalized_error<sp/>&lt;&lt;<sp/>&quot;\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Outlier<sp/>Rejection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dynamic_tolerance<sp/>=<sp/>it_measurement-&gt;outlier_tolerance<sp/>+<sp/>abs(it_measurement-&gt;header.stamp.toSec()<sp/>-<sp/>it_measurement-&gt;time_of_previous_meas)<sp/>*<sp/>it_measurement-&gt;outlier_increase;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(normalized_error<sp/>&gt;<sp/>it_measurement-&gt;outlier_tolerance)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//if(if_vec.maxCoeff()<sp/>&gt;<sp/>it_measurement-&gt;outlier_tolerance<sp/>||<sp/>if_vec.minCoeff()<sp/>&lt;<sp/>-it_measurement-&gt;outlier_tolerance)<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(if_vec.maxCoeff()<sp/>&gt;<sp/>dynamic_tolerance<sp/>||<sp/>if_vec.minCoeff()<sp/>&lt;<sp/>-dynamic_tolerance)<sp/></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Add<sp/>one<sp/>to<sp/>all<sp/>corresponding<sp/>state<sp/>reject<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>state_reject_counter_<sp/>+=<sp/>it_measurement-&gt;config;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Check<sp/>if<sp/>any<sp/>counter<sp/>overflows</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((state_reject_counter_<sp/>-<sp/>it_measurement-&gt;reject_counter*Eigen::VectorXd::Ones(MEAS_LEN)).maxCoeff()<sp/>&gt;<sp/>0){<sp/></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MEAS_LEN;<sp/>i++){</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state_reject_counter_[i]<sp/>&gt;<sp/>0){</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_reject_counter_[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ROS_WARN(&quot;Horizontal:<sp/>Measurement<sp/>of<sp/>frame<sp/>%s<sp/>rejected<sp/>as<sp/>outlier.<sp/>x:<sp/>%1f,<sp/>y:<sp/>%1f<sp/>with<sp/>normalized_error<sp/>%1f<sp/>and<sp/>threshold<sp/>%1f&quot;,<sp/>it_measurement-&gt;header.frame_id.c_str(),<sp/>if_vec(0),<sp/>if_vec(1),<sp/>normalized_error,<sp/>outlier_rejection_threshold_);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;\nHorizontal:<sp/>Measurement<sp/>of<sp/>frame<sp/>%s<sp/>rejected<sp/>as<sp/>outlier.<sp/>Value:<sp/>[%1f,<sp/>%1f]<sp/>with<sp/>error<sp/>of<sp/>[%1f,<sp/>%1f]<sp/>and<sp/>tolerance<sp/>of<sp/>%1f&quot;</highlight><highlight class="normal">,<sp/>it_measurement-&gt;header.frame_id.c_str(),<sp/>it_measurement-&gt;value(0),<sp/>it_measurement-&gt;value(1),<sp/>if_vec(0),<sp/>if_vec(1),<sp/>it_measurement-&gt;outlier_tolerance);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Horizontal<sp/>Outlier<sp/>Counter:<sp/>POSITION:<sp/>[x:%f,<sp/>y:%f]<sp/>,<sp/>VELOCITY:<sp/>[vx:%f,<sp/>vy:%f]\n&quot;</highlight><highlight class="normal">,<sp/>state_reject_counter_(0),<sp/>state_reject_counter_(1),<sp/>state_reject_counter_(2),<sp/>state_reject_counter_(3));</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>If<sp/>the<sp/>outliers<sp/>are<sp/>not<sp/>continous,<sp/>reset<sp/>state_reject_counter_<sp/>of<sp/>the<sp/>measurement<sp/>received.<sp/>Use<sp/>measurement-&gt;config<sp/>which<sp/>tells<sp/>the<sp/>elements<sp/>of<sp/>the<sp/>state<sp/>affected.<sp/>Note<sp/>that<sp/>if<sp/>we<sp/>have<sp/>a<sp/>config<sp/><sp/>[1<sp/>1<sp/>0<sp/>0<sp/>0<sp/>0<sp/>0<sp/>0],<sp/>state_reject_counter_<sp/>is<sp/>multiplied<sp/>with<sp/>[0<sp/>0<sp/>1<sp/>1<sp/>1<sp/>1<sp/>1<sp/>1<sp/>1]<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>Vec<sp/>aux<sp/>=<sp/>(it_measurement-&gt;config.array()).select(it_measurement-&gt;config<sp/>-<sp/>Eigen::VectorXd::Ones(MEAS_LEN),<sp/>Eigen::VectorXd::Ones(MEAS_LEN));</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>aux2<sp/>=<sp/>aux.asDiagonal();</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>state_reject_counter_<sp/>=<sp/>aux2<sp/>*<sp/>state_reject_counter_;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Calculate<sp/>Kalman<sp/>gain<sp/>matrix<sp/>and<sp/>update<sp/>state<sp/>vector<sp/>and<sp/>state<sp/>covariance<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>Mat<sp/>kalman_gain<sp/>=</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_cov<sp/>*<sp/>observation_mat.transpose()<sp/>*<sp/>innovation_mat.inverse();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>state_vec<sp/>=<sp/>state_vec<sp/>+<sp/>kalman_gain<sp/>*<sp/>if_vec;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/>state_cov<sp/>=<sp/>(Mat::Identity(STATE_LEN,<sp/>STATE_LEN)<sp/>-<sp/>kalman_gain<sp/>*<sp/>observation_mat)<sp/>*<sp/>state_cov;</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal">std::list&lt;FilterGimmicks::measurement&gt;::iterator</highlight></codeline>
+<codeline lineno="293"><highlight class="normal">HorizontalFilter::addMeasurementToBuffer(<ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)<sp/>{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>measuement<sp/>is<sp/>Invalid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((ros::Time::now()<sp/>-<sp/>m.header.stamp).toSec()<sp/>&gt;<sp/>t_save_measurement_)<sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>Trying<sp/>to<sp/>add<sp/>measurement<sp/>older<sp/>than<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;save_measurement_interval.<sp/>Ignoring<sp/>measurement.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(--meas_list_.end());</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Insert<sp/>current<sp/>measurement<sp/>in<sp/>the<sp/>time-ordered<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>it_measurement<sp/>=<sp/>--meas_list_.end();</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Find<sp/>the<sp/>element<sp/>in<sp/>the<sp/>list<sp/>that<sp/><sp/>has<sp/>a<sp/>timestamp<sp/>lower<sp/>than<sp/>the<sp/>measurement<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(it_measurement<sp/>!=<sp/>meas_list_.begin()<sp/>&amp;&amp;<sp/>it_measurement-&gt;header.stamp<sp/>&gt;<sp/>m.header.stamp){</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>it_measurement--;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Advance<sp/>the<sp/>iterator<sp/>one<sp/>element<sp/>in<sp/>the<sp/>list<sp/>to<sp/>place<sp/>the<sp/>new<sp/>measurement<sp/>in<sp/>the<sp/>right<sp/>spot.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>The<sp/>iterator<sp/>has<sp/>to<sp/>advance<sp/>because<sp/>the<sp/>insert<sp/>function<sp/>will<sp/>place<sp/>the<sp/>new<sp/>measurement<sp/>in<sp/>the<sp/>list<sp/>before<sp/>the<sp/>element<sp/>at<sp/>the<sp/>specified<sp/>position.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>check<sp/>this:<sp/>https://www.cplusplus.com/reference/list/list/insert/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/>it_measurement<sp/>=<sp/>meas_list_.insert(++it_measurement,<sp/>m);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>This<sp/>is<sp/>done<sp/>to<sp/>point<sp/>the<sp/>iterator<sp/>to<sp/>the<sp/>added<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it_measurement<sp/>!=<sp/>meas_list_.begin())</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>--it_measurement;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_ERROR(</highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>New<sp/>measurement<sp/>is<sp/>the<sp/>oldest<sp/>in<sp/>the<sp/>list&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(--meas_list_.end());</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HorizontalFilter::forwardPropagation(</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>it_measurement)<sp/>{</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>updating<sp/>end<sp/>measuement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(it_measurement<sp/>==<sp/>(--meas_list_.end()))<sp/>{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Horizontal:<sp/>Trying<sp/>to<sp/>forward<sp/>propagate<sp/>from<sp/>an<sp/>end<sp/>position<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;iterator.<sp/>This<sp/>should<sp/>happen<sp/>only<sp/>when<sp/>initializing<sp/>or<sp/>ignoring<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;old<sp/>measurements.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Predict<sp/>and<sp/>update<sp/>all<sp/>measurements<sp/>from<sp/>the<sp/>iterator<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/>ros::Time<sp/>t_estimate<sp/>=<sp/>it_measurement-&gt;header.stamp;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/>state_vec_<sp/>=<sp/>it_measurement-&gt;state_copy;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/>state_cov_<sp/>=<sp/>it_measurement-&gt;state_cov_copy;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/>it_measurement++;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(it_measurement<sp/>!=<sp/>meas_list_.end())<sp/>{</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>predict(state_vec_,<sp/>state_cov_,<sp/>(it_measurement-&gt;header.stamp<sp/>-<sp/>t_estimate).toSec());</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_estimate<sp/>=<sp/>it_measurement-&gt;header.stamp;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Update<sp/>state<sp/>vector<sp/>and<sp/>covariance<sp/>if<sp/>the<sp/>update<sp/>was<sp/>valid<sp/>(not<sp/>rejected<sp/>as<sp/>outlier)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(update(state_vec_,<sp/>state_cov_,<sp/>it_measurement)){</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it_measurement-&gt;state_copy.resize(STATE_LEN);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it_measurement-&gt;state_copy<sp/>=<sp/>state_vec_;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it_measurement-&gt;state_cov_copy.resize(STATE_LEN,<sp/>STATE_LEN);</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it_measurement-&gt;state_cov_copy<sp/>=<sp/>state_cov_;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>update<sp/>the<sp/>iterator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it_measurement++;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Discard<sp/>measurement<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>meas_list_.erase(it_measurement);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>t_estimate<sp/>=<sp/>(--meas_list_.end())-&gt;header.stamp;</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_vec_<sp/>=<sp/>(--meas_list_.end())-&gt;state_copy;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_cov_<sp/>=<sp/>(--meas_list_.end())-&gt;state_cov_copy;</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Predict<sp/>until<sp/>current<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/>predict(state_vec_,<sp/>state_cov_,<sp/>(ros::Time::now()<sp/>-<sp/>t_estimate).toSec());</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/>last_predict_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="363"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"></highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1ad393f414ecd694614ae7d50917eb4db4" kindref="member">HorizontalFilter::resetFilter</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Reset<sp/>filter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/>ROS_ERROR(</highlight><highlight class="stringliteral">&quot;Horizontal<sp/>Filter<sp/>reset.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/>initialized_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="369"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/HorizontalFilter.cpp"/>
+  </compounddef>
+</doxygen>

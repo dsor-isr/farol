@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="PathFollowing_8cpp" kind="file" language="C++">
+    <compoundname>PathFollowing.cpp</compoundname>
+    <includes refid="PathFollowing_8h" local="yes">PathFollowing.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="10">
+        <label>farol_msgs/mPFollowingDebug.h</label>
+      </node>
+      <node id="5">
+        <label>States.h</label>
+        <link refid="States_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="9">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="8">
+        <label>dsor_paths/SetMode.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/PathFollowing.cpp</label>
+        <link refid="PathFollowing_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="11">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="2">
+        <label>PathFollowing.h</label>
+        <link refid="PathFollowing_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;PathFollowing.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Virtual<sp/>destructor<sp/>for<sp/>the<sp/>path<sp/>following<sp/>class<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" kindref="member">PathFollowing::~PathFollowing</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Setter<sp/>for<sp/>the<sp/>vehicle<sp/>state<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" kindref="member">PathFollowing::UpdateVehicleState</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structVehicleState" kindref="compound">VehicleState</ref><sp/>&amp;vehicle_state)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref><sp/>=<sp/>vehicle_state;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Setter<sp/>for<sp/>the<sp/>path<sp/>state<sp/>structure<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" kindref="member">PathFollowing::UpdatePathState</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structPathState" kindref="compound">PathState</ref><sp/>&amp;path_state)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref><sp/>=<sp/>path_state;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" kindref="member">PathFollowing::publish</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>publish_private();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>farol_msgs::mPFollowingDebug<sp/>pf_debug;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>pf_debug.header.stamp<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>pf_debug.algorithm<sp/>=<sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>pf_debug.cross_track_error<sp/>=<sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>pf_debug.along_track_error<sp/>=<sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>pf_debug.yaw<sp/>=<sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>pf_debug.psi<sp/>=<sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>pf_debug.gamma<sp/>=<sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>pfollowing_debug_pub_.publish(pf_debug);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Auxiliar<sp/>method<sp/>to<sp/>smooth<sp/>out<sp/>the<sp/>angle<sp/>to<sp/>be<sp/>used<sp/>by<sp/>path<sp/>following<sp/>algorithms<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kindref="member">PathFollowing::algConvert</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_new,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_old,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_out_old)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_e,<sp/>alg_out;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>alg_e<sp/>=<sp/>alg_new<sp/>-<sp/>alg_old;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(alg_e<sp/>&gt;<sp/>3<sp/>*<sp/>FarolGimmicks::PI<sp/>/<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>alg_out<sp/>=<sp/>alg_out_old<sp/>-<sp/>2<sp/>*<sp/>FarolGimmicks::PI<sp/>+<sp/>alg_e;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(alg_e<sp/>&lt;<sp/>-3<sp/>*<sp/>FarolGimmicks::PI<sp/>/<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>alg_out<sp/>=<sp/>alg_out_old<sp/>+<sp/>2<sp/>*<sp/>FarolGimmicks::PI<sp/>+<sp/>alg_e;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>alg_out<sp/>=<sp/>alg_out_old<sp/>+<sp/>alg_e;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>alg_out;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>to<sp/>a<sp/>pre-specified<sp/>value.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">PathFollowing::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>By<sp/>default<sp/>do<sp/>nothing,<sp/>unless<sp/>the<sp/>controller<sp/>implements<sp/>this<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>to<sp/>zero<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">PathFollowing::resetVirtualTarget</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">resetVirtualTarget</ref>(0.0);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/PathFollowing.cpp"/>
+  </compounddef>
+</doxygen>

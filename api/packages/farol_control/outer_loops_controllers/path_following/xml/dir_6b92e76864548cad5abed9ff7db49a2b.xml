@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir">
+    <compoundname>include/algorithms</compoundname>
+    <innerfile refid="Aguiar_8h">Aguiar.h</innerfile>
+    <innerfile refid="Brevik_8h">Brevik.h</innerfile>
+    <innerfile refid="Fossen_8h">Fossen.h</innerfile>
+    <innerfile refid="Lapierre_8h">Lapierre.h</innerfile>
+    <innerfile refid="Marcelo_8h">Marcelo.h</innerfile>
+    <innerfile refid="PathFollowing_8h">PathFollowing.h</innerfile>
+    <innerfile refid="Pramod_8h">Pramod.h</innerfile>
+    <innerfile refid="RelativeHeading_8h">RelativeHeading.h</innerfile>
+    <innerfile refid="Romulo_8h">Romulo.h</innerfile>
+    <innerfile refid="Samson_8h">Samson.h</innerfile>
+    <innerfile refid="States_8h">States.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/"/>
+  </compounddef>
+</doxygen>

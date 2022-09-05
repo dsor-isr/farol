@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classGnss2State" kind="class"><name>Gnss2State</name>
+    <member refid="classGnss2State_1ab0cbef7455730474c528769a5b284974" kind="variable"><name>nh_</name></member>
+    <member refid="classGnss2State_1a1c054be9fce421f8fab29345cd811135" kind="variable"><name>nh_private_</name></member>
+    <member refid="classGnss2State_1a34c65342e6cb6de7ad72822ed92c9552" kind="variable"><name>sub_gnss</name></member>
+    <member refid="classGnss2State_1afd3c668a959f00c8bb5029de5b74b2bf" kind="variable"><name>pub_state</name></member>
+    <member refid="classGnss2State_1a56b915101d64a92072b577177267b1c9" kind="variable"><name>pub_zone</name></member>
+    <member refid="classGnss2State_1ad9ddeca264bc0b793479cb7af4bc4937" kind="variable"><name>p_broadcast_tf</name></member>
+    <member refid="classGnss2State_1a85353c2610746d4468df6425ff3c7f09" kind="variable"><name>p_default_depth</name></member>
+    <member refid="classGnss2State_1a4b8c77dc447cd20537a78411f9125d7c" kind="function"><name>Gnss2State</name></member>
+    <member refid="classGnss2State_1abe3863dc78934caaefc783b5c6ac5097" kind="function"><name>~Gnss2State</name></member>
+    <member refid="classGnss2State_1a3124f41b422c47bf782f82ab5ae1dea8" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classGnss2State_1aaa8753c3cf8027017e922c2927644629" kind="function"><name>initializePublishers</name></member>
+    <member refid="classGnss2State_1a352cd539e86d4a7fbd60eb642fe660db" kind="function"><name>loadParams</name></member>
+    <member refid="classGnss2State_1acc62a5b2ba8747ed8dbec24872f06420" kind="function"><name>gnssBroadcasterCallback</name></member>
+  </compound>
+  <compound refid="Gnss2State_8h" kind="file"><name>Gnss2State.h</name>
+  </compound>
+  <compound refid="Gnss2State_8cpp" kind="file"><name>Gnss2State.cpp</name>
+    <member refid="Gnss2State_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

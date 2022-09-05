@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacefarol__bringup__algorithms_1_1FarolSetup" kind="namespace" language="Python">
+    <compoundname>farol_bringup_algorithms::FarolSetup</compoundname>
+    <innerclass refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1FarolSetup" prot="public">farol_bringup_algorithms::FarolSetup::FarolSetup</innerclass>
+    <innerclass refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1Process" prot="public">farol_bringup_algorithms::FarolSetup::Process</innerclass>
+    <innerclass refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType" prot="public">farol_bringup_algorithms::FarolSetup::ProcessActionType</innerclass>
+    <innerclass refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessNotFound" prot="public">farol_bringup_algorithms::FarolSetup::ProcessNotFound</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="FarolSetup_8py_1a4963b109ff045db583e353a0a367f6c7" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float farol_bringup_algorithms::FarolSetup.PROCESS_TIMEOUT_RESTART</definition>
+        <argsstring></argsstring>
+        <name>PROCESS_TIMEOUT_RESTART</name>
+        <initializer>=  5.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="35" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="FarolSetup_8py_1ab57cc38d5acae71414a58617a04e676a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def farol_bringup_algorithms.FarolSetup.kill_rosmaster</definition>
+        <argsstring>()</argsstring>
+        <name>kill_rosmaster</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="38" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="38" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/farol_bringup_algorithms/FarolSetup.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

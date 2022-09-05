@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classConsolePathParserNode" kind="class"><name>ConsolePathParserNode</name>
+    <member refid="classConsolePathParserNode_1a7bdae67411c5a8413558efceb651d3db" kind="variable"><name>mission</name></member>
+    <member refid="classConsolePathParserNode_1a2546646651c0d670237ca593b4721d4f" kind="variable"><name>formation</name></member>
+    <member refid="classConsolePathParserNode_1a1c8aa2b8dac68ecf3c9ce3018405441a" kind="variable"><name>act_section</name></member>
+    <member refid="classConsolePathParserNode_1a47e1ebc15590fcbe8bfcd23fd3a69344" kind="variable"><name>section_copy</name></member>
+    <member refid="classConsolePathParserNode_1a157103034ddc7e16dc751e0707d89d93" kind="variable"><name>depth_end</name></member>
+    <member refid="classConsolePathParserNode_1a6e3e8e0df8abc91ed2995d80406eeb90" kind="variable"><name>own_id</name></member>
+    <member refid="classConsolePathParserNode_1a8a8b169907b65afb3206181d04aa7cc6" kind="variable"><name>xrefpoint</name></member>
+    <member refid="classConsolePathParserNode_1ab318bf87a16972cb9c24327c3fc334dd" kind="variable"><name>yrefpoint</name></member>
+    <member refid="classConsolePathParserNode_1ad74e33c273cb50bc1df47ad81a057c55" kind="variable"><name>gamma_s</name></member>
+    <member refid="classConsolePathParserNode_1a16c9d0236c1163617d5be16174d2b1a7" kind="variable"><name>gamma_e</name></member>
+    <member refid="classConsolePathParserNode_1a83c3ed9dd2d6abf3ba2e7f0e7be0d4d1" kind="variable"><name>x_act</name></member>
+    <member refid="classConsolePathParserNode_1ae7ab7afcb2524822aa6361485dd6bae5" kind="variable"><name>y_act</name></member>
+    <member refid="classConsolePathParserNode_1a21b7cfb6679c4db1a544e787e733ec69" kind="variable"><name>gamma</name></member>
+    <member refid="classConsolePathParserNode_1a29be8f965f9f14900ef101c48c00ee75" kind="variable"><name>gamma_old</name></member>
+    <member refid="classConsolePathParserNode_1ae9570dff8bd0c9ad9d6db7db45b7b675" kind="variable"><name>u_est</name></member>
+    <member refid="classConsolePathParserNode_1ac944df19cdffd15405b1f5defe4d8318" kind="variable"><name>x_forma</name></member>
+    <member refid="classConsolePathParserNode_1aac9644e7e021b8244b4e275c978062e4" kind="variable"><name>y_forma</name></member>
+    <member refid="classConsolePathParserNode_1a0df46b093834e360a8e8a009ed739a69" kind="variable"><name>DesiredDepth</name></member>
+    <member refid="classConsolePathParserNode_1a6dca8c080b6a2b31a72c1d4fefecbac6" kind="variable"><name>wpOrient</name></member>
+    <member refid="classConsolePathParserNode_1a539c0e684e4ce2c2989e28062082c74f" kind="variable"><name>ENABLE</name></member>
+    <member refid="classConsolePathParserNode_1a4eacdff7ff8ae8f1d5ad790046b320d8" kind="variable"><name>formation_mode</name></member>
+    <member refid="classConsolePathParserNode_1afd06b7b70a4b0b400bf12ba9150d524a" kind="variable"><name>biased_formation_mode</name></member>
+    <member refid="classConsolePathParserNode_1ab5dda494a4ad7221a89d05945b5f2c2e" kind="variable"><name>node_frequency</name></member>
+    <member refid="classConsolePathParserNode_1a656e29aa9ae7e392c6374cf6f3160c8c" kind="variable"><name>path_folder</name></member>
+    <member refid="classConsolePathParserNode_1a9da1213ea8106273d2f9bb9fcb215627" kind="variable"><name>nh_</name></member>
+    <member refid="classConsolePathParserNode_1aca5ab278e1aa77559ee3a29ad90eb9f5" kind="variable"><name>nh_private_</name></member>
+    <member refid="classConsolePathParserNode_1abb63bb6c9702f938947a8fe50b155d11" kind="variable"><name>flag_sub_</name></member>
+    <member refid="classConsolePathParserNode_1ac4ccafd714f6887cb429ace583bba358" kind="variable"><name>missionstring_sub_</name></member>
+    <member refid="classConsolePathParserNode_1a56b391d7e445bfb0b3613b7d6f216233" kind="variable"><name>state_sub_</name></member>
+    <member refid="classConsolePathParserNode_1a27c578ca7b561a0ac7e0caebc134440d" kind="variable"><name>formation_pub_</name></member>
+    <member refid="classConsolePathParserNode_1abd6b3e603f7e879b0375236881f0b2be" kind="variable"><name>biased_formation_pub_</name></member>
+    <member refid="classConsolePathParserNode_1a01c0d1bf254db798c6f7560c932ee4de" kind="variable"><name>section_pub_</name></member>
+    <member refid="classConsolePathParserNode_1a1237d136ae58c96ae2c57ff79942d5ed" kind="variable"><name>wpref_pub_</name></member>
+    <member refid="classConsolePathParserNode_1a29c0c3324b927251ffd780f09708df03" kind="variable"><name>fullpath_pub_</name></member>
+    <member refid="classConsolePathParserNode_1a3a8106d744188da10b465309299a42f3" kind="variable"><name>altitude_pub_</name></member>
+    <member refid="classConsolePathParserNode_1aca7b90578cb5e740a418aae434f55d10" kind="variable"><name>depth_pub_</name></member>
+    <member refid="classConsolePathParserNode_1a60c6ea2790298d79dad5f85b1f6a675c" kind="variable"><name>flag_pub_</name></member>
+    <member refid="classConsolePathParserNode_1afdf408549c19ab706ef61eaea7e1cd69" kind="variable"><name>p_console_new_</name></member>
+    <member refid="classConsolePathParserNode_1a748e96fe6788a4523f2260eabbadc9ab" kind="variable"><name>reset_path_client_</name></member>
+    <member refid="classConsolePathParserNode_1af5e3206906e635fc6fcc0549ab6112c9" kind="variable"><name>spawn_arc_client_</name></member>
+    <member refid="classConsolePathParserNode_1a3b9cf5c956a24a6744313c9d710a4061" kind="variable"><name>spawn_line_client_</name></member>
+    <member refid="classConsolePathParserNode_1a660a4e698c3d7d9f731b310b45fe556f" kind="variable"><name>set_path_speed_client_</name></member>
+    <member refid="classConsolePathParserNode_1a945b20a79974676b274115d0b1347471" kind="variable"><name>stop_pf_client_</name></member>
+    <member refid="classConsolePathParserNode_1a1efa20a5f867f1677a3f4cf6266bd8d2" kind="variable"><name>start_pf_client_</name></member>
+    <member refid="classConsolePathParserNode_1a1dfde56caca53544e1c64c5977c9d5a1" kind="variable"><name>timer_</name></member>
+    <member refid="classConsolePathParserNode_1af700a6b991533cf392e10e67d7b824e6" kind="variable"><name>aux</name></member>
+    <member refid="classConsolePathParserNode_1a6382f89d2b9c3689c742194ae9eb81a4" kind="variable"><name>Reference_</name></member>
+    <member refid="classConsolePathParserNode_1abec4ab1debed931123f1a83b126a64a3" kind="function"><name>ConsolePathParserNode</name></member>
+    <member refid="classConsolePathParserNode_1ae65df49ec11817b2c963730ede4cb9db" kind="function"><name>~ConsolePathParserNode</name></member>
+    <member refid="classConsolePathParserNode_1a0edc2156d23e7cb359bcfe5cdd240471" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classConsolePathParserNode_1ace189889040c6ae1085a35742ce0c53c" kind="function"><name>loadParams</name></member>
+    <member refid="classConsolePathParserNode_1a7c315bde3487e537fa7f492c7214dd74" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classConsolePathParserNode_1a3061c5f0829053f7d351cc1fc9331b89" kind="function"><name>initializePublishers</name></member>
+    <member refid="classConsolePathParserNode_1a7b8b25667ea91148a41815bedee62429" kind="function"><name>initializeServices</name></member>
+    <member refid="classConsolePathParserNode_1ae7abc4eb45dfa5525e038e17581aa700" kind="function"><name>initializeTimer</name></member>
+    <member refid="classConsolePathParserNode_1a0363281441760ce1ab2517b71c9b8490" kind="function"><name>parseMission</name></member>
+    <member refid="classConsolePathParserNode_1ad8ddac4ee92540692577e4cc3980d19a" kind="function"><name>missionFormation</name></member>
+    <member refid="classConsolePathParserNode_1a4296f3cc49315646a18f09dea466165c" kind="function"><name>startNewSection</name></member>
+    <member refid="classConsolePathParserNode_1a7097a6c706cb1fa18972397c1935755a" kind="function"><name>ANG_P</name></member>
+    <member refid="classConsolePathParserNode_1a0337ea7ccc0ed16ed0bec0b3a3df44f9" kind="function"><name>requestPath</name></member>
+    <member refid="classConsolePathParserNode_1a9719e9183fd101617437cdd94c570761" kind="function"><name>depthCallback</name></member>
+    <member refid="classConsolePathParserNode_1a3b3eed9a77af8fb513f701654dbd4ce3" kind="function"><name>missionStringCallback</name></member>
+    <member refid="classConsolePathParserNode_1af59ffa00bc7de4554b261a7a7d81a62a" kind="function"><name>flagCallback</name></member>
+    <member refid="classConsolePathParserNode_1a2d59ce4f783f5bbb069fc1eaf7401c23" kind="function"><name>updateCallback</name></member>
+    <member refid="classConsolePathParserNode_1a6a075b542aa8cbb90aa0da4bcb38f81d" kind="function"><name>missionCallback</name></member>
+  </compound>
+  <compound refid="classFormation" kind="class"><name>Formation</name>
+    <member refid="classFormation_1a74b7af08d38b4ff1bb196bfe7309ca78" kind="variable"><name>id</name></member>
+    <member refid="classFormation_1aec1bfc92a54fa5ff860d668225b95e29" kind="variable"><name>x</name></member>
+    <member refid="classFormation_1a50355d11d5cb0fb15100a3b25a59b2a6" kind="variable"><name>y</name></member>
+    <member refid="classFormation_1a60c3058dd353550d89183ec529909cb6" kind="function"><name>Formation</name></member>
+  </compound>
+  <compound refid="classSection" kind="class"><name>Section</name>
+    <member refid="classSection_1a66c245c5d792ebd8ab650c2264c44379" kind="variable"><name>type</name></member>
+    <member refid="classSection_1a8e9b0e3ebd4bc028a91b626845f99bf7" kind="variable"><name>xi</name></member>
+    <member refid="classSection_1a4b788beab8f058f67b97c402acc4eb07" kind="variable"><name>yi</name></member>
+    <member refid="classSection_1a35c5756892a8380c05b732150a30f5ea" kind="variable"><name>xc</name></member>
+    <member refid="classSection_1a6394415440348c1d9da89f0463c120fb" kind="variable"><name>yc</name></member>
+    <member refid="classSection_1a837e94fbef6731e6fe354c0f8b07c357" kind="variable"><name>xe</name></member>
+    <member refid="classSection_1addb85ef123821858f62937a693e58d67" kind="variable"><name>ye</name></member>
+    <member refid="classSection_1afbe2a2c29aacf67683646809cfc0267d" kind="variable"><name>velocity</name></member>
+    <member refid="classSection_1a91cdf7332802c2e1a04b044ac7caa005" kind="variable"><name>adirection</name></member>
+    <member refid="classSection_1ab747ac37984161ecab8ec7630bf5e2fe" kind="variable"><name>radius</name></member>
+    <member refid="classSection_1a4bab719ad10f0396598e704bc916cecf" kind="variable"><name>heading</name></member>
+    <member refid="classSection_1ad2bda88f94afa8924b0a47f9452d5849" kind="variable"><name>time</name></member>
+    <member refid="classSection_1a608cbf1d2ee06190ee42bea34c1128cf" kind="variable"><name>nVehicle</name></member>
+    <member refid="classSection_1a66eab18117d9204b316c9d2e88fede20" kind="variable"><name>gamma_s</name></member>
+    <member refid="classSection_1aedca6024e8ff158d512323ad2d9632c3" kind="variable"><name>gamma_e</name></member>
+    <member refid="classSection_1aa58f7cc10b85ce6d6d5b14441ff5f420" kind="variable"><name>depth</name></member>
+    <member refid="classSection_1a77b88e06692841ba49559d22a25a09f9" kind="function"><name>Section</name></member>
+  </compound>
+  <compound refid="ConsolePathParserNode_8h" kind="file"><name>ConsolePathParserNode.h</name>
+    <member refid="ConsolePathParserNode_8h_1a598a3330b3c21701223ee0ca14316eca" kind="define"><name>PI</name></member>
+    <member refid="ConsolePathParserNode_8h_1a8556bcfd00c723bf2531358f2c8106ea" kind="define"><name>BUF_SIZE_TIME</name></member>
+  </compound>
+  <compound refid="Formation_8h" kind="file"><name>Formation.h</name>
+  </compound>
+  <compound refid="Section_8h" kind="file"><name>Section.h</name>
+  </compound>
+  <compound refid="ConsolePathParserNode_8cpp" kind="file"><name>ConsolePathParserNode.cpp</name>
+    <member refid="ConsolePathParserNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir"><name>src/ros</name>
+  </compound>
+  <compound refid="dir_16d3284317caf78c0e25eb64bbba3d38" kind="dir"><name>include/ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

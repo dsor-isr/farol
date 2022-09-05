@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="spherical__coordinates_8hpp" kind="file" language="C++">
+    <compoundname>spherical_coordinates.hpp</compoundname>
+    <includes local="no">Eigen/Dense</includes>
+    <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
+    <includedby refid="test__spherical_8cpp" local="yes">test/test_spherical.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/dsor_utils/spherical_coordinates.hpp</label>
+        <link refid="spherical__coordinates_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Eigen/Dense</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceDSOR">DSOR</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt; T, 3, 1 &gt; DSOR::spherical_to_cartesian</definition>
+        <argsstring>(T bearing, T elevation, T range)</argsstring>
+        <name>spherical_to_cartesian</name>
+        <param>
+          <type>T</type>
+          <declname>bearing</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>elevation</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+<para>Convert from spherical to cartesian coordinates. Used mainly with usbl fixes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bearing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Horizontal angle between the direction of an object and another object or between it and the true north direction in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elevation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angle measured between the horizontal and the vehicle line of sight to the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Distance to the object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Eigen Vector with cartesian coordinates</para>
+</simplesect>
+Authors: Joao Quintas (<ulink url="mailto:jquintas@gmail.com">jquintas@gmail.com</ulink>) Joao Cruz (<ulink url="mailto:joao.pedro.cruz@tecnico.ulisboa.pt">joao.pedro.cruz@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 14/12/2021 License: MIT File: spherical_coordinates.cpp Brief: Defines all functions related to spherical coordinates conversions <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bearing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Horizontal angle between the direction of an object and another object or between it and the true north direction in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elevation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angle measured between the horizontal and the vehicle line of sight to the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Distance to the object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Eigen Vector with cartesian coordinates </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/spherical_coordinates.hpp" line="26" column="15" bodyfile="src/spherical_coordinates.cpp" bodystart="36" bodyend="45" declfile="include/dsor_utils/spherical_coordinates.hpp" declline="26" declcolumn="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceDSOR" kindref="compound">DSOR</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/><ref refid="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" kindref="member">spherical_to_cartesian</ref>(T<sp/>bearing,<sp/>T<sp/>elevation,<sp/>T<sp/>range);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="include/dsor_utils/spherical_coordinates.hpp"/>
+  </compounddef>
+</doxygen>

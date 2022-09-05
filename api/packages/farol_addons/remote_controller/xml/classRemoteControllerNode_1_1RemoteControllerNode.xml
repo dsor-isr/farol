@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRemoteControllerNode_1_1RemoteControllerNode" kind="class" language="Python" prot="public">
+    <compoundname>RemoteControllerNode::RemoteControllerNode</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1af0ad60aa3576158743522f75843e614d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::node_frequency</definition>
+        <argsstring></argsstring>
+        <name>node_frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="31" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a9e638ef209ef2b252f733816a906a7a4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::h_timerActivate</definition>
+        <argsstring></argsstring>
+        <name>h_timerActivate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="32" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1ae6f6dc52c82cb81ad87a2f07f6520366" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::yaw_state_</definition>
+        <argsstring></argsstring>
+        <name>yaw_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="42" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1ac7f3b905d930caa8e10757453b8b0dbc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="87" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1af197934b1b60f3f8488c300f80f5c7f9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::state_sub</definition>
+        <argsstring></argsstring>
+        <name>state_sub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="96" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a380d9a06fd053c136a1f228dcd0b1850" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::surge_pub</definition>
+        <argsstring></argsstring>
+        <name>surge_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="105" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1aeefea3f566c2955268aa7c4412b5f3ea" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::sway_pub</definition>
+        <argsstring></argsstring>
+        <name>sway_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="106" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a0050e1fbd682601494dd1a4218ee597b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::heave_pub</definition>
+        <argsstring></argsstring>
+        <name>heave_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="107" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a5dc89abec60920600ef542de6528ff7e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::yaw_rate_pub</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="110" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a7428188970c0b511f524692d7157fed9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::yaw_pub</definition>
+        <argsstring></argsstring>
+        <name>yaw_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="113" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a827a72dc5e81a0d1cc4fcc660e26e05b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::depth_pub</definition>
+        <argsstring></argsstring>
+        <name>depth_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="116" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a8525d439e083e7a9326ac728c02252d9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::control_assignment</definition>
+        <argsstring></argsstring>
+        <name>control_assignment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="134" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a03fd621ce5445227fd39b2bd2de890a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Class constructor. Initializes the ros node, loads the parameters from the ros parameter server, creates the inner-loops
+publishers and initializes the timer that publishes the desired inputs to the inner-loops
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="23" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="23" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a97a8d157fc2ce08882d1a17db09113e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.timerCallback</definition>
+        <argsstring>(self, event)</argsstring>
+        <name>timerCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>event</type>
+          <defname>event</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Callback used to publish to the inner-loops the desired control inputs
+:param event: A timer event - unused but required by the ROS API
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="47" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="47" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a77ba697f59289ec045a3982d428d9c24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.initializeTimer</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializeTimer</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method that starts the system timer that periodically calls a callback
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="83" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="83" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a6c2afa6c42b9eeaeca71c9ad64e4dfee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.initializeSubscribers</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializeSubscribers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method that initializes the ROS subscribers (to receive the current state of the AUV)
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="89" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="89" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a35a490ed4109843c19137a7dcb975adf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.initializePublishers</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializePublishers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method that initializes the ROS publishers (to publish the references for the inner-loops)
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="98" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="98" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a3c9a80cc4375b776d4c06cde1d2d3d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.initializeJoystick</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializeJoystick</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method that initializes the joystick driver (using pygame)
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="118" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="118" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a8b6d19745e138e19a32daadcd9dd1203" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.RemoteControllerNode.state_callback</definition>
+        <argsstring>(self, msg)</argsstring>
+        <name>state_callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Callback that is called when a message with the current state of the AUV is received.
+Currently only the yaw orientation is saved (used to switch between yaw and yaw-rate controllers)
+:param msg: NavigationStatus message
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="145" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="145" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Remote controller ROS node class. Receives from a joystick (using pygame) the desired controls for
+the inner-loops and publishes these periodically (at a pre-defined frequency) to the inner-loops of the
+vehicle
+</verbatim> </para>
+    </detaileddescription>
+    <location file="src/RemoteControllerNode.py" line="16" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="16" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a03fd621ce5445227fd39b2bd2de890a7" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>__init__</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a8525d439e083e7a9326ac728c02252d9" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>control_assignment</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a827a72dc5e81a0d1cc4fcc660e26e05b" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>depth_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a9e638ef209ef2b252f733816a906a7a4" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>h_timerActivate</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a0050e1fbd682601494dd1a4218ee597b" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>heave_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a3c9a80cc4375b776d4c06cde1d2d3d7b" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>initializeJoystick</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a35a490ed4109843c19137a7dcb975adf" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>initializePublishers</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a6c2afa6c42b9eeaeca71c9ad64e4dfee" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a77ba697f59289ec045a3982d428d9c24" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>initializeTimer</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1af0ad60aa3576158743522f75843e614d" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>node_frequency</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a8b6d19745e138e19a32daadcd9dd1203" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>state_callback</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1af197934b1b60f3f8488c300f80f5c7f9" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>state_sub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a380d9a06fd053c136a1f228dcd0b1850" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>surge_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1aeefea3f566c2955268aa7c4412b5f3ea" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>sway_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1ac7f3b905d930caa8e10757453b8b0dbc" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>timer</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a97a8d157fc2ce08882d1a17db09113e2" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>timerCallback</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a7428188970c0b511f524692d7157fed9" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>yaw_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a5dc89abec60920600ef542de6528ff7e" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>yaw_rate_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1ae6f6dc52c82cb81ad87a2f07f6520366" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>yaw_state_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

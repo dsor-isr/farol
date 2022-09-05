@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classLine" kind="class" language="C++" prot="public">
+    <compoundname>Line</compoundname>
+    <basecompoundref refid="classPathSection" prot="public" virt="non-virtual">PathSection</basecompoundref>
+    <includes refid="Line_8h" local="no">Line.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLine_1a9cd44d2b87bf78fcb29c40e58f73c9a2" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Line::start_point_</definition>
+        <argsstring></argsstring>
+        <name>start_point_</name>
+        <briefdescription>
+<para>The start point of the line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="89" column="21" bodyfile="include/algorithms/path_sections/Line.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLine_1ab3751d188387dd5e7093a3a26db5c2d8" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Line::end_point_</definition>
+        <argsstring></argsstring>
+        <name>end_point_</name>
+        <briefdescription>
+<para>The end point of the line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="94" column="21" bodyfile="include/algorithms/path_sections/Line.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLine_1a57be57598596670fe42cef450c69acee" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Line::ref_point_</definition>
+        <argsstring></argsstring>
+        <name>ref_point_</name>
+        <briefdescription>
+<para>The reference to use to draw the line upon. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="99" column="21" bodyfile="include/algorithms/path_sections/Line.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLine_1ae711328a7816ad106fe6afbe4bea6158" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Line::Line</definition>
+        <argsstring>(Eigen::Vector3d start_point, Eigen::Vector3d end_point)</argsstring>
+        <name>Line</name>
+        <param>
+          <type>Eigen::Vector3d</type>
+          <declname>start_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d</type>
+          <declname>end_point</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the 3DLine class. It assumes that the reference for the frame is (0, 0, 0) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The starting point in the 3D space </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The end point in the 3D space </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="27" column="5" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classLine_1add654cf578b7abb4c1381d909ad89330" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Line::Line</definition>
+        <argsstring>(Eigen::Vector3d start_point, Eigen::Vector3d end_point, Eigen::Vector3d ref_point)</argsstring>
+        <name>Line</name>
+        <param>
+          <type>Eigen::Vector3d</type>
+          <declname>start_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d</type>
+          <declname>end_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector3d</type>
+          <declname>ref_point</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the 3DLine class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The starting point in the 3D space </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The end point in the 3D space </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ref_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ref_point in the 3D to draw the line relative to this reference </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="36" column="5" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="5" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classLine_1a689722d427610dc9d07d422f44679f21" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Line::eq_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_pd</name>
+        <reimplements refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109">eq_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classPath" kindref="compound">Path</ref> section equation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the value of the equation of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="45" column="21" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="27" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classLine_1ad67f78eeed41b1ac3f711d8181968959" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Line::eq_d_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_d_pd</name>
+        <reimplements refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe">eq_d_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>First derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the value of the derivative of the path equation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="54" column="21" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classLine_1a176ddd7d8a260b39eeb0de127331eace" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Line::eq_dd_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_dd_pd</name>
+        <reimplements refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad">eq_dd_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the value of the second derivative of the path equation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="63" column="21" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="50" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classLine_1a36a25292c83ae108d59bd19ee86115e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Line::curvature</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>curvature</name>
+        <reimplements refid="classPathSection_1adffd7389e5870df945c682481713ba76">curvature</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>The curvature of a line is constant, therefore we can make the computation really efficient. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double = 0 (since a line has no curvature) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="72" column="12" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classLine_1adaff892c3f1bfa40993aaae817f205b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Line::getClosestPointGamma</definition>
+        <argsstring>(Eigen::Vector3d &amp;coordinate) override</argsstring>
+        <name>getClosestPointGamma</name>
+        <reimplements refid="classPathSection_1a78793a75681c551d37012591404af39c">getClosestPointGamma</reimplements>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Method for getting the gamma of the closes point to the path in a more efficient manner For a line it uses a closed form equation to solve this problem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vehicle coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the gamma corresponding to the cloest point in the path. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Line.h" line="82" column="12" bodyfile="src/algorithms/path_sections/Line.cpp" bodystart="64" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements a 3D line section. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is used as a part of the sections library <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Line</label>
+        <link refid="classLine"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Line</label>
+        <link refid="classLine"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/path_sections/Line.h" line="16" column="30" bodyfile="include/algorithms/path_sections/Line.h" bodystart="16" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classPathSection_1ad021a100a135860c764461bc289707e3" prot="protected" virt="non-virtual"><scope>Line</scope><name>bisection</name></member>
+      <member refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" prot="public" virt="non-virtual"><scope>Line</scope><name>can_be_composed</name></member>
+      <member refid="classLine_1a36a25292c83ae108d59bd19ee86115e2" prot="public" virt="virtual"><scope>Line</scope><name>curvature</name></member>
+      <member refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" prot="public" virt="virtual"><scope>Line</scope><name>derivative_norm</name></member>
+      <member refid="classLine_1ab3751d188387dd5e7093a3a26db5c2d8" prot="private" virt="non-virtual"><scope>Line</scope><name>end_point_</name></member>
+      <member refid="classLine_1ad67f78eeed41b1ac3f711d8181968959" prot="public" virt="virtual"><scope>Line</scope><name>eq_d_pd</name></member>
+      <member refid="classLine_1a176ddd7d8a260b39eeb0de127331eace" prot="public" virt="virtual"><scope>Line</scope><name>eq_dd_pd</name></member>
+      <member refid="classLine_1a689722d427610dc9d07d422f44679f21" prot="public" virt="virtual"><scope>Line</scope><name>eq_pd</name></member>
+      <member refid="classLine_1adaff892c3f1bfa40993aaae817f205b9" prot="public" virt="virtual"><scope>Line</scope><name>getClosestPointGamma</name></member>
+      <member refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" prot="protected" virt="non-virtual"><scope>Line</scope><name>getInitialGammaEstimate</name></member>
+      <member refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" prot="public" virt="non-virtual"><scope>Line</scope><name>getMaxGammaValue</name></member>
+      <member refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" prot="public" virt="non-virtual"><scope>Line</scope><name>getMinGammaValue</name></member>
+      <member refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" prot="protected" virt="non-virtual"><scope>Line</scope><name>GradientDescent</name></member>
+      <member refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" prot="public" virt="non-virtual"><scope>Line</scope><name>limitGamma</name></member>
+      <member refid="classLine_1ae711328a7816ad106fe6afbe4bea6158" prot="public" virt="non-virtual"><scope>Line</scope><name>Line</name></member>
+      <member refid="classLine_1add654cf578b7abb4c1381d909ad89330" prot="public" virt="non-virtual"><scope>Line</scope><name>Line</name></member>
+      <member refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" prot="protected" virt="non-virtual"><scope>Line</scope><name>PathSection</name></member>
+      <member refid="classLine_1a57be57598596670fe42cef450c69acee" prot="private" virt="non-virtual"><scope>Line</scope><name>ref_point_</name></member>
+      <member refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" prot="protected" virt="non-virtual"><scope>Line</scope><name>setMaxGammaValue</name></member>
+      <member refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" prot="protected" virt="non-virtual"><scope>Line</scope><name>setMinGammaValue</name></member>
+      <member refid="classLine_1a9cd44d2b87bf78fcb29c40e58f73c9a2" prot="private" virt="non-virtual"><scope>Line</scope><name>start_point_</name></member>
+      <member refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" prot="public" virt="virtual"><scope>Line</scope><name>tangent</name></member>
+      <member refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" prot="public" virt="virtual"><scope>Line</scope><name>~PathSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,801 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceconsole" kind="namespace" language="Python">
+    <compoundname>console</compoundname>
+    <innerclass refid="classconsole_1_1CallbackEcho" prot="public">console::CallbackEcho</innerclass>
+    <innerclass refid="classconsole_1_1ERROR__Struct" prot="public">console::ERROR_Struct</innerclass>
+    <innerclass refid="classconsole_1_1HTTP__Handler" prot="public">console::HTTP_Handler</innerclass>
+    <innerclass refid="classconsole_1_1ROSTopicException" prot="public">console::ROSTopicException</innerclass>
+    <innerclass refid="classconsole_1_1ROSTopicIOException" prot="public">console::ROSTopicIOException</innerclass>
+    <innerclass refid="classconsole_1_1subscriber__Thread" prot="public">console::subscriber_Thread</innerclass>
+    <innerclass refid="classconsole_1_1ThreadedHTTPServer" prot="public">console::ThreadedHTTPServer</innerclass>
+    <innerclass refid="classconsole_1_1Topic__Struct" prot="public">console::Topic_Struct</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="console_8py_1a0a050fd4bd9571b00bcf085c9773effa" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>console.NAME</definition>
+        <argsstring></argsstring>
+        <name>NAME</name>
+        <initializer>= &apos;Console&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="38" column="1" bodyfile="src/console.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a35042e6388370b3def1c1abf893de702" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>console.MISSION_PATH</definition>
+        <argsstring></argsstring>
+        <name>MISSION_PATH</name>
+        <initializer>= &quot;/home/cog/cog-sw/Missions_FOLDER&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="39" column="1" bodyfile="src/console.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a16051762656d57d44d9268c69f77893b" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>console.pages_folder</definition>
+        <argsstring></argsstring>
+        <name>pages_folder</name>
+        <initializer>=  &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="41" column="1" bodyfile="src/console.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a5331ace63f140fbdfb134056e6a8f5c6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int console.NFILE</definition>
+        <argsstring></argsstring>
+        <name>NFILE</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="42" column="1" bodyfile="src/console.py" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a3234f09d02b12c186706f739b8381286" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ALL_TOPICS</definition>
+        <argsstring></argsstring>
+        <name>ALL_TOPICS</name>
+        <initializer>=  <ref refid="classconsole_1_1Topic__Struct" kindref="compound">Topic_Struct</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="129" column="1" bodyfile="src/console.py" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1ad1571ee8d6de217b012a2cf7ebb2baf7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.SUBSCRIBED_TOPICS</definition>
+        <argsstring></argsstring>
+        <name>SUBSCRIBED_TOPICS</name>
+        <initializer>=  <ref refid="classconsole_1_1Topic__Struct" kindref="compound">Topic_Struct</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="130" column="1" bodyfile="src/console.py" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a3809bc0489e569d4508e47493f53da1c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.UNKNOWN_TOPICS</definition>
+        <argsstring></argsstring>
+        <name>UNKNOWN_TOPICS</name>
+        <initializer>=  <ref refid="classconsole_1_1Topic__Struct" kindref="compound">Topic_Struct</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="131" column="1" bodyfile="src/console.py" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a7819b3f2a8d6e422e0d84ab1de219533" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ALL_ERRORs</definition>
+        <argsstring></argsstring>
+        <name>ALL_ERRORs</name>
+        <initializer>=  <ref refid="classconsole_1_1ERROR__Struct" kindref="compound">ERROR_Struct</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="194" column="1" bodyfile="src/console.py" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a528f249a1a3bdadac1433e4e1515da48" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int console.g_list_topic_thrsh</definition>
+        <argsstring></argsstring>
+        <name>g_list_topic_thrsh</name>
+        <initializer>=  30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="714" column="1" bodyfile="src/console.py" bodystart="714" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a941f9abf25b783a73d2d27f81180b8ee" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>console.g_list_topic_stamp</definition>
+        <argsstring></argsstring>
+        <name>g_list_topic_stamp</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="716" column="1" bodyfile="src/console.py" bodystart="716" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a7329456031347280ded4a3866d5195b7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.SIGNALS_TO_NAMES_DICT</definition>
+        <argsstring></argsstring>
+        <name>SIGNALS_TO_NAMES_DICT</name>
+        <initializer>=  dict((getattr(signal, n), n) \
+    for n in dir(signal) if n.startswith(&apos;SIG&apos;) and &apos;_&apos; not in n )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1106" column="1" bodyfile="src/console.py" bodystart="1106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1acd710c131600d6886b2a6c1ec428fabd" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.argv</definition>
+        <argsstring></argsstring>
+        <name>argv</name>
+        <initializer>=  sys.argv</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1116" column="1" bodyfile="src/console.py" bodystart="1116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1affa7228b1f5b6c360539d8f5415e4191" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.anonymous</definition>
+        <argsstring></argsstring>
+        <name>anonymous</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1129" column="1" bodyfile="src/console.py" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a16c5949df3b857bdb2ba3b550087c787" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.True</definition>
+        <argsstring></argsstring>
+        <name>True</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1129" column="1" bodyfile="src/console.py" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a9b597f509767027a175a8e946a6634a4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.disable_rosout</definition>
+        <argsstring></argsstring>
+        <name>disable_rosout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1129" column="1" bodyfile="src/console.py" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a2452e37260288f9fdf392dca44b3953b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.disable_rostime</definition>
+        <argsstring></argsstring>
+        <name>disable_rostime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1129" column="1" bodyfile="src/console.py" bodystart="1129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a5ce426f82a00e3bca490e11d5cb984c7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.server_port</definition>
+        <argsstring></argsstring>
+        <name>server_port</name>
+        <initializer>=  rospy.get_param(&apos;~PORT&apos;,7080)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1134" column="1" bodyfile="src/console.py" bodystart="1134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a1bc2c9e9607e5128ca918497da9c14a1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ROOT_NAMESPACE</definition>
+        <argsstring></argsstring>
+        <name>ROOT_NAMESPACE</name>
+        <initializer>=  rospy.get_param(&apos;~ROOT_NAMESPACE&apos;,True)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1136" column="1" bodyfile="src/console.py" bodystart="1136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1ac768ddf6203c8105ac3d65fb3ede667b" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>string console::_namespace</definition>
+        <argsstring></argsstring>
+        <name>_namespace</name>
+        <initializer>= rospy.get_namespace()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1138" column="1" bodyfile="src/console.py" bodystart="1138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a9a95ae3a5e96e66f933e2658ad8e3a77" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.command</definition>
+        <argsstring></argsstring>
+        <name>command</name>
+        <initializer>=  argv[1]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1145" column="1" bodyfile="src/console.py" bodystart="1145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="console_8py_1a5635ea29e1494e80866dfbe570b1f98a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.server</definition>
+        <argsstring></argsstring>
+        <name>server</name>
+        <initializer>=  <ref refid="classconsole_1_1ThreadedHTTPServer" kindref="compound">ThreadedHTTPServer</ref>((&apos;&apos;, server_port), <ref refid="classconsole_1_1HTTP__Handler" kindref="compound">HTTP_Handler</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1152" column="1" bodyfile="src/console.py" bodystart="1152" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="console_8py_1a469c33ca19bd3a48282a6821a53e1750" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._sleep</definition>
+        <argsstring>(duration)</argsstring>
+        <name>_sleep</name>
+        <param>
+          <type>duration</type>
+          <defname>duration</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="197" column="1" bodyfile="src/console.py" bodystart="197" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a3596a18ec55832b55111318a2858b952" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.get_topic_class</definition>
+        <argsstring>(topic, blocking=False)</argsstring>
+        <name>get_topic_class</name>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <param>
+          <type>blocking</type>
+          <defname>blocking</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Get the topic message class
+:returns: message class for topic, real topic
+  name, and function for evaluating message objects into the subtopic
+  (or ``None``). ``(Message, str, str)``
+:raises: :exc:`ROSTopicException` If topic type cannot be determined or loaded
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="202" column="1" bodyfile="src/console.py" bodystart="202" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1aadfb0ff42faca13785a1706399e05464" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.get_topic_type</definition>
+        <argsstring>(topic, blocking=False)</argsstring>
+        <name>get_topic_type</name>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <param>
+          <type>blocking</type>
+          <defname>blocking</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Get the topic type.
+
+:param topic: topic name, ``str``
+:param blocking: (default False) block until topic becomes available, ``bool``
+
+:returns: topic type, real topic name and fn to evaluate the message instance
+  if the topic points to a field within a topic, e.g. /rosout/msg. fn is None otherwise. ``(str, str, fn)``
+:raises: :exc:`ROSTopicException` If master cannot be contacted
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="218" column="1" bodyfile="src/console.py" bodystart="218" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a1126a43bb0f71eb725a6c2ae74b8ef7f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._get_topic_type</definition>
+        <argsstring>(topic)</argsstring>
+        <name>_get_topic_type</name>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>subroutine for getting the topic type
+:returns: topic type, real topic name and fn to evaluate the message instance
+if the topic points to a field within a topic, e.g. /rosout/msg, ``(str, str, fn)``
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="242" column="1" bodyfile="src/console.py" bodystart="242" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a86605bd65d906409140a2fde14a047d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._master_get_topic_types</definition>
+        <argsstring>(master)</argsstring>
+        <name>_master_get_topic_types</name>
+        <param>
+          <type>master</type>
+          <defname>master</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="269" column="1" bodyfile="src/console.py" bodystart="269" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a96bff81766fb4af6ac64d26766ffdb54" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._rostopic_cmd_echo</definition>
+        <argsstring>(argv)</argsstring>
+        <name>_rostopic_cmd_echo</name>
+        <param>
+          <type>argv</type>
+          <defname>argv</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="278" column="1" bodyfile="src/console.py" bodystart="278" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a103469af034dd531bfcc623308b4e644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.msgevalgen</definition>
+        <argsstring>(pattern)</argsstring>
+        <name>msgevalgen</name>
+        <param>
+          <type>pattern</type>
+          <defname>pattern</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Generates a function that returns the relevant field (aka &apos;subtopic&apos;) of a Message object
+:param pattern: subtopic, e.g. /x. Must have a leading &apos;/&apos; if specified, ``str``
+:returns: function that converts a message into the desired value, ``fn(Message) -&gt; value``
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="302" column="1" bodyfile="src/console.py" bodystart="302" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a52b1cfde64bacb93e53432047233dbcd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._rostopic_echo</definition>
+        <argsstring>(topic, callback_echo)</argsstring>
+        <name>_rostopic_echo</name>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <param>
+          <type>callback_echo</type>
+          <defname>callback_echo</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Print new messages on topic to screen.
+
+:param topic: topic name, ``str``
+:param bag_file: name of bag file to echo messages from or ``None``, ``str``
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="319" column="1" bodyfile="src/console.py" bodystart="319" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a986ba378a1674582a2d398eec0468f3c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._check_master</definition>
+        <argsstring>()</argsstring>
+        <name>_check_master</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Make sure that master is available
+:raises: :exc:`ROSTopicException` If unable to successfully communicate with master
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="356" column="1" bodyfile="src/console.py" bodystart="356" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a26e6434b9d5ea89a2bb924dbc85dd98a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.ros2xml</definition>
+        <argsstring>(msg, name, depth=0)</argsstring>
+        <name>ros2xml</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <param>
+          <type>name</type>
+          <defname>name</defname>
+        </param>
+        <param>
+          <type>depth</type>
+          <defname>depth</defname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="466" column="1" bodyfile="src/console.py" bodystart="466" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1aeba4a998861a47768ef161810ad26cd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.moos2xml</definition>
+        <argsstring>(msg, name, time, depth=0)</argsstring>
+        <name>moos2xml</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <param>
+          <type>name</type>
+          <defname>name</defname>
+        </param>
+        <param>
+          <type>time</type>
+          <defname>time</defname>
+        </param>
+        <param>
+          <type>depth</type>
+          <defname>depth</defname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="486" column="1" bodyfile="src/console.py" bodystart="486" bodyend="505"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1ae4b3048d2e183433cf109649f2440857" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._fullusage</definition>
+        <argsstring>()</argsstring>
+        <name>_fullusage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="506" column="1" bodyfile="src/console.py" bodystart="506" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a296647b91cab738d767f09dbec8cd8b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.create_publisher</definition>
+        <argsstring>(topic_name, topic_type)</argsstring>
+        <name>create_publisher</name>
+        <param>
+          <type>topic_name</type>
+          <defname>topic_name</defname>
+        </param>
+        <param>
+          <type>topic_type</type>
+          <defname>topic_type</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Create rospy.Publisher instance from the string topic name and
+type. This is a powerful method as it allows creation of
+rospy.Publisher and Message instances using the topic and type
+names. This enables more dynamic publishing from Python programs.
+
+:param topic_name: name of topic, ``str``
+:param topic_type: name of topic type, ``str``
+:param latch: latching topic, ``bool``
+:returns: topic :class:`rospy.Publisher`, :class:`Message` class
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="518" column="1" bodyfile="src/console.py" bodystart="518" bodyend="548"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a27993a70e91e262501a1d628e503d1e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._publish_latched</definition>
+        <argsstring>(pub, msg)</argsstring>
+        <name>_publish_latched</name>
+        <param>
+          <type>pub</type>
+          <defname>pub</defname>
+        </param>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Publish and latch message. Subroutine of L{publish_message()}.
+
+:param pub: :class:`rospy.Publisher` instance for topic
+:param msg: message instance to publish
+:param once: if ``True``, publish message once and then exit after sleep interval, ``bool``
+:param verbose: If ``True``, print more verbose output to stdout, ``bool``
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="549" column="1" bodyfile="src/console.py" bodystart="549" bodyend="562"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a14dec4a654227e12a8f2ae9ae0b986c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.publish_message</definition>
+        <argsstring>(pub, msg_class, pub_args)</argsstring>
+        <name>publish_message</name>
+        <param>
+          <type>pub</type>
+          <defname>pub</defname>
+        </param>
+        <param>
+          <type>msg_class</type>
+          <defname>msg_class</defname>
+        </param>
+        <param>
+          <type>pub_args</type>
+          <defname>pub_args</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Create new instance of msg_class, populate with pub_args, and publish. This may
+print output to screen.
+
+:param pub: :class:`rospy.Publisher` instance for topic
+:param msg_class: Message type, ``Class``
+:param pub_args: Arguments to initialize message that is published, ``[val]``
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="563" column="1" bodyfile="src/console.py" bodystart="563" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1acd2161e9c8d4cddc3bdc7ff6ff58fb17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.cmd_set_topic</definition>
+        <argsstring>(args)</argsstring>
+        <name>cmd_set_topic</name>
+        <param>
+          <type>args</type>
+          <defname>args</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="599" column="1" bodyfile="src/console.py" bodystart="599" bodyend="677"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1acb000aeb4c894ad7913e7d709c0de81c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._list_topics</definition>
+        <argsstring>(print_out=True)</argsstring>
+        <name>_list_topics</name>
+        <param>
+          <type>print_out</type>
+          <defname>print_out</defname>
+          <defval>True</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="678" column="1" bodyfile="src/console.py" bodystart="678" bodyend="702"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a369a9a180404256e3a19ec2a973d50fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._Resume_Page</definition>
+        <argsstring>()</argsstring>
+        <name>_Resume_Page</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="703" column="1" bodyfile="src/console.py" bodystart="703" bodyend="712"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a5ef535161631810bc6f99ae769244fd4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._Ask_Topics</definition>
+        <argsstring>(topics_list)</argsstring>
+        <name>_Ask_Topics</name>
+        <param>
+          <type>topics_list</type>
+          <defname>topics_list</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="718" column="1" bodyfile="src/console.py" bodystart="718" bodyend="771"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1af38622c8270e06f0d9e90b6b5dce38e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.getfiles</definition>
+        <argsstring>(dirpath)</argsstring>
+        <name>getfiles</name>
+        <param>
+          <type>dirpath</type>
+          <defname>dirpath</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="772" column="1" bodyfile="src/console.py" bodystart="772" bodyend="777"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a3e855c7ed9620f72e77ce9c191239e85" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console._List_Missions</definition>
+        <argsstring>()</argsstring>
+        <name>_List_Missions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="778" column="1" bodyfile="src/console.py" bodystart="778" bodyend="868"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a9357f9ffa0e9badc28d8f390606d1182" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.populenv</definition>
+        <argsstring>(self)</argsstring>
+        <name>populenv</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="884" column="1" bodyfile="src/console.py" bodystart="884" bodyend="969"/>
+      </memberdef>
+      <memberdef kind="function" id="console_8py_1a9168af7b334ad572c21679a1f58f16b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.signal_handler</definition>
+        <argsstring>(signal, frame)</argsstring>
+        <name>signal_handler</name>
+        <param>
+          <type>signal</type>
+          <defname>signal</defname>
+        </param>
+        <param>
+          <type>frame</type>
+          <defname>frame</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1110" column="1" bodyfile="src/console.py" bodystart="1110" bodyend="1114"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/console.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

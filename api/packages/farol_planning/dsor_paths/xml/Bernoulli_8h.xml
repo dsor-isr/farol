@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Bernoulli_8h" kind="file" language="C++">
+    <compoundname>Bernoulli.h</compoundname>
+    <includes refid="PathSection_8h" local="yes">PathSection.h</includes>
+    <includedby refid="PathNode_8h" local="yes">include/ros/PathNode.h</includedby>
+    <includedby refid="Bernoulli_8cpp" local="yes">src/algorithms/path_sections/Bernoulli.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>limits</label>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="1">
+        <label>include/algorithms/path_sections/Bernoulli.h</label>
+        <link refid="Bernoulli_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+      <node id="2">
+        <label>PathSection.h</label>
+        <link refid="PathSection_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/ros/PathNode.h</label>
+        <link refid="PathNode_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/algorithms/path_sections/Bernoulli.h</label>
+        <link refid="Bernoulli_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classBernoulli" prot="public">Bernoulli</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;PathSection.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classBernoulli" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBernoulli" kindref="compound">Bernoulli</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classPathSection" kindref="compound">PathSection</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBernoulli_1a2aa1605e6252f68349e4eb749b5b563d" kindref="member">Bernoulli</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_y);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBernoulli_1a2aa1605e6252f68349e4eb749b5b563d" kindref="member">Bernoulli</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="classBernoulli_1ae7c5b8d12658bb295a089d118d161101" kindref="member">eq_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="classBernoulli_1aed005d0fa35c887c0a94e73214bbe77e" kindref="member">eq_d_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="classBernoulli_1ad454ebe95e1a56a9cbd55f798e8d0c8d" kindref="member">eq_dd_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classBernoulli_1a4ec726044ec8606b33cb03249b6f0a36" kindref="member">curvature</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classBernoulli_1a808fe7388f94475d7c3a60911c908288" kindref="member">getClosestPointGamma</ref>(Eigen::Vector3d<sp/>&amp;coordinate)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius_;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_x_,<sp/>center_y_;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z_axis_;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first_iteration_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_o_{0.0};</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_partitions_{4};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tolerance_{0.01};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/path_sections/Bernoulli.h"/>
+  </compounddef>
+</doxygen>

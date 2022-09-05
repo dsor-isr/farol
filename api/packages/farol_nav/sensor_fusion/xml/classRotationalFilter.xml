@@ -1,0 +1,670 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRotationalFilter" kind="class" language="C++" prot="public">
+    <compoundname>RotationalFilter</compoundname>
+    <includes refid="RotationalFilter_8h" local="no">RotationalFilter.h</includes>
+    <innerclass refid="structRotationalFilter_1_1config" prot="public">RotationalFilter::config</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classRotationalFilter_1aeec225dec52736d4a3a86cd00d720898" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int RotationalFilter::STATE_LEN</definition>
+        <argsstring></argsstring>
+        <name>STATE_LEN</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="51" column="18" bodyfile="include/algorithms/RotationalFilter.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRotationalFilter_1aa56839984c307109798faa8750c8d9cf" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::PI</definition>
+        <argsstring></argsstring>
+        <name>PI</name>
+        <initializer>= 3.1415926</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="52" column="8" bodyfile="include/algorithms/RotationalFilter.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRotationalFilter_1a242b1de95395801005e02857e1d9427c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RotationalFilter::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Initialized Filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="126" column="6" bodyfile="include/algorithms/RotationalFilter.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a7bbf2e73d47635bede6eafb6a4a60f76" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RotationalFilter::ahrs_as_input_</definition>
+        <argsstring></argsstring>
+        <name>ahrs_as_input_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Indicates if ahrs is input or measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="127" column="6" bodyfile="include/algorithms/RotationalFilter.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a4ca7ae6bdc597a2519ec41d9343380ac" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::t_period_</definition>
+        <argsstring></argsstring>
+        <name>t_period_</name>
+        <briefdescription>
+<para>predict period </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="130" column="8" bodyfile="include/algorithms/RotationalFilter.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1ad6a78a78826b7c3d49f92752c0ba8825" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::t_save_measurement_</definition>
+        <argsstring></argsstring>
+        <name>t_save_measurement_</name>
+        <briefdescription>
+<para>measurements older than this time are rejected. Note not being used </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="131" column="8" bodyfile="include/algorithms/RotationalFilter.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a17104b8058d8ab603a345727d59feb92" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::t_reset_</definition>
+        <argsstring></argsstring>
+        <name>t_reset_</name>
+        <briefdescription>
+<para>Reset filter if after t_reset_ no measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="132" column="8" bodyfile="include/algorithms/RotationalFilter.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a22beb21900eb0e1264f271abde1666e8" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec RotationalFilter::state_vec_</definition>
+        <argsstring></argsstring>
+        <name>state_vec_</name>
+        <briefdescription>
+<para>State vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="133" column="5" bodyfile="include/algorithms/RotationalFilter.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a6d5726186713fe1535790776d385676a" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat RotationalFilter::state_cov_</definition>
+        <argsstring></argsstring>
+        <name>state_cov_</name>
+        <briefdescription>
+<para>Covariance Matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="134" column="5" bodyfile="include/algorithms/RotationalFilter.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1ad7a0c4a39569bca6b3eddf17723e9fb7" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat RotationalFilter::process_cov_</definition>
+        <argsstring></argsstring>
+        <name>process_cov_</name>
+        <briefdescription>
+<para>Process Covariance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="135" column="5" bodyfile="include/algorithms/RotationalFilter.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a6314bc2c615f6d1fe3f1fd0d0b739f4e" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec RotationalFilter::state_reject_counter_</definition>
+        <argsstring></argsstring>
+        <name>state_reject_counter_</name>
+        <briefdescription>
+<para>for outlier rejection </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="136" column="5" bodyfile="include/algorithms/RotationalFilter.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1aca9fa162edd95f8b2419c78b0d6e5863" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec RotationalFilter::reject_counter_</definition>
+        <argsstring></argsstring>
+        <name>reject_counter_</name>
+        <briefdescription>
+<para>Keep track of outliers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="137" column="5" bodyfile="include/algorithms/RotationalFilter.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a1157b8bc0c59302cc53e4e5c3cf2dd98" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::base_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>base_frame_id_</name>
+        <briefdescription>
+<para>base frame </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="140" column="13" bodyfile="include/algorithms/RotationalFilter.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a4edd3d0e46be259d99bafb2ebebc9fa5" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::odom_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>odom_frame_id_</name>
+        <briefdescription>
+<para>odom frame </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="141" column="13" bodyfile="include/algorithms/RotationalFilter.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a8fc5437e0f36927d067bdf7870ec5c99" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::map_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>map_frame_id_</name>
+        <briefdescription>
+<para>map frame </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="142" column="13" bodyfile="include/algorithms/RotationalFilter.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a8cbd63c66e71195aea3f4524bcb70523" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::world_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>world_frame_id_</name>
+        <briefdescription>
+<para>world frame </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="143" column="13" bodyfile="include/algorithms/RotationalFilter.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a86a1ea79c40dfc265574bbd69de295a2" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::name_vehicle_id_</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="144" column="13" bodyfile="include/algorithms/RotationalFilter.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1ab2cf12c8e9a22c0cd6ea9ac9f59e9c29" prot="private" static="no" mutable="no">
+        <type>tf2_ros::Buffer</type>
+        <definition>tf2_ros::Buffer RotationalFilter::tf_buffer_</definition>
+        <argsstring></argsstring>
+        <name>tf_buffer_</name>
+        <briefdescription>
+<para>tf buffer </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="145" column="17" bodyfile="include/algorithms/RotationalFilter.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1ae4fae1a169fef2111ce0148be5197ffa" prot="private" static="no" mutable="no">
+        <type>tf2_ros::TransformListener *</type>
+        <definition>tf2_ros::TransformListener* RotationalFilter::tf_listener_</definition>
+        <argsstring></argsstring>
+        <name>tf_listener_</name>
+        <briefdescription>
+<para>tf listener </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="146" column="28" bodyfile="include/algorithms/RotationalFilter.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a7e190d810128deab7d0a991b9046b5a5" prot="private" static="no" mutable="no">
+        <type>tf2_ros::TransformBroadcaster</type>
+        <definition>tf2_ros::TransformBroadcaster RotationalFilter::tf_broadcast_</definition>
+        <argsstring></argsstring>
+        <name>tf_broadcast_</name>
+        <briefdescription>
+<para>transform broadcast tf </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="147" column="31" bodyfile="include/algorithms/RotationalFilter.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1a5cdcf165747212d8cb65ec0547025237" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time RotationalFilter::last_predict_</definition>
+        <argsstring></argsstring>
+        <name>last_predict_</name>
+        <briefdescription>
+<para>time of last predict </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="150" column="11" bodyfile="include/algorithms/RotationalFilter.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRotationalFilter_1ad3f77746e5bfbac88384e5ae113e4868" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time RotationalFilter::last_update_</definition>
+        <argsstring></argsstring>
+        <name>last_update_</name>
+        <briefdescription>
+<para>time of last update </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="151" column="11" bodyfile="include/algorithms/RotationalFilter.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRotationalFilter_1a7bfe6d9f57307bd84e3bd10096d16625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RotationalFilter::RotationalFilter</definition>
+        <argsstring>()</argsstring>
+        <name>RotationalFilter</name>
+        <briefdescription>
+<para>Rotational Filter Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="73" column="1" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="7" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a8ed9be18692289c81b436fc84b479d2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual RotationalFilter::~RotationalFilter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~RotationalFilter</name>
+        <briefdescription>
+<para>Rotational Filter Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="81" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a3bd18f70b574d8474a93dfc114dc010d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::computePredict</definition>
+        <argsstring>(auv_msgs::NavigationStatus &amp;state, const ros::Time &amp;t_request)</argsstring>
+        <name>computePredict</name>
+        <param>
+          <type>auv_msgs::NavigationStatus &amp;</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>const ros::Time &amp;</type>
+          <declname>t_request</declname>
+        </param>
+        <briefdescription>
+<para>Progate the state to the time t_request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t_request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Why have we used TF here? We want: Rotation of base_link wrt world, i.e. header = world, child = base_link (TFwb). I have: 1. static_tf - Rotation of imu wrt base_link, i.e. header = base_link, child = imu (TFbi); 2. sensor output - Rotation of imu wrt world, i.e. header = world, child = imu (TFwi). Solution: TFwb = TFwi * (TFbi)^-1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="95" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="26" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a97d03573fa31f1b1746e67448444c9c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::configure</definition>
+        <argsstring>(const config configurations)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const <ref refid="structRotationalFilter_1_1config" kindref="compound">config</ref></type>
+          <declname>configurations</declname>
+        </param>
+        <briefdescription>
+<para>configure filter program variables and may initializes the filter </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configurations</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>struct to store configurations from yaml file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="105" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="138" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a2c88d2e09d25a0b912ac9b724d349f4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::newMeasurement</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>newMeasurement</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Checks and processes a new measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="114" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="168" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1af277342314bbfe6767eaa5d1567bd754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::resetFilter</definition>
+        <argsstring>()</argsstring>
+        <name>resetFilter</name>
+        <briefdescription>
+<para>Reset the horizontal filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="121" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="362" bodyend="367"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRotationalFilter_1a895018ab1e1cf321d5f5748492ed0e90" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RotationalFilter::initialize</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>initialize</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Initialize rotational filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement from a sensor or Initial value of state defined in config file</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or failure <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="165" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="203" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a5fcd5812186c67046bcae8c1947669d5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::predict</definition>
+        <argsstring>(Vec &amp;state_vec, Mat &amp;state_cov, double dt)</argsstring>
+        <name>predict</name>
+        <param>
+          <type>Vec &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>Mat &amp;</type>
+          <declname>state_cov</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Predict step of Kalman filter. Predicts the state and the covariance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_cov</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Covariance matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time step </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="177" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="220" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a32e489b3b539d7bc7bf93778f298d44b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::update</definition>
+        <argsstring>(Vec &amp;state_vec, Mat &amp;state_cov, const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Vec &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>Mat &amp;</type>
+          <declname>state_cov</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Kalman update step. Updates the state and covariance with a measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_cov</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Covariance matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="188" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="251" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="classRotationalFilter_1a228b0256ea8e20b8fabf5e9e0b192246" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RotationalFilter::forwardPropagation</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>forwardPropagation</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Propagate the state and the covariance until measurement time and then update the state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="200" column="6" bodyfile="src/algorithms/RotationalFilter.cpp" bodystart="339" bodyend="360"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This Class estimates the state of the vehicle in the rotational frame. The state includes orientation and angular velocity. The latest state estimate of the filter is obtained using the function <ref refid="classRotationalFilter_1a3bd18f70b574d8474a93dfc114dc010d" kindref="member">computePredict()</ref>. Measurement updates to the filter is done using <ref refid="classRotationalFilter_1a2c88d2e09d25a0b912ac9b724d349f4c" kindref="member">newMeasurement()</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/RotationalFilter.h" line="48" column="23" bodyfile="include/algorithms/RotationalFilter.h" bodystart="48" bodyend="201"/>
+    <listofallmembers>
+      <member refid="classRotationalFilter_1a7bbf2e73d47635bede6eafb6a4a60f76" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>ahrs_as_input_</name></member>
+      <member refid="classRotationalFilter_1a1157b8bc0c59302cc53e4e5c3cf2dd98" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>base_frame_id_</name></member>
+      <member refid="classRotationalFilter_1a3bd18f70b574d8474a93dfc114dc010d" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>computePredict</name></member>
+      <member refid="classRotationalFilter_1a97d03573fa31f1b1746e67448444c9c8" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>configure</name></member>
+      <member refid="classRotationalFilter_1a228b0256ea8e20b8fabf5e9e0b192246" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>forwardPropagation</name></member>
+      <member refid="classRotationalFilter_1a895018ab1e1cf321d5f5748492ed0e90" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>initialize</name></member>
+      <member refid="classRotationalFilter_1a242b1de95395801005e02857e1d9427c" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>initialized_</name></member>
+      <member refid="classRotationalFilter_1a5cdcf165747212d8cb65ec0547025237" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>last_predict_</name></member>
+      <member refid="classRotationalFilter_1ad3f77746e5bfbac88384e5ae113e4868" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>last_update_</name></member>
+      <member refid="classRotationalFilter_1a8fc5437e0f36927d067bdf7870ec5c99" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>map_frame_id_</name></member>
+      <member refid="classRotationalFilter_1a86a1ea79c40dfc265574bbd69de295a2" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>name_vehicle_id_</name></member>
+      <member refid="classRotationalFilter_1a2c88d2e09d25a0b912ac9b724d349f4c" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>newMeasurement</name></member>
+      <member refid="classRotationalFilter_1a4edd3d0e46be259d99bafb2ebebc9fa5" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>odom_frame_id_</name></member>
+      <member refid="classRotationalFilter_1aa56839984c307109798faa8750c8d9cf" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>PI</name></member>
+      <member refid="classRotationalFilter_1a5fcd5812186c67046bcae8c1947669d5" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>predict</name></member>
+      <member refid="classRotationalFilter_1ad7a0c4a39569bca6b3eddf17723e9fb7" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>process_cov_</name></member>
+      <member refid="classRotationalFilter_1aca9fa162edd95f8b2419c78b0d6e5863" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>reject_counter_</name></member>
+      <member refid="classRotationalFilter_1af277342314bbfe6767eaa5d1567bd754" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>resetFilter</name></member>
+      <member refid="classRotationalFilter_1a7bfe6d9f57307bd84e3bd10096d16625" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>RotationalFilter</name></member>
+      <member refid="classRotationalFilter_1a6d5726186713fe1535790776d385676a" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>state_cov_</name></member>
+      <member refid="classRotationalFilter_1aeec225dec52736d4a3a86cd00d720898" prot="public" virt="non-virtual"><scope>RotationalFilter</scope><name>STATE_LEN</name></member>
+      <member refid="classRotationalFilter_1a6314bc2c615f6d1fe3f1fd0d0b739f4e" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>state_reject_counter_</name></member>
+      <member refid="classRotationalFilter_1a22beb21900eb0e1264f271abde1666e8" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>state_vec_</name></member>
+      <member refid="classRotationalFilter_1a4ca7ae6bdc597a2519ec41d9343380ac" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>t_period_</name></member>
+      <member refid="classRotationalFilter_1a17104b8058d8ab603a345727d59feb92" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>t_reset_</name></member>
+      <member refid="classRotationalFilter_1ad6a78a78826b7c3d49f92752c0ba8825" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>t_save_measurement_</name></member>
+      <member refid="classRotationalFilter_1a7e190d810128deab7d0a991b9046b5a5" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>tf_broadcast_</name></member>
+      <member refid="classRotationalFilter_1ab2cf12c8e9a22c0cd6ea9ac9f59e9c29" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>tf_buffer_</name></member>
+      <member refid="classRotationalFilter_1ae4fae1a169fef2111ce0148be5197ffa" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>tf_listener_</name></member>
+      <member refid="classRotationalFilter_1a32e489b3b539d7bc7bf93778f298d44b" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>update</name></member>
+      <member refid="classRotationalFilter_1a8cbd63c66e71195aea3f4524bcb70523" prot="private" virt="non-virtual"><scope>RotationalFilter</scope><name>world_frame_id_</name></member>
+      <member refid="classRotationalFilter_1a8ed9be18692289c81b436fc84b479d2c" prot="public" virt="virtual"><scope>RotationalFilter</scope><name>~RotationalFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

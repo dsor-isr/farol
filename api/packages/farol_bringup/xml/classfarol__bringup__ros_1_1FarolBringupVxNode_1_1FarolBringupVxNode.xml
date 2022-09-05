@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode" kind="class" language="Python" prot="public">
+    <compoundname>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a609f35cc245a25bc4e5f4e562f723ac8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="43" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a6c222e2d5b2f9d1792528c6cd0d9d338" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode::vehicle_id</definition>
+        <argsstring></argsstring>
+        <name>vehicle_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="44" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1aa5841046a4de395afb0f7de28572899b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode::config_package_path</definition>
+        <argsstring></argsstring>
+        <name>config_package_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="45" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1af8dca6fe19cc7b3208454dfbedfa1b78" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode::folder</definition>
+        <argsstring></argsstring>
+        <name>folder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="46" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a7b88cdfe07dcbe2d164ef666b455593a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode::namespace</definition>
+        <argsstring></argsstring>
+        <name>namespace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="47" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a17586ffb689357387d9b5f40e805cc11" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode::vehicle_configuration</definition>
+        <argsstring></argsstring>
+        <name>vehicle_configuration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="48" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1ab202e7edd6e4189a08488440120e8a4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for ros node
+</verbatim><verbatim>###########################################################################################
+@.@ Init node
+###########################################################################################
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="12" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="12" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1aaab22f793f2d3916d8ac614ceaa91926" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def farol_bringup_ros.FarolBringupVxNode.FarolBringupVxNode.loadParams</definition>
+        <argsstring>(self)</argsstring>
+        <name>loadParams</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="40" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="40" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/farol_bringup_ros/FarolBringupVxNode.py" line="11" column="1" bodyfile="src/farol_bringup_ros/FarolBringupVxNode.py" bodystart="11" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1ab202e7edd6e4189a08488440120e8a4a" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>__init__</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1aa5841046a4de395afb0f7de28572899b" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>config_package_path</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1af8dca6fe19cc7b3208454dfbedfa1b78" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>folder</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1aaab22f793f2d3916d8ac614ceaa91926" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>loadParams</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a609f35cc245a25bc4e5f4e562f723ac8" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>name</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a7b88cdfe07dcbe2d164ef666b455593a" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>namespace</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a17586ffb689357387d9b5f40e805cc11" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>vehicle_configuration</name></member>
+      <member refid="classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode_1a6c222e2d5b2f9d1792528c6cd0d9d338" prot="public" virt="non-virtual"><scope>farol_bringup_ros::FarolBringupVxNode::FarolBringupVxNode</scope><name>vehicle_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

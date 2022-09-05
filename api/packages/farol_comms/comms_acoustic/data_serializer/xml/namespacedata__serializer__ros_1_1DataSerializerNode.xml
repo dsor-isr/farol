@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacedata__serializer__ros_1_1DataSerializerNode" kind="namespace" language="Python">
+    <compoundname>data_serializer_ros::DataSerializerNode</compoundname>
+    <innerclass refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode" prot="public">data_serializer_ros::DataSerializerNode::DataSerializerNode</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacedata__serializer__ros_1_1DataSerializerNode_1a6e8eb6d48ab28245a80c7b50bf6cffc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_ros.DataSerializerNode.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="217" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="217" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Developers: DSOR Team -&gt; @irt.ist.pt Instituto Superior Tecnico
+Description: Please check the documentation of this package for more info.
+</verbatim> </para>
+    </detaileddescription>
+    <location file="src/data_serializer_ros/DataSerializerNode.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

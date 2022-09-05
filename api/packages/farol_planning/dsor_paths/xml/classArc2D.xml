@@ -1,0 +1,479 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classArc2D" kind="class" language="C++" prot="public">
+    <compoundname>Arc2D</compoundname>
+    <basecompoundref refid="classPathSection" prot="public" virt="non-virtual">PathSection</basecompoundref>
+    <includes refid="Arc2D_8h" local="no">Arc2D.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classArc2D_1a68df2185e6265886fac109d34efdeafe" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Arc2D::start_point_</definition>
+        <argsstring></argsstring>
+        <name>start_point_</name>
+        <briefdescription>
+<para>The arc start point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="98" column="21" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classArc2D_1a87f842bfd58fe6962749f6a3d022a2b2" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Arc2D::end_point_</definition>
+        <argsstring></argsstring>
+        <name>end_point_</name>
+        <briefdescription>
+<para>The arc end point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="103" column="21" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classArc2D_1a36348845834556ac754ed4cc35dc22c7" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d Arc2D::center_point_</definition>
+        <argsstring></argsstring>
+        <name>center_point_</name>
+        <briefdescription>
+<para>The arc center point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="108" column="21" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classArc2D_1a9d72c3319b14b798693e478474ec36ed" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Arc2D::direction_</definition>
+        <argsstring></argsstring>
+        <name>direction_</name>
+        <briefdescription>
+<para>The direction to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="113" column="9" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classArc2D_1aeeaeec835462d9c267d0a33497d75d30" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Arc2D::z_axis_</definition>
+        <argsstring></argsstring>
+        <name>z_axis_</name>
+        <briefdescription>
+<para>The desired plane in which to place the arc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="118" column="12" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classArc2D_1ad527edb0c294bcd15cb60520400ddbe3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Arc2D::R_</definition>
+        <argsstring></argsstring>
+        <name>R_</name>
+        <briefdescription>
+<para>Auxiliar parameters for computations The Radius of the curve. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="124" column="12" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classArc2D_1a267f5b7aa845ee61de2ab0c8f5b2e95a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Arc2D::psi0_</definition>
+        <argsstring></argsstring>
+        <name>psi0_</name>
+        <briefdescription>
+<para>Auxiliar parameters for the computations The initial angle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="130" column="12" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classArc2D_1a0fd1ec377f8143ee543d2cb44a7095a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Arc2D::Arc2D</definition>
+        <argsstring>(Eigen::Vector2d start_point, Eigen::Vector2d end_point, Eigen::Vector2d center_point, int direction, double z)</argsstring>
+        <name>Arc2D</name>
+        <param>
+          <type>Eigen::Vector2d</type>
+          <declname>start_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector2d</type>
+          <declname>end_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector2d</type>
+          <declname>center_point</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the <ref refid="classArc2D" kindref="compound">Arc2D</ref> class, that receives the desired plane for the arc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 2D start point of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 2D end point of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 2D coordinate with the center of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An int (-1 or 1) that represents the direction of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The altitude at which to place the arc</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Constructor for the <ref refid="classArc2D" kindref="compound">Arc2D</ref> path. Using this constructor we can specify the plane in which to put the arc </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="30" column="5" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="10" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classArc2D_1ae1a9fad8b84b76896d38e297d5a10067" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Arc2D::Arc2D</definition>
+        <argsstring>(Eigen::Vector2d start_point, Eigen::Vector2d end_point, Eigen::Vector2d center_point, int direction)</argsstring>
+        <name>Arc2D</name>
+        <param>
+          <type>Eigen::Vector2d</type>
+          <declname>start_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector2d</type>
+          <declname>end_point</declname>
+        </param>
+        <param>
+          <type>Eigen::Vector2d</type>
+          <declname>center_point</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the <ref refid="classArc2D" kindref="compound">Arc2D</ref> class, that receives the desired plane for the arc. Assumes the plane is placed at z=0.0 m. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 2D start point of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 2D end point of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 2D coordinate with the center of the arc </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An int (-1 or 1) that represents the direction of the arc</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+The constructors for the <ref refid="classArc2D" kindref="compound">Arc2D</ref> paths Using this constructor we assume the path is place in the plane z = 0 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="41" column="5" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classArc2D_1acb617ad9f6992159b979aba1d364595c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Arc2D::eq_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_pd</name>
+        <reimplements refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109">eq_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>The <ref refid="classPath" kindref="compound">Path</ref> section equation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the equation of the path with respect to the path parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="52" column="21" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="46" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classArc2D_1af6f2233ea69813d412b2b031426d6f36" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Arc2D::eq_d_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_d_pd</name>
+        <reimplements refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe">eq_d_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>First derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter t</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the equation of the partial derivative with respect to the path parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="62" column="21" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="69" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classArc2D_1aad5075548c3ebfecf363eb5fc8ff7f5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Arc2D::eq_dd_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_dd_pd</name>
+        <reimplements refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad">eq_dd_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter t</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the equation of the second order partial derivative with respect to the path parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="72" column="21" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="92" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classArc2D_1a0adc1625748bec6ac098a8e9b1373590" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Arc2D::curvature</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>curvature</name>
+        <reimplements refid="classPathSection_1adffd7389e5870df945c682481713ba76">curvature</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Compute the curvature in a simple manner. Computed as 1/Radius. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter t</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the curvature in of that section (1/radius) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="81" column="12" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classArc2D_1a362dadaddc5cc2f3de2e1a7d7d96204f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Arc2D::getClosestPointGamma</definition>
+        <argsstring>(Eigen::Vector3d &amp;coordinate) override</argsstring>
+        <name>getClosestPointGamma</name>
+        <reimplements refid="classPathSection_1a78793a75681c551d37012591404af39c">getClosestPointGamma</reimplements>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Method for getting the gamma of the closes point to the path in a more efficient manner For an arc it uses a closed form equation to solve this problem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinate of the vehicle in the 3D space</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the gamma corresponding to the closest point in the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Arc2D.h" line="91" column="12" bodyfile="src/algorithms/path_sections/Arc2D.cpp" bodystart="121" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements a 2D arc section. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is used as a part of the sections library <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="1">
+        <label>Arc2D</label>
+        <link refid="classArc2D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="1">
+        <label>Arc2D</label>
+        <link refid="classArc2D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/path_sections/Arc2D.h" line="17" column="31" bodyfile="include/algorithms/path_sections/Arc2D.h" bodystart="17" bodyend="131"/>
+    <listofallmembers>
+      <member refid="classArc2D_1a0fd1ec377f8143ee543d2cb44a7095a1" prot="public" virt="non-virtual"><scope>Arc2D</scope><name>Arc2D</name></member>
+      <member refid="classArc2D_1ae1a9fad8b84b76896d38e297d5a10067" prot="public" virt="non-virtual"><scope>Arc2D</scope><name>Arc2D</name></member>
+      <member refid="classPathSection_1ad021a100a135860c764461bc289707e3" prot="protected" virt="non-virtual"><scope>Arc2D</scope><name>bisection</name></member>
+      <member refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" prot="public" virt="non-virtual"><scope>Arc2D</scope><name>can_be_composed</name></member>
+      <member refid="classArc2D_1a36348845834556ac754ed4cc35dc22c7" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>center_point_</name></member>
+      <member refid="classArc2D_1a0adc1625748bec6ac098a8e9b1373590" prot="public" virt="virtual"><scope>Arc2D</scope><name>curvature</name></member>
+      <member refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" prot="public" virt="virtual"><scope>Arc2D</scope><name>derivative_norm</name></member>
+      <member refid="classArc2D_1a9d72c3319b14b798693e478474ec36ed" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>direction_</name></member>
+      <member refid="classArc2D_1a87f842bfd58fe6962749f6a3d022a2b2" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>end_point_</name></member>
+      <member refid="classArc2D_1af6f2233ea69813d412b2b031426d6f36" prot="public" virt="virtual"><scope>Arc2D</scope><name>eq_d_pd</name></member>
+      <member refid="classArc2D_1aad5075548c3ebfecf363eb5fc8ff7f5e" prot="public" virt="virtual"><scope>Arc2D</scope><name>eq_dd_pd</name></member>
+      <member refid="classArc2D_1acb617ad9f6992159b979aba1d364595c" prot="public" virt="virtual"><scope>Arc2D</scope><name>eq_pd</name></member>
+      <member refid="classArc2D_1a362dadaddc5cc2f3de2e1a7d7d96204f" prot="public" virt="virtual"><scope>Arc2D</scope><name>getClosestPointGamma</name></member>
+      <member refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" prot="protected" virt="non-virtual"><scope>Arc2D</scope><name>getInitialGammaEstimate</name></member>
+      <member refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" prot="public" virt="non-virtual"><scope>Arc2D</scope><name>getMaxGammaValue</name></member>
+      <member refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" prot="public" virt="non-virtual"><scope>Arc2D</scope><name>getMinGammaValue</name></member>
+      <member refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" prot="protected" virt="non-virtual"><scope>Arc2D</scope><name>GradientDescent</name></member>
+      <member refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" prot="public" virt="non-virtual"><scope>Arc2D</scope><name>limitGamma</name></member>
+      <member refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" prot="protected" virt="non-virtual"><scope>Arc2D</scope><name>PathSection</name></member>
+      <member refid="classArc2D_1a267f5b7aa845ee61de2ab0c8f5b2e95a" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>psi0_</name></member>
+      <member refid="classArc2D_1ad527edb0c294bcd15cb60520400ddbe3" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>R_</name></member>
+      <member refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" prot="protected" virt="non-virtual"><scope>Arc2D</scope><name>setMaxGammaValue</name></member>
+      <member refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" prot="protected" virt="non-virtual"><scope>Arc2D</scope><name>setMinGammaValue</name></member>
+      <member refid="classArc2D_1a68df2185e6265886fac109d34efdeafe" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>start_point_</name></member>
+      <member refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" prot="public" virt="virtual"><scope>Arc2D</scope><name>tangent</name></member>
+      <member refid="classArc2D_1aeeaeec835462d9c267d0a33497d75d30" prot="private" virt="non-virtual"><scope>Arc2D</scope><name>z_axis_</name></member>
+      <member refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" prot="public" virt="virtual"><scope>Arc2D</scope><name>~PathSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

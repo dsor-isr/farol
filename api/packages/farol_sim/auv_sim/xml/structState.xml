@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structState" kind="struct" language="C++" prot="public">
+    <compoundname>State</compoundname>
+    <includes refid="State_8h" local="no">State.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structState_1a465822912df4faf669bb7fc071eebb6e" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d State::eta1</definition>
+        <argsstring></argsstring>
+        <name>eta1</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The position of the vehicle expressed in the inertial frame eta1=[x,y,z]^T </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/State.h" line="22" column="21" bodyfile="include/algorithms/State.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structState_1a7c33c72514da22c1279c0f65ca2589a1" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d State::eta2</definition>
+        <argsstring></argsstring>
+        <name>eta2</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The orientation of the vehicle expressed in the inertial frame, using euler angles eta2=[roll, pitch, yaw]^T </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/State.h" line="28" column="21" bodyfile="include/algorithms/State.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structState_1a4a51f0883612632812b9df9c18d832f2" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d State::v1</definition>
+        <argsstring></argsstring>
+        <name>v1</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The body velocity of the vehicle v1=[u,v,w]^T </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/State.h" line="33" column="21" bodyfile="include/algorithms/State.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d State::v2</definition>
+        <argsstring></argsstring>
+        <name>v2</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The body angular velocity of the vehicle v2=[p,q,r]^T </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/State.h" line="38" column="21" bodyfile="include/algorithms/State.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structState" kindref="compound">State</ref> class - used to save the state of a vehicle (using SNAME convention) </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="version"><para>1.0.0 </para>
+</simplesect>
+<simplesect kind="date"><para>2021/11/12 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/State.h" line="15" column="12" bodyfile="include/algorithms/State.h" bodystart="15" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structState_1a465822912df4faf669bb7fc071eebb6e" prot="public" virt="non-virtual"><scope>State</scope><name>eta1</name></member>
+      <member refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" prot="public" virt="non-virtual"><scope>State</scope><name>eta2</name></member>
+      <member refid="structState_1a4a51f0883612632812b9df9c18d832f2" prot="public" virt="non-virtual"><scope>State</scope><name>v1</name></member>
+      <member refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" prot="public" virt="non-virtual"><scope>State</scope><name>v2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

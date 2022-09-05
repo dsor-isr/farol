@@ -1,0 +1,1120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classConsolePathParserNode" kind="class" language="C++" prot="public">
+    <compoundname>ConsolePathParserNode</compoundname>
+    <includes refid="ConsolePathParserNode_8h" local="no">ConsolePathParserNode.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classConsolePathParserNode_1a7bdae67411c5a8413558efceb651d3db" prot="public" static="no" mutable="no">
+        <type>std::list&lt; <ref refid="classSection" kindref="compound">Section</ref> &gt;</type>
+        <definition>std::list&lt;Section&gt; ConsolePathParserNode::mission</definition>
+        <argsstring></argsstring>
+        <name>mission</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="78" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a2546646651c0d670237ca593b4721d4f" prot="public" static="no" mutable="no">
+        <type>std::list&lt; <ref refid="classFormation" kindref="compound">Formation</ref> &gt;</type>
+        <definition>std::list&lt;Formation&gt; ConsolePathParserNode::formation</definition>
+        <argsstring></argsstring>
+        <name>formation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="79" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a1c8aa2b8dac68ecf3c9ce3018405441a" prot="public" static="no" mutable="no">
+        <type>std::list&lt; <ref refid="classSection" kindref="compound">Section</ref> &gt;::iterator</type>
+        <definition>std::list&lt;Section&gt;::iterator ConsolePathParserNode::act_section</definition>
+        <argsstring></argsstring>
+        <name>act_section</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="82" column="22" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a47e1ebc15590fcbe8bfcd23fd3a69344" prot="public" static="no" mutable="no">
+        <type>farol_msgs::Section</type>
+        <definition>farol_msgs::Section ConsolePathParserNode::section_copy</definition>
+        <argsstring></argsstring>
+        <name>section_copy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="85" column="21" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a157103034ddc7e16dc751e0707d89d93" prot="public" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time ConsolePathParserNode::depth_end</definition>
+        <argsstring></argsstring>
+        <name>depth_end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="87" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a6e3e8e0df8abc91ed2995d80406eeb90" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ConsolePathParserNode::own_id</definition>
+        <argsstring></argsstring>
+        <name>own_id</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="90" column="5" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a8a8b169907b65afb3206181d04aa7cc6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::xrefpoint</definition>
+        <argsstring></argsstring>
+        <name>xrefpoint</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="93" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ab318bf87a16972cb9c24327c3fc334dd" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::yrefpoint</definition>
+        <argsstring></argsstring>
+        <name>yrefpoint</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="94" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ad74e33c273cb50bc1df47ad81a057c55" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::gamma_s</definition>
+        <argsstring></argsstring>
+        <name>gamma_s</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="95" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a16c9d0236c1163617d5be16174d2b1a7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::gamma_e</definition>
+        <argsstring></argsstring>
+        <name>gamma_e</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="96" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a83c3ed9dd2d6abf3ba2e7f0e7be0d4d1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::x_act</definition>
+        <argsstring></argsstring>
+        <name>x_act</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="97" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ae7ab7afcb2524822aa6361485dd6bae5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::y_act</definition>
+        <argsstring></argsstring>
+        <name>y_act</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="98" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a21b7cfb6679c4db1a544e787e733ec69" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="99" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a29be8f965f9f14900ef101c48c00ee75" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::gamma_old</definition>
+        <argsstring></argsstring>
+        <name>gamma_old</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="100" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ae9570dff8bd0c9ad9d6db7db45b7b675" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::u_est</definition>
+        <argsstring></argsstring>
+        <name>u_est</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="101" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ac944df19cdffd15405b1f5defe4d8318" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::x_forma</definition>
+        <argsstring></argsstring>
+        <name>x_forma</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="104" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1aac9644e7e021b8244b4e275c978062e4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::y_forma</definition>
+        <argsstring></argsstring>
+        <name>y_forma</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="105" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a0df46b093834e360a8e8a009ed739a69" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float ConsolePathParserNode::DesiredDepth</definition>
+        <argsstring></argsstring>
+        <name>DesiredDepth</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="108" column="7" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a6dca8c080b6a2b31a72c1d4fefecbac6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConsolePathParserNode::wpOrient</definition>
+        <argsstring></argsstring>
+        <name>wpOrient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="109" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a539c0e684e4ce2c2989e28062082c74f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConsolePathParserNode::ENABLE</definition>
+        <argsstring></argsstring>
+        <name>ENABLE</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="110" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a4eacdff7ff8ae8f1d5ad790046b320d8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConsolePathParserNode::formation_mode</definition>
+        <argsstring></argsstring>
+        <name>formation_mode</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="111" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1afd06b7b70a4b0b400bf12ba9150d524a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConsolePathParserNode::biased_formation_mode</definition>
+        <argsstring></argsstring>
+        <name>biased_formation_mode</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="112" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ab5dda494a4ad7221a89d05945b5f2c2e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float ConsolePathParserNode::node_frequency</definition>
+        <argsstring></argsstring>
+        <name>node_frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="113" column="7" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a656e29aa9ae7e392c6374cf6f3160c8c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ConsolePathParserNode::path_folder</definition>
+        <argsstring></argsstring>
+        <name>path_folder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="114" column="13" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classConsolePathParserNode_1a9da1213ea8106273d2f9bb9fcb215627" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle ConsolePathParserNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="118" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1aca5ab278e1aa77559ee3a29ad90eb9f5" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle ConsolePathParserNode::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="119" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1abb63bb6c9702f938947a8fe50b155d11" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber ConsolePathParserNode::flag_sub_</definition>
+        <argsstring></argsstring>
+        <name>flag_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="122" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1ac4ccafd714f6887cb429ace583bba358" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber ConsolePathParserNode::missionstring_sub_</definition>
+        <argsstring></argsstring>
+        <name>missionstring_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="122" column="27" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a56b391d7e445bfb0b3613b7d6f216233" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber ConsolePathParserNode::state_sub_</definition>
+        <argsstring></argsstring>
+        <name>state_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="122" column="46" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a27c578ca7b561a0ac7e0caebc134440d" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::formation_pub_</definition>
+        <argsstring></argsstring>
+        <name>formation_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="16" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1abd6b3e603f7e879b0375236881f0b2be" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::biased_formation_pub_</definition>
+        <argsstring></argsstring>
+        <name>biased_formation_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="31" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a01c0d1bf254db798c6f7560c932ee4de" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::section_pub_</definition>
+        <argsstring></argsstring>
+        <name>section_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="53" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a1237d136ae58c96ae2c57ff79942d5ed" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::wpref_pub_</definition>
+        <argsstring></argsstring>
+        <name>wpref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="66" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a29c0c3324b927251ffd780f09708df03" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::fullpath_pub_</definition>
+        <argsstring></argsstring>
+        <name>fullpath_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="77" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a3a8106d744188da10b465309299a42f3" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::altitude_pub_</definition>
+        <argsstring></argsstring>
+        <name>altitude_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="91" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1aca7b90578cb5e740a418aae434f55d10" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::depth_pub_</definition>
+        <argsstring></argsstring>
+        <name>depth_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="105" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a60c6ea2790298d79dad5f85b1f6a675c" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ConsolePathParserNode::flag_pub_</definition>
+        <argsstring></argsstring>
+        <name>flag_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="125" column="116" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1afdf408549c19ab706ef61eaea7e1cd69" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ConsolePathParserNode::p_console_new_</definition>
+        <argsstring></argsstring>
+        <name>p_console_new_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="128" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a748e96fe6788a4523f2260eabbadc9ab" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient ConsolePathParserNode::reset_path_client_</definition>
+        <argsstring></argsstring>
+        <name>reset_path_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="131" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1af5e3206906e635fc6fcc0549ab6112c9" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient ConsolePathParserNode::spawn_arc_client_</definition>
+        <argsstring></argsstring>
+        <name>spawn_arc_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="132" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a3b9cf5c956a24a6744313c9d710a4061" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient ConsolePathParserNode::spawn_line_client_</definition>
+        <argsstring></argsstring>
+        <name>spawn_line_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="133" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a660a4e698c3d7d9f731b310b45fe556f" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient ConsolePathParserNode::set_path_speed_client_</definition>
+        <argsstring></argsstring>
+        <name>set_path_speed_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="134" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a945b20a79974676b274115d0b1347471" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient ConsolePathParserNode::stop_pf_client_</definition>
+        <argsstring></argsstring>
+        <name>stop_pf_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="137" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a1efa20a5f867f1677a3f4cf6266bd8d2" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient ConsolePathParserNode::start_pf_client_</definition>
+        <argsstring></argsstring>
+        <name>start_pf_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="138" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a1dfde56caca53544e1c64c5977c9d5a1" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer ConsolePathParserNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="141" column="12" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1af700a6b991533cf392e10e67d7b824e6" prot="private" static="no" mutable="no">
+        <type>std_msgs::Float64</type>
+        <definition>std_msgs::Float64 ConsolePathParserNode::aux</definition>
+        <argsstring></argsstring>
+        <name>aux</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="144" column="19" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConsolePathParserNode_1a6382f89d2b9c3689c742194ae9eb81a4" prot="private" static="no" mutable="no">
+        <type>geometry_msgs::PointStamped</type>
+        <definition>geometry_msgs::PointStamped ConsolePathParserNode::Reference_</definition>
+        <argsstring></argsstring>
+        <name>Reference_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="145" column="29" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classConsolePathParserNode_1abec4ab1debed931123f1a83b126a64a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConsolePathParserNode::ConsolePathParserNode</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>ConsolePathParserNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new Console Path Parser Node object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Console Path Parser node constructor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nodehandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nodehandle_private</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nodehandle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the public ros nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nodehandle_private</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the private ros nodehandle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="62" column="1" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="15" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1ae65df49ec11817b2c963730ede4cb9db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConsolePathParserNode::~ConsolePathParserNode</definition>
+        <argsstring>()</argsstring>
+        <name>~ConsolePathParserNode</name>
+        <briefdescription>
+<para>Destroy the Console Path Parser Node object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Console Path Parser node destructor.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="68" column="1" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="29" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a0edc2156d23e7cb359bcfe5cdd240471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>Method to setup the frequency of the node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="75" column="8" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="130" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classConsolePathParserNode_1ace189889040c6ae1085a35742ce0c53c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+<para>Load parameters from ROS parameter server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to load all the parameters.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="155" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="112" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a7c315bde3487e537fa7f492c7214dd74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Initialize all node subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to initialize all the subscribers.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="161" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="64" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a3061c5f0829053f7d351cc1fc9331b89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Initialize all node publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to initialize all the publishers.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="167" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="75" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a7b8b25667ea91148a41815bedee62429" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>Initialize all service publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to initialized all the services.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="173" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="90" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1ae7abc4eb45dfa5525e038e17581aa700" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Initialize node timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to initialize the timer.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="179" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a0363281441760ce1ab2517b71c9b8490" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::parseMission</definition>
+        <argsstring>(std::istream &amp;is)</argsstring>
+        <name>parseMission</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>is</declname>
+        </param>
+        <briefdescription>
+<para>Parsing string mission to the vehicle format of sections, used in missionStringCallback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>is</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="190" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="263" bodyend="614"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1ad8ddac4ee92540692577e4cc3980d19a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::missionFormation</definition>
+        <argsstring>()</argsstring>
+        <name>missionFormation</name>
+        <briefdescription>
+<para>For cooperative pf, used in missionStringCallback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="196" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="617" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a4296f3cc49315646a18f09dea466165c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::startNewSection</definition>
+        <argsstring>()</argsstring>
+        <name>startNewSection</name>
+        <briefdescription>
+<para>Manage switch between sections of the path from console, and what to do in the end. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="202" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="647" bodyend="755"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a7097a6c706cb1fa18972397c1935755a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double ConsolePathParserNode::ANG_P</definition>
+        <argsstring>(double in)</argsstring>
+        <name>ANG_P</name>
+        <param>
+          <type>double</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Wrap the angles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="210" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a0337ea7ccc0ed16ed0bec0b3a3df44f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::requestPath</definition>
+        <argsstring>()</argsstring>
+        <name>requestPath</name>
+        <briefdescription>
+<para>Method to make calls to the path service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method used to request the path stored in the mission to the path service.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="219" column="10" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="169" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a9719e9183fd101617437cdd94c570761" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::depthCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>depthCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="230" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="765" bodyend="790"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a3b3eed9a77af8fb513f701654dbd4ce3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::missionStringCallback</definition>
+        <argsstring>(const std_msgs::String &amp;msg)</argsstring>
+        <name>missionStringCallback</name>
+        <param>
+          <type>const std_msgs::String &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Accepts string from external source (Yebisu console) and tries to parse mission from it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mission String message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="237" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="142" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1af59ffa00bc7de4554b261a7a7d81a62a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::flagCallback</definition>
+        <argsstring>(const std_msgs::Int8 &amp;msg)</argsstring>
+        <name>flagCallback</name>
+        <param>
+          <type>const std_msgs::Int8 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Check if we are doing a mission flag = 6, otherwise cancel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flag message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="244" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="793" bodyend="812"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a2d59ce4f783f5bbb069fc1eaf7401c23" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::updateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>updateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><linebreak/>
+ </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="251" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="815" bodyend="841"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1a6a075b542aa8cbb90aa0da4bcb38f81d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::missionCallback</definition>
+        <argsstring>(const std_msgs::String &amp;msg)</argsstring>
+        <name>missionCallback</name>
+        <param>
+          <type>const std_msgs::String &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Updates 2D position (X,Y) values in the State topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pose message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="258" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="844" bodyend="846"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class Responsible for parsing a mission from the console Yebisu to farol_vx stack format. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/ros/ConsolePathParserNode.h" line="54" column="1" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="53" bodyend="260"/>
+    <listofallmembers>
+      <member refid="classConsolePathParserNode_1a1c8aa2b8dac68ecf3c9ce3018405441a" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>act_section</name></member>
+      <member refid="classConsolePathParserNode_1a3a8106d744188da10b465309299a42f3" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>altitude_pub_</name></member>
+      <member refid="classConsolePathParserNode_1a7097a6c706cb1fa18972397c1935755a" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>ANG_P</name></member>
+      <member refid="classConsolePathParserNode_1af700a6b991533cf392e10e67d7b824e6" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>aux</name></member>
+      <member refid="classConsolePathParserNode_1afd06b7b70a4b0b400bf12ba9150d524a" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>biased_formation_mode</name></member>
+      <member refid="classConsolePathParserNode_1abd6b3e603f7e879b0375236881f0b2be" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>biased_formation_pub_</name></member>
+      <member refid="classConsolePathParserNode_1abec4ab1debed931123f1a83b126a64a3" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>ConsolePathParserNode</name></member>
+      <member refid="classConsolePathParserNode_1a157103034ddc7e16dc751e0707d89d93" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>depth_end</name></member>
+      <member refid="classConsolePathParserNode_1aca7b90578cb5e740a418aae434f55d10" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>depth_pub_</name></member>
+      <member refid="classConsolePathParserNode_1a9719e9183fd101617437cdd94c570761" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>depthCallback</name></member>
+      <member refid="classConsolePathParserNode_1a0df46b093834e360a8e8a009ed739a69" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>DesiredDepth</name></member>
+      <member refid="classConsolePathParserNode_1a539c0e684e4ce2c2989e28062082c74f" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>ENABLE</name></member>
+      <member refid="classConsolePathParserNode_1a60c6ea2790298d79dad5f85b1f6a675c" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>flag_pub_</name></member>
+      <member refid="classConsolePathParserNode_1abb63bb6c9702f938947a8fe50b155d11" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>flag_sub_</name></member>
+      <member refid="classConsolePathParserNode_1af59ffa00bc7de4554b261a7a7d81a62a" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>flagCallback</name></member>
+      <member refid="classConsolePathParserNode_1a2546646651c0d670237ca593b4721d4f" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>formation</name></member>
+      <member refid="classConsolePathParserNode_1a4eacdff7ff8ae8f1d5ad790046b320d8" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>formation_mode</name></member>
+      <member refid="classConsolePathParserNode_1a27c578ca7b561a0ac7e0caebc134440d" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>formation_pub_</name></member>
+      <member refid="classConsolePathParserNode_1a29c0c3324b927251ffd780f09708df03" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>fullpath_pub_</name></member>
+      <member refid="classConsolePathParserNode_1a21b7cfb6679c4db1a544e787e733ec69" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>gamma</name></member>
+      <member refid="classConsolePathParserNode_1a16c9d0236c1163617d5be16174d2b1a7" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>gamma_e</name></member>
+      <member refid="classConsolePathParserNode_1a29be8f965f9f14900ef101c48c00ee75" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>gamma_old</name></member>
+      <member refid="classConsolePathParserNode_1ad74e33c273cb50bc1df47ad81a057c55" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>gamma_s</name></member>
+      <member refid="classConsolePathParserNode_1a3061c5f0829053f7d351cc1fc9331b89" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>initializePublishers</name></member>
+      <member refid="classConsolePathParserNode_1a7b8b25667ea91148a41815bedee62429" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>initializeServices</name></member>
+      <member refid="classConsolePathParserNode_1a7c315bde3487e537fa7f492c7214dd74" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classConsolePathParserNode_1ae7abc4eb45dfa5525e038e17581aa700" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>initializeTimer</name></member>
+      <member refid="classConsolePathParserNode_1ace189889040c6ae1085a35742ce0c53c" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>loadParams</name></member>
+      <member refid="classConsolePathParserNode_1a7bdae67411c5a8413558efceb651d3db" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>mission</name></member>
+      <member refid="classConsolePathParserNode_1a6a075b542aa8cbb90aa0da4bcb38f81d" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>missionCallback</name></member>
+      <member refid="classConsolePathParserNode_1ad8ddac4ee92540692577e4cc3980d19a" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>missionFormation</name></member>
+      <member refid="classConsolePathParserNode_1ac4ccafd714f6887cb429ace583bba358" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>missionstring_sub_</name></member>
+      <member refid="classConsolePathParserNode_1a3b3eed9a77af8fb513f701654dbd4ce3" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>missionStringCallback</name></member>
+      <member refid="classConsolePathParserNode_1a9da1213ea8106273d2f9bb9fcb215627" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>nh_</name></member>
+      <member refid="classConsolePathParserNode_1aca5ab278e1aa77559ee3a29ad90eb9f5" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>nh_private_</name></member>
+      <member refid="classConsolePathParserNode_1ab5dda494a4ad7221a89d05945b5f2c2e" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>node_frequency</name></member>
+      <member refid="classConsolePathParserNode_1a0edc2156d23e7cb359bcfe5cdd240471" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>nodeFrequency</name></member>
+      <member refid="classConsolePathParserNode_1a6e3e8e0df8abc91ed2995d80406eeb90" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>own_id</name></member>
+      <member refid="classConsolePathParserNode_1afdf408549c19ab706ef61eaea7e1cd69" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>p_console_new_</name></member>
+      <member refid="classConsolePathParserNode_1a0363281441760ce1ab2517b71c9b8490" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>parseMission</name></member>
+      <member refid="classConsolePathParserNode_1a656e29aa9ae7e392c6374cf6f3160c8c" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>path_folder</name></member>
+      <member refid="classConsolePathParserNode_1a6382f89d2b9c3689c742194ae9eb81a4" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>Reference_</name></member>
+      <member refid="classConsolePathParserNode_1a0337ea7ccc0ed16ed0bec0b3a3df44f9" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>requestPath</name></member>
+      <member refid="classConsolePathParserNode_1a748e96fe6788a4523f2260eabbadc9ab" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>reset_path_client_</name></member>
+      <member refid="classConsolePathParserNode_1a47e1ebc15590fcbe8bfcd23fd3a69344" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>section_copy</name></member>
+      <member refid="classConsolePathParserNode_1a01c0d1bf254db798c6f7560c932ee4de" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>section_pub_</name></member>
+      <member refid="classConsolePathParserNode_1a660a4e698c3d7d9f731b310b45fe556f" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>set_path_speed_client_</name></member>
+      <member refid="classConsolePathParserNode_1af5e3206906e635fc6fcc0549ab6112c9" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>spawn_arc_client_</name></member>
+      <member refid="classConsolePathParserNode_1a3b9cf5c956a24a6744313c9d710a4061" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>spawn_line_client_</name></member>
+      <member refid="classConsolePathParserNode_1a1efa20a5f867f1677a3f4cf6266bd8d2" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>start_pf_client_</name></member>
+      <member refid="classConsolePathParserNode_1a4296f3cc49315646a18f09dea466165c" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>startNewSection</name></member>
+      <member refid="classConsolePathParserNode_1a56b391d7e445bfb0b3613b7d6f216233" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>state_sub_</name></member>
+      <member refid="classConsolePathParserNode_1a945b20a79974676b274115d0b1347471" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>stop_pf_client_</name></member>
+      <member refid="classConsolePathParserNode_1a1dfde56caca53544e1c64c5977c9d5a1" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>timer_</name></member>
+      <member refid="classConsolePathParserNode_1ae9570dff8bd0c9ad9d6db7db45b7b675" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>u_est</name></member>
+      <member refid="classConsolePathParserNode_1a2d59ce4f783f5bbb069fc1eaf7401c23" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>updateCallback</name></member>
+      <member refid="classConsolePathParserNode_1a6dca8c080b6a2b31a72c1d4fefecbac6" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>wpOrient</name></member>
+      <member refid="classConsolePathParserNode_1a1237d136ae58c96ae2c57ff79942d5ed" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>wpref_pub_</name></member>
+      <member refid="classConsolePathParserNode_1a83c3ed9dd2d6abf3ba2e7f0e7be0d4d1" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>x_act</name></member>
+      <member refid="classConsolePathParserNode_1ac944df19cdffd15405b1f5defe4d8318" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>x_forma</name></member>
+      <member refid="classConsolePathParserNode_1a8a8b169907b65afb3206181d04aa7cc6" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>xrefpoint</name></member>
+      <member refid="classConsolePathParserNode_1ae7ab7afcb2524822aa6361485dd6bae5" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>y_act</name></member>
+      <member refid="classConsolePathParserNode_1aac9644e7e021b8244b4e275c978062e4" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>y_forma</name></member>
+      <member refid="classConsolePathParserNode_1ab318bf87a16972cb9c24327c3fc334dd" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>yrefpoint</name></member>
+      <member refid="classConsolePathParserNode_1ae65df49ec11817b2c963730ede4cb9db" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>~ConsolePathParserNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

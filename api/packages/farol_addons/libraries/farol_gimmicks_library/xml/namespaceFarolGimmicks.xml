@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceFarolGimmicks" kind="namespace" language="C++">
+    <compoundname>FarolGimmicks</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double FarolGimmicks::PI</definition>
+        <argsstring></argsstring>
+        <name>PI</name>
+        <initializer>= 3.14159265</initializer>
+        <briefdescription>
+<para>PI value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="26" column="14" bodyfile="include/farol_gimmicks_library/FarolGimmicks.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceFarolGimmicks_1aa3f5d8d903ee42f1d9a9e7413a275592" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T FarolGimmicks::getParameters</definition>
+        <argsstring>(ros::NodeHandle &amp;_nh, std::string const &amp;parameter_name)</argsstring>
+        <name>getParameters</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>_nh</declname>
+        </param>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>parameter_name</declname>
+        </param>
+        <briefdescription>
+<para>Get the Parameters object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of data of a desired parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameter_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string with paramenter name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>T parameter value</para>
+</simplesect>
+<simplesect kind="note"><para>Option not considering default value, so the config file must have the parameter; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="38" column="15" bodyfile="include/farol_gimmicks_library/FarolGimmicks.h" bodystart="38" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1a848f23fbd13b899181e845aefb7959aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T FarolGimmicks::getParameters</definition>
+        <argsstring>(ros::NodeHandle &amp;_nh, std::string const &amp;parameter_name, T default_value)</argsstring>
+        <name>getParameters</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>_nh</declname>
+        </param>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>parameter_name</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>default_value</declname>
+        </param>
+        <briefdescription>
+<para>Get the Parameters object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of data of a desired parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameter_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string with parameter name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>default_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value of the parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>T parameter value</para>
+</simplesect>
+<simplesect kind="note"><para>Option considering default value. Even if the parameter doesn&apos;t exist in config file it is possible to use a default value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="63" column="15" bodyfile="include/farol_gimmicks_library/FarolGimmicks.h" bodystart="63" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1a267b35708e04c8b003a8bd9d63ca2e21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T FarolGimmicks::getParameters</definition>
+        <argsstring>(ros::NodeHandle &amp;_nh, std::string const &amp;parameter_name, T default_value, bool delete_param)</argsstring>
+        <name>getParameters</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>_nh</declname>
+        </param>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>parameter_name</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>default_value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>delete_param</declname>
+        </param>
+        <briefdescription>
+<para>Get the Parameters object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of data of a desired parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameter_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string with parameter name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>default_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>default value of the parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>delete_param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boolean to delete or not the parameter from parameter server </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>T parameter value</para>
+</simplesect>
+<simplesect kind="note"><para>Option considering default value. Even if the parameter doesn&apos;t exist in config file it is possible to use a default value. Removes parameter from parameter server </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="88" column="15" bodyfile="include/farol_gimmicks_library/FarolGimmicks.h" bodystart="88" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1a521072fdde5084123f6ecfc25d55d6ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FarolGimmicks::spherical_to_cartesian</definition>
+        <argsstring>(double bearing, double elevation, double range, double *out_pos_cart)</argsstring>
+        <name>spherical_to_cartesian</name>
+        <param>
+          <type>double</type>
+          <declname>bearing</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>elevation</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>out_pos_cart</declname>
+        </param>
+        <briefdescription>
+<para>Convert from spherical to cartesian coordinates. Used mainly with usbl fixes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bearing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>horizontal angle between the direction of an object and another object or between it and the true north direction in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elevation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle measured between the horizontal and the vehicle line of sight to the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>distance to the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out_pos_cart</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cartesian coordinates pointer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="115" column="6" bodyfile="src/FarolGimmicks.cpp" bodystart="11" bodyend="18" declfile="include/farol_gimmicks_library/FarolGimmicks.h" declline="115" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1ad819794f2ee42847fb5881763d9d96c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FarolGimmicks::signVal</definition>
+        <argsstring>(double v)</argsstring>
+        <name>signVal</name>
+        <param>
+          <type>double</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Returns the sign of a double. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>double value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int 1 if value is positive </para>
+</simplesect>
+<simplesect kind="return"><para>int 0 if value is 0 </para>
+</simplesect>
+<simplesect kind="return"><para>int -1 if value is negative </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="125" column="5" bodyfile="src/FarolGimmicks.cpp" bodystart="23" bodyend="26" declfile="include/farol_gimmicks_library/FarolGimmicks.h" declline="125" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1a2560554a6ceefedcbd112e9e953fbe79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FarolGimmicks::wrap2pi</definition>
+        <argsstring>(double theta, const int mode)</argsstring>
+        <name>wrap2pi</name>
+        <param>
+          <type>double</type>
+          <declname>theta</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Wraps angle between [0, 2PI] or [-PI, PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>theta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>0 = Wrap from [0, 2*pi]; 1 = Wrap from [-pi, pi] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="134" column="8" bodyfile="src/FarolGimmicks.cpp" bodystart="29" bodyend="40" declfile="include/farol_gimmicks_library/FarolGimmicks.h" declline="134" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1a49df89a216c17a648b06d2388df9c0db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FarolGimmicks::wrapTo2pi</definition>
+        <argsstring>(double in)</argsstring>
+        <name>wrapTo2pi</name>
+        <param>
+          <type>double</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+<para>Wrap angle between [0, 2PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="142" column="8" bodyfile="src/FarolGimmicks.cpp" bodystart="43" bodyend="46" declfile="include/farol_gimmicks_library/FarolGimmicks.h" declline="142" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1aab641509fbf06a1959f8ffb95db41a9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FarolGimmicks::angleDiff</definition>
+        <argsstring>(double a, double b)</argsstring>
+        <name>angleDiff</name>
+        <param>
+          <type>double</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Method to calculate the diference between angles correctly even if they wrap between -pi and pi. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 1 in radians </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 2 in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="151" column="8" bodyfile="src/FarolGimmicks.cpp" bodystart="49" bodyend="55" declfile="include/farol_gimmicks_library/FarolGimmicks.h" declline="151" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceFarolGimmicks_1a539d1bb1bc3aa57693ed8bbeb7c3afd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename A</type>
+          </param>
+          <param>
+            <type>typename B</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void FarolGimmicks::publishValue</definition>
+        <argsstring>(ros::Publisher &amp;pub, B &amp;value)</argsstring>
+        <name>publishValue</name>
+        <param>
+          <type>ros::Publisher &amp;</type>
+          <declname>pub</declname>
+        </param>
+        <param>
+          <type>B &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>publisher type </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="162" column="6" bodyfile="include/farol_gimmicks_library/FarolGimmicks.h" bodystart="162" bodyend="166"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="namespaceFarolGimmicks" kindref="compound">FarolGimmicks</ref> namespace. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>why the code of templates is here -&gt; because linkage problems see <ulink url="https://stackoverflow.com/a/1353981">https://stackoverflow.com/a/1353981</ulink> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/farol_gimmicks_library/FarolGimmicks.h" line="24" column="23"/>
+  </compounddef>
+</doxygen>

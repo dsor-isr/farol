@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classWpStandard" kind="class" language="C++" prot="public">
+    <compoundname>WpStandard</compoundname>
+    <basecompoundref refid="classWaypointController" prot="public" virt="non-virtual">WaypointController</basecompoundref>
+    <includes refid="wp__standard_8h" local="no">wp_standard.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classWpStandard_1a2a0bbb7c92b8f4d30f51b36e670fb180" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher WpStandard::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="12" column="18" bodyfile="include/waypoint_algorithms/wp_standard.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWpStandard_1ae9895dc537809636555bb35a5a9e6dc7" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros:: Publisher WpStandard::yaw_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="13" column="19" bodyfile="include/waypoint_algorithms/wp_standard.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classWpStandard_1afa553e861a88f9adfd349c0dff125db1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void WpStandard::calculateRef</definition>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref) override</argsstring>
+        <name>calculateRef</name>
+        <reimplements refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84">calculateRef</reimplements>
+        <param>
+          <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
+          <declname>wp_ref</declname>
+        </param>
+        <briefdescription>
+<para>Virtual function to compute the waypoint controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wp_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="15" column="8" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="6" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classWpStandard_1a0e182161bf809d5ea2c50ce0fe20f88b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void WpStandard::publish</definition>
+        <argsstring>() override</argsstring>
+        <name>publish</name>
+        <reimplements refid="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087">publish</reimplements>
+        <briefdescription>
+<para>Virtual function to publish the output of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="17" column="8" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="63" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classWpStandard_1aaa40f20af7e4635a2188a25f2ab19579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WpStandard::WpStandard</definition>
+        <argsstring>(ros::Publisher surge_pub, ros::Publisher yaw_pub)</argsstring>
+        <name>WpStandard</name>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_pub</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="20" column="3" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="3" bodyend="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classWpStandard_1ae717317319eb3dcb5f205fda89f2f2f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual WpStandard::~WpStandard</definition>
+        <argsstring>()</argsstring>
+        <name>~WpStandard</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="21" column="11" bodyfile="include/waypoint_algorithms/wp_standard.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Waypoint controller using surge and yaw, where the nose of the vehicle points to the desired position. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>WaypointController</label>
+        <link refid="classWaypointController"/>
+      </node>
+      <node id="1">
+        <label>WpStandard</label>
+        <link refid="classWpStandard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>WaypointController</label>
+        <link refid="classWaypointController"/>
+      </node>
+      <node id="1">
+        <label>WpStandard</label>
+        <link refid="classWpStandard"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/waypoint_algorithms/wp_standard.h" line="10" column="43" bodyfile="include/waypoint_algorithms/wp_standard.h" bodystart="10" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classWpStandard_1afa553e861a88f9adfd349c0dff125db1" prot="private" virt="virtual"><scope>WpStandard</scope><name>calculateRef</name></member>
+      <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>compute</name></member>
+      <member refid="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>gains_</name></member>
+      <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>getSurgeOut</name></member>
+      <member refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>getSwayOut</name></member>
+      <member refid="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>getYawOut</name></member>
+      <member refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>getYawrateOut</name></member>
+      <member refid="classWpStandard_1a0e182161bf809d5ea2c50ce0fe20f88b" prot="private" virt="virtual"><scope>WpStandard</scope><name>publish</name></member>
+      <member refid="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>setFrequency</name></member>
+      <member refid="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>setGains</name></member>
+      <member refid="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>setSurgeOut</name></member>
+      <member refid="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>setSwayOut</name></member>
+      <member refid="classWaypointController_1a3c5c2fdb5a1244d288cd61d69d832b43" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>setYawOut</name></member>
+      <member refid="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>setYawrateOut</name></member>
+      <member refid="classWpStandard_1a2a0bbb7c92b8f4d30f51b36e670fb180" prot="private" virt="non-virtual"><scope>WpStandard</scope><name>surge_pub_</name></member>
+      <member refid="classWaypointController_1a7ec41b45cf02496b7c8af7021a66c3e7" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>ts_</name></member>
+      <member refid="classWaypointController_1a5ea36d6bfdc995cef2b5f7d0aa0584d6" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>WaypointController</name></member>
+      <member refid="classWpStandard_1aaa40f20af7e4635a2188a25f2ab19579" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>WpStandard</name></member>
+      <member refid="classWpStandard_1ae9895dc537809636555bb35a5a9e6dc7" prot="private" virt="non-virtual"><scope>WpStandard</scope><name>yaw_pub_</name></member>
+      <member refid="classWaypointController_1ab2de838f1c139ef237c25f935a55941b" prot="public" virt="virtual"><scope>WpStandard</scope><name>~WaypointController</name></member>
+      <member refid="classWpStandard_1ae717317319eb3dcb5f205fda89f2f2f7" prot="public" virt="virtual"><scope>WpStandard</scope><name>~WpStandard</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

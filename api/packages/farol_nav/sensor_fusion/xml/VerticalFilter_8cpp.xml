@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="VerticalFilter_8cpp" kind="file" language="C++">
+    <compoundname>VerticalFilter.cpp</compoundname>
+    <includes refid="VerticalFilter_8h" local="yes">VerticalFilter.h</includes>
+    <incdepgraph>
+      <node id="14">
+        <label>geometry_msgs/TwistWithCovarianceStamped.h</label>
+      </node>
+      <node id="22">
+        <label>dsor_msgs/Measurement.h</label>
+      </node>
+      <node id="10">
+        <label>std_msgs/Bool.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="11">
+        <label>nav_msgs/Odometry.h</label>
+      </node>
+      <node id="23">
+        <label>Eigen/Eigen</label>
+      </node>
+      <node id="17">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="2">
+        <label>VerticalFilter.h</label>
+        <link refid="VerticalFilter_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="21">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="15">
+        <label>geometry_msgs/TransformStamped.h</label>
+      </node>
+      <node id="13">
+        <label>geometry_msgs/PoseWithCovarianceStamped.h</label>
+      </node>
+      <node id="18">
+        <label>FilterGimmicks.h</label>
+        <link refid="FilterGimmicks_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>vector</label>
+      </node>
+      <node id="12">
+        <label>geometry_msgs/Vector3Stamped.h</label>
+      </node>
+      <node id="5">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="16">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="6">
+        <label>tf2_ros/transform_listener.h</label>
+      </node>
+      <node id="7">
+        <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
+      <node id="3">
+        <label>algorithm</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/VerticalFilter.cpp</label>
+        <link refid="VerticalFilter_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;VerticalFilter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classVerticalFilter_1a2e0795ebf2df2ad1b9164fff5b7973ce" kindref="member">VerticalFilter::VerticalFilter</ref>()</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Flag<sp/>indicating<sp/>filter<sp/>initialization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>init_with_depth_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Initialize<sp/>All<sp/>Eigen<sp/>Matrices<sp/>and<sp/>Vectors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reject_counter_.resize(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>state_reject_counter_.resize(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>state_reject_counter_.setZero();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec_.resize(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>state_cov_.resize(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>,<sp/><ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>process_cov_.resize(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>,<sp/><ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>process_cov_.setZero();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec_.setZero();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>state_cov_.setZero();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reject_counter_.setZero();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVerticalFilter_1aecf6e8a357eda4740decf01c4223b3bd" kindref="member">VerticalFilter::configure</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structVerticalFilter_1_1config" kindref="compound">VerticalFilter::config</ref><sp/>configurations)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>TF<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>broadcast_tf_<sp/>=<sp/>configurations.broadcast_tf;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>br_<sp/>=<sp/>*configurations.br_node;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>world_frame_id_<sp/><sp/>=<sp/>configurations.world_frame;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>name_vehicle_id_<sp/>=<sp/>configurations.name_vehicle_id;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>kalman<sp/>filter<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>t_period_<sp/>=<sp/>configurations.kalman_config[0];</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>t_save_measurement_<sp/><sp/>=<sp/>configurations.kalman_config[1];</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>t_reset<sp/>=<sp/>configurations.kalman_config[2];</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>initial<sp/>state<sp/>covariance<sp/>and<sp/>outlier<sp/>rejection<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++){</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>process_cov_(i,<sp/>i)<sp/>=<sp/>configurations.process_noise[i];</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reject_counter_(i)<sp/>=<sp/>configurations.reject_counter[i];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//process_cov_(3,<sp/>3)<sp/>=<sp/>100;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Note:<sp/>This<sp/>will<sp/>only<sp/>run<sp/>if<sp/>you<sp/>define<sp/>a<sp/>postion<sp/>frame_id<sp/>in<sp/>config<sp/>file.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Otherwise<sp/>it<sp/>only<sp/>starts<sp/>with<sp/>a<sp/>depth<sp/>measurement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(configurations.initialized){</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_vec_.segment&lt;3&gt;(0)=<sp/>configurations.meas_init.value;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_cov_.block&lt;3,3&gt;(0,0).diagonal()<sp/>=<sp/>configurations.meas_init.noise;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_predict_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_update_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>initialized_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVerticalFilter_1a07b36ed347b4631d0d83cca4f641ae39" kindref="member">VerticalFilter::computePredict</ref>(auv_msgs::NavigationStatus<sp/>&amp;state,<sp/>ros::Time<sp/>t_request)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>filter<sp/>is<sp/>not<sp/>initialized</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Reset<sp/>the<sp/>filter<sp/>if<sp/>t_request<sp/>is<sp/>much<sp/>older<sp/>than<sp/>last_update</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((t_request<sp/>-<sp/>last_update_).toSec()<sp/>&gt;<sp/>t_reset<sp/>&amp;&amp;<sp/>t_reset<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classVerticalFilter_1a04b65c8d22f08b194e9091453fb67743" kindref="member">resetFilter</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>predict(state_vec_,<sp/>state_cov_,<sp/>(t_request<sp/>-<sp/>last_predict_).toSec());</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_predict_<sp/>=<sp/>t_request;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Publish<sp/>part<sp/>transform<sp/>from<sp/>World<sp/>(Vertical)<sp/>-&gt;<sp/>Horizontal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>geometry_msgs::TransformStamped<sp/>world_to_base;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>world_to_base.header.stamp<sp/>=<sp/>t_request;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>world_to_base.header.frame_id<sp/>=<sp/>world_frame_id_;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>world_to_base.child_frame_id<sp/>=<sp/>world_frame_id_<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;_V&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>world_to_base.transform.translation.z<sp/>=<sp/>state_vec_(0);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>world_to_base.transform.rotation.w<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(broadcast_tf_)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>br_.sendTransform(world_to_base);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(tf2::TransformException<sp/>&amp;ex)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_ERROR_DELAYED_THROTTLE(10.0,<sp/></highlight><highlight class="stringliteral">&quot;Vertical:<sp/>%s&quot;</highlight><highlight class="normal">,<sp/>ex.what());</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>vertical<sp/>state<sp/>estimate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>state.position.depth<sp/>=<sp/>state_vec_(0);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>state.altitude<sp/>=<sp/>state_vec_(2);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>state.global_position.altitude<sp/>=<sp/>state.altitude;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>state.seafloor_velocity.z<sp/>=<sp/>state_vec_(1);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>state.position_variance.depth<sp/>=<sp/>state_cov_(0,0);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVerticalFilter_1a1ceca4f1ae15d83904893ad332fdd88b" kindref="member">VerticalFilter::newMeasurement</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(FilterGimmicks::isinvalid(m,<sp/>last_update_.toSec())){</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Vertical:<sp/>Measurement<sp/>%s<sp/>is<sp/>invalid<sp/>in<sp/>the<sp/>Vertical<sp/>Filter&quot;</highlight><highlight class="normal">,<sp/>m.header.frame_id.c_str());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Initialize<sp/>or<sp/>update<sp/>the<sp/>filter<sp/>state<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>add<sp/>a<sp/>failed<sp/>init<sp/>msg<sp/>in<sp/>case</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN_THROTTLE(1.0,<sp/></highlight><highlight class="stringliteral">&quot;Filter<sp/>will<sp/>initialize!!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>initialized_<sp/>=<sp/>initialize(m);<sp/></highlight><highlight class="comment">//<sp/>it<sp/>will<sp/>initialize<sp/>close<sp/>to<sp/>this<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>forwardPropagation(m);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>VerticalFilter::initialize(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Set<sp/>state<sp/>vector<sp/>and<sp/>covariance<sp/>if<sp/>measurement<sp/>is<sp/>valid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec_.setZero();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>This<sp/>checks<sp/>if<sp/>the<sp/>measurement<sp/>is<sp/>from<sp/>a<sp/>depth<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m.value.size()<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>m.config(0)<sp/>==<sp/>1<sp/>&amp;&amp;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">((ros::Time::now()<sp/>-<sp/>init_with_depth_).toSec())<sp/>&gt;=<sp/>t_wait_altimeter_){</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_vec_(0)<sp/>=<sp/>m.value(0);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_cov_(0,0)<sp/>=<sp/>m.noise(0);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>last_predict_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>last_update_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Vertical:<sp/>initialized<sp/>with<sp/>%s<sp/>Measurement<sp/>%f&quot;</highlight><highlight class="normal">,<sp/>m.header.frame_id.c_str(),<sp/>m.value(0));</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>This<sp/>checks<sp/>if<sp/>the<sp/>measurement<sp/>is<sp/>from<sp/>a<sp/>altimeter<sp/>sensor<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m.value.size()<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>m.config(2)<sp/>==<sp/>1){</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_vec_(2)<sp/>=<sp/>m.value(0);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_cov_(2,2)<sp/>=<sp/>m.noise(0);<sp/></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_predict_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>last_update_<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Vertical:<sp/>initialized<sp/>with<sp/>%s<sp/>Measurement<sp/>%.2f&quot;</highlight><highlight class="normal">,<sp/>m.header.frame_id.c_str(),<sp/>m.value(0));</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>VerticalFilter::predict(Vec<sp/>&amp;state_vec,<sp/>Mat<sp/>&amp;state_cov,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>prediction<sp/>period<sp/>is<sp/>small</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dt<sp/>&lt;<sp/>0.001)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Make<sp/>Kalman<sp/>STATE<sp/>TRANSITION<sp/>MATRIX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>state_mat<sp/>=<sp/>Mat::Identity(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>,<sp/><ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>state_mat(0,<sp/>1)<sp/>=<sp/>dt;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>state_mat(2,<sp/>1)<sp/>=<sp/>-dt;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Make<sp/>QUADRATIC<sp/>DRAG<sp/>TWEAK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>Vec<sp/>process_vec<sp/>=<sp/>Vec::Zero(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>(NEW<sp/>STATE)<sp/>=<sp/>(STATE<sp/>TRANSITION<sp/>MATRIX)<sp/>*<sp/>(PREV<sp/>STATE)<sp/>+<sp/>(INPUT<sp/>MATRIX)<sp/>*<sp/>(INPUT)<sp/>+<sp/>PROCESS<sp/>NOISE</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/><sp/><sp/><sp/>*|<sp/>d<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>1<sp/>dt<sp/><sp/>0<sp/>|<sp/><sp/><sp/>|<sp/>d<sp/><sp/>|<sp/>depth<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/><sp/><sp/>*|<sp/>vz<sp/>(k+1)|<sp/>=<sp/>|<sp/>0<sp/>1<sp/><sp/><sp/>0<sp/>|<sp/><sp/><sp/>|<sp/>vz<sp/>|<sp/>vertical<sp/>velocity<sp/><sp/><sp/><sp/>|<sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/>*|<sp/>a<sp/>(k+1)<sp/>|<sp/>=<sp/>|<sp/>0<sp/>-dt<sp/>1<sp/>|<sp/>x<sp/>|<sp/>a<sp/><sp/>|<sp/>altitude<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Propagate<sp/>State<sp/>and<sp/>Covariance<sp/>Matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec<sp/>=<sp/>state_mat<sp/>*<sp/>state_vec;<sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>state_cov<sp/>=<sp/>state_mat<sp/>*<sp/>state_cov<sp/>*<sp/>state_mat.transpose()<sp/>+<sp/>dt<sp/>*<sp/>process_cov_;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>VerticalFilter::update(Vec<sp/>&amp;state_vec,<sp/>Mat<sp/>&amp;state_cov,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>the<sp/>filter<sp/>is<sp/>not<sp/>initialized_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized_)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>last_update_<sp/>=<sp/>m.header.stamp;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>INPUT_LEN<sp/>=<sp/>m.config.sum();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Find<sp/>active<sp/>sensor<sp/>and<sp/>built<sp/>the<sp/>STATE<sp/>OBSERVATION<sp/>MATRIX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>observation_mat<sp/>=<sp/>Eigen::MatrixXd::Zero(INPUT_LEN,<sp/><ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>);{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>temp<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>m.config.size();<sp/>i++){</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.config(i))</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>observation_mat(temp++,<sp/>i)<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Calculate<sp/>Kalman<sp/>Innovation<sp/>Matrix<sp/>and<sp/>Check<sp/>if<sp/>it<sp/>is<sp/>invertible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>Vec<sp/>if_vec<sp/>=<sp/>Eigen::VectorXd::Zero(INPUT_LEN);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>if_vec<sp/>=<sp/>m.value<sp/>-<sp/>(observation_mat<sp/>*<sp/>state_vec);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>meas_cov<sp/>=<sp/>Eigen::MatrixXd::Zero(INPUT_LEN,<sp/>INPUT_LEN);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>meas_cov.diagonal()<sp/>=<sp/>m.noise;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>innovation_mat<sp/>=<sp/>observation_mat<sp/>*<sp/>state_cov<sp/>*<sp/>observation_mat.transpose()<sp/>+<sp/>meas_cov;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::FullPivLU&lt;Mat&gt;<sp/>lu(innovation_mat);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!lu.isInvertible())</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_ERROR(</highlight><highlight class="stringliteral">&quot;Vertical:<sp/>Innovation<sp/>Matrix<sp/>&lt;innovation_mat&gt;<sp/>is<sp/>not<sp/>invertible&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Outlier<sp/>rejection<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//double<sp/>normalized_error<sp/>=<sp/>if_vec.transpose()<sp/>*<sp/>innovation_mat.inverse()<sp/>*<sp/>if_vec;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(normalized_error<sp/>&gt;<sp/>m.outlier_tolerance)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(if_vec.maxCoeff()<sp/>&gt;<sp/>m.outlier_tolerance<sp/>||<sp/>if_vec.minCoeff()<sp/>&lt;<sp/>-m.outlier_tolerance)<sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_reject_counter_<sp/>+=<sp/>m.config;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((state_reject_counter_<sp/>-<sp/>m.reject_counter*Eigen::VectorXd::Ones(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>)).maxCoeff()<sp/>&gt;<sp/>0){<sp/></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state_reject_counter_(i)<sp/>&gt;<sp/>0){</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_reject_counter_(i)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ROS_WARN(&quot;Vertical<sp/>-<sp/>Measurement<sp/>of<sp/>frame<sp/>%s<sp/>rejected<sp/>as<sp/>outlier.<sp/>normalized_error<sp/>%1f<sp/>with<sp/>total<sp/>rejections:<sp/>%1f&quot;,<sp/>m.header.frame_id.c_str(),<sp/>normalized_error,<sp/>state_reject_counter_.sum());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;\nVertical:<sp/>Measurement<sp/>of<sp/>frame<sp/>%s<sp/>rejected<sp/>as<sp/>outlier.<sp/>Value:<sp/>[%1f]<sp/>with<sp/>error<sp/>of<sp/>[%1f]<sp/>and<sp/>tolerance<sp/>of<sp/>%1f&quot;</highlight><highlight class="normal">,<sp/>m.header.frame_id.c_str(),<sp/>m.value(0),<sp/>if_vec(0),<sp/>m.outlier_tolerance);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Vertical<sp/>Outlier<sp/>Counter:<sp/>POSITION:<sp/>%f<sp/>,<sp/>ALTITUDE:<sp/>%f\n&quot;</highlight><highlight class="normal">,<sp/>state_reject_counter_(0),<sp/>state_reject_counter_(2));</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vec<sp/>aux<sp/>=<sp/>(m.config.array()).select(m.config<sp/>-<sp/>Eigen::VectorXd::Ones(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>),<sp/>Eigen::VectorXd::Ones(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>));</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_reject_counter_.dot(aux);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Calculate<sp/>Kalman<sp/>gain<sp/>matrix<sp/>and<sp/>update<sp/>state<sp/>vector<sp/>and<sp/>state<sp/>covariance<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>Mat<sp/>kalman_gain<sp/>=<sp/>state_cov<sp/>*<sp/>observation_mat.transpose()<sp/>*<sp/>innovation_mat.inverse();</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>state_vec<sp/>=<sp/>state_vec<sp/>+<sp/>(kalman_gain<sp/>*<sp/>if_vec);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>state_cov<sp/>=<sp/>(Mat::Identity(<ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>,<sp/><ref refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" kindref="member">MEAS_LEN</ref>)<sp/>-<sp/>kalman_gain<sp/>*<sp/>observation_mat)<sp/>*<sp/>state_cov;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="233"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>VerticalFilter::forwardPropagation(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m)</highlight></codeline>
+<codeline lineno="236"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Return<sp/>if<sp/>measurement<sp/>is<sp/>0.1<sp/>seconds<sp/>older<sp/>than<sp/>the<sp/>time<sp/>os<sp/>last<sp/>predict</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((last_predict_<sp/>-<sp/>m.header.stamp).toSec()<sp/>&gt;<sp/>0.1)</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Vertical:<sp/>Trying<sp/>to<sp/>update<sp/>%f<sp/>second<sp/>old<sp/>state<sp/>in<sp/>Vert<sp/>with<sp/>%s<sp/>measurement.&quot;</highlight><highlight class="normal">,<sp/>(m.header.stamp<sp/>-<sp/>last_predict_).toSec(),<sp/>m.header.frame_id.c_str());</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m.header.stamp<sp/>&gt;<sp/>last_predict_){</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Predict<sp/>the<sp/>state<sp/>from<sp/>the<sp/>time<sp/>of<sp/>last<sp/>predict<sp/>until<sp/>the<sp/>time<sp/>of<sp/>the<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>predict(state_vec_,<sp/>state_cov_,<sp/>(m.header.stamp<sp/>-<sp/>last_predict_).toSec());</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_predict_<sp/>=<sp/>m.header.stamp;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Update<sp/>the<sp/>state<sp/>with<sp/>the<sp/>current<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>update(state_vec_,<sp/>state_cov_,<sp/>m);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classVerticalFilter_1a04b65c8d22f08b194e9091453fb67743" kindref="member">VerticalFilter::resetFilter</ref>()</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Reset<sp/>filter<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_ERROR(</highlight><highlight class="stringliteral">&quot;Vertical<sp/>Filter<sp/>reset.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/VerticalFilter.cpp"/>
+  </compounddef>
+</doxygen>

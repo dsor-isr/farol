@@ -1,0 +1,479 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRomulo" kind="class" language="C++" prot="public">
+    <compoundname>Romulo</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Romulo_8h" local="no">Romulo.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRomulo_1a18ab613e250b67ec6b90a330347884fe" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Romulo::gains_</definition>
+        <argsstring></argsstring>
+        <name>gains_</name>
+        <briefdescription>
+<para>Controller parameters for the FreeHeading Path Following algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="93" column="17" bodyfile="include/algorithms/Romulo.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1a746f3e33ada29ed53de454b0363ff950" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix2d</type>
+        <definition>Eigen::Matrix2d Romulo::ke</definition>
+        <argsstring></argsstring>
+        <name>ke</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="94" column="21" bodyfile="include/algorithms/Romulo.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1a3f3a3d1a2b08b47947a375d267ff686d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Romulo::kz</definition>
+        <argsstring></argsstring>
+        <name>kz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="95" column="12" bodyfile="include/algorithms/Romulo.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1ab7a056312953900d4b389a56e5ca244b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Romulo::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <briefdescription>
+<para>The control references going to be generated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="100" column="12" bodyfile="include/algorithms/Romulo.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1afbd2b7719ee6bb3bd05d555a007053a0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Romulo::desired_sway_</definition>
+        <argsstring></argsstring>
+        <name>desired_sway_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="101" column="12" bodyfile="include/algorithms/Romulo.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1a5fcdb8fa17c0096334de45c10f3fe981" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Romulo::gamma_ddot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_ddot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The values for the dynamics of the gamma (virtual target) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="106" column="12" bodyfile="include/algorithms/Romulo.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1afd70852c2de5256fb4606b7b8a1d1f94" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Romulo::gamma_dot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_dot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="107" column="12" bodyfile="include/algorithms/Romulo.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1a94187c5ad279dcb208b50cda8dbe6e49" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Romulo::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="108" column="12" bodyfile="include/algorithms/Romulo.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1ad07625ba6e9298be26b7d76a8c98b04b" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Romulo::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers to publish the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="113" column="20" bodyfile="include/algorithms/Romulo.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1abee8b693e88342228e328d2ce04556ad" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Romulo::sway_pub_</definition>
+        <argsstring></argsstring>
+        <name>sway_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="114" column="20" bodyfile="include/algorithms/Romulo.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRomulo_1ac8ba779bfd48fd913d132cee8e850d06" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Romulo::rabbit_pub_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="115" column="20" bodyfile="include/algorithms/Romulo.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRomulo_1a63d53463861836239f39439f2c0adfb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Romulo::Romulo</definition>
+        <argsstring>(std::vector&lt; double &gt; gains, ros::Publisher surge_pub, ros::Publisher sway_pub, ros::Publisher rabbit_pub)</argsstring>
+        <name>Romulo</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>sway_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>rabbit_pub</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gains of the controller </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS publisher of surge </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sway_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS publisher of sway </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rabbit_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS publisher of the virtual rabbit </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="37" column="5" bodyfile="src/algorithms/Romulo.cpp" bodystart="4" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1a93ca06e72d25f11aa0afe94fafe32d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Romulo::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method that given an array of doubles, updates the gains of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gains of the controller</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="46" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="15" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1a9ff207f47b6e51b1281612e8fad4433b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Romulo::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time difference between the current and previous call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="53" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="31" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Romulo::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="58" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="84" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Romulo::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method to do initial setup for the first run. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="63" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="95" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Romulo::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="70" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Romulo::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="78" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="114" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classRomulo_1ae625695768ca1f9d0845e18dda2a1512" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Romulo::resetVirtualTarget</definition>
+        <argsstring>(float value) override</argsstring>
+        <name>resetVirtualTarget</name>
+        <reimplements refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429">resetVirtualTarget</reimplements>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Romulo.h" line="86" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="129" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classAguiar" kindref="compound">Aguiar</ref>&apos;s algorithm modified to also control sway instead of yaw_rate (by <ref refid="classRomulo" kindref="compound">Romulo</ref>) </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This algorithm support: Controls:<itemizedlist>
+<listitem><para>surge</para>
+</listitem><listitem><para>sway</para>
+</listitem><listitem><para>virtual-target (gamma) Supports Cooperative Path Following - True Contains Currents Observers - False</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+      <node id="1">
+        <label>Romulo</label>
+        <link refid="classRomulo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Romulo</label>
+        <link refid="classRomulo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Romulo.h" line="25" column="34" bodyfile="include/algorithms/Romulo.h" bodystart="25" bodyend="116"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>algConvert</name></member>
+      <member refid="classRomulo_1a9ff207f47b6e51b1281612e8fad4433b" prot="public" virt="virtual"><scope>Romulo</scope><name>callPFController</name></member>
+      <member refid="classRomulo_1ab7a056312953900d4b389a56e5ca244b" prot="private" virt="non-virtual"><scope>Romulo</scope><name>desired_surge_</name></member>
+      <member refid="classRomulo_1afbd2b7719ee6bb3bd05d555a007053a0" prot="private" virt="non-virtual"><scope>Romulo</scope><name>desired_sway_</name></member>
+      <member refid="classRomulo_1a18ab613e250b67ec6b90a330347884fe" prot="private" virt="non-virtual"><scope>Romulo</scope><name>gains_</name></member>
+      <member refid="classRomulo_1a94187c5ad279dcb208b50cda8dbe6e49" prot="private" virt="non-virtual"><scope>Romulo</scope><name>gamma_</name></member>
+      <member refid="classRomulo_1a5fcdb8fa17c0096334de45c10f3fe981" prot="private" virt="non-virtual"><scope>Romulo</scope><name>gamma_ddot_</name></member>
+      <member refid="classRomulo_1afd70852c2de5256fb4606b7b8a1d1f94" prot="private" virt="non-virtual"><scope>Romulo</scope><name>gamma_dot_</name></member>
+      <member refid="classRomulo_1a746f3e33ada29ed53de454b0363ff950" prot="private" virt="non-virtual"><scope>Romulo</scope><name>ke</name></member>
+      <member refid="classRomulo_1a3f3a3d1a2b08b47947a375d267ff686d" prot="private" virt="non-virtual"><scope>Romulo</scope><name>kz</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Romulo</scope><name>publish</name></member>
+      <member refid="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" prot="public" virt="virtual"><scope>Romulo</scope><name>publish_private</name></member>
+      <member refid="classRomulo_1ac8ba779bfd48fd913d132cee8e850d06" prot="private" virt="non-virtual"><scope>Romulo</scope><name>rabbit_pub_</name></member>
+      <member refid="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5" prot="public" virt="virtual"><scope>Romulo</scope><name>reset</name></member>
+      <member refid="classRomulo_1ae625695768ca1f9d0845e18dda2a1512" prot="public" virt="virtual"><scope>Romulo</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual" ambiguityscope="PathFollowing::"><scope>Romulo</scope><name>resetVirtualTarget</name></member>
+      <member refid="classRomulo_1a63d53463861836239f39439f2c0adfb2" prot="public" virt="non-virtual"><scope>Romulo</scope><name>Romulo</name></member>
+      <member refid="classRomulo_1a93ca06e72d25f11aa0afe94fafe32d41" prot="public" virt="virtual"><scope>Romulo</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Romulo</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a" prot="public" virt="virtual"><scope>Romulo</scope><name>start</name></member>
+      <member refid="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640" prot="public" virt="virtual"><scope>Romulo</scope><name>stop</name></member>
+      <member refid="classRomulo_1ad07625ba6e9298be26b7d76a8c98b04b" prot="private" virt="non-virtual"><scope>Romulo</scope><name>surge_pub_</name></member>
+      <member refid="classRomulo_1abee8b693e88342228e328d2ce04556ad" prot="private" virt="non-virtual"><scope>Romulo</scope><name>sway_pub_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Romulo</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Romulo</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>vehicle_state_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Romulo</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

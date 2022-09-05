@@ -1,0 +1,615 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="rotations_8hpp" kind="file" language="C++">
+    <compoundname>rotations.hpp</compoundname>
+    <includes local="no">Eigen/Core</includes>
+    <includes local="no">cmath</includes>
+    <includedby refid="frames_8hpp" local="yes">include/dsor_utils/frames.hpp</includedby>
+    <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
+    <includedby refid="test__rotations_8cpp" local="yes">test/test_rotations.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="2">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="1">
+        <label>include/dsor_utils/rotations.hpp</label>
+        <link refid="rotations_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/dsor_utils/frames.hpp</label>
+        <link refid="frames_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>include/dsor_utils/rotations.hpp</label>
+        <link refid="rotations_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceDSOR">DSOR</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 1&gt; DSOR::quaternion_to_euler</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>quaternion_to_euler</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Function to convert from quaternion to (roll, pitch and yaw), according to Z-Y-X convention This function is from: <ulink url="https://github.com/mavlink/mavros/issues/444">https://github.com/mavlink/mavros/issues/444</ulink> and the logic is also available at: <ulink url="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles</ulink>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An eigen quaternion </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A Vector&lt;T, 3&gt; with the [roll, pitch, yaw] obtained according to Z-Y-X convention </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="27" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="27" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Quaternion&lt; T &gt;</type>
+        <definition>Eigen::Quaternion&lt;T&gt; DSOR::euler_to_quaternion</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>euler_to_quaternion</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Converts a vector of euler angles according to Z-Y-X convention into a quaternion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An eigen vector of either floats or doubles [roll, pitch, yaw] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen Quaternion </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="55" column="26" bodyfile="include/dsor_utils/rotations.hpp" bodystart="55" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::yaw_from_quaternion</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>yaw_from_quaternion</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Gets the yaw angle from a quaternion (assumed a Z-Y-X rotation) NOTE: this function is based on: <ulink url="https://github.com/mavlink/mavros/blob/ros2/mavros/src/lib/ftf_quaternion_utils.cpp">https://github.com/mavlink/mavros/blob/ros2/mavros/src/lib/ftf_quaternion_utils.cpp</ulink> which in turn has the theory explained in: <ulink url="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles</ulink>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A eigen quaternion </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The yaw angle in radians (assumed a Z-Y-X rotation) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="78" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::wrapTo2pi</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>wrapTo2pi</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Wrap angle between [0, 2PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="89" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="89" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::wrapTopi</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>wrapTopi</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Wrap angle between [-PI, PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="105" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="105" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::radToDeg</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>radToDeg</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Convert an angle in radian to degrees. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in degrees </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="122" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="122" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::degToRad</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>degToRad</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Convert an angle in degrees to radians. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in degrees </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="133" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="133" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::angleDiff</definition>
+        <argsstring>(T a, T b)</argsstring>
+        <name>angleDiff</name>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Method to calculate the diference between angles correctly even if they wrap between -pi and pi. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 1 in radians </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 2 in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The minimum difference between the two angles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="145" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="145" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::computeSkewSymmetric3</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>computeSkewSymmetric3</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Compute the 3x3 skew-symmetric matrix from a vector 3x1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with 3 elements </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 3x3 skew-symmetric matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="159" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="159" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 2, 2 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 2, 2&gt; DSOR::computeSkewSymmetric2</definition>
+        <argsstring>(T c)</argsstring>
+        <name>computeSkewSymmetric2</name>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Compute the 2x2 skew-symmetric matrix from a constant (int, float or double) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A constant </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 2x2 skew-symmetric matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="175" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="175" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::rotationAngularBodyToInertial</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>rotationAngularBodyToInertial</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Compute the rotation matrix that converts angular velocities expressed in the body frame to angular velocities expressed in the inertial frame (according to Z-Y-X convention) - makes use of small angle approximation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with 3 elements (roll, pitch, yaw) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 3x3 rotation matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="191" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="191" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::rotationBodyToInertial</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>rotationBodyToInertial</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Method that returns a rotation matrix from body frame to inertial frame, assuming a Z-Y-X convention. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with euler angles (roll, pith, yaw) according to Z-Y-X convention </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 3x3 rotation matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="205" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="205" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceDSOR" kindref="compound">DSOR</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="27" refid="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/><ref refid="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" kindref="member">quaternion_to_euler</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Quaternion&lt;T&gt;<sp/>&amp;q)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>NOTE:<sp/>The<sp/>Eigen<sp/>standard<sp/>way<sp/>of<sp/>doing<sp/>it<sp/>is<sp/>not<sp/>used<sp/>because<sp/>for<sp/>the<sp/>order<sp/>YPR<sp/>the<sp/>output<sp/>range<sp/>would<sp/>be:</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/>[Eigen<sp/>EulerAngles<sp/>implementation]<sp/>yaw,<sp/>pitch,<sp/>roll<sp/>in<sp/>the<sp/>ranges<sp/>[0:pi]x[-pi:pi]x[-pi:pi]<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/>rpy;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>roll<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>rpy.x()<sp/>=<sp/>std::atan2(2<sp/>*<sp/>(q.w()<sp/>*<sp/>q.x()<sp/>+<sp/>q.y()<sp/>*<sp/>q.z()),<sp/>1<sp/>-<sp/>2<sp/>*<sp/>(q.x()<sp/>*<sp/>q.x()<sp/>+<sp/>q.y()*q.y()));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>T<sp/>sin_pitch<sp/>=<sp/>2<sp/>*<sp/>(q.w()*q.y()<sp/>-<sp/>q.z()*q.x());</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>sin_pitch<sp/>=<sp/>sin_pitch<sp/>&gt;<sp/><sp/>1<sp/>?<sp/><sp/>1<sp/>:<sp/>sin_pitch;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>sin_pitch<sp/>=<sp/>sin_pitch<sp/>&lt;<sp/>-1<sp/>?<sp/>-1<sp/>:<sp/>sin_pitch;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>pitch<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>rpy.y()<sp/>=<sp/>std::asin(sin_pitch);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>yaw<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>rpy.z()<sp/>=<sp/>std::atan2(2<sp/>*<sp/>(q.w()<sp/>*<sp/>q.z()<sp/>+<sp/>q.x()<sp/>*<sp/>q.y()),<sp/>1<sp/>-<sp/>2<sp/>*<sp/>(q.y()<sp/>*<sp/>q.y()<sp/>+<sp/>q.z()<sp/>*<sp/>q.z()));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rpy;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="55" refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Quaternion&lt;T&gt;<sp/><ref refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kindref="member">euler_to_quaternion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>the<sp/>Eigen<sp/>quaternion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;T&gt;<sp/>orientation;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Obtain<sp/>the<sp/>orientation<sp/>according<sp/>to<sp/>Z-Y-X<sp/>convention</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>orientation<sp/>=<sp/>Eigen::AngleAxis&lt;T&gt;(v.z(),<sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;::UnitZ())<sp/>*</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::AngleAxis&lt;T&gt;(v.y(),<sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;::UnitY())<sp/>*</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::AngleAxis&lt;T&gt;(v.x(),<sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;::UnitX());</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>orientation;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="78" refid="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>T<sp/><ref refid="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" kindref="member">yaw_from_quaternion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Quaternion&lt;T&gt;<sp/>&amp;q)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::atan2(2<sp/>*<sp/>(q.w()<sp/>*<sp/>q.z()<sp/>+<sp/>q.x()<sp/>*<sp/>q.y()),<sp/>1<sp/>-<sp/>2<sp/>*<sp/>(q.y()<sp/>*<sp/>q.y()<sp/>+<sp/>q.z()<sp/>*<sp/>q.z()));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="89" refid="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>T<sp/><ref refid="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" kindref="member">wrapTo2pi</ref>(T<sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wrapped_angle<sp/>=<sp/>std::fmod(angle,<sp/>2<sp/>*<sp/>M_PI);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(wrapped_angle<sp/>&lt;<sp/>0)<sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wrapped_angle<sp/>+=<sp/>2<sp/>*<sp/>M_PI;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wrapped_angle;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="105" refid="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>T<sp/><ref refid="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" kindref="member">wrapTopi</ref>(T<sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wrapped_angle<sp/>=<sp/>std::fmod(angle<sp/>+<sp/>M_PI,<sp/>2<sp/>*<sp/>M_PI);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(wrapped_angle<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wrapped_angle<sp/>+=<sp/>2<sp/>*<sp/>M_PI;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wrapped_angle<sp/>-<sp/>M_PI;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="122" refid="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>T<sp/><ref refid="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" kindref="member">radToDeg</ref>(T<sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>angle<sp/>*<sp/>180<sp/>/<sp/>M_PI;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="133" refid="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>T<sp/><ref refid="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" kindref="member">degToRad</ref>(T<sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>angle<sp/>*<sp/>M_PI<sp/>/<sp/>180;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="145" refid="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>T<sp/><ref refid="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" kindref="member">angleDiff</ref>(T<sp/>a,<sp/>T<sp/>b)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>aux<sp/>=<sp/>std::fmod(a<sp/>-<sp/>b<sp/>+<sp/>M_PI,<sp/>2<sp/>*<sp/>M_PI);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(aux<sp/>&lt;<sp/>0)<sp/>aux<sp/>+=<sp/>(2<sp/>*<sp/>M_PI);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>aux<sp/>=<sp/>aux<sp/>-<sp/>M_PI;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>aux;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="159" refid="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>3&gt;<sp/><ref refid="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" kindref="member">computeSkewSymmetric3</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>3&gt;<sp/>skew_symmetric;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>skew_symmetric<sp/>&lt;&lt;<sp/><sp/><sp/><sp/>0,<sp/>-v(2),<sp/><sp/>v(1),</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v(2),<sp/><sp/><sp/><sp/><sp/>0,<sp/>-v(0),</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-v(1),<sp/><sp/>v(0),<sp/><sp/><sp/><sp/><sp/>0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>skew_symmetric;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="175" refid="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>2,<sp/>2&gt;<sp/><ref refid="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" kindref="member">computeSkewSymmetric2</ref>(T<sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;T,<sp/>2,<sp/>2&gt;<sp/>skew_symmetric;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>skew_symmetric<sp/>&lt;&lt;<sp/>0,<sp/>-c,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c,<sp/><sp/>0;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>skew_symmetric;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="191" refid="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>3&gt;<sp/><ref refid="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" kindref="member">rotationAngularBodyToInertial</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>3&gt;<sp/>transformation_matrix;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>transformation_matrix<sp/>&lt;&lt;<sp/>1,<sp/>sin(v(0))<sp/>*<sp/>tan(v(1)),<sp/>cos(v(0))<sp/>*<sp/>tan(v(1)),</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>cos(v(0)),<sp/>-sin(v(0)),</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>sin(v(0))<sp/>/<sp/>cos(v(1)),<sp/>cos(v(0))<sp/>/<sp/>cos(v(1));</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>transformation_matrix;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="205" refid="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>3&gt;<sp/><ref refid="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" kindref="member">rotationBodyToInertial</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;<sp/>&amp;v)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>quaternion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>3&gt;<sp/>m;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Obtain<sp/>the<sp/>orientation<sp/>according<sp/>to<sp/>Z-Y-X<sp/>convention</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>m<sp/>=<sp/>(Eigen::AngleAxis&lt;T&gt;(v.z(),<sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;::UnitZ())<sp/>*</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::AngleAxis&lt;T&gt;(v.y(),<sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;::UnitY())<sp/>*</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::AngleAxis&lt;T&gt;(v.x(),<sp/>Eigen::Matrix&lt;T,<sp/>3,<sp/>1&gt;::UnitX())).toRotationMatrix();</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="include/dsor_utils/rotations.hpp"/>
+  </compounddef>
+</doxygen>

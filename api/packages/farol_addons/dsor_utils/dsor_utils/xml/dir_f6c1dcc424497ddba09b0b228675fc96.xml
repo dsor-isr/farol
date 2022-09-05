@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_f6c1dcc424497ddba09b0b228675fc96" kind="dir">
+    <compoundname>include/dsor_utils/filters</compoundname>
+    <innerfile refid="differentiator_8hpp">differentiator.hpp</innerfile>
+    <innerfile refid="digital__filter_8hpp">digital_filter.hpp</innerfile>
+    <innerfile refid="highpass__filter_8hpp">highpass_filter.hpp</innerfile>
+    <innerfile refid="lowpass__filter_8hpp">lowpass_filter.hpp</innerfile>
+    <innerfile refid="moving__average__filter_8hpp">moving_average_filter.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dsor_utils/filters/"/>
+  </compounddef>
+</doxygen>

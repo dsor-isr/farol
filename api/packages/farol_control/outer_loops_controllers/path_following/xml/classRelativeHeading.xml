@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRelativeHeading" kind="class" language="C++" prot="public">
+    <compoundname>RelativeHeading</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="RelativeHeading_8h" local="no">RelativeHeading.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRelativeHeading_1af2368c1566ab472db2075ab0ecabc785" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::kx_</definition>
+        <argsstring></argsstring>
+        <name>kx_</name>
+        <briefdescription>
+<para>Controller parameters for the <ref refid="classRelativeHeading" kindref="compound">RelativeHeading</ref> Path Following Algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="91" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a35279da5426580d88d49d72a92ae5a13" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::ky_</definition>
+        <argsstring></argsstring>
+        <name>ky_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="92" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1acf2439f4935c95e080d1c28236752f25" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::kz_</definition>
+        <argsstring></argsstring>
+        <name>kz_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="93" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a3c30dc3a2ac01b3230de9515f0659771" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d RelativeHeading::p_sat_</definition>
+        <argsstring></argsstring>
+        <name>p_sat_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="94" column="21" bodyfile="include/algorithms/RelativeHeading.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a32506c774a268820a2c3046922fd58a6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::yaw_offset_</definition>
+        <argsstring></argsstring>
+        <name>yaw_offset_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="95" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a35834073fa12e01c700cfcc92009d57f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The desired references to publish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="100" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1af4b7953d02102ea12fdcbdf8dc4957bc" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::desired_sway_</definition>
+        <argsstring></argsstring>
+        <name>desired_sway_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="101" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1af51a56b8d9d73d5814ea5c1daff0e413" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::desired_yaw_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="102" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1abbe9d31f44643ade17f876ee3dd1e96b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::gamma_ddot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_ddot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The values for the dynamics of the gamma (virtual rabbit) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="107" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a4e135f31e51e3692b84fbaf3fda5f5a7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::gamma_dot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_dot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="108" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1ae187f77210c6abbc51aae8bd0abc8a25" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RelativeHeading::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="109" column="12" bodyfile="include/algorithms/RelativeHeading.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a14b1c503906950e45b7c4aff01324650" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher RelativeHeading::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers to publish the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="114" column="20" bodyfile="include/algorithms/RelativeHeading.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1aad75d671ee961ffea383b58f12ebcf30" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher RelativeHeading::sway_pub_</definition>
+        <argsstring></argsstring>
+        <name>sway_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="115" column="20" bodyfile="include/algorithms/RelativeHeading.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1ad347f82f46d3fb08169c7af8cb3b1858" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher RelativeHeading::yaw_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="116" column="20" bodyfile="include/algorithms/RelativeHeading.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRelativeHeading_1a2e17a8c46d330e392fcb445816f85898" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher RelativeHeading::rabbit_pub_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="117" column="20" bodyfile="include/algorithms/RelativeHeading.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRelativeHeading_1a803e58f9761eec06a40d3f6af2280846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RelativeHeading::RelativeHeading</definition>
+        <argsstring>(double kx, double ky, double kz, const Eigen::Vector2d &amp;p_sat, double yaw_offset, ros::Publisher surge_pub, ros::Publisher sway_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub)</argsstring>
+        <name>RelativeHeading</name>
+        <param>
+          <type>double</type>
+          <declname>kx</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ky</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kz</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector2d &amp;</type>
+          <declname>p_sat</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>yaw_offset</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>sway_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>rabbit_pub</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sway_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS sway publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rabbit_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS rabbit publisher </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="34" column="5" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="4" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1a9a32db056e32d19d2d0db541cf842305" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RelativeHeading::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the gains, given a vector of doubles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains to update in the controller The default order is: TODO</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="44" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="22" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1ace03b6fccd8ff3b0450b92841e389fe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RelativeHeading::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time step between last call and current call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="51" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="40" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1a63aadbf95202501372dd69bd085d78b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RelativeHeading::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish_private the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="56" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="124" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1a56cead9c8d63a7eb98cdc05cc2cede02" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RelativeHeading::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method used in the first run to do initial setup. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="61" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="136" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1a344c8b1a1561d1b99669d9e061c0b140" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RelativeHeading::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="68" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="143" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1af1115046fbdcf8ba032a6e170ed746ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RelativeHeading::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="76" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="155" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classRelativeHeading_1a6b17687f0a164ad340235f8604e05b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RelativeHeading::resetVirtualTarget</definition>
+        <argsstring>(float value) override</argsstring>
+        <name>resetVirtualTarget</name>
+        <reimplements refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429">resetVirtualTarget</reimplements>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RelativeHeading.h" line="84" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="171" bodyend="179"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classRelativeHeading" kindref="compound">RelativeHeading</ref>&apos;s algorithm for path following*. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This algorithm support: Controls:<itemizedlist>
+<listitem><para>yaw</para>
+</listitem><listitem><para>surge</para>
+</listitem><listitem><para>sway Supports Cooperative Path Following - True Contains Currents Observers - False</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para>Francisco Rego </para>
+</simplesect>
+<simplesect kind="author"><para>Andre Potes </para>
+</simplesect>
+<simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+      <node id="1">
+        <label>RelativeHeading</label>
+        <link refid="classRelativeHeading"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RelativeHeading</label>
+        <link refid="classRelativeHeading"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/RelativeHeading.h" line="22" column="43" bodyfile="include/algorithms/RelativeHeading.h" bodystart="22" bodyend="118"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>algConvert</name></member>
+      <member refid="classRelativeHeading_1ace03b6fccd8ff3b0450b92841e389fe8" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>callPFController</name></member>
+      <member refid="classRelativeHeading_1a35834073fa12e01c700cfcc92009d57f" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>desired_surge_</name></member>
+      <member refid="classRelativeHeading_1af4b7953d02102ea12fdcbdf8dc4957bc" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>desired_sway_</name></member>
+      <member refid="classRelativeHeading_1af51a56b8d9d73d5814ea5c1daff0e413" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>desired_yaw_</name></member>
+      <member refid="classRelativeHeading_1ae187f77210c6abbc51aae8bd0abc8a25" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>gamma_</name></member>
+      <member refid="classRelativeHeading_1abbe9d31f44643ade17f876ee3dd1e96b" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>gamma_ddot_</name></member>
+      <member refid="classRelativeHeading_1a4e135f31e51e3692b84fbaf3fda5f5a7" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>gamma_dot_</name></member>
+      <member refid="classRelativeHeading_1af2368c1566ab472db2075ab0ecabc785" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>kx_</name></member>
+      <member refid="classRelativeHeading_1a35279da5426580d88d49d72a92ae5a13" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>ky_</name></member>
+      <member refid="classRelativeHeading_1acf2439f4935c95e080d1c28236752f25" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>kz_</name></member>
+      <member refid="classRelativeHeading_1a3c30dc3a2ac01b3230de9515f0659771" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>p_sat_</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>RelativeHeading</scope><name>publish</name></member>
+      <member refid="classRelativeHeading_1a63aadbf95202501372dd69bd085d78b8" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>publish_private</name></member>
+      <member refid="classRelativeHeading_1a2e17a8c46d330e392fcb445816f85898" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>rabbit_pub_</name></member>
+      <member refid="classRelativeHeading_1a803e58f9761eec06a40d3f6af2280846" prot="public" virt="non-virtual"><scope>RelativeHeading</scope><name>RelativeHeading</name></member>
+      <member refid="classRelativeHeading_1af1115046fbdcf8ba032a6e170ed746ca" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>reset</name></member>
+      <member refid="classRelativeHeading_1a6b17687f0a164ad340235f8604e05b58" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual" ambiguityscope="PathFollowing::"><scope>RelativeHeading</scope><name>resetVirtualTarget</name></member>
+      <member refid="classRelativeHeading_1a9a32db056e32d19d2d0db541cf842305" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>RelativeHeading</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classRelativeHeading_1a56cead9c8d63a7eb98cdc05cc2cede02" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>start</name></member>
+      <member refid="classRelativeHeading_1a344c8b1a1561d1b99669d9e061c0b140" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>stop</name></member>
+      <member refid="classRelativeHeading_1a14b1c503906950e45b7c4aff01324650" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>surge_pub_</name></member>
+      <member refid="classRelativeHeading_1aad75d671ee961ffea383b58f12ebcf30" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>sway_pub_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>RelativeHeading</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>RelativeHeading</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>vehicle_state_</name></member>
+      <member refid="classRelativeHeading_1a32506c774a268820a2c3046922fd58a6" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>yaw_offset_</name></member>
+      <member refid="classRelativeHeading_1ad347f82f46d3fb08169c7af8cb3b1858" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>yaw_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

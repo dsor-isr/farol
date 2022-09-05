@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacecpf__gamma__ros_1_1CpfGammaServerNode" kind="namespace" language="Python">
+    <compoundname>cpf_gamma_ros::CpfGammaServerNode</compoundname>
+    <innerclass refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" prot="public">cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacecpf__gamma__ros_1_1CpfGammaServerNode_1a2193be4a8c057e08b93888ef01805a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="151" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="151" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Developers: DSOR Team -&gt; @isr.ist.pt Instituto Superior Tecnico
+Description: Please check the documentation of this package for more info.
+</verbatim> <linebreak/>
+ </para>
+    </detaileddescription>
+    <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

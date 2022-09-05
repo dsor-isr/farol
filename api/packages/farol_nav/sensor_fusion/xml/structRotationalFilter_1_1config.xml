@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structRotationalFilter_1_1config" kind="struct" language="C++" prot="public">
+    <compoundname>RotationalFilter::config</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a728701a8821bdfd0c46a45717805a9df" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RotationalFilter::config::initialized</definition>
+        <argsstring></argsstring>
+        <name>initialized</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="56" column="8" bodyfile="include/algorithms/RotationalFilter.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a076a11176177982aa512787d0763664b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RotationalFilter::config::bypass_ahrs</definition>
+        <argsstring></argsstring>
+        <name>bypass_ahrs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="57" column="10" bodyfile="include/algorithms/RotationalFilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a6bcfd63f3fcb68235f215449a2f5b317" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::config::reject_counter[STATE_LEN/2]</definition>
+        <argsstring>[STATE_LEN/2]</argsstring>
+        <name>reject_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="58" column="12" bodyfile="include/algorithms/RotationalFilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a7536a493af3a94b6b00bd4ff941b8f0a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::config::init_cov[STATE_LEN]</definition>
+        <argsstring>[STATE_LEN]</argsstring>
+        <name>init_cov</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="59" column="12" bodyfile="include/algorithms/RotationalFilter.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1acd73347b67aa8edb76aef0fa1ee1ec68" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::config::process_noise[STATE_LEN]</definition>
+        <argsstring>[STATE_LEN]</argsstring>
+        <name>process_noise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="59" column="21" bodyfile="include/algorithms/RotationalFilter.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a1c65c2f2719a99e2c3b7ffac882fd87d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RotationalFilter::config::kalman_config[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>kalman_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="59" column="35" bodyfile="include/algorithms/RotationalFilter.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a95ca36e246553ee772406295b394fda9" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::config::base_frame</definition>
+        <argsstring></argsstring>
+        <name>base_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="60" column="17" bodyfile="include/algorithms/RotationalFilter.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a71e239396b0c6b119985cc01d37dbb41" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::config::odom_frame</definition>
+        <argsstring></argsstring>
+        <name>odom_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="60" column="28" bodyfile="include/algorithms/RotationalFilter.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a64c293b27bed0deb58ee598a61c40c71" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::config::map_frame</definition>
+        <argsstring></argsstring>
+        <name>map_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="60" column="39" bodyfile="include/algorithms/RotationalFilter.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a00d33e098436ab8f65cc3faf3ed595b2" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::config::world_frame</definition>
+        <argsstring></argsstring>
+        <name>world_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="60" column="49" bodyfile="include/algorithms/RotationalFilter.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a6093bf42d865f520e59b9bb9a5f716dc" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RotationalFilter::config::name_vehicle_id</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="61" column="17" bodyfile="include/algorithms/RotationalFilter.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1ac4a3505042319dccae6a7370b7deee78" prot="public" static="no" mutable="no">
+        <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref></type>
+        <definition>FilterGimmicks::measurement RotationalFilter::config::meas_init</definition>
+        <argsstring></argsstring>
+        <name>meas_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="63" column="33" bodyfile="include/algorithms/RotationalFilter.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1af883e1000bb72ea28497207e98f3be3f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
+        <definition>std::vector&lt;FilterGimmicks::measurement&gt; RotationalFilter::config::sensors</definition>
+        <argsstring></argsstring>
+        <name>sensors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="64" column="17" bodyfile="include/algorithms/RotationalFilter.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRotationalFilter_1_1config_1a243def104905c4c6e531ee72968a53bb" prot="public" static="no" mutable="no">
+        <type>tf2_ros::TransformBroadcaster *</type>
+        <definition>tf2_ros::TransformBroadcaster* RotationalFilter::config::br_node</definition>
+        <argsstring></argsstring>
+        <name>br_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/RotationalFilter.h" line="65" column="35" bodyfile="include/algorithms/RotationalFilter.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FilterGimmicks::measurement</label>
+        <link refid="structFilterGimmicks_1_1measurement"/>
+      </node>
+      <node id="1">
+        <label>RotationalFilter::config</label>
+        <link refid="structRotationalFilter_1_1config"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>meas_init</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/RotationalFilter.h" line="55" column="13" bodyfile="include/algorithms/RotationalFilter.h" bodystart="55" bodyend="66"/>
+    <listofallmembers>
+      <member refid="structRotationalFilter_1_1config_1a95ca36e246553ee772406295b394fda9" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>base_frame</name></member>
+      <member refid="structRotationalFilter_1_1config_1a243def104905c4c6e531ee72968a53bb" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>br_node</name></member>
+      <member refid="structRotationalFilter_1_1config_1a076a11176177982aa512787d0763664b" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>bypass_ahrs</name></member>
+      <member refid="structRotationalFilter_1_1config_1a7536a493af3a94b6b00bd4ff941b8f0a" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>init_cov</name></member>
+      <member refid="structRotationalFilter_1_1config_1a728701a8821bdfd0c46a45717805a9df" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>initialized</name></member>
+      <member refid="structRotationalFilter_1_1config_1a1c65c2f2719a99e2c3b7ffac882fd87d" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>kalman_config</name></member>
+      <member refid="structRotationalFilter_1_1config_1a64c293b27bed0deb58ee598a61c40c71" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>map_frame</name></member>
+      <member refid="structRotationalFilter_1_1config_1ac4a3505042319dccae6a7370b7deee78" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>meas_init</name></member>
+      <member refid="structRotationalFilter_1_1config_1a6093bf42d865f520e59b9bb9a5f716dc" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>name_vehicle_id</name></member>
+      <member refid="structRotationalFilter_1_1config_1a71e239396b0c6b119985cc01d37dbb41" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>odom_frame</name></member>
+      <member refid="structRotationalFilter_1_1config_1acd73347b67aa8edb76aef0fa1ee1ec68" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>process_noise</name></member>
+      <member refid="structRotationalFilter_1_1config_1a6bcfd63f3fcb68235f215449a2f5b317" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>reject_counter</name></member>
+      <member refid="structRotationalFilter_1_1config_1af883e1000bb72ea28497207e98f3be3f" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>sensors</name></member>
+      <member refid="structRotationalFilter_1_1config_1a00d33e098436ab8f65cc3faf3ed595b2" prot="public" virt="non-virtual"><scope>RotationalFilter::config</scope><name>world_frame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacedata__serializer__algorithms_1_1DataSerializerAlgorithm" kind="namespace" language="Python">
+    <compoundname>data_serializer_algorithms::DataSerializerAlgorithm</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a2c619fbe06776e3802d59d0a55a5a697" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_algorithms.DataSerializerAlgorithm.payload_to_bytes</definition>
+        <argsstring>(bits_string)</argsstring>
+        <name>payload_to_bytes</name>
+        <param>
+          <type>bits_string</type>
+          <defname>bits_string</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="9" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="9" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_algorithms.DataSerializerAlgorithm.payload_to_bits</definition>
+        <argsstring>(bytes_string)</argsstring>
+        <name>payload_to_bits</name>
+        <param>
+          <type>bytes_string</type>
+          <defname>bytes_string</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="17" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="17" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_algorithms.DataSerializerAlgorithm.dec_to_bin</definition>
+        <argsstring>(dec_value, low, high, bits, is_int=False)</argsstring>
+        <name>dec_to_bin</name>
+        <param>
+          <type>dec_value</type>
+          <defname>dec_value</defname>
+        </param>
+        <param>
+          <type>low</type>
+          <defname>low</defname>
+        </param>
+        <param>
+          <type>high</type>
+          <defname>high</defname>
+        </param>
+        <param>
+          <type>bits</type>
+          <defname>bits</defname>
+        </param>
+        <param>
+          <type>is_int</type>
+          <defname>is_int</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="25" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="25" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_algorithms.DataSerializerAlgorithm.bin_to_dec</definition>
+        <argsstring>(bin_value, low, high, bits, is_int=False)</argsstring>
+        <name>bin_to_dec</name>
+        <param>
+          <type>bin_value</type>
+          <defname>bin_value</defname>
+        </param>
+        <param>
+          <type>low</type>
+          <defname>low</defname>
+        </param>
+        <param>
+          <type>high</type>
+          <defname>high</defname>
+        </param>
+        <param>
+          <type>bits</type>
+          <defname>bits</defname>
+        </param>
+        <param>
+          <type>is_int</type>
+          <defname>is_int</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="43" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="43" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_algorithms.DataSerializerAlgorithm.extract_field</definition>
+        <argsstring>(msg_data, field_address)</argsstring>
+        <name>extract_field</name>
+        <param>
+          <type>msg_data</type>
+          <defname>msg_data</defname>
+        </param>
+        <param>
+          <type>field_address</type>
+          <defname>field_address</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="57" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="57" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a38230a956058eba27c78904cd51fb2a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def data_serializer_algorithms.DataSerializerAlgorithm.add_field_to_dict</definition>
+        <argsstring>(final_dict, field_address, field_value)</argsstring>
+        <name>add_field_to_dict</name>
+        <param>
+          <type>final_dict</type>
+          <defname>final_dict</defname>
+        </param>
+        <param>
+          <type>field_address</type>
+          <defname>field_address</defname>
+        </param>
+        <param>
+          <type>field_value</type>
+          <defname>field_value</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="63" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="63" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

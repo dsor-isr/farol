@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType" kind="class" language="Python" prot="public">
+    <compoundname>farol_bringup_algorithms::FarolSetup::ProcessActionType</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1aa7e6d7833ba42f5990731ce941813da1" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int farol_bringup_algorithms.FarolSetup.ProcessActionType::START</definition>
+        <argsstring></argsstring>
+        <name>START</name>
+        <initializer>=  1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="46" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1ad1f6f2dac8ed0a3f236abf47eafa181f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int farol_bringup_algorithms.FarolSetup.ProcessActionType::STOP</definition>
+        <argsstring></argsstring>
+        <name>STOP</name>
+        <initializer>=  2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="47" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1a4536011ffa6af8e6811825137223a01f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int farol_bringup_algorithms.FarolSetup.ProcessActionType::RESTART</definition>
+        <argsstring></argsstring>
+        <name>RESTART</name>
+        <initializer>=  3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="48" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1abef6d31c3bf555a40582c2a1f54cf407" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int farol_bringup_algorithms.FarolSetup.ProcessActionType::KILL</definition>
+        <argsstring></argsstring>
+        <name>KILL</name>
+        <initializer>=  4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="49" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1af0a7d462cc43b9a180e418661a33b3da" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int farol_bringup_algorithms.FarolSetup.ProcessActionType::START_ALL</definition>
+        <argsstring></argsstring>
+        <name>START_ALL</name>
+        <initializer>=  5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="50" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1a1d6cb1d3f6b679d04308de66f90fd176" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int farol_bringup_algorithms.FarolSetup.ProcessActionType::STOP_ALL</definition>
+        <argsstring></argsstring>
+        <name>STOP_ALL</name>
+        <initializer>=  6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/farol_bringup_algorithms/FarolSetup.py" line="51" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>farol_bringup_algorithms.FarolSetup.ProcessActionType</label>
+        <link refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>farol_bringup_algorithms.FarolSetup.ProcessActionType</label>
+        <link refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/farol_bringup_algorithms/FarolSetup.py" line="45" column="1" bodyfile="src/farol_bringup_algorithms/FarolSetup.py" bodystart="45" bodyend="54"/>
+    <listofallmembers>
+      <member refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1abef6d31c3bf555a40582c2a1f54cf407" prot="public" virt="non-virtual"><scope>farol_bringup_algorithms::FarolSetup::ProcessActionType</scope><name>KILL</name></member>
+      <member refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1a4536011ffa6af8e6811825137223a01f" prot="public" virt="non-virtual"><scope>farol_bringup_algorithms::FarolSetup::ProcessActionType</scope><name>RESTART</name></member>
+      <member refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1aa7e6d7833ba42f5990731ce941813da1" prot="public" virt="non-virtual"><scope>farol_bringup_algorithms::FarolSetup::ProcessActionType</scope><name>START</name></member>
+      <member refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1af0a7d462cc43b9a180e418661a33b3da" prot="public" virt="non-virtual"><scope>farol_bringup_algorithms::FarolSetup::ProcessActionType</scope><name>START_ALL</name></member>
+      <member refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1ad1f6f2dac8ed0a3f236abf47eafa181f" prot="public" virt="non-virtual"><scope>farol_bringup_algorithms::FarolSetup::ProcessActionType</scope><name>STOP</name></member>
+      <member refid="classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType_1a1d6cb1d3f6b679d04308de66f90fd176" prot="public" virt="non-virtual"><scope>farol_bringup_algorithms::FarolSetup::ProcessActionType</scope><name>STOP_ALL</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

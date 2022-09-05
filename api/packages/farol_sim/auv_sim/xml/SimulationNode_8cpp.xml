@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="SimulationNode_8cpp" kind="file" language="C++">
+    <compoundname>SimulationNode.cpp</compoundname>
+    <includes refid="SimulationNode_8h" local="yes">SimulationNode.h</includes>
+    <includes local="no">nav_msgs/Odometry.h</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>State.h</label>
+        <link refid="State_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>dsor_msgs/Thruster.h</label>
+      </node>
+      <node id="14">
+        <label>nav_msgs/Odometry.h</label>
+      </node>
+      <node id="8">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="13">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="9">
+        <label>random</label>
+      </node>
+      <node id="2">
+        <label>SimulationNode.h</label>
+        <link refid="SimulationNode_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>tuple</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="6">
+        <label>auv_sim/StartPause.h</label>
+      </node>
+      <node id="4">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="1">
+        <label>src/ros/SimulationNode.cpp</label>
+        <link refid="SimulationNode_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AUV.h</label>
+        <link refid="AUV_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="SimulationNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/ros/SimulationNode.cpp" line="168" column="5" bodyfile="src/ros/SimulationNode.cpp" bodystart="168" bodyend="184"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;SimulationNode.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nav_msgs/Odometry.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">SimulationNode::SimulationNode(ros::NodeHandle<sp/>*nh,<sp/>ros::NodeHandle<sp/>*nh_p)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>nh_(*nh),<sp/>nh_p_(*nh_p)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>all<sp/>the<sp/>ROS<sp/>subscribers,<sp/>publisher,<sp/>services<sp/>and<sp/>update<sp/>timer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;In<sp/>class<sp/>constructor<sp/>of<sp/>SimulationNode&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>subscribers,<sp/>publishers<sp/>and<sp/>services<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;initializeSubscribers();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;initializePublishers();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;initializeServices();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>the<sp/>AUV<sp/>simulation<sp/>class<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;auv_<sp/>=<sp/>this-&gt;instantiateAUV();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Start<sp/>the<sp/>simulation<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;initializeTimer();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">SimulationNode::~SimulationNode()<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Shutdown<sp/>all<sp/>the<sp/>subscribers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;shutdownSubscribers();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Shutdown<sp/>all<sp/>the<sp/>publishers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;shutdownPublishers();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Shutdown<sp/>all<sp/>the<sp/>services<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;shutdownServices();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Stop<sp/>the<sp/>timer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;timer_.stop();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Shutdown<sp/>the<sp/>ros<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_.shutdown();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">std::unique_ptr&lt;AUV&gt;<sp/>SimulationNode::instantiateAUV()<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>the<sp/>parameters<sp/>from<sp/>the<sp/>parameter<sp/>server<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_thrusters;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass,<sp/>fluid_density,<sp/>zg,<sp/>vehicle_density,<sp/>thrusters_max_input,<sp/>thrusters_min_input,<sp/>thrusters_gain,<sp/>thrusters_pole,<sp/>thrusters_delay,<sp/>sampling_frequency;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>inertia_tensor,<sp/>linear_damping_tensor,<sp/>quadratic_damping_tensor,<sp/>added_mass_tensor,<sp/>allocation_matrix,<sp/>lump_param_positive,<sp/>lump_param_negative,<sp/>disturbance_mean,<sp/>disturbance_sigma,<sp/>disturbance_minimum,<sp/>disturbance_maximum;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Load<sp/>the<sp/>parameters<sp/>for<sp/>the<sp/>dynamics<sp/>of<sp/>the<sp/>AUV<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.param&lt;std::string&gt;(</highlight><highlight class="stringliteral">&quot;frame_id&quot;</highlight><highlight class="normal">,<sp/>this-&gt;frame_id_,<sp/></highlight><highlight class="stringliteral">&quot;simulated_AUV&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;fluid_density&quot;</highlight><highlight class="normal">,<sp/>fluid_density);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/mass&quot;</highlight><highlight class="normal">,<sp/>mass);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/zg&quot;</highlight><highlight class="normal">,<sp/>zg);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/vehicle_density&quot;</highlight><highlight class="normal">,<sp/>vehicle_density);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/inertia_tensor&quot;</highlight><highlight class="normal">,<sp/>inertia_tensor);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/linear_damping_tensor&quot;</highlight><highlight class="normal">,<sp/>linear_damping_tensor);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/quadratic_damping_tensor&quot;</highlight><highlight class="normal">,<sp/>quadratic_damping_tensor);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/added_mass_tensor&quot;</highlight><highlight class="normal">,<sp/>added_mass_tensor);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Load<sp/>the<sp/>parameters<sp/>for<sp/>the<sp/>actuators<sp/>of<sp/>the<sp/>AUV<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/allocation_matrix&quot;</highlight><highlight class="normal">,<sp/>allocation_matrix);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/lump_param_positive&quot;</highlight><highlight class="normal">,<sp/>lump_param_positive);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/lump_param_negative&quot;</highlight><highlight class="normal">,<sp/>lump_param_negative);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/max_input&quot;</highlight><highlight class="normal">,<sp/>thrusters_max_input);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/min_input&quot;</highlight><highlight class="normal">,<sp/>thrusters_min_input);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/gain&quot;</highlight><highlight class="normal">,<sp/>thrusters_gain);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/pole&quot;</highlight><highlight class="normal">,<sp/>thrusters_pole);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;vehicle/actuators/delay&quot;</highlight><highlight class="normal">,<sp/>thrusters_delay);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;node_frequency&quot;</highlight><highlight class="normal">,<sp/>sampling_frequency);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>number<sp/>of<sp/>thrusters<sp/>of<sp/>the<sp/>allocation<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>num_thrusters<sp/>=<sp/>allocation_matrix.size()<sp/>/<sp/>6;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Check<sp/>if<sp/>the<sp/>number<sp/>of<sp/>thrusters<sp/>is<sp/>correct,<sp/>or<sp/>if<sp/>there<sp/>were<sp/>rounding<sp/>errors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(num_thrusters<sp/>*<sp/>6<sp/>!=<sp/>allocation_matrix.size())</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Allocation<sp/>matrix<sp/>for<sp/>thrusters<sp/>not<sp/>well<sp/>defined.<sp/>Simulation<sp/>will<sp/>not<sp/>continue!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO_STREAM(</highlight><highlight class="stringliteral">&quot;Simulated<sp/>AUV<sp/>will<sp/>have:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>num_thrusters<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>thrusters.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>vector<sp/>that<sp/>will<sp/>store<sp/>the<sp/>published<sp/>desired<sp/>thrust<sp/>to<sp/>apply<sp/>to<sp/>the<sp/>vehicle<sp/>accordingly<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;desired_thrust_.resize(num_thrusters);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Load<sp/>the<sp/>parameters<sp/>for<sp/>the<sp/>simulated<sp/>ocean<sp/>disturbances<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;current/mean&quot;</highlight><highlight class="normal">,<sp/>disturbance_mean);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;current/sigma&quot;</highlight><highlight class="normal">,<sp/>disturbance_sigma);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;current/minimum&quot;</highlight><highlight class="normal">,<sp/>disturbance_minimum);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;current/maximum&quot;</highlight><highlight class="normal">,<sp/>disturbance_maximum);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>a<sp/>new<sp/>AUV<sp/>object<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_unique&lt;AUV&gt;(mass,<sp/>fluid_density,<sp/>zg,<sp/>vehicle_density,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(inertia_tensor.data()),</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;(linear_damping_tensor.data()),</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;(quadratic_damping_tensor.data()),</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;(added_mass_tensor.data()),</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Map&lt;Eigen::Matrix&lt;double,<sp/>Eigen::Dynamic,<sp/>6,<sp/>Eigen::RowMajor&gt;&gt;(allocation_matrix.data(),<sp/>num_thrusters,<sp/>6),</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(lump_param_positive.data()),</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(lump_param_negative.data()),</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector2d(thrusters_min_input,<sp/>thrusters_max_input),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thrusters_gain,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thrusters_pole,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thrusters_delay,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.0<sp/>/<sp/>sampling_frequency,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(disturbance_mean.data()),</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(disturbance_sigma.data()),</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(disturbance_minimum.data()),</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::Vector3d(disturbance_maximum.data()));</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>NOTE:<sp/>Check<sp/>if<sp/>these<sp/>values<sp/>can<sp/>actually<sp/>be<sp/>copied<sp/>by<sp/>reference<sp/>to<sp/>the<sp/>eigen<sp/>structures<sp/>(specially<sp/>the<sp/>allocation<sp/>matrix).<sp/>If<sp/>some<sp/>bug<sp/>occurs<sp/>later<sp/>down<sp/>the<sp/>road,<sp/>this<sp/>is<sp/>the<sp/>first<sp/>place<sp/>we<sp/>should<sp/>check<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SimulationNode::initializeTimer()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/>this-&gt;timer_<sp/>=<sp/>this-&gt;nh_.createTimer(ros::Duration(1.0<sp/>/<sp/>SimulationNode::nodeFrequency()),<sp/>&amp;SimulationNode::timerUpdateCallback,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>SimulationNode::nodeFrequency()<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>node_frequency;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>from<sp/>parameter<sp/>server<sp/>the<sp/>desired<sp/>node<sp/>frequency<sp/>(if<sp/>not<sp/>found,<sp/>default<sp/>to<sp/>50<sp/>Hz)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;nh_p_.param&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;(</highlight><highlight class="stringliteral">&quot;node_frequency&quot;</highlight><highlight class="normal">,<sp/>node_frequency,<sp/>50);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;SimulationNode<sp/>will<sp/>run<sp/>at<sp/>:<sp/>%lf<sp/>[hz]&quot;</highlight><highlight class="normal">,<sp/>node_frequency);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>node_frequency;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SimulationNode::timerUpdateCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ros::TimerEvent<sp/>&amp;event)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>difference<sp/>between<sp/>previous<sp/>update<sp/>time<sp/>and<sp/>disturbance<sp/>update<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>ros::Time<sp/>prev_time<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Time<sp/>curr_time<sp/>=<sp/>ros::Time::now();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Duration<sp/>dt<sp/>=<sp/>curr_time<sp/>-<sp/>prev_time;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>prev_time<sp/>=<sp/>curr_time;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>AUV<sp/>state<sp/>(if<sp/>the<sp/>simulation<sp/>is<sp/>not<sp/>paused)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!this-&gt;paused_)<sp/>this-&gt;auv_-&gt;update(dt.toSec(),<sp/>this-&gt;desired_thrust_);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>disturbance<sp/>state<sp/>of<sp/>the<sp/>AUV<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structState" kindref="compound">State</ref><sp/>curr_state<sp/>=<sp/>this-&gt;auv_-&gt;getState();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>disturbance<sp/>state<sp/>of<sp/>the<sp/>AUV<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>nav_msgs::Odometry<sp/>odom_msg<sp/>=<sp/>nav_msgs::Odometry();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.header.stamp<sp/>=<sp/>curr_time;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.header.frame_id<sp/>=<sp/>this-&gt;frame_id_;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.position.x<sp/>=<sp/>curr_state.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>(0);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.position.y<sp/>=<sp/>curr_state.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>(1);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.position.z<sp/>=<sp/>curr_state.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>(2);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>quaternion<sp/>according<sp/>to<sp/>ZYX<sp/>order<sp/>of<sp/>rotation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;double&gt;<sp/>orientation;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>orientation<sp/>=<sp/>Eigen::AngleAxisd(curr_state.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(2),<sp/>Eigen::Vector3d::UnitZ())<sp/>*</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::AngleAxisd(curr_state.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(1),<sp/>Eigen::Vector3d::UnitY())<sp/>*</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::AngleAxisd(curr_state.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(0),<sp/>Eigen::Vector3d::UnitX());</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.orientation.x<sp/>=<sp/>orientation.x();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.orientation.y<sp/>=<sp/>orientation.y();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.orientation.z<sp/>=<sp/>orientation.z();</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.pose.pose.orientation.w<sp/>=<sp/>orientation.w();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.twist.twist.linear.x<sp/>=<sp/>curr_state.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>(0);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.twist.twist.linear.y<sp/>=<sp/>curr_state.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>(1);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.twist.twist.linear.z<sp/>=<sp/>curr_state.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>(2);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.twist.twist.angular.x<sp/>=<sp/>curr_state.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>(0);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.twist.twist.angular.y<sp/>=<sp/>curr_state.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>(1);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>odom_msg.twist.twist.angular.z<sp/>=<sp/>curr_state.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>(2);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;odometry_pub_.publish(odom_msg);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<sp/>argv)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initiate<sp/>ros<sp/>and<sp/>get<sp/>the<sp/>public<sp/>and<sp/>private<sp/>node-handles<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;SimulationNode&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>nh;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>nh_p(</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;main:<sp/>instantiating<sp/>an<sp/>object<sp/>of<sp/>type<sp/>SimulationNode&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Instantiate<sp/>the<sp/>Simulation<sp/>Node*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classSimulationNode" kindref="compound">SimulationNode</ref><sp/>simulation(&amp;nh,<sp/>&amp;nh_p);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Going<sp/>into<sp/>spin<sp/>and<sp/>let<sp/>the<sp/>timer<sp/>callback<sp/>do<sp/>all<sp/>the<sp/>work<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::spin();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/ros/SimulationNode.cpp"/>
+  </compounddef>
+</doxygen>

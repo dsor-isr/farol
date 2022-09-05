@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Marcelo_8cpp" kind="file" language="C++">
+    <compoundname>Marcelo.cpp</compoundname>
+    <includes refid="Marcelo_8h" local="yes">Marcelo.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>limits</label>
+      </node>
+      <node id="11">
+        <label>farol_msgs/mPFollowingDebug.h</label>
+      </node>
+      <node id="6">
+        <label>States.h</label>
+        <link refid="States_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="10">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="2">
+        <label>Marcelo.h</label>
+        <link refid="Marcelo_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>dsor_paths/SetMode.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/Marcelo.cpp</label>
+        <link refid="Marcelo_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="8">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="12">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="3">
+        <label>PathFollowing.h</label>
+        <link refid="PathFollowing_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Marcelo.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>constructor<sp/>for<sp/>the<sp/>Marcelo<sp/>Path<sp/>Following<sp/>Controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classMarcelo_1a70de62e9cdca72e81b91753151ec88f1" kindref="member">Marcelo::Marcelo</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kk[2],<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kz,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k_pos,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k_currents,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rd[3],<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d[3],<sp/>ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>yaw_rate_pub,<sp/>ros::Publisher<sp/>rabbit_pub,<sp/>ros::Publisher<sp/>currents_estimation_x_pub,<sp/>ros::Publisher<sp/>currents_estimation_y_pub)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initiate<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>this-&gt;delta_<sp/>&lt;&lt;<sp/>1.0,<sp/>0.0,<sp/>0.0,<sp/>-delta;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>this-&gt;delta_inv_<sp/>&lt;&lt;<sp/>1.0,<sp/>0.0,<sp/>0.0,<sp/>-1/delta;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>this-&gt;kk_<sp/>&lt;&lt;<sp/>kk[0],<sp/>0.0,<sp/>0.0,<sp/>kk[1];</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>this-&gt;kz_<sp/>=<sp/>kz;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>this-&gt;epsilon_<sp/>&lt;&lt;<sp/>delta,<sp/>0.0;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Observer<sp/>gains<sp/>for<sp/>the<sp/>ocean<sp/>currents<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>this-&gt;k_pos_<sp/>=<sp/>k_pos;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>this-&gt;k_currents_<sp/>=<sp/>k_currents;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>offset<sp/>for<sp/>the<sp/>path<sp/>following<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>this-&gt;rd_<sp/>&lt;&lt;<sp/>rd[0],<sp/>rd[1],<sp/>rd[2];</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>this-&gt;d_<sp/>&lt;&lt;<sp/>d[0],<sp/>d[1],<sp/>d[2];</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>publishers,<sp/>to<sp/>latter<sp/>publish<sp/>the<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>this-&gt;surge_pub_<sp/>=<sp/>surge_pub;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>this-&gt;yaw_rate_pub_<sp/>=<sp/>yaw_rate_pub;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>this-&gt;rabbit_pub_<sp/>=<sp/>rabbit_pub;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>this-&gt;currents_estimation_x_pub_<sp/>=<sp/>currents_estimation_x_pub;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>this-&gt;currents_estimation_y_pub_<sp/>=<sp/>currents_estimation_y_pub;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>set<sp/>the<sp/>path<sp/>following<sp/>gains<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1a0bcfa8cfd64f3db2400bbd977a08787c" kindref="member">Marcelo::setPFGains</ref>(std::vector&lt;double&gt;<sp/>gains)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Handle<sp/>the<sp/>case<sp/>where<sp/>the<sp/>number<sp/>of<sp/>gains<sp/>received<sp/>does<sp/>not<sp/>coincide<sp/>witht<sp/>the</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/>*<sp/>number<sp/>of<sp/>gains<sp/>of<sp/>the<sp/>algorithm</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gains.size()<sp/>!=<sp/>6)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initiate<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>this-&gt;delta_<sp/>&lt;&lt;<sp/>1.0,<sp/>0.0,<sp/>0.0,<sp/>-gains[0];</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>this-&gt;delta_inv_<sp/>&lt;&lt;<sp/>1.0,<sp/>0.0,<sp/>0.0,<sp/>-1<sp/>/<sp/>gains[0];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>this-&gt;kk_<sp/>&lt;&lt;<sp/>gains[1],<sp/>0.0,<sp/>0.0,<sp/>gains[2];</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>this-&gt;kz_<sp/>=<sp/>gains[3];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>this-&gt;epsilon_<sp/>&lt;&lt;<sp/>gains[0],<sp/>0.0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Observer<sp/>gains<sp/>for<sp/>the<sp/>ocean<sp/>currents<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>this-&gt;k_pos_<sp/>=<sp/>gains[4];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>this-&gt;k_currents_<sp/>=<sp/>gains[5];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//gains<sp/>where<sp/>updated<sp/>successfully</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>implements<sp/>the<sp/>control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1a7c6bf0d19b0ca042068fd2e908ab8145" kindref="member">Marcelo::callPFController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>r1;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>r3;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>r2;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>r1<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.d_pd<sp/>/<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.d_pd.norm();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>r3<sp/>=<sp/>this-&gt;rd_<sp/>-<sp/>(this-&gt;rd_.dot(r1)<sp/>*<sp/>r1);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>r3<sp/>=<sp/>r3<sp/>/<sp/>r3.norm();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>r2<sp/>=<sp/>r3.cross(r1);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>Eigen::Matrix3d<sp/>R_trans;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>R_trans(i,<sp/>0)<sp/>=<sp/>r1(i);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>R_trans(i,<sp/>1)<sp/>=<sp/>r2(i);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>R_trans(i,<sp/>2)<sp/>=<sp/>r3(i);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>actual<sp/>desired<sp/>position<sp/>for<sp/>the<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>pd;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>pd<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref><sp/>+<sp/>(R_trans<sp/>*<sp/>this-&gt;d_);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>vehicle<sp/>position<sp/>and<sp/>orientation<sp/>in<sp/>the<sp/>2D<sp/>plane<sp/>*/</highlight><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>vehicle_pos;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>vehicle_v1;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>path_pos;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pd_dot;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>sway_vel;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>sway_vel<sp/>&lt;&lt;<sp/>0.0,<sp/>0.0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>path<sp/>tangent<sp/>to<sp/>the<sp/>norm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_hg<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.tangent_norm;<sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>path_pos<sp/>&lt;&lt;<sp/>pd[0],<sp/>pd[1];</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>pd_dot<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.d_pd[0],<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.d_pd[1];</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>information<sp/>from<sp/>the<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vehicle_yaw<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>vehicle_pos<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[1];</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>vehicle_v1<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1ac9730df9dd6e068de2e031d5da4a2c9b" kindref="member">v1</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1ac9730df9dd6e068de2e031d5da4a2c9b" kindref="member">v1</ref>[1];</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>rotation<sp/>matrix<sp/>from<sp/>the<sp/>inertial<sp/>frame<sp/>to<sp/>the<sp/>body<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>rot_body;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>rot_inert;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>rot_body<sp/>&lt;&lt;<sp/>cos(vehicle_yaw),<sp/>sin(vehicle_yaw),<sp/>-sin(vehicle_yaw),<sp/>cos(vehicle_yaw);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>rot_inert<sp/>&lt;&lt;<sp/>cos(vehicle_yaw),<sp/>-sin(vehicle_yaw),<sp/>sin(vehicle_yaw),<sp/>cos(vehicle_yaw);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Estimator<sp/>for<sp/>the<sp/>ocean<sp/>currents<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;first_iteration_)<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>the<sp/>complementary<sp/>filter<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pos_hat_[0]<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[0];</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pos_hat_[1]<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[1];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;currents_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;currents_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;first_iteration_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>complementary<sp/>filter<sp/>used<sp/>to<sp/>estimate<sp/>ocean<sp/>currents<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector2d<sp/>pos_hat_dot;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector2d<sp/>currents_hat_dot;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>pos_hat_dot<sp/>=<sp/>this-&gt;k_pos_<sp/>*<sp/>(vehicle_pos<sp/>-<sp/>this-&gt;pos_hat_)<sp/>+<sp/>(rot_inert<sp/>*<sp/>vehicle_v1)<sp/>+<sp/>this-&gt;currents_hat_;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>currents_hat_dot<sp/>=<sp/>this-&gt;k_currents_<sp/>*<sp/>(vehicle_pos<sp/>-<sp/>this-&gt;pos_hat_);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;currents_hat_<sp/>+=<sp/>currents_hat_dot<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pos_hat_<sp/>+=<sp/>pos_hat_dot<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>ocean<sp/>currents<sp/>in<sp/>the<sp/>body<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>vcurrent;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>vcurrent<sp/>=<sp/>rot_body<sp/>*<sp/>this-&gt;currents_hat_;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>position<sp/>error<sp/>in<sp/>the<sp/>inertial<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pos_error<sp/>=<sp/>rot_body<sp/>*<sp/>(vehicle_pos<sp/>-<sp/>path_pos)<sp/>-<sp/>this-&gt;epsilon_;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pos_error_tanh;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>pos_error_tanh<sp/>&lt;&lt;<sp/>tanh(pos_error[0]),<sp/>tanh(pos_error[1]);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>PF<sp/>Control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>vel_yaw_desired<sp/>=<sp/>this-&gt;delta_inv_<sp/>*<sp/>(-this-&gt;kk_<sp/>*<sp/>pos_error_tanh<sp/>-<sp/>sway_vel<sp/>-<sp/>vcurrent<sp/>+<sp/>rot_body<sp/>*<sp/>pd_dot<sp/>*<sp/>(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kindref="member">vd</ref><sp/>+<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kindref="member">vc</ref>));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>control<sp/>values<sp/>to<sp/>be<sp/>published<sp/>later<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>vel_yaw_desired[0];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>NOTE:<sp/>must<sp/>convert<sp/>this<sp/>from<sp/>rad/s<sp/>to<sp/>deg/s<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_rate_<sp/>=<sp/>vel_yaw_desired[1]<sp/>*<sp/>180.0<sp/>/<sp/>M_PI;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>error<sp/>between<sp/>the<sp/>virtual<sp/>target<sp/>speed<sp/>and<sp/>its<sp/>desired<sp/>speed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_dot_error<sp/>=<sp/>this-&gt;gamma_dot_<sp/>-<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kindref="member">vd</ref><sp/>-<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kindref="member">vc</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Virtual<sp/>Target<sp/>Control<sp/>Law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>aux<sp/>=<sp/>pos_error.transpose()<sp/>*<sp/>rot_body<sp/>*<sp/>pd_dot;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>-this-&gt;kz_<sp/>*<sp/>gamma_dot_error<sp/>+<sp/>(aux<sp/>/<sp/>path_hg)<sp/><sp/>+<sp/>(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.d_vd<sp/>*<sp/>this-&gt;gamma_dot_);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>values<sp/>of<sp/>gamma<sp/>to<sp/>guarantee<sp/>that<sp/>if<sp/>we<sp/>start<sp/>the<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;gamma_<sp/>&lt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref><sp/>&amp;&amp;<sp/>this-&gt;gamma_ddot_<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>+=<sp/>this-&gt;gamma_ddot_<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Marcelo&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish_private<sp/>the<sp/>data<sp/>computed<sp/>from<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" kindref="member">Marcelo::publish_private</ref>(){</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_rate_pub_,<sp/>this-&gt;desired_yaw_rate_);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>values<sp/>of<sp/>the<sp/>current<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;currents_estimation_x_pub_,<sp/>this-&gt;currents_hat_[0]);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;currents_estimation_y_pub_,<sp/>this-&gt;currents_hat_[1]);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1abc33f038979fa05a92c6b8df05127778" kindref="member">Marcelo::start</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>initial<sp/>virtual<sp/>target<sp/>value<sp/>to<sp/>get<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" kindref="member">Marcelo::stop</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1a5835e08725f01af3fb719423d523fe25" kindref="member">Marcelo::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_rate_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>value<sp/>that<sp/>holds<sp/>the<sp/>estimated<sp/>position<sp/>(used<sp/>for<sp/>currents<sp/>estimation)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>this-&gt;pos_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>this-&gt;pos_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>this-&gt;currents_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>this-&gt;currents_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>this-&gt;first_iteration_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Marcelo::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/Marcelo.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ConstVehicleSpeed_8cpp" kind="file" language="C++">
+    <compoundname>ConstVehicleSpeed.cpp</compoundname>
+    <includes refid="ConstVehicleSpeed_8h" local="yes">ConstVehicleSpeed.h</includes>
+    <includes local="no">cmath</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/algorithms/speed_profiles/ConstVehicleSpeed.cpp</label>
+        <link refid="ConstVehicleSpeed_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ConstVehicleSpeed.h</label>
+        <link refid="ConstVehicleSpeed_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;ConstVehicleSpeed.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Constructor<sp/>for<sp/>the<sp/>ConstVehicleSpeed<sp/>class<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="classConstVehicleSpeed_1a1a7255da5b0a4cc709cb14539b19964d" kindref="member">ConstVehicleSpeed::ConstVehicleSpeed</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vehicle_speed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>default_val)<sp/>:</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>vehicle_speed_(vehicle_speed),</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>default_speed_(default_val)<sp/>{}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>get<sp/>the<sp/>desired<sp/>velocity<sp/>in<sp/>the<sp/>path<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstVehicleSpeed_1aac81ee1a32179f281ed69bd693825a58" kindref="member">ConstVehicleSpeed::getVd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_speed<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Convert<sp/>the<sp/>speed<sp/>from<sp/>the<sp/>vehicle<sp/>frame<sp/>to<sp/>the<sp/>path<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tangent_norm<sp/>!=<sp/>0)<sp/>gamma_speed<sp/>=<sp/>this-&gt;vehicle_speed_<sp/>/<sp/>tangent_norm;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>the<sp/>tangent_norm<sp/>was<sp/>0,<sp/>then<sp/>gamma_speed<sp/>is<sp/>infinite!<sp/>Limit<sp/>this!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tangent_norm<sp/>==<sp/>0<sp/>||<sp/>!(std::isfinite(gamma_speed)))<sp/>gamma_speed<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gamma_speed;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>get<sp/>the<sp/>derivative<sp/>of<sp/>the<sp/>desired<sp/>velocity<sp/>in<sp/>the<sp/>path<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstVehicleSpeed_1abe43b77b6647396792fdbc1587e79dba" kindref="member">ConstVehicleSpeed::get_d_Vd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>velocity<sp/>desired<sp/>is<sp/>constant<sp/>-<sp/>we<sp/>desire<sp/>no<sp/>acceleration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>use<sp/>as<sp/>a<sp/>default<sp/>value<sp/>if<sp/>something<sp/>goes<sp/>wrong<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstVehicleSpeed_1a164ee6184451deeaf754c2d6466e3969" kindref="member">ConstVehicleSpeed::getDefaultVd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>default<sp/>in<sp/>this<sp/>case<sp/>will<sp/>be<sp/>the<sp/>same<sp/>constant<sp/>velocity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;default_speed_<sp/>/<sp/>tangent_norm;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/speed_profiles/ConstVehicleSpeed.cpp"/>
+  </compounddef>
+</doxygen>

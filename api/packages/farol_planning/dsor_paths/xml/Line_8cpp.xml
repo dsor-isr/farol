@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Line_8cpp" kind="file" language="C++">
+    <compoundname>Line.cpp</compoundname>
+    <includes refid="Line_8h" local="yes">Line.h</includes>
+    <includes local="no">stdexcept</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="7">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="2">
+        <label>Line.h</label>
+        <link refid="Line_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/path_sections/Line.cpp</label>
+        <link refid="Line_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>PathSection.h</label>
+        <link refid="PathSection_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Line.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Constructor<sp/>that<sp/>assumes<sp/>the<sp/>line<sp/>is<sp/>given<sp/>relative<sp/>to<sp/>a<sp/>reference<sp/>point<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="classLine_1ae711328a7816ad106fe6afbe4bea6158" kindref="member">Line::Line</ref>(Eigen::Vector3d<sp/>start_point,<sp/>Eigen::Vector3d<sp/>end_point,<sp/>Eigen::Vector3d<sp/>ref_point)<sp/>:<sp/><ref refid="classPathSection" kindref="compound">PathSection</ref>(true)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Validate<sp/>if<sp/>the<sp/>line<sp/>is<sp/>valid,<sp/>otherwise<sp/>just<sp/>return<sp/>insucess<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((start_point<sp/>-<sp/>end_point).norm()<sp/>&lt;<sp/>0.0000001)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;Line:<sp/>Initial<sp/>and<sp/>end<sp/>point<sp/>are<sp/>the<sp/>same&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Instantiate<sp/>the<sp/>class<sp/>attributes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>this-&gt;start_point_<sp/>=<sp/>start_point;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>this-&gt;end_point_<sp/>=<sp/>end_point;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>this-&gt;ref_point_<sp/>=<sp/>ref_point;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Make<sp/>sure<sp/>the<sp/>gamma<sp/>varies<sp/>between<sp/>0<sp/>and<sp/>1*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>this-&gt;setMinGammaValue(0.0);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>this-&gt;setMaxGammaValue(1.0);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Constructor<sp/>that<sp/>assumes<sp/>that<sp/>the<sp/>line<sp/>has<sp/>no<sp/>reference<sp/>point<sp/>to<sp/>it<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="classLine_1ae711328a7816ad106fe6afbe4bea6158" kindref="member">Line::Line</ref>(Eigen::Vector3d<sp/>start_point,<sp/>Eigen::Vector3d<sp/>end_point)<sp/>:<sp/><ref refid="classLine" kindref="compound">Line</ref>(start_point,<sp/>end_point,<sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0))<sp/>{}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>equation<sp/>of<sp/>a<sp/>line<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classLine_1a689722d427610dc9d07d422f44679f21" kindref="member">Line::eq_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>slope;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>offset;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Make<sp/>sure<sp/>the<sp/>path<sp/>parameter<sp/>is<sp/>between<sp/>0<sp/>and<sp/>1<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>t<sp/>=<sp/>this-&gt;<ref refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" kindref="member">limitGamma</ref>(t);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>slope<sp/>and<sp/>offest<sp/>of<sp/>the<sp/>line<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>slope<sp/>=<sp/>this-&gt;end_point_<sp/>-<sp/>this-&gt;start_point_;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>offset<sp/>=<sp/>this-&gt;start_point_;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>slope<sp/>*<sp/>t<sp/>+<sp/>offset;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>derivative<sp/>equation<sp/>of<sp/>line<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classLine_1ad67f78eeed41b1ac3f711d8181968959" kindref="member">Line::eq_d_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>slope<sp/>of<sp/>the<sp/>line<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;end_point_<sp/>-<sp/>this-&gt;start_point_;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>second<sp/>derivative<sp/>equation<sp/>of<sp/>line<sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classLine_1a176ddd7d8a260b39eeb0de127331eace" kindref="member">Line::eq_dd_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>second<sp/>derivative<sp/>of<sp/>a<sp/>line<sp/>is<sp/>0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>dd_p(0.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dd_p;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>curvature<sp/>of<sp/>a<sp/>line<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classLine_1a36a25292c83ae108d59bd19ee86115e2" kindref="member">Line::curvature</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>for<sp/>getting<sp/>the<sp/>gamma<sp/>of<sp/>the<sp/>closes<sp/>point<sp/>to<sp/>the<sp/>path<sp/>in<sp/>a<sp/>more<sp/>efficient<sp/>manner<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classLine_1adaff892c3f1bfa40993aaae817f205b9" kindref="member">Line::getClosestPointGamma</ref>(Eigen::Vector3d<sp/>&amp;coordinate)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Line<sp/>Distance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>l<sp/>=<sp/>(this-&gt;end_point_<sp/>-<sp/>this-&gt;start_point_).norm();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Distance<sp/>to<sp/>the<sp/>begining<sp/>of<sp/>the<sp/>mission</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ds<sp/>=<sp/>(coordinate<sp/>-<sp/>this-&gt;start_point_).norm();<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Distance<sp/>to<sp/>the<sp/>end<sp/>of<sp/>the<sp/>mission<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>de<sp/>=<sp/>(coordinate<sp/>-<sp/>this-&gt;end_point_).norm();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Change<sp/>this<sp/>for<sp/>any<sp/>g0<sp/>and<sp/>ge</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma<sp/>=<sp/>this-&gt;<ref refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" kindref="member">getMinGammaValue</ref>()<sp/>+<sp/>((l<sp/>*<sp/>l<sp/>+<sp/>ds<sp/>*<sp/>ds<sp/>-<sp/>de<sp/>*<sp/>de)<sp/>/<sp/>(2<sp/>*<sp/>l));<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Normalize<sp/>so<sp/>that<sp/>gamma<sp/>varies<sp/>between<sp/>gamma<sp/>min<sp/>and<sp/>gamma<sp/>max<sp/>(aka<sp/>[0,1])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>gamma<sp/>=<sp/>gamma<sp/>/<sp/>l;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Saturate<sp/>between<sp/>the<sp/>minimum<sp/>and<sp/>maximum<sp/>values<sp/>of<sp/>gamma</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gamma<sp/>&gt;<sp/>this-&gt;<ref refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" kindref="member">getMaxGammaValue</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gamma<sp/>=<sp/>this-&gt;<ref refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" kindref="member">getMaxGammaValue</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gamma<sp/>&lt;<sp/>this-&gt;<ref refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" kindref="member">getMinGammaValue</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gamma<sp/>=<sp/>this-&gt;<ref refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" kindref="member">getMinGammaValue</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gamma;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/path_sections/Line.cpp"/>
+  </compounddef>
+</doxygen>

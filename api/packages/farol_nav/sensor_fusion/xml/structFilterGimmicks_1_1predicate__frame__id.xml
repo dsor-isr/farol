@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structFilterGimmicks_1_1predicate__frame__id" kind="struct" language="C++" prot="public">
+    <compoundname>FilterGimmicks::predicate_frame_id</compoundname>
+    <includes refid="FilterGimmicks_8h" local="no">FilterGimmicks.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structFilterGimmicks_1_1predicate__frame__id_1a7a49e1f399411d3c3cd8f5c1a4377dfb" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string FilterGimmicks::predicate_frame_id::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="122" column="13" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structFilterGimmicks_1_1predicate__frame__id_1aaead884ffbada7d2038ce73743c41667" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::predicate_frame_id::predicate_frame_id</definition>
+        <argsstring>(std::string target_)</argsstring>
+        <name>predicate_frame_id</name>
+        <param>
+          <type>std::string</type>
+          <declname>target_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="123" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="123" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1predicate__frame__id_1a1a61f8a2359d5a73fe80ed22fecfbf10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FilterGimmicks::predicate_frame_id::operator()</definition>
+        <argsstring>(measurement &amp;sensor)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">measurement</ref> &amp;</type>
+          <declname>sensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="124" column="6" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Predicate to find a giver frame_id among a list of frame_id. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/FilterGimmicks.h" line="121" column="25" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="121" bodyend="125"/>
+    <listofallmembers>
+      <member refid="structFilterGimmicks_1_1predicate__frame__id_1a1a61f8a2359d5a73fe80ed22fecfbf10" prot="public" virt="non-virtual"><scope>FilterGimmicks::predicate_frame_id</scope><name>operator()</name></member>
+      <member refid="structFilterGimmicks_1_1predicate__frame__id_1aaead884ffbada7d2038ce73743c41667" prot="public" virt="non-virtual"><scope>FilterGimmicks::predicate_frame_id</scope><name>predicate_frame_id</name></member>
+      <member refid="structFilterGimmicks_1_1predicate__frame__id_1a7a49e1f399411d3c3cd8f5c1a4377dfb" prot="public" virt="non-virtual"><scope>FilterGimmicks::predicate_frame_id</scope><name>target</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

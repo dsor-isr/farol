@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structFilterGimmicks_1_1measurement" kind="struct" language="C++" prot="public">
+    <compoundname>FilterGimmicks::measurement</compoundname>
+    <includes refid="FilterGimmicks_8h" local="no">FilterGimmicks.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322" prot="public" static="no" strong="no">
+        <type></type>
+        <name>measurement_type</name>
+        <enumvalue id="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322afa256a9fca784d2e85fd286af8ebd8fc" prot="public">
+          <name>Null</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322a44101dfffcd693ebfbdc7c9575b2ff27" prot="public">
+          <name>CONFIG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322ab690ae624a491e8ec8edfec4759ffef6" prot="public">
+          <name>VALUE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="37" column="22" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1a7cdfc93f8dcf1f5547e59304466b0c0c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FilterGimmicks::measurement::base_frame</definition>
+        <argsstring></argsstring>
+        <name>base_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="39" column="6" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1aca3cb73efd6550500c213cc24b75cfdb" prot="public" static="no" mutable="no">
+        <type>std_msgs::Header</type>
+        <definition>std_msgs::Header FilterGimmicks::measurement::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="40" column="18" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1a887a168c4d86a300b9ad92da78719da6" prot="public" static="no" mutable="no">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd FilterGimmicks::measurement::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="41" column="17" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1a386904d075d6fd0eea9ef6e1ae4e09d3" prot="public" static="no" mutable="no">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd FilterGimmicks::measurement::noise</definition>
+        <argsstring></argsstring>
+        <name>noise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="41" column="23" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1a61846247589f488344da0376d13e547d" prot="public" static="no" mutable="no">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd FilterGimmicks::measurement::config</definition>
+        <argsstring></argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="41" column="29" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1aa8a50d2138a3a3c972ad9cacc3ff1d79" prot="public" static="no" mutable="no">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd FilterGimmicks::measurement::state_copy</definition>
+        <argsstring></argsstring>
+        <name>state_copy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="41" column="36" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1aced626b1cd022cb8d5ec11108b7c9ccb" prot="public" static="no" mutable="no">
+        <type>Eigen::MatrixXd</type>
+        <definition>Eigen::MatrixXd FilterGimmicks::measurement::state_cov_copy</definition>
+        <argsstring></argsstring>
+        <name>state_cov_copy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="42" column="17" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1ac886511e78211b7a53a83f4f7c101099" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string FilterGimmicks::measurement::sensor_config</definition>
+        <argsstring></argsstring>
+        <name>sensor_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="43" column="13" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1a3fb43b0f29e506afb36c4cf594ced7bd" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FilterGimmicks::measurement::outlier_tolerance</definition>
+        <argsstring></argsstring>
+        <name>outlier_tolerance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="44" column="8" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1af0dcb5a7c010ee4b9829398be7cc4b4b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FilterGimmicks::measurement::time_of_previous_meas</definition>
+        <argsstring></argsstring>
+        <name>time_of_previous_meas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="44" column="26" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1a20fd315f9ba857932dabefac3e654412" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FilterGimmicks::measurement::outlier_increase</definition>
+        <argsstring></argsstring>
+        <name>outlier_increase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="44" column="48" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structFilterGimmicks_1_1measurement_1ab2c039a3fa45c28a974cd7f60084889c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FilterGimmicks::measurement::reject_counter</definition>
+        <argsstring></argsstring>
+        <name>reject_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="45" column="5" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1a2a90b398506d168aebaea6c76d0ee8bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FilterGimmicks::measurement::setLength</definition>
+        <argsstring>(int length)</argsstring>
+        <name>setLength</name>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="47" column="6" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="47" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1a75aa252b5ca94559cb59dd4b7e4a2a23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::measurement::measurement</definition>
+        <argsstring>()</argsstring>
+        <name>measurement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="58" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="58" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1aa88b9cd5f39358a8b35450dedcc5d97d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::measurement::measurement</definition>
+        <argsstring>(int length)</argsstring>
+        <name>measurement</name>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="62" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="62" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1a242ec18f96927745fe3be99cf2e44bbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::measurement::measurement</definition>
+        <argsstring>(std::string header_)</argsstring>
+        <name>measurement</name>
+        <param>
+          <type>std::string</type>
+          <declname>header_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="77" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1a89c249a1dc4b580e91a9afb7b75c1e6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::measurement::measurement</definition>
+        <argsstring>(std::string frame_id, std::string config_, std::vector&lt; double &gt; noise_, double rejection_threshold_, int reject_counter_, double outlier_increase_)</argsstring>
+        <name>measurement</name>
+        <param>
+          <type>std::string</type>
+          <declname>frame_id</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>config_</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>noise_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>rejection_threshold_</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>reject_counter_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>outlier_increase_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="83" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="83" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1ada3a90d1138416f28c69f4333c207fe5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::measurement::measurement</definition>
+        <argsstring>(std::string frame_id, std::vector&lt; double &gt; value_, std::vector&lt; double &gt; noise_)</argsstring>
+        <name>measurement</name>
+        <param>
+          <type>std::string</type>
+          <declname>frame_id</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>value_</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>noise_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="95" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="95" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="structFilterGimmicks_1_1measurement_1ab7e474531120b883c8e2cd22f01f5a8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FilterGimmicks::measurement::measurement</definition>
+        <argsstring>(const dsor_msgs::Measurement &amp;m_)</argsstring>
+        <name>measurement</name>
+        <param>
+          <type>const dsor_msgs::Measurement &amp;</type>
+          <declname>m_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="104" column="1" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="104" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Define a measurement object. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>measurement struct temporary placed here. To be moved later somewhere </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/FilterGimmicks.h" line="34" column="26" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="34" bodyend="114"/>
+    <listofallmembers>
+      <member refid="structFilterGimmicks_1_1measurement_1a7cdfc93f8dcf1f5547e59304466b0c0c" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>base_frame</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a61846247589f488344da0376d13e547d" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>config</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322a44101dfffcd693ebfbdc7c9575b2ff27" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>CONFIG</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1aca3cb73efd6550500c213cc24b75cfdb" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>header</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a75aa252b5ca94559cb59dd4b7e4a2a23" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1aa88b9cd5f39358a8b35450dedcc5d97d" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a242ec18f96927745fe3be99cf2e44bbd" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a89c249a1dc4b580e91a9afb7b75c1e6a" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1ada3a90d1138416f28c69f4333c207fe5" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1ab7e474531120b883c8e2cd22f01f5a8a" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>measurement_type</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a386904d075d6fd0eea9ef6e1ae4e09d3" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>noise</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322afa256a9fca784d2e85fd286af8ebd8fc" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>Null</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a20fd315f9ba857932dabefac3e654412" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>outlier_increase</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a3fb43b0f29e506afb36c4cf594ced7bd" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>outlier_tolerance</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1ab2c039a3fa45c28a974cd7f60084889c" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>reject_counter</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1ac886511e78211b7a53a83f4f7c101099" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>sensor_config</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a2a90b398506d168aebaea6c76d0ee8bf" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>setLength</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1aa8a50d2138a3a3c972ad9cacc3ff1d79" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>state_copy</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1aced626b1cd022cb8d5ec11108b7c9ccb" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>state_cov_copy</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1af0dcb5a7c010ee4b9829398be7cc4b4b" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>time_of_previous_meas</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a887a168c4d86a300b9ad92da78719da6" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>value</name></member>
+      <member refid="structFilterGimmicks_1_1measurement_1a92dde0fcd13b72006e5f1829f71a8322ab690ae624a491e8ec8edfec4759ffef6" prot="public" virt="non-virtual"><scope>FilterGimmicks::measurement</scope><name>VALUE</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

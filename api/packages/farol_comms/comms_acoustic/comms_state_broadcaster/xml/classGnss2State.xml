@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classGnss2State" kind="class" language="C++" prot="public">
+    <compoundname>Gnss2State</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGnss2State_1ab0cbef7455730474c528769a5b284974" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle Gnss2State::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="43" column="17" bodyfile="include/Gnss2State.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnss2State_1a1c054be9fce421f8fab29345cd811135" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle Gnss2State::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="43" column="21" bodyfile="include/Gnss2State.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnss2State_1a34c65342e6cb6de7ad72822ed92c9552" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Gnss2State::sub_gnss</definition>
+        <argsstring></argsstring>
+        <name>sub_gnss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="48" column="21" bodyfile="include/Gnss2State.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnss2State_1afd3c668a959f00c8bb5029de5b74b2bf" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Gnss2State::pub_state</definition>
+        <argsstring></argsstring>
+        <name>pub_state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="54" column="16" bodyfile="include/Gnss2State.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnss2State_1a56b915101d64a92072b577177267b1c9" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Gnss2State::pub_zone</definition>
+        <argsstring></argsstring>
+        <name>pub_zone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="54" column="26" bodyfile="include/Gnss2State.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnss2State_1ad9ddeca264bc0b793479cb7af4bc4937" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Gnss2State::p_broadcast_tf</definition>
+        <argsstring></argsstring>
+        <name>p_broadcast_tf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="62" column="6" bodyfile="include/Gnss2State.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGnss2State_1a85353c2610746d4468df6425ff3c7f09" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Gnss2State::p_default_depth</definition>
+        <argsstring></argsstring>
+        <name>p_default_depth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="63" column="12" bodyfile="include/Gnss2State.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGnss2State_1a4b8c77dc447cd20537a78411f9125d7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Gnss2State::Gnss2State</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>Gnss2State</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="34" column="1" bodyfile="src/Gnss2State.cpp" bodystart="14" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnss2State_1abe3863dc78934caaefc783b5c6ac5097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Gnss2State::~Gnss2State</definition>
+        <argsstring>()</argsstring>
+        <name>~Gnss2State</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="39" column="1" bodyfile="src/Gnss2State.cpp" bodystart="27" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGnss2State_1a3124f41b422c47bf782f82ab5ae1dea8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Gnss2State::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="69" column="6" bodyfile="src/Gnss2State.cpp" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnss2State_1aaa8753c3cf8027017e922c2927644629" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Gnss2State::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="70" column="6" bodyfile="src/Gnss2State.cpp" bodystart="60" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnss2State_1a352cd539e86d4a7fbd60eb642fe660db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Gnss2State::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="71" column="6" bodyfile="src/Gnss2State.cpp" bodystart="78" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classGnss2State_1acc62a5b2ba8747ed8dbec24872f06420" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Gnss2State::gnssBroadcasterCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>gnssBroadcasterCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/Gnss2State.h" line="76" column="6" bodyfile="src/Gnss2State.cpp" bodystart="97" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/Gnss2State.h" line="28" column="1" bodyfile="include/Gnss2State.h" bodystart="27" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classGnss2State_1a4b8c77dc447cd20537a78411f9125d7c" prot="public" virt="non-virtual"><scope>Gnss2State</scope><name>Gnss2State</name></member>
+      <member refid="classGnss2State_1acc62a5b2ba8747ed8dbec24872f06420" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>gnssBroadcasterCallback</name></member>
+      <member refid="classGnss2State_1aaa8753c3cf8027017e922c2927644629" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>initializePublishers</name></member>
+      <member refid="classGnss2State_1a3124f41b422c47bf782f82ab5ae1dea8" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>initializeSubscribers</name></member>
+      <member refid="classGnss2State_1a352cd539e86d4a7fbd60eb642fe660db" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>loadParams</name></member>
+      <member refid="classGnss2State_1ab0cbef7455730474c528769a5b284974" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>nh_</name></member>
+      <member refid="classGnss2State_1a1c054be9fce421f8fab29345cd811135" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>nh_private_</name></member>
+      <member refid="classGnss2State_1ad9ddeca264bc0b793479cb7af4bc4937" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>p_broadcast_tf</name></member>
+      <member refid="classGnss2State_1a85353c2610746d4468df6425ff3c7f09" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>p_default_depth</name></member>
+      <member refid="classGnss2State_1afd3c668a959f00c8bb5029de5b74b2bf" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>pub_state</name></member>
+      <member refid="classGnss2State_1a56b915101d64a92072b577177267b1c9" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>pub_zone</name></member>
+      <member refid="classGnss2State_1a34c65342e6cb6de7ad72822ed92c9552" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>sub_gnss</name></member>
+      <member refid="classGnss2State_1abe3863dc78934caaefc783b5c6ac5097" prot="public" virt="non-virtual"><scope>Gnss2State</scope><name>~Gnss2State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classInnerloops" kind="class"><name>Innerloops</name>
+    <member refid="classInnerloops_1aeee142282189e117e57d95141ee1e0b0" kind="variable"><name>nh_</name></member>
+    <member refid="classInnerloops_1a5f476225342bc2b35f8f0496483c0d30" kind="variable"><name>controllers_</name></member>
+    <member refid="classInnerloops_1ae018c2b7babbc72ad891437120af8918" kind="variable"><name>yaw_</name></member>
+    <member refid="classInnerloops_1aeee726361dbb22e0abdcd744b4c9e6f0" kind="variable"><name>pitch_</name></member>
+    <member refid="classInnerloops_1a8849e189379f31c6a059fbf9fa923df8" kind="variable"><name>roll_</name></member>
+    <member refid="classInnerloops_1aff75a264a5d84a5f7bd6ab46ae2b4dbc" kind="variable"><name>yaw_rate_</name></member>
+    <member refid="classInnerloops_1af0a3ecb7bc108b5e044549a3b785e05e" kind="variable"><name>pitch_rate_</name></member>
+    <member refid="classInnerloops_1ae3ec5fc13a68d0bf9f710519c842a281" kind="variable"><name>roll_rate_</name></member>
+    <member refid="classInnerloops_1a818500f0779d4d1dfa6e346a14bac6b4" kind="variable"><name>surge_</name></member>
+    <member refid="classInnerloops_1af8da4bed51926f18ed52e147d29ee732" kind="variable"><name>sway_</name></member>
+    <member refid="classInnerloops_1a89b333a9248ebad16a72b86a0c508dcf" kind="variable"><name>heave_</name></member>
+    <member refid="classInnerloops_1a7e74e1c85d602385014e12f6bdbe317a" kind="variable"><name>depth_</name></member>
+    <member refid="classInnerloops_1ab10346a1d96a665a603af0cc24f4a815" kind="variable"><name>altitude_</name></member>
+    <member refid="classInnerloops_1a0b6cb7eee2356d1b5bfbd5dff421e077" kind="variable"><name>vdepth_</name></member>
+    <member refid="classInnerloops_1ad2df5e963ad408f0a019026f1a589184" kind="variable"><name>valtitude_</name></member>
+    <member refid="classInnerloops_1a72d13c0f1c668c19b52a63b890fcecdf" kind="variable"><name>force_request_</name></member>
+    <member refid="classInnerloops_1a38849c41d1594e0e61d70a46b8ecadb2" kind="variable"><name>torque_request_</name></member>
+    <member refid="classInnerloops_1ae660365395f84fcd1b287e6f82ed678b" kind="variable"><name>forces_hard_bypass_</name></member>
+    <member refid="classInnerloops_1aeb546736271beff6e0313a80b8074973" kind="variable"><name>timeout_ref_</name></member>
+    <member refid="classInnerloops_1ade183af83cb332927f322e104c2bd226" kind="variable"><name>st_sub_</name></member>
+    <member refid="classInnerloops_1a8a69fa333104075599ae22ac23549ae7" kind="variable"><name>force_bypass_sub_</name></member>
+    <member refid="classInnerloops_1a5199406c6297d9594c60d1c17830bda1" kind="variable"><name>change_ff_gains_srv_</name></member>
+    <member refid="classInnerloops_1aab9ed1138b9d7769eb82c557a9a45513" kind="variable"><name>change_gains_srv_</name></member>
+    <member refid="classInnerloops_1a6c63825212fce6b079d8362f2b29c2f1" kind="variable"><name>change_limits_srv_</name></member>
+    <member refid="classInnerloops_1a4be904834c045935cdc3e9b742e794fd" kind="variable"><name>timer_</name></member>
+    <member refid="classInnerloops_1ad36a951a2685bcd88f1d87a1a9ae6597" kind="variable"><name>force_bypass_</name></member>
+    <member refid="classInnerloops_1a28b10b0553bde30d36f470b291fb6375" kind="variable"><name>ref_force_bypass_</name></member>
+    <member refid="classInnerloops_1aff8e5ba1b1f1aa866a4c1db82c3b4b19" kind="variable"><name>ft_pub_</name></member>
+    <member refid="classInnerloops_1afaf92ad344b0ad1fdaaade563a86b7eb" kind="function"><name>Innerloops</name></member>
+    <member refid="classInnerloops_1a6f8ea21a911360a55247c994156a5638" kind="function"><name>~Innerloops</name></member>
+    <member refid="classInnerloops_1afd2241fcc81b45f3f2eb7a741afa0bfc" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classInnerloops_1aed8fdd9464377cac36c395f09546e787" kind="function"><name>initializeServices</name></member>
+    <member refid="classInnerloops_1ae5420a433ac409ec39c139265caca713" kind="function"><name>initializePublishers</name></member>
+    <member refid="classInnerloops_1af484fe4edfae14af0ffdeb63eb255304" kind="function"><name>initializeTimer</name></member>
+    <member refid="classInnerloops_1a7110e12e97a009138d16be09aa9e687c" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classInnerloops_1a9eb22896b792e29219a031c36644d5dd" kind="function"><name>timerCallback</name></member>
+    <member refid="classInnerloops_1ae369f0c5c91271cf08741ff25e5ea725" kind="function"><name>StateCallback</name></member>
+    <member refid="classInnerloops_1a2e8b64c2141130ef98ac39678fa58438" kind="function"><name>forceBypassCallback</name></member>
+    <member refid="classInnerloops_1ae0930c9a4d5eb7c6695856410ff1cb0c" kind="function"><name>changeFFGainsService</name></member>
+    <member refid="classInnerloops_1a0e98a6adac7be21f924cdd3814d6837d" kind="function"><name>changeGainsService</name></member>
+    <member refid="classInnerloops_1ae56c1655a8df8b41843ac95662ba0ffc" kind="function"><name>changeLimitsService</name></member>
+  </compound>
+  <compound refid="classPID__Controller" kind="class"><name>PID_Controller</name>
+    <member refid="classPID__Controller_1ad272d5fabdcb3153eea139ea902ee25e" kind="variable"><name>disable</name></member>
+    <member refid="classPID__Controller_1aca41ada2403c137b5373fe8b00cda3c1" kind="variable"><name>p_gain_</name></member>
+    <member refid="classPID__Controller_1af22a65ffbc6e60295ce3de54949c2610" kind="variable"><name>i_gain_</name></member>
+    <member refid="classPID__Controller_1a0cad350c86889af4c8650c3114776ac2" kind="variable"><name>d_gain_</name></member>
+    <member refid="classPID__Controller_1a007b9dcbd570fd08e9c50742d96b0658" kind="variable"><name>ff_gain_</name></member>
+    <member refid="classPID__Controller_1a0e627cac64cf04500787e306499c4e65" kind="variable"><name>ff_d_gain_</name></member>
+    <member refid="classPID__Controller_1af1da481dddc480b1027a169ed6d49b7c" kind="variable"><name>ff_lin_drag_gain_</name></member>
+    <member refid="classPID__Controller_1ad10413ca18febe96b21a4bf3f0bdaf15" kind="variable"><name>ff_quad_drag_gain_</name></member>
+    <member refid="classPID__Controller_1a688e40c39970e163cf02af1403f97930" kind="variable"><name>max_error_</name></member>
+    <member refid="classPID__Controller_1aee90a31eee1bf233cb4115f0111b070d" kind="variable"><name>max_out_</name></member>
+    <member refid="classPID__Controller_1a058e6376aa6e6d61b9fed5bdb4be4710" kind="variable"><name>min_error_</name></member>
+    <member refid="classPID__Controller_1a7deb48b680d2a04f60e21cc98964a09a" kind="variable"><name>min_out_</name></member>
+    <member refid="classPID__Controller_1a0ed2835bfd9dce0767051d112897e0cf" kind="variable"><name>integral_</name></member>
+    <member refid="classPID__Controller_1a5bb3c4517826b9164e627eb38d62dae0" kind="variable"><name>pre_error_</name></member>
+    <member refid="classPID__Controller_1ac8a5b719e9dcb784bcd610e6c21728db" kind="variable"><name>prev_ref_value_</name></member>
+    <member refid="classPID__Controller_1a8f428194e57477d92cfbfe40ea413425" kind="variable"><name>has_lpf_</name></member>
+    <member refid="classPID__Controller_1a23a347399b6896d05bfb610dd0ce5255" kind="variable"><name>lpf_</name></member>
+    <member refid="classPID__Controller_1adb2d3dd972b8af3614479cf9e0c5485c" kind="variable"><name>msg_debug_</name></member>
+    <member refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" kind="function"><name>PID_Controller</name></member>
+    <member refid="classPID__Controller_1a66e02f40c8e68f81b4c30e14c8be1038" kind="function"><name>PID_Controller</name></member>
+    <member refid="classPID__Controller_1a9641a5666912e581a6d452a53802dd80" kind="function"><name>PID_Controller</name></member>
+    <member refid="classPID__Controller_1a07f6565bc3dd0c1c6fd097f371a2c034" kind="function"><name>PID_Controller</name></member>
+    <member refid="classPID__Controller_1a696c7699c29229a595fe6a00d0633345" kind="function"><name>PID_Controller</name></member>
+    <member refid="classPID__Controller_1aded3238aaad181a57f25ca6c50455be9" kind="function"><name>computeCommand</name></member>
+    <member refid="classPID__Controller_1aff0c75ab6d99d57c489050f7ef326d67" kind="function"><name>reset</name></member>
+    <member refid="classPID__Controller_1a94a1c6dc3e3bf85488c39d96b59509f2" kind="function"><name>setFFGains</name></member>
+    <member refid="classPID__Controller_1adb41760ed835a1619de6eeca92f788e1" kind="function"><name>setGains</name></member>
+    <member refid="classPID__Controller_1a0763c1d6af8a7989cc7f4f3084c0665d" kind="function"><name>setLimitBounds</name></member>
+    <member refid="classPID__Controller_1a7c8e7642fb25b5b658ab82ef2bb32f4d" kind="function"><name>getGains</name></member>
+    <member refid="classPID__Controller_1ab1c5054619fdf865dec6c4e779ec38dd" kind="function"><name>getLimitBounds</name></member>
+    <member refid="classPID__Controller_1a0f28455f97449a145731d959266f2101" kind="function"><name>getDebugInfo</name></member>
+    <member refid="classPID__Controller_1a91c998fb08a768992363eaa41e8c3a39" kind="function"><name>sat</name></member>
+  </compound>
+  <compound refid="classRosController" kind="class"><name>RosController</name>
+    <member refid="classRosController_1a8017e8402e9b726400eb2d6673a10f7f" kind="variable"><name>timeout_ref_</name></member>
+    <member refid="classRosController_1aac1ed03e2a8b32935a25082d01d5999f" kind="variable"><name>controller_name_</name></member>
+    <member refid="classRosController_1a01654872cf299435e61217d4aea6d702" kind="variable"><name>ref_value_</name></member>
+    <member refid="classRosController_1ac1fb5f9c91404fab70bf6090d0a302b7" kind="variable"><name>max_ref_value_</name></member>
+    <member refid="classRosController_1a05ba56172246faa40e85bb797d820140" kind="variable"><name>min_ref_value_</name></member>
+    <member refid="classRosController_1a5d2a896d2c72476a0f4c0165c555ba5a" kind="variable"><name>ref_time_</name></member>
+    <member refid="classRosController_1ac769c5ca791b053fac3b25e653e4c5cb" kind="variable"><name>last_cmd_</name></member>
+    <member refid="classRosController_1aac0ad5b9456b9a67a35544600c4329b9" kind="variable"><name>debug_</name></member>
+    <member refid="classRosController_1a0476f4eb9e2f84cd0ee6d59f51d55479" kind="variable"><name>debug_msg_</name></member>
+    <member refid="classRosController_1ab8982ec61063f4f144e41238c7d79f92" kind="variable"><name>state_ptr_</name></member>
+    <member refid="classRosController_1a2c80f7be729d1be22ba76700f3fb66ec" kind="variable"><name>force_or_torque_ptr_</name></member>
+    <member refid="classRosController_1a5ad240cf76fa34359278b0becb25799c" kind="variable"><name>frequency_</name></member>
+    <member refid="classRosController_1a9caab69f6586c9ff4fb459cd9fa22db9" kind="variable"><name>circular_units_</name></member>
+    <member refid="classRosController_1a61b84cc1f02d51502e191e7a5db8190a" kind="variable"><name>positive_output_</name></member>
+    <member refid="classRosController_1a19b430a8c0dd847567d0929d44a933f5" kind="variable"><name>pid_c_</name></member>
+    <member refid="classRosController_1ab55a28b828f221e7fdd7650e5e7fc9ba" kind="variable"><name>ros_sub_</name></member>
+    <member refid="classRosController_1a7d7c604e1e134892d1ee956380fe6dd2" kind="variable"><name>debug_pub_</name></member>
+    <member refid="classRosController_1ae27eab505df99d6333095b8936257381" kind="function"><name>RosController</name></member>
+    <member refid="classRosController_1ac2a79c7059f4fc69c2aaaf97da093be6" kind="function"><name>RosController</name></member>
+    <member refid="classRosController_1a8193292ddc96349fce5e52706462e0c5" kind="function"><name>computeCommand</name></member>
+    <member refid="classRosController_1a0901e130893758f6153ff2928b3bda78" kind="function"><name>setCircularUnits</name></member>
+    <member refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" kind="function"><name>setPositiveOutput</name></member>
+    <member refid="classRosController_1aff1428958d7f177c28715ddcea907e00" kind="function"><name>getControllerName</name></member>
+    <member refid="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" kind="function"><name>setFFGainsPID</name></member>
+    <member refid="classRosController_1a7be3ccc5904464248334b085ab0c8c34" kind="function"><name>setGainsPID</name></member>
+    <member refid="classRosController_1af59b693c0bb4c48e7f3c2145a76426c2" kind="function"><name>setLimitBoundsPID</name></member>
+    <member refid="classRosController_1ac4ec0c37e0bead0adb9844be25bb9e74" kind="function"><name>refCallback</name></member>
+    <member refid="classRosController_1af7be9fc16c6889d00652fb7d839cb51c" kind="function"><name>init</name></member>
+    <member refid="classRosController_1a5bdfbf66b3ad946e0b7b49cdc0e3a5e3" kind="function"><name>validRef</name></member>
+  </compound>
+  <compound refid="classSafeties" kind="class"><name>Safeties</name>
+    <member refid="classSafeties_1a562b027515fdc295f7d8019da44e8e24" kind="variable"><name>min_altitude_</name></member>
+    <member refid="classSafeties_1a5af79a04de3f4a907b0d7bdcfa8fc8e8" kind="variable"><name>state_depth_</name></member>
+    <member refid="classSafeties_1a4e69c231cae4f09ef7e247e3c9c3bcb1" kind="variable"><name>state_altitude_</name></member>
+    <member refid="classSafeties_1ac22c5adc1124e0b288c18d8bcc11e7d5" kind="variable"><name>depth_sub_</name></member>
+    <member refid="classSafeties_1ac41869e5f27b10558fe89784eb84a9c9" kind="variable"><name>altitude_sub_</name></member>
+    <member refid="classSafeties_1a3afd7b03f4b7175b8a380947934e0207" kind="variable"><name>state_sub_</name></member>
+    <member refid="classSafeties_1a7ff6f3bc104d2f9f5b5d1c8f7ed88413" kind="variable"><name>depth_safety_pub_</name></member>
+    <member refid="classSafeties_1a4384b32fe71cd2a76157fbff0c203151" kind="variable"><name>altitude_safety_pub_</name></member>
+    <member refid="classSafeties_1a03f659e922cb8506557695481cf8b6dc" kind="function"><name>Safeties</name></member>
+    <member refid="classSafeties_1a80bd26a487cd031e0394617c69d1dc85" kind="function"><name>~Safeties</name></member>
+    <member refid="classSafeties_1a7e973531d4333a225a3460cd4663e93e" kind="function"><name>loadParams</name></member>
+    <member refid="classSafeties_1a807230c46ea90e382b5ab1bbfbcb638c" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classSafeties_1a45b1ee02442a938c60bdfd039ceabce3" kind="function"><name>initializePublishers</name></member>
+    <member refid="classSafeties_1abd831d1ff46fd5d812634bc2e2a4413c" kind="function"><name>depthSafetyCallback</name></member>
+    <member refid="classSafeties_1a2bf71ca8d839f0a64e945e0ca8fcdcd5" kind="function"><name>altitudeSafetyCallback</name></member>
+    <member refid="classSafeties_1a050079341e56d889faeb0c32103e559b" kind="function"><name>stateCallback</name></member>
+  </compound>
+  <compound refid="pid__controller_8h" kind="file"><name>pid_controller.h</name>
+  </compound>
+  <compound refid="ros__controller_8h" kind="file"><name>ros_controller.h</name>
+  </compound>
+  <compound refid="innerloops_8h" kind="file"><name>innerloops.h</name>
+  </compound>
+  <compound refid="safeties_8h" kind="file"><name>safeties.h</name>
+  </compound>
+  <compound refid="pid__controller_8cpp" kind="file"><name>pid_controller.cpp</name>
+  </compound>
+  <compound refid="ros__controller_8cpp" kind="file"><name>ros_controller.cpp</name>
+  </compound>
+  <compound refid="innerloops_8cpp" kind="file"><name>innerloops.cpp</name>
+  </compound>
+  <compound refid="innerloops__node_8cpp" kind="file"><name>innerloops_node.cpp</name>
+    <member refid="innerloops__node_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="safeties_8cpp" kind="file"><name>safeties.cpp</name>
+  </compound>
+  <compound refid="dir_dea71a51519bb9f37f984497651ee8e6" kind="dir"><name>include/controllers</name>
+  </compound>
+  <compound refid="dir_bbd6674d859f4cefaacb708974cac240" kind="dir"><name>src/controllers</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir"><name>src/ros</name>
+  </compound>
+  <compound refid="dir_16d3284317caf78c0e25eb64bbba3d38" kind="dir"><name>include/ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

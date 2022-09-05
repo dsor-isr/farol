@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode" kind="class"><name>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</name>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1af411f59eacc28e33408022eec907959a" kind="variable"><name>address</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a788011da65847255013505c497d612af" kind="variable"><name>sock</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aab618fe640a5c67c80f122872e3d0b24" kind="variable"><name>node_frequency</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a8ee7f10673bc52d77a2a31d6983a1ff3" kind="variable"><name>port</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aabd1e0a149bf19a96226277e527d014b" kind="variable"><name>addr</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a1de14a3103eafec6c9dc7492a76cb36a" kind="function"><name>__init__</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aef6bea3692742845392db611294bfceb" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aaccdd481dd60f863c38cab76956f375a" kind="function"><name>loadParams</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a830b9ca298d1f223557cb54c19f52309" kind="function"><name>broadcastGammaCallback</name></member>
+  </compound>
+  <compound refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" kind="class"><name>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</name>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" kind="variable"><name>messages_type</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a6d637680ae6e0e4d3926cb709b2bc570" kind="variable"><name>data_populate</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" kind="variable"><name>sock</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a54095bacde94f125a787cc77784054f7" kind="variable"><name>pubs</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a5ecac7d4cb78702cd72372e38d8f9765" kind="variable"><name>node_frequency</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1af66dea08cff552b0a86860ccaa4500df" kind="variable"><name>id</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab0486e973db28ad63186d6955b442920" kind="variable"><name>port</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afff803d33a8e2320c0171ec1e18dcbbb" kind="function"><name>__init__</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a57acafb46bf8759a590cdf35c8f0e2f0" kind="function"><name>initializePublishers</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a556a818cd08864c4898e50bff3c37e08" kind="function"><name>loadParams</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aacbb636cb36d828addf792d729c527a0" kind="function"><name>serverEnable</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab8aef6c3faaaa77b95e9dec7cd95c174" kind="function"><name>parseData</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afd88d52c8531127af1dcb0198ba4c058" kind="function"><name>cpfGammaMessage</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a799ae620c7e6c465d7cd6f53cd1f7f74" kind="function"><name>etcpfGammaMessage</name></member>
+    <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aabd040defeceb48512193efff45c5625" kind="function"><name>etcpfAckMessage</name></member>
+  </compound>
+  <compound refid="namespacecpf__gamma__ros" kind="namespace"><name>cpf_gamma_ros</name>
+  </compound>
+  <compound refid="namespacecpf__gamma__ros_1_1CpfGammaClientNode" kind="namespace"><name>cpf_gamma_ros::CpfGammaClientNode</name>
+    <member refid="namespacecpf__gamma__ros_1_1CpfGammaClientNode_1a355748015a58b5aaee875eeef5a75709" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacecpf__gamma__ros_1_1CpfGammaServerNode" kind="namespace"><name>cpf_gamma_ros::CpfGammaServerNode</name>
+    <member refid="namespacecpf__gamma__ros_1_1CpfGammaServerNode_1a2193be4a8c057e08b93888ef01805a2c" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacesetup" kind="namespace"><name>setup</name>
+    <member refid="setup_8py_1aa2586b6c4dd84a0aaaf49cb1565cee6e" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="setup_8py" kind="file"><name>setup.py</name>
+    <member refid="setup_8py_1aa2586b6c4dd84a0aaaf49cb1565cee6e" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="CpfGammaClientNode_8py" kind="file"><name>CpfGammaClientNode.py</name>
+    <member refid="namespacecpf__gamma__ros_1_1CpfGammaClientNode_1a355748015a58b5aaee875eeef5a75709" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="CpfGammaServerNode_8py" kind="file"><name>CpfGammaServerNode.py</name>
+    <member refid="namespacecpf__gamma__ros_1_1CpfGammaServerNode_1a2193be4a8c057e08b93888ef01805a2c" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_0945d56dcd6dd8af67390c17bb55b1f0" kind="dir"><name>src/cpf_gamma_ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

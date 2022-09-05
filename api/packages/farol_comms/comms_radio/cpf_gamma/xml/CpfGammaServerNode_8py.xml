@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="CpfGammaServerNode_8py" kind="file" language="Python">
+    <compoundname>CpfGammaServerNode.py</compoundname>
+    <innerclass refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" prot="public">cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</innerclass>
+    <innernamespace refid="namespacecpf__gamma__ros_1_1CpfGammaServerNode">cpf_gamma_ros::CpfGammaServerNode</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacecpf__gamma__ros_1_1CpfGammaServerNode_1a2193be4a8c057e08b93888ef01805a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="151" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="151" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacecpf__gamma__ros_1_1CpfGammaServerNode" refkind="compound"><highlight class="comment">#!/usr/bin/env<sp/>python</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;<sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">Developers:<sp/>DSOR<sp/>Team<sp/>-&gt;<sp/>@isr.ist.pt<sp/>Instituto<sp/>Superior<sp/>Tecnico</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral">Description:<sp/>Please<sp/>check<sp/>the<sp/>documentation<sp/>of<sp/>this<sp/>package<sp/>for<sp/>more<sp/>info.</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>std_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Int8,<sp/>Bool<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>farol_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>CPFGamma</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>socket</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>struct</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>time</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" kindref="compound">CpfGammaServerNode</ref>():</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afff803d33a8e2320c0171ec1e18dcbbb" kindref="member">__init__</ref>(self):</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Constructor<sp/>for<sp/>ros<sp/>node</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@.@<sp/>Init<sp/>node</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;cpf_gamma_server_node&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="28"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@.@<sp/>Handy<sp/>Variables</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Possible<sp/>messages<sp/>in<sp/>UDP<sp/>network<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" kindref="member">messages_type</ref><sp/>=<sp/>{</highlight><highlight class="stringliteral">&apos;$CPF&apos;</highlight><highlight class="normal">:<sp/>0,<sp/></highlight><highlight class="stringliteral">&apos;$ETCPF&apos;</highlight><highlight class="normal">:<sp/>1,<sp/></highlight><highlight class="stringliteral">&apos;$ACK&apos;</highlight><highlight class="normal">:<sp/>2}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>List<sp/>with<sp/>methods<sp/>to<sp/>populate<sp/>messages<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a6d637680ae6e0e4d3926cb709b2bc570" kindref="member">data_populate</ref><sp/>=<sp/>[self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afd88d52c8531127af1dcb0198ba4c058" kindref="member">cpfGammaMessage</ref>,<sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a799ae620c7e6c465d7cd6f53cd1f7f74" kindref="member">etcpfGammaMessage</ref>,<sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a799ae620c7e6c465d7cd6f53cd1f7f74" kindref="member">etcpfGammaMessage</ref>]</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a57acafb46bf8759a590cdf35c8f0e2f0" kindref="member">initializePublishers</ref>()</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a556a818cd08864c4898e50bff3c37e08" kindref="member">loadParams</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Socket</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" kindref="member">sock</ref><sp/>=<sp/>socket.socket(socket.AF_INET,<sp/>socket.SOCK_DGRAM)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" kindref="member">sock</ref>.setsockopt(socket.SOL_SOCKET,<sp/>socket.SO_REUSEPORT,<sp/>1)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" kindref="member">sock</ref>.bind((</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab0486e973db28ad63186d6955b442920" kindref="member">port</ref>))</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Start<sp/>Server</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aacbb636cb36d828addf792d729c527a0" kindref="member">serverEnable</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Member<sp/>Helper<sp/>function<sp/>to<sp/>set<sp/>up<sp/>publishers;<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">initializePublishers(self):</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.loginfo(</highlight><highlight class="stringliteral">&apos;Initializing<sp/>Publishers<sp/>for<sp/>CpfGammaNode&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a54095bacde94f125a787cc77784054f7" kindref="member">pubs</ref><sp/>=<sp/>[]</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a54095bacde94f125a787cc77784054f7" kindref="member">pubs</ref>.append(rospy.Publisher(rospy.get_param(</highlight><highlight class="stringliteral">&apos;~topics/publishers/cpf_gamma&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;External/Gamma&apos;</highlight><highlight class="normal">),<sp/>CPFGamma,<sp/>queue_size=10))</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#self.pubs.append(rospy.Publisher(rospy.get_param(&apos;~topics/publishers/etcpf_gamma&apos;,&apos;etcpf_gamma&apos;),<sp/>CPFGamma,<sp/>queue_size=10))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#self.pubs.append(rospy.Publisher(rospy.get_param(&apos;~topics/publishers/etcpf_ack&apos;,&apos;etcpf_ack&apos;),<sp/>CPFGamma,<sp/>queue_size=10))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Member<sp/>Helper<sp/>function<sp/>to<sp/>set<sp/>up<sp/>parameters;<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">loadParams(self):</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a5ecac7d4cb78702cd72372e38d8f9765" kindref="member">node_frequency</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~node_frequency&apos;</highlight><highlight class="normal">,<sp/>10)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1af66dea08cff552b0a86860ccaa4500df" kindref="member">id</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~ID&apos;</highlight><highlight class="normal">,<sp/>0)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab0486e973db28ad63186d6955b442920" kindref="member">port</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~broadcast_port&apos;</highlight><highlight class="normal">,<sp/>2808)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Member<sp/>Helper<sp/>function<sp/>to<sp/>constinously<sp/>run<sp/>server;<sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">serverEnable(self):</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">True</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data,<sp/>addr<sp/>=<sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" kindref="member">sock</ref>.recvfrom(1024)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab8aef6c3faaaa77b95e9dec7cd95c174" kindref="member">parseData</ref>(data);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Parse<sp/>the<sp/>data<sp/>received<sp/>from<sp/>UDP;<sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">parseData(self,<sp/>data):</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Sends<sp/>the<sp/>event<sp/>trigger<sp/>data<sp/>through<sp/>UDP.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>data.decode()</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parsed_data<sp/>=<sp/>data.strip().split(</highlight><highlight class="stringliteral">&apos;,&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(len(parsed_data)<sp/>&lt;=<sp/>0):</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.logerr(</highlight><highlight class="stringliteral">&quot;Not<sp/>possible<sp/>to<sp/>parse<sp/>data,<sp/>received<sp/>[{}].&quot;</highlight><highlight class="normal">.format(data.strip()))</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>This<sp/>would<sp/>be<sp/>insane</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>self.pubs[self.messages_type[parsed_data[0]]].publish(self.data_populate[self.messages_type[parsed_data[0]]](parsed_data))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Check<sp/>if<sp/>the<sp/>received<sp/>message<sp/>is<sp/>part<sp/>of<sp/>the<sp/>desired<sp/>ones</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>parsed_data[0]<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" kindref="member">messages_type</ref>.keys():</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg<sp/>=<sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a6d637680ae6e0e4d3926cb709b2bc570" kindref="member">data_populate</ref>[self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" kindref="member">messages_type</ref>[parsed_data[0]]](parsed_data)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Check<sp/>if<sp/>message<sp/>was<sp/>populated<sp/>and<sp/>publish<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>msg<sp/></highlight><highlight class="keywordflow">is</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a54095bacde94f125a787cc77784054f7" kindref="member">pubs</ref>[self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" kindref="member">messages_type</ref>[parsed_data[0]]].publish(msg)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="110"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="111"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Static<sp/>Helper<sp/>function<sp/>to<sp/>populate<sp/>CPFGamma<sp/>messages;<sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">cpfGammaMessage(self,parsed_data):</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>The<sp/>desired<sp/>length<sp/>of<sp/>message<sp/>is<sp/>4<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>len(parsed_data)<sp/>==<sp/>4:</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>ignore<sp/>our<sp/>own<sp/>transmissions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(int(parsed_data[1])==self.<ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1af66dea08cff552b0a86860ccaa4500df" kindref="member">id</ref>):</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>rospy.logerr(&quot;Ignoring<sp/>own<sp/>transmissions&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg<sp/>=<sp/>CPFGamma()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.header.stamp<sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.ID<sp/>=<sp/>int(parsed_data[1])</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.gamma<sp/>=<sp/>float(parsed_data[2])</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>msg.vd<sp/>=<sp/>float(parsed_data[3])</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>msg</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="133"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="134"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Static<sp/>Helper<sp/>function<sp/>to<sp/>populate<sp/>ETCPFGamma<sp/>messages;<sp/></highlight></codeline>
+<codeline lineno="135"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="136"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>@staticmethod</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">etcpfGammaMessage(parsed_data):</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>To<sp/>add<sp/>in<sp/>future<sp/>if<sp/>necessary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="142"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="143"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>@.@<sp/>Static<sp/>Helper<sp/>function<sp/>to<sp/>populate<sp/>ETCPFAck<sp/>messages;<sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>###########################################################################################</highlight></codeline>
+<codeline lineno="145"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>@staticmethod</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">etcpfAckMessage(parsed_data):</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>To<sp/>add<sp/>in<sp/>future<sp/>if<sp/>necessary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">None</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">main():</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>cpfGamma<sp/>=<sp/><ref refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" kindref="compound">CpfGammaServerNode</ref>()</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>+.+<sp/>Added<sp/>to<sp/>work<sp/>with<sp/>timer<sp/>-&gt;<sp/>going<sp/>into<sp/>spin;<sp/>let<sp/>the<sp/>callbacks<sp/>do<sp/>all<sp/>the<sp/>work</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#while<sp/>not<sp/>rospy.is_shutdown():</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#continue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>main()</highlight></codeline>
+    </programlisting>
+    <location file="src/cpf_gamma_ros/CpfGammaServerNode.py"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classCircle2D" kind="class" language="C++" prot="public">
+    <compoundname>Circle2D</compoundname>
+    <basecompoundref refid="classPathSection" prot="public" virt="non-virtual">PathSection</basecompoundref>
+    <includes refid="Circle2D_8h" local="no">Circle2D.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCircle2D_1a0178c4d3198ff341474724e127b97a38" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Circle2D::radius_</definition>
+        <argsstring></argsstring>
+        <name>radius_</name>
+        <briefdescription>
+<para>The radius of the circle path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="90" column="12" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1a6f3c25ad037ce317223796c874de481c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Circle2D::center_x_</definition>
+        <argsstring></argsstring>
+        <name>center_x_</name>
+        <briefdescription>
+<para>The center coordinates for the Circle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="95" column="12" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1a4289be2bb69c3ae47fa79ed3b0cd1255" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Circle2D::center_y_</definition>
+        <argsstring></argsstring>
+        <name>center_y_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="95" column="22" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1a8423b3e6e76fcaf5be09a5734463fa3d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Circle2D::z_axis_</definition>
+        <argsstring></argsstring>
+        <name>z_axis_</name>
+        <briefdescription>
+<para>The desired 2D plane in which to place the circle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="100" column="12" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1ad88643ae9af5d4d5a4cb87d33114ecf8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Circle2D::first_iteration_</definition>
+        <argsstring></argsstring>
+        <name>first_iteration_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Auxiliary variable to do a better optimization when searching for the closest point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="105" column="10" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1aa7bbcf7f35a98bcb174de4bc6366f0a7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Circle2D::gamma_o_</definition>
+        <argsstring></argsstring>
+        <name>gamma_o_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="106" column="12" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1a7d2d15ec3b6e2cfc28e3815c3d6cce25" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Circle2D::num_partitions_</definition>
+        <argsstring></argsstring>
+        <name>num_partitions_</name>
+        <initializer>{3}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="107" column="15" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircle2D_1a3e073248e94f07e9058f5e4b1ff01566" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double Circle2D::tolerance_</definition>
+        <argsstring></argsstring>
+        <name>tolerance_</name>
+        <initializer>{0.01}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="108" column="18" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCircle2D_1ac969123bed710be973348696d2e6d3b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Circle2D::Circle2D</definition>
+        <argsstring>(double radius, double center_x, double center_y)</argsstring>
+        <name>Circle2D</name>
+        <param>
+          <type>double</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_y</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the path section that assumes the plane in which the path is placed is z=0. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius in m of the Circle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate of the center of the circle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate of the center of the circle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="28" column="5" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircle2D_1ad603fa9d9ec42c0ad11ee03413d46306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Circle2D::Circle2D</definition>
+        <argsstring>(double radius, double center_x, double center_y, double z)</argsstring>
+        <name>Circle2D</name>
+        <param>
+          <type>double</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the path section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius in m of the Circle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate of the center of the circle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate of the center of the circle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The z axis where to place the circle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="38" column="5" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="4" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircle2D_1a5373120cebf5966f05a6f00d120925c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Circle2D::eq_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_pd</name>
+        <reimplements refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109">eq_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classPath" kindref="compound">Path</ref> Section equation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the values from the equation of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="47" column="21" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="22" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircle2D_1a883ccdfde062da76232a0ddb7db7ec10" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Circle2D::eq_d_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_d_pd</name>
+        <reimplements refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe">eq_d_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>First derivative of the path section equation with respect to the path parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the values from the derivative of the equation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="56" column="21" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="33" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircle2D_1aba1a232913e95329296fd3917114455b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Circle2D::eq_dd_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_dd_pd</name>
+        <reimplements refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad">eq_dd_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the values from the second derivative of the equation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="65" column="21" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircle2D_1af1da5e5fc8cd6a7ff9b7e6a9f92e93c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Circle2D::curvature</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>curvature</name>
+        <reimplements refid="classPathSection_1adffd7389e5870df945c682481713ba76">curvature</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Compute the curvature using only the radius. Computed as 1/Radius. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path paramter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the curvature of that section (1/radius) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="74" column="12" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircle2D_1a11543f18e9fa8d9d4c21492a904a853b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Circle2D::getClosestPointGamma</definition>
+        <argsstring>(Eigen::Vector3d &amp;coordinate) override</argsstring>
+        <name>getClosestPointGamma</name>
+        <reimplements refid="classPathSection_1a78793a75681c551d37012591404af39c">getClosestPointGamma</reimplements>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Method for getting the gamma of the closest point. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vehicle position</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the gamma corresponding to the closest point in the path</para>
+</simplesect>
+Method to return the closest point to the path By default just calls the Gradient Descent algorithm </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Circle2D.h" line="83" column="12" bodyfile="src/algorithms/path_sections/Circle2D.cpp" bodystart="64" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements a 2D Circle section. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is used as a part of the sections library <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="1">
+        <label>Circle2D</label>
+        <link refid="classCircle2D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="1">
+        <label>Circle2D</label>
+        <link refid="classCircle2D"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/path_sections/Circle2D.h" line="16" column="34" bodyfile="include/algorithms/path_sections/Circle2D.h" bodystart="16" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classPathSection_1ad021a100a135860c764461bc289707e3" prot="protected" virt="non-virtual"><scope>Circle2D</scope><name>bisection</name></member>
+      <member refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" prot="public" virt="non-virtual"><scope>Circle2D</scope><name>can_be_composed</name></member>
+      <member refid="classCircle2D_1a6f3c25ad037ce317223796c874de481c" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>center_x_</name></member>
+      <member refid="classCircle2D_1a4289be2bb69c3ae47fa79ed3b0cd1255" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>center_y_</name></member>
+      <member refid="classCircle2D_1ac969123bed710be973348696d2e6d3b4" prot="public" virt="non-virtual"><scope>Circle2D</scope><name>Circle2D</name></member>
+      <member refid="classCircle2D_1ad603fa9d9ec42c0ad11ee03413d46306" prot="public" virt="non-virtual"><scope>Circle2D</scope><name>Circle2D</name></member>
+      <member refid="classCircle2D_1af1da5e5fc8cd6a7ff9b7e6a9f92e93c0" prot="public" virt="virtual"><scope>Circle2D</scope><name>curvature</name></member>
+      <member refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" prot="public" virt="virtual"><scope>Circle2D</scope><name>derivative_norm</name></member>
+      <member refid="classCircle2D_1a883ccdfde062da76232a0ddb7db7ec10" prot="public" virt="virtual"><scope>Circle2D</scope><name>eq_d_pd</name></member>
+      <member refid="classCircle2D_1aba1a232913e95329296fd3917114455b" prot="public" virt="virtual"><scope>Circle2D</scope><name>eq_dd_pd</name></member>
+      <member refid="classCircle2D_1a5373120cebf5966f05a6f00d120925c9" prot="public" virt="virtual"><scope>Circle2D</scope><name>eq_pd</name></member>
+      <member refid="classCircle2D_1ad88643ae9af5d4d5a4cb87d33114ecf8" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>first_iteration_</name></member>
+      <member refid="classCircle2D_1aa7bbcf7f35a98bcb174de4bc6366f0a7" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>gamma_o_</name></member>
+      <member refid="classCircle2D_1a11543f18e9fa8d9d4c21492a904a853b" prot="public" virt="virtual"><scope>Circle2D</scope><name>getClosestPointGamma</name></member>
+      <member refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" prot="protected" virt="non-virtual"><scope>Circle2D</scope><name>getInitialGammaEstimate</name></member>
+      <member refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" prot="public" virt="non-virtual"><scope>Circle2D</scope><name>getMaxGammaValue</name></member>
+      <member refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" prot="public" virt="non-virtual"><scope>Circle2D</scope><name>getMinGammaValue</name></member>
+      <member refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" prot="protected" virt="non-virtual"><scope>Circle2D</scope><name>GradientDescent</name></member>
+      <member refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" prot="public" virt="non-virtual"><scope>Circle2D</scope><name>limitGamma</name></member>
+      <member refid="classCircle2D_1a7d2d15ec3b6e2cfc28e3815c3d6cce25" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>num_partitions_</name></member>
+      <member refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" prot="protected" virt="non-virtual"><scope>Circle2D</scope><name>PathSection</name></member>
+      <member refid="classCircle2D_1a0178c4d3198ff341474724e127b97a38" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>radius_</name></member>
+      <member refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" prot="protected" virt="non-virtual"><scope>Circle2D</scope><name>setMaxGammaValue</name></member>
+      <member refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" prot="protected" virt="non-virtual"><scope>Circle2D</scope><name>setMinGammaValue</name></member>
+      <member refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" prot="public" virt="virtual"><scope>Circle2D</scope><name>tangent</name></member>
+      <member refid="classCircle2D_1a3e073248e94f07e9058f5e4b1ff01566" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>tolerance_</name></member>
+      <member refid="classCircle2D_1a8423b3e6e76fcaf5be09a5734463fa3d" prot="private" virt="non-virtual"><scope>Circle2D</scope><name>z_axis_</name></member>
+      <member refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" prot="public" virt="virtual"><scope>Circle2D</scope><name>~PathSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

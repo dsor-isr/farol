@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structSensorSim_1_1Sensor" kind="struct" language="C++" prot="private">
+    <compoundname>SensorSim::Sensor</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca2ccd57ff6cb4355bef3b9bfb78d5bd06" prot="public">
+          <name>null</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcaa3814d03faacb2b86027d37bc2a7b6c6" prot="public">
+          <name>AHRS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca5702623ed034ee61c1a661a1559b6715" prot="public">
+          <name>DVL_BT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcade8e74a606d449bad91428ec5471b817" prot="public">
+          <name>DVL_WT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcaec482b838507d9dc275923dfa345cf6c" prot="public">
+          <name>DEPTH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca8a459a3e771349f29eef58d27cbea33f" prot="public">
+          <name>ALTIMETER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcacdac92d50117a771df3ffcd2fe0823a6" prot="public">
+          <name>GNSS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcab6038e9b5b13d5bbe186286d9eece628" prot="public">
+          <name>RANGE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca005a4dcec15116acb2a7effc67433c5b" prot="public">
+          <name>MODEL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="37" column="10" bodyfile="include/SensorSim.h" bodystart="37" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1af028d2a42b6955f3c61020b68e86d1fd" prot="public" static="no" mutable="no">
+        <type>Type</type>
+        <definition>Type SensorSim::Sensor::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="48" column="6" bodyfile="include/SensorSim.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1ab2bec74b67fa02bf7e64a41e27a2b556" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string SensorSim::Sensor::frame_id</definition>
+        <argsstring></argsstring>
+        <name>frame_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="49" column="13" bodyfile="include/SensorSim.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a157c08aa86b29540b7cfdeed9784671d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SensorSim::Sensor::debug</definition>
+        <argsstring></argsstring>
+        <name>debug</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="50" column="6" bodyfile="include/SensorSim.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a6d26ac59a5b09ba18a465661e038db3a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SensorSim::Sensor::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="51" column="5" bodyfile="include/SensorSim.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a4b52e7075e325160d9d65928e6fe51e2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SensorSim::Sensor::thresh</definition>
+        <argsstring></argsstring>
+        <name>thresh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="51" column="11" bodyfile="include/SensorSim.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a3c377c8309f347e93f6b6757600faffc" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SensorSim::Sensor::last_update</definition>
+        <argsstring></argsstring>
+        <name>last_update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="52" column="8" bodyfile="include/SensorSim.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a15c08276aa97329f42af59fc46d278a0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SensorSim::Sensor::frequency</definition>
+        <argsstring></argsstring>
+        <name>frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="53" column="8" bodyfile="include/SensorSim.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a2f4b498b41e3d4385d153f2c930433f9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SensorSim::Sensor::variance</definition>
+        <argsstring></argsstring>
+        <name>variance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="53" column="18" bodyfile="include/SensorSim.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1afc3a63d6a70ecd6aa52c3735b0803b9d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SensorSim::Sensor::noise[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>noise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="54" column="8" bodyfile="include/SensorSim.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a1c45904da5b025e7a3d6a7aa0e73a341" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SensorSim::Sensor::beacon[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>beacon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="54" column="14" bodyfile="include/SensorSim.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a1578e8c819c2c63346de5c3c8a737aef" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SensorSim::Sensor::zone</definition>
+        <argsstring></argsstring>
+        <name>zone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="56" column="5" bodyfile="include/SensorSim.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a48f7f51e3474bdb1afcd3bc0a8fdf5c6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SensorSim::Sensor::northp</definition>
+        <argsstring></argsstring>
+        <name>northp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="56" column="15" bodyfile="include/SensorSim.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a03a1a4f06ccda678584108da30f55672" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SensorSim::Sensor::altitude</definition>
+        <argsstring></argsstring>
+        <name>altitude</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="57" column="8" bodyfile="include/SensorSim.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSensorSim_1_1Sensor_1a4ad62981eab932785172ee00a5739468" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, Type &gt;</type>
+        <definition>std::map&lt;std::string, Type&gt; SensorSim::Sensor::enum_map</definition>
+        <argsstring></argsstring>
+        <name>enum_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="59" column="10" bodyfile="include/SensorSim.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structSensorSim_1_1Sensor_1a2f986d88cd0fc3363777fb1128989c61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SensorSim::Sensor::Sensor</definition>
+        <argsstring>()</argsstring>
+        <name>Sensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/SensorSim.h" line="60" column="1" bodyfile="include/SensorSim.h" bodystart="60" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/SensorSim.h" line="35" column="21" bodyfile="include/SensorSim.h" bodystart="35" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcaa3814d03faacb2b86027d37bc2a7b6c6" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>AHRS</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca8a459a3e771349f29eef58d27cbea33f" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>ALTIMETER</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a03a1a4f06ccda678584108da30f55672" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>altitude</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a1c45904da5b025e7a3d6a7aa0e73a341" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>beacon</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a6d26ac59a5b09ba18a465661e038db3a" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>count</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a157c08aa86b29540b7cfdeed9784671d" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>debug</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcaec482b838507d9dc275923dfa345cf6c" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>DEPTH</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca5702623ed034ee61c1a661a1559b6715" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>DVL_BT</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcade8e74a606d449bad91428ec5471b817" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>DVL_WT</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a4ad62981eab932785172ee00a5739468" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>enum_map</name></member>
+      <member refid="structSensorSim_1_1Sensor_1ab2bec74b67fa02bf7e64a41e27a2b556" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>frame_id</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a15c08276aa97329f42af59fc46d278a0" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>frequency</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcacdac92d50117a771df3ffcd2fe0823a6" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>GNSS</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a3c377c8309f347e93f6b6757600faffc" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>last_update</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca005a4dcec15116acb2a7effc67433c5b" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>MODEL</name></member>
+      <member refid="structSensorSim_1_1Sensor_1afc3a63d6a70ecd6aa52c3735b0803b9d" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>noise</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a48f7f51e3474bdb1afcd3bc0a8fdf5c6" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>northp</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dca2ccd57ff6cb4355bef3b9bfb78d5bd06" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>null</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dcab6038e9b5b13d5bbe186286d9eece628" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>RANGE</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a2f986d88cd0fc3363777fb1128989c61" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>Sensor</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a4b52e7075e325160d9d65928e6fe51e2" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>thresh</name></member>
+      <member refid="structSensorSim_1_1Sensor_1af028d2a42b6955f3c61020b68e86d1fd" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>type</name></member>
+      <member refid="structSensorSim_1_1Sensor_1acea3c0d4f4275689c4887bc4d47337dc" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>Type</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a2f4b498b41e3d4385d153f2c930433f9" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>variance</name></member>
+      <member refid="structSensorSim_1_1Sensor_1a1578e8c819c2c63346de5c3c8a737aef" prot="public" virt="non-virtual"><scope>SensorSim::Sensor</scope><name>zone</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

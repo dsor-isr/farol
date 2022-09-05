@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPathFollowing" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>PathFollowing</compoundname>
+    <derivedcompoundref refid="classAguiar" prot="public" virt="non-virtual">Aguiar</derivedcompoundref>
+    <derivedcompoundref refid="classBrevik" prot="public" virt="non-virtual">Brevik</derivedcompoundref>
+    <derivedcompoundref refid="classFossen" prot="public" virt="non-virtual">Fossen</derivedcompoundref>
+    <derivedcompoundref refid="classLapierre" prot="public" virt="non-virtual">Lapierre</derivedcompoundref>
+    <derivedcompoundref refid="classMarcelo" prot="public" virt="non-virtual">Marcelo</derivedcompoundref>
+    <derivedcompoundref refid="classPramod" prot="public" virt="non-virtual">Pramod</derivedcompoundref>
+    <derivedcompoundref refid="classRelativeHeading" prot="public" virt="non-virtual">RelativeHeading</derivedcompoundref>
+    <derivedcompoundref refid="classRomulo" prot="public" virt="non-virtual">Romulo</derivedcompoundref>
+    <derivedcompoundref refid="classSamson" prot="public" virt="non-virtual">Samson</derivedcompoundref>
+    <includes refid="PathFollowing_8h" local="no">PathFollowing.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" static="no" mutable="no">
+        <type><ref refid="structVehicleState" kindref="compound">VehicleState</ref></type>
+        <definition>VehicleState PathFollowing::vehicle_state_</definition>
+        <argsstring></argsstring>
+        <name>vehicle_state_</name>
+        <briefdescription>
+<para>Variable to store the state of the vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="128" column="18" bodyfile="include/algorithms/PathFollowing.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" static="no" mutable="no">
+        <type><ref refid="structPathState" kindref="compound">PathState</ref></type>
+        <definition>PathState PathFollowing::path_state_</definition>
+        <argsstring></argsstring>
+        <name>path_state_</name>
+        <briefdescription>
+<para>Variable to store the state of the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="133" column="15" bodyfile="include/algorithms/PathFollowing.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" static="no" mutable="no">
+        <type><ref refid="structPFollowingDebug" kindref="compound">PFollowingDebug</ref></type>
+        <definition>PFollowingDebug PathFollowing::pfollowing_debug_</definition>
+        <argsstring></argsstring>
+        <name>pfollowing_debug_</name>
+        <briefdescription>
+<para>Variable to store the state of the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="138" column="21" bodyfile="include/algorithms/PathFollowing.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher PathFollowing::pfollowing_debug_pub_</definition>
+        <argsstring></argsstring>
+        <name>pfollowing_debug_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="140" column="20" bodyfile="include/algorithms/PathFollowing.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>PathFollowing::~PathFollowing</definition>
+        <argsstring>()</argsstring>
+        <name>~PathFollowing</name>
+        <briefdescription>
+<para>Virtual destructor for the abstract pathfollowing class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="37" column="13" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="4" bodyend="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void PathFollowing::callPFController</definition>
+        <argsstring>(double dt)=0</argsstring>
+        <name>callPFController</name>
+        <reimplementedby refid="classPramod_1a44f11799b766cf7246925810bb7891c3">callPFController</reimplementedby>
+        <reimplementedby refid="classRelativeHeading_1ace03b6fccd8ff3b0450b92841e389fe8">callPFController</reimplementedby>
+        <reimplementedby refid="classRomulo_1a9ff207f47b6e51b1281612e8fad4433b">callPFController</reimplementedby>
+        <reimplementedby refid="classFossen_1aaacdb35bae5e984c391fdf2e8ad9261e">callPFController</reimplementedby>
+        <reimplementedby refid="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43">callPFController</reimplementedby>
+        <reimplementedby refid="classMarcelo_1a7c6bf0d19b0ca042068fd2e908ab8145">callPFController</reimplementedby>
+        <reimplementedby refid="classSamson_1a420566323e957d8fe941c40190386a34">callPFController</reimplementedby>
+        <reimplementedby refid="classLapierre_1a157551d6ab50a40d8a8e2d8936d97524">callPFController</reimplementedby>
+        <reimplementedby refid="classAguiar_1a7e2b3f75d7936b9a6e79c8da8fbb2f09">callPFController</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time diference between the current and previous call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="44" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowing::publish</definition>
+        <argsstring>()</argsstring>
+        <name>publish</name>
+        <briefdescription>
+<para>Method to publish the data given by the algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="49" column="10" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="16" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void PathFollowing::publish_private</definition>
+        <argsstring>()=0</argsstring>
+        <name>publish_private</name>
+        <reimplementedby refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e">publish_private</reimplementedby>
+        <reimplementedby refid="classRelativeHeading_1a63aadbf95202501372dd69bd085d78b8">publish_private</reimplementedby>
+        <reimplementedby refid="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0">publish_private</reimplementedby>
+        <reimplementedby refid="classFossen_1a41c9bef0f7e5134697c16ad4a04f5f58">publish_private</reimplementedby>
+        <reimplementedby refid="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca">publish_private</reimplementedby>
+        <reimplementedby refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63">publish_private</reimplementedby>
+        <reimplementedby refid="classSamson_1ad2f3640e0e943a9920705dc9082be76d">publish_private</reimplementedby>
+        <reimplementedby refid="classLapierre_1a89363272413509c51652a49083551334">publish_private</reimplementedby>
+        <reimplementedby refid="classAguiar_1a52bf1c7b6bd3944258ae6ad9cb3fae71">publish_private</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="51" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void PathFollowing::start</definition>
+        <argsstring>()=0</argsstring>
+        <name>start</name>
+        <reimplementedby refid="classPramod_1a126d336bd731481ba1949e076830d261">start</reimplementedby>
+        <reimplementedby refid="classRelativeHeading_1a56cead9c8d63a7eb98cdc05cc2cede02">start</reimplementedby>
+        <reimplementedby refid="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a">start</reimplementedby>
+        <reimplementedby refid="classBrevik_1a351c87315b5ed60c9ce57ccdf16633e7">start</reimplementedby>
+        <reimplementedby refid="classMarcelo_1abc33f038979fa05a92c6b8df05127778">start</reimplementedby>
+        <reimplementedby refid="classSamson_1a00fb9ed24e6b47c06e71af2cf6d25311">start</reimplementedby>
+        <reimplementedby refid="classFossen_1a512a2fb4f757092125be2d340c2bc333">start</reimplementedby>
+        <reimplementedby refid="classLapierre_1afd59b79eabff995106f7b9060e717c11">start</reimplementedby>
+        <reimplementedby refid="classAguiar_1a6fc468667620e8499c9e50033f3bca65">start</reimplementedby>
+        <briefdescription>
+<para>Method used to setup the algorithm in the first iteration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="56" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool PathFollowing::stop</definition>
+        <argsstring>()=0</argsstring>
+        <name>stop</name>
+        <reimplementedby refid="classPramod_1a72242417c3edc99e4afefeca99996067">stop</reimplementedby>
+        <reimplementedby refid="classRelativeHeading_1a344c8b1a1561d1b99669d9e061c0b140">stop</reimplementedby>
+        <reimplementedby refid="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640">stop</reimplementedby>
+        <reimplementedby refid="classBrevik_1aa707b7da34dab13fc0bdb4241091289b">stop</reimplementedby>
+        <reimplementedby refid="classMarcelo_1aaf33b6ce700e9ce225842046442b7515">stop</reimplementedby>
+        <reimplementedby refid="classSamson_1abd3a575d30ccc2ef8f211216f354492e">stop</reimplementedby>
+        <reimplementedby refid="classFossen_1aec20d90ed038d52a443a3768e38fee4c">stop</reimplementedby>
+        <reimplementedby refid="classLapierre_1aa32c65b3e912fcd41ce6a37c4d96cb75">stop</reimplementedby>
+        <reimplementedby refid="classAguiar_1a58fd931b33569f377e4c2ddf82072075">stop</reimplementedby>
+        <briefdescription>
+<para>Method used to check whether we have reached the end of the path following algorithm or not. This method will be called in every iteration of the algorithm, and when it return true, the algorithm will stop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean that represents whether we have reached the end </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="65" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool PathFollowing::reset</definition>
+        <argsstring>()=0</argsstring>
+        <name>reset</name>
+        <reimplementedby refid="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c">reset</reimplementedby>
+        <reimplementedby refid="classRelativeHeading_1af1115046fbdcf8ba032a6e170ed746ca">reset</reimplementedby>
+        <reimplementedby refid="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5">reset</reimplementedby>
+        <reimplementedby refid="classBrevik_1a42009e150fee33a5bbbf22c761c8d70f">reset</reimplementedby>
+        <reimplementedby refid="classMarcelo_1a5835e08725f01af3fb719423d523fe25">reset</reimplementedby>
+        <reimplementedby refid="classSamson_1ae332100b42728eae11797bf2ef0fed59">reset</reimplementedby>
+        <reimplementedby refid="classFossen_1a7e629ef79f95d4d4c0e9dde0fdf3ae73">reset</reimplementedby>
+        <reimplementedby refid="classLapierre_1ad1b2b208e7c4086be10f3d245baff029">reset</reimplementedby>
+        <reimplementedby refid="classAguiar_1af26d4f03ef2d8c3b91226c2f450868a9">reset</reimplementedby>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="73" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool PathFollowing::resetVirtualTarget</definition>
+        <argsstring>(float value)</argsstring>
+        <name>resetVirtualTarget</name>
+        <reimplementedby refid="classRelativeHeading_1a6b17687f0a164ad340235f8604e05b58">resetVirtualTarget</reimplementedby>
+        <reimplementedby refid="classRomulo_1ae625695768ca1f9d0845e18dda2a1512">resetVirtualTarget</reimplementedby>
+        <reimplementedby refid="classBrevik_1aea01199e76dcacc2be914896b0600100">resetVirtualTarget</reimplementedby>
+        <reimplementedby refid="classMarcelo_1a4bf70b72554f4a87b0b8bf478631d753">resetVirtualTarget</reimplementedby>
+        <reimplementedby refid="classLapierre_1acb005748cfa8f9ced5c0275f432148e9">resetVirtualTarget</reimplementedby>
+        <reimplementedby refid="classAguiar_1a21955e6ba34dc1cdc69d2df5fcc579ae">resetVirtualTarget</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="81" column="18" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="48" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowing::resetVirtualTarget</definition>
+        <argsstring>()</argsstring>
+        <name>resetVirtualTarget</name>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to zero. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method calls the <ref refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" kindref="member">resetVirtualTarget(float value)</ref> method which can be overriden by each pf controller <simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="90" column="10" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool PathFollowing::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains)=0</argsstring>
+        <name>setPFGains</name>
+        <reimplementedby refid="classPramod_1a3fd67677577d64b1af2c556b787aa00f">setPFGains</reimplementedby>
+        <reimplementedby refid="classRelativeHeading_1a9a32db056e32d19d2d0db541cf842305">setPFGains</reimplementedby>
+        <reimplementedby refid="classRomulo_1a93ca06e72d25f11aa0afe94fafe32d41">setPFGains</reimplementedby>
+        <reimplementedby refid="classFossen_1a25a5f0ffc65eff7d7f5f50f03215f740">setPFGains</reimplementedby>
+        <reimplementedby refid="classBrevik_1a13a11e919bbc74abaae3d054dbde6830">setPFGains</reimplementedby>
+        <reimplementedby refid="classMarcelo_1a0bcfa8cfd64f3db2400bbd977a08787c">setPFGains</reimplementedby>
+        <reimplementedby refid="classSamson_1a66189f0d0e72ef772f95942b8a47842f">setPFGains</reimplementedby>
+        <reimplementedby refid="classLapierre_1a226c4d9f079fedfb4e2ad6217486e4d3">setPFGains</reimplementedby>
+        <reimplementedby refid="classAguiar_1a2b8e255947da062e8a2ba05fb3765dc4">setPFGains</reimplementedby>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Receives a vector of gains that should be mapped to the specific controller gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method must be implemented by each Path Following class</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains for the controller </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="100" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowing::UpdateVehicleState</definition>
+        <argsstring>(const VehicleState &amp;vehicle_state)</argsstring>
+        <name>UpdateVehicleState</name>
+        <param>
+          <type>const <ref refid="structVehicleState" kindref="compound">VehicleState</ref> &amp;</type>
+          <declname>vehicle_state</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the vehicle state used by the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vehicle_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A structure with the current state of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="107" column="10" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="7" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowing::UpdatePathState</definition>
+        <argsstring>(const PathState &amp;path_state)</argsstring>
+        <name>UpdatePathState</name>
+        <param>
+          <type>const <ref refid="structPathState" kindref="compound">PathState</ref> &amp;</type>
+          <declname>path_state</declname>
+        </param>
+        <briefdescription>
+<para>Method to update the path state used by the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path_state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A structure with the current state of the path </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="114" column="10" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowing::setPFollowingDebugPublisher</definition>
+        <argsstring>(const ros::Publisher &amp;pfollowing_debug_pub)</argsstring>
+        <name>setPFollowingDebugPublisher</name>
+        <param>
+          <type>const ros::Publisher &amp;</type>
+          <declname>pfollowing_debug_pub</declname>
+        </param>
+        <briefdescription>
+<para>Method to set common publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="121" column="10" bodyfile="include/algorithms/PathFollowing.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathFollowing::algConvert</definition>
+        <argsstring>(double alg_new, double alg_old, double alg_out_old)</argsstring>
+        <name>algConvert</name>
+        <param>
+          <type>double</type>
+          <declname>alg_new</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alg_old</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alg_out_old</declname>
+        </param>
+        <briefdescription>
+<para>Auxiliar method to smooth out the angle to be used by path following algorithms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="146" column="12" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="34" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A Base class to update the path following law. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>Lapierre</label>
+        <link refid="classLapierre"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Samson</label>
+        <link refid="classSamson"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Pramod</label>
+        <link refid="classPramod"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+      <node id="2">
+        <label>Aguiar</label>
+        <link refid="classAguiar"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Marcelo</label>
+        <link refid="classMarcelo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>RelativeHeading</label>
+        <link refid="classRelativeHeading"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Romulo</label>
+        <link refid="classRomulo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Brevik</label>
+        <link refid="classBrevik"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Fossen</label>
+        <link refid="classFossen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="3">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="2">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="1">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/PathFollowing.h" line="29" column="20" bodyfile="include/algorithms/PathFollowing.h" bodystart="29" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>algConvert</name></member>
+      <member refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>callPFController</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>PathFollowing</scope><name>publish</name></member>
+      <member refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>publish_private</name></member>
+      <member refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>reset</name></member>
+      <member refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" prot="public" virt="virtual"><scope>PathFollowing</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual"><scope>PathFollowing</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>PathFollowing</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>start</name></member>
+      <member refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>stop</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>PathFollowing</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>PathFollowing</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>vehicle_state_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>PathFollowing</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

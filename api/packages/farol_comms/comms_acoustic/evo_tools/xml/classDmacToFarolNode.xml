@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classDmacToFarolNode" kind="class" language="C++" prot="public">
+    <compoundname>DmacToFarolNode</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDmacToFarolNode_1a2ab19cb98c25b3a27683838bef3e8b6f" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle DmacToFarolNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="49" column="17" bodyfile="include/DmacToFarolNode.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1aee6ca998dd4cdf2a6167aa06bcd57ecc" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle DmacToFarolNode::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="49" column="21" bodyfile="include/DmacToFarolNode.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1ab4701883f59e3bc1503d846074cf02a0" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber DmacToFarolNode::usbl_fix_dmac_sub_</definition>
+        <argsstring></argsstring>
+        <name>usbl_fix_dmac_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="56" column="19" bodyfile="include/DmacToFarolNode.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1aa994099f08b143b04e66de3a63e3265a" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber DmacToFarolNode::state_sub_</definition>
+        <argsstring></argsstring>
+        <name>state_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="57" column="19" bodyfile="include/DmacToFarolNode.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1ad34404a60fcc8df19b92db67dd60f50a" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher DmacToFarolNode::usbl_fix_farol_pub_</definition>
+        <argsstring></argsstring>
+        <name>usbl_fix_farol_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="62" column="18" bodyfile="include/DmacToFarolNode.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1acb479bf7eb98413aa12a63f3c2e90f47" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DmacToFarolNode::p_vehicle_name_</definition>
+        <argsstring></argsstring>
+        <name>p_vehicle_name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="71" column="13" bodyfile="include/DmacToFarolNode.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a7cc00fad870923a653a12b92efb3d725" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DmacToFarolNode::p_real_</definition>
+        <argsstring></argsstring>
+        <name>p_real_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="73" column="8" bodyfile="include/DmacToFarolNode.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a2c58c2428f3fa0e3a4044d4917036ee1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DmacToFarolNode::p_fix_type_</definition>
+        <argsstring></argsstring>
+        <name>p_fix_type_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="74" column="8" bodyfile="include/DmacToFarolNode.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a8e1fe564d19a3e17654a2b402cbb2602" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; DmacToFarolNode::p_installation_matrix_</definition>
+        <argsstring></argsstring>
+        <name>p_installation_matrix_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="77" column="15" bodyfile="include/DmacToFarolNode.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a675944c1ef5ec30b0c7258547dd0bd51" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DmacToFarolNode::p_usbl_fix_dmac_topic_</definition>
+        <argsstring></argsstring>
+        <name>p_usbl_fix_dmac_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="81" column="15" bodyfile="include/DmacToFarolNode.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a0a35b0594ae6f1473db564f49ccc60bf" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string DmacToFarolNode::p_usbl_fix_farol_topic_</definition>
+        <argsstring></argsstring>
+        <name>p_usbl_fix_farol_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="81" column="38" bodyfile="include/DmacToFarolNode.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a22f44c7ada20f9653a5ade274dfb779a" prot="private" static="no" mutable="no">
+        <type>Eigen::MatrixXd</type>
+        <definition>Eigen::MatrixXd DmacToFarolNode::usbl_rot_matrix_</definition>
+        <argsstring></argsstring>
+        <name>usbl_rot_matrix_</name>
+        <initializer>= Eigen::MatrixXd(3,3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="84" column="19" bodyfile="include/DmacToFarolNode.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1a823aec1594ceef66f5a08e73b9797847" prot="private" static="no" mutable="no">
+        <type>Eigen::MatrixXd</type>
+        <definition>Eigen::MatrixXd DmacToFarolNode::body_rot_matrix_</definition>
+        <argsstring></argsstring>
+        <name>body_rot_matrix_</name>
+        <initializer>= Eigen::MatrixXd(3,3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="85" column="19" bodyfile="include/DmacToFarolNode.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDmacToFarolNode_1abd5099bdcd76d07e51912ed3d0b52983" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DmacToFarolNode::yaw_state_</definition>
+        <argsstring></argsstring>
+        <name>yaw_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="86" column="10" bodyfile="include/DmacToFarolNode.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDmacToFarolNode_1ab8bb593b724ff7be9fadeb40b57565bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DmacToFarolNode::DmacToFarolNode</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>DmacToFarolNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param nodehandle @Param nodehandle_private </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="38" column="1" bodyfile="src/DmacToFarolNode.cpp" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classDmacToFarolNode_1a559e373f6ce9701f7f53f72ab1f72dbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DmacToFarolNode::~DmacToFarolNode</definition>
+        <argsstring>()</argsstring>
+        <name>~DmacToFarolNode</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="45" column="1" bodyfile="src/DmacToFarolNode.cpp" bodystart="23" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classDmacToFarolNode_1ab704c68b6effcaa47c538f28226bb1cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DmacToFarolNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Initialize Subsctibers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="94" column="6" bodyfile="src/DmacToFarolNode.cpp" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classDmacToFarolNode_1afff45bf30f29b4c636e5f3fd7077654f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DmacToFarolNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Initialize Publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="101" column="6" bodyfile="src/DmacToFarolNode.cpp" bodystart="52" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classDmacToFarolNode_1a416d518f0ed066964ef6a11423dbd97e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DmacToFarolNode::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+<para>Load Parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="108" column="6" bodyfile="src/DmacToFarolNode.cpp" bodystart="64" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classDmacToFarolNode_1acf9f29d511756e7b2f4677230991f366" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DmacToFarolNode::buildUSBLRotationMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>buildUSBLRotationMatrix</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="115" column="8" bodyfile="src/DmacToFarolNode.cpp" bodystart="79" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classDmacToFarolNode_1aa978d659e2cd98023e0f8aad5b1f974d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DmacToFarolNode::fixCallback</definition>
+        <argsstring>(const dmac::mUSBLFix &amp;dmac_usbl_fix_msg)</argsstring>
+        <name>fixCallback</name>
+        <param>
+          <type>const dmac::mUSBLFix &amp;</type>
+          <declname>dmac_usbl_fix_msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param dmac_usbl_fix_msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="124" column="8" bodyfile="src/DmacToFarolNode.cpp" bodystart="96" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classDmacToFarolNode_1a2a5ce4691cafcddde68ce21fdd0789eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DmacToFarolNode::stateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>stateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/DmacToFarolNode.h" line="133" column="8" bodyfile="src/DmacToFarolNode.cpp" bodystart="157" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/DmacToFarolNode.h" line="28" column="1" bodyfile="include/DmacToFarolNode.h" bodystart="27" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classDmacToFarolNode_1a823aec1594ceef66f5a08e73b9797847" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>body_rot_matrix_</name></member>
+      <member refid="classDmacToFarolNode_1acf9f29d511756e7b2f4677230991f366" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>buildUSBLRotationMatrix</name></member>
+      <member refid="classDmacToFarolNode_1ab8bb593b724ff7be9fadeb40b57565bb" prot="public" virt="non-virtual"><scope>DmacToFarolNode</scope><name>DmacToFarolNode</name></member>
+      <member refid="classDmacToFarolNode_1aa978d659e2cd98023e0f8aad5b1f974d" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>fixCallback</name></member>
+      <member refid="classDmacToFarolNode_1afff45bf30f29b4c636e5f3fd7077654f" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>initializePublishers</name></member>
+      <member refid="classDmacToFarolNode_1ab704c68b6effcaa47c538f28226bb1cc" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classDmacToFarolNode_1a416d518f0ed066964ef6a11423dbd97e" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>loadParams</name></member>
+      <member refid="classDmacToFarolNode_1a2ab19cb98c25b3a27683838bef3e8b6f" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>nh_</name></member>
+      <member refid="classDmacToFarolNode_1aee6ca998dd4cdf2a6167aa06bcd57ecc" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>nh_private_</name></member>
+      <member refid="classDmacToFarolNode_1a2c58c2428f3fa0e3a4044d4917036ee1" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>p_fix_type_</name></member>
+      <member refid="classDmacToFarolNode_1a8e1fe564d19a3e17654a2b402cbb2602" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>p_installation_matrix_</name></member>
+      <member refid="classDmacToFarolNode_1a7cc00fad870923a653a12b92efb3d725" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>p_real_</name></member>
+      <member refid="classDmacToFarolNode_1a675944c1ef5ec30b0c7258547dd0bd51" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>p_usbl_fix_dmac_topic_</name></member>
+      <member refid="classDmacToFarolNode_1a0a35b0594ae6f1473db564f49ccc60bf" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>p_usbl_fix_farol_topic_</name></member>
+      <member refid="classDmacToFarolNode_1acb479bf7eb98413aa12a63f3c2e90f47" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>p_vehicle_name_</name></member>
+      <member refid="classDmacToFarolNode_1aa994099f08b143b04e66de3a63e3265a" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>state_sub_</name></member>
+      <member refid="classDmacToFarolNode_1a2a5ce4691cafcddde68ce21fdd0789eb" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>stateCallback</name></member>
+      <member refid="classDmacToFarolNode_1ab4701883f59e3bc1503d846074cf02a0" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>usbl_fix_dmac_sub_</name></member>
+      <member refid="classDmacToFarolNode_1ad34404a60fcc8df19b92db67dd60f50a" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>usbl_fix_farol_pub_</name></member>
+      <member refid="classDmacToFarolNode_1a22f44c7ada20f9653a5ade274dfb779a" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>usbl_rot_matrix_</name></member>
+      <member refid="classDmacToFarolNode_1abd5099bdcd76d07e51912ed3d0b52983" prot="private" virt="non-virtual"><scope>DmacToFarolNode</scope><name>yaw_state_</name></member>
+      <member refid="classDmacToFarolNode_1a559e373f6ce9701f7f53f72ab1f72dbb" prot="public" virt="non-virtual"><scope>DmacToFarolNode</scope><name>~DmacToFarolNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

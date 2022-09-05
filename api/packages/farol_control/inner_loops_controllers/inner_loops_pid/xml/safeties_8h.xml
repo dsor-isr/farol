@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="safeties_8h" kind="file" language="C++">
+    <compoundname>safeties.h</compoundname>
+    <includes local="no">auv_msgs/NavigationStatus.h</includes>
+    <includes local="no">farol_gimmicks_library/FarolGimmicks.h</includes>
+    <includes local="no">ros/ros.h</includes>
+    <includes local="no">std_msgs/Float64.h</includes>
+    <includedby refid="innerloops__node_8cpp" local="yes">src/ros/innerloops_node.cpp</includedby>
+    <includedby refid="safeties_8cpp" local="yes">src/ros/safeties.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/ros/safeties.h</label>
+        <link refid="safeties_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="5">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="4">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="3">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classSafeties" prot="public">Safeties</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SAFETIES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SAFETIES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;auv_msgs/NavigationStatus.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_gimmicks_library/FarolGimmicks.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ros/ros.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_msgs/Float64.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="classSafeties" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSafeties" kindref="compound">Safeties</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_altitude_{0.0};<sp/></highlight><highlight class="comment">//<sp/>minimum<sp/>altitude<sp/>(safety)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>state_depth_{0.0};<sp/></highlight><highlight class="comment">//<sp/>vehicle&apos;s<sp/>depth<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>state_altitude_{0.0};<sp/></highlight><highlight class="comment">//<sp/>vehicle&apos;s<sp/>altitude<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Subscribers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>depth_sub_;<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>altitude_sub_;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>state_sub_;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Publishers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>depth_safety_pub_;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>altitude_safety_pub_;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="classSafeties_1a03f659e922cb8506557695481cf8b6dc" kindref="member">Safeties</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a80bd26a487cd031e0394617c69d1dc85" kindref="member">~Safeties</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a7e973531d4333a225a3460cd4663e93e" kindref="member">loadParams</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a807230c46ea90e382b5ab1bbfbcb638c" kindref="member">initializeSubscribers</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a45b1ee02442a938c60bdfd039ceabce3" kindref="member">initializePublishers</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1abd831d1ff46fd5d812634bc2e2a4413c" kindref="member">depthSafetyCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Float64<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a2bf71ca8d839f0a64e945e0ca8fcdcd5" kindref="member">altitudeSafetyCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Float64<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a050079341e56d889faeb0c32103e559b" kindref="member">stateCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>SAFETIES_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="include/ros/safeties.h"/>
+  </compounddef>
+</doxygen>

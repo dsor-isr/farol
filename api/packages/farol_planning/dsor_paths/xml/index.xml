@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classArc2D" kind="class"><name>Arc2D</name>
+    <member refid="classArc2D_1a68df2185e6265886fac109d34efdeafe" kind="variable"><name>start_point_</name></member>
+    <member refid="classArc2D_1a87f842bfd58fe6962749f6a3d022a2b2" kind="variable"><name>end_point_</name></member>
+    <member refid="classArc2D_1a36348845834556ac754ed4cc35dc22c7" kind="variable"><name>center_point_</name></member>
+    <member refid="classArc2D_1a9d72c3319b14b798693e478474ec36ed" kind="variable"><name>direction_</name></member>
+    <member refid="classArc2D_1aeeaeec835462d9c267d0a33497d75d30" kind="variable"><name>z_axis_</name></member>
+    <member refid="classArc2D_1ad527edb0c294bcd15cb60520400ddbe3" kind="variable"><name>R_</name></member>
+    <member refid="classArc2D_1a267f5b7aa845ee61de2ab0c8f5b2e95a" kind="variable"><name>psi0_</name></member>
+    <member refid="classArc2D_1a0fd1ec377f8143ee543d2cb44a7095a1" kind="function"><name>Arc2D</name></member>
+    <member refid="classArc2D_1ae1a9fad8b84b76896d38e297d5a10067" kind="function"><name>Arc2D</name></member>
+    <member refid="classArc2D_1acb617ad9f6992159b979aba1d364595c" kind="function"><name>eq_pd</name></member>
+    <member refid="classArc2D_1af6f2233ea69813d412b2b031426d6f36" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classArc2D_1aad5075548c3ebfecf363eb5fc8ff7f5e" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classArc2D_1a0adc1625748bec6ac098a8e9b1373590" kind="function"><name>curvature</name></member>
+    <member refid="classArc2D_1a362dadaddc5cc2f3de2e1a7d7d96204f" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classBernoulli" kind="class"><name>Bernoulli</name>
+    <member refid="classBernoulli_1a3a97bc2f151fb3fadd4e0f5aa6cf365c" kind="variable"><name>radius_</name></member>
+    <member refid="classBernoulli_1a0994a38aedb1c939945cfb8df5e5cad9" kind="variable"><name>center_x_</name></member>
+    <member refid="classBernoulli_1add016d031f8bded267da86201bc2029b" kind="variable"><name>center_y_</name></member>
+    <member refid="classBernoulli_1ad44955bd9f2aa2efe87c86d83da3bab5" kind="variable"><name>z_axis_</name></member>
+    <member refid="classBernoulli_1a39ee2129c528b4a0233c97f4b369b157" kind="variable"><name>first_iteration_</name></member>
+    <member refid="classBernoulli_1a09baeeb94e9b1ab87bd9125b8dd12fad" kind="variable"><name>gamma_o_</name></member>
+    <member refid="classBernoulli_1a00c73af5736ad35f651ed6fcab378ef5" kind="variable"><name>num_partitions_</name></member>
+    <member refid="classBernoulli_1ae79fd242f3b5bd2ebe046f0710d98bf6" kind="variable"><name>tolerance_</name></member>
+    <member refid="classBernoulli_1a2aa1605e6252f68349e4eb749b5b563d" kind="function"><name>Bernoulli</name></member>
+    <member refid="classBernoulli_1a2f1f60bbda32f135a97529e0dcd46fc3" kind="function"><name>Bernoulli</name></member>
+    <member refid="classBernoulli_1ae7c5b8d12658bb295a089d118d161101" kind="function"><name>eq_pd</name></member>
+    <member refid="classBernoulli_1aed005d0fa35c887c0a94e73214bbe77e" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classBernoulli_1ad454ebe95e1a56a9cbd55f798e8d0c8d" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classBernoulli_1a4ec726044ec8606b33cb03249b6f0a36" kind="function"><name>curvature</name></member>
+    <member refid="classBernoulli_1a808fe7388f94475d7c3a60911c908288" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classCircle2D" kind="class"><name>Circle2D</name>
+    <member refid="classCircle2D_1a0178c4d3198ff341474724e127b97a38" kind="variable"><name>radius_</name></member>
+    <member refid="classCircle2D_1a6f3c25ad037ce317223796c874de481c" kind="variable"><name>center_x_</name></member>
+    <member refid="classCircle2D_1a4289be2bb69c3ae47fa79ed3b0cd1255" kind="variable"><name>center_y_</name></member>
+    <member refid="classCircle2D_1a8423b3e6e76fcaf5be09a5734463fa3d" kind="variable"><name>z_axis_</name></member>
+    <member refid="classCircle2D_1ad88643ae9af5d4d5a4cb87d33114ecf8" kind="variable"><name>first_iteration_</name></member>
+    <member refid="classCircle2D_1aa7bbcf7f35a98bcb174de4bc6366f0a7" kind="variable"><name>gamma_o_</name></member>
+    <member refid="classCircle2D_1a7d2d15ec3b6e2cfc28e3815c3d6cce25" kind="variable"><name>num_partitions_</name></member>
+    <member refid="classCircle2D_1a3e073248e94f07e9058f5e4b1ff01566" kind="variable"><name>tolerance_</name></member>
+    <member refid="classCircle2D_1ac969123bed710be973348696d2e6d3b4" kind="function"><name>Circle2D</name></member>
+    <member refid="classCircle2D_1ad603fa9d9ec42c0ad11ee03413d46306" kind="function"><name>Circle2D</name></member>
+    <member refid="classCircle2D_1a5373120cebf5966f05a6f00d120925c9" kind="function"><name>eq_pd</name></member>
+    <member refid="classCircle2D_1a883ccdfde062da76232a0ddb7db7ec10" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classCircle2D_1aba1a232913e95329296fd3917114455b" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classCircle2D_1af1da5e5fc8cd6a7ff9b7e6a9f92e93c0" kind="function"><name>curvature</name></member>
+    <member refid="classCircle2D_1a11543f18e9fa8d9d4c21492a904a853b" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classConstRabbitSpeed" kind="class"><name>ConstRabbitSpeed</name>
+    <member refid="classConstRabbitSpeed_1ac9f62f6bc06f729fb78cd5f5519c6150" kind="variable"><name>rabbit_speed_</name></member>
+    <member refid="classConstRabbitSpeed_1ad1c560bf20c0afe828b0f58fd7fcf40c" kind="variable"><name>default_speed_</name></member>
+    <member refid="classConstRabbitSpeed_1ae953a7f65ae5146c7d35b43c505d6533" kind="function"><name>ConstRabbitSpeed</name></member>
+    <member refid="classConstRabbitSpeed_1a4f0bba8bdaaa5d7ce0e7ef366bc507e8" kind="function"><name>getVd</name></member>
+    <member refid="classConstRabbitSpeed_1a4d5b2103d2280d3b6b354ef60a927ace" kind="function"><name>get_d_Vd</name></member>
+    <member refid="classConstRabbitSpeed_1a85ea7054d57b1d783a62086199236aa3" kind="function"><name>getDefaultVd</name></member>
+  </compound>
+  <compound refid="classConstVehicleSpeed" kind="class"><name>ConstVehicleSpeed</name>
+    <member refid="classConstVehicleSpeed_1a6164b48f67b8984e831fa4af0dbfc310" kind="variable"><name>vehicle_speed_</name></member>
+    <member refid="classConstVehicleSpeed_1a735574216f8c6e0a03549b7a14069eeb" kind="variable"><name>default_speed_</name></member>
+    <member refid="classConstVehicleSpeed_1a1a7255da5b0a4cc709cb14539b19964d" kind="function"><name>ConstVehicleSpeed</name></member>
+    <member refid="classConstVehicleSpeed_1aac81ee1a32179f281ed69bd693825a58" kind="function"><name>getVd</name></member>
+    <member refid="classConstVehicleSpeed_1abe43b77b6647396792fdbc1587e79dba" kind="function"><name>get_d_Vd</name></member>
+    <member refid="classConstVehicleSpeed_1a164ee6184451deeaf754c2d6466e3969" kind="function"><name>getDefaultVd</name></member>
+  </compound>
+  <compound refid="classLine" kind="class"><name>Line</name>
+    <member refid="classLine_1a9cd44d2b87bf78fcb29c40e58f73c9a2" kind="variable"><name>start_point_</name></member>
+    <member refid="classLine_1ab3751d188387dd5e7093a3a26db5c2d8" kind="variable"><name>end_point_</name></member>
+    <member refid="classLine_1a57be57598596670fe42cef450c69acee" kind="variable"><name>ref_point_</name></member>
+    <member refid="classLine_1ae711328a7816ad106fe6afbe4bea6158" kind="function"><name>Line</name></member>
+    <member refid="classLine_1add654cf578b7abb4c1381d909ad89330" kind="function"><name>Line</name></member>
+    <member refid="classLine_1a689722d427610dc9d07d422f44679f21" kind="function"><name>eq_pd</name></member>
+    <member refid="classLine_1ad67f78eeed41b1ac3f711d8181968959" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classLine_1a176ddd7d8a260b39eeb0de127331eace" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classLine_1a36a25292c83ae108d59bd19ee86115e2" kind="function"><name>curvature</name></member>
+    <member refid="classLine_1adaff892c3f1bfa40993aaae817f205b9" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classPath" kind="class"><name>Path</name>
+    <member refid="classPath_1af78fdfd568415c2dd81b31611f513675" kind="variable"><name>sections_</name></member>
+    <member refid="classPath_1a4b97ff2722934c42b3ca5d8791c40935" kind="variable"><name>type_of_path_</name></member>
+    <member refid="classPath_1aad10e999d6979401a3a1421263065722" kind="variable"><name>sections_limits_</name></member>
+    <member refid="classPath_1ae42d352559fe59b970ad69071bf7855a" kind="variable"><name>speeds_</name></member>
+    <member refid="classPath_1a9636c9e7906a4fee4a6eeef7cb6bdec5" kind="variable"><name>gamma_closest_point_</name></member>
+    <member refid="classPath_1af863c1c631cfb84c3f832ec590cb881e" kind="variable"><name>first_check_on_closest_point_</name></member>
+    <member refid="classPath_1a49d5f857541db793dc8e368bdb07fbf0" kind="variable"><name>index_section_smallest_error_</name></member>
+    <member refid="classPath_1af26cfab021ddf49af73da3b2beca85ac" kind="function"><name>Path</name></member>
+    <member refid="classPath_1a141da9ff89c85e0ba410b5a73864c267" kind="function"><name>~Path</name></member>
+    <member refid="classPath_1ab1a8e985c909ab25bc5a570482fdc496" kind="function"><name>isEmpty</name></member>
+    <member refid="classPath_1a4e669479c9ea6049ef5d4656ddc90444" kind="function"><name>addPathSection</name></member>
+    <member refid="classPath_1aa1d5d6fa713b10ad5eb953da97183a6f" kind="function"><name>addSpeedSection</name></member>
+    <member refid="classPath_1a2b93975e199423d840cac7de366588bb" kind="function"><name>getPathSection</name></member>
+    <member refid="classPath_1aee6359127227c488a886276f67e0820c" kind="function"><name>eq_pd</name></member>
+    <member refid="classPath_1ada92795b8c4bb976e4fd4a6de8f31771" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classPath_1abb8121d90ae9a4df05fb8b6818631af6" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classPath_1a9c7755eaf564386d52391bc42aac43e4" kind="function"><name>tangent</name></member>
+    <member refid="classPath_1a5c31f062b70f4304385d72b7865895a2" kind="function"><name>curvature</name></member>
+    <member refid="classPath_1a72b33276dc06a28e590fe29c774cce14" kind="function"><name>derivative_norm</name></member>
+    <member refid="classPath_1a420f53aa7ecb807b2e004556ff35a26f" kind="function"><name>eq_vd</name></member>
+    <member refid="classPath_1a7494a3bf59001a8db017d65e8d012470" kind="function"><name>eq_d_vd</name></member>
+    <member refid="classPath_1a44594e858ab8b922a9e7055b5d008ea1" kind="function"><name>getMinMaxGamma</name></member>
+    <member refid="classPath_1a3efe44f1d0c2b1b70538bc7b5d1797b4" kind="function"><name>getClosestGamma</name></member>
+    <member refid="classPath_1ae775d0a88d1a006c01f2277b2eb18ada" kind="function"><name>getIndexOfSection</name></member>
+  </compound>
+  <compound refid="classPathNode" kind="class"><name>PathNode</name>
+    <member refid="classPathNode_1a7ee2e4fa8dd388e9d8916ddae6b55a50" kind="variable"><name>gamma_</name></member>
+    <member refid="classPathNode_1ab66929a7d9a72f8355b267bf8e714bc2" kind="variable"><name>path_</name></member>
+    <member refid="classPathNode_1a9f1a2548e71cca7466041ddf89552402" kind="variable"><name>seq_</name></member>
+    <member refid="classPathNode_1a6aa9cdfbeb2482561744dbd5763b5aee" kind="variable"><name>frame_id_</name></member>
+    <member refid="classPathNode_1ab1c0441c1b67489b417599004ea0dd20" kind="variable"><name>vehicle_pos_</name></member>
+    <member refid="classPathNode_1a34d4b44639fedc5063c538dc9db45b63" kind="variable"><name>closer_point_mode_</name></member>
+    <member refid="classPathNode_1a1de81afd0187edf0e40e2bbf81f873db" kind="variable"><name>nh_</name></member>
+    <member refid="classPathNode_1a79163565247a1f10a502ffc1a4392577" kind="variable"><name>nh_p_</name></member>
+    <member refid="classPathNode_1a19bd337288dc99912e1a3a9d5abdf83e" kind="variable"><name>gamma_sub_</name></member>
+    <member refid="classPathNode_1a3a13e31039a0132aee463bb36f910493" kind="variable"><name>vehicle_sub_</name></member>
+    <member refid="classPathNode_1a87c614f42913e12dc0d64a0a0f78f246" kind="variable"><name>path_pub_</name></member>
+    <member refid="classPathNode_1a9674748b05d8c533e36da2ec98ada90b" kind="variable"><name>virtual_target_pub_</name></member>
+    <member refid="classPathNode_1a68e8b6064801a31945620e6bf5b333a6" kind="variable"><name>reset_path_srv_</name></member>
+    <member refid="classPathNode_1abe453802927a7e4ac1a693ec72b37488" kind="variable"><name>set_mode_srv_</name></member>
+    <member refid="classPathNode_1a0ef2d8f4aff71e6d395303f187f6121f" kind="variable"><name>arc2d_srv_</name></member>
+    <member refid="classPathNode_1a1ac3d8354b40d441ccef6f607351938d" kind="variable"><name>bernoulli_srv_</name></member>
+    <member refid="classPathNode_1afcf12f74d56b4cdc2422d502d87cd9e7" kind="variable"><name>circle2D_srv_</name></member>
+    <member refid="classPathNode_1adc911c0eb43aa2d3f90dabe8bf3237ec" kind="variable"><name>line_srv_</name></member>
+    <member refid="classPathNode_1a03bb129e45cb9455f74c13061329a433" kind="variable"><name>rabbit_const_speed_srv_</name></member>
+    <member refid="classPathNode_1adc69b99efd35f6cfca2af96de3e0eeb0" kind="variable"><name>vehicle_const_speed_srv_</name></member>
+    <member refid="classPathNode_1a3efcfef20c4a87ddb18c8a875d5093f1" kind="variable"><name>timer_</name></member>
+    <member refid="classPathNode_1a7b28e61b64ecd0505b4612283cc5d493" kind="function"><name>PathNode</name></member>
+    <member refid="classPathNode_1a2bb54f07ceaa7548199960080b4b95a2" kind="function"><name>~PathNode</name></member>
+    <member refid="classPathNode_1aa1cedd4f2e13eb1e4ce94c323bcf92da" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classPathNode_1ab8c2efcf19d99f491109a8051cde2fff" kind="function"><name>initializePublishers</name></member>
+    <member refid="classPathNode_1aa4e1d90cb37ba6979951b63ebbe5e2da" kind="function"><name>initializeServices</name></member>
+    <member refid="classPathNode_1a54b8e4ec57359d28f83da15defb715f0" kind="function"><name>initializeTimer</name></member>
+    <member refid="classPathNode_1ad6b330a780e688722c39d7be3a4985bc" kind="function"><name>loadParams</name></member>
+    <member refid="classPathNode_1ae6eb3a8e47720994af0b7ef397539aec" kind="function"><name>shutdownServices</name></member>
+    <member refid="classPathNode_1ac8f1e92749adf21029884e50d69a3b0b" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classPathNode_1a0cbc954e23e8c73d3d59fc4eb71bb9e3" kind="function"><name>timerIterCallback</name></member>
+    <member refid="classPathNode_1a26ff691c6f12fdb5ba39fc13b3e44443" kind="function"><name>gammaCallback</name></member>
+    <member refid="classPathNode_1adac5e235c0686fe7cf5ffd6342b2e341" kind="function"><name>vehicleStateCallback</name></member>
+    <member refid="classPathNode_1acb4ec99a9f0345915eef9e9216b7bf74" kind="function"><name>ResetPathService</name></member>
+    <member refid="classPathNode_1a7a925d3cdfe3cc22f7e3ff50846f8a17" kind="function"><name>SetModeService</name></member>
+    <member refid="classPathNode_1a644556bc3adef7c52a4b95a130ed1aeb" kind="function"><name>Arc2DService</name></member>
+    <member refid="classPathNode_1a7518c2577f010456541712a49031692a" kind="function"><name>BernoulliService</name></member>
+    <member refid="classPathNode_1a5e3a2c6e79da22822552d1df49eb3a0d" kind="function"><name>Circle2DService</name></member>
+    <member refid="classPathNode_1a841380bc5a997b24cf241a2b2ca900e8" kind="function"><name>LineService</name></member>
+    <member refid="classPathNode_1a90af6834e4ae24537b5c2b87236b2c13" kind="function"><name>RabbitConstSpeedService</name></member>
+    <member refid="classPathNode_1a3d251f238b08bd7c7e264112d335220c" kind="function"><name>VehicleConstSpeedService</name></member>
+    <member refid="classPathNode_1a37a5870f9a5c1547ab1345217d4f4f19" kind="function"><name>loadSectionIntoPath</name></member>
+    <member refid="classPathNode_1a17e889298c5a36240aebfb29fb7532d1" kind="function"><name>loadSpeedIntoPath</name></member>
+  </compound>
+  <compound refid="classPathSection" kind="class"><name>PathSection</name>
+    <member refid="classPathSection_1abea445841de49ff22aa6f0622d67a589" kind="variable"><name>max_value_gamma_</name></member>
+    <member refid="classPathSection_1a7fca44fa66eeec58b85509dea590c5ef" kind="variable"><name>min_value_gamma_</name></member>
+    <member refid="classPathSection_1a767c0c12c1b28ec0f4e17d7d61cb321a" kind="variable"><name>can_be_composed_</name></member>
+    <member refid="classPathSection_1a433c271be0c1b1cd99e954b099cb87ff" kind="variable"><name>alpha_hat_</name></member>
+    <member refid="classPathSection_1ae4acee2f35e62663fe429ec2f39b9886" kind="variable"><name>epsilon_</name></member>
+    <member refid="classPathSection_1aace0d9e30980f53c97dfc279dc42b38f" kind="variable"><name>beta_</name></member>
+    <member refid="classPathSection_1ab50e90f92e93224983f029590bba54c8" kind="variable"><name>tolerance_</name></member>
+    <member refid="classPathSection_1afd001703681d568b90abcda956934180" kind="variable"><name>gamma_o_</name></member>
+    <member refid="classPathSection_1a77d314585010274b2b0f5717f7f2d93b" kind="variable"><name>first_iteration_</name></member>
+    <member refid="classPathSection_1af4fafc57794cc88b1fae3491d5891fc6" kind="variable"><name>default_num_partitions_</name></member>
+    <member refid="classPathSection_1a4af68df8c5e4c93b31d840ab6b7a6799" kind="variable"><name>EP_bissection_</name></member>
+    <member refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109" kind="function"><name>eq_pd</name></member>
+    <member refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" kind="function"><name>tangent</name></member>
+    <member refid="classPathSection_1adffd7389e5870df945c682481713ba76" kind="function"><name>curvature</name></member>
+    <member refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" kind="function"><name>derivative_norm</name></member>
+    <member refid="classPathSection_1a78793a75681c551d37012591404af39c" kind="function"><name>getClosestPointGamma</name></member>
+    <member refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" kind="function"><name>can_be_composed</name></member>
+    <member refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" kind="function"><name>limitGamma</name></member>
+    <member refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" kind="function"><name>getMaxGammaValue</name></member>
+    <member refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" kind="function"><name>getMinGammaValue</name></member>
+    <member refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" kind="function"><name>~PathSection</name></member>
+    <member refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" kind="function"><name>PathSection</name></member>
+    <member refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" kind="function"><name>setMaxGammaValue</name></member>
+    <member refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" kind="function"><name>setMinGammaValue</name></member>
+    <member refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" kind="function"><name>GradientDescent</name></member>
+    <member refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" kind="function"><name>getInitialGammaEstimate</name></member>
+    <member refid="classPathSection_1ad021a100a135860c764461bc289707e3" kind="function"><name>bisection</name></member>
+    <member refid="classPathSection_1aa68ecea7e5a894aa73f2049775d89ed7" kind="function"><name>backtrack</name></member>
+    <member refid="classPathSection_1ac482708bfb5b22ebfa946eaa12e9a639" kind="function"><name>F</name></member>
+    <member refid="classPathSection_1a05d05c03a2458176a1b867f60133f763" kind="function"><name>grad_F</name></member>
+  </compound>
+  <compound refid="classPolinomial5" kind="class"><name>Polinomial5</name>
+    <member refid="classPolinomial5_1a795ce401324f8668c0fa84f603d4fa61" kind="variable"><name>offset_</name></member>
+    <member refid="classPolinomial5_1ab1c996bd49f8e0083163c0d0ac86fed0" kind="variable"><name>z_axis_</name></member>
+    <member refid="classPolinomial5_1a9dd014334a974863ec290ff107bdf339" kind="function"><name>Polinomial5</name></member>
+    <member refid="classPolinomial5_1ab994b93afeed665a593c03069efdc374" kind="function"><name>eq_pd</name></member>
+    <member refid="classPolinomial5_1a68acdc46f4082dfbb996b216ab8d2ee0" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classPolinomial5_1afbadb46f9a52c83af6f7dc183edac190" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classPolinomial5_1a539e23585ab58cd76321bb7a221548fa" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classPolynomial5" kind="class"><name>Polynomial5</name>
+    <member refid="classPolynomial5_1aa6bb5161e9c1c21fa5538ae3bdc1df75" kind="variable"><name>a_</name></member>
+    <member refid="classPolynomial5_1a4cfc7ec3093df5fa9b56ecfcad22b284" kind="variable"><name>b_</name></member>
+    <member refid="classPolynomial5_1ac80d613e790d7cf8a57ec02552c29df1" kind="variable"><name>c_</name></member>
+    <member refid="classPolynomial5_1af01721cc8e837a9c88ab9e52f7517cab" kind="variable"><name>offset_x_</name></member>
+    <member refid="classPolynomial5_1a87a02e2c398996e26c15789c02f69dcc" kind="variable"><name>offset_y_</name></member>
+    <member refid="classPolynomial5_1a48b417f30bb6cec5353691b13754f755" kind="function"><name>Polynomial5</name></member>
+    <member refid="classPolynomial5_1a912c6f47588d89cf0b4d785aeb1b02f7" kind="function"><name>eq_pd</name></member>
+    <member refid="classPolynomial5_1a107c3e73884ca7cbb2d23d2f14666bb3" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classPolynomial5_1adc8f407c725fb5067908ff0ad3b525b8" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classPolynomial5_1a5a490d74027af95865e817e1dbb46730" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classSinusoid2D" kind="class"><name>Sinusoid2D</name>
+    <member refid="classSinusoid2D_1a7d6d397e4e9c7be451ddac5c3fbf2550" kind="variable"><name>offset_</name></member>
+    <member refid="classSinusoid2D_1ab07ab1d7cc7d58881771e42084cc72ce" kind="variable"><name>z_axis_</name></member>
+    <member refid="classSinusoid2D_1a8beee190e24730c9af708109903ef12d" kind="function"><name>Sinusoid2D</name></member>
+    <member refid="classSinusoid2D_1a9c716b8c00524d48e2973cf08709d70b" kind="function"><name>Sinusoid2D</name></member>
+    <member refid="classSinusoid2D_1a9f05f846dc06ace8a3ccda0717107bb3" kind="function"><name>eq_pd</name></member>
+    <member refid="classSinusoid2D_1aa554e940eba4cf385c203a9ae1603d43" kind="function"><name>eq_d_pd</name></member>
+    <member refid="classSinusoid2D_1abee5b7979ae92c1a556f62681d86e45a" kind="function"><name>eq_dd_pd</name></member>
+    <member refid="classSinusoid2D_1a2ef2ceba0d4be9117e152f1d4f95157e" kind="function"><name>getClosestPointGamma</name></member>
+  </compound>
+  <compound refid="classSpeed" kind="class"><name>Speed</name>
+    <member refid="classSpeed_1a3de51bdd958cfc92e939441d6e6de268" kind="function"><name>getVd</name></member>
+    <member refid="classSpeed_1a4937f3061c322c0bf804f3d1248dab08" kind="function"><name>get_d_Vd</name></member>
+    <member refid="classSpeed_1a8d0c9eaca96107cd1ed8d13d2a117e64" kind="function"><name>getDefaultVd</name></member>
+    <member refid="classSpeed_1a47ac1336c636f4dc4fb1d288dea76e3c" kind="function"><name>~Speed</name></member>
+  </compound>
+  <compound refid="Path_8h" kind="file"><name>Path.h</name>
+    <member refid="Path_8h_1a5bf95b59427bb068a9998b02b2e2723a" kind="enum"><name>TypePath_t</name></member>
+    <member refid="Path_8h_1a5bf95b59427bb068a9998b02b2e2723aa892292571176aa7df3c47b3c9d29eab3" kind="enumvalue"><name>SIMPLE_PATH</name></member>
+    <member refid="Path_8h_1a5bf95b59427bb068a9998b02b2e2723aa5f1fb58caa55309a33550351daed4b51" kind="enumvalue"><name>COMPLEX_PATH</name></member>
+  </compound>
+  <compound refid="Arc2D_8h" kind="file"><name>Arc2D.h</name>
+  </compound>
+  <compound refid="Bernoulli_8h" kind="file"><name>Bernoulli.h</name>
+  </compound>
+  <compound refid="Circle2D_8h" kind="file"><name>Circle2D.h</name>
+  </compound>
+  <compound refid="Line_8h" kind="file"><name>Line.h</name>
+  </compound>
+  <compound refid="PathSection_8h" kind="file"><name>PathSection.h</name>
+  </compound>
+  <compound refid="Polinomial5_8h" kind="file"><name>Polinomial5.h</name>
+  </compound>
+  <compound refid="Polynomial5_8h" kind="file"><name>Polynomial5.h</name>
+  </compound>
+  <compound refid="Sinusoid2D_8h" kind="file"><name>Sinusoid2D.h</name>
+  </compound>
+  <compound refid="ConstRabbitSpeed_8h" kind="file"><name>ConstRabbitSpeed.h</name>
+  </compound>
+  <compound refid="ConstVehicleSpeed_8h" kind="file"><name>ConstVehicleSpeed.h</name>
+  </compound>
+  <compound refid="Speed_8h" kind="file"><name>Speed.h</name>
+  </compound>
+  <compound refid="PathNode_8h" kind="file"><name>PathNode.h</name>
+  </compound>
+  <compound refid="Path_8cpp" kind="file"><name>Path.cpp</name>
+  </compound>
+  <compound refid="Arc2D_8cpp" kind="file"><name>Arc2D.cpp</name>
+  </compound>
+  <compound refid="Bernoulli_8cpp" kind="file"><name>Bernoulli.cpp</name>
+  </compound>
+  <compound refid="Circle2D_8cpp" kind="file"><name>Circle2D.cpp</name>
+  </compound>
+  <compound refid="Line_8cpp" kind="file"><name>Line.cpp</name>
+  </compound>
+  <compound refid="PathSection_8cpp" kind="file"><name>PathSection.cpp</name>
+  </compound>
+  <compound refid="Polynomial5_8cpp" kind="file"><name>Polynomial5.cpp</name>
+  </compound>
+  <compound refid="Sinusoid2D_8cpp" kind="file"><name>Sinusoid2D.cpp</name>
+  </compound>
+  <compound refid="ConstRabbitSpeed_8cpp" kind="file"><name>ConstRabbitSpeed.cpp</name>
+  </compound>
+  <compound refid="ConstVehicleSpeed_8cpp" kind="file"><name>ConstVehicleSpeed.cpp</name>
+  </compound>
+  <compound refid="Speed_8cpp" kind="file"><name>Speed.cpp</name>
+  </compound>
+  <compound refid="PathNode_8cpp" kind="file"><name>PathNode.cpp</name>
+    <member refid="PathNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="PathServices_8cpp" kind="file"><name>PathServices.cpp</name>
+  </compound>
+  <compound refid="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir"><name>include/algorithms</name>
+  </compound>
+  <compound refid="dir_e6df591b0639d4c4807ef64d058833e2" kind="dir"><name>src/algorithms</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_48168e45eedddcea14cc4f00cabcd541" kind="dir"><name>src/algorithms/path_sections</name>
+  </compound>
+  <compound refid="dir_4008112c1c49c2515242aadb130ac5c5" kind="dir"><name>include/algorithms/path_sections</name>
+  </compound>
+  <compound refid="dir_16d3284317caf78c0e25eb64bbba3d38" kind="dir"><name>include/ros</name>
+  </compound>
+  <compound refid="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir"><name>src/ros</name>
+  </compound>
+  <compound refid="dir_5dfdd3b08c05058a4c225d8b56a8a294" kind="dir"><name>src/algorithms/speed_profiles</name>
+  </compound>
+  <compound refid="dir_49143434998848ee7776d61a2a263b5b" kind="dir"><name>include/algorithms/speed_profiles</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

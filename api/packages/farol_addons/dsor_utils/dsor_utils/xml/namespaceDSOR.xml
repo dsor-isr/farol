@@ -1,0 +1,1356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceDSOR" kind="namespace" language="C++">
+    <compoundname>DSOR</compoundname>
+    <innerclass refid="structDSOR_1_1VehicleState" prot="public">DSOR::VehicleState</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceDSOR_1aa122503266a9150ac8f3cf814489d170" prot="public" static="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const Eigen::Quaternion&lt; T &gt;</type>
+        <definition>const Eigen::Quaternion&lt;T&gt; DSOR::ENU_NED_INERTIAL_Q</definition>
+        <argsstring></argsstring>
+        <name>ENU_NED_INERTIAL_Q</name>
+        <initializer>= <ref refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kindref="member">euler_to_quaternion</ref>(Eigen::Matrix&lt;T, 3, 1&gt;(M_PI, 0.0, M_PI_2))</initializer>
+        <briefdescription>
+<para>Static quaternion to convert a rotation expressed in ENU to a rotation expressed in NED (Z-&gt;Y-&gt;X convention) on the inertial frame Rotate PI/2 about Z-axis -&gt; Rotate 0 about Y-axis -&gt; Rotate PI about X-axis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: this quaternion is as valid as the quaternion representing the rotation from NED to ENU (quaternion ambiguity) on the inertial frame </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="31" column="32" bodyfile="include/dsor_utils/frames.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceDSOR_1a96a7f395f44c4ad9531b4dbabac78aa5" prot="public" static="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const Eigen::Quaternion&lt; T &gt;</type>
+        <definition>const Eigen::Quaternion&lt;T&gt; DSOR::ENU_NED_BODY_Q</definition>
+        <argsstring></argsstring>
+        <name>ENU_NED_BODY_Q</name>
+        <initializer>= <ref refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kindref="member">euler_to_quaternion</ref>(Eigen::Matrix&lt;T, 3, 1&gt;(M_PI, 0.0, 0.0))</initializer>
+        <briefdescription>
+<para>Static quaternion to convert a rotation expressed in ENU body frame (ROS base_link) to a rotation expressed in NED body frame (Z-&gt;Y-&gt;X convention) Rotate 0 about Z-axis -&gt; Rotate 0 about Y-axis -&gt; Rotate PI about X-axis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: this quaternion is as valid as the quaternion representing the rotation from NED to ENU (quaternion ambiguity) on the body frame </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="42" column="32" bodyfile="include/dsor_utils/frames.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceDSOR_1a4e62353e2a0ca8ea23ec9725628d49e6" prot="public" static="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const Eigen::Quaternion&lt; T &gt;</type>
+        <definition>const Eigen::Quaternion&lt;T&gt; DSOR::BODY_ENU_NED_Q</definition>
+        <argsstring></argsstring>
+        <name>BODY_ENU_NED_Q</name>
+        <initializer>= <ref refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kindref="member">euler_to_quaternion</ref>(Eigen::Matrix&lt;T, 3, 1&gt;(M_PI, 0.0, 0.0))</initializer>
+        <briefdescription>
+<para>Static quaternion needed for rotating vectors in body frames between ENU and NED +PI rotation around X (Forward) axis transforms from Forward, Right, Down (body frame in NED) Fto Forward, Left, Up (body frame in ENU). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="50" column="32" bodyfile="include/dsor_utils/frames.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceDSOR_1a46de8bf6105c5130ca026f2e55956e8c" prot="public" static="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const Eigen::Transform&lt; T, 3, Eigen::Affine &gt;</type>
+        <definition>const Eigen::Transform&lt;T, 3, Eigen::Affine&gt; DSOR::BODY_ENU_NED_TF</definition>
+        <argsstring></argsstring>
+        <name>BODY_ENU_NED_TF</name>
+        <initializer>= Eigen::Transform&lt;T, 3, Eigen::Affine&gt;(BODY_ENU_NED_Q&lt;T&gt;)</initializer>
+        <briefdescription>
+<para>Static affine matrix to roate vectors ENU (or NED) -&gt; NED (or ENU) expressed in body frame +PI rotation around X (Forward) axis transforms from Forward, Right, Down (body frame in NED) Fto Forward, Left, Up (body frame in ENU). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="58" column="31" bodyfile="include/dsor_utils/frames.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceDSOR_1acb3269d659d9b4bee13a69eae2873e02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::saturateControlDepthUsingMinAltitude</definition>
+        <argsstring>(T depth_command, T altitude_min, T measured_depth, T measured_altitude)</argsstring>
+        <name>saturateControlDepthUsingMinAltitude</name>
+        <param>
+          <type>T</type>
+          <declname>depth_command</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>altitude_min</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>measured_depth</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>measured_altitude</declname>
+        </param>
+        <briefdescription>
+<para>Method to saturate the control in depth. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>depth_command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input command in depth </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>altitude_min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum altitude (positive distance from the vehicle to the bottom in m) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>measured_depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measured depth of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>measured_altitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measured altitude of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The saturated control of depth such that the vehicle does not surpass the minimum altitude </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/control/vehicle_saturations.hpp" line="24" column="10" bodyfile="include/dsor_utils/control/vehicle_saturations.hpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1af1f533be6e5a752a175fcd27fceb626b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::saturateControlAltitudeUsingMinAltitude</definition>
+        <argsstring>(T altitude_command, T altitude_min)</argsstring>
+        <name>saturateControlAltitudeUsingMinAltitude</name>
+        <param>
+          <type>T</type>
+          <declname>altitude_command</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>altitude_min</declname>
+        </param>
+        <briefdescription>
+<para>Method to saturate the control in altitude. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>altitude_command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input command in altitude </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>altitude_min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum altitude to keep from the ground </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The output command of the altitude saturated such that the vehicle does not surpass the minimum altitude </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/control/vehicle_saturations.hpp" line="35" column="10" bodyfile="include/dsor_utils/control/vehicle_saturations.hpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a0ad43d3ff79571d22942e9e73c315c93" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::saturateControlDepthUsingMaxDepth</definition>
+        <argsstring>(T depth_command, T max_depth)</argsstring>
+        <name>saturateControlDepthUsingMaxDepth</name>
+        <param>
+          <type>T</type>
+          <declname>depth_command</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>max_depth</declname>
+        </param>
+        <briefdescription>
+<para>Method to saturate the control in depth. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>depth_command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input command in depth </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The max depth </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The output command of the depth saturated such that the vehicle does not surpass the maximum depth </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/control/vehicle_saturations.hpp" line="46" column="10" bodyfile="include/dsor_utils/control/vehicle_saturations.hpp" bodystart="46" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ac5b886df7a55e90fa0287e58114e3ac9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::saturateControlAltitudeUsingMaxDepth</definition>
+        <argsstring>(T altitude_command, T measured_depth, T measured_altitude, T max_depth)</argsstring>
+        <name>saturateControlAltitudeUsingMaxDepth</name>
+        <param>
+          <type>T</type>
+          <declname>altitude_command</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>measured_depth</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>measured_altitude</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>max_depth</declname>
+        </param>
+        <briefdescription>
+<para>Method to saturate the control in altitude. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>altitude_command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input command in altitude </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>measured_depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measured depth of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>measured_altitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The measured altitude of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_depth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum depth allowed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The output command of the altitude saturated such that the vehicle does not surpass the maximum depth </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/control/vehicle_saturations.hpp" line="59" column="10" bodyfile="include/dsor_utils/control/vehicle_saturations.hpp" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a51f7ff8d336b1c25efa3ca81a932a4c8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const Eigen::PermutationMatrix&lt; 3 &gt;</type>
+        <definition>static const Eigen::PermutationMatrix&lt;3&gt; DSOR::NED_ENU_REFLECTION_XY</definition>
+        <argsstring>(Eigen::Vector3i(1, 0, 2))</argsstring>
+        <name>NED_ENU_REFLECTION_XY</name>
+        <param>
+          <type>Eigen::Vector3i(1, 0, 2)</type>
+        </param>
+        <briefdescription>
+<para>Use reflections instead of rotations for NED &lt;-&gt; ENU transformation to avoid NaN/Inf floating point pollution across different axes since in NED &lt;-&gt; ENU the axes are perfectly aligned. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="68" column="39" declfile="include/dsor_utils/frames.hpp" declline="68" declcolumn="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a034dd0a8bd449363c65bebcb6562f5c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const Eigen::DiagonalMatrix&lt; T, 3 &gt;</type>
+        <definition>static const Eigen::DiagonalMatrix&lt;T, 3&gt; DSOR::NED_ENU_REFLECTION_Z</definition>
+        <argsstring>(1, 1, -1)</argsstring>
+        <name>NED_ENU_REFLECTION_Z</name>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>1</type>
+        </param>
+        <param>
+          <type>-</type>
+          <declname>1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="70" column="36" declfile="include/dsor_utils/frames.hpp" declline="70" declcolumn="36"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a9ee41c331beace8a4d3cf2e54a4b634c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Quaternion&lt; T &gt;</type>
+        <definition>Eigen::Quaternion&lt;T&gt; DSOR::rot_body_rotation</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>rot_body_rotation</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Transform a rotation (as a quaternion) from body expressed in ENU (or NED) to inertial frame to a similar rotation (as quaternion) from body expressed in NED (or ENU) to inertial frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: Check <ulink url="http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/">http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/</ulink> for more details behind these type of transformations towards obtaining rotations in different frames of reference.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>quaternion representing a rotation: body frame ENU (or NED) -&gt; inertial frame (in arbitrary convention) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>quaternion represeting a rotation: body frame NED (or ENU) -&gt; inertial frame (in arbitrary convention) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="85" column="26" bodyfile="include/dsor_utils/frames.hpp" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ac137fae9964e195246618dc8e08c5b00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Quaternion&lt; T &gt;</type>
+        <definition>Eigen::Quaternion&lt;T&gt; DSOR::rot_inertial_rotation</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>rot_inertial_rotation</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Transform a rotation (as a quaternion) from body to inertial frame expressed in ENU (or NED) to a similar rotation (as quaternion) from body to inertial frame expressed in NED (or ENU) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: Check <ulink url="http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/">http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/</ulink> for more details behind these type of transformations towards obtaining rotations in different frames of reference.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>quaternion representing a rotation: body frame (in arbitrary convention) -&gt; inertial frame ENU (or NED) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>quaternion represeting a rotation: body frame (in arbitrary convention) -&gt; inertial frame NED (or ENU) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="101" column="26" bodyfile="include/dsor_utils/frames.hpp" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a59b63be2850649301cf741ef0bdb8042" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Quaternion&lt; T &gt;</type>
+        <definition>Eigen::Quaternion&lt;T&gt; DSOR::rot_body_to_inertial</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>rot_body_to_inertial</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Transform a rotation of a rigid body (as a quaternion) from body (ENU or NED) to inertial frame (ENU or NED) to a similar rotation (as quaternion) from body (NED or ENU) to inertial frame (NED or ENU) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: This function is usefull to convert the attitude of a vehicle from &quot;ROS&quot; quaternion to a typicall literature quaternion (where both the body frame and inertial frames are in ENU). If you are converting a quaternion that expresses the orientation of a sensor with respect to a rigid body&apos;s body frame (and not the inertial frame), then you DO NOT WANT TO USE THIS FUNCTION. Body-FRAME NED is not the same as INERTIAL-FRAME NED (this comes once again from the fact that in ned body the x-y axis don&apos;t switch like in inertial frame) as explained in the documentation.</para>
+<para>Essencial only use this if you are representing a body in inertial frame!</para>
+<para>NOTE: Check <ulink url="http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/">http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/</ulink> for more details behind these type of transformations towards obtaining rotations in different frames of reference.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>quaternion representing a rotation: body frame (ENU or NED) -&gt; inertial frame (ENU or NED) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>quaternion representing a rotation: body frame (NED or ENU) -&gt; inertial frame (NED or ENU) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="126" column="26" bodyfile="include/dsor_utils/frames.hpp" bodystart="126" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a5c16e87bba9f4282e6dd29f7ba64e4eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 1&gt; DSOR::transform_vect_body_enu_ned</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;vec)</argsstring>
+        <name>transform_vect_body_enu_ned</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+<para>Transform vector in ENU (or NED) to NED (or ENU), expressed in body-frame. +PI rotation around X (Forward) axis transforms from Forward, Right, Down (body frame in NED) Fto Forward, Left, Up (body frame in ENU). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector expressed in body-frame (ENU or NED) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector expressed in body-frame (NED or ENU) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="140" column="22" bodyfile="include/dsor_utils/frames.hpp" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a2ed6b8ba2f0d17ee455a90d9987a2389" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 1&gt; DSOR::transform_vect_between_arbitrary_ref</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;vec, const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>transform_vect_between_arbitrary_ref</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Transform a vector in a given frame of reference to another frame of reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector expressed in the original frame of reference </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Quaternion that expresses the orientation of the original frame of reference with respect to the final frame of reference </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector expressed in the new frame of reference </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="152" column="22" bodyfile="include/dsor_utils/frames.hpp" bodystart="152" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1afd9875e55e41f70cab660dec2475e982" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 1&gt; DSOR::transform_vect_inertial_enu_ned</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;vec)</argsstring>
+        <name>transform_vect_inertial_enu_ned</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+<para>Transform vector in ENU (or NED) to NED (or ENU), expressed in inertial-frame. ENU &lt;<mdash/>&gt; NED - Invert the Z axis and switch the XY axis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vector expressed in inertial-frame (ENU or NED) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Vector expressed in inertial-frame (NED or ENU) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="167" column="22" bodyfile="include/dsor_utils/frames.hpp" bodystart="167" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a75b855583612ca2ddcc0565e7d6f826b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::transform_cov3_body_enu_ned</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 3 &gt; &amp;cov_in)</argsstring>
+        <name>transform_cov3_body_enu_ned</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 3 &gt; &amp;</type>
+          <declname>cov_in</declname>
+        </param>
+        <briefdescription>
+<para>Transform 3x3 covariance matrix in ENU (or NED) to NED (or ENU), expressed in body-frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: Check <ulink url="https://robotics.stackexchange.com/questions/2556/how-to-rotate-covariance">https://robotics.stackexchange.com/questions/2556/how-to-rotate-covariance</ulink> for a detailed explanation of the actual conversion proof for covariance matrices</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cov_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Covariance matrix expressed in body-frame (ENU or NED) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Covariance matrix expressed in body-frame (NED or ENU) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="182" column="22" bodyfile="include/dsor_utils/frames.hpp" bodystart="182" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a1fe1d20a64b477cc5ed243f2ea2e2bec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::transform_cov3_inertial_enu_ned</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 3 &gt; &amp;cov_in)</argsstring>
+        <name>transform_cov3_inertial_enu_ned</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 3 &gt; &amp;</type>
+          <declname>cov_in</declname>
+        </param>
+        <briefdescription>
+<para>Transform 3x3 covariance matrix in ENU (or NED) to NED (or ENU), expressed in inertial-frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: Check <ulink url="https://robotics.stackexchange.com/questions/2556/how-to-rotate-covariance">https://robotics.stackexchange.com/questions/2556/how-to-rotate-covariance</ulink> for a detailed explanation of the actual conversion proof for covariance matrices</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cov_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Covariance matrix expressed in inertial-frame (ENU or NED) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Covariance matrix expressed in inertial-frame (NED or ENU) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/frames.hpp" line="197" column="22" bodyfile="include/dsor_utils/frames.hpp" bodystart="197" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ab41535dd03e74723cc17a9bda3270b97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>int</type>
+        <definition>int DSOR::sign</definition>
+        <argsstring>(T v)</argsstring>
+        <name>sign</name>
+        <param>
+          <type>T</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Returns the sign of the number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A number </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 if value is positive 0 if value is 0 -1 if value is negative </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/math.hpp" line="27" column="12" bodyfile="include/dsor_utils/math.hpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a49277e23e657cc24dee6176d85fd6fe2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::saturation</definition>
+        <argsstring>(T value, T min, T max)</argsstring>
+        <name>saturation</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>A function that saturates 2 values linearly. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A number to saturate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum value </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A value such that value in [min, max] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/math.hpp" line="39" column="10" bodyfile="include/dsor_utils/math.hpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a7ede75090e4f4cfe7af1a1ae018a4163" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool DSOR::approximatelyEquals</definition>
+        <argsstring>(T a, T b, T tolerance=1e-6)</argsstring>
+        <name>approximatelyEquals</name>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>tolerance</declname>
+          <defval>1e-6</defval>
+        </param>
+        <briefdescription>
+<para>A function to check if two numbers are equal (int, float, double, etc) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a number to compare </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>another number to compare </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tolerance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tolerance of comparison </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A boolean for true if equal within tolerance, or otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/math.hpp" line="51" column="13" bodyfile="include/dsor_utils/math.hpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 1&gt; DSOR::quaternion_to_euler</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>quaternion_to_euler</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Function to convert from quaternion to (roll, pitch and yaw), according to Z-Y-X convention This function is from: <ulink url="https://github.com/mavlink/mavros/issues/444">https://github.com/mavlink/mavros/issues/444</ulink> and the logic is also available at: <ulink url="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles</ulink>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An eigen quaternion </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A Vector&lt;T, 3&gt; with the [roll, pitch, yaw] obtained according to Z-Y-X convention </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="27" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="27" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Quaternion&lt; T &gt;</type>
+        <definition>Eigen::Quaternion&lt;T&gt; DSOR::euler_to_quaternion</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>euler_to_quaternion</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Converts a vector of euler angles according to Z-Y-X convention into a quaternion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An eigen vector of either floats or doubles [roll, pitch, yaw] </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen Quaternion </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="55" column="26" bodyfile="include/dsor_utils/rotations.hpp" bodystart="55" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::yaw_from_quaternion</definition>
+        <argsstring>(const Eigen::Quaternion&lt; T &gt; &amp;q)</argsstring>
+        <name>yaw_from_quaternion</name>
+        <param>
+          <type>const Eigen::Quaternion&lt; T &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+<para>Gets the yaw angle from a quaternion (assumed a Z-Y-X rotation) NOTE: this function is based on: <ulink url="https://github.com/mavlink/mavros/blob/ros2/mavros/src/lib/ftf_quaternion_utils.cpp">https://github.com/mavlink/mavros/blob/ros2/mavros/src/lib/ftf_quaternion_utils.cpp</ulink> which in turn has the theory explained in: <ulink url="https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles">https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles</ulink>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A eigen quaternion </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The yaw angle in radians (assumed a Z-Y-X rotation) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="78" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="78" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::wrapTo2pi</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>wrapTo2pi</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Wrap angle between [0, 2PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="89" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="89" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::wrapTopi</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>wrapTopi</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Wrap angle between [-PI, PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="105" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="105" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::radToDeg</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>radToDeg</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Convert an angle in radian to degrees. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in degrees </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="122" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="122" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::degToRad</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>degToRad</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Convert an angle in degrees to radians. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>in degrees </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>angle in radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="133" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="133" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::angleDiff</definition>
+        <argsstring>(T a, T b)</argsstring>
+        <name>angleDiff</name>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Method to calculate the diference between angles correctly even if they wrap between -pi and pi. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 1 in radians </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 2 in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The minimum difference between the two angles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="145" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="145" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::computeSkewSymmetric3</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>computeSkewSymmetric3</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Compute the 3x3 skew-symmetric matrix from a vector 3x1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with 3 elements </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 3x3 skew-symmetric matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="159" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="159" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 2, 2 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 2, 2&gt; DSOR::computeSkewSymmetric2</definition>
+        <argsstring>(T c)</argsstring>
+        <name>computeSkewSymmetric2</name>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Compute the 2x2 skew-symmetric matrix from a constant (int, float or double) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A constant </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 2x2 skew-symmetric matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="175" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="175" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::rotationAngularBodyToInertial</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>rotationAngularBodyToInertial</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Compute the rotation matrix that converts angular velocities expressed in the body frame to angular velocities expressed in the inertial frame (according to Z-Y-X convention) - makes use of small angle approximation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with 3 elements (roll, pitch, yaw) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 3x3 rotation matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="191" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="191" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 3 &gt;</type>
+        <definition>Eigen::Matrix&lt;T, 3, 3&gt; DSOR::rotationBodyToInertial</definition>
+        <argsstring>(const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;v)</argsstring>
+        <name>rotationBodyToInertial</name>
+        <param>
+          <type>const Eigen::Matrix&lt; T, 3, 1 &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Method that returns a rotation matrix from body frame to inertial frame, assuming a Z-Y-X convention. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with euler angles (roll, pith, yaw) according to Z-Y-X convention </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 3x3 rotation matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="205" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="205" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>Eigen::Matrix&lt; T, 3, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt; T, 3, 1 &gt; DSOR::spherical_to_cartesian</definition>
+        <argsstring>(T bearing, T elevation, T range)</argsstring>
+        <name>spherical_to_cartesian</name>
+        <param>
+          <type>T</type>
+          <declname>bearing</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>elevation</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+<para>Convert from spherical to cartesian coordinates. Used mainly with usbl fixes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bearing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Horizontal angle between the direction of an object and another object or between it and the true north direction in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elevation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angle measured between the horizontal and the vehicle line of sight to the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Distance to the object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Eigen Vector with cartesian coordinates</para>
+</simplesect>
+Authors: Joao Quintas (<ulink url="mailto:jquintas@gmail.com">jquintas@gmail.com</ulink>) Joao Cruz (<ulink url="mailto:joao.pedro.cruz@tecnico.ulisboa.pt">joao.pedro.cruz@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 14/12/2021 License: MIT File: spherical_coordinates.cpp Brief: Defines all functions related to spherical coordinates conversions <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bearing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Horizontal angle between the direction of an object and another object or between it and the true north direction in degrees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>elevation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Angle measured between the horizontal and the vehicle line of sight to the object </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Distance to the object </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Eigen Vector with cartesian coordinates </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/spherical_coordinates.hpp" line="26" column="15" bodyfile="src/spherical_coordinates.cpp" bodystart="36" bodyend="45" declfile="include/dsor_utils/spherical_coordinates.hpp" declline="26" declcolumn="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Authors: Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 10/02/2022 License: MIT File: <ref refid="vehicle__saturations_8hpp_source" kindref="compound">vehicle_saturations.hpp</ref> Brief: Defines functions used for saturating the vehicle inputs to the system</para>
+<para>Authors: André Potes (<ulink url="mailto:andre.potes@gmail.com">andre.potes@gmail.com</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 14/12/2021 License: MIT File: <ref refid="frames_8hpp_source" kindref="compound">frames.hpp</ref> Brief: Defines all functions related to conversions between ENU do NED frames and vice-versa</para>
+<para>NOTE: Most of this code is adapted from mavros <ulink url="https://github.com/mavlink/mavros/blob/master/mavros/src/lib/ftf_frame_conversions.cpp">https://github.com/mavlink/mavros/blob/master/mavros/src/lib/ftf_frame_conversions.cpp</ulink> which had as authors Nuno Marques (<ulink url="mailto:n.marques21@hotmail.com">n.marques21@hotmail.com</ulink>) and Eddy Scott (<ulink url="mailto:scott.edward@aurora.aero">scott.edward@aurora.aero</ulink>)</para>
+<para>Authors: Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Joao Quintas (<ulink url="mailto:jquintas@gmail.com">jquintas@gmail.com</ulink>) Joao Cruz (<ulink url="mailto:joao.pedro.cruz@tecnico.ulisboa.pt">joao.pedro.cruz@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 14/12/2021 License: MIT File: <ref refid="math_8hpp_source" kindref="compound">math.hpp</ref> Brief: Defines all functions related to general math functions that can be used anywhere</para>
+<para>Authors: Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 14/12/2021 License: MIT File: <ref refid="rotations_8hpp_source" kindref="compound">rotations.hpp</ref> Brief: Defines all functions related to angle wrapping, rotation matrices, euler angles, convertion to quaternions, etc.</para>
+<para>Authors: Joao Quintas (<ulink url="mailto:jquintas@gmail.com">jquintas@gmail.com</ulink>) Joao Cruz (<ulink url="mailto:joao.pedro.cruz@tecnico.ulisboa.pt">joao.pedro.cruz@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Marcelo Fialho Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Last Update: 14/12/2021 License: MIT File: <ref refid="spherical__coordinates_8hpp_source" kindref="compound">spherical_coordinates.hpp</ref> Brief: Defines all functions related to spherical coordinates conversions </para>
+    </detaileddescription>
+    <location file="include/dsor_utils/control/vehicle_saturations.hpp" line="13" column="14"/>
+  </compounddef>
+</doxygen>

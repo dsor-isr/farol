@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode" kind="class"><name>data_serializer_ros::DataSerializerNode::DataSerializerNode</name>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a60b6c923b61ceddbc51ad20997dba688" kind="variable"><name>_serial_data</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a86dc15a6e531bb2631a1330612321a01" kind="variable"><name>_channel_flags</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a29af643ce1ef22c7246b56de6561c687" kind="variable"><name>_latch_count</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a74487502b3fa4abc0efd26ea3ccd8352" kind="variable"><name>_subs</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1ad8f519aa1ee61925202681bbb5b0bb50" kind="variable"><name>_from_modem_sub</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1aea6f11f36436fec1edfcf46899cfe180" kind="variable"><name>_trigger_sub</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a515666f72c1095078fc4c63cc3e5aef5" kind="variable"><name>_pubs</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a10fea8b65c8a50d4aa3edcf660463e66" kind="variable"><name>_to_modem_pub</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a8096b8383dc9de02e1448cc6f45a8906" kind="variable"><name>_data_channels</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1aca6de752f0118e735ef31be37ba766f6" kind="variable"><name>_vehicle_id</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a4e24b4cc9a7686dc5c47d05dc14afcd9" kind="variable"><name>_to_modem_topic</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a0d049a57950fd06ec34d7e60b19beea8" kind="variable"><name>_from_modem_topic</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1aed3e031c210a486ec4893f5887db9d9a" kind="variable"><name>_trigger_serialization_topic</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a83824900ba1544ee0b48b97f686ff0ee" kind="function"><name>__init__</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1af8f41aee7793ea7a421c9d4295bc3fe5" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a1cea44d171c694f76cd8f073a735da1f" kind="function"><name>initializePublishers</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a22d857e9a1b64145a5034fc22ce03831" kind="function"><name>loadParams</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1ac9b9e6e2479239f45b0fa27607be9c37" kind="function"><name>generic_callback</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1ac745e5f605c21c51cb6e491c928f017d" kind="function"><name>from_modem_callback</name></member>
+    <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a014162c98cee7c35a2eef44875b68ab4" kind="function"><name>trigger_serialization_callback</name></member>
+  </compound>
+  <compound refid="namespacedata__serializer__algorithms" kind="namespace"><name>data_serializer_algorithms</name>
+  </compound>
+  <compound refid="namespacedata__serializer__algorithms_1_1DataSerializerAlgorithm" kind="namespace"><name>data_serializer_algorithms::DataSerializerAlgorithm</name>
+    <member refid="DataSerializerAlgorithm_8py_1a2c619fbe06776e3802d59d0a55a5a697" kind="function"><name>payload_to_bytes</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" kind="function"><name>payload_to_bits</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" kind="function"><name>dec_to_bin</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" kind="function"><name>bin_to_dec</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" kind="function"><name>extract_field</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a38230a956058eba27c78904cd51fb2a7" kind="function"><name>add_field_to_dict</name></member>
+  </compound>
+  <compound refid="namespacedata__serializer__ros" kind="namespace"><name>data_serializer_ros</name>
+  </compound>
+  <compound refid="namespacedata__serializer__ros_1_1DataSerializerNode" kind="namespace"><name>data_serializer_ros::DataSerializerNode</name>
+    <member refid="namespacedata__serializer__ros_1_1DataSerializerNode_1a6e8eb6d48ab28245a80c7b50bf6cffc8" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacesetup" kind="namespace"><name>setup</name>
+    <member refid="setup_8py_1aa2586b6c4dd84a0aaaf49cb1565cee6e" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="setup_8py" kind="file"><name>setup.py</name>
+    <member refid="setup_8py_1aa2586b6c4dd84a0aaaf49cb1565cee6e" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="data__serializer__algorithms_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="data__serializer__ros_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="DataSerializerAlgorithm_8py" kind="file"><name>DataSerializerAlgorithm.py</name>
+    <member refid="DataSerializerAlgorithm_8py_1a2c619fbe06776e3802d59d0a55a5a697" kind="function"><name>payload_to_bytes</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" kind="function"><name>payload_to_bits</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" kind="function"><name>dec_to_bin</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" kind="function"><name>bin_to_dec</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" kind="function"><name>extract_field</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1a38230a956058eba27c78904cd51fb2a7" kind="function"><name>add_field_to_dict</name></member>
+  </compound>
+  <compound refid="DataSerializerNode_8py" kind="file"><name>DataSerializerNode.py</name>
+    <member refid="namespacedata__serializer__ros_1_1DataSerializerNode_1a6e8eb6d48ab28245a80c7b50bf6cffc8" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_a62c291a0eba8a58397d86d64239dad6" kind="dir"><name>src/data_serializer_algorithms</name>
+  </compound>
+  <compound refid="dir_9e789a3eeaea0be5915b967c15f51206" kind="dir"><name>src/data_serializer_ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

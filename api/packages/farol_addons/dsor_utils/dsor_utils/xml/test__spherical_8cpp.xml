@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="test__spherical_8cpp" kind="file" language="C++">
+    <compoundname>test_spherical.cpp</compoundname>
+    <includes refid="spherical__coordinates_8hpp" local="yes">dsor_utils/spherical_coordinates.hpp</includes>
+    <includes local="no">gtest/gtest.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>dsor_utils/spherical_coordinates.hpp</label>
+        <link refid="spherical__coordinates_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>test/test_spherical.cpp</label>
+        <link refid="test__spherical_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="4">
+        <label>gtest/gtest.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__spherical_8cpp_1a49a0415ed30809a7aeceb4bdba939644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, testCase5)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>testCase5</type>
+        </param>
+        <briefdescription>
+<para>Test function: Eigen::Matrix&lt;T, 3, 1&gt; <ref refid="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" kindref="member">DSOR::spherical_to_cartesian(T bearing, T elevation, T range)</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Authors: Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) <linebreak/>
+ Last Update: 17/12/2021 License: MIT File: test_spherical.cpp Brief: Tests all the functions declared in <ref refid="spherical__coordinates_8hpp_source" kindref="compound">spherical_coordinates.hpp</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_spherical.cpp" line="19" column="1" bodyfile="test/test_spherical.cpp" bodystart="19" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="test__spherical_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_spherical.cpp" line="23" column="5" bodyfile="test/test_spherical.cpp" bodystart="23" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="13"><highlight class="preprocessor">#include<sp/>&quot;dsor_utils/spherical_coordinates.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">TEST(TestSuite,<sp/>testCase5)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>testing::InitGoogleTest(&amp;argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RUN_ALL_TESTS();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="test/test_spherical.cpp"/>
+  </compounddef>
+</doxygen>

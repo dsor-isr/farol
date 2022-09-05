@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="wp__heading_8cpp" kind="file" language="C++">
+    <compoundname>wp_heading.cpp</compoundname>
+    <includes refid="wp__heading_8h" local="yes">wp_heading.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>wp_controller.h</label>
+        <link refid="wp__controller_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="2">
+        <label>wp_heading.h</label>
+        <link refid="wp__heading_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="6">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="4">
+        <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>src/waypoint_algorithms/wp_heading.cpp</label>
+        <link refid="wp__heading_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;wp_heading.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">WpHeading::WpHeading(ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>sway_pub,</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ros::Publisher<sp/>yaw_rate_pub)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>surge_pub_(surge_pub),<sp/>sway_pub_(sway_pub),<sp/>yaw_rate_pub_(yaw_rate_pub)<sp/>{}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WpHeading::calculateRef(<ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>state,<sp/><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>wp_ref)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>parameters<sp/>from<sp/>config</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cdist{gains_[0]};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k1{gains_[1]};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k2{gains_[2]};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k3{gains_[3]};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>state<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw{state.eta2[2]};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x{state.eta1[0]};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y{state.eta1[1]};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_rad<sp/>=<sp/>yaw<sp/>*<sp/>FarolGimmicks::PI<sp/>/<sp/>180;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>waypoint<sp/>reference<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x_ref{wp_ref.eta1[0]};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_ref{wp_ref.eta1[1]};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_ref{wp_ref.eta2[2]};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_ref_rad<sp/>=<sp/>yaw_ref<sp/>*<sp/>FarolGimmicks::PI<sp/>/<sp/>180;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>u_ref{0.0};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>v_ref{0.0};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r_ref{0.0};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>distance_to_wp<sp/>=<sp/>sqrt(pow((x<sp/>-<sp/>x_ref),<sp/>2)<sp/>+<sp/>pow((y<sp/>-<sp/>y_ref),<sp/>2));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>rot;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>rot<sp/>&lt;&lt;<sp/>cos(yaw_rad),<sp/>-sin(yaw_rad),</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sin(yaw_rad),<sp/>cos(yaw_rad);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>gains;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>gains<sp/>&lt;&lt;<sp/>k1,<sp/>0.0,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0,<sp/>k2;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>ref,<sp/>errors,<sp/>error_body;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>errors<sp/>&lt;&lt;<sp/>x<sp/>-<sp/>x_ref,<sp/>y<sp/>-<sp/>y_ref;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(distance_to_wp<sp/>&gt;<sp/>cdist)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ref<sp/>=<sp/>-<sp/>gains<sp/>*<sp/>tanh(<sp/>rot<sp/>*<sp/>errors<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>error_body<sp/>=<sp/>rot<sp/>*<sp/>errors;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>error_body<sp/>=<sp/>error_body.array().tanh();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>ref<sp/>=<sp/>-<sp/>gains<sp/>*<sp/>error_body;<sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>u_ref<sp/>=<sp/>ref(0);<sp/>v_ref<sp/>=<sp/>ref(1);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>u_ref<sp/>=<sp/>-k1<sp/>*<sp/>(x<sp/>-<sp/>x_ref)<sp/>*<sp/>cos(yaw_rad)<sp/>-<sp/>k2<sp/>*<sp/>(y<sp/>-<sp/>y_ref)<sp/>*<sp/>sin(yaw_rad);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>v_ref<sp/>=<sp/>k1<sp/>*<sp/>(x<sp/>-<sp/>x_ref)<sp/>*<sp/>sin(yaw_rad)<sp/>-<sp/>k2<sp/>*<sp/>(y<sp/>-<sp/>y_ref)<sp/>*<sp/>cos(yaw_rad);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>waypoint<sp/>was<sp/>reached,<sp/>holding<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>u_ref<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>v_ref<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>r_ref<sp/>=<sp/>-k3<sp/>*<sp/>FarolGimmicks::angleDiff(yaw_rad,<sp/>yaw_ref_rad)<sp/>*<sp/>180.0<sp/>/<sp/>FarolGimmicks::PI;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" kindref="member">setSurgeOut</ref>(u_ref);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" kindref="member">setSwayOut</ref>(v_ref);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" kindref="member">setYawrateOut</ref>(r_ref);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WpHeading::publish()<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(surge_pub_,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" kindref="member">getSurgeOut</ref>());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(sway_pub_,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" kindref="member">getSwayOut</ref>());</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>yaw_rate_pub_,<sp/><ref refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" kindref="member">getYawrateOut</ref>());</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/waypoint_algorithms/wp_heading.cpp"/>
+  </compounddef>
+</doxygen>

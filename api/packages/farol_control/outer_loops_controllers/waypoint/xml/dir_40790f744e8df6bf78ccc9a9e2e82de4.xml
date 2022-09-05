@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_40790f744e8df6bf78ccc9a9e2e82de4" kind="dir">
+    <compoundname>src/waypoint_ros</compoundname>
+    <innerfile refid="waypoint_8cpp">waypoint.cpp</innerfile>
+    <innerfile refid="waypoint__node_8cpp">waypoint_node.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/waypoint_ros/"/>
+  </compounddef>
+</doxygen>

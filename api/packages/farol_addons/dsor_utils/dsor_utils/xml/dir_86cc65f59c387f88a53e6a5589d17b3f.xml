@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_86cc65f59c387f88a53e6a5589d17b3f" kind="dir">
+    <compoundname>include/dsor_utils/control</compoundname>
+    <innerfile refid="vehicle__saturations_8hpp">vehicle_saturations.hpp</innerfile>
+    <innerfile refid="vehicle__state_8hpp">vehicle_state.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dsor_utils/control/"/>
+  </compounddef>
+</doxygen>

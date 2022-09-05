@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classSafeties" kind="class" language="C++" prot="public">
+    <compoundname>Safeties</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSafeties_1a562b027515fdc295f7d8019da44e8e24" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Safeties::min_altitude_</definition>
+        <argsstring></argsstring>
+        <name>min_altitude_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="11" column="10" bodyfile="include/ros/safeties.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1a5af79a04de3f4a907b0d7bdcfa8fc8e8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Safeties::state_depth_</definition>
+        <argsstring></argsstring>
+        <name>state_depth_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="12" column="10" bodyfile="include/ros/safeties.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1a4e69c231cae4f09ef7e247e3c9c3bcb1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Safeties::state_altitude_</definition>
+        <argsstring></argsstring>
+        <name>state_altitude_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="13" column="10" bodyfile="include/ros/safeties.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1ac22c5adc1124e0b288c18d8bcc11e7d5" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Safeties::depth_sub_</definition>
+        <argsstring></argsstring>
+        <name>depth_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="16" column="19" bodyfile="include/ros/safeties.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1ac41869e5f27b10558fe89784eb84a9c9" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Safeties::altitude_sub_</definition>
+        <argsstring></argsstring>
+        <name>altitude_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="17" column="19" bodyfile="include/ros/safeties.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1a3afd7b03f4b7175b8a380947934e0207" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Safeties::state_sub_</definition>
+        <argsstring></argsstring>
+        <name>state_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="18" column="19" bodyfile="include/ros/safeties.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1a7ff6f3bc104d2f9f5b5d1c8f7ed88413" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Safeties::depth_safety_pub_</definition>
+        <argsstring></argsstring>
+        <name>depth_safety_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="20" column="18" bodyfile="include/ros/safeties.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSafeties_1a4384b32fe71cd2a76157fbff0c203151" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Safeties::altitude_safety_pub_</definition>
+        <argsstring></argsstring>
+        <name>altitude_safety_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="21" column="18" bodyfile="include/ros/safeties.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSafeties_1a03f659e922cb8506557695481cf8b6dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Safeties::Safeties</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>Safeties</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classInnerloops" kindref="compound">Innerloops</ref> safeties constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle to subscribe and publish topics </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="29" column="3" bodyfile="src/ros/safeties.cpp" bodystart="3" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1a80bd26a487cd031e0394617c69d1dc85" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Safeties::~Safeties</definition>
+        <argsstring>()</argsstring>
+        <name>~Safeties</name>
+        <briefdescription>
+<para><ref refid="classInnerloops" kindref="compound">Innerloops</ref> safeties Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="34" column="11" bodyfile="src/ros/safeties.cpp" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1a7e973531d4333a225a3460cd4663e93e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Safeties::loadParams</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>loadParams</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Method to read parameters from yaml files. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle to subscribe and publish topics </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="41" column="8" bodyfile="src/ros/safeties.cpp" bodystart="11" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1a807230c46ea90e382b5ab1bbfbcb638c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Safeties::initializeSubscribers</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>initializeSubscribers</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Method to initialize subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle to subscribe and publish topics </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="48" column="8" bodyfile="src/ros/safeties.cpp" bodystart="15" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1a45b1ee02442a938c60bdfd039ceabce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Safeties::initializePublishers</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>initializePublishers</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Method to initialize publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ros nodehandle to subscribe and publish topics </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="55" column="8" bodyfile="src/ros/safeties.cpp" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1abd831d1ff46fd5d812634bc2e2a4413c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Safeties::depthSafetyCallback</definition>
+        <argsstring>(const std_msgs::Float64 &amp;msg)</argsstring>
+        <name>depthSafetyCallback</name>
+        <param>
+          <type>const std_msgs::Float64 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Method called when a depth reference is received. Will check safeties regarding altitude: if valid will publish in the depth controller topic the desired reference, otherwise will publish the minimum altitude in the altitude controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired depth </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="65" column="8" bodyfile="src/ros/safeties.cpp" bodystart="38" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1a2bf71ca8d839f0a64e945e0ca8fcdcd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Safeties::altitudeSafetyCallback</definition>
+        <argsstring>(const std_msgs::Float64 &amp;msg)</argsstring>
+        <name>altitudeSafetyCallback</name>
+        <param>
+          <type>const std_msgs::Float64 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Method called when a altitude reference is received. Will check safeties regarding altitude: if above the minimum altitude will publish the desired reference, otherwise will publish the minimum altitude. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired altitude </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="75" column="8" bodyfile="src/ros/safeties.cpp" bodystart="50" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classSafeties_1a050079341e56d889faeb0c32103e559b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Safeties::stateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>stateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Method called when a state msg is received. Updates depth and altitude values to calculate the water collumn needed for depth safeties. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vehicles state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/safeties.h" line="83" column="8" bodyfile="src/ros/safeties.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/ros/safeties.h" line="9" column="15" bodyfile="include/ros/safeties.h" bodystart="9" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classSafeties_1a4384b32fe71cd2a76157fbff0c203151" prot="private" virt="non-virtual"><scope>Safeties</scope><name>altitude_safety_pub_</name></member>
+      <member refid="classSafeties_1ac41869e5f27b10558fe89784eb84a9c9" prot="private" virt="non-virtual"><scope>Safeties</scope><name>altitude_sub_</name></member>
+      <member refid="classSafeties_1a2bf71ca8d839f0a64e945e0ca8fcdcd5" prot="public" virt="non-virtual"><scope>Safeties</scope><name>altitudeSafetyCallback</name></member>
+      <member refid="classSafeties_1a7ff6f3bc104d2f9f5b5d1c8f7ed88413" prot="private" virt="non-virtual"><scope>Safeties</scope><name>depth_safety_pub_</name></member>
+      <member refid="classSafeties_1ac22c5adc1124e0b288c18d8bcc11e7d5" prot="private" virt="non-virtual"><scope>Safeties</scope><name>depth_sub_</name></member>
+      <member refid="classSafeties_1abd831d1ff46fd5d812634bc2e2a4413c" prot="public" virt="non-virtual"><scope>Safeties</scope><name>depthSafetyCallback</name></member>
+      <member refid="classSafeties_1a45b1ee02442a938c60bdfd039ceabce3" prot="public" virt="non-virtual"><scope>Safeties</scope><name>initializePublishers</name></member>
+      <member refid="classSafeties_1a807230c46ea90e382b5ab1bbfbcb638c" prot="public" virt="non-virtual"><scope>Safeties</scope><name>initializeSubscribers</name></member>
+      <member refid="classSafeties_1a7e973531d4333a225a3460cd4663e93e" prot="public" virt="non-virtual"><scope>Safeties</scope><name>loadParams</name></member>
+      <member refid="classSafeties_1a562b027515fdc295f7d8019da44e8e24" prot="private" virt="non-virtual"><scope>Safeties</scope><name>min_altitude_</name></member>
+      <member refid="classSafeties_1a03f659e922cb8506557695481cf8b6dc" prot="public" virt="non-virtual"><scope>Safeties</scope><name>Safeties</name></member>
+      <member refid="classSafeties_1a4e69c231cae4f09ef7e247e3c9c3bcb1" prot="private" virt="non-virtual"><scope>Safeties</scope><name>state_altitude_</name></member>
+      <member refid="classSafeties_1a5af79a04de3f4a907b0d7bdcfa8fc8e8" prot="private" virt="non-virtual"><scope>Safeties</scope><name>state_depth_</name></member>
+      <member refid="classSafeties_1a3afd7b03f4b7175b8a380947934e0207" prot="private" virt="non-virtual"><scope>Safeties</scope><name>state_sub_</name></member>
+      <member refid="classSafeties_1a050079341e56d889faeb0c32103e559b" prot="public" virt="non-virtual"><scope>Safeties</scope><name>stateCallback</name></member>
+      <member refid="classSafeties_1a80bd26a487cd031e0394617c69d1dc85" prot="public" virt="virtual"><scope>Safeties</scope><name>~Safeties</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,666 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPath" kind="class" language="C++" prot="public">
+    <compoundname>Path</compoundname>
+    <includes refid="Path_8h" local="no">Path.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classPath_1af78fdfd568415c2dd81b31611f513675" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classPathSection" kindref="compound">PathSection</ref> * &gt;</type>
+        <definition>std::vector&lt;PathSection*&gt; Path::sections_</definition>
+        <argsstring></argsstring>
+        <name>sections_</name>
+        <briefdescription>
+<para>List of PathSections to follow. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="191" column="17" bodyfile="include/algorithms/Path.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPath_1a4b97ff2722934c42b3ca5d8791c40935" prot="private" static="no" mutable="no">
+        <type>TypePath_t</type>
+        <definition>TypePath_t Path::type_of_path_</definition>
+        <argsstring></argsstring>
+        <name>type_of_path_</name>
+        <initializer>{COMPLEX_PATH}</initializer>
+        <briefdescription>
+<para>Variable to store which type of path we have. By the default the path is COMPLEX_PATH, but it can become SIMPLE_PATH when a new section is added. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="200" column="16" bodyfile="include/algorithms/Path.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPath_1aad10e999d6979401a3a1421263065722" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; double, double &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;double, double&gt; &gt; Path::sections_limits_</definition>
+        <argsstring></argsstring>
+        <name>sections_limits_</name>
+        <briefdescription>
+<para>A vector of pairs to store the gamma limits of each section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="205" column="17" bodyfile="include/algorithms/Path.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPath_1ae42d352559fe59b970ad69071bf7855a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classSpeed" kindref="compound">Speed</ref> * &gt;</type>
+        <definition>std::vector&lt;Speed*&gt; Path::speeds_</definition>
+        <argsstring></argsstring>
+        <name>speeds_</name>
+        <briefdescription>
+<para>A vector to store the velocity profiles *. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="210" column="17" bodyfile="include/algorithms/Path.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPath_1a9636c9e7906a4fee4a6eeef7cb6bdec5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Path::gamma_closest_point_</definition>
+        <argsstring></argsstring>
+        <name>gamma_closest_point_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Auxiliar variable to store the gamma that has the closest point of the vehicle to the path. This value is updated every time the getClosestPoint method is called. The getClosestPoint will never search for a gamma smaller than this one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="234" column="12" bodyfile="include/algorithms/Path.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPath_1af863c1c631cfb84c3f832ec590cb881e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Path::first_check_on_closest_point_</definition>
+        <argsstring></argsstring>
+        <name>first_check_on_closest_point_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Auxiliar variable to check if it is the first time checking for the closest point on the path to the vehicle (since we assume that the vehicle moves in a continuous manner we then make the calculations as a progression from the calculation of the first point closer to the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="242" column="10" bodyfile="include/algorithms/Path.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPath_1a49d5f857541db793dc8e368bdb07fbf0" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Path::index_section_smallest_error_</definition>
+        <argsstring></argsstring>
+        <name>index_section_smallest_error_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>Auxiliar variable to store the section that minimizes the error between the vehicle current position and the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="248" column="18" bodyfile="include/algorithms/Path.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPath_1af26cfab021ddf49af73da3b2beca85ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Path::Path</definition>
+        <argsstring>()</argsstring>
+        <name>Path</name>
+        <briefdescription>
+<para>The constructor for the path class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="46" column="6" bodyfile="src/algorithms/Path.cpp" bodystart="5" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a141da9ff89c85e0ba410b5a73864c267" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Path::~Path</definition>
+        <argsstring>()</argsstring>
+        <name>~Path</name>
+        <briefdescription>
+<para>The destructor for the path class. Frees all the memory allocated for each path section inside the vector of section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor for the <ref refid="classPath" kindref="compound">Path</ref> object. Deletes the memory allocated for each path section inside the vector of sections. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="52" column="5" bodyfile="src/algorithms/Path.cpp" bodystart="11" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1ab1a8e985c909ab25bc5a570482fdc496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Path::isEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>isEmpty</name>
+        <briefdescription>
+<para>Method to check wether the path contains path sections or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean true if the path contains path sections in the vector </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="60" column="10" bodyfile="src/algorithms/Path.cpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a4e669479c9ea6049ef5d4656ddc90444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Path::addPathSection</definition>
+        <argsstring>(PathSection *path_section)</argsstring>
+        <name>addPathSection</name>
+        <param>
+          <type><ref refid="classPathSection" kindref="compound">PathSection</ref> *</type>
+          <declname>path_section</declname>
+        </param>
+        <briefdescription>
+<para>Method to add a path section to the path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>*path_section</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A Pointer to a <ref refid="classPathSection" kindref="compound">PathSection</ref> object (can be <ref refid="classLine" kindref="compound">Line</ref>, <ref refid="classArc2D" kindref="compound">Arc2D</ref>, <ref refid="classBernoulli" kindref="compound">Bernoulli</ref>, etc...)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if path was added with success or false if not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="70" column="10" bodyfile="src/algorithms/Path.cpp" bodystart="37" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1aa1d5d6fa713b10ad5eb953da97183a6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Path::addSpeedSection</definition>
+        <argsstring>(Speed *speed_section)</argsstring>
+        <name>addSpeedSection</name>
+        <param>
+          <type><ref refid="classSpeed" kindref="compound">Speed</ref> *</type>
+          <declname>speed_section</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>Method to add a speed section to the path </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>speed_section</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A Pointer to a SpeedSection object (can be <ref refid="classConstRabbitSpeed" kindref="compound">ConstRabbitSpeed</ref>, <ref refid="classConstVehicleSpeed" kindref="compound">ConstVehicleSpeed</ref>, ...)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the speed was added with success or false if not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="80" column="10" bodyfile="src/algorithms/Path.cpp" bodystart="166" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a2b93975e199423d840cac7de366588bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::tuple&lt; <ref refid="classPathSection" kindref="compound">PathSection</ref> *, double &gt;</type>
+        <definition>std::tuple&lt; PathSection *, double &gt; Path::getPathSection</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>getPathSection</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the path section corresponding to a given gamma. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="classPathSection" kindref="compound">PathSection</ref> object corresponding to the given gamma and the internal gamma corresponding to that path section </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="90" column="16" bodyfile="src/algorithms/Path.cpp" bodystart="91" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1aee6359127227c488a886276f67e0820c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; Eigen::Vector3d &gt;</type>
+        <definition>std::optional&lt; Eigen::Vector3d &gt; Path::eq_pd</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>eq_pd</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>Method to retrieve the position in the path given the path parameter gamma </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A vector (3x1) with [x(gamma), y(gamma), z(gamma)] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="100" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="323" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1ada92795b8c4bb976e4fd4a6de8f31771" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; Eigen::Vector3d &gt;</type>
+        <definition>std::optional&lt; Eigen::Vector3d &gt; Path::eq_d_pd</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>eq_d_pd</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>Method to retrieve the derivative of the position in the path given the path parameter gamma </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A vector (3x1) with [x_dot(gamma, y_dot(gamma), z_dot(gamma)] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="110" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="347" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1abb8121d90ae9a4df05fb8b6818631af6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; Eigen::Vector3d &gt;</type>
+        <definition>std::optional&lt; Eigen::Vector3d &gt; Path::eq_dd_pd</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>eq_dd_pd</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>Method to retrieve the second derivative of the position in the path given the path parameter gamma </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A vector (3x1) with [x_ddot(gamma), y_ddot(gamma), z_ddot(gamma)] </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="120" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="371" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a9c7755eaf564386d52391bc42aac43e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; Path::tangent</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>tangent</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>Get the tangent to the path, given the gamma parameter </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the tangent size <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="129" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="395" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a5c31f062b70f4304385d72b7865895a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; Path::curvature</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>curvature</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>The curvature of the path, given the gamma parameter </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the curvature of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="138" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="418" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a72b33276dc06a28e590fe29c774cce14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; Path::derivative_norm</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>derivative_norm</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para><itemizedlist>
+<listitem><para>The norm of the derivative of the path </para>
+</listitem></itemizedlist>
+</para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the norm of the derivative of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="147" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="441" bodyend="462"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a420f53aa7ecb807b2e004556ff35a26f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; Path::eq_vd</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>eq_vd</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the desired speed profile for a particular part of the path given the path parameter gamma. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the value of vd </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="157" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="187" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a7494a3bf59001a8db017d65e8d012470" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; Path::eq_d_vd</definition>
+        <argsstring>(double gamma)</argsstring>
+        <name>eq_d_vd</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the desired acceleration profile for a paritcular part of the path given the path parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A double with the path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the valud of d_vd </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="166" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="256" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a44594e858ab8b922a9e7055b5d008ea1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; double, double &gt;</type>
+        <definition>std::pair&lt; double, double &gt; Path::getMinMaxGamma</definition>
+        <argsstring>()</argsstring>
+        <name>getMinMaxGamma</name>
+        <briefdescription>
+<para>Method to retrieve the minimum and maximum gamma values allowed for the current path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to return the minimum and maximum value that gamma can achive in the path.</para>
+<para><simplesect kind="return"><para>A pair with 2 doubles with the first being the minimum value and the second the maximum value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="175" column="15" bodyfile="src/algorithms/Path.cpp" bodystart="563" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="classPath_1a3efe44f1d0c2b1b70538bc7b5d1797b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; double &gt;</type>
+        <definition>std::optional&lt; double &gt; Path::getClosestGamma</definition>
+        <argsstring>(Eigen::Vector3d &amp;coordinate)</argsstring>
+        <name>getClosestGamma</name>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the gamma corresponding to the closest point on the path, relative to the coordinate passed as argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The coordinate of the vehicle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the gamma of the path corresponding to the closest point on the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="186" column="19" bodyfile="src/algorithms/Path.cpp" bodystart="467" bodyend="556"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPath_1ae775d0a88d1a006c01f2277b2eb18ada" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Path::getIndexOfSection</definition>
+        <argsstring>(double gamma, int left, int right)</argsstring>
+        <name>getIndexOfSection</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+<para>Auxiliar method that implements binary search to get the index in the vector that contains the section respective to the given gamma. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Since this method implements a binary search, in the worst case scenario the cost is O(log(n))</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>left</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The int with the left index on the vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>right</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The int with the right index on the vector</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The index on the vector where we can find the path section corresponding to the given vector. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Path.h" line="226" column="9" bodyfile="src/algorithms/Path.cpp" bodystart="142" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classPath" kindref="compound">Path</ref> class! This class implements all the meethod to get the desired position, derivative, second derivatives, tangent, curvature and derivative norm. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class stores a list of sections, and switches between sections based on the gamma value passed to the functions</para>
+<para>This class has the option to have a single section (for example, appropriate for a <ref refid="classBernoulli" kindref="compound">Bernoulli</ref>) and the option to have multiple section (for example, lines and arcs to make lawnmowers) <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/Path.h" line="38" column="11" bodyfile="include/algorithms/Path.h" bodystart="38" bodyend="249"/>
+    <listofallmembers>
+      <member refid="classPath_1a4e669479c9ea6049ef5d4656ddc90444" prot="public" virt="non-virtual"><scope>Path</scope><name>addPathSection</name></member>
+      <member refid="classPath_1aa1d5d6fa713b10ad5eb953da97183a6f" prot="public" virt="non-virtual"><scope>Path</scope><name>addSpeedSection</name></member>
+      <member refid="classPath_1a5c31f062b70f4304385d72b7865895a2" prot="public" virt="non-virtual"><scope>Path</scope><name>curvature</name></member>
+      <member refid="classPath_1a72b33276dc06a28e590fe29c774cce14" prot="public" virt="non-virtual"><scope>Path</scope><name>derivative_norm</name></member>
+      <member refid="classPath_1ada92795b8c4bb976e4fd4a6de8f31771" prot="public" virt="non-virtual"><scope>Path</scope><name>eq_d_pd</name></member>
+      <member refid="classPath_1a7494a3bf59001a8db017d65e8d012470" prot="public" virt="non-virtual"><scope>Path</scope><name>eq_d_vd</name></member>
+      <member refid="classPath_1abb8121d90ae9a4df05fb8b6818631af6" prot="public" virt="non-virtual"><scope>Path</scope><name>eq_dd_pd</name></member>
+      <member refid="classPath_1aee6359127227c488a886276f67e0820c" prot="public" virt="non-virtual"><scope>Path</scope><name>eq_pd</name></member>
+      <member refid="classPath_1a420f53aa7ecb807b2e004556ff35a26f" prot="public" virt="non-virtual"><scope>Path</scope><name>eq_vd</name></member>
+      <member refid="classPath_1af863c1c631cfb84c3f832ec590cb881e" prot="private" virt="non-virtual"><scope>Path</scope><name>first_check_on_closest_point_</name></member>
+      <member refid="classPath_1a9636c9e7906a4fee4a6eeef7cb6bdec5" prot="private" virt="non-virtual"><scope>Path</scope><name>gamma_closest_point_</name></member>
+      <member refid="classPath_1a3efe44f1d0c2b1b70538bc7b5d1797b4" prot="public" virt="non-virtual"><scope>Path</scope><name>getClosestGamma</name></member>
+      <member refid="classPath_1ae775d0a88d1a006c01f2277b2eb18ada" prot="private" virt="non-virtual"><scope>Path</scope><name>getIndexOfSection</name></member>
+      <member refid="classPath_1a44594e858ab8b922a9e7055b5d008ea1" prot="public" virt="non-virtual"><scope>Path</scope><name>getMinMaxGamma</name></member>
+      <member refid="classPath_1a2b93975e199423d840cac7de366588bb" prot="public" virt="non-virtual"><scope>Path</scope><name>getPathSection</name></member>
+      <member refid="classPath_1a49d5f857541db793dc8e368bdb07fbf0" prot="private" virt="non-virtual"><scope>Path</scope><name>index_section_smallest_error_</name></member>
+      <member refid="classPath_1ab1a8e985c909ab25bc5a570482fdc496" prot="public" virt="non-virtual"><scope>Path</scope><name>isEmpty</name></member>
+      <member refid="classPath_1af26cfab021ddf49af73da3b2beca85ac" prot="public" virt="non-virtual"><scope>Path</scope><name>Path</name></member>
+      <member refid="classPath_1af78fdfd568415c2dd81b31611f513675" prot="public" virt="non-virtual"><scope>Path</scope><name>sections_</name></member>
+      <member refid="classPath_1aad10e999d6979401a3a1421263065722" prot="private" virt="non-virtual"><scope>Path</scope><name>sections_limits_</name></member>
+      <member refid="classPath_1ae42d352559fe59b970ad69071bf7855a" prot="private" virt="non-virtual"><scope>Path</scope><name>speeds_</name></member>
+      <member refid="classPath_1a9c7755eaf564386d52391bc42aac43e4" prot="public" virt="non-virtual"><scope>Path</scope><name>tangent</name></member>
+      <member refid="classPath_1a4b97ff2722934c42b3ca5d8791c40935" prot="private" virt="non-virtual"><scope>Path</scope><name>type_of_path_</name></member>
+      <member refid="classPath_1a141da9ff89c85e0ba410b5a73864c267" prot="public" virt="non-virtual"><scope>Path</scope><name>~Path</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

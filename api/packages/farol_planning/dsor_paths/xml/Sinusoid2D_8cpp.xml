@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Sinusoid2D_8cpp" kind="file" language="C++">
+    <compoundname>Sinusoid2D.cpp</compoundname>
+    <includes refid="Sinusoid2D_8h" local="yes">Sinusoid2D.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/path_sections/Sinusoid2D.cpp</label>
+        <link refid="Sinusoid2D_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Sinusoid2D.h</label>
+        <link refid="Sinusoid2D_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>PathSection.h</label>
+        <link refid="PathSection_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Sinusoid2D.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classSinusoid2D_1a8beee190e24730c9af708109903ef12d" kindref="member">Sinusoid2D::Sinusoid2D</ref>(Eigen::Vector2d<sp/>&amp;offset,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z)<sp/>:<sp/><ref refid="classPathSection" kindref="compound">PathSection</ref>(true)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><ref refid="classSinusoid2D_1a8beee190e24730c9af708109903ef12d" kindref="member">Sinusoid2D::Sinusoid2D</ref>(Eigen::Vector2d<sp/>&amp;offset)<sp/>:<sp/><ref refid="classSinusoid2D" kindref="compound">Sinusoid2D</ref>(offset,<sp/>0.0)<sp/>{}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classSinusoid2D_1a9f05f846dc06ace8a3ccda0717107bb3" kindref="member">Sinusoid2D::eq_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classSinusoid2D_1aa554e940eba4cf385c203a9ae1603d43" kindref="member">Sinusoid2D::eq_d_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0);<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classSinusoid2D_1abee5b7979ae92c1a556f62681d86e45a" kindref="member">Sinusoid2D::eq_dd_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classSinusoid2D_1a2ef2ceba0d4be9117e152f1d4f95157e" kindref="member">Sinusoid2D::getClosestPointGamma</ref>(Eigen::Vector3d<sp/>&amp;coordinate)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/path_sections/Sinusoid2D.cpp"/>
+  </compounddef>
+</doxygen>

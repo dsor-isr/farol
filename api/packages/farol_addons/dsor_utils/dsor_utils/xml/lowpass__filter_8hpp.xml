@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="lowpass__filter_8hpp" kind="file" language="C++">
+    <compoundname>lowpass_filter.hpp</compoundname>
+    <includes refid="digital__filter_8hpp" local="yes">digital_filter.hpp</includes>
+    <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>stdexcept</label>
+      </node>
+      <node id="1">
+        <label>include/dsor_utils/filters/lowpass_filter.hpp</label>
+        <link refid="lowpass__filter_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cstdlib</label>
+      </node>
+      <node id="2">
+        <label>digital_filter.hpp</label>
+        <link refid="digital__filter_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>dsor_utils/data_structures/circular_buffer.hpp</label>
+        <link refid="circular__buffer_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classLowPassFilter" prot="public">LowPassFilter</innerclass>
+    <innerclass refid="classLowPassFilter2" prot="public">LowPassFilter2</innerclass>
+    <innerclass refid="classLowPassFilter3" prot="public">LowPassFilter3</innerclass>
+    <innerclass refid="classLowPassFilter3MatchedZ" prot="public">LowPassFilter3MatchedZ</innerclass>
+    <innerclass refid="classLowPassFilter3DiffApprox" prot="public">LowPassFilter3DiffApprox</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="13"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;digital_filter.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classLowPassFilter" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLowPassFilter" kindref="compound">LowPassFilter</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref>&lt;float&gt;<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classLowPassFilter_1a784fd0cdf178fcb52aed9a684abf48f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLowPassFilter_1a784fd0cdf178fcb52aed9a684abf48f4" kindref="member">LowPassFilter</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>idt,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>omega_c,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ioutput<sp/>=<sp/>0):</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>epow(exp(-idt<sp/>*<sp/>omega_c)),<sp/>dt(idt),<sp/>output(ioutput)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(omega_c<sp/>&lt;<sp/>idt){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::domain_error(</highlight><highlight class="stringliteral">&quot;LowPassFilter<sp/>constructor<sp/>error:<sp/>tua_c<sp/>is<sp/>smaller<sp/>than<sp/>the<sp/>sample<sp/>time<sp/>dt.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classLowPassFilter_1a797ed50371cde65adff8aa4bb54f02ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter_1a797ed50371cde65adff8aa4bb54f02ed" kindref="member">update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newValue)<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output<sp/>=<sp/>(output-newValue)<sp/>*<sp/>epow<sp/>+<sp/>newValue;<sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classLowPassFilter_1a74ca69ff19bd6e8c24ba760f4eb791b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter_1a74ca69ff19bd6e8c24ba760f4eb791b6" kindref="member">getOutput</ref>()<sp/>final{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output;<sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classLowPassFilter_1a801535d71982a9f1d59144615725fd94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter_1a801535d71982a9f1d59144615725fd94" kindref="member">configOutput</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newOutput){<sp/>output<sp/>=<sp/>newOutput;<sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>outputPointer(){</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;output;}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>epow;<sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>output;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classLowPassFilter2" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLowPassFilter2" kindref="compound">LowPassFilter2</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref>&lt;float&gt;<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="classLowPassFilter2_1a1f5429b71eeb2b2d4777e2cb034c4b9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLowPassFilter2_1a1f5429b71eeb2b2d4777e2cb034c4b9d" kindref="member">LowPassFilter2</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tau_c,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ioutput<sp/>=<sp/>0):</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yc<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-2<sp/>*<sp/>(tps::pow(dt,<sp/>2)<sp/>-<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2))<sp/>/<sp/>(tps::pow(dt,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sqrt(2)<sp/>*<sp/>tau_c<sp/>*<sp/>dt<sp/>+<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2)),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(-tps::pow(dt,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sqrt(2)<sp/>*<sp/>tau_c<sp/>*<sp/>dt<sp/>-<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2))<sp/>/<sp/>(tps::pow(dt,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sqrt(2)<sp/>*<sp/>tau_c<sp/>*<sp/>dt<sp/>+<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2))</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xc<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tps::pow(dt,<sp/>2)<sp/>/<sp/>(tps::pow(dt,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sqrt(2)<sp/>*<sp/>tau_c<sp/>*<sp/>dt<sp/>+<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2)),</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2<sp/>*<sp/>tps::pow(dt,<sp/>2)<sp/>/<sp/>(tps::pow(dt,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sqrt(2)<sp/>*<sp/>tau_c<sp/>*<sp/>dt<sp/>+<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2)),</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tps::pow(dt,<sp/>2)<sp/>/<sp/>(tps::pow(dt,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sqrt(2)<sp/>*<sp/>tau_c<sp/>*<sp/>dt<sp/>+<sp/>4<sp/>*<sp/>tps::pow(tau_c,<sp/>2))</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tau_c<sp/>&lt;<sp/>M_PI<sp/>*<sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::domain_error(</highlight><highlight class="stringliteral">&quot;LowPassFilter<sp/>constructor<sp/>error:<sp/>tua_c<sp/>is<sp/>smaller<sp/>than<sp/>the<sp/>sample<sp/>time<sp/>dt.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="classLowPassFilter2_1ae797151cf9521885d8961ecc73b3cab5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter2_1ae797151cf9521885d8961ecc73b3cab5" kindref="member">update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newValue)<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(newValue);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>output<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output<sp/>+=<sp/>y.<ref refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kindref="member">get</ref>(i)<sp/>*<sp/>yc[i];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>3;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output<sp/>+=<sp/>x.<ref refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kindref="member">get</ref>(i)<sp/>*<sp/>xc[i];</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(output);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classLowPassFilter2_1a9a923d114a00f7eeb65eaa59051999b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter2_1a9a923d114a00f7eeb65eaa59051999b4" kindref="member">getOutput</ref>()<sp/>final{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kindref="member">get</ref>(0);<sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="classLowPassFilter2_1a1472b711b343cdb9abe43cdbb6454efa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter2_1a1472b711b343cdb9abe43cdbb6454efa" kindref="member">configOutput</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newOutput)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>it<sp/>:<sp/>x)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>=<sp/>newOutput;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>it<sp/>:<sp/>y)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>=<sp/>newOutput;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>yc[2];</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xc[3];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 2&gt;</ref><sp/>y;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 3&gt;</ref><sp/>x;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="classLowPassFilter3" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLowPassFilter3" kindref="compound">LowPassFilter3</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref>&lt;float&gt;<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="classLowPassFilter3_1a2c2ecd2c2ed1aa715024679ce4ed5ffe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLowPassFilter3_1a2c2ecd2c2ed1aa715024679ce4ed5ffe" kindref="member">LowPassFilter3</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sampleTime,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>omega_c,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ioutput<sp/>=<sp/>0):</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yc<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)((3<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>-<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>-<sp/>24)</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)((3<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>-<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>-<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>24)</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)((1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>-<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>-<sp/>8)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xc<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)(3<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)(3<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>4<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>8<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>8))</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(omega_c<sp/>&lt;<sp/>sampleTime){</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::domain_error(</highlight><highlight class="stringliteral">&quot;LowPassFilter<sp/>constructor<sp/>error:<sp/>tua_c<sp/>is<sp/>smaller<sp/>than<sp/>the<sp/>sample<sp/>time<sp/>dt.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="classLowPassFilter3_1ab5be2e12ad780ccd292400ec03f0b7c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter3_1ab5be2e12ad780ccd292400ec03f0b7c1" kindref="member">update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newValue)<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(newValue);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y0<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>floatP<sp/>=<sp/>xc;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>x.rbegin();<sp/>it<sp/>!=<sp/>x.rend();<sp/>it++)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y0<sp/>+=<sp/>*it<sp/>*<sp/>*floatP++;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>floatP<sp/>=<sp/>yc<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>y.rbegin();<sp/>it<sp/>!=<sp/>y.rend();<sp/>it++)<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y0<sp/>-=<sp/>*it<sp/>*<sp/>*floatP++;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(yc[0]<sp/>*<sp/>y0);</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="classLowPassFilter3_1a96bd875fd986c78fb663c0bac6f4167f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter3_1a96bd875fd986c78fb663c0bac6f4167f" kindref="member">getOutput</ref>()<sp/>final{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kindref="member">get</ref>(0);<sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>yc[4];</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xc[4];</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 3&gt;</ref><sp/>y;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 4&gt;</ref><sp/>x;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264" refid="classLowPassFilter3MatchedZ" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLowPassFilter3MatchedZ" kindref="compound">LowPassFilter3MatchedZ</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref>&lt;float&gt;<sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274" refid="classLowPassFilter3MatchedZ_1a8012061f5743bf2d2a00318131a1dd2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLowPassFilter3MatchedZ_1a8012061f5743bf2d2a00318131a1dd2e" kindref="member">LowPassFilter3MatchedZ</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sampleTime,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>omega_c):</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>amplFac(-(2*(expl(3<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime)<sp/>-<sp/>expl(2<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime))*cosl(sqrtl(3)<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime<sp/>/<sp/>2)<sp/>-<sp/>expl(7<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime<sp/>/<sp/>2)<sp/>+<sp/>expl(3<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime<sp/>/<sp/>2))*expl(-7<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime<sp/>/<sp/>2)),</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yc<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)(-(2<sp/>*<sp/>cosl(sqrtl(3)<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime<sp/>/<sp/>2)<sp/>*<sp/>expl(omega_c<sp/>*<sp/>sampleTime<sp/>*<sp/>5<sp/>/<sp/>2)<sp/>+<sp/>expl(2<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime))<sp/>*<sp/>expl(-3<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime))</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)((2<sp/>*<sp/>cosl(sqrtl(3)<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime<sp/>/<sp/>2)<sp/>*<sp/>expl(omega_c<sp/>*<sp/>sampleTime<sp/>*<sp/>3<sp/>/<sp/>2)<sp/>+<sp/>expl(2<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime))<sp/>*<sp/>expl(-3<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime))</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)(-expl(-2<sp/>*<sp/>omega_c<sp/>*<sp/>sampleTime))</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(omega_c<sp/>/<sp/>(2<sp/>*<sp/>M_PI)<sp/>&lt;<sp/>sampleTime){</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::domain_error(</highlight><highlight class="stringliteral">&quot;LowPassFilter3MatchedZ<sp/>constructor<sp/>error:<sp/>tua_c<sp/>is<sp/>smaller<sp/>than<sp/>the<sp/>sample<sp/>time<sp/>dt.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296" refid="classLowPassFilter3MatchedZ_1afa8d5c3dc0df055a76a94fe9927e8a0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter3MatchedZ_1afa8d5c3dc0df055a76a94fe9927e8a0e" kindref="member">update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newValue)<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y0<sp/>=<sp/>newValue<sp/>*<sp/>amplFac;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>floatP<sp/>=<sp/>yc;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>y.rbegin();<sp/>it<sp/>!=<sp/>y.rend();<sp/>it++)</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y0<sp/>-=<sp/>*it<sp/>*<sp/>*floatP++;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(y0);</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311" refid="classLowPassFilter3MatchedZ_1aa1006f717a6bdac2829c2eeb42b58f58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter3MatchedZ_1aa1006f717a6bdac2829c2eeb42b58f58" kindref="member">getOutput</ref>()<sp/>final{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kindref="member">get</ref>(0);<sp/>}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>amplFac;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>yc[3];</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 3&gt;</ref><sp/>y;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325" refid="classLowPassFilter3DiffApprox" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classLowPassFilter3DiffApprox" kindref="compound">LowPassFilter3DiffApprox</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref>&lt;float&gt;<sp/>{</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335" refid="classLowPassFilter3DiffApprox_1af197c3df5682887c92b5277c2d83dcd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classLowPassFilter3DiffApprox_1af197c3df5682887c92b5277c2d83dcd1" kindref="member">LowPassFilter3DiffApprox</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sampleTime,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>omega_c,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ioutput<sp/>=<sp/>0):</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xc<sp/>{</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>yc<sp/>{</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/>/<sp/>(1<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>2<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>1),</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>-<sp/>2<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>-<sp/>4<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>-<sp/>3,</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>+<sp/>0<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>2<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>+<sp/>3,</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>3)<sp/>-<sp/>0<sp/>*<sp/>tps::pow(sampleTime<sp/>*<sp/>omega_c,<sp/>2)<sp/>+<sp/>0<sp/>*<sp/>sampleTime<sp/>*<sp/>omega_c<sp/>-<sp/>1</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(omega_c<sp/>&lt;<sp/>sampleTime){</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::domain_error(</highlight><highlight class="stringliteral">&quot;LowPassFilter<sp/>constructor<sp/>error:<sp/>tua_c<sp/>is<sp/>smaller<sp/>than<sp/>the<sp/>sample<sp/>time<sp/>dt.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364" refid="classLowPassFilter3DiffApprox_1a52edbdfa6d8fcd642b9cc8b606c3514f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter3DiffApprox_1a52edbdfa6d8fcd642b9cc8b606c3514f" kindref="member">update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>newValue)<sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(newValue);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y0<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>floatP<sp/>=<sp/>xc;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>x.rbegin();<sp/>it<sp/>!=<sp/>x.rend();<sp/>it++)<sp/>{</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y0<sp/>+=<sp/>*it<sp/>*<sp/>*floatP++;</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>floatP<sp/>=<sp/>yc<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/>y.rbegin();<sp/>it<sp/>!=<sp/>y.rend();<sp/>it++)<sp/>{</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y0<sp/>-=<sp/>*it<sp/>*<sp/>*floatP++;</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kindref="member">push</ref>(yc[0]<sp/>*<sp/>y0);</highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387" refid="classLowPassFilter3DiffApprox_1af6f5b8285fbfd7ee3076816cf28b4f7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classLowPassFilter3DiffApprox_1af6f5b8285fbfd7ee3076816cf28b4f7e" kindref="member">getOutput</ref>()<sp/>final{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y.<ref refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kindref="member">get</ref>(0);<sp/>}</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight></codeline>
+<codeline lineno="391"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xc[4];</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>yc[4];</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"></highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 3&gt;</ref><sp/>y;</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classCircularDelay" kindref="compound">CircularDelay&lt;float, 4&gt;</ref><sp/>x;</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"></highlight></codeline>
+<codeline lineno="397"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="include/dsor_utils/filters/lowpass_filter.hpp"/>
+  </compounddef>
+</doxygen>

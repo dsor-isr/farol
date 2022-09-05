@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classHighPassFilter3" kind="class" language="C++" prot="public">
+    <compoundname>HighPassFilter3</compoundname>
+    <basecompoundref refid="classDigitalFilter" prot="public" virt="non-virtual">DigitalFilter&lt; float &gt;</basecompoundref>
+    <includes refid="highpass__filter_8hpp" local="no">highpass_filter.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classHighPassFilter3_1a3264fcb811b50c7087367ee20a9b958a" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float HighPassFilter3::xc[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>xc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="145" column="21" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHighPassFilter3_1a1ad241861031802ee7d14d5100275985" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float HighPassFilter3::yc[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>yc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="146" column="21" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHighPassFilter3_1a5aadbfc2c7288c38ae9f3d9b6fa4a66c" prot="private" static="no" mutable="no">
+        <type><ref refid="classCircularDelay" kindref="compound">CircularDelay</ref>&lt; float, 3 &gt;</type>
+        <definition>CircularDelay&lt;float, 3&gt; HighPassFilter3::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="148" column="23" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHighPassFilter3_1a16d14974baf74a0dfddf078da4c99a11" prot="private" static="no" mutable="no">
+        <type><ref refid="classCircularDelay" kindref="compound">CircularDelay</ref>&lt; float, 4 &gt;</type>
+        <definition>CircularDelay&lt;float, 4&gt; HighPassFilter3::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="149" column="23" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classHighPassFilter3_1a5e785da80f220ea6a840a1e751bb9cb9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HighPassFilter3::HighPassFilter3</definition>
+        <argsstring>(float sampleTime, float omega_c, float ioutput=0)</argsstring>
+        <name>HighPassFilter3</name>
+        <param>
+          <type>float</type>
+          <declname>sampleTime</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>omega_c</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ioutput</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor to set sample time and the tau constant. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample time for the low pass filter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">omega_c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cutoff angular frequency <formula id="0">$ \omega_c = 2 pi f_c$</formula> where <formula id="1">$ f_c $</formula> is the cutoff frequency </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="96" column="9" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="96" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classHighPassFilter3_1a6d2debd366200e31720dc54aaa2a972f" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float HighPassFilter3::update</definition>
+        <argsstring>(float newValue) final</argsstring>
+        <name>update</name>
+        <reimplements refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac">update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Update function to push new value into the low pass filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value after dt time</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new output value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="117" column="15" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="117" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classHighPassFilter3_1a7dcd14b2d7dbae4440d1a3f7e8513713" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float HighPassFilter3::getOutput</definition>
+        <argsstring>() final</argsstring>
+        <name>getOutput</name>
+        <reimplements refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd">getOutput</reimplements>
+        <briefdescription>
+<para>Gets the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/highpass_filter.hpp" line="141" column="15" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="141" bodyend="141"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for third order high pass filter. This is designed using the bilinear transform. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+      <node id="1">
+        <label>HighPassFilter3</label>
+        <link refid="classHighPassFilter3"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+      <node id="1">
+        <label>HighPassFilter3</label>
+        <link refid="classHighPassFilter3"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/dsor_utils/filters/highpass_filter.hpp" line="86" column="44" bodyfile="include/dsor_utils/filters/highpass_filter.hpp" bodystart="86" bodyend="151"/>
+    <listofallmembers>
+      <member refid="classHighPassFilter3_1a7dcd14b2d7dbae4440d1a3f7e8513713" prot="public" virt="virtual"><scope>HighPassFilter3</scope><name>getOutput</name></member>
+      <member refid="classHighPassFilter3_1a5e785da80f220ea6a840a1e751bb9cb9" prot="public" virt="non-virtual"><scope>HighPassFilter3</scope><name>HighPassFilter3</name></member>
+      <member refid="classHighPassFilter3_1a6d2debd366200e31720dc54aaa2a972f" prot="public" virt="virtual"><scope>HighPassFilter3</scope><name>update</name></member>
+      <member refid="classHighPassFilter3_1a16d14974baf74a0dfddf078da4c99a11" prot="private" virt="non-virtual"><scope>HighPassFilter3</scope><name>x</name></member>
+      <member refid="classHighPassFilter3_1a3264fcb811b50c7087367ee20a9b958a" prot="private" virt="non-virtual"><scope>HighPassFilter3</scope><name>xc</name></member>
+      <member refid="classHighPassFilter3_1a5aadbfc2c7288c38ae9f3d9b6fa4a66c" prot="private" virt="non-virtual"><scope>HighPassFilter3</scope><name>y</name></member>
+      <member refid="classHighPassFilter3_1a1ad241861031802ee7d14d5100275985" prot="private" virt="non-virtual"><scope>HighPassFilter3</scope><name>yc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,592 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classCpfNode" kind="class" language="C++" prot="public">
+    <compoundname>CpfNode</compoundname>
+    <includes refid="CpfNode_8h" local="no">CpfNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCpfNode_1adcdd5bf7bb523d370c293dfb8617a352" prot="private" static="no" mutable="no">
+        <type>Eigen::MatrixXi</type>
+        <definition>Eigen::MatrixXi CpfNode::adjency_matrix_</definition>
+        <argsstring></argsstring>
+        <name>adjency_matrix_</name>
+        <briefdescription>
+<para>Pointer to the CPF algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="59" column="21" bodyfile="include/ros/CpfNode.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1ab5df5705f11aa0b704082e43e7c15b9d" prot="private" static="no" mutable="no">
+        <type><ref refid="classCPFControl" kindref="compound">CPFControl</ref> *</type>
+        <definition>CPFControl* CpfNode::cooperative_</definition>
+        <argsstring></argsstring>
+        <name>cooperative_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="60" column="17" bodyfile="include/ros/CpfNode.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1aee7b1be81ecc00bd5fe8777c2d9cacc2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CpfNode::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Temporary variables for this vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="65" column="12" bodyfile="include/ros/CpfNode.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1adefb8f971a929678f5b7885204b06192" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double CpfNode::vd_</definition>
+        <argsstring></argsstring>
+        <name>vd_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="66" column="12" bodyfile="include/ros/CpfNode.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1a834aa8e7cc97280a3cad0dda2f094ee3" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int CpfNode::ID_</definition>
+        <argsstring></argsstring>
+        <name>ID_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>The ID of this vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="71" column="18" bodyfile="include/ros/CpfNode.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1a64ef3471855dfd60453a29c0c7269ee2" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int CpfNode::seq_</definition>
+        <argsstring></argsstring>
+        <name>seq_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+<para>The sequence counter for the messages sent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="76" column="18" bodyfile="include/ros/CpfNode.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1ab56c4105599360f15c26e933fb65e0f4" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle CpfNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+<para>ROS node handles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="81" column="21" bodyfile="include/ros/CpfNode.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1a747a863d9d6c2a1b9ab4fca71e96f470" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle CpfNode::nh_p_</definition>
+        <argsstring></argsstring>
+        <name>nh_p_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="82" column="21" bodyfile="include/ros/CpfNode.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1ad6f59d62a3dc34b5760038236c4386c9" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber CpfNode::external_gamma_sub_</definition>
+        <argsstring></argsstring>
+        <name>external_gamma_sub_</name>
+        <briefdescription>
+<para>ROS subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="87" column="21" bodyfile="include/ros/CpfNode.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1aeffa60d99c2bf91b55258dd858752487" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber CpfNode::internal_gamma_sub_</definition>
+        <argsstring></argsstring>
+        <name>internal_gamma_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="88" column="21" bodyfile="include/ros/CpfNode.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1ab789db0dd3016393c85d3b711c01dab2" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher CpfNode::vc_pub_</definition>
+        <argsstring></argsstring>
+        <name>vc_pub_</name>
+        <briefdescription>
+<para>ROS publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="93" column="20" bodyfile="include/ros/CpfNode.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1ab599957d525d18d4c732e9df2b7ab9f2" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher CpfNode::cpf_server_pub_</definition>
+        <argsstring></argsstring>
+        <name>cpf_server_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="94" column="20" bodyfile="include/ros/CpfNode.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1a54f1a8dece6f162caf957cd392d29116" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer CpfNode::startCPF_srv_</definition>
+        <argsstring></argsstring>
+        <name>startCPF_srv_</name>
+        <briefdescription>
+<para>ROS services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="99" column="24" bodyfile="include/ros/CpfNode.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1acc1203ba9129281fa980269bfed2f52a" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer CpfNode::stopCPF_srv_</definition>
+        <argsstring></argsstring>
+        <name>stopCPF_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="100" column="24" bodyfile="include/ros/CpfNode.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1a5a3506fc5984b97667ea09b4f9c6635a" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer CpfNode::change_topology_srv_</definition>
+        <argsstring></argsstring>
+        <name>change_topology_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="101" column="24" bodyfile="include/ros/CpfNode.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCpfNode_1a77c496ca4dc3469f5b54e79802c88661" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer CpfNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>ROS timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="106" column="16" bodyfile="include/ros/CpfNode.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCpfNode_1a1b7f752478d2daf72f9c5a1df2955777" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CpfNode::CpfNode</definition>
+        <argsstring>(ros::NodeHandle *nh, ros::NodeHandle *nh_p)</argsstring>
+        <name>CpfNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh_p</declname>
+        </param>
+        <briefdescription>
+<para>The constructor for the Cooperative control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for the <ref refid="classCpfNode" kindref="compound">CpfNode</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The public nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private nodehandle</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the public nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the private nodehandle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="46" column="5" bodyfile="src/ros/CpfNode.cpp" bodystart="9" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1ac34df7e37019f3f4d726563707b2df5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CpfNode::~CpfNode</definition>
+        <argsstring>()</argsstring>
+        <name>~CpfNode</name>
+        <briefdescription>
+<para>Destructor for the CPF Node. Here all the subscribers, publishers and timers are shutdown. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor for the <ref refid="classCpfNode" kindref="compound">CpfNode</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="52" column="5" bodyfile="src/ros/CpfNode.cpp" bodystart="25" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classCpfNode_1a147f28b8e5b83ffe719e317466267fec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double CpfNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>ROS initializations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to retrieve the working frequency of this node.</para>
+<para><simplesect kind="return"><para>A double with the frequency of the node </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="110" column="12" bodyfile="src/ros/CpfNode.cpp" bodystart="147" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a81dcd7d31c1c14882347ca348cc9657c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Method to initialize all the subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="111" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="106" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a63a93a01cb4c9add270ca308ed20b38e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Method to initialize all the publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="112" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="121" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a3d4088fb118c08b4ea4d5cd94f4cbc80" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>Method to initialize all the services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="113" column="10" bodyfile="src/ros/CpfServices.cpp" bodystart="6" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a729642f95f5882c4f055ad619df64773" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Method to create the timer that will do all the work. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="114" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a3f63b097ebff5843029323bfe79f5e16" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classCPFControl" kindref="compound">CPFControl</ref> *</type>
+        <definition>CPFControl * CpfNode::createEventTriggeredControl</definition>
+        <argsstring>()</argsstring>
+        <name>createEventTriggeredControl</name>
+        <briefdescription>
+<para>Auxiliar method to instantiate the default CPF controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="119" column="17" bodyfile="src/ros/CpfNode.cpp" bodystart="47" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1adb7f54b2a219aceac669955dbede1ac7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CpfNode::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Auxiliar method to stop the cpf controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to stop the current path following algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="124" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="87" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1acd4858c06204d90529fa828d996285bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::timerIterCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerIterCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Callback where all the logic is located. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback for the timer interruption. Where all the logic of the algorithms is executed with a fixed period.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer event (unused) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="129" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="160" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a515b72ec3b2158ee0e44ba7516a243e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::externalInfoCallback</definition>
+        <argsstring>(const farol_msgs::CPFGamma &amp;msg)</argsstring>
+        <name>externalInfoCallback</name>
+        <param>
+          <type>const farol_msgs::CPFGamma &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback for receiving the external vehicle data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="134" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="194" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a26e70f739fb96c332939526e50905b75" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CpfNode::internalInfoCallback</definition>
+        <argsstring>(const dsor_paths::PathData &amp;msg)</argsstring>
+        <name>internalInfoCallback</name>
+        <param>
+          <type>const dsor_paths::PathData &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback for receiving the data from this vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="139" column="10" bodyfile="src/ros/CpfNode.cpp" bodystart="214" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1af0baf2371f860f57dc20e5b62c4168c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CpfNode::StartService</definition>
+        <argsstring>(cpf_control::StartStop::Request &amp;req, cpf_control::StartStop::Response &amp;res)</argsstring>
+        <name>StartService</name>
+        <param>
+          <type>cpf_control::StartStop::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>cpf_control::StartStop::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Services callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="144" column="10" bodyfile="src/ros/CpfServices.cpp" bodystart="21" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1a5183bc11e1dcd633522538dceb90cb05" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CpfNode::StopService</definition>
+        <argsstring>(cpf_control::StartStop::Request &amp;req, cpf_control::StartStop::Response &amp;res)</argsstring>
+        <name>StopService</name>
+        <param>
+          <type>cpf_control::StartStop::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>cpf_control::StartStop::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="145" column="10" bodyfile="src/ros/CpfServices.cpp" bodystart="44" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classCpfNode_1ab9d450d7263147c73d096c6533a398e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CpfNode::ChangeTopologyService</definition>
+        <argsstring>(cpf_control::ChangeTopology::Request &amp;req, cpf_control::ChangeTopology::Response &amp;res)</argsstring>
+        <name>ChangeTopologyService</name>
+        <param>
+          <type>cpf_control::ChangeTopology::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>cpf_control::ChangeTopology::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/CpfNode.h" line="146" column="10" bodyfile="src/ros/CpfServices.cpp" bodystart="61" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ROS node to actually do the Cooperative Control. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/ros/CpfNode.h" line="37" column="14" bodyfile="include/ros/CpfNode.h" bodystart="37" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classCpfNode_1adcdd5bf7bb523d370c293dfb8617a352" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>adjency_matrix_</name></member>
+      <member refid="classCpfNode_1a5a3506fc5984b97667ea09b4f9c6635a" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>change_topology_srv_</name></member>
+      <member refid="classCpfNode_1ab9d450d7263147c73d096c6533a398e4" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>ChangeTopologyService</name></member>
+      <member refid="classCpfNode_1ab5df5705f11aa0b704082e43e7c15b9d" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>cooperative_</name></member>
+      <member refid="classCpfNode_1ab599957d525d18d4c732e9df2b7ab9f2" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>cpf_server_pub_</name></member>
+      <member refid="classCpfNode_1a1b7f752478d2daf72f9c5a1df2955777" prot="public" virt="non-virtual"><scope>CpfNode</scope><name>CpfNode</name></member>
+      <member refid="classCpfNode_1a3f63b097ebff5843029323bfe79f5e16" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>createEventTriggeredControl</name></member>
+      <member refid="classCpfNode_1ad6f59d62a3dc34b5760038236c4386c9" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>external_gamma_sub_</name></member>
+      <member refid="classCpfNode_1a515b72ec3b2158ee0e44ba7516a243e0" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>externalInfoCallback</name></member>
+      <member refid="classCpfNode_1aee7b1be81ecc00bd5fe8777c2d9cacc2" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>gamma_</name></member>
+      <member refid="classCpfNode_1a834aa8e7cc97280a3cad0dda2f094ee3" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>ID_</name></member>
+      <member refid="classCpfNode_1a63a93a01cb4c9add270ca308ed20b38e" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>initializePublishers</name></member>
+      <member refid="classCpfNode_1a3d4088fb118c08b4ea4d5cd94f4cbc80" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>initializeServices</name></member>
+      <member refid="classCpfNode_1a81dcd7d31c1c14882347ca348cc9657c" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classCpfNode_1a729642f95f5882c4f055ad619df64773" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>initializeTimer</name></member>
+      <member refid="classCpfNode_1aeffa60d99c2bf91b55258dd858752487" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>internal_gamma_sub_</name></member>
+      <member refid="classCpfNode_1a26e70f739fb96c332939526e50905b75" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>internalInfoCallback</name></member>
+      <member refid="classCpfNode_1ab56c4105599360f15c26e933fb65e0f4" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>nh_</name></member>
+      <member refid="classCpfNode_1a747a863d9d6c2a1b9ab4fca71e96f470" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>nh_p_</name></member>
+      <member refid="classCpfNode_1a147f28b8e5b83ffe719e317466267fec" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>nodeFrequency</name></member>
+      <member refid="classCpfNode_1a64ef3471855dfd60453a29c0c7269ee2" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>seq_</name></member>
+      <member refid="classCpfNode_1a54f1a8dece6f162caf957cd392d29116" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>startCPF_srv_</name></member>
+      <member refid="classCpfNode_1af0baf2371f860f57dc20e5b62c4168c0" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>StartService</name></member>
+      <member refid="classCpfNode_1adb7f54b2a219aceac669955dbede1ac7" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>stop</name></member>
+      <member refid="classCpfNode_1acc1203ba9129281fa980269bfed2f52a" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>stopCPF_srv_</name></member>
+      <member refid="classCpfNode_1a5183bc11e1dcd633522538dceb90cb05" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>StopService</name></member>
+      <member refid="classCpfNode_1a77c496ca4dc3469f5b54e79802c88661" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>timer_</name></member>
+      <member refid="classCpfNode_1acd4858c06204d90529fa828d996285bd" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>timerIterCallback</name></member>
+      <member refid="classCpfNode_1ab789db0dd3016393c85d3b711c01dab2" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>vc_pub_</name></member>
+      <member refid="classCpfNode_1adefb8f971a929678f5b7885204b06192" prot="private" virt="non-virtual"><scope>CpfNode</scope><name>vd_</name></member>
+      <member refid="classCpfNode_1ac34df7e37019f3f4d726563707b2df5d" prot="public" virt="non-virtual"><scope>CpfNode</scope><name>~CpfNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

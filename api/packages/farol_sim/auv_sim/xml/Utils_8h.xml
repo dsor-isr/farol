@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Utils_8h" kind="file" language="C++">
+    <compoundname>Utils.h</compoundname>
+    <includes local="no">cmath</includes>
+    <includedby refid="AUV_8cpp" local="yes">src/algorithms/AUV.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>cmath</label>
+      </node>
+      <node id="1">
+        <label>include/algorithms/Utils.h</label>
+        <link refid="Utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Utils_8h_1ae2da575d766b8ff1556a908f86418df8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd eulerIntegration</definition>
+        <argsstring>(double dt, const Eigen::VectorXd &amp;state, const Eigen::VectorXd &amp;state_dot)</argsstring>
+        <name>eulerIntegration</name>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>const Eigen::VectorXd &amp;</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>const Eigen::VectorXd &amp;</type>
+          <declname>state_dot</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="Utils_8h_source" kindref="compound">Utils.h</ref> - Implements basic mathematical functions that can be used anywhere. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="version"><para>1.0.0 </para>
+</simplesect>
+<simplesect kind="date"><para>2021/11/12 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT Compute the integral of a state (expressed as an Eigen::Vector) using Euler&apos;s method </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_dot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Utils.h" line="18" column="24" bodyfile="include/algorithms/Utils.h" bodystart="18" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="Utils_8h_1a5a20544122d4996a45a4b602bc405d97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double wrapAngle</definition>
+        <argsstring>(double angle)</argsstring>
+        <name>wrapAngle</name>
+        <param>
+          <type>double</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that wraps an angle between 0 and 2PI <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An angle expressed in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A wrapped angle between 0 and 2PI (in radians) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Utils.h" line="27" column="15" bodyfile="include/algorithms/Utils.h" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="Utils_8h_1a3e17f1a1284e2823316f74718a0c4552" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d rotationBodyToInertial</definition>
+        <argsstring>(double phi, double theta, double psi)</argsstring>
+        <name>rotationBodyToInertial</name>
+        <param>
+          <type>double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>theta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>psi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>phi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Roll angle - rotation about the x-axis (rad) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>theta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pitch angle - rotation about the y-axis (rad) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>psi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Yaw angle - rotation about the z-axis (rad) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Utils.h" line="41" column="24" bodyfile="include/algorithms/Utils.h" bodystart="41" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="Utils_8h_1a16bb570b6007a5a3199d66361631c856" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d rotationAngularBodyToInertial</definition>
+        <argsstring>(double phi, double theta, double psi)</argsstring>
+        <name>rotationAngularBodyToInertial</name>
+        <param>
+          <type>double</type>
+          <declname>phi</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>theta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>psi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>phi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>theta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>psi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Utils.h" line="57" column="24" bodyfile="include/algorithms/Utils.h" bodystart="57" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="Utils_8h_1a03dd2c925d19ca4f5e6266a5bdde7dc7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d computeSkewSymmetric</definition>
+        <argsstring>(const Eigen::Vector3d &amp;vector)</argsstring>
+        <name>computeSkewSymmetric</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Utils.h" line="70" column="24" bodyfile="include/algorithms/Utils.h" bodystart="70" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="Utils_8h_1ad1b4a4749275ce926a4ea7047f0f9463" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double saturation</definition>
+        <argsstring>(double value, double min, double max)</argsstring>
+        <name>saturation</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Utils.h" line="87" column="15" bodyfile="include/algorithms/Utils.h" bodystart="87" bodyend="89"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>eulerIntegration(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>&amp;state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>&amp;state_dot)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state<sp/>+<sp/>(dt<sp/>*<sp/>state_dot);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wrapAngle(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>angle)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wrapped_angle<sp/>=<sp/>std::fmod(angle,<sp/>2<sp/>*<sp/>M_PI);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(wrapped_angle<sp/>&lt;<sp/>0)<sp/>wrapped_angle<sp/>+=<sp/>2<sp/>*<sp/>M_PI;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wrapped_angle;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix3d<sp/>rotationBodyToInertial(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>phi,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>theta,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>psi)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3d<sp/>rot_matrix;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>rot_matrix<sp/>&lt;&lt;<sp/>cos(psi)<sp/>*<sp/>cos(theta),<sp/>(-sin(psi)<sp/>*<sp/>cos(phi))<sp/>+<sp/>(cos(psi)<sp/>*<sp/>sin(theta)<sp/>*<sp/>sin(phi)),<sp/>(sin(psi)<sp/>*<sp/>sin(phi))<sp/>+<sp/>(cos(psi)<sp/>*<sp/>cos(phi)<sp/>*<sp/>sin(theta)),</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sin(psi)<sp/>*<sp/>cos(theta),<sp/>(cos(psi)<sp/>*<sp/>cos(phi))<sp/>+<sp/>(sin(phi)<sp/>*<sp/>sin(theta)<sp/>*<sp/>sin(psi)),<sp/>(-cos(psi)<sp/>*<sp/>sin(phi))<sp/>+<sp/>(sin(theta)<sp/>*<sp/>sin(psi)<sp/>*<sp/>cos(phi)),</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-sin(theta),<sp/>cos(theta)<sp/>*<sp/>sin(phi),<sp/>cos(theta)<sp/>*<sp/>cos(phi);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rot_matrix;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix3d<sp/>rotationAngularBodyToInertial(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>phi,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>theta,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>psi)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3d<sp/>transformation_matrix;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>transformation_matrix<sp/>&lt;&lt;<sp/>1,<sp/>sin(phi)<sp/>*<sp/>tan(theta),<sp/>cos(phi)<sp/>*<sp/>tan(theta),</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>cos(phi),<sp/>-sin(phi),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>sin(phi)<sp/>/<sp/>cos(theta),<sp/>cos(phi)<sp/>/<sp/>cos(theta);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>transformation_matrix;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Eigen::Matrix3d<sp/>computeSkewSymmetric(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;vector)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3d<sp/>skew_symmetric;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>skew_symmetric<sp/>&lt;&lt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0,<sp/>-vector(2),<sp/><sp/>vector(1),</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector(2),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0,<sp/>-vector(0),</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-vector(1),<sp/><sp/>vector(0),<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>skew_symmetric;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>saturation(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::max(std::min(value,<sp/>max),<sp/>min);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/Utils.h"/>
+  </compounddef>
+</doxygen>

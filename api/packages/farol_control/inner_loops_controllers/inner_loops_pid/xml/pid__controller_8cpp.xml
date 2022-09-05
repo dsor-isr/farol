@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="pid__controller_8cpp" kind="file" language="C++">
+    <compoundname>pid_controller.cpp</compoundname>
+    <includes refid="pid__controller_8h" local="yes">pid_controller.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>pid_controller.h</label>
+        <link refid="pid__controller_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/controllers/pid_controller.cpp</label>
+        <link refid="pid__controller_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cmath</label>
+      </node>
+      <node id="8">
+        <label>farol_msgs/mPidDebug.h</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>dsor_utils/filters/lowpass_filter.hpp</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;pid_controller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" kindref="member">PID_Controller::PID_Controller</ref>()<sp/>:<sp/>p_gain_(0),<sp/>i_gain_(0),<sp/>d_gain_(0)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>disable<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><ref refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" kindref="member">PID_Controller::PID_Controller</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Ki,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kd,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_error,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_out)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>p_gain_(Kp),<sp/>i_gain_(Ki),<sp/>d_gain_(Kd),<sp/>max_error_(max_error),<sp/>max_out_(max_out),</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min_error_(-max_error),<sp/>min_out_(-max_out)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>disable<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" kindref="member">PID_Controller::PID_Controller</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Ki,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kd,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_error,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_out,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_error,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_out)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>p_gain_(Kp),<sp/>i_gain_(Ki),<sp/>d_gain_(Kd),<sp/>max_error_(max_error),<sp/>max_out_(max_out),<sp/>min_error_(min_error),<sp/>min_out_(min_out)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>disable<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" kindref="member">PID_Controller::PID_Controller</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Ki,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kd,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff_d,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff_lin_drag,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff_quad_drag,<sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_error,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_out,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_error,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_out)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>p_gain_(Kp),<sp/>i_gain_(Ki),<sp/>d_gain_(Kd),<sp/>ff_gain_(Kff),<sp/>ff_d_gain_(Kff_d),<sp/>ff_lin_drag_gain_(Kff_lin_drag),<sp/>ff_quad_drag_gain_(Kff_quad_drag),</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_error_(max_error),<sp/>max_out_(max_out),<sp/>min_error_(min_error),<sp/>min_out_(min_out)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>disable<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><ref refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" kindref="member">PID_Controller::PID_Controller</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Ki,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kd,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff_d,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff_lin_drag,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Kff_quad_drag,<sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_error,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_out,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_error,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_out,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lpf_dt,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lpf_fc)<sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>p_gain_(Kp),<sp/>i_gain_(Ki),<sp/>d_gain_(Kd),<sp/>ff_gain_(Kff),<sp/>ff_d_gain_(Kff_d),<sp/>ff_lin_drag_gain_(Kff_lin_drag),<sp/>ff_quad_drag_gain_(Kff_quad_drag),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_error_(max_error),<sp/>min_error_(min_error),<sp/>max_out_(max_out),<sp/>min_out_(min_out)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>reset();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>disable<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>has_lpf_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>lpf_<sp/>=<sp/>std::make_unique&lt;LowPassFilter&gt;(lpf_dt,<sp/>2*M_PI*lpf_fc);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classPID__Controller_1aded3238aaad181a57f25ca6c50455be9" kindref="member">PID_Controller::computeCommand</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>error_p,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ref_value,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>duration,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>debug)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ref_d_value;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Don&apos;t<sp/>return<sp/>nothing<sp/>if<sp/>controller<sp/>is<sp/>disabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(disable<sp/>||<sp/>duration<sp/>&lt;<sp/>0.05<sp/>||<sp/>duration<sp/>&gt;<sp/>0.2)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>filter<sp/>reference<sp/>signal<sp/>through<sp/>low<sp/>pass<sp/>if<sp/>it<sp/>exists</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has_lpf_)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ref_d_value<sp/>=<sp/>lpf_-&gt;update((ref_value<sp/>-<sp/>prev_ref_value_)<sp/>/<sp/>duration);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>ref_d_value<sp/>=<sp/>(ref_value<sp/>-<sp/>prev_ref_value_)<sp/>/<sp/>duration;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>current_value<sp/>=<sp/>error_p<sp/>+<sp/>ref_value;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>error<sp/>=<sp/>sat(error_p,<sp/>min_error_,<sp/>max_error_);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>integral_<sp/>+=<sp/>error<sp/>*<sp/>duration;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>PID<sp/>Terms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ffTerm<sp/>=<sp/>ff_gain_<sp/>*<sp/>std::abs(ref_value)<sp/>*<sp/>ref_value;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ffDTerm<sp/>=<sp/>ff_d_gain_<sp/>*<sp/>ref_d_value;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ffDragTerm<sp/>=<sp/>(<sp/>ff_lin_drag_gain_<sp/>+<sp/>ff_quad_drag_gain_<sp/>*<sp/>std::abs(current_value)<sp/>)<sp/>*<sp/>current_value;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>pTerm<sp/>=<sp/>p_gain_<sp/>*<sp/>error;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>iTerm<sp/>=<sp/>i_gain_<sp/>*<sp/>integral_;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dTerm<sp/>=<sp/>d_gain_<sp/>*<sp/>(error<sp/>-<sp/>pre_error_)<sp/>/<sp/>duration;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>out<sp/>=<sp/>ffTerm<sp/>+<sp/>ffDTerm<sp/>+<sp/>ffDragTerm<sp/>+<sp/>pTerm<sp/>+<sp/>iTerm<sp/>+<sp/>dTerm;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Saturate<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out<sp/>&gt;<sp/>max_out_)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>integral_<sp/>-=<sp/>error<sp/>*<sp/>duration;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out<sp/>&lt;<sp/>min_out_)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>integral_<sp/>-=<sp/>error<sp/>*<sp/>duration;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debug)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.ref<sp/>=<sp/>ref_value;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.ref_d<sp/>=<sp/>(ref_value<sp/>-<sp/>prev_ref_value_)<sp/>/<sp/>duration;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(has_lpf_)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg_debug_.ref_d_filtered<sp/>=<sp/>ref_d_value;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg_debug_.ref_d_filtered<sp/>=<sp/>(ref_value<sp/>-<sp/>prev_ref_value_)<sp/>/<sp/>duration;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.error<sp/>=<sp/>error_p;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.error_saturated<sp/>=<sp/>error;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.ffTerm<sp/>=<sp/>ffTerm;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.ffDTerm<sp/>=<sp/>ffDTerm;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.ffDragTerm<sp/>=<sp/>ffDragTerm;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.pTerm<sp/>=<sp/>pTerm;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.iTerm<sp/>=<sp/>iTerm;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.dTerm<sp/>=<sp/>dTerm;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_debug_.output<sp/>=<sp/>out;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Saturate<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out<sp/>&gt;<sp/>max_out_)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>=<sp/>max_out_;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(out<sp/>&lt;<sp/>min_out_)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>=<sp/>min_out_;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>pre_error_<sp/>=<sp/>error;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>prev_ref_value_<sp/>=<sp/>ref_value;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPID__Controller_1aff0c75ab6d99d57c489050f7ef326d67" kindref="member">PID_Controller::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>integral_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>pre_error_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>prev_ref_value_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPID__Controller_1a94a1c6dc3e3bf85488c39d96b59509f2" kindref="member">PID_Controller::setFFGains</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_d,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_lin_drag,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_quad_drag)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>ff_gain_<sp/>=<sp/>kff;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>ff_d_gain_<sp/>=<sp/>kff_d;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>ff_lin_drag_gain_<sp/>=<sp/>kff_lin_drag;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>ff_quad_drag_gain_<sp/>=<sp/>kff_quad_drag;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPID__Controller_1adb41760ed835a1619de6eeca92f788e1" kindref="member">PID_Controller::setGains</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kp,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;ki,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kd)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>p_gain_<sp/>=<sp/>kp;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>i_gain_<sp/>=<sp/>ki;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>d_gain_<sp/>=<sp/>kd;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPID__Controller_1a0763c1d6af8a7989cc7f4f3084c0665d" kindref="member">PID_Controller::setLimitBounds</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;max_out,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;min_out)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>max_out_<sp/>=<sp/>max_out;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>min_out_<sp/>=<sp/>min_out;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="classPID__Controller_1a7c8e7642fb25b5b658ab82ef2bb32f4d" kindref="member">PID_Controller::getGains</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;{p_gain_,<sp/>i_gain_,<sp/>d_gain_};</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="classPID__Controller_1ab1c5054619fdf865dec6c4e779ec38dd" kindref="member">PID_Controller::getLimitBounds</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;{max_out_,<sp/>min_out_};</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">farol_msgs::mPidDebug<sp/><ref refid="classPID__Controller_1a0f28455f97449a145731d959266f2101" kindref="member">PID_Controller::getDebugInfo</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>msg_debug_;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>PID_Controller::sat(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>u,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>low,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>high)<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u<sp/>&lt;<sp/>low)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>low;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u<sp/>&gt;<sp/>high)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>high;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/controllers/pid_controller.cpp"/>
+  </compounddef>
+</doxygen>

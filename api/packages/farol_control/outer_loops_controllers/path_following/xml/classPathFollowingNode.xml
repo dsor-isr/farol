@@ -1,0 +1,1208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPathFollowingNode" kind="class" language="C++" prot="public">
+    <compoundname>PathFollowingNode</compoundname>
+    <includes refid="PathFollowingNode_8h" local="no">PathFollowingNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPathFollowingNode_1a5cefbf81fdac17bcc1b163e3ddedd64b" prot="private" static="no" mutable="no">
+        <type><ref refid="classPathFollowing" kindref="compound">PathFollowing</ref> *</type>
+        <definition>PathFollowing* PathFollowingNode::pf_algorithm_</definition>
+        <argsstring></argsstring>
+        <name>pf_algorithm_</name>
+        <initializer>{nullptr}</initializer>
+        <briefdescription>
+<para>Pointer to the Path Following algorithm to use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="87" column="19" bodyfile="include/ros/PathFollowingNode.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a7b4e06d76cb6d7e382af47e2a8a12e0f" prot="private" static="no" mutable="no">
+        <type><ref refid="structVehicleState" kindref="compound">VehicleState</ref></type>
+        <definition>VehicleState PathFollowingNode::vehicle_state_</definition>
+        <argsstring></argsstring>
+        <name>vehicle_state_</name>
+        <briefdescription>
+<para>Auxiliar variables to store the current vehicle state and path values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="92" column="18" bodyfile="include/ros/PathFollowingNode.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ab0d5e9b1db6d6e8ee91e0412b2d62b47" prot="private" static="no" mutable="no">
+        <type><ref refid="structPathState" kindref="compound">PathState</ref></type>
+        <definition>PathState PathFollowingNode::path_state_</definition>
+        <argsstring></argsstring>
+        <name>path_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="93" column="15" bodyfile="include/ros/PathFollowingNode.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ada5fae73e8a72edaac263aa169191ed1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::has_received_vehicle_state</definition>
+        <argsstring></argsstring>
+        <name>has_received_vehicle_state</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Auxiliary variables to check whether we have received the first information for intial path position and vehicle state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="99" column="10" bodyfile="include/ros/PathFollowingNode.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a66e13f4b6b537e00b9e00d1f3ef714ff" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::has_received_path_state</definition>
+        <argsstring></argsstring>
+        <name>has_received_path_state</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="100" column="10" bodyfile="include/ros/PathFollowingNode.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a563f8a15ead7c55669a7d8b246f1f44e" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time PathFollowingNode::prev_time_</definition>
+        <argsstring></argsstring>
+        <name>prev_time_</name>
+        <briefdescription>
+<para>Use to store the time-elapsed to be used by the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="105" column="15" bodyfile="include/ros/PathFollowingNode.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a6d9983569928dc67e8062e2ce3b9f799" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle PathFollowingNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+<para>Nodle Handler attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="110" column="21" bodyfile="include/ros/PathFollowingNode.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a9038d5044c97c2cd64687a2e8507dfbd" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle PathFollowingNode::nh_p_</definition>
+        <argsstring></argsstring>
+        <name>nh_p_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="111" column="21" bodyfile="include/ros/PathFollowingNode.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a6a745ef2048bfa360f7ff3521bee1f84" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_start_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_start_srv_</name>
+        <briefdescription>
+<para>ROS Services for path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="116" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ab50af4274e3c0079d4804104cf65bfa0" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_stop_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_stop_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="117" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a05c13299a3f6085a88f84ba39d1fb321" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_update_gains_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_update_gains_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="118" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a041282ec4a55924c88a2bb00fb90d623" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_aguiar_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_aguiar_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="120" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a1f5014fe7b9239b523a240e6e75f1636" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_brevik_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_brevik_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="121" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a2ff56b5d86407d2d9c3a2e0bd4664eda" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_fossen_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_fossen_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="122" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a6999faf5dac55af6896cd5eed29fe005" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_romulo_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_romulo_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="123" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a4dad88fa7f36770221b5d11e526448dd" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_lapierre_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_lapierre_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="124" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a2729cc7dd50c5f3b3212e342b4da9a91" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_pramod_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_pramod_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="125" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a3628993c85d808251529eab88bd79a29" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_samson_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_samson_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="126" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a026c669195053ab920301419f9cf0d28" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_marcelo_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_marcelo_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="127" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ae6867e7394669d4aece4802867e257d2" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_relative_heading_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_relative_heading_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="128" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a3d86b6d107185d3e58ec55611d2269ad" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer PathFollowingNode::pf_reset_vt_srv_</definition>
+        <argsstring></argsstring>
+        <name>pf_reset_vt_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="131" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a27ab891eea0cf43bedcd005ae870c71d" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient PathFollowingNode::set_path_mode_client_</definition>
+        <argsstring></argsstring>
+        <name>set_path_mode_client_</name>
+        <briefdescription>
+<para>ROS Services auxiliary to the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="136" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a1e9a79eada19d1aaa901c3a2321d890b" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient PathFollowingNode::wp_standard_client_</definition>
+        <argsstring></argsstring>
+        <name>wp_standard_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="137" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a57cddcd7e6cac9d750a83b36833a38ff" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient PathFollowingNode::reset_path_client_</definition>
+        <argsstring></argsstring>
+        <name>reset_path_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="138" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a0659aa0f59e93c9745b775f6257c7525" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient PathFollowingNode::dr_reset_client_</definition>
+        <argsstring></argsstring>
+        <name>dr_reset_client_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="139" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a7a84a2d5b9b41393adf6ca6f4f1f2de1" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; ros::Publisher &gt;</type>
+        <definition>std::vector&lt;ros::Publisher&gt; PathFollowingNode::publishers_</definition>
+        <argsstring></argsstring>
+        <name>publishers_</name>
+        <briefdescription>
+<para>ROS publishers attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="144" column="17" bodyfile="include/ros/PathFollowingNode.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ac7b40fc1cdab64370a7ec95c27f1c636" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher PathFollowingNode::flag_pub_</definition>
+        <argsstring></argsstring>
+        <name>flag_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="145" column="20" bodyfile="include/ros/PathFollowingNode.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ab6fb016ee7173ff9949b29a5b22b4bfe" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; ros::Subscriber &gt;</type>
+        <definition>std::vector&lt;ros::Subscriber&gt; PathFollowingNode::subscribers_</definition>
+        <argsstring></argsstring>
+        <name>subscribers_</name>
+        <briefdescription>
+<para>ROS subscribers attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="150" column="17" bodyfile="include/ros/PathFollowingNode.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a038e9ed844657cfaa40aaccb93bc1f9e" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber PathFollowingNode::state_sub_</definition>
+        <argsstring></argsstring>
+        <name>state_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="151" column="21" bodyfile="include/ros/PathFollowingNode.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a05db73217b7cab8e1d83a7fa6ffbb1e5" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber PathFollowingNode::path_sub_</definition>
+        <argsstring></argsstring>
+        <name>path_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="152" column="21" bodyfile="include/ros/PathFollowingNode.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a5fbae5ee8f9bda41234801a57290c13c" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber PathFollowingNode::vc_sub_</definition>
+        <argsstring></argsstring>
+        <name>vc_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="153" column="21" bodyfile="include/ros/PathFollowingNode.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1ab5cf4d09769de2ce1f39a9934dee0d44" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber PathFollowingNode::flag_sub_</definition>
+        <argsstring></argsstring>
+        <name>flag_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="154" column="21" bodyfile="include/ros/PathFollowingNode.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPathFollowingNode_1a39be410cfb2daa0f6844c095501235f6" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer PathFollowingNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>ROS Timer attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="159" column="16" bodyfile="include/ros/PathFollowingNode.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPathFollowingNode_1a42425dbdb16c95886d8c61dd38f8892c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PathFollowingNode::PathFollowingNode</definition>
+        <argsstring>(ros::NodeHandle *nh, ros::NodeHandle *nh_p)</argsstring>
+        <name>PathFollowingNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh_p</declname>
+        </param>
+        <briefdescription>
+<para>The constructor of the path following node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The Path Following Node constructor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The public ROS node handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private ROS node handle</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Public ros node handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Private ros node handle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="74" column="5" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="9" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a8654dd153de14437d5d6ece246f47c5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PathFollowingNode::~PathFollowingNode</definition>
+        <argsstring>()</argsstring>
+        <name>~PathFollowingNode</name>
+        <briefdescription>
+<para>The destructor of the path following node (where the subscribers, publishers and services are terminated) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Node class destructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="80" column="5" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="27" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPathFollowingNode_1a83d9ddb9f6e1742e4f9c462be8b6de5e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPathFollowing" kindref="compound">PathFollowing</ref> *</type>
+        <definition>PathFollowing * PathFollowingNode::getDefaultControllerLapierre</definition>
+        <argsstring>()</argsstring>
+        <name>getDefaultControllerLapierre</name>
+        <briefdescription>
+<para>Method to allocate memory for a default PF controller class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Alocates memory for the default controller to be used. In this case is <ref refid="classLapierre" kindref="compound">Lapierre</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="164" column="19" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="52" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a0ab1707000b47d2d752b84c0d9ce8486" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPathFollowing" kindref="compound">PathFollowing</ref> *</type>
+        <definition>PathFollowing * PathFollowingNode::getDefaultControllerBrevik</definition>
+        <argsstring>()</argsstring>
+        <name>getDefaultControllerBrevik</name>
+        <briefdescription>
+<para>Alocates memory for a default controller. In this case is <ref refid="classBrevik" kindref="compound">Brevik</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="165" column="19" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="85" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a961d83fa540554d42b95bd9aba3da31b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPathFollowing" kindref="compound">PathFollowing</ref> *</type>
+        <definition>PathFollowing * PathFollowingNode::getDefaultControllerAguiar</definition>
+        <argsstring>()</argsstring>
+        <name>getDefaultControllerAguiar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="166" column="19" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="109" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a9b7319cfba6e11c31badfe33c88fb793" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::deleteCurrentController</definition>
+        <argsstring>()</argsstring>
+        <name>deleteCurrentController</name>
+        <briefdescription>
+<para>Method to delete the current controller being used. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes safely the current path following object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="171" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="148" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a7ad7399cd13a936930219068d15802a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::stopAlgorithm</definition>
+        <argsstring>()</argsstring>
+        <name>stopAlgorithm</name>
+        <briefdescription>
+<para>Method to stop the current path_following. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Auxiliar method to stop the algorithm. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="176" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="381" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1ab1fb9904c5ba2ad6bb89d252b2ceb5ef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Method to initialize the ROS part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize all the subscribers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="181" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="175" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a81718f2e52be317fec0db8098b87bb05" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Method to initialize the publishers of the path following node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="182" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="202" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a093e363126da8b59557ad9ab5b9b1442" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>A method for initializing all the services. This method is called by the constructor of the PathNode class upon creation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="183" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="7" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1ab4b5aa420f8ca2300ca5e409fd2f151a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Initialize the timer callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="184" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="301" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1ab274b946e9c87f095e85076026722cab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathFollowingNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>Setup the Node working frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="185" column="12" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="313" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a8b8eab81e4c613f09f606315c8a15116" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::timerIterCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerIterCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Method where the logic is located in order to update the control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A TimerEvent from ros </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="192" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="326" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1af30547dc4c4a77abb7fa9b45a6bbd559" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::vcCallback</definition>
+        <argsstring>(const std_msgs::Float64 &amp;msg)</argsstring>
+        <name>vcCallback</name>
+        <param>
+          <type>const std_msgs::Float64 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Vc callback used to update the correction velocity for cooperative path following.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an std_msgs::Float64 with the synchronization speed for the virtual target gamma </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="197" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="220" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a18cf17c9cfa1c1db78433b341d084d8b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::pathStateCallback</definition>
+        <argsstring>(const dsor_paths::PathData &amp;msg)</argsstring>
+        <name>pathStateCallback</name>
+        <param>
+          <type>const dsor_paths::PathData &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Path state callback to update the path data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a dsor_paths::PathData that contains information of the path </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="198" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="232" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1ab064701e38516d3c2ae80dc419122188" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::vehicleStateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>vehicleStateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Vehicle state callback to update the state of the vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a auv_msgs::NavigationStatus that contains information regarding the vehicle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="199" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="270" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a1b103aa23c9bd9cc2dd581a06999b32c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::flagCallback</definition>
+        <argsstring>(const std_msgs::Int8 &amp;msg)</argsstring>
+        <name>flagCallback</name>
+        <param>
+          <type>const std_msgs::Int8 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Auxiliar method to stop the algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="200" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="405" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a84784a87e8f56734cdbc9eb1abbc128c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::StartPFService</definition>
+        <argsstring>(path_following::StartPF::Request &amp;req, path_following::StartPF::Response &amp;res)</argsstring>
+        <name>StartPFService</name>
+        <param>
+          <type>path_following::StartPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::StartPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Services callbacks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="205" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="99" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a32e92477c71753889b6c59651980f9bd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::StopPFService</definition>
+        <argsstring>(path_following::StopPF::Request &amp;req, path_following::StopPF::Response &amp;res)</argsstring>
+        <name>StopPFService</name>
+        <param>
+          <type>path_following::StopPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::StopPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="207" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="133" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a7bf1e0f3e9e72165b1bf9d4e8e712d48" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::UpdateGainsPFService</definition>
+        <argsstring>(path_following::UpdateGainsPF::Request &amp;req, path_following::UpdateGainsPF::Response &amp;res)</argsstring>
+        <name>UpdateGainsPFService</name>
+        <param>
+          <type>path_following::UpdateGainsPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::UpdateGainsPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="209" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="165" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a7ce9cd6a36f69582656b44ae581f2765" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetRelativeHeadingService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetRelativeHeadingService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="212" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="199" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a38b04d0d9737a4a98409d77460897b3c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetMarceloService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetMarceloService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="214" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="263" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a19dbc2ffe0baa0a25333bb1fc6ae251c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetAguiarService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetAguiarService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="216" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="342" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a52e9a3bf8f73f7f4bd0da3a9e3eeb725" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetBrevikService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetBrevikService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="218" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="408" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a63536a05316f4d249ea9277748d3e343" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetFossenService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetFossenService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="220" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="458" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a45f747a7cb4a1e248f743c227eb1572c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetRomuloService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetRomuloService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="222" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="502" bodyend="558"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a656e332e8ed475956022905948214ac7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetLapierreService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetLapierreService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="224" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="561" bodyend="617"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1aa67db77b4e8a5efaa1d43b816227ea8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetPramodService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetPramodService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="226" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="620" bodyend="671"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a0e5a3a377054c9d52510b98dd9388e93" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::SetSamsonService</definition>
+        <argsstring>(path_following::SetPF::Request &amp;req, path_following::SetPF::Response &amp;res)</argsstring>
+        <name>SetSamsonService</name>
+        <param>
+          <type>path_following::SetPF::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::SetPF::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="228" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="674" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1ad0485e612c2418ee4a5459a9c092ae8f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PathFollowingNode::ResetVirtualTargetService</definition>
+        <argsstring>(path_following::ResetVT::Request &amp;req, path_following::ResetVT::Response &amp;res)</argsstring>
+        <name>ResetVirtualTargetService</name>
+        <param>
+          <type>path_following::ResetVT::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>path_following::ResetVT::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="231" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="150" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1a5981bd9a97a6d53f5b3b988d9b4e1a9e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::sendWaypoint</definition>
+        <argsstring>(double value)</argsstring>
+        <name>sendWaypoint</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Service to send a waypoint when the path following stops. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Auxiliar method to send a hold position waypoint.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>-3 to hold the pos after the vehicle, -1 to hold position on the spot </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="237" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="363" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="function" id="classPathFollowingNode_1aff4ff17d7716ccd38c974ce74f5c8f22" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PathFollowingNode::sendResetDeadReckoning</definition>
+        <argsstring>()</argsstring>
+        <name>sendResetDeadReckoning</name>
+        <briefdescription>
+<para>Service to reset the DeadReckoning position when the path following stops. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Auxiliar method to reset the DeadReckoning postion <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/PathFollowingNode.h" line="242" column="10" bodyfile="src/ros/PathFollowingNode.cpp" bodystart="373" bodyend="376"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path Following Node, where the magic happens. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/ros/PathFollowingNode.h" line="64" column="24" bodyfile="include/ros/PathFollowingNode.h" bodystart="64" bodyend="243"/>
+    <listofallmembers>
+      <member refid="classPathFollowingNode_1a9b7319cfba6e11c31badfe33c88fb793" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>deleteCurrentController</name></member>
+      <member refid="classPathFollowingNode_1a0659aa0f59e93c9745b775f6257c7525" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>dr_reset_client_</name></member>
+      <member refid="classPathFollowingNode_1ac7b40fc1cdab64370a7ec95c27f1c636" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>flag_pub_</name></member>
+      <member refid="classPathFollowingNode_1ab5cf4d09769de2ce1f39a9934dee0d44" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>flag_sub_</name></member>
+      <member refid="classPathFollowingNode_1a1b103aa23c9bd9cc2dd581a06999b32c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>flagCallback</name></member>
+      <member refid="classPathFollowingNode_1a961d83fa540554d42b95bd9aba3da31b" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>getDefaultControllerAguiar</name></member>
+      <member refid="classPathFollowingNode_1a0ab1707000b47d2d752b84c0d9ce8486" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>getDefaultControllerBrevik</name></member>
+      <member refid="classPathFollowingNode_1a83d9ddb9f6e1742e4f9c462be8b6de5e" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>getDefaultControllerLapierre</name></member>
+      <member refid="classPathFollowingNode_1a66e13f4b6b537e00b9e00d1f3ef714ff" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>has_received_path_state</name></member>
+      <member refid="classPathFollowingNode_1ada5fae73e8a72edaac263aa169191ed1" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>has_received_vehicle_state</name></member>
+      <member refid="classPathFollowingNode_1a81718f2e52be317fec0db8098b87bb05" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>initializePublishers</name></member>
+      <member refid="classPathFollowingNode_1a093e363126da8b59557ad9ab5b9b1442" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>initializeServices</name></member>
+      <member refid="classPathFollowingNode_1ab1fb9904c5ba2ad6bb89d252b2ceb5ef" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classPathFollowingNode_1ab4b5aa420f8ca2300ca5e409fd2f151a" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>initializeTimer</name></member>
+      <member refid="classPathFollowingNode_1a6d9983569928dc67e8062e2ce3b9f799" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>nh_</name></member>
+      <member refid="classPathFollowingNode_1a9038d5044c97c2cd64687a2e8507dfbd" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>nh_p_</name></member>
+      <member refid="classPathFollowingNode_1ab274b946e9c87f095e85076026722cab" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>nodeFrequency</name></member>
+      <member refid="classPathFollowingNode_1ab0d5e9b1db6d6e8ee91e0412b2d62b47" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>path_state_</name></member>
+      <member refid="classPathFollowingNode_1a05db73217b7cab8e1d83a7fa6ffbb1e5" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>path_sub_</name></member>
+      <member refid="classPathFollowingNode_1a42425dbdb16c95886d8c61dd38f8892c" prot="public" virt="non-virtual"><scope>PathFollowingNode</scope><name>PathFollowingNode</name></member>
+      <member refid="classPathFollowingNode_1a18cf17c9cfa1c1db78433b341d084d8b" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pathStateCallback</name></member>
+      <member refid="classPathFollowingNode_1a041282ec4a55924c88a2bb00fb90d623" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_aguiar_srv_</name></member>
+      <member refid="classPathFollowingNode_1a5cefbf81fdac17bcc1b163e3ddedd64b" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_algorithm_</name></member>
+      <member refid="classPathFollowingNode_1a1f5014fe7b9239b523a240e6e75f1636" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_brevik_srv_</name></member>
+      <member refid="classPathFollowingNode_1a2ff56b5d86407d2d9c3a2e0bd4664eda" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_fossen_srv_</name></member>
+      <member refid="classPathFollowingNode_1a4dad88fa7f36770221b5d11e526448dd" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_lapierre_srv_</name></member>
+      <member refid="classPathFollowingNode_1a026c669195053ab920301419f9cf0d28" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_marcelo_srv_</name></member>
+      <member refid="classPathFollowingNode_1a2729cc7dd50c5f3b3212e342b4da9a91" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_pramod_srv_</name></member>
+      <member refid="classPathFollowingNode_1ae6867e7394669d4aece4802867e257d2" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_relative_heading_srv_</name></member>
+      <member refid="classPathFollowingNode_1a3d86b6d107185d3e58ec55611d2269ad" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_reset_vt_srv_</name></member>
+      <member refid="classPathFollowingNode_1a6999faf5dac55af6896cd5eed29fe005" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_romulo_srv_</name></member>
+      <member refid="classPathFollowingNode_1a3628993c85d808251529eab88bd79a29" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_samson_srv_</name></member>
+      <member refid="classPathFollowingNode_1a6a745ef2048bfa360f7ff3521bee1f84" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_start_srv_</name></member>
+      <member refid="classPathFollowingNode_1ab50af4274e3c0079d4804104cf65bfa0" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_stop_srv_</name></member>
+      <member refid="classPathFollowingNode_1a05c13299a3f6085a88f84ba39d1fb321" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>pf_update_gains_srv_</name></member>
+      <member refid="classPathFollowingNode_1a563f8a15ead7c55669a7d8b246f1f44e" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>prev_time_</name></member>
+      <member refid="classPathFollowingNode_1a7a84a2d5b9b41393adf6ca6f4f1f2de1" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>publishers_</name></member>
+      <member refid="classPathFollowingNode_1a57cddcd7e6cac9d750a83b36833a38ff" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>reset_path_client_</name></member>
+      <member refid="classPathFollowingNode_1ad0485e612c2418ee4a5459a9c092ae8f" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>ResetVirtualTargetService</name></member>
+      <member refid="classPathFollowingNode_1aff4ff17d7716ccd38c974ce74f5c8f22" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>sendResetDeadReckoning</name></member>
+      <member refid="classPathFollowingNode_1a5981bd9a97a6d53f5b3b988d9b4e1a9e" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>sendWaypoint</name></member>
+      <member refid="classPathFollowingNode_1a27ab891eea0cf43bedcd005ae870c71d" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>set_path_mode_client_</name></member>
+      <member refid="classPathFollowingNode_1a19dbc2ffe0baa0a25333bb1fc6ae251c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetAguiarService</name></member>
+      <member refid="classPathFollowingNode_1a52e9a3bf8f73f7f4bd0da3a9e3eeb725" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetBrevikService</name></member>
+      <member refid="classPathFollowingNode_1a63536a05316f4d249ea9277748d3e343" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetFossenService</name></member>
+      <member refid="classPathFollowingNode_1a656e332e8ed475956022905948214ac7" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetLapierreService</name></member>
+      <member refid="classPathFollowingNode_1a38b04d0d9737a4a98409d77460897b3c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetMarceloService</name></member>
+      <member refid="classPathFollowingNode_1aa67db77b4e8a5efaa1d43b816227ea8c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetPramodService</name></member>
+      <member refid="classPathFollowingNode_1a7ce9cd6a36f69582656b44ae581f2765" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetRelativeHeadingService</name></member>
+      <member refid="classPathFollowingNode_1a45f747a7cb4a1e248f743c227eb1572c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetRomuloService</name></member>
+      <member refid="classPathFollowingNode_1a0e5a3a377054c9d52510b98dd9388e93" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>SetSamsonService</name></member>
+      <member refid="classPathFollowingNode_1a84784a87e8f56734cdbc9eb1abbc128c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>StartPFService</name></member>
+      <member refid="classPathFollowingNode_1a038e9ed844657cfaa40aaccb93bc1f9e" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>state_sub_</name></member>
+      <member refid="classPathFollowingNode_1a7ad7399cd13a936930219068d15802a5" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>stopAlgorithm</name></member>
+      <member refid="classPathFollowingNode_1a32e92477c71753889b6c59651980f9bd" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>StopPFService</name></member>
+      <member refid="classPathFollowingNode_1ab6fb016ee7173ff9949b29a5b22b4bfe" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>subscribers_</name></member>
+      <member refid="classPathFollowingNode_1a39be410cfb2daa0f6844c095501235f6" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>timer_</name></member>
+      <member refid="classPathFollowingNode_1a8b8eab81e4c613f09f606315c8a15116" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>timerIterCallback</name></member>
+      <member refid="classPathFollowingNode_1a7bf1e0f3e9e72165b1bf9d4e8e712d48" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>UpdateGainsPFService</name></member>
+      <member refid="classPathFollowingNode_1a5fbae5ee8f9bda41234801a57290c13c" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>vc_sub_</name></member>
+      <member refid="classPathFollowingNode_1af30547dc4c4a77abb7fa9b45a6bbd559" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>vcCallback</name></member>
+      <member refid="classPathFollowingNode_1a7b4e06d76cb6d7e382af47e2a8a12e0f" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>vehicle_state_</name></member>
+      <member refid="classPathFollowingNode_1ab064701e38516d3c2ae80dc419122188" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>vehicleStateCallback</name></member>
+      <member refid="classPathFollowingNode_1a1e9a79eada19d1aaa901c3a2321d890b" prot="private" virt="non-virtual"><scope>PathFollowingNode</scope><name>wp_standard_client_</name></member>
+      <member refid="classPathFollowingNode_1a8654dd153de14437d5d6ece246f47c5e" prot="public" virt="non-virtual"><scope>PathFollowingNode</scope><name>~PathFollowingNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

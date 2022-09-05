@@ -1,0 +1,677 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classDeadReckoning" kind="class" language="C++" prot="public">
+    <compoundname>DeadReckoning</compoundname>
+    <includes refid="DeadReckoning_8h" local="no">DeadReckoning.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDeadReckoning_1ada66b00fff426ed167b8bacca37488a7" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle DeadReckoning::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="67" column="21" bodyfile="include/algorithms/DeadReckoning.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a4a9abbe6fac251e193efbb216712fca0" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle DeadReckoning::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="67" column="25" bodyfile="include/algorithms/DeadReckoning.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a8be2b4822a10ca34506482ed76639c79" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeadReckoning::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Initialized DR estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="70" column="10" bodyfile="include/algorithms/DeadReckoning.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a6d66f533cd854fe2c6aa5992430eb808" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DeadReckoning::p_dvl_body_frame_</definition>
+        <argsstring></argsstring>
+        <name>p_dvl_body_frame_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Identify dvl frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="71" column="10" bodyfile="include/algorithms/DeadReckoning.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a3dd8a38593a01a67785f730f001c780a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DeadReckoning::dvl_vx_</definition>
+        <argsstring></argsstring>
+        <name>dvl_vx_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Inertial velocity vx from dvl. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="72" column="12" bodyfile="include/algorithms/DeadReckoning.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a1ef79e2441a8f7b86ffb01e2ad41a56b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DeadReckoning::dvl_vy_</definition>
+        <argsstring></argsstring>
+        <name>dvl_vy_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Inertial velocity vy from dvl. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="73" column="12" bodyfile="include/algorithms/DeadReckoning.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a4cb027195c7fb3c67157b0f8349afca5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DeadReckoning::roll_</definition>
+        <argsstring></argsstring>
+        <name>roll_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>roll measurement from ahrs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="74" column="12" bodyfile="include/algorithms/DeadReckoning.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a54f26693f9ee0c3e2b2f7ffadc4d1515" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DeadReckoning::pitch_</definition>
+        <argsstring></argsstring>
+        <name>pitch_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>pitch measurement from ahrs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="75" column="12" bodyfile="include/algorithms/DeadReckoning.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1ae8a56448bddc79633a0460c4f4623243" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double DeadReckoning::yaw_</definition>
+        <argsstring></argsstring>
+        <name>yaw_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>yaw measurement from ahrs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="76" column="12" bodyfile="include/algorithms/DeadReckoning.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1af8d91cfcb277407c7ae3c06940ac87d6" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber DeadReckoning::sub_velocity_</definition>
+        <argsstring></argsstring>
+        <name>sub_velocity_</name>
+        <briefdescription>
+<para>Subscriber for DVL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="79" column="21" bodyfile="include/algorithms/DeadReckoning.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a5bc5fccdf07b32994e91e5680b37ed74" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber DeadReckoning::sub_orientation_</definition>
+        <argsstring></argsstring>
+        <name>sub_orientation_</name>
+        <briefdescription>
+<para>Subscriber for AHRS. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="80" column="21" bodyfile="include/algorithms/DeadReckoning.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a84999fd26a6f0a74e3fe81047e97166d" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber DeadReckoning::sub_true_state_</definition>
+        <argsstring></argsstring>
+        <name>sub_true_state_</name>
+        <briefdescription>
+<para>Subscriber for State. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="81" column="21" bodyfile="include/algorithms/DeadReckoning.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a51e8b088a63f8066e800fde99ea17ef8" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber DeadReckoning::flag_sub_</definition>
+        <argsstring></argsstring>
+        <name>flag_sub_</name>
+        <briefdescription>
+<para>Subscriber for FLag, indicates when mission starts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="82" column="21" bodyfile="include/algorithms/DeadReckoning.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a5e500feb957432c1bb4bdb102dede297" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher DeadReckoning::state_dr_pub_</definition>
+        <argsstring></argsstring>
+        <name>state_dr_pub_</name>
+        <briefdescription>
+<para>Publishers for DR estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="84" column="20" bodyfile="include/algorithms/DeadReckoning.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a7661486d4546d1a7df6e724557f03ff6" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher DeadReckoning::state_dr_console_pub_</definition>
+        <argsstring></argsstring>
+        <name>state_dr_console_pub_</name>
+        <briefdescription>
+<para>Publishers for DR estimate to console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="85" column="20" bodyfile="include/algorithms/DeadReckoning.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a3b8ae9e21537e304e39a6fcb15a5a91b" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer DeadReckoning::reset_filter_dr_srv_</definition>
+        <argsstring></argsstring>
+        <name>reset_filter_dr_srv_</name>
+        <briefdescription>
+<para>Service for reset DR position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="87" column="24" bodyfile="include/algorithms/DeadReckoning.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a4a29acd9a4b42ebd62c06743f9a74be9" prot="private" static="no" mutable="no">
+        <type>auv_msgs::NavigationStatus</type>
+        <definition>auv_msgs::NavigationStatus DeadReckoning::state_dr_msg_</definition>
+        <argsstring></argsstring>
+        <name>state_dr_msg_</name>
+        <briefdescription>
+<para>message to be published by state_dr_pub_ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="89" column="32" bodyfile="include/algorithms/DeadReckoning.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a0686289f64ebfbb415bb6a9a0cc995bd" prot="private" static="no" mutable="no">
+        <type>farol_msgs::mState</type>
+        <definition>farol_msgs::mState DeadReckoning::state_dr_console_</definition>
+        <argsstring></argsstring>
+        <name>state_dr_console_</name>
+        <briefdescription>
+<para>message to be published by state_dr_console_pub_ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="90" column="24" bodyfile="include/algorithms/DeadReckoning.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a328757e9b94eed7eec12ae57cfae3264" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; DeadReckoning::state_dr_</definition>
+        <argsstring></argsstring>
+        <name>state_dr_</name>
+        <initializer>{0.0 ,0.0}</initializer>
+        <briefdescription>
+<para>2D state_dr(x,y) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="93" column="17" bodyfile="include/algorithms/DeadReckoning.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1a6187635c907002fce0f7fd8034b8ee74" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; DeadReckoning::true_state_</definition>
+        <argsstring></argsstring>
+        <name>true_state_</name>
+        <initializer>{0.0 ,0.0}</initializer>
+        <briefdescription>
+<para>2D state to store navigation filter state(x,y) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="94" column="17" bodyfile="include/algorithms/DeadReckoning.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDeadReckoning_1aa352fd134a3f48a1028ee9c8a79018b0" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time DeadReckoning::last_predict_</definition>
+        <argsstring></argsstring>
+        <name>last_predict_</name>
+        <briefdescription>
+<para>Time of last dr calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="97" column="15" bodyfile="include/algorithms/DeadReckoning.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDeadReckoning_1abeb2306fb4a5c5a97a7952eff6f84014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DeadReckoning::DeadReckoning</definition>
+        <argsstring>(ros::NodeHandle *nh, ros::NodeHandle *nh_private)</argsstring>
+        <name>DeadReckoning</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh_private</declname>
+        </param>
+        <briefdescription>
+<para>Contructor <ref refid="classDeadReckoning" kindref="compound">DeadReckoning</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="45" column="5" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="3" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a347747e68c644aea1c64b0b820d38d51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DeadReckoning::~DeadReckoning</definition>
+        <argsstring>()</argsstring>
+        <name>~DeadReckoning</name>
+        <briefdescription>
+<para>Desctructor <ref refid="classDeadReckoning" kindref="compound">DeadReckoning</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="53" column="5" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="17" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a502de98d2e395a24368d14eff6951734" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::computePredict</definition>
+        <argsstring>()</argsstring>
+        <name>computePredict</name>
+        <briefdescription>
+<para>Propagate the state to the current time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Success or Failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="64" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="60" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classDeadReckoning_1af363edf7dc10301d0177d027bb24c1a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Initialize Subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="106" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="32" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a73cc007a83b1815b4833341a80c9caf6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Iniatialize Publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="113" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a67c6086d602fd6bca17f6923a912381d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>Initialize Services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="120" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a4cd99989f091bd9801d2471164a8b730" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeadReckoning::initialize</definition>
+        <argsstring>()</argsstring>
+        <name>initialize</name>
+        <briefdescription>
+<para>Intialize the filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement from a sensor or Initial state defined in config file</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="131" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="103" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a544a06fe5fbad11b972549a6e4e90c4a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::predict</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;state_vec, double dt)</argsstring>
+        <name>predict</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Predict for DR. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for dr </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>period </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="141" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="114" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1ab3a04443df3147bcd0ca16e8f817e905" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::velocityCallback</definition>
+        <argsstring>(const dsor_msgs::Measurement &amp;msg)</argsstring>
+        <name>velocityCallback</name>
+        <param>
+          <type>const dsor_msgs::Measurement &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Receive velocity measurements from DVL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>dvl </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="151" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="121" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a885d9b0985cb7b4d59e7d04739356c62" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::orientationCallback</definition>
+        <argsstring>(const dsor_msgs::Measurement &amp;msg)</argsstring>
+        <name>orientationCallback</name>
+        <param>
+          <type>const dsor_msgs::Measurement &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Recevice orientation measurements from AHRS/IMU. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ahrs </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="161" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="137" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a911c5b12b4aab9391fa291b332ed51b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::stateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>stateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Receive state from the navigation filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>navigation state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="170" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="148" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a14df5ea10f371d8b7d30c47dbbce70b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DeadReckoning::flagCallback</definition>
+        <argsstring>(const std_msgs::Int8 &amp;msg)</argsstring>
+        <name>flagCallback</name>
+        <param>
+          <type>const std_msgs::Int8 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Flag that indicates when a mission starts. Reset DR to current navigation filter state(x,y) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>wait for a 6 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="180" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="159" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classDeadReckoning_1a5f4a8c925f272cafa5f6d28d0a7a2141" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DeadReckoning::resetDRService</definition>
+        <argsstring>(std_srvs::Trigger::Request &amp;req, std_srvs::Trigger::Response &amp;res)</argsstring>
+        <name>resetDRService</name>
+        <param>
+          <type>std_srvs::Trigger::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>std_srvs::Trigger::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Service to reset the DR estimate to the current navigation filter state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/DeadReckoning.h" line="192" column="10" bodyfile="src/algorithms/DeadReckoning.cpp" bodystart="168" bodyend="176"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classDeadReckoning" kindref="compound">DeadReckoning</ref> class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>This node only outputs useful information when dvl is present </para>
+</simplesect>
+<simplesect kind="note"><para>Every time a new mission is deployed (FLAG=6), the DR is reseted to the current navigation state(x,y) </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/DeadReckoning.h" line="37" column="20" bodyfile="include/algorithms/DeadReckoning.h" bodystart="37" bodyend="194"/>
+    <listofallmembers>
+      <member refid="classDeadReckoning_1a502de98d2e395a24368d14eff6951734" prot="public" virt="non-virtual"><scope>DeadReckoning</scope><name>computePredict</name></member>
+      <member refid="classDeadReckoning_1abeb2306fb4a5c5a97a7952eff6f84014" prot="public" virt="non-virtual"><scope>DeadReckoning</scope><name>DeadReckoning</name></member>
+      <member refid="classDeadReckoning_1a3dd8a38593a01a67785f730f001c780a" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>dvl_vx_</name></member>
+      <member refid="classDeadReckoning_1a1ef79e2441a8f7b86ffb01e2ad41a56b" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>dvl_vy_</name></member>
+      <member refid="classDeadReckoning_1a51e8b088a63f8066e800fde99ea17ef8" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>flag_sub_</name></member>
+      <member refid="classDeadReckoning_1a14df5ea10f371d8b7d30c47dbbce70b3" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>flagCallback</name></member>
+      <member refid="classDeadReckoning_1a4cd99989f091bd9801d2471164a8b730" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>initialize</name></member>
+      <member refid="classDeadReckoning_1a8be2b4822a10ca34506482ed76639c79" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>initialized_</name></member>
+      <member refid="classDeadReckoning_1a73cc007a83b1815b4833341a80c9caf6" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>initializePublishers</name></member>
+      <member refid="classDeadReckoning_1a67c6086d602fd6bca17f6923a912381d" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>initializeServices</name></member>
+      <member refid="classDeadReckoning_1af363edf7dc10301d0177d027bb24c1a2" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>initializeSubscribers</name></member>
+      <member refid="classDeadReckoning_1aa352fd134a3f48a1028ee9c8a79018b0" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>last_predict_</name></member>
+      <member refid="classDeadReckoning_1ada66b00fff426ed167b8bacca37488a7" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>nh_</name></member>
+      <member refid="classDeadReckoning_1a4a9abbe6fac251e193efbb216712fca0" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>nh_private_</name></member>
+      <member refid="classDeadReckoning_1a885d9b0985cb7b4d59e7d04739356c62" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>orientationCallback</name></member>
+      <member refid="classDeadReckoning_1a6d66f533cd854fe2c6aa5992430eb808" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>p_dvl_body_frame_</name></member>
+      <member refid="classDeadReckoning_1a54f26693f9ee0c3e2b2f7ffadc4d1515" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>pitch_</name></member>
+      <member refid="classDeadReckoning_1a544a06fe5fbad11b972549a6e4e90c4a" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>predict</name></member>
+      <member refid="classDeadReckoning_1a3b8ae9e21537e304e39a6fcb15a5a91b" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>reset_filter_dr_srv_</name></member>
+      <member refid="classDeadReckoning_1a5f4a8c925f272cafa5f6d28d0a7a2141" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>resetDRService</name></member>
+      <member refid="classDeadReckoning_1a4cb027195c7fb3c67157b0f8349afca5" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>roll_</name></member>
+      <member refid="classDeadReckoning_1a328757e9b94eed7eec12ae57cfae3264" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>state_dr_</name></member>
+      <member refid="classDeadReckoning_1a0686289f64ebfbb415bb6a9a0cc995bd" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>state_dr_console_</name></member>
+      <member refid="classDeadReckoning_1a7661486d4546d1a7df6e724557f03ff6" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>state_dr_console_pub_</name></member>
+      <member refid="classDeadReckoning_1a4a29acd9a4b42ebd62c06743f9a74be9" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>state_dr_msg_</name></member>
+      <member refid="classDeadReckoning_1a5e500feb957432c1bb4bdb102dede297" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>state_dr_pub_</name></member>
+      <member refid="classDeadReckoning_1a911c5b12b4aab9391fa291b332ed51b1" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>stateCallback</name></member>
+      <member refid="classDeadReckoning_1a5bc5fccdf07b32994e91e5680b37ed74" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>sub_orientation_</name></member>
+      <member refid="classDeadReckoning_1a84999fd26a6f0a74e3fe81047e97166d" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>sub_true_state_</name></member>
+      <member refid="classDeadReckoning_1af8d91cfcb277407c7ae3c06940ac87d6" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>sub_velocity_</name></member>
+      <member refid="classDeadReckoning_1a6187635c907002fce0f7fd8034b8ee74" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>true_state_</name></member>
+      <member refid="classDeadReckoning_1ab3a04443df3147bcd0ca16e8f817e905" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>velocityCallback</name></member>
+      <member refid="classDeadReckoning_1ae8a56448bddc79633a0460c4f4623243" prot="private" virt="non-virtual"><scope>DeadReckoning</scope><name>yaw_</name></member>
+      <member refid="classDeadReckoning_1a347747e68c644aea1c64b0b820d38d51" prot="public" virt="non-virtual"><scope>DeadReckoning</scope><name>~DeadReckoning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

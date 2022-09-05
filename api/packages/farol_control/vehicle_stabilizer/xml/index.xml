@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classVehicleStabilizerNode" kind="class"><name>VehicleStabilizerNode</name>
+    <member refid="classVehicleStabilizerNode_1a4b1c52623d36a06f2f9d76a849267659" kind="variable"><name>nh_</name></member>
+    <member refid="classVehicleStabilizerNode_1a6037cb8a6fa1d83ecb00581ee265b04e" kind="variable"><name>nh_p_</name></member>
+    <member refid="classVehicleStabilizerNode_1afac9ea30b6888df6de0c6109a7e81924" kind="variable"><name>timer_</name></member>
+    <member refid="classVehicleStabilizerNode_1a14f90d8432b567a695feabf95b0db188" kind="variable"><name>references_</name></member>
+    <member refid="classVehicleStabilizerNode_1a7e509a4d6fac9a349fb091c2edc90e78" kind="variable"><name>publishers_</name></member>
+    <member refid="classVehicleStabilizerNode_1ad353f4236ce3c1ddcaa45609aa0a26c7" kind="variable"><name>surge_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a77b15dad413ceda8b89f5c2232d2872e" kind="variable"><name>sway_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1ad5975e920552ca171eb14f51483e4426" kind="variable"><name>heave_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1added3acdc162d8269af728a5271c5eed" kind="variable"><name>roll_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1ae5643450c19e9e43691674bda56630d8" kind="variable"><name>pitch_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a976317cb93eabd64b9f05350be0292d3" kind="variable"><name>yaw_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a2f0b4699734a52d8d81620374c4e4c2a" kind="variable"><name>roll_rate_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a5dc7e2b83e2f83d1937e2cae3f7b7bc0" kind="variable"><name>pitch_rate_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a47d4fe14d025703bfe95b67b0e2b15bc" kind="variable"><name>yaw_rate_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a05fdef44634fd4ebd591cccf38445132" kind="variable"><name>altitude_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a79d3441086c5ac3d3dd5c5cd6b7583d9" kind="variable"><name>depth_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a91d230208529b1a2311906508ac2fc5f" kind="function"><name>VehicleStabilizerNode</name></member>
+    <member refid="classVehicleStabilizerNode_1a5a611b309a2609f811cbed21cb076f24" kind="function"><name>~VehicleStabilizerNode</name></member>
+    <member refid="classVehicleStabilizerNode_1aca0fd68faae7f0dea0ba8e5a1b4f16b4" kind="function"><name>initializeROSPublishers</name></member>
+    <member refid="classVehicleStabilizerNode_1a83f91c8f9399630b07b51c8a4a832612" kind="function"><name>initializeParameters</name></member>
+    <member refid="classVehicleStabilizerNode_1a19fe83a11727465725ac76f1d9220841" kind="function"><name>initializeTimer</name></member>
+    <member refid="classVehicleStabilizerNode_1a43cc2bdfa2563e658a4798778d672d33" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classVehicleStabilizerNode_1aeda2a279296b6746d28f6d92007d0163" kind="function"><name>timerIterCallback</name></member>
+  </compound>
+  <compound refid="VehicleStabilizerNode_8hpp" kind="file"><name>VehicleStabilizerNode.hpp</name>
+  </compound>
+  <compound refid="VehicleStabilizerNode_8cpp" kind="file"><name>VehicleStabilizerNode.cpp</name>
+    <member refid="VehicleStabilizerNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

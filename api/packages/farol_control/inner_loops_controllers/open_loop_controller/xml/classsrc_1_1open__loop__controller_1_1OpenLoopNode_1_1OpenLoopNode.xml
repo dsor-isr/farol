@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode" kind="class" language="Python" prot="public">
+    <compoundname>src::open_loop_controller::OpenLoopNode::OpenLoopNode</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9e680bbd50484464a86e96158237e658" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::h_timerActivate</definition>
+        <argsstring></argsstring>
+        <name>h_timerActivate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="37" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a720b871b9be42d1ec4646f1c1ff3db49" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::surge_desired</definition>
+        <argsstring></argsstring>
+        <name>surge_desired</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="40" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a99298b5211c13e41eb91a6d1be63e677" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::sway_desired</definition>
+        <argsstring></argsstring>
+        <name>sway_desired</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="41" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a2ef0c46453fdf43d5f8829ebe653ee1e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::heave_desired</definition>
+        <argsstring></argsstring>
+        <name>heave_desired</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="42" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9b435d7edb7f807386158ac291bc4d93" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::yaw_rate_desired</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_desired</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="43" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::last_update</definition>
+        <argsstring></argsstring>
+        <name>last_update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="46" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aa642d0e78425b75b356c4cce3a2e0dab" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::node_frequency</definition>
+        <argsstring></argsstring>
+        <name>node_frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="55" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a90f31158a31c3e3d2586d9b6b41e5b15" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::gain_Fx</definition>
+        <argsstring></argsstring>
+        <name>gain_Fx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="58" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1acad394e3ed4456ce0242668d4417b801" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::gain_Fy</definition>
+        <argsstring></argsstring>
+        <name>gain_Fy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="59" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a87ca7e4b934a9d4febb3f3ea3cfef831" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::gain_Fz</definition>
+        <argsstring></argsstring>
+        <name>gain_Fz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="60" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad1af7efa769e73c8937b371a583d0503" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::gain_Tz</definition>
+        <argsstring></argsstring>
+        <name>gain_Tz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="61" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a57e4d5bbb15b7ee61fb45cd293061454" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::surge_sub</definition>
+        <argsstring></argsstring>
+        <name>surge_sub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="64" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a0910997208bd38a998d03556d73af5d9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::sway_sub</definition>
+        <argsstring></argsstring>
+        <name>sway_sub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="65" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af8bb5d323e52492906972f553ce79152" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::heave_sub</definition>
+        <argsstring></argsstring>
+        <name>heave_sub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="66" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af6fdb8898743c9238c6c616718f0837d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::yaw_rate_sub</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_sub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="67" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a5d9e4d3da1a7afc0e7e6b574acf721cf" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::force_pub</definition>
+        <argsstring></argsstring>
+        <name>force_pub</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="70" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a915ab7c76979b92991475d92ae47f5e0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>src.open_loop_controller.OpenLoopNode.OpenLoopNode::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="115" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aee20358e9902de02ca1a0c7eee978758" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Class constructor. Initializes the ros node, loads the parameters from the ros parameter server, creates the inner-loops
+publishers and initializes the timer that publishes the desired inputs to the inner-loops
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="21" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="21" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1abed795cf1ed94de2fd8856e454b42fc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.load_params</definition>
+        <argsstring>(self)</argsstring>
+        <name>load_params</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="52" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="52" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a24674880024ab0346cea4c46edcb6383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.initializeSubscribers</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializeSubscribers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="63" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="63" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a6f77b68c12db695c996aa4dd2f983744" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.initializePublishers</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializePublishers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="69" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aaaa22a84f433594c819f8330781a298c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.timerCallback</definition>
+        <argsstring>(self, event)</argsstring>
+        <name>timerCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>event</type>
+          <defname>event</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Callback used to publish to the inner-loops the desired control inputs
+:param event: A timer event - unused but required by the ROS API
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="72" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="72" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a839322021452645f461e843c9aef3e70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.surgeCallback</definition>
+        <argsstring>(self, Float64 msg)</argsstring>
+        <name>surgeCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Float64</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="95" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ab9a189851edf882477e8e3dca26522f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.swayCallback</definition>
+        <argsstring>(self, Float64 msg)</argsstring>
+        <name>swayCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Float64</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="99" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a560e479a2f33d05125e69733dfd0bb68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.heaveCallback</definition>
+        <argsstring>(self, Float64 msg)</argsstring>
+        <name>heaveCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Float64</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="103" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad2289026eaf8eb13adfb2e47e019328c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.yawRateCallback</definition>
+        <argsstring>(self, Float64 msg)</argsstring>
+        <name>yawRateCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Float64</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="107" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a3c501b8580ad5c7d373b7f83a4145b08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.OpenLoopNode.initializeTimer</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializeTimer</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method that starts the system timer that periodically calls a callback
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="111" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="111" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Remote controller ROS node class. Receives from a joystick (using pygame) the desired controls for
+the inner-loops and publishes these periodically (at a pre-defined frequency) to the inner-loops of the
+vehicle
+</verbatim> </para>
+    </detaileddescription>
+    <location file="src/open_loop_controller/OpenLoopNode.py" line="14" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="14" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aee20358e9902de02ca1a0c7eee978758" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>__init__</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a5d9e4d3da1a7afc0e7e6b574acf721cf" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>force_pub</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a90f31158a31c3e3d2586d9b6b41e5b15" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>gain_Fx</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1acad394e3ed4456ce0242668d4417b801" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>gain_Fy</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a87ca7e4b934a9d4febb3f3ea3cfef831" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>gain_Fz</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad1af7efa769e73c8937b371a583d0503" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>gain_Tz</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9e680bbd50484464a86e96158237e658" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>h_timerActivate</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a2ef0c46453fdf43d5f8829ebe653ee1e" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>heave_desired</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af8bb5d323e52492906972f553ce79152" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>heave_sub</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a560e479a2f33d05125e69733dfd0bb68" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>heaveCallback</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a6f77b68c12db695c996aa4dd2f983744" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>initializePublishers</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a24674880024ab0346cea4c46edcb6383" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a3c501b8580ad5c7d373b7f83a4145b08" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>initializeTimer</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>last_update</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1abed795cf1ed94de2fd8856e454b42fc4" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>load_params</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aa642d0e78425b75b356c4cce3a2e0dab" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>node_frequency</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a720b871b9be42d1ec4646f1c1ff3db49" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>surge_desired</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a57e4d5bbb15b7ee61fb45cd293061454" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>surge_sub</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a839322021452645f461e843c9aef3e70" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>surgeCallback</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a99298b5211c13e41eb91a6d1be63e677" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>sway_desired</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a0910997208bd38a998d03556d73af5d9" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>sway_sub</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ab9a189851edf882477e8e3dca26522f6" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>swayCallback</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a915ab7c76979b92991475d92ae47f5e0" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>timer</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aaaa22a84f433594c819f8330781a298c" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>timerCallback</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9b435d7edb7f807386158ac291bc4d93" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>yaw_rate_desired</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af6fdb8898743c9238c6c616718f0837d" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>yaw_rate_sub</name></member>
+      <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad2289026eaf8eb13adfb2e47e019328c" prot="public" virt="non-virtual"><scope>src::open_loop_controller::OpenLoopNode::OpenLoopNode</scope><name>yawRateCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

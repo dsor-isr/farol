@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classReplierNode" kind="class" language="C++" prot="public">
+    <compoundname>ReplierNode</compoundname>
+    <includes refid="ReplierNode_8h" local="no">ReplierNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classReplierNode_1a49872fa8801deb6a62d3a574e239fcab" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle ReplierNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="53" column="18" bodyfile="include/replier_ros/ReplierNode.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1ad69e24c39a7ca949ef88ba66ae8080cf" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle ReplierNode::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="53" column="22" bodyfile="include/replier_ros/ReplierNode.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a8fc736f639422704a4905e61ab9ba9bd" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber ReplierNode::ack_sub_</definition>
+        <argsstring></argsstring>
+        <name>ack_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="58" column="18" bodyfile="include/replier_ros/ReplierNode.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a446e972bc1fda65043a975d248501785" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber ReplierNode::serializer_sub_</definition>
+        <argsstring></argsstring>
+        <name>serializer_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="59" column="17" bodyfile="include/replier_ros/ReplierNode.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a6584358b1a00b1c20bc2bee31f9247ba" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ReplierNode::range_pub_</definition>
+        <argsstring></argsstring>
+        <name>range_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="62" column="17" bodyfile="include/replier_ros/ReplierNode.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a77b47e7c9d9825cb0145200c1a859309" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ReplierNode::im_pub_</definition>
+        <argsstring></argsstring>
+        <name>im_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="63" column="16" bodyfile="include/replier_ros/ReplierNode.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a5ec0a9b27dc332b894d6092bccc3deb8" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ReplierNode::trigger_serialization_pub_</definition>
+        <argsstring></argsstring>
+        <name>trigger_serialization_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="64" column="16" bodyfile="include/replier_ros/ReplierNode.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1ad31c287c36ce6b6638102598ea17ff32" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ReplierNode::deserialization_pub_</definition>
+        <argsstring></argsstring>
+        <name>deserialization_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="65" column="16" bodyfile="include/replier_ros/ReplierNode.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1ac0ad5ae2d48be12f8472f3d30dc21260" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer ReplierNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="68" column="13" bodyfile="include/replier_ros/ReplierNode.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a86b7e66f4fddb0b0e634290b43619aa6" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ReplierNode::p_modem_id_</definition>
+        <argsstring></argsstring>
+        <name>p_modem_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="74" column="5" bodyfile="include/replier_ros/ReplierNode.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a2b3e9ef4208cdda941dd19fd5ff63399" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ReplierNode::p_tslack_</definition>
+        <argsstring></argsstring>
+        <name>p_tslack_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="75" column="8" bodyfile="include/replier_ros/ReplierNode.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a48fdf6d3b9f56e362eb0af26ba24831e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ReplierNode::timeout_</definition>
+        <argsstring></argsstring>
+        <name>timeout_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="78" column="9" bodyfile="include/replier_ros/ReplierNode.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a19949db201c7c443e781cb51c4c25aba" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ReplierNode::range_</definition>
+        <argsstring></argsstring>
+        <name>range_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="78" column="18" bodyfile="include/replier_ros/ReplierNode.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1acfd060c2230da0d0e87b396147291110" prot="private" static="no" mutable="no">
+        <type>std::map&lt; int, unsigned long int &gt;</type>
+        <definition>std::map&lt;int, unsigned long int&gt; ReplierNode::t_last_recv_ims_</definition>
+        <argsstring></argsstring>
+        <name>t_last_recv_ims_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="79" column="10" bodyfile="include/replier_ros/ReplierNode.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a3c52570abc7c4080c7e89197bec7b582" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int ReplierNode::t_last_send_ims_</definition>
+        <argsstring></argsstring>
+        <name>t_last_send_ims_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="80" column="19" bodyfile="include/replier_ros/ReplierNode.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1a45f086a90f3bf86d1e00233fbba4ef1f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ReplierNode::modem_id_last_send_ims_</definition>
+        <argsstring></argsstring>
+        <name>modem_id_last_send_ims_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="81" column="5" bodyfile="include/replier_ros/ReplierNode.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classReplierNode_1ab3400d9cf7673150eb6c116b13745b3f" prot="private" static="no" mutable="no">
+        <type>dmac::DMACPayload</type>
+        <definition>dmac::DMACPayload ReplierNode::reply_ims_</definition>
+        <argsstring></argsstring>
+        <name>reply_ims_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="82" column="19" bodyfile="include/replier_ros/ReplierNode.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classReplierNode_1a588a06448e7703b40d025c62922af338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ReplierNode::ReplierNode</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>ReplierNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param nodehandle @Param nodehandle_private </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="42" column="2" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="11" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a0cbc05de54f05c07056201c6e9eb4ae9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ReplierNode::~ReplierNode</definition>
+        <argsstring>()</argsstring>
+        <name>~ReplierNode</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="49" column="2" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="26" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classReplierNode_1a6b59edb2dbda20b1c15d73e9f0a4d9fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="89" column="7" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="49" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a9beac7b519e7d6e2697d0eb41502068e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="95" column="7" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="59" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a79ce9d3b87255aab6959b74cc0f5dd9a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="101" column="7" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="70" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a220ba9c59647c978e11117ca017e13ed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="107" column="7" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="78" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a0b1147f3baedcfedbb689ecc012253ae" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::triggerSerialization</definition>
+        <argsstring>()</argsstring>
+        <name>triggerSerialization</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="114" column="6" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a821b5a5afc6de9fbf0dfa86abc38110b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::timerIterCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerIterCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param event </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="123" column="7" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="102" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a883998f80c91317b77739512af087249" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::replyCallback</definition>
+        <argsstring>(const dmac::DMACPayload &amp;msg)</argsstring>
+        <name>replyCallback</name>
+        <param>
+          <type>const dmac::DMACPayload &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="131" column="6" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="131" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classReplierNode_1a868d64ca905d351b9cf976f83c1960df" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ReplierNode::serializerCallback</definition>
+        <argsstring>(const std_msgs::String &amp;msg)</argsstring>
+        <name>serializerCallback</name>
+        <param>
+          <type>const std_msgs::String &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/replier_ros/ReplierNode.h" line="139" column="6" bodyfile="src/replier_ros/ReplierNode.cpp" bodystart="115" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><linebreak/>
+ </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/replier_ros/ReplierNode.h" line="32" column="19" bodyfile="include/replier_ros/ReplierNode.h" bodystart="32" bodyend="142"/>
+    <listofallmembers>
+      <member refid="classReplierNode_1a8fc736f639422704a4905e61ab9ba9bd" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>ack_sub_</name></member>
+      <member refid="classReplierNode_1ad31c287c36ce6b6638102598ea17ff32" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>deserialization_pub_</name></member>
+      <member refid="classReplierNode_1a77b47e7c9d9825cb0145200c1a859309" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>im_pub_</name></member>
+      <member refid="classReplierNode_1a9beac7b519e7d6e2697d0eb41502068e" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>initializePublishers</name></member>
+      <member refid="classReplierNode_1a6b59edb2dbda20b1c15d73e9f0a4d9fd" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classReplierNode_1a79ce9d3b87255aab6959b74cc0f5dd9a" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>initializeTimer</name></member>
+      <member refid="classReplierNode_1a220ba9c59647c978e11117ca017e13ed" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>loadParams</name></member>
+      <member refid="classReplierNode_1a45f086a90f3bf86d1e00233fbba4ef1f" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>modem_id_last_send_ims_</name></member>
+      <member refid="classReplierNode_1a49872fa8801deb6a62d3a574e239fcab" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>nh_</name></member>
+      <member refid="classReplierNode_1ad69e24c39a7ca949ef88ba66ae8080cf" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>nh_private_</name></member>
+      <member refid="classReplierNode_1a86b7e66f4fddb0b0e634290b43619aa6" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>p_modem_id_</name></member>
+      <member refid="classReplierNode_1a2b3e9ef4208cdda941dd19fd5ff63399" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>p_tslack_</name></member>
+      <member refid="classReplierNode_1a19949db201c7c443e781cb51c4c25aba" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>range_</name></member>
+      <member refid="classReplierNode_1a6584358b1a00b1c20bc2bee31f9247ba" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>range_pub_</name></member>
+      <member refid="classReplierNode_1a588a06448e7703b40d025c62922af338" prot="public" virt="non-virtual"><scope>ReplierNode</scope><name>ReplierNode</name></member>
+      <member refid="classReplierNode_1ab3400d9cf7673150eb6c116b13745b3f" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>reply_ims_</name></member>
+      <member refid="classReplierNode_1a883998f80c91317b77739512af087249" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>replyCallback</name></member>
+      <member refid="classReplierNode_1a446e972bc1fda65043a975d248501785" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>serializer_sub_</name></member>
+      <member refid="classReplierNode_1a868d64ca905d351b9cf976f83c1960df" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>serializerCallback</name></member>
+      <member refid="classReplierNode_1acfd060c2230da0d0e87b396147291110" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>t_last_recv_ims_</name></member>
+      <member refid="classReplierNode_1a3c52570abc7c4080c7e89197bec7b582" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>t_last_send_ims_</name></member>
+      <member refid="classReplierNode_1a48fdf6d3b9f56e362eb0af26ba24831e" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>timeout_</name></member>
+      <member refid="classReplierNode_1ac0ad5ae2d48be12f8472f3d30dc21260" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>timer_</name></member>
+      <member refid="classReplierNode_1a821b5a5afc6de9fbf0dfa86abc38110b" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>timerIterCallback</name></member>
+      <member refid="classReplierNode_1a5ec0a9b27dc332b894d6092bccc3deb8" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>trigger_serialization_pub_</name></member>
+      <member refid="classReplierNode_1a0b1147f3baedcfedbb689ecc012253ae" prot="private" virt="non-virtual"><scope>ReplierNode</scope><name>triggerSerialization</name></member>
+      <member refid="classReplierNode_1a0cbc05de54f05c07056201c6e9eb4ae9" prot="public" virt="non-virtual"><scope>ReplierNode</scope><name>~ReplierNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="test__math_8cpp" kind="file" language="C++">
+    <compoundname>test_math.cpp</compoundname>
+    <includes refid="math_8hpp" local="yes">dsor_utils/math.hpp</includes>
+    <includes local="no">Eigen/Dense</includes>
+    <includes local="no">gtest/gtest.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>dsor_utils/math.hpp</label>
+        <link refid="math_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="5">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="3">
+        <label>algorithm</label>
+      </node>
+      <node id="1">
+        <label>test/test_math.cpp</label>
+        <link refid="test__math_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__math_8cpp_1af4d9ce5b43a525708562b6692e922a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SignPositive)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SignPositive</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline int sign(T v) only for positive values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Authors: Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) <linebreak/>
+ Last Update: 17/12/2021 License: MIT File: test_math.cpp Brief: Tests all the functions declared in <ref refid="math_8hpp_source" kindref="compound">math.hpp</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="23" column="1" bodyfile="test/test_math.cpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="test__math_8cpp_1a2f939fd040fff6ee36bd31c803c16fae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SignNegative)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SignNegative</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline int sign(T v) only for zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="35" column="1" bodyfile="test/test_math.cpp" bodystart="35" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="test__math_8cpp_1a60e20b211dab42fc6079b2b54b6dcc3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SignZero)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SignZero</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline int sign(T v) only for positive values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="46" column="1" bodyfile="test/test_math.cpp" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="test__math_8cpp_1a458940c52b38befaf0a2bd9efdfa0b94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SaturatedPositive)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SaturatedPositive</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline T saturation(T value, T min, T max) only for positive saturated values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="62" column="1" bodyfile="test/test_math.cpp" bodystart="62" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="test__math_8cpp_1afa6c2f7afefcb28bddd323ed9088640a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SaturatedNegative)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SaturatedNegative</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline T saturation(T value, T min, T max) only for negative saturated values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="75" column="1" bodyfile="test/test_math.cpp" bodystart="75" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="test__math_8cpp_1a4de0717017d2002f2cc22646c8afc19c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, NotSatured)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>NotSatured</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline T saturation(T value, T min, T max) only for not saturated values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="86" column="1" bodyfile="test/test_math.cpp" bodystart="86" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="test__math_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_math.cpp" line="94" column="5" bodyfile="test/test_math.cpp" bodystart="94" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="13"><highlight class="preprocessor">#include<sp/>&quot;dsor_utils/math.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>==========================<sp/>Test<sp/>unit<sp/>for<sp/>sign<sp/>function<sp/>===============================<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">TEST(TestSuite,<sp/>SignPositive)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>positive<sp/>numbers<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;int&gt;(10)<sp/>,<sp/>1);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;double&gt;(<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)20.0<sp/>)<sp/>,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;float&gt;(<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)15.0<sp/>)<sp/>,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">TEST(TestSuite,<sp/>SignNegative)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>negative<sp/>numbers<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;int&gt;(-10)<sp/>,<sp/>-1);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;double&gt;(<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)-20.0<sp/>)<sp/>,<sp/>-1<sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;float&gt;(<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)-15.0<sp/>)<sp/>,<sp/>-1<sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">TEST(TestSuite,<sp/>SignZero)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>zero<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;int&gt;(0)<sp/>,<sp/>0);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;double&gt;(<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)0.0<sp/>)<sp/>,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::sign&lt;float&gt;(<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)0.0<sp/>)<sp/>,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>============================================================================================<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>==========================<sp/>Test<sp/>unit<sp/>for<sp/>saturation<sp/>function<sp/>===============================<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">TEST(TestSuite,<sp/>SaturatedPositive)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>saturated<sp/>positive<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;int&gt;(15,<sp/>-12,<sp/>10)<sp/>,<sp/>10);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;double&gt;(<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)15.0,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)-12.0,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)10.0)<sp/>,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)10.0);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;float&gt;(<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)15.0,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)-12.0,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)10.0)<sp/>,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)10.0);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">TEST(TestSuite,<sp/>SaturatedNegative)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>saturated<sp/>negative<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;int&gt;(-15,<sp/>-12,<sp/>10)<sp/>,<sp/>-12);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;double&gt;(<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)-15.0,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)-12.0,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)10.0)<sp/>,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)-12.0);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;float&gt;(<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)-15.0,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)-12.0,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)10.0)<sp/>,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)-12.0);<sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">TEST(TestSuite,<sp/>NotSatured)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>a<sp/>value<sp/>that<sp/>is<sp/>not<sp/>saturated</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;int&gt;(5,<sp/>-10,<sp/>10)<sp/>,<sp/>5);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;double&gt;(<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)5.0,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)-12.0,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)10.0)<sp/>,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)5.0);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(<sp/>DSOR::saturation&lt;float&gt;(<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)5.0,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)-12.0,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)10.0)<sp/>,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)5.0);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)<sp/>{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>testing::InitGoogleTest(&amp;argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RUN_ALL_TESTS();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="test/test_math.cpp"/>
+  </compounddef>
+</doxygen>

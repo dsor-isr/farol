@@ -1,0 +1,924 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classWaypointNode" kind="class" language="C++" prot="public">
+    <compoundname>WaypointNode</compoundname>
+    <includes refid="waypoint_8h" local="no">waypoint.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classWaypointNode_1a087ef5694ff21d7442c9567e1dda1b04" prot="private" static="no" mutable="no">
+        <type><ref refid="classWaypointController" kindref="compound">WaypointController</ref> *</type>
+        <definition>WaypointController* WaypointNode::wp_controller_</definition>
+        <argsstring></argsstring>
+        <name>wp_controller_</name>
+        <briefdescription>
+<para>Pointer to waypoint controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="38" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1ae8bc0d6bc97c3bb3d52daa1967bb10fa" prot="private" static="no" mutable="no">
+        <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
+        <definition>WPref_t WaypointNode::wp_ref_</definition>
+        <argsstring></argsstring>
+        <name>wp_ref_</name>
+        <briefdescription>
+<para>Desired waypoint. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="39" column="11" bodyfile="include/waypoint_ros/waypoint.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a74f3e8191ee016497d669780c0d2c1ad" prot="private" static="no" mutable="no">
+        <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
+        <definition>Vehicle_t WaypointNode::veh_state_</definition>
+        <argsstring></argsstring>
+        <name>veh_state_</name>
+        <briefdescription>
+<para>Vehicle state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="40" column="13" bodyfile="include/waypoint_ros/waypoint.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1ae802ff254d2012447b1fdb000ec7d4a8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::node_frequency_</definition>
+        <argsstring></argsstring>
+        <name>node_frequency_</name>
+        <briefdescription>
+<para>node main loop frequency </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="41" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a6b6cf8a6753c8545e1bbd9548bcbd4cd" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle WaypointNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+<para>Public ros nodehandle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="44" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1acee0cec3245d3c4e1c9c908128925b94" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle WaypointNode::nh_p_</definition>
+        <argsstring></argsstring>
+        <name>nh_p_</name>
+        <briefdescription>
+<para>Private ros nodehandle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="45" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a0ace5a6097665768ee011f994bc92e83" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber WaypointNode::flag_sub_</definition>
+        <argsstring></argsstring>
+        <name>flag_sub_</name>
+        <briefdescription>
+<para>flag subscriber </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="48" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a4e650a7521a9ece79ed5e8d6406c83d8" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber WaypointNode::state_sub_</definition>
+        <argsstring></argsstring>
+        <name>state_sub_</name>
+        <briefdescription>
+<para>state subscriber </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="49" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a4644e068e69f3d9a80de768c7fceec38" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher WaypointNode::u_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>u_ref_pub_</name>
+        <briefdescription>
+<para>surge publisher </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="52" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1aee38619f88d931adb80f0843b75c1fb8" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher WaypointNode::yaw_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_ref_pub_</name>
+        <briefdescription>
+<para>sway publisher </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="53" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a6c86b1627e5a9c3e9590eaa2d66ada55" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher WaypointNode::flag_pub_</definition>
+        <argsstring></argsstring>
+        <name>flag_pub_</name>
+        <briefdescription>
+<para>flag publisher </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="54" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1acb3a21a816466d0d53bf970ba26fb5e4" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher WaypointNode::v_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>v_ref_pub_</name>
+        <briefdescription>
+<para>sway publisher </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="55" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1afe53cbcd63c47939e0497f10c77d8544" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher WaypointNode::yaw_rate_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_ref_pub_</name>
+        <briefdescription>
+<para>yaw rate publisher </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="56" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1af01668fd19a2723be3f88ab762463f29" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer WaypointNode::wp_standard_srv_</definition>
+        <argsstring></argsstring>
+        <name>wp_standard_srv_</name>
+        <briefdescription>
+<para>standard waypoint service </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="59" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a090091a4b99fa99c81f1db201b2f3264" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer WaypointNode::wp_loose_srv_</definition>
+        <argsstring></argsstring>
+        <name>wp_loose_srv_</name>
+        <briefdescription>
+<para>loose waypoint service </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="60" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a7265e443dbaced587a84c4fa8df95923" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer WaypointNode::wp_heading_srv_</definition>
+        <argsstring></argsstring>
+        <name>wp_heading_srv_</name>
+        <briefdescription>
+<para>heading waypoint service </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="61" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a99bbf591da97af6ff2c8cf91355e2915" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer WaypointNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>main loop timer </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="64" column="14" bodyfile="include/waypoint_ros/waypoint.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1aa8e2912038dea7b384be7fe259ebd515" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::cdist_</definition>
+        <argsstring></argsstring>
+        <name>cdist_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="67" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a76d996813803ae3cae783ccad67f6902" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::ku_</definition>
+        <argsstring></argsstring>
+        <name>ku_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="70" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a44396d07097d310526f7a35061467814" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::ks_</definition>
+        <argsstring></argsstring>
+        <name>ks_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="71" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1ad94139a4923c0a83fb1abeff72c61768" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::delta_t_</definition>
+        <argsstring></argsstring>
+        <name>delta_t_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="72" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a74507016e83f8ccc707576b131037c5e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::speed_turn_</definition>
+        <argsstring></argsstring>
+        <name>speed_turn_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="73" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1ad97ec44e3e78f93b31a21ad93fd8617a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::k1_</definition>
+        <argsstring></argsstring>
+        <name>k1_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="76" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a3d7e848f4bfaee6cf8b582179fb961b0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::k2_</definition>
+        <argsstring></argsstring>
+        <name>k2_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="77" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a301ef83646b34dd3d7d619ac4641bc7c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointNode::k3_</definition>
+        <argsstring></argsstring>
+        <name>k3_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="78" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a8ce53862e39e439d68c7ca04120438e9" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::state_topic_</definition>
+        <argsstring></argsstring>
+        <name>state_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="81" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1abd8c9f13fbae4f9b658e3fea5929d271" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::flag_topic_</definition>
+        <argsstring></argsstring>
+        <name>flag_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="82" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1adcf0a026215d708e3388e3afc3ea53de" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::wp_ref_topic_</definition>
+        <argsstring></argsstring>
+        <name>wp_ref_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="83" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a1fe262481bec1ac84944eeceae10963e" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::u_ref_topic_</definition>
+        <argsstring></argsstring>
+        <name>u_ref_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="84" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a4fafc9bcd6e1f06c7174ae4c23fe18f7" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::v_ref_topic_</definition>
+        <argsstring></argsstring>
+        <name>v_ref_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="85" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1ac7632c9d8ebff125ebdbf0c8a2892f74" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::yaw_ref_topic_</definition>
+        <argsstring></argsstring>
+        <name>yaw_ref_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="86" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1aaeba389334245a256db99ee9c7b1003d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::yaw_rate_ref_topic_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_ref_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="87" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1ad1f725d866d90158ed3291449b389994" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::wp_standard_topic_</definition>
+        <argsstring></argsstring>
+        <name>wp_standard_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="88" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1aeac44f9205307b5071fa89598a4f2b0f" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::wp_loose_topic_</definition>
+        <argsstring></argsstring>
+        <name>wp_loose_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="89" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a6d57a9f1be0f23c804bb94fb1675da94" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::wp_heading_topic_</definition>
+        <argsstring></argsstring>
+        <name>wp_heading_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="90" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classWaypointNode_1a3e102d1f73b1bfab52e8bc5328318b86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WaypointNode::WaypointNode</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehanle_private)</argsstring>
+        <name>WaypointNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehanle_private</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="32" column="3" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="8" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1ae80f950dc594a4314d314b12d2482da0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WaypointNode::~WaypointNode</definition>
+        <argsstring>()</argsstring>
+        <name>~WaypointNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="35" column="3" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="19" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classWaypointNode_1a6308fbf7ade97e911d3e6d5c25ce61bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Function to initialize subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="95" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="75" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1ace54335fdebf5e8fccd9756c645540f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Function to initialize publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="100" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="83" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a72f6dd13019328eb7bd21ad998307db6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>Function to initialize services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="105" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="92" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1ac697c7c6efff700c45c50e98608a1a1a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Function to initialize the node main loop timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="110" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1ac1bd4ca805817bf789cc573274a68090" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+<para>Loads parameters from parameter server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="115" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="38" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1aca9ca6b432249537d44667d06628161d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double WaypointNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>Reads the node main loop frequency from parameter service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>main loop frequency </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="122" column="10" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="108" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a7c1128d42de735167ef033a2baa3d612" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::updateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>updateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of the state topic. Updates the vehicle state object to be then used in the waypoint controllers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains the state info </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="131" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="120" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1aaed5f7ee74dc0434e9cde401fde8c286" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::flagCallback</definition>
+        <argsstring>(const std_msgs::Int8 &amp;msg)</argsstring>
+        <name>flagCallback</name>
+        <param>
+          <type>const std_msgs::Int8 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of the flag topic. Stops the main loop if flag is different from 4 (4 equals WP mode) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains the flag info </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="139" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="135" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a0fdaf6b4845cbc9c6476e35fb593fbf5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::timerCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Main loop of the node. Executes the waypoint controller and publishes the respective references. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="147" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a6770ca3284e81a9d044f606c41929d94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WaypointNode::sendWpStandardService</definition>
+        <argsstring>(waypoint::sendWpType1::Request &amp;req, waypoint::sendWpType1::Response &amp;res)</argsstring>
+        <name>sendWpStandardService</name>
+        <param>
+          <type>waypoint::sendWpType1::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>waypoint::sendWpType1::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of standard waypoint service. Starts main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="157" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="178" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a50c5e02f7d2e255f866ab11fe025b608" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WaypointNode::sendWpLooseService</definition>
+        <argsstring>(waypoint::sendWpType1::Request &amp;req, waypoint::sendWpType1::Response &amp;res)</argsstring>
+        <name>sendWpLooseService</name>
+        <param>
+          <type>waypoint::sendWpType1::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>waypoint::sendWpType1::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of loose waypoint service. Starts main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="167" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="210" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a7f9c92860981f2808046089f4946e5d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WaypointNode::sendWpHeadingService</definition>
+        <argsstring>(waypoint::sendWpType1::Request &amp;req, waypoint::sendWpType1::Response &amp;res)</argsstring>
+        <name>sendWpHeadingService</name>
+        <param>
+          <type>waypoint::sendWpType1::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>waypoint::sendWpType1::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of waypoint with heading control service. Starts main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="179" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="242" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a9d23c787edfd629de112646c80a8da19" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::createWaypoint</definition>
+        <argsstring>(WaypointController *new_wp)</argsstring>
+        <name>createWaypoint</name>
+        <param>
+          <type><ref refid="classWaypointController" kindref="compound">WaypointController</ref> *</type>
+          <declname>new_wp</declname>
+        </param>
+        <briefdescription>
+<para>Substitutes the waypoint controller pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>new_wp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="187" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="144" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a0f61eab0790a9add760625d7c4d0d41f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool WaypointNode::decodeWaypoint</definition>
+        <argsstring>(double x, double y)</argsstring>
+        <name>decodeWaypoint</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="189" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="152" bodyend="176"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ROS node class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/waypoint_ros/waypoint.h" line="30" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="30" bodyend="190"/>
+    <listofallmembers>
+      <member refid="classWaypointNode_1aa8e2912038dea7b384be7fe259ebd515" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>cdist_</name></member>
+      <member refid="classWaypointNode_1a9d23c787edfd629de112646c80a8da19" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>createWaypoint</name></member>
+      <member refid="classWaypointNode_1a0f61eab0790a9add760625d7c4d0d41f" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>decodeWaypoint</name></member>
+      <member refid="classWaypointNode_1ad94139a4923c0a83fb1abeff72c61768" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>delta_t_</name></member>
+      <member refid="classWaypointNode_1a6c86b1627e5a9c3e9590eaa2d66ada55" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>flag_pub_</name></member>
+      <member refid="classWaypointNode_1a0ace5a6097665768ee011f994bc92e83" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>flag_sub_</name></member>
+      <member refid="classWaypointNode_1abd8c9f13fbae4f9b658e3fea5929d271" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>flag_topic_</name></member>
+      <member refid="classWaypointNode_1aaed5f7ee74dc0434e9cde401fde8c286" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>flagCallback</name></member>
+      <member refid="classWaypointNode_1ace54335fdebf5e8fccd9756c645540f8" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>initializePublishers</name></member>
+      <member refid="classWaypointNode_1a72f6dd13019328eb7bd21ad998307db6" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>initializeServices</name></member>
+      <member refid="classWaypointNode_1a6308fbf7ade97e911d3e6d5c25ce61bf" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classWaypointNode_1ac697c7c6efff700c45c50e98608a1a1a" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>initializeTimer</name></member>
+      <member refid="classWaypointNode_1ad97ec44e3e78f93b31a21ad93fd8617a" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>k1_</name></member>
+      <member refid="classWaypointNode_1a3d7e848f4bfaee6cf8b582179fb961b0" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>k2_</name></member>
+      <member refid="classWaypointNode_1a301ef83646b34dd3d7d619ac4641bc7c" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>k3_</name></member>
+      <member refid="classWaypointNode_1a44396d07097d310526f7a35061467814" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>ks_</name></member>
+      <member refid="classWaypointNode_1a76d996813803ae3cae783ccad67f6902" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>ku_</name></member>
+      <member refid="classWaypointNode_1ac1bd4ca805817bf789cc573274a68090" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>loadParams</name></member>
+      <member refid="classWaypointNode_1a6b6cf8a6753c8545e1bbd9548bcbd4cd" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>nh_</name></member>
+      <member refid="classWaypointNode_1acee0cec3245d3c4e1c9c908128925b94" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>nh_p_</name></member>
+      <member refid="classWaypointNode_1ae802ff254d2012447b1fdb000ec7d4a8" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>node_frequency_</name></member>
+      <member refid="classWaypointNode_1aca9ca6b432249537d44667d06628161d" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>nodeFrequency</name></member>
+      <member refid="classWaypointNode_1a7f9c92860981f2808046089f4946e5d3" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>sendWpHeadingService</name></member>
+      <member refid="classWaypointNode_1a50c5e02f7d2e255f866ab11fe025b608" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>sendWpLooseService</name></member>
+      <member refid="classWaypointNode_1a6770ca3284e81a9d044f606c41929d94" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>sendWpStandardService</name></member>
+      <member refid="classWaypointNode_1a74507016e83f8ccc707576b131037c5e" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>speed_turn_</name></member>
+      <member refid="classWaypointNode_1a4e650a7521a9ece79ed5e8d6406c83d8" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>state_sub_</name></member>
+      <member refid="classWaypointNode_1a8ce53862e39e439d68c7ca04120438e9" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>state_topic_</name></member>
+      <member refid="classWaypointNode_1a99bbf591da97af6ff2c8cf91355e2915" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>timer_</name></member>
+      <member refid="classWaypointNode_1a0fdaf6b4845cbc9c6476e35fb593fbf5" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>timerCallback</name></member>
+      <member refid="classWaypointNode_1a4644e068e69f3d9a80de768c7fceec38" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>u_ref_pub_</name></member>
+      <member refid="classWaypointNode_1a1fe262481bec1ac84944eeceae10963e" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>u_ref_topic_</name></member>
+      <member refid="classWaypointNode_1a7c1128d42de735167ef033a2baa3d612" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>updateCallback</name></member>
+      <member refid="classWaypointNode_1acb3a21a816466d0d53bf970ba26fb5e4" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>v_ref_pub_</name></member>
+      <member refid="classWaypointNode_1a4fafc9bcd6e1f06c7174ae4c23fe18f7" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>v_ref_topic_</name></member>
+      <member refid="classWaypointNode_1a74f3e8191ee016497d669780c0d2c1ad" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>veh_state_</name></member>
+      <member refid="classWaypointNode_1a3e102d1f73b1bfab52e8bc5328318b86" prot="public" virt="non-virtual"><scope>WaypointNode</scope><name>WaypointNode</name></member>
+      <member refid="classWaypointNode_1a087ef5694ff21d7442c9567e1dda1b04" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_controller_</name></member>
+      <member refid="classWaypointNode_1a7265e443dbaced587a84c4fa8df95923" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_heading_srv_</name></member>
+      <member refid="classWaypointNode_1a6d57a9f1be0f23c804bb94fb1675da94" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_heading_topic_</name></member>
+      <member refid="classWaypointNode_1a090091a4b99fa99c81f1db201b2f3264" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_loose_srv_</name></member>
+      <member refid="classWaypointNode_1aeac44f9205307b5071fa89598a4f2b0f" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_loose_topic_</name></member>
+      <member refid="classWaypointNode_1ae8bc0d6bc97c3bb3d52daa1967bb10fa" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_ref_</name></member>
+      <member refid="classWaypointNode_1adcf0a026215d708e3388e3afc3ea53de" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_ref_topic_</name></member>
+      <member refid="classWaypointNode_1af01668fd19a2723be3f88ab762463f29" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_standard_srv_</name></member>
+      <member refid="classWaypointNode_1ad1f725d866d90158ed3291449b389994" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>wp_standard_topic_</name></member>
+      <member refid="classWaypointNode_1afe53cbcd63c47939e0497f10c77d8544" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>yaw_rate_ref_pub_</name></member>
+      <member refid="classWaypointNode_1aaeba389334245a256db99ee9c7b1003d" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>yaw_rate_ref_topic_</name></member>
+      <member refid="classWaypointNode_1aee38619f88d931adb80f0843b75c1fb8" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>yaw_ref_pub_</name></member>
+      <member refid="classWaypointNode_1ac7632c9d8ebff125ebdbf0c8a2892f74" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>yaw_ref_topic_</name></member>
+      <member refid="classWaypointNode_1ae80f950dc594a4314d314b12d2482da0" prot="public" virt="non-virtual"><scope>WaypointNode</scope><name>~WaypointNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

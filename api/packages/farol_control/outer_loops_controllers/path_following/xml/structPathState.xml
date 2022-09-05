@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structPathState" kind="struct" language="C++" prot="public">
+    <compoundname>PathState</compoundname>
+    <includes refid="States_8h" local="no">States.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The value of gamma used in the computations for this values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="48" column="10" bodyfile="include/algorithms/States.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d PathState::pd</definition>
+        <argsstring></argsstring>
+        <name>pd</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+<para>Desired position and its derivatives. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="53" column="19" bodyfile="include/algorithms/States.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1ab93da861fcda09fc5dec99c664e58ef7" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d PathState::d_pd</definition>
+        <argsstring></argsstring>
+        <name>d_pd</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="54" column="19" bodyfile="include/algorithms/States.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1aaca8e3cc9078828499dfb2755f32d6ab" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d PathState::dd_pd</definition>
+        <argsstring></argsstring>
+        <name>dd_pd</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="55" column="19" bodyfile="include/algorithms/States.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::psi</definition>
+        <argsstring></argsstring>
+        <name>psi</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Other properties of the path such as the psi, curvature and tangent_norm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="60" column="10" bodyfile="include/algorithms/States.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1aeab8a07b35d052ce2add20c7c69ddb66" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::curvature</definition>
+        <argsstring></argsstring>
+        <name>curvature</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="61" column="10" bodyfile="include/algorithms/States.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1aee1533a50001ac16759b1410e87f4f64" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::tangent_norm</definition>
+        <argsstring></argsstring>
+        <name>tangent_norm</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="62" column="10" bodyfile="include/algorithms/States.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::vd</definition>
+        <argsstring></argsstring>
+        <name>vd</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The desired speed for a given gamma. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="67" column="10" bodyfile="include/algorithms/States.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1a5bde149ec7796036a7e87c4cab9d6a2a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::d_vd</definition>
+        <argsstring></argsstring>
+        <name>d_vd</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="68" column="10" bodyfile="include/algorithms/States.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1ad39411d0bcd3738fbf0a98d8ad5baca5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::vehicle_speed</definition>
+        <argsstring></argsstring>
+        <name>vehicle_speed</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="69" column="10" bodyfile="include/algorithms/States.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::vc</definition>
+        <argsstring></argsstring>
+        <name>vc</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The correction speed for gamma (when cooperating with other vehicles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="74" column="10" bodyfile="include/algorithms/States.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1af6702806427eaa044dc11a90bcc3869c" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::gamma_min</definition>
+        <argsstring></argsstring>
+        <name>gamma_min</name>
+        <initializer>{std::numeric_limits&lt;double&gt;::lowest()}</initializer>
+        <briefdescription>
+<para>Properties related to the boundaries of the parameterization of the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="79" column="10" bodyfile="include/algorithms/States.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPathState_1ad473d7e8be30a79fbac6e85fcc0c5e63" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PathState::gamma_max</definition>
+        <argsstring></argsstring>
+        <name>gamma_max</name>
+        <initializer>{std::numeric_limits&lt;double&gt;::max()}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="80" column="10" bodyfile="include/algorithms/States.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A structure to hold the data of the path. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/States.h" line="43" column="15" bodyfile="include/algorithms/States.h" bodystart="43" bodyend="82"/>
+    <listofallmembers>
+      <member refid="structPathState_1aeab8a07b35d052ce2add20c7c69ddb66" prot="public" virt="non-virtual"><scope>PathState</scope><name>curvature</name></member>
+      <member refid="structPathState_1ab93da861fcda09fc5dec99c664e58ef7" prot="public" virt="non-virtual"><scope>PathState</scope><name>d_pd</name></member>
+      <member refid="structPathState_1a5bde149ec7796036a7e87c4cab9d6a2a" prot="public" virt="non-virtual"><scope>PathState</scope><name>d_vd</name></member>
+      <member refid="structPathState_1aaca8e3cc9078828499dfb2755f32d6ab" prot="public" virt="non-virtual"><scope>PathState</scope><name>dd_pd</name></member>
+      <member refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" prot="public" virt="non-virtual"><scope>PathState</scope><name>gamma</name></member>
+      <member refid="structPathState_1ad473d7e8be30a79fbac6e85fcc0c5e63" prot="public" virt="non-virtual"><scope>PathState</scope><name>gamma_max</name></member>
+      <member refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" prot="public" virt="non-virtual"><scope>PathState</scope><name>gamma_min</name></member>
+      <member refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" prot="public" virt="non-virtual"><scope>PathState</scope><name>pd</name></member>
+      <member refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" prot="public" virt="non-virtual"><scope>PathState</scope><name>psi</name></member>
+      <member refid="structPathState_1aee1533a50001ac16759b1410e87f4f64" prot="public" virt="non-virtual"><scope>PathState</scope><name>tangent_norm</name></member>
+      <member refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" prot="public" virt="non-virtual"><scope>PathState</scope><name>vc</name></member>
+      <member refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" prot="public" virt="non-virtual"><scope>PathState</scope><name>vd</name></member>
+      <member refid="structPathState_1ad39411d0bcd3738fbf0a98d8ad5baca5" prot="public" virt="non-virtual"><scope>PathState</scope><name>vehicle_speed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

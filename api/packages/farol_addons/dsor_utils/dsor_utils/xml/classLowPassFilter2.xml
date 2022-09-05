@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classLowPassFilter2" kind="class" language="C++" prot="public">
+    <compoundname>LowPassFilter2</compoundname>
+    <basecompoundref refid="classDigitalFilter" prot="public" virt="non-virtual">DigitalFilter&lt; float &gt;</basecompoundref>
+    <includes refid="lowpass__filter_8hpp" local="no">lowpass_filter.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLowPassFilter2_1a1c5780e6c5718043ee26496d63adcedc" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LowPassFilter2::yc[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>yc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="158" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter2_1a85018bcbe6735a735ae75ffb603066d5" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LowPassFilter2::xc[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>xc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="159" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter2_1a7ededf11f9b0df43c4e922e7073d402a" prot="private" static="no" mutable="no">
+        <type><ref refid="classCircularDelay" kindref="compound">CircularDelay</ref>&lt; float, 2 &gt;</type>
+        <definition>CircularDelay&lt;float, 2&gt; LowPassFilter2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="161" column="23" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter2_1a0dae11df6308269bfd92ea51f4dfd7b3" prot="private" static="no" mutable="no">
+        <type><ref refid="classCircularDelay" kindref="compound">CircularDelay</ref>&lt; float, 3 &gt;</type>
+        <definition>CircularDelay&lt;float, 3&gt; LowPassFilter2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="162" column="23" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLowPassFilter2_1a1f5429b71eeb2b2d4777e2cb034c4b9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LowPassFilter2::LowPassFilter2</definition>
+        <argsstring>(float dt, float tau_c, float ioutput=0)</argsstring>
+        <name>LowPassFilter2</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>tau_c</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ioutput</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor to set sample time and the tau constant. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample time for the low pass filter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tau_c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time constant for the filter <formula id="2">$ \tau_c = \frac{1}{2 pi f_c}$</formula>, where <formula id="1">$ f_c $</formula> is the cutoff frequency </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="93" column="9" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="93" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter2_1ae797151cf9521885d8961ecc73b3cab5" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float LowPassFilter2::update</definition>
+        <argsstring>(float newValue) final</argsstring>
+        <name>update</name>
+        <reimplements refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac">update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Update function to push new value into the filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value after dt time</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new output value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="116" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="116" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter2_1a9a923d114a00f7eeb65eaa59051999b4" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float LowPassFilter2::getOutput</definition>
+        <argsstring>() final</argsstring>
+        <name>getOutput</name>
+        <reimplements refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd">getOutput</reimplements>
+        <briefdescription>
+<para>Gets the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="136" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter2_1a1472b711b343cdb9abe43cdbb6454efa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LowPassFilter2::configOutput</definition>
+        <argsstring>(float newOutput)</argsstring>
+        <name>configOutput</name>
+        <param>
+          <type>float</type>
+          <declname>newOutput</declname>
+        </param>
+        <briefdescription>
+<para>Force the output to a desired value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>        This can be useful when the output needs to be forced in case
+        of extreme inputs or such
+</verbatim></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">newOutput</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new output </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="146" column="14" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="146" bodyend="154"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for a 2nd order low pass filter. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>        Design to be a 2nd order Butterworth low pass filter.
+        Transformation done using the bilinear transform method
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LowPassFilter2</label>
+        <link refid="classLowPassFilter2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LowPassFilter2</label>
+        <link refid="classLowPassFilter2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="83" column="43" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="83" bodyend="164"/>
+    <listofallmembers>
+      <member refid="classLowPassFilter2_1a1472b711b343cdb9abe43cdbb6454efa" prot="public" virt="non-virtual"><scope>LowPassFilter2</scope><name>configOutput</name></member>
+      <member refid="classLowPassFilter2_1a9a923d114a00f7eeb65eaa59051999b4" prot="public" virt="virtual"><scope>LowPassFilter2</scope><name>getOutput</name></member>
+      <member refid="classLowPassFilter2_1a1f5429b71eeb2b2d4777e2cb034c4b9d" prot="public" virt="non-virtual"><scope>LowPassFilter2</scope><name>LowPassFilter2</name></member>
+      <member refid="classLowPassFilter2_1ae797151cf9521885d8961ecc73b3cab5" prot="public" virt="virtual"><scope>LowPassFilter2</scope><name>update</name></member>
+      <member refid="classLowPassFilter2_1a0dae11df6308269bfd92ea51f4dfd7b3" prot="private" virt="non-virtual"><scope>LowPassFilter2</scope><name>x</name></member>
+      <member refid="classLowPassFilter2_1a85018bcbe6735a735ae75ffb603066d5" prot="private" virt="non-virtual"><scope>LowPassFilter2</scope><name>xc</name></member>
+      <member refid="classLowPassFilter2_1a7ededf11f9b0df43c4e922e7073d402a" prot="private" virt="non-virtual"><scope>LowPassFilter2</scope><name>y</name></member>
+      <member refid="classLowPassFilter2_1a1c5780e6c5718043ee26496d63adcedc" prot="private" virt="non-virtual"><scope>LowPassFilter2</scope><name>yc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

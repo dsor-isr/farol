@@ -1,0 +1,376 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAuvState2mState" kind="class" language="C++" prot="public">
+    <compoundname>AuvState2mState</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAuvState2mState_1a53a4d94c91397a21c528ec13525ef5af" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle AuvState2mState::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="53" column="17" bodyfile="include/AuvState2mState.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a6367e5b71988e31eae5195d012fc2cb7" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle AuvState2mState::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="53" column="21" bodyfile="include/AuvState2mState.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a0614aee09b75a71ccd29eb1ba41c19e6" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber AuvState2mState::sub_inside_pressure_</definition>
+        <argsstring></argsstring>
+        <name>sub_inside_pressure_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="56" column="21" bodyfile="include/AuvState2mState.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a52f7fd67ff1b362d8ce37a7bacaef436" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber AuvState2mState::sub_auv_state_</definition>
+        <argsstring></argsstring>
+        <name>sub_auv_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="56" column="42" bodyfile="include/AuvState2mState.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a11f98c3360a6ccbc018e0f9d21849c84" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber AuvState2mState::sub_gps_status_</definition>
+        <argsstring></argsstring>
+        <name>sub_gps_status_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="56" column="57" bodyfile="include/AuvState2mState.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a09aac037a9a3625482c4191359fe7a85" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher AuvState2mState::mstate_pub_</definition>
+        <argsstring></argsstring>
+        <name>mstate_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="59" column="16" bodyfile="include/AuvState2mState.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1aeca3c01a3e49b6185b61da42f93d91a8" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer AuvState2mState::timer_in_pressure_</definition>
+        <argsstring></argsstring>
+        <name>timer_in_pressure_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="62" column="12" bodyfile="include/AuvState2mState.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1aec717a64383410c62f78794ef86df414" prot="private" static="no" mutable="no">
+        <type>farol_msgs::Pressure</type>
+        <definition>farol_msgs::Pressure AuvState2mState::in_pressure</definition>
+        <argsstring></argsstring>
+        <name>in_pressure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="65" column="22" bodyfile="include/AuvState2mState.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a1d31cb18bbc0b101908859d84a6bd87a" prot="private" static="no" mutable="no">
+        <type><ref refid="classLowPassFilter" kindref="compound">LowPassFilter</ref> *</type>
+        <definition>LowPassFilter* AuvState2mState::insidePressure</definition>
+        <argsstring></argsstring>
+        <name>insidePressure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="66" column="15" bodyfile="include/AuvState2mState.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a4a17fbb35d92398a58597ebe9f0d9de0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AuvState2mState::in_press</definition>
+        <argsstring></argsstring>
+        <name>in_press</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="67" column="8" bodyfile="include/AuvState2mState.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1ac55173d75166b9ce065112c0e46c8d77" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AuvState2mState::in_press_dot</definition>
+        <argsstring></argsstring>
+        <name>in_press_dot</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="67" column="17" bodyfile="include/AuvState2mState.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAuvState2mState_1a84c85b2fcc225f8cca7127f93870e84f" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int AuvState2mState::gps_status_</definition>
+        <argsstring></argsstring>
+        <name>gps_status_</name>
+        <initializer>{1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="68" column="14" bodyfile="include/AuvState2mState.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAuvState2mState_1a94eb94c7e379c157fe82483326263776" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AuvState2mState::AuvState2mState</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>AuvState2mState</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+<para>Construtor <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param nodehandle @Param nodehandle_private </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="43" column="1" bodyfile="src/AuvState2mState.cpp" bodystart="11" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a47fc04a06e73387bfc163f8bd1cdac13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AuvState2mState::~AuvState2mState</definition>
+        <argsstring>()</argsstring>
+        <name>~AuvState2mState</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="50" column="1" bodyfile="src/AuvState2mState.cpp" bodystart="25" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAuvState2mState_1a37d1c3e0d8911c05e8144a28247fff9c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="75" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a122a9505daba603b8a061402c2e1f47e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="82" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a20157b7aee54c616023aa8d854e7dbc4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::initializeTimers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimers</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="89" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a4630cb6f457da950057e0cdfa8bc669e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="96" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1ace5261eef309de4fbc66b0b3979d7dec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::mStateBroadcasterCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>mStateBroadcasterCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="105" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="94" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a5e98563a48bdd0d2ffcf4a81576fe631" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::insidePressureCallback</definition>
+        <argsstring>(const farol_msgs::Pressure &amp;msg)</argsstring>
+        <name>insidePressureCallback</name>
+        <param>
+          <type>const farol_msgs::Pressure &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="114" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="85" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a414063923a480063d77a427ea063e187" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::mGPSStatusCallback</definition>
+        <argsstring>(const sensor_msgs::NavSatFix &amp;msg)</argsstring>
+        <name>mGPSStatusCallback</name>
+        <param>
+          <type>const sensor_msgs::NavSatFix &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="123" column="6" bodyfile="src/AuvState2mState.cpp" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classAuvState2mState_1a6c0a694aa2b5f7c547b5394bc72a6f99" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AuvState2mState::insidePressureTimer</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>insidePressureTimer</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param event </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/AuvState2mState.h" line="132" column="8" bodyfile="src/AuvState2mState.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/AuvState2mState.h" line="33" column="1" bodyfile="include/AuvState2mState.h" bodystart="32" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classAuvState2mState_1a94eb94c7e379c157fe82483326263776" prot="public" virt="non-virtual"><scope>AuvState2mState</scope><name>AuvState2mState</name></member>
+      <member refid="classAuvState2mState_1a84c85b2fcc225f8cca7127f93870e84f" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>gps_status_</name></member>
+      <member refid="classAuvState2mState_1a4a17fbb35d92398a58597ebe9f0d9de0" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>in_press</name></member>
+      <member refid="classAuvState2mState_1ac55173d75166b9ce065112c0e46c8d77" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>in_press_dot</name></member>
+      <member refid="classAuvState2mState_1aec717a64383410c62f78794ef86df414" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>in_pressure</name></member>
+      <member refid="classAuvState2mState_1a122a9505daba603b8a061402c2e1f47e" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>initializePublishers</name></member>
+      <member refid="classAuvState2mState_1a37d1c3e0d8911c05e8144a28247fff9c" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>initializeSubscribers</name></member>
+      <member refid="classAuvState2mState_1a20157b7aee54c616023aa8d854e7dbc4" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>initializeTimers</name></member>
+      <member refid="classAuvState2mState_1a1d31cb18bbc0b101908859d84a6bd87a" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>insidePressure</name></member>
+      <member refid="classAuvState2mState_1a5e98563a48bdd0d2ffcf4a81576fe631" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>insidePressureCallback</name></member>
+      <member refid="classAuvState2mState_1a6c0a694aa2b5f7c547b5394bc72a6f99" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>insidePressureTimer</name></member>
+      <member refid="classAuvState2mState_1a4630cb6f457da950057e0cdfa8bc669e" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>loadParams</name></member>
+      <member refid="classAuvState2mState_1a414063923a480063d77a427ea063e187" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>mGPSStatusCallback</name></member>
+      <member refid="classAuvState2mState_1a09aac037a9a3625482c4191359fe7a85" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>mstate_pub_</name></member>
+      <member refid="classAuvState2mState_1ace5261eef309de4fbc66b0b3979d7dec" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>mStateBroadcasterCallback</name></member>
+      <member refid="classAuvState2mState_1a53a4d94c91397a21c528ec13525ef5af" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>nh_</name></member>
+      <member refid="classAuvState2mState_1a6367e5b71988e31eae5195d012fc2cb7" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>nh_private_</name></member>
+      <member refid="classAuvState2mState_1a52f7fd67ff1b362d8ce37a7bacaef436" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>sub_auv_state_</name></member>
+      <member refid="classAuvState2mState_1a11f98c3360a6ccbc018e0f9d21849c84" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>sub_gps_status_</name></member>
+      <member refid="classAuvState2mState_1a0614aee09b75a71ccd29eb1ba41c19e6" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>sub_inside_pressure_</name></member>
+      <member refid="classAuvState2mState_1aeca3c01a3e49b6185b61da42f93d91a8" prot="private" virt="non-virtual"><scope>AuvState2mState</scope><name>timer_in_pressure_</name></member>
+      <member refid="classAuvState2mState_1a47fc04a06e73387bfc163f8bd1cdac13" prot="public" virt="non-virtual"><scope>AuvState2mState</scope><name>~AuvState2mState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Speed_8cpp" kind="file" language="C++">
+    <compoundname>Speed.cpp</compoundname>
+    <includes refid="Speed_8h" local="yes">Speed.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/algorithms/speed_profiles/Speed.cpp</label>
+        <link refid="Speed_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Speed.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Virtual<sp/>Destructor<sp/>for<sp/>the<sp/>abstract<sp/>class<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classSpeed_1a47ac1336c636f4dc4fb1d288dea76e3c" kindref="member">Speed::~Speed</ref>()<sp/>{}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/speed_profiles/Speed.cpp"/>
+  </compounddef>
+</doxygen>

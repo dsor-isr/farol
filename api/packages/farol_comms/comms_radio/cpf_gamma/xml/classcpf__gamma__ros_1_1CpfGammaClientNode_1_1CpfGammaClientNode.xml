@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode" kind="class" language="Python" prot="public">
+    <compoundname>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1af411f59eacc28e33408022eec907959a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="34" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a788011da65847255013505c497d612af" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode::sock</definition>
+        <argsstring></argsstring>
+        <name>sock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="37" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aab618fe640a5c67c80f122872e3d0b24" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode::node_frequency</definition>
+        <argsstring></argsstring>
+        <name>node_frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="59" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a8ee7f10673bc52d77a2a31d6983a1ff3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="60" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aabd1e0a149bf19a96226277e527d014b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode::addr</definition>
+        <argsstring></argsstring>
+        <name>addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="61" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a1de14a3103eafec6c9dc7492a76cb36a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for ros node
+</verbatim><verbatim>###########################################################################################
+@.@ Init node
+###########################################################################################
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="13" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="13" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aef6bea3692742845392db611294bfceb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode.initializeSubscribers</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializeSubscribers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="48" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="48" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aaccdd481dd60f863c38cab76956f375a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode.loadParams</definition>
+        <argsstring>(self)</argsstring>
+        <name>loadParams</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="58" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="58" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a830b9ca298d1f223557cb54c19f52309" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaClientNode.CpfGammaClientNode.broadcastGammaCallback</definition>
+        <argsstring>(self, msg)</argsstring>
+        <name>broadcastGammaCallback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="71" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="71" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/cpf_gamma_ros/CpfGammaClientNode.py" line="12" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaClientNode.py" bodystart="12" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a1de14a3103eafec6c9dc7492a76cb36a" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>__init__</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aabd1e0a149bf19a96226277e527d014b" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>addr</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1af411f59eacc28e33408022eec907959a" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>address</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a830b9ca298d1f223557cb54c19f52309" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>broadcastGammaCallback</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aef6bea3692742845392db611294bfceb" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aaccdd481dd60f863c38cab76956f375a" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>loadParams</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1aab618fe640a5c67c80f122872e3d0b24" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>node_frequency</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a8ee7f10673bc52d77a2a31d6983a1ff3" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>port</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode_1a788011da65847255013505c497d612af" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaClientNode::CpfGammaClientNode</scope><name>sock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

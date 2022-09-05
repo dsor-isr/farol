@@ -1,0 +1,1125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPID__Controller" kind="class" language="C++" prot="public">
+    <compoundname>PID_Controller</compoundname>
+    <includes refid="pid__controller_8h" local="no">pid_controller.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classPID__Controller_1ad272d5fabdcb3153eea139ea902ee25e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PID_Controller::disable</definition>
+        <argsstring></argsstring>
+        <name>disable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="17" column="8" bodyfile="include/controllers/pid_controller.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classPID__Controller_1aca41ada2403c137b5373fe8b00cda3c1" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::p_gain_</definition>
+        <argsstring></argsstring>
+        <name>p_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="152" column="9" bodyfile="include/controllers/pid_controller.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1af22a65ffbc6e60295ce3de54949c2610" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::i_gain_</definition>
+        <argsstring></argsstring>
+        <name>i_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="152" column="17" bodyfile="include/controllers/pid_controller.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a0cad350c86889af4c8650c3114776ac2" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::d_gain_</definition>
+        <argsstring></argsstring>
+        <name>d_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="152" column="25" bodyfile="include/controllers/pid_controller.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a007b9dcbd570fd08e9c50742d96b0658" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::ff_gain_</definition>
+        <argsstring></argsstring>
+        <name>ff_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="154" column="9" bodyfile="include/controllers/pid_controller.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a0e627cac64cf04500787e306499c4e65" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::ff_d_gain_</definition>
+        <argsstring></argsstring>
+        <name>ff_d_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="154" column="18" bodyfile="include/controllers/pid_controller.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1af1da481dddc480b1027a169ed6d49b7c" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::ff_lin_drag_gain_</definition>
+        <argsstring></argsstring>
+        <name>ff_lin_drag_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="154" column="29" bodyfile="include/controllers/pid_controller.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1ad10413ca18febe96b21a4bf3f0bdaf15" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::ff_quad_drag_gain_</definition>
+        <argsstring></argsstring>
+        <name>ff_quad_drag_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="154" column="47" bodyfile="include/controllers/pid_controller.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a688e40c39970e163cf02af1403f97930" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::max_error_</definition>
+        <argsstring></argsstring>
+        <name>max_error_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="156" column="9" bodyfile="include/controllers/pid_controller.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1aee90a31eee1bf233cb4115f0111b070d" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::max_out_</definition>
+        <argsstring></argsstring>
+        <name>max_out_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="156" column="20" bodyfile="include/controllers/pid_controller.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a058e6376aa6e6d61b9fed5bdb4be4710" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::min_error_</definition>
+        <argsstring></argsstring>
+        <name>min_error_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="156" column="29" bodyfile="include/controllers/pid_controller.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a7deb48b680d2a04f60e21cc98964a09a" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::min_out_</definition>
+        <argsstring></argsstring>
+        <name>min_out_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="156" column="40" bodyfile="include/controllers/pid_controller.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a0ed2835bfd9dce0767051d112897e0cf" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::integral_</definition>
+        <argsstring></argsstring>
+        <name>integral_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="158" column="9" bodyfile="include/controllers/pid_controller.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a5bb3c4517826b9164e627eb38d62dae0" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::pre_error_</definition>
+        <argsstring></argsstring>
+        <name>pre_error_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="160" column="9" bodyfile="include/controllers/pid_controller.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1ac8a5b719e9dcb784bcd610e6c21728db" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PID_Controller::prev_ref_value_</definition>
+        <argsstring></argsstring>
+        <name>prev_ref_value_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="160" column="20" bodyfile="include/controllers/pid_controller.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a8f428194e57477d92cfbfe40ea413425" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool PID_Controller::has_lpf_</definition>
+        <argsstring></argsstring>
+        <name>has_lpf_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="163" column="8" bodyfile="include/controllers/pid_controller.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1a23a347399b6896d05bfb610dd0ce5255" prot="protected" static="no" mutable="no">
+        <type>std::unique_ptr&lt; LowPassFilter &gt;</type>
+        <definition>std::unique_ptr&lt;LowPassFilter&gt; PID_Controller::lpf_</definition>
+        <argsstring></argsstring>
+        <name>lpf_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="164" column="19" bodyfile="include/controllers/pid_controller.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPID__Controller_1adb2d3dd972b8af3614479cf9e0c5485c" prot="protected" static="no" mutable="no">
+        <type>farol_msgs::mPidDebug</type>
+        <definition>farol_msgs::mPidDebug PID_Controller::msg_debug_</definition>
+        <argsstring></argsstring>
+        <name>msg_debug_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="167" column="25" bodyfile="include/controllers/pid_controller.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID_Controller::PID_Controller</definition>
+        <argsstring>()</argsstring>
+        <name>PID_Controller</name>
+        <briefdescription>
+<para>Constructor of a pid controller with kp, ki and kd equal to 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="22" column="3" bodyfile="src/controllers/pid_controller.cpp" bodystart="3" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a66e02f40c8e68f81b4c30e14c8be1038" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID_Controller::PID_Controller</definition>
+        <argsstring>(float Kp, float Ki, float Kd, float max_error, float max_out)</argsstring>
+        <name>PID_Controller</name>
+        <param>
+          <type>float</type>
+          <declname>Kp</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Ki</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kd</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_out</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a PID controller. Initially enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Kp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proporcional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ki</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integral gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Derivative gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum reference error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum reference error allowed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="33" column="3" bodyfile="src/controllers/pid_controller.cpp" bodystart="8" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a9641a5666912e581a6d452a53802dd80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID_Controller::PID_Controller</definition>
+        <argsstring>(float Kp, float Ki, float Kd, float max_error, float max_out, float min_error, float min_out)</argsstring>
+        <name>PID_Controller</name>
+        <param>
+          <type>float</type>
+          <declname>Kp</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Ki</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kd</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_out</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_out</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a PID controller. Initially enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Kp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proporcional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ki</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integral gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Derivative gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum reference error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum output allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum refrence error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum output allowed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="46" column="3" bodyfile="src/controllers/pid_controller.cpp" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a07f6565bc3dd0c1c6fd097f371a2c034" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID_Controller::PID_Controller</definition>
+        <argsstring>(float Kp, float Ki, float Kd, float Kff, float Kff_d, float Kff_lin_drag, float Kff_quad_drag, float max_error, float max_out, float min_error, float min_out)</argsstring>
+        <name>PID_Controller</name>
+        <param>
+          <type>float</type>
+          <declname>Kp</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Ki</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kd</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff_d</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff_lin_drag</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff_quad_drag</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_out</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_out</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a PID controller (without low pass filter). Initially enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Kp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proporcional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ki</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integral gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Derivative gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kff_d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain (linear drag) [] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kff_dd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain (quadratic drag) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum reference error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum output allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum refrence error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum output allowed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="63" column="3" bodyfile="src/controllers/pid_controller.cpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a696c7699c29229a595fe6a00d0633345" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PID_Controller::PID_Controller</definition>
+        <argsstring>(float Kp, float Ki, float Kd, float Kff, float Kff_d, float Kff_lin_drag, float Kff_quad_drag, float max_error, float max_out, float min_error, float min_out, double lpf_dt, double lpf_fc)</argsstring>
+        <name>PID_Controller</name>
+        <param>
+          <type>float</type>
+          <declname>Kp</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Ki</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kd</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff_d</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff_lin_drag</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Kff_quad_drag</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max_out</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_error</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min_out</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lpf_dt</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lpf_fc</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a PID controller (with low pass filter). Initially enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Kp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proporcional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Ki</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integral gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Derivative gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kff_d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain (linear drag) [] </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Kff_dd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain (quadratic drag) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum reference error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum output allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum refrence error allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum output allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lpf_dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Low pass filter sampling time </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lpf_fc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Low pass filter cutoff param </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="82" column="3" bodyfile="src/controllers/pid_controller.cpp" bodystart="31" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1aded3238aaad181a57f25ca6c50455be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float PID_Controller::computeCommand</definition>
+        <argsstring>(float error_p, float ref_value, float duration, bool debug)</argsstring>
+        <name>computeCommand</name>
+        <param>
+          <type>float</type>
+          <declname>error_p</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ref_value</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>duration</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>debug</declname>
+        </param>
+        <briefdescription>
+<para>Core function. Computes the output of the PID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>error_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error between the reference and the estimated variable </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ref_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference value to compute the feedforward term </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>duration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample time </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>debug</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Check if we want to generate a debugging message to later publish</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="95" column="9" bodyfile="src/controllers/pid_controller.cpp" bodystart="41" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1aff0c75ab6d99d57c489050f7ef326d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID_Controller::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Reset function. Sets the integral error term to 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="100" column="8" bodyfile="src/controllers/pid_controller.cpp" bodystart="110" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a94a1c6dc3e3bf85488c39d96b59509f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID_Controller::setFFGains</definition>
+        <argsstring>(const float &amp;ff_gain, const float &amp;ff_d_gain, const float &amp;ff_lin_drag_gain, const float &amp;ff_quad_drag_gain)</argsstring>
+        <name>setFFGains</name>
+        <param>
+          <type>const float &amp;</type>
+          <declname>ff_gain</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>ff_d_gain</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>ff_lin_drag_gain</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>ff_quad_drag_gain</declname>
+        </param>
+        <briefdescription>
+<para>Set the feedfoward Gains object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ff_gain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feefoward gain of reference </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ff_d_gain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedoforward gain of reference derivative </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ff_lin_drag_gain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feefoward gain (for linear drag) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ff_quad_drag_gain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feefoward gain (for quadratic drag) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="110" column="8" bodyfile="src/controllers/pid_controller.cpp" bodystart="116" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1adb41760ed835a1619de6eeca92f788e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID_Controller::setGains</definition>
+        <argsstring>(const float &amp;kp, const float &amp;ki, const float &amp;kd)</argsstring>
+        <name>setGains</name>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kp</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>ki</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kd</declname>
+        </param>
+        <briefdescription>
+<para>Set the Gains object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proportional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ki</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integral gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Derivative gain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="119" column="8" bodyfile="src/controllers/pid_controller.cpp" bodystart="124" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a0763c1d6af8a7989cc7f4f3084c0665d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PID_Controller::setLimitBounds</definition>
+        <argsstring>(const float &amp;max_out, const float &amp;min_out)</argsstring>
+        <name>setLimitBounds</name>
+        <param>
+          <type>const float &amp;</type>
+          <declname>max_out</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>min_out</declname>
+        </param>
+        <briefdescription>
+<para>Set the Limit Bounds object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>max_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>maximum output allowed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>minimum output allowed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="127" column="8" bodyfile="src/controllers/pid_controller.cpp" bodystart="131" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a7c8e7642fb25b5b658ab82ef2bb32f4d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PID_Controller::getGains</definition>
+        <argsstring>() const</argsstring>
+        <name>getGains</name>
+        <briefdescription>
+<para>Get the Gains object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;float&gt; const </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="134" column="15" bodyfile="src/controllers/pid_controller.cpp" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1ab1c5054619fdf865dec6c4e779ec38dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; PID_Controller::getLimitBounds</definition>
+        <argsstring>() const</argsstring>
+        <name>getLimitBounds</name>
+        <briefdescription>
+<para>Get the Limit Bounds object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;float&gt; const </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="141" column="15" bodyfile="src/controllers/pid_controller.cpp" bodystart="141" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classPID__Controller_1a0f28455f97449a145731d959266f2101" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>farol_msgs::mPidDebug</type>
+        <definition>farol_msgs::mPidDebug PID_Controller::getDebugInfo</definition>
+        <argsstring>() const</argsstring>
+        <name>getDebugInfo</name>
+        <briefdescription>
+<para>Get debug info from the PID controller internal variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>std::vector&lt;float&gt; const </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="148" column="25" bodyfile="src/controllers/pid_controller.cpp" bodystart="145" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classPID__Controller_1a91c998fb08a768992363eaa41e8c3a39" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float PID_Controller::sat</definition>
+        <argsstring>(float u, float low, float high)</argsstring>
+        <name>sat</name>
+        <param>
+          <type>float</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>high</declname>
+        </param>
+        <briefdescription>
+<para>Saturation function. Clips a variable based on upper and lower boundaries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable to be saturated </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lower boundary </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>high</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>upper boundary</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/pid_controller.h" line="181" column="9" bodyfile="src/controllers/pid_controller.cpp" bodystart="149" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of a PID with anti windup. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/controllers/pid_controller.h" line="14" column="21" bodyfile="include/controllers/pid_controller.h" bodystart="14" bodyend="182"/>
+    <listofallmembers>
+      <member refid="classPID__Controller_1aded3238aaad181a57f25ca6c50455be9" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>computeCommand</name></member>
+      <member refid="classPID__Controller_1a0cad350c86889af4c8650c3114776ac2" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>d_gain_</name></member>
+      <member refid="classPID__Controller_1ad272d5fabdcb3153eea139ea902ee25e" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>disable</name></member>
+      <member refid="classPID__Controller_1a0e627cac64cf04500787e306499c4e65" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>ff_d_gain_</name></member>
+      <member refid="classPID__Controller_1a007b9dcbd570fd08e9c50742d96b0658" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>ff_gain_</name></member>
+      <member refid="classPID__Controller_1af1da481dddc480b1027a169ed6d49b7c" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>ff_lin_drag_gain_</name></member>
+      <member refid="classPID__Controller_1ad10413ca18febe96b21a4bf3f0bdaf15" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>ff_quad_drag_gain_</name></member>
+      <member refid="classPID__Controller_1a0f28455f97449a145731d959266f2101" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>getDebugInfo</name></member>
+      <member refid="classPID__Controller_1a7c8e7642fb25b5b658ab82ef2bb32f4d" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>getGains</name></member>
+      <member refid="classPID__Controller_1ab1c5054619fdf865dec6c4e779ec38dd" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>getLimitBounds</name></member>
+      <member refid="classPID__Controller_1a8f428194e57477d92cfbfe40ea413425" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>has_lpf_</name></member>
+      <member refid="classPID__Controller_1af22a65ffbc6e60295ce3de54949c2610" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>i_gain_</name></member>
+      <member refid="classPID__Controller_1a0ed2835bfd9dce0767051d112897e0cf" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>integral_</name></member>
+      <member refid="classPID__Controller_1a23a347399b6896d05bfb610dd0ce5255" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>lpf_</name></member>
+      <member refid="classPID__Controller_1a688e40c39970e163cf02af1403f97930" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>max_error_</name></member>
+      <member refid="classPID__Controller_1aee90a31eee1bf233cb4115f0111b070d" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>max_out_</name></member>
+      <member refid="classPID__Controller_1a058e6376aa6e6d61b9fed5bdb4be4710" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>min_error_</name></member>
+      <member refid="classPID__Controller_1a7deb48b680d2a04f60e21cc98964a09a" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>min_out_</name></member>
+      <member refid="classPID__Controller_1adb2d3dd972b8af3614479cf9e0c5485c" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>msg_debug_</name></member>
+      <member refid="classPID__Controller_1aca41ada2403c137b5373fe8b00cda3c1" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>p_gain_</name></member>
+      <member refid="classPID__Controller_1a6696f322b6816725d6694a2c4a4bd241" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>PID_Controller</name></member>
+      <member refid="classPID__Controller_1a66e02f40c8e68f81b4c30e14c8be1038" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>PID_Controller</name></member>
+      <member refid="classPID__Controller_1a9641a5666912e581a6d452a53802dd80" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>PID_Controller</name></member>
+      <member refid="classPID__Controller_1a07f6565bc3dd0c1c6fd097f371a2c034" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>PID_Controller</name></member>
+      <member refid="classPID__Controller_1a696c7699c29229a595fe6a00d0633345" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>PID_Controller</name></member>
+      <member refid="classPID__Controller_1a5bb3c4517826b9164e627eb38d62dae0" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>pre_error_</name></member>
+      <member refid="classPID__Controller_1ac8a5b719e9dcb784bcd610e6c21728db" prot="protected" virt="non-virtual"><scope>PID_Controller</scope><name>prev_ref_value_</name></member>
+      <member refid="classPID__Controller_1aff0c75ab6d99d57c489050f7ef326d67" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>reset</name></member>
+      <member refid="classPID__Controller_1a91c998fb08a768992363eaa41e8c3a39" prot="private" virt="non-virtual"><scope>PID_Controller</scope><name>sat</name></member>
+      <member refid="classPID__Controller_1a94a1c6dc3e3bf85488c39d96b59509f2" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>setFFGains</name></member>
+      <member refid="classPID__Controller_1adb41760ed835a1619de6eeca92f788e1" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>setGains</name></member>
+      <member refid="classPID__Controller_1a0763c1d6af8a7989cc7f4f3084c0665d" prot="public" virt="non-virtual"><scope>PID_Controller</scope><name>setLimitBounds</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

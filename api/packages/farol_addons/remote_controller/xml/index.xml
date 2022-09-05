@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classRemoteControllerNode_1_1RemoteControllerNode" kind="class"><name>RemoteControllerNode::RemoteControllerNode</name>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1af0ad60aa3576158743522f75843e614d" kind="variable"><name>node_frequency</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a9e638ef209ef2b252f733816a906a7a4" kind="variable"><name>h_timerActivate</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1ae6f6dc52c82cb81ad87a2f07f6520366" kind="variable"><name>yaw_state_</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1ac7f3b905d930caa8e10757453b8b0dbc" kind="variable"><name>timer</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1af197934b1b60f3f8488c300f80f5c7f9" kind="variable"><name>state_sub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a380d9a06fd053c136a1f228dcd0b1850" kind="variable"><name>surge_pub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1aeefea3f566c2955268aa7c4412b5f3ea" kind="variable"><name>sway_pub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a0050e1fbd682601494dd1a4218ee597b" kind="variable"><name>heave_pub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a5dc89abec60920600ef542de6528ff7e" kind="variable"><name>yaw_rate_pub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a7428188970c0b511f524692d7157fed9" kind="variable"><name>yaw_pub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a827a72dc5e81a0d1cc4fcc660e26e05b" kind="variable"><name>depth_pub</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a8525d439e083e7a9326ac728c02252d9" kind="variable"><name>control_assignment</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a03fd621ce5445227fd39b2bd2de890a7" kind="function"><name>__init__</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a97a8d157fc2ce08882d1a17db09113e2" kind="function"><name>timerCallback</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a77ba697f59289ec045a3982d428d9c24" kind="function"><name>initializeTimer</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a6c2afa6c42b9eeaeca71c9ad64e4dfee" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a35a490ed4109843c19137a7dcb975adf" kind="function"><name>initializePublishers</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a3c9a80cc4375b776d4c06cde1d2d3d7b" kind="function"><name>initializeJoystick</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a8b6d19745e138e19a32daadcd9dd1203" kind="function"><name>state_callback</name></member>
+  </compound>
+  <compound refid="namespaceRemoteControllerNode" kind="namespace"><name>RemoteControllerNode</name>
+    <member refid="namespaceRemoteControllerNode_1a8803c27f7c4910e3ac422f12fea8d51d" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="RemoteControllerNode_8py" kind="file"><name>RemoteControllerNode.py</name>
+    <member refid="namespaceRemoteControllerNode_1a8803c27f7c4910e3ac422f12fea8d51d" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

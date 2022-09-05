@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structWPref__t" kind="struct" language="C++" prot="public">
+    <compoundname>WPref_t</compoundname>
+    <includes refid="wp__controller_8h" local="no">wp_controller.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structWPref__t_1a9c9907f2339411f738ff935f4190f6c1" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d WPref_t::eta1</definition>
+        <argsstring></argsstring>
+        <name>eta1</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="30" column="19" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structWPref__t_1acdf2a65c2289bd0df6ce2651fe584c93" prot="public" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d WPref_t::eta2</definition>
+        <argsstring></argsstring>
+        <name>eta2</name>
+        <initializer>{0.0, 0.0, 0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="31" column="19" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Waypoint reference struct. Contains references for poistion and orientations. Not everything needs to be used. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/waypoint_algorithms/wp_controller.h" line="29" column="14" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="29" bodyend="32"/>
+    <listofallmembers>
+      <member refid="structWPref__t_1a9c9907f2339411f738ff935f4190f6c1" prot="public" virt="non-virtual"><scope>WPref_t</scope><name>eta1</name></member>
+      <member refid="structWPref__t_1acdf2a65c2289bd0df6ce2651fe584c93" prot="public" virt="non-virtual"><scope>WPref_t</scope><name>eta2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

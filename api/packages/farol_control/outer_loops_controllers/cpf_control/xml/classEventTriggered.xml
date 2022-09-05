@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classEventTriggered" kind="class" language="C++" prot="public">
+    <compoundname>EventTriggered</compoundname>
+    <basecompoundref refid="classCPFControl" prot="public" virt="non-virtual">CPFControl</basecompoundref>
+    <includes refid="EventTriggered_8h" local="no">EventTriggered.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEventTriggered_1aaa4382ef56b71a38b18aa030753c9d96" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::k_epsilon_</definition>
+        <argsstring></argsstring>
+        <name>k_epsilon_</name>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+<para>The gain for the correction term. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="135" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1a2018511893b22906c5e1d395ba609a36" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::c0_</definition>
+        <argsstring></argsstring>
+        <name>c0_</name>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+<para>The maximum error admited before emiting a gamma for the network. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="140" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1a1f464d6f7d028e5ff0a2733ad6ab79bd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::c1_</definition>
+        <argsstring></argsstring>
+        <name>c1_</name>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="141" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1ac70922e77c94f22449fddb3718f1aca8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::alpha_</definition>
+        <argsstring></argsstring>
+        <name>alpha_</name>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="142" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1ae94a54eacc152548be084a90418cdd42" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::time_last_broadcast_</definition>
+        <argsstring></argsstring>
+        <name>time_last_broadcast_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Last Gamma that was broadcast to the multi-vehicle network. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="147" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1aeba0d95d27fe24c5df9eac803bfece22" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::last_gamma_broadcast_</definition>
+        <argsstring></argsstring>
+        <name>last_gamma_broadcast_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="148" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1af967e1aed1092f36b42d911bffb5b23a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EventTriggered::first_broadcast_</definition>
+        <argsstring></argsstring>
+        <name>first_broadcast_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="149" column="10" bodyfile="include/algorithms/EventTriggered.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1a5d9d2e7f32624b0c52ae530fe7cc1954" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double EventTriggered::time_first_broadcast_</definition>
+        <argsstring></argsstring>
+        <name>time_first_broadcast_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="150" column="12" bodyfile="include/algorithms/EventTriggered.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEventTriggered_1ae66a906264a916525b35a89b41ed1266" prot="private" static="no" mutable="no">
+        <type><ref refid="structVehicleInfo" kindref="compound">VehicleInfo</ref> *</type>
+        <definition>VehicleInfo* EventTriggered::vehicles_data_</definition>
+        <argsstring></argsstring>
+        <name>vehicles_data_</name>
+        <briefdescription>
+<para>Array to store the estimated values of the gamma for the vehicles in the network. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="155" column="18" bodyfile="include/algorithms/EventTriggered.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEventTriggered_1abb12ba7aa86b1fe0b0ffc4d827fa5b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EventTriggered::EventTriggered</definition>
+        <argsstring>(Eigen::Matrix&lt; int, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;adjency_matrix, unsigned int vehicle_ID, double k_epsilon, double c0, double c1, double alpha)</argsstring>
+        <name>EventTriggered</name>
+        <param>
+          <type>Eigen::Matrix&lt; int, Eigen::Dynamic, Eigen::Dynamic &gt; &amp;</type>
+          <declname>adjency_matrix</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>vehicle_ID</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_epsilon</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c0</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>c1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the <ref refid="classEventTriggered" kindref="compound">EventTriggered</ref> CPF class. Receive the adjency matrix as a parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>adjency_matrix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An Eigen adjency matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vehicle_ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unsigned int with the ID of this particular vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_epsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gain for the correction control law </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gain for the event trigger threshold </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gain for the event trigger threshold </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gian for the event trigger threshold </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="73" column="5" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="15" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classEventTriggered_1a3257a2d03ef60e6528bb863931a5aa2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EventTriggered::~EventTriggered</definition>
+        <argsstring>()</argsstring>
+        <name>~EventTriggered</name>
+        <briefdescription>
+<para>The destructor for the <ref refid="classEventTriggered" kindref="compound">EventTriggered</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor for the <ref refid="classEventTriggered" kindref="compound">EventTriggered</ref> class. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="78" column="5" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="34" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classEventTriggered_1a46f8c45a317e4f25750f2973ed712b53" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double EventTriggered::coordinationController</definition>
+        <argsstring>(double time) override</argsstring>
+        <name>coordinationController</name>
+        <reimplements refid="classCPFControl_1a3b3fe82e9904b76e4ce5a958b4e994e7">coordinationController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Method to that updated the coordination control law and returns the correction speed vc to be used by the virtual target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An int with the current time expressed in seconds</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the speed correction term vc </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="88" column="12" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="48" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classEventTriggered_1aac2bf06030dd8d47ee769f7acf4f8dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool EventTriggered::updateVehiclesInformation</definition>
+        <argsstring>(double time, unsigned int ID, double gamma, double vd) override</argsstring>
+        <name>updateVehiclesInformation</name>
+        <reimplements refid="classCPFControl_1a7cba3d9edc57f3b3b221e1d9e41f33ff">updateVehiclesInformation</reimplements>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>ID</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vd</declname>
+        </param>
+        <briefdescription>
+<para>Method to update each individual vehicle information given an int with the ID of the vehicle and the new virtual target value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An int with the current time expressed in seconds </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An int with the ID of the vehicle which to update information </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A double with the new information of the virtual target position </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A double with the desired velocity of the virtual target of that particular vehicle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A boolean with the information whether the information was used with success or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="101" column="10" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="100" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classEventTriggered_1abfadcab13af9890ac2ffcd12c78d4b1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool EventTriggered::publishCurrentGamma</definition>
+        <argsstring>(double time) override</argsstring>
+        <name>publishCurrentGamma</name>
+        <reimplements refid="classCPFControl_1a144e56d1ae80b050c5861029b96038fe">publishCurrentGamma</reimplements>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Method to inform the user if the current gamma should be published or not This method will update the value of gamma last sent to the network when this method returns true. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to inform the user if the current gamma should be published or not.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time expressed in seconds</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A boolean that is true if the current gamma should be published </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="111" column="10" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="121" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classEventTriggered_1a87665678c35d20f3387293675eeb8cde" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool EventTriggered::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classCPFControl_1a406bda171c3ca7a11ca9367819f21688">reset</reimplements>
+        <briefdescription>
+<para>Method to reset the current CPF controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A boolean whether it was reset correctly or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="118" column="10" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="193" bodyend="209"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classEventTriggered_1a2b0ec4788227654379b638362ad04b7c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EventTriggered::predictVehicleEstimator</definition>
+        <argsstring>(unsigned int ID, double time)</argsstring>
+        <name>predictVehicleEstimator</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>ID</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Method to estimate the current gamma of a vehicle represented by ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the vehicle to update the prediction </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current time expressed in seconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="128" column="10" bodyfile="src/algorithms/EventTriggered.cpp" bodystart="172" bodyend="186"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements a CPF controller using Event triggered communications. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>GPLv3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>CPFControl</label>
+        <link refid="classCPFControl"/>
+      </node>
+      <node id="1">
+        <label>EventTriggered</label>
+        <link refid="classEventTriggered"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>CPFControl</label>
+        <link refid="classCPFControl"/>
+      </node>
+      <node id="1">
+        <label>EventTriggered</label>
+        <link refid="classEventTriggered"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/EventTriggered.h" line="59" column="39" bodyfile="include/algorithms/EventTriggered.h" bodystart="59" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classEventTriggered_1ac70922e77c94f22449fddb3718f1aca8" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>alpha_</name></member>
+      <member refid="classEventTriggered_1a2018511893b22906c5e1d395ba609a36" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>c0_</name></member>
+      <member refid="classEventTriggered_1a1f464d6f7d028e5ff0a2733ad6ab79bd" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>c1_</name></member>
+      <member refid="classEventTriggered_1a46f8c45a317e4f25750f2973ed712b53" prot="public" virt="virtual"><scope>EventTriggered</scope><name>coordinationController</name></member>
+      <member refid="classCPFControl_1a5081b3021c3c1aafdf2562b97d562c15" prot="protected" virt="non-virtual"><scope>EventTriggered</scope><name>CPFControl</name></member>
+      <member refid="classEventTriggered_1abb12ba7aa86b1fe0b0ffc4d827fa5b21" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>EventTriggered</name></member>
+      <member refid="classEventTriggered_1af967e1aed1092f36b42d911bffb5b23a" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>first_broadcast_</name></member>
+      <member refid="classCPFControl_1a14421e28a0cbaae016c406f04ef4b8a4" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>getAdjencyMatrix</name></member>
+      <member refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>getCurrentVehicleID</name></member>
+      <member refid="classCPFControl_1a52c5a204c6ef07878e1db7073252d55d" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>getNeighbors</name></member>
+      <member refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>getNetworkSize</name></member>
+      <member refid="classEventTriggered_1aaa4382ef56b71a38b18aa030753c9d96" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>k_epsilon_</name></member>
+      <member refid="classEventTriggered_1aeba0d95d27fe24c5df9eac803bfece22" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>last_gamma_broadcast_</name></member>
+      <member refid="classEventTriggered_1a2b0ec4788227654379b638362ad04b7c" prot="protected" virt="non-virtual"><scope>EventTriggered</scope><name>predictVehicleEstimator</name></member>
+      <member refid="classEventTriggered_1abfadcab13af9890ac2ffcd12c78d4b1c" prot="public" virt="virtual"><scope>EventTriggered</scope><name>publishCurrentGamma</name></member>
+      <member refid="classEventTriggered_1a87665678c35d20f3387293675eeb8cde" prot="public" virt="virtual"><scope>EventTriggered</scope><name>reset</name></member>
+      <member refid="classEventTriggered_1a5d9d2e7f32624b0c52ae530fe7cc1954" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>time_first_broadcast_</name></member>
+      <member refid="classEventTriggered_1ae94a54eacc152548be084a90418cdd42" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>time_last_broadcast_</name></member>
+      <member refid="classCPFControl_1a69fd47672868a3712154d38c26c9a847" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>updateAdjencyMatrix</name></member>
+      <member refid="classEventTriggered_1aac2bf06030dd8d47ee769f7acf4f8dd9" prot="public" virt="virtual"><scope>EventTriggered</scope><name>updateVehiclesInformation</name></member>
+      <member refid="classEventTriggered_1ae66a906264a916525b35a89b41ed1266" prot="private" virt="non-virtual"><scope>EventTriggered</scope><name>vehicles_data_</name></member>
+      <member refid="classCPFControl_1a98053c7bf5fdb54d82b8789fa845889b" prot="public" virt="virtual"><scope>EventTriggered</scope><name>~CPFControl</name></member>
+      <member refid="classEventTriggered_1a3257a2d03ef60e6528bb863931a5aa2d" prot="public" virt="non-virtual"><scope>EventTriggered</scope><name>~EventTriggered</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

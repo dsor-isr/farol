@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classWaypointController" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>WaypointController</compoundname>
+    <derivedcompoundref refid="classWpHeading" prot="public" virt="non-virtual">WpHeading</derivedcompoundref>
+    <derivedcompoundref refid="classWpLoose" prot="public" virt="non-virtual">WpLoose</derivedcompoundref>
+    <derivedcompoundref refid="classWpStandard" prot="public" virt="non-virtual">WpStandard</derivedcompoundref>
+    <includes refid="wp__controller_8h" local="no">wp_controller.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classWaypointController_1a7ec41b45cf02496b7c8af7021a66c3e7" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WaypointController::ts_</definition>
+        <argsstring></argsstring>
+        <name>ts_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="79" column="10" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; WaypointController::gains_</definition>
+        <argsstring></argsstring>
+        <name>gains_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="80" column="15" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classWaypointController_1a88610b5fd4a0e28a987f939e320c7e5b" prot="private" static="no" mutable="no">
+        <type><ref refid="structOutput__t" kindref="compound">Output_t</ref></type>
+        <definition>Output_t WaypointController::wp_out_</definition>
+        <argsstring></argsstring>
+        <name>wp_out_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="152" column="12" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classWaypointController_1a5ea36d6bfdc995cef2b5f7d0aa0584d6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WaypointController::WaypointController</definition>
+        <argsstring>()</argsstring>
+        <name>WaypointController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="49" column="3" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1ab2de838f1c139ef237c25f935a55941b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual WaypointController::~WaypointController</definition>
+        <argsstring>()</argsstring>
+        <name>~WaypointController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="51" column="11" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::setFrequency</definition>
+        <argsstring>(const double &amp;f)</argsstring>
+        <name>setFrequency</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+<para>Mutator for setting the controller period. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>f</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>frequency of the main loop </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="58" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::setGains</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;gains)</argsstring>
+        <name>setGains</name>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Mutator for updating the gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters of the waypoiny controller </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="65" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::compute</definition>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref)</argsstring>
+        <name>compute</name>
+        <param>
+          <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
+          <declname>wp_ref</declname>
+        </param>
+        <briefdescription>
+<para>Computes and publishes the output of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wp_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="73" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="73" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void WaypointController::publish</definition>
+        <argsstring>()=0</argsstring>
+        <name>publish</name>
+        <reimplementedby refid="classWpLoose_1af7cb703f535ef51ac45b838d5f577aa0">publish</reimplementedby>
+        <reimplementedby refid="classWpHeading_1a55a81e1218559e5945b00d69c31b1c95">publish</reimplementedby>
+        <reimplementedby refid="classWpStandard_1a0e182161bf809d5ea2c50ce0fe20f88b">publish</reimplementedby>
+        <briefdescription>
+<para>Virtual function to publish the output of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="85" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void WaypointController::calculateRef</definition>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref)=0</argsstring>
+        <name>calculateRef</name>
+        <reimplementedby refid="classWpLoose_1a7096b938c7bf378082d2a0e37c5d0003">calculateRef</reimplementedby>
+        <reimplementedby refid="classWpHeading_1a69706eee842009312c061e2c962be64a">calculateRef</reimplementedby>
+        <reimplementedby refid="classWpStandard_1afa553e861a88f9adfd349c0dff125db1">calculateRef</reimplementedby>
+        <param>
+          <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
+          <declname>wp_ref</declname>
+        </param>
+        <briefdescription>
+<para>Virtual function to compute the waypoint controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wp_ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="93" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double WaypointController::getYawOut</definition>
+        <argsstring>()</argsstring>
+        <name>getYawOut</name>
+        <briefdescription>
+<para>Getter of the yaw reference (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>yaw ref </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="100" column="10" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a613404d31c34f56649669c7d95b5361a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double WaypointController::getYawrateOut</definition>
+        <argsstring>()</argsstring>
+        <name>getYawrateOut</name>
+        <briefdescription>
+<para>Getter of the yaw rate reference (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>yaw rate ref </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="107" column="10" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double WaypointController::getSurgeOut</definition>
+        <argsstring>()</argsstring>
+        <name>getSurgeOut</name>
+        <briefdescription>
+<para>Getter of the surge reference (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>surge ref </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="114" column="10" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1afd458cea48161264b69ef956cd7991b5" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double WaypointController::getSwayOut</definition>
+        <argsstring>()</argsstring>
+        <name>getSwayOut</name>
+        <briefdescription>
+<para>Getter of the sway reference (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>sway ref </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="121" column="10" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a3c5c2fdb5a1244d288cd61d69d832b43" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::setYawOut</definition>
+        <argsstring>(const double &amp;value)</argsstring>
+        <name>setYawOut</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Yaw reference setter (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>yaw ref </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="128" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::setYawrateOut</definition>
+        <argsstring>(const double &amp;value)</argsstring>
+        <name>setYawrateOut</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Yaw rate reference setter (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>yaw rate ref </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="135" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::setSurgeOut</definition>
+        <argsstring>(const double &amp;value)</argsstring>
+        <name>setSurgeOut</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Surge reference setter (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>surge ref </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="142" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="142" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointController::setSwayOut</definition>
+        <argsstring>(const double &amp;value)</argsstring>
+        <name>setSwayOut</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sway reference setter (output of controller) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sway ref </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_algorithms/wp_controller.h" line="149" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="149" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract class of a waypoint controller. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>WpHeading</label>
+        <link refid="classWpHeading"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>WaypointController</label>
+        <link refid="classWaypointController"/>
+      </node>
+      <node id="4">
+        <label>WpStandard</label>
+        <link refid="classWpStandard"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>WpLoose</label>
+        <link refid="classWpLoose"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/waypoint_algorithms/wp_controller.h" line="47" column="25" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="47" bodyend="153"/>
+    <listofallmembers>
+      <member refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" prot="protected" virt="pure-virtual"><scope>WaypointController</scope><name>calculateRef</name></member>
+      <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" virt="non-virtual"><scope>WaypointController</scope><name>compute</name></member>
+      <member refid="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>gains_</name></member>
+      <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>getSurgeOut</name></member>
+      <member refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>getSwayOut</name></member>
+      <member refid="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>getYawOut</name></member>
+      <member refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>getYawrateOut</name></member>
+      <member refid="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087" prot="protected" virt="pure-virtual"><scope>WaypointController</scope><name>publish</name></member>
+      <member refid="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" prot="public" virt="non-virtual"><scope>WaypointController</scope><name>setFrequency</name></member>
+      <member refid="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" prot="public" virt="non-virtual"><scope>WaypointController</scope><name>setGains</name></member>
+      <member refid="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>setSurgeOut</name></member>
+      <member refid="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>setSwayOut</name></member>
+      <member refid="classWaypointController_1a3c5c2fdb5a1244d288cd61d69d832b43" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>setYawOut</name></member>
+      <member refid="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>setYawrateOut</name></member>
+      <member refid="classWaypointController_1a7ec41b45cf02496b7c8af7021a66c3e7" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>ts_</name></member>
+      <member refid="classWaypointController_1a5ea36d6bfdc995cef2b5f7d0aa0584d6" prot="public" virt="non-virtual"><scope>WaypointController</scope><name>WaypointController</name></member>
+      <member refid="classWaypointController_1a88610b5fd4a0e28a987f939e320c7e5b" prot="private" virt="non-virtual"><scope>WaypointController</scope><name>wp_out_</name></member>
+      <member refid="classWaypointController_1ab2de838f1c139ef237c25f935a55941b" prot="public" virt="virtual"><scope>WaypointController</scope><name>~WaypointController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classLowPassFilter3MatchedZ" kind="class" language="C++" prot="public">
+    <compoundname>LowPassFilter3MatchedZ</compoundname>
+    <basecompoundref refid="classDigitalFilter" prot="public" virt="non-virtual">DigitalFilter&lt; float &gt;</basecompoundref>
+    <includes refid="lowpass__filter_8hpp" local="no">lowpass_filter.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLowPassFilter3MatchedZ_1af8ca912872ca0e75be4b5c49e1bb6b21" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LowPassFilter3MatchedZ::amplFac</definition>
+        <argsstring></argsstring>
+        <name>amplFac</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="315" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter3MatchedZ_1aa45b1a4224a8cfbd369b7bc521938052" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LowPassFilter3MatchedZ::yc[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>yc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="316" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter3MatchedZ_1a049958184ee9b1de52218b8c70eecae9" prot="private" static="no" mutable="no">
+        <type><ref refid="classCircularDelay" kindref="compound">CircularDelay</ref>&lt; float, 3 &gt;</type>
+        <definition>CircularDelay&lt;float, 3&gt; LowPassFilter3MatchedZ::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="318" column="23" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLowPassFilter3MatchedZ_1a8012061f5743bf2d2a00318131a1dd2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LowPassFilter3MatchedZ::LowPassFilter3MatchedZ</definition>
+        <argsstring>(float sampleTime, float omega_c)</argsstring>
+        <name>LowPassFilter3MatchedZ</name>
+        <param>
+          <type>float</type>
+          <declname>sampleTime</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>omega_c</declname>
+        </param>
+        <briefdescription>
+<para>Constructor to set sample time and the tau constant. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sampleTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample time for the low pass filter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">omega_c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cutoff angular frequency <formula id="0">$ \omega_c = 2 pi f_c$</formula> where <formula id="1">$ f_c $</formula> is the cutoff frequency </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="274" column="9" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="274" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter3MatchedZ_1afa8d5c3dc0df055a76a94fe9927e8a0e" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float LowPassFilter3MatchedZ::update</definition>
+        <argsstring>(float newValue) final</argsstring>
+        <name>update</name>
+        <reimplements refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac">update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Update function to push new value into the filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value after dt time</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new output value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="296" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="296" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter3MatchedZ_1aa1006f717a6bdac2829c2eeb42b58f58" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float LowPassFilter3MatchedZ::getOutput</definition>
+        <argsstring>() final</argsstring>
+        <name>getOutput</name>
+        <reimplements refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd">getOutput</reimplements>
+        <briefdescription>
+<para>Gets the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="311" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="311" bodyend="311"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for third order low pass filter. This is designed using the matched Z transform. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LowPassFilter3MatchedZ</label>
+        <link refid="classLowPassFilter3MatchedZ"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LowPassFilter3MatchedZ</label>
+        <link refid="classLowPassFilter3MatchedZ"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="264" column="51" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="264" bodyend="319"/>
+    <listofallmembers>
+      <member refid="classLowPassFilter3MatchedZ_1af8ca912872ca0e75be4b5c49e1bb6b21" prot="private" virt="non-virtual"><scope>LowPassFilter3MatchedZ</scope><name>amplFac</name></member>
+      <member refid="classLowPassFilter3MatchedZ_1aa1006f717a6bdac2829c2eeb42b58f58" prot="public" virt="virtual"><scope>LowPassFilter3MatchedZ</scope><name>getOutput</name></member>
+      <member refid="classLowPassFilter3MatchedZ_1a8012061f5743bf2d2a00318131a1dd2e" prot="public" virt="non-virtual"><scope>LowPassFilter3MatchedZ</scope><name>LowPassFilter3MatchedZ</name></member>
+      <member refid="classLowPassFilter3MatchedZ_1afa8d5c3dc0df055a76a94fe9927e8a0e" prot="public" virt="virtual"><scope>LowPassFilter3MatchedZ</scope><name>update</name></member>
+      <member refid="classLowPassFilter3MatchedZ_1a049958184ee9b1de52218b8c70eecae9" prot="private" virt="non-virtual"><scope>LowPassFilter3MatchedZ</scope><name>y</name></member>
+      <member refid="classLowPassFilter3MatchedZ_1aa45b1a4224a8cfbd369b7bc521938052" prot="private" virt="non-virtual"><scope>LowPassFilter3MatchedZ</scope><name>yc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

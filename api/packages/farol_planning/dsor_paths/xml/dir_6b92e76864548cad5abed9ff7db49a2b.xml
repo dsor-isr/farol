@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir">
+    <compoundname>include/algorithms</compoundname>
+    <innerdir refid="dir_4008112c1c49c2515242aadb130ac5c5">include/algorithms/path_sections</innerdir>
+    <innerdir refid="dir_49143434998848ee7776d61a2a263b5b">include/algorithms/speed_profiles</innerdir>
+    <innerfile refid="Path_8h">Path.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1ERROR__Struct" kind="class" language="Python" prot="public">
+    <compoundname>console::ERROR_Struct</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classconsole_1_1ERROR__Struct_1a7f8bb8a82b88f4c3d11dd4fa4faa0d50" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ERROR_Struct::node_name</definition>
+        <argsstring></argsstring>
+        <name>node_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="137" column="1" bodyfile="src/console.py" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1ERROR__Struct_1a987eb16cd3cbfb722aa46b50ef451264" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ERROR_Struct::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="138" column="1" bodyfile="src/console.py" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1ERROR__Struct_1a1832520c1fef9da4dbbbde9cb682d769" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ERROR_Struct::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="139" column="1" bodyfile="src/console.py" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1ERROR__Struct_1a85dc40926f056bcaa9e048c40b4ea3c0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ERROR_Struct::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="140" column="1" bodyfile="src/console.py" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1ERROR__Struct_1ab094d2d759e9a6d659199acd8c820e60" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.ERROR_Struct::time_rcv</definition>
+        <argsstring></argsstring>
+        <name>time_rcv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="141" column="1" bodyfile="src/console.py" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classconsole_1_1ERROR__Struct_1aade27435a1592caa679c984c75426098" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.ERROR_Struct.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="136" column="1" bodyfile="src/console.py" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1ERROR__Struct_1af41aa599aaf0c7d622954c36be9c397f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.ERROR_Struct.__clear__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__clear__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="143" column="1" bodyfile="src/console.py" bodystart="143" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1ERROR__Struct_1aaebc5dee4b41c0aef1a9a1d961e71153" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.ERROR_Struct.__clearitem__</definition>
+        <argsstring>(self, i)</argsstring>
+        <name>__clearitem__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>i</type>
+          <defname>i</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="150" column="1" bodyfile="src/console.py" bodystart="150" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1ERROR__Struct_1a511ace8802fbb35ff813cbecbeec21a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.ERROR_Struct.__str__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__str__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="165" column="1" bodyfile="src/console.py" bodystart="165" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1ERROR__Struct_1abfc6ba2a1898e6ccf9debfb434f4daab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.ERROR_Struct.add_error</definition>
+        <argsstring>(self, topic_name, data)</argsstring>
+        <name>add_error</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic_name</type>
+          <defname>topic_name</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="182" column="1" bodyfile="src/console.py" bodystart="182" bodyend="193"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>console.ERROR_Struct</label>
+        <link refid="classconsole_1_1ERROR__Struct"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>console.ERROR_Struct</label>
+        <link refid="classconsole_1_1ERROR__Struct"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="134" column="1" bodyfile="src/console.py" bodystart="134" bodyend="194"/>
+    <listofallmembers>
+      <member refid="classconsole_1_1ERROR__Struct_1af41aa599aaf0c7d622954c36be9c397f" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>__clear__</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1aaebc5dee4b41c0aef1a9a1d961e71153" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>__clearitem__</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1aade27435a1592caa679c984c75426098" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>__init__</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1a511ace8802fbb35ff813cbecbeec21a4" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>__str__</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1abfc6ba2a1898e6ccf9debfb434f4daab" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>add_error</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1a987eb16cd3cbfb722aa46b50ef451264" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>line</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1a1832520c1fef9da4dbbbde9cb682d769" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>msg</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1a7f8bb8a82b88f4c3d11dd4fa4faa0d50" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>node_name</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1a85dc40926f056bcaa9e048c40b4ea3c0" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>time</name></member>
+      <member refid="classconsole_1_1ERROR__Struct_1ab094d2d759e9a6d659199acd8c820e60" prot="public" virt="non-virtual"><scope>console::ERROR_Struct</scope><name>time_rcv</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

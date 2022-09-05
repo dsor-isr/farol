@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="HorizontalFilter_8h" kind="file" language="C++">
+    <compoundname>HorizontalFilter.h</compoundname>
+    <includes local="no">ros/ros.h</includes>
+    <includes local="no">tf2_ros/transform_listener.h</includes>
+    <includes local="no">tf2_ros/transform_broadcaster.h</includes>
+    <includes local="yes">tf2_ros/message_filter.h</includes>
+    <includes local="yes">tf2_geometry_msgs/tf2_geometry_msgs.h</includes>
+    <includes local="no">auv_msgs/NavigationStatus.h</includes>
+    <includes local="no">geometry_msgs/Vector3Stamped.h</includes>
+    <includes local="no">geometry_msgs/TransformStamped.h</includes>
+    <includes local="no">Eigen/Eigen</includes>
+    <includes local="no">GeographicLib/GeoCoords.hpp</includes>
+    <includes local="no">farol_gimmicks_library/FarolGimmicks.h</includes>
+    <includes refid="FilterGimmicks_8h" local="yes">FilterGimmicks.h</includes>
+    <includedby refid="FiltersNode_8h" local="yes">include/ros/FiltersNode.h</includedby>
+    <includedby refid="HorizontalFilter_8cpp" local="yes">src/algorithms/HorizontalFilter.cpp</includedby>
+    <incdepgraph>
+      <node id="17">
+        <label>dsor_msgs/Measurement.h</label>
+      </node>
+      <node id="10">
+        <label>Eigen/Eigen</label>
+      </node>
+      <node id="7">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="6">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="16">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="9">
+        <label>geometry_msgs/TransformStamped.h</label>
+      </node>
+      <node id="13">
+        <label>FilterGimmicks.h</label>
+        <link refid="FilterGimmicks_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>vector</label>
+      </node>
+      <node id="8">
+        <label>geometry_msgs/Vector3Stamped.h</label>
+      </node>
+      <node id="1">
+        <label>include/algorithms/HorizontalFilter.h</label>
+        <link refid="HorizontalFilter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="12">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="11">
+        <label>GeographicLib/GeoCoords.hpp</label>
+      </node>
+      <node id="3">
+        <label>tf2_ros/transform_listener.h</label>
+      </node>
+      <node id="4">
+        <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/ros/FiltersNode.h</label>
+        <link refid="FiltersNode_8h"/>
+      </node>
+      <node id="1">
+        <label>include/algorithms/HorizontalFilter.h</label>
+        <link refid="HorizontalFilter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classHorizontalFilter" prot="public">HorizontalFilter</innerclass>
+    <innerclass refid="structHorizontalFilter_1_1config" prot="public">HorizontalFilter::config</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="HorizontalFilter_8h_1a770ed72d612b0dfdda7733f11e62f178" prot="public" static="no">
+        <type>Eigen::MatrixXd</type>
+        <definition>typedef Eigen::MatrixXd Mat</definition>
+        <argsstring></argsstring>
+        <name>Mat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="32" column="25" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="HorizontalFilter_8h_1ad7798896a7d71583e9494e17d783529a" prot="public" static="no">
+        <type>Eigen::VectorXd</type>
+        <definition>typedef Eigen::VectorXd Vec</definition>
+        <argsstring></argsstring>
+        <name>Vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="33" column="25" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#ifndef<sp/>CATKIN_WS_HORIZONTALFILTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CATKIN_WS_HORIZONTALFILTER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>ROS<sp/>Libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ros/ros.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>TF&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tf2_ros/transform_listener.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;tf2_ros/transform_broadcaster.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2_ros/message_filter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tf2_geometry_msgs/tf2_geometry_msgs.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>ROS<sp/>Messages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;auv_msgs/NavigationStatus.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;geometry_msgs/Vector3Stamped.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;geometry_msgs/TransformStamped.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Third<sp/>Party<sp/>Libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Eigen&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;GeographicLib/GeoCoords.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_gimmicks_library/FarolGimmicks.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;FilterGimmicks.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen::MatrixXd<sp/>Mat;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>Vec;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="46"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classHorizontalFilter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classHorizontalFilter" kindref="compound">HorizontalFilter</ref>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>MEAS_LEN<sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>STATE_LEN<sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>############################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>STRUCT<sp/>to<sp/>configure<sp/>filter<sp/>object</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>############################</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structHorizontalFilter_1_1config" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structHorizontalFilter_1_1config" kindref="compound">config</ref>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initialized{</highlight><highlight class="keyword">false</highlight><highlight class="normal">},<sp/>broadcast_tf;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>reject_counter[4],<sp/>init_cov[4],<sp/>process_noise[4],<sp/>kalman_config[3];</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>base_frame,<sp/>odom_frame,<sp/>map_frame,<sp/>world_frame;<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>name_vehicle_id;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>meas_init;<sp/></highlight><highlight class="comment">//<sp/>initializing<sp/>frame<sp/>and/or<sp/>measurement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;FilterGimmicks::measurement&gt;<sp/>sensors;<sp/></highlight><highlight class="comment">//<sp/>input<sp/>sensor<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>tf2_ros::TransformBroadcaster<sp/>*br_node;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="71"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="classHorizontalFilter_1ad7654142dd2d8704e446915f22392def" kindref="member">HorizontalFilter</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1a47d6d7001fc1ef1edb62665c1490610a" kindref="member">~HorizontalFilter</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Public<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="93"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1ac6f1f02d0916ed73238c71288e439b61" kindref="member">computePredict</ref>(auv_msgs::NavigationStatus<sp/>&amp;state,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ros::Time<sp/>&amp;t_request);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="102"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1a0ee25d3a0cb0155d907629d58d7fa5b7" kindref="member">configure</ref>(<ref refid="structHorizontalFilter_1_1config" kindref="compound">HorizontalFilter::config</ref><sp/>&amp;configurations);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="112"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1ae786c137e3dcb23c8d4beaeb6c852875" kindref="member">newMeasurement</ref>(<ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref><sp/>&amp;m);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="119"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1a0157428ae0e862dd3a7bdb1b0db065ab" kindref="member">deleteMeasurementsInBuffer</ref>();</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="128"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">std::vector&lt;double&gt;<sp/><ref refid="classHorizontalFilter_1a2c072c54c6e27337f96b99a3e27dee3f" kindref="member">getExtimateCurrents</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="136"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classHorizontalFilter_1ad393f414ecd694614ae7d50917eb4db4" kindref="member">resetFilter</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Handy<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initialized_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">std::list&lt;FilterGimmicks::measurement&gt;<sp/>meas_list_;<sp/><sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Kalman<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t_save_measurement_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t_reset_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">Vec<sp/>state_vec_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">Mat<sp/>state_cov_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">Mat<sp/>process_cov_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">Vec<sp/>state_reject_counter_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">Vec<sp/>reject_counter_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Transformation<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>tf_broadcast_flag_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">std::string<sp/><sp/>world_frame_id_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">std::string<sp/>init_frame_id_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">std::string<sp/>name_vehicle_id_;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal">tf2_ros::TransformBroadcaster<sp/>tf_broadcast_;<sp/><sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">ros::Time<sp/>last_predict_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal">ros::Time<sp/>last_update_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>@.@<sp/>Kalman<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="176"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>initialize(<ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref>&amp;<sp/>m);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="187"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>predict(Vec&amp;<sp/>state_vec,<sp/>Mat&amp;<sp/>state_cov,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="199"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>update(Vec&amp;<sp/>state_vec,<sp/>Mat&amp;<sp/>state_cov,<sp/>std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>&amp;it_measurement);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Auxillary<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="213"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal">std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>addMeasurementToBuffer(<ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref>&amp;<sp/>m)<sp/>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="223"><highlight class="comment">/*<sp/>-------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>forwardPropagation(std::list&lt;FilterGimmicks::measurement&gt;::iterator<sp/>it_measurement);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//CATKIN_WS_HORIZONTALFILTER_H</highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/HorizontalFilter.h"/>
+  </compounddef>
+</doxygen>

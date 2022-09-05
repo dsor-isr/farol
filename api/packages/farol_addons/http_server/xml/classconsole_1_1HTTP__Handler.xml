@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1HTTP__Handler" kind="class" language="Python" prot="public">
+    <compoundname>console::HTTP_Handler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BaseHTTPRequestHandler</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classconsole_1_1HTTP__Handler_1a34da894721cc5ba3c4116e7619adc529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.HTTP_Handler.do_GET</definition>
+        <argsstring>(self)</argsstring>
+        <name>do_GET</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="971" column="1" bodyfile="src/console.py" bodystart="971" bodyend="1066"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1HTTP__Handler_1a1284f2c194c0cfa768ed35c595437f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.HTTP_Handler.do_POST</definition>
+        <argsstring>(self)</argsstring>
+        <name>do_POST</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1067" column="1" bodyfile="src/console.py" bodystart="1067" bodyend="1087"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1HTTP__Handler_1a9d78be9d1f6e6a29d9aaed4c18ef5c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.HTTP_Handler.do_HEAD</definition>
+        <argsstring>(self)</argsstring>
+        <name>do_HEAD</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1088" column="1" bodyfile="src/console.py" bodystart="1088" bodyend="1093"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1HTTP__Handler_1a8539a9e39b1748b7770df8b549e65420" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.HTTP_Handler.address_string</definition>
+        <argsstring>(self)</argsstring>
+        <name>address_string</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1094" column="1" bodyfile="src/console.py" bodystart="1094" bodyend="1097"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1HTTP__Handler_1a0e7ad8553ef9eeaf7f8813763b7678fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.HTTP_Handler.log_request</definition>
+        <argsstring>(self, inputs)</argsstring>
+        <name>log_request</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>inputs</type>
+          <defname>inputs</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="1099" column="1" bodyfile="src/console.py" bodystart="1099" bodyend="1101"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>console.HTTP_Handler</label>
+        <link refid="classconsole_1_1HTTP__Handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BaseHTTPRequestHandler</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>console.HTTP_Handler</label>
+        <link refid="classconsole_1_1HTTP__Handler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BaseHTTPRequestHandler</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="970" column="1" bodyfile="src/console.py" bodystart="970" bodyend="1102"/>
+    <listofallmembers>
+      <member refid="classconsole_1_1HTTP__Handler_1a8539a9e39b1748b7770df8b549e65420" prot="public" virt="non-virtual"><scope>console::HTTP_Handler</scope><name>address_string</name></member>
+      <member refid="classconsole_1_1HTTP__Handler_1a34da894721cc5ba3c4116e7619adc529" prot="public" virt="non-virtual"><scope>console::HTTP_Handler</scope><name>do_GET</name></member>
+      <member refid="classconsole_1_1HTTP__Handler_1a9d78be9d1f6e6a29d9aaed4c18ef5c58" prot="public" virt="non-virtual"><scope>console::HTTP_Handler</scope><name>do_HEAD</name></member>
+      <member refid="classconsole_1_1HTTP__Handler_1a1284f2c194c0cfa768ed35c595437f35" prot="public" virt="non-virtual"><scope>console::HTTP_Handler</scope><name>do_POST</name></member>
+      <member refid="classconsole_1_1HTTP__Handler_1a0e7ad8553ef9eeaf7f8813763b7678fe" prot="public" virt="non-virtual"><scope>console::HTTP_Handler</scope><name>log_request</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

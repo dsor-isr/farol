@@ -1,0 +1,1070 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAUV" kind="class" language="C++" prot="public">
+    <compoundname>AUV</compoundname>
+    <includes refid="AUV_8h" local="no">AUV.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAUV_1ae663352172cf989820d75d4a634af5c0" prot="private" static="no" mutable="no">
+        <type><ref refid="structState" kindref="compound">State</ref></type>
+        <definition>State AUV::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="191" column="11" bodyfile="include/algorithms/AUV.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a72cb75287da8cebc274b5e02fdcf3efa" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::gravity_</definition>
+        <argsstring></argsstring>
+        <name>gravity_</name>
+        <initializer>{9.8}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="194" column="12" bodyfile="include/algorithms/AUV.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1af52fbe65d521615653e8b3f620d687da" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::mass_</definition>
+        <argsstring></argsstring>
+        <name>mass_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="197" column="12" bodyfile="include/algorithms/AUV.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1abb2b69c78eabb16164a708061f77297c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::fluid_density_</definition>
+        <argsstring></argsstring>
+        <name>fluid_density_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="200" column="12" bodyfile="include/algorithms/AUV.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a3f728222b483f9a51a0572ecc14aabb9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::zg_</definition>
+        <argsstring></argsstring>
+        <name>zg_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="203" column="12" bodyfile="include/algorithms/AUV.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a7010ebeccaefc5f70e20ec99db6b0d14" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::radius_</definition>
+        <argsstring></argsstring>
+        <name>radius_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="206" column="12" bodyfile="include/algorithms/AUV.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a65939cba2ba1a89fbf454c894e85460c" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix&lt; double, 6, 6 &gt;</type>
+        <definition>Eigen::Matrix&lt;double, 6, 6&gt; AUV::M_</definition>
+        <argsstring></argsstring>
+        <name>M_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="209" column="19" bodyfile="include/algorithms/AUV.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a74bc1b0e91be296c40d4f6aa6380a21a" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix&lt; double, 6, 6 &gt;</type>
+        <definition>Eigen::Matrix&lt;double, 6, 6&gt; AUV::M_inv_</definition>
+        <argsstring></argsstring>
+        <name>M_inv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="209" column="22" bodyfile="include/algorithms/AUV.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a719a70b39fd0e2958a0814c3bf0e5f6f" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix&lt; double, 6, 6 &gt;</type>
+        <definition>Eigen::Matrix&lt;double, 6, 6&gt; AUV::Dl_</definition>
+        <argsstring></argsstring>
+        <name>Dl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="210" column="19" bodyfile="include/algorithms/AUV.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a8cd07d8f55eefacd159f54662674e618" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix&lt; double, 6, 6 &gt;</type>
+        <definition>Eigen::Matrix&lt;double, 6, 6&gt; AUV::Dq_</definition>
+        <argsstring></argsstring>
+        <name>Dq_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="210" column="23" bodyfile="include/algorithms/AUV.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1ae117a991410e9f24e5b6f9e93e2812ba" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d AUV::M11_</definition>
+        <argsstring></argsstring>
+        <name>M11_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="213" column="21" bodyfile="include/algorithms/AUV.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a79648b75dd94404e21f415a82eb9f964" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d AUV::M12_</definition>
+        <argsstring></argsstring>
+        <name>M12_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="213" column="26" bodyfile="include/algorithms/AUV.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a5f072dd0bf176766a1c88b015c413390" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d AUV::M21_</definition>
+        <argsstring></argsstring>
+        <name>M21_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="213" column="31" bodyfile="include/algorithms/AUV.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1ac20d600cc44f428687a5fd6debb9a2fd" prot="private" static="no" mutable="no">
+        <type>Eigen::Matrix3d</type>
+        <definition>Eigen::Matrix3d AUV::M22_</definition>
+        <argsstring></argsstring>
+        <name>M22_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="213" column="36" bodyfile="include/algorithms/AUV.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a26fe30efcb6de0558ce25ac618564994" prot="private" static="no" mutable="no">
+        <type>Eigen::MatrixXd</type>
+        <definition>Eigen::MatrixXd AUV::allocation_matrix_</definition>
+        <argsstring></argsstring>
+        <name>allocation_matrix_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="216" column="21" bodyfile="include/algorithms/AUV.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a1ee3af977e1e2eec9f2201cecae2d0fe" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d AUV::lump_param_positive_</definition>
+        <argsstring></argsstring>
+        <name>lump_param_positive_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="217" column="21" bodyfile="include/algorithms/AUV.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a9ca628d725e4adeebac7ab5e7848d0bc" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d AUV::lump_param_negative_</definition>
+        <argsstring></argsstring>
+        <name>lump_param_negative_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="217" column="42" bodyfile="include/algorithms/AUV.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a277fa1fd92f1c5420b0d8cdd9cc871af" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector2d</type>
+        <definition>Eigen::Vector2d AUV::min_max_thruster_input_</definition>
+        <argsstring></argsstring>
+        <name>min_max_thruster_input_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="218" column="21" bodyfile="include/algorithms/AUV.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a592ff617c47bca7d8ef9c4eb3c1ca992" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::thrusters_gain_</definition>
+        <argsstring></argsstring>
+        <name>thrusters_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="219" column="12" bodyfile="include/algorithms/AUV.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1add1c447f7f8ebb11d74eab6be175fefa" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::thrusters_pole_</definition>
+        <argsstring></argsstring>
+        <name>thrusters_pole_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="219" column="28" bodyfile="include/algorithms/AUV.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a78449ea79ec7d68d8245a04a67c84e52" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::thrusters_delay_</definition>
+        <argsstring></argsstring>
+        <name>thrusters_delay_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="219" column="44" bodyfile="include/algorithms/AUV.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a2f2e97a4b4d86310cd05340e92d75a17" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AUV::sampling_period_</definition>
+        <argsstring></argsstring>
+        <name>sampling_period_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="219" column="61" bodyfile="include/algorithms/AUV.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1ae55c0a684b8c0b4027ca7d73976e3c93" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; Eigen::VectorXd &gt;</type>
+        <definition>std::vector&lt;Eigen::VectorXd&gt; AUV::previous_inputs_</definition>
+        <argsstring></argsstring>
+        <name>previous_inputs_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="222" column="17" bodyfile="include/algorithms/AUV.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a808a092e6bac437fadb139e6f4cf37cf" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AUV::number_of_delays_inputs_</definition>
+        <argsstring></argsstring>
+        <name>number_of_delays_inputs_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="225" column="9" bodyfile="include/algorithms/AUV.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a41206191c7079e4ca20a3dcc066069b8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; Eigen::VectorXd &gt;</type>
+        <definition>std::vector&lt;Eigen::VectorXd&gt; AUV::thrusters_inputs_</definition>
+        <argsstring></argsstring>
+        <name>thrusters_inputs_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="226" column="17" bodyfile="include/algorithms/AUV.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a1366d7ade653638935ff8b964b3e664c" prot="private" static="no" mutable="no">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd AUV::last_thruster_output_</definition>
+        <argsstring></argsstring>
+        <name>last_thruster_output_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="227" column="21" bodyfile="include/algorithms/AUV.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1abfa464a82f94e20e0e4029ae23cb4e15" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d AUV::disturbance_minimum_</definition>
+        <argsstring></argsstring>
+        <name>disturbance_minimum_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="230" column="21" bodyfile="include/algorithms/AUV.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a6584bbc8054e26dcad0a0b785f3cfc3f" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d AUV::disturbance_maximum_</definition>
+        <argsstring></argsstring>
+        <name>disturbance_maximum_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="231" column="21" bodyfile="include/algorithms/AUV.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a7aaaf7263f4635904268c52873269a5b" prot="private" static="no" mutable="no">
+        <type>std::default_random_engine</type>
+        <definition>std::default_random_engine AUV::generator_</definition>
+        <argsstring></argsstring>
+        <name>generator_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="232" column="32" bodyfile="include/algorithms/AUV.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAUV_1a99d7b5f9e39326906045d95de05e559f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::normal_distribution&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::normal_distribution&lt;double&gt; &gt; AUV::distributions_</definition>
+        <argsstring></argsstring>
+        <name>distributions_</name>
+        <initializer>{3}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="233" column="17" bodyfile="include/algorithms/AUV.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAUV_1aa36bc79fac59bcd46644491a343bb925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AUV::AUV</definition>
+        <argsstring>(double mass, double fluid_density, double zg, double vehicle_density, const Eigen::Vector3d &amp;inertia_tensor, const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;linear_damping_tensor, const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;quadratic_damping_tensor, const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;added_mass_tensor, const Eigen::MatrixXd &amp;allocation_matrix, const Eigen::Vector3d &amp;lump_param_positive, const Eigen::Vector3d &amp;lump_param_negative, const Eigen::Vector2d &amp;min_max_thruster_input, double thrusters_gain, double thrusters_pole, double thrusters_delay, double sampling_period, const Eigen::Vector3d &amp;disturbance_mean, const Eigen::Vector3d &amp;disturbance_sigma, const Eigen::Vector3d &amp;disturbance_minimum, const Eigen::Vector3d &amp;disturbance_maximum)</argsstring>
+        <name>AUV</name>
+        <param>
+          <type>double</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>fluid_density</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>zg</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>vehicle_density</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>inertia_tensor</declname>
+        </param>
+        <param>
+          <type>const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;</type>
+          <declname>linear_damping_tensor</declname>
+        </param>
+        <param>
+          <type>const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;</type>
+          <declname>quadratic_damping_tensor</declname>
+        </param>
+        <param>
+          <type>const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;</type>
+          <declname>added_mass_tensor</declname>
+        </param>
+        <param>
+          <type>const Eigen::MatrixXd &amp;</type>
+          <declname>allocation_matrix</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>lump_param_positive</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>lump_param_negative</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector2d &amp;</type>
+          <declname>min_max_thruster_input</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>thrusters_gain</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>thrusters_pole</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>thrusters_delay</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>sampling_period</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>disturbance_mean</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>disturbance_sigma</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>disturbance_minimum</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>disturbance_maximum</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>FarolAUV class constructor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mass of the vehicle in Kg </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fluid_density</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The density of the fluid the vehicle is in (a.k.a water density) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>zg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The center of gravity of the (sphere-like) vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vehicle_density</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The density of the vehicle (Kg/m^3) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inertia_tensor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 3 elements with the diagonal of the inertia matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>linear_damping_tensor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 6 elements with the diagonal of the linear damping matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>quadratic_damping_tensor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 6 elements with the diagonal of the quadratic damping matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>added_mass_tensor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 6 elements with the diagonal of the added mass matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allocation_matrix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A matrix with the contributions of each thruster to the forces in X,Y and Z and the arms for computing the moments of inertia later [Fx, Fy, Fz, lx, ly, lz] (each line represents one thruster) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lump_param_positive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The thrust curve parameters for the right side of the curve </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lump_param_negative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The thrust curve parameters for the left side of the curve </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_max_thruster_input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minimum and maximum normalized thruster inputs [min_input, max_input]^T </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>thrusters_gain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>thrusters_pole</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>thrusters_delay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sampling_period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An approximated sampling period (s) at which the simulation will run (NOTE: this is needed to discretize the thrusters model only and the integration of the dynamics of the vehicle will use the dt variable provided through the update method) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>disturbance_mean</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with the mean of the ocean disturbances (gaussian process) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>disturbance_sigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with the standard deviation of the ocean disturbances (gaussian process) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>disturbance_minimum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with the minimum values for the ocean disturbances </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>disturbance_maximum</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with the maximum values for the ocean disturbances </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="47" column="5" bodyfile="src/algorithms/AUV.cpp" bodystart="7" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a4484b572be4cc530a8079489584816c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AUV::update</definition>
+        <argsstring>(double dt, const Eigen::VectorXd &amp;thrust)</argsstring>
+        <name>update</name>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>const Eigen::VectorXd &amp;</type>
+          <declname>thrust</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method to update the state of the vehicle given the thrust applied to each individual thruster. This method verifies if (dt &gt;= 0) and the size of thrust vector is the same as the number of thrusters of the model. If some of these conditions does not verify, a std::invalid_argument exception is thrown</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time difference (in seconds) between the last function call and the disturbance function call </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>thrust</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of n elements with the thrust to apply to each of the n vehicle thursters (normalized between 0 and 1) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="76" column="10" bodyfile="src/algorithms/AUV.cpp" bodystart="84" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a36b15331bdf3b8735594a124b7497884" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structState" kindref="compound">State</ref></type>
+        <definition>State AUV::getState</definition>
+        <argsstring>()</argsstring>
+        <name>getState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that returns a copy of the disturbance state of the vehicle <simplesect kind="return"><para>A state object with the state of the vehicle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="82" column="18" bodyfile="include/algorithms/AUV.h" bodystart="82" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1af17547988bb064d278b56ed56f9e8584" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AUV::setState</definition>
+        <argsstring>(const State &amp;state)</argsstring>
+        <name>setState</name>
+        <param>
+          <type>const <ref refid="structState" kindref="compound">State</ref> &amp;</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that sets the disturbance state of the vehicle to a new pre-defined state <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A state reference that contains the desired state of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="90" column="17" bodyfile="include/algorithms/AUV.h" bodystart="90" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a4aace0f4b821d4779fc68b57b22e8b59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int AUV::getNumberThrusters</definition>
+        <argsstring>()</argsstring>
+        <name>getNumberThrusters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that returns the number of thrusters of the <ref refid="classAUV" kindref="compound">AUV</ref> based on the number of lines of the allocation matrix received by the constructor upon object construction <simplesect kind="return"><para>The number of thrusters of the <ref refid="classAUV" kindref="compound">AUV</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="99" column="25" bodyfile="include/algorithms/AUV.h" bodystart="99" bodyend="101"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAUV_1a29282a54144cbf1880e71fa8c9afaf28" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::MatrixXd</type>
+        <definition>Eigen::MatrixXd AUV::applyThrustersModel</definition>
+        <argsstring>(const Eigen::VectorXd &amp;thrust)</argsstring>
+        <name>applyThrustersModel</name>
+        <param>
+          <type>const Eigen::VectorXd &amp;</type>
+          <declname>thrust</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>thrust</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Method that given the desired thrust input to apply to each thruster (between -100&lt;-&gt;100), computes the actually applied thrust in (N). This model saturates the input between -100 and 100, applies a dead-zone, applies a discrete model of a DC-motor (simple pole+delay) using the differences equation: y(k+1) = e^{-pole * period} * y(k) + (1-e^{-pole * period}) * u(k-number_of_delays) After this step, the output y(k+1) is multiplied by a gain (used to convert between units, for example, from 100 to 4500 RPM) Then it call the auxiliar method: convertThrustToForce() to convert the output: gain*y(k+1) to forces expressed in Newton. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The applied thrust in (N) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="116" column="21" bodyfile="src/algorithms/AUV.cpp" bodystart="132" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a6425482c627d70c4550da8f5e6f3a46e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double AUV::convertThrustToForce</definition>
+        <argsstring>(const double thrust)</argsstring>
+        <name>convertThrustToForce</name>
+        <param>
+          <type>const double</type>
+          <declname>thrust</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Takes double with the thrust (in some normalized unit) and converts it to Newtons according to a parabole thrust curve using the equation: force (N) = a*{x}^2 + b*x +c Note: this equations uses the positive_lump_parameters for the right side of the curve and the negative_lump_parameters for the left side of the curve <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>thrust</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total thrust input (applied by 1 thruster) in some general unit </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The total thrust that corresponds to that input but in Newtons (N) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="127" column="12" bodyfile="src/algorithms/AUV.cpp" bodystart="178" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a23e34e44bb2c68527c7f503efee63393" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::Matrix&lt; double, 6, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt; double, 6, 1 &gt; AUV::convertThrustToGeneralForces</definition>
+        <argsstring>(const Eigen::VectorXd &amp;thrust)</argsstring>
+        <name>convertThrustToGeneralForces</name>
+        <param>
+          <type>const Eigen::VectorXd &amp;</type>
+          <declname>thrust</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Takes the force in Newtons (N) applied by each thruster and makes use of the allocation matrix to discover the total net-force applied in X, Y and Z axis of the vehicle (N) and well as the total net-torques applied about X, Y and Z axis (Nm). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>thrust</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total thrust applied by each thruster in Newtons (N) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A vector with [Fx, Fy, Fz, Mx, My, Mz]^T corresponding to the total force and torque applied to the vehicle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="136" column="19" bodyfile="src/algorithms/AUV.cpp" bodystart="196" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a6cb1a6416c7141a806729e2472c80591" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d AUV::computeOceanDisturbances</definition>
+        <argsstring>()</argsstring>
+        <name>computeOceanDisturbances</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that generates random non-rotational ocean disturbances based on a gaussian process <simplesect kind="return"><para>A vector of 3 elements with the disturbance in X, Y and Z axis </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="142" column="21" bodyfile="src/algorithms/AUV.cpp" bodystart="225" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1ad8e00baed98c592210f89158771463b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::tuple&lt; Eigen::Vector3d, Eigen::Vector3d &gt;</type>
+        <definition>std::tuple&lt; Eigen::Vector3d, Eigen::Vector3d &gt; AUV::updateDynamics</definition>
+        <argsstring>(const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;forces_and_torques)</argsstring>
+        <name>updateDynamics</name>
+        <param>
+          <type>const Eigen::Matrix&lt; double, 6, 1 &gt; &amp;</type>
+          <declname>forces_and_torques</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that updates the Dynamics of the <ref refid="classAUV" kindref="compound">AUV</ref> according to Fossen&apos;s book for marine crafts <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>forces_and_torques</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 6 elements with the generalized forces and torques applied in the body frame of the vehicle [Fx, Fy, Fz, Mx, My, Mz]^T </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A tuple with 2 vectors: v1_dot - linear acceleration in the body frame [u_dot, v_dor, w_dot]^T v2_dot - angular acceleration in the body frame [p_dot, q_dot, r_dot]^T </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="152" column="16" bodyfile="src/algorithms/AUV.cpp" bodystart="243" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a09ee8c3e78c1c9af892d20869be74c52" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::tuple&lt; Eigen::Vector3d, Eigen::Vector3d &gt;</type>
+        <definition>std::tuple&lt; Eigen::Vector3d, Eigen::Vector3d &gt; AUV::updateKinematics</definition>
+        <argsstring>(const Eigen::Vector3d &amp;v1, const Eigen::Vector3d &amp;v2, const Eigen::Vector3d &amp;ocean_disturbances)</argsstring>
+        <name>updateKinematics</name>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>v1</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>v2</declname>
+        </param>
+        <param>
+          <type>const Eigen::Vector3d &amp;</type>
+          <declname>ocean_disturbances</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that updates the Kinematics of the vehicle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 3 elements with the linear velocity in the body frame [u, v, w]^T </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 3 elements with the angular velocity in the body frame [p, q, r]^T </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ocean_disturbances</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of 3 elements with the ocean disturbances in X, Y and Z axis </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A tuple with 2 vectors: eta1_dot - the linear velocity in the inertial frame [x_dot, y_dot, z_dot]^T eta2_dot - the angular velocity in the inertial frame [phi_dot, theta_dot, psi_dot]^T </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="163" column="16" bodyfile="src/algorithms/AUV.cpp" bodystart="272" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1ad19f6b917d30c6c0ef70421a149ab0ef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::Matrix&lt; double, 6, 6 &gt;</type>
+        <definition>Eigen::Matrix&lt; double, 6, 6 &gt; AUV::computeCoriolisMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>computeCoriolisMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that computes the total Coriolis matrix from the mass and added mass matrices and velocity vectors <simplesect kind="return"><para>A 6x6 Coriolis Matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="169" column="19" bodyfile="src/algorithms/AUV.cpp" bodystart="285" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a1adfb0172aa1417cca317d81767769ae" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::Matrix&lt; double, 6, 6 &gt;</type>
+        <definition>Eigen::Matrix&lt; double, 6, 6 &gt; AUV::computeDampingTerms</definition>
+        <argsstring>()</argsstring>
+        <name>computeDampingTerms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that computes the total Damping matrix from the linear damping, quadratic damping and velocity vectors <simplesect kind="return"><para>A 6x6 Damping Matrix </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="175" column="19" bodyfile="src/algorithms/AUV.cpp" bodystart="301" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a858ef25819a3fed05f374304e2f5bb98" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::Matrix&lt; double, 6, 1 &gt;</type>
+        <definition>Eigen::Matrix&lt; double, 6, 1 &gt; AUV::computeHydrostaticForces</definition>
+        <argsstring>()</argsstring>
+        <name>computeHydrostaticForces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that computes the total forces applied by gravity and buoyancy <simplesect kind="return"><para>A 6x1 vector with the forces and torques applied in each direction by gravity and buoyancy </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="181" column="19" bodyfile="src/algorithms/AUV.cpp" bodystart="317" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classAUV_1a22c85a75a9a559bce9ca24126c1e6a69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double AUV::computeVolumeFluidDisplaced</definition>
+        <argsstring>()</argsstring>
+        <name>computeVolumeFluidDisplaced</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that computes the amount of fluid displaced by a sphere that reduces its radius when above the surface NOTE: This model is not very accurate and should be improved in the future <simplesect kind="return"><para>A double with the volume of fluid displaced (m^3) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/AUV.h" line="188" column="12" bodyfile="src/algorithms/AUV.cpp" bodystart="343" bodyend="356"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classAUV" kindref="compound">AUV</ref> class - implements a Matlab-like simulation of an <ref refid="classAUV" kindref="compound">AUV</ref> in C++. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="version"><para>1.0.0 </para>
+</simplesect>
+<simplesect kind="date"><para>2021/11/12 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/AUV.h" line="17" column="10" bodyfile="include/algorithms/AUV.h" bodystart="17" bodyend="234"/>
+    <listofallmembers>
+      <member refid="classAUV_1a26fe30efcb6de0558ce25ac618564994" prot="private" virt="non-virtual"><scope>AUV</scope><name>allocation_matrix_</name></member>
+      <member refid="classAUV_1a29282a54144cbf1880e71fa8c9afaf28" prot="private" virt="non-virtual"><scope>AUV</scope><name>applyThrustersModel</name></member>
+      <member refid="classAUV_1aa36bc79fac59bcd46644491a343bb925" prot="public" virt="non-virtual"><scope>AUV</scope><name>AUV</name></member>
+      <member refid="classAUV_1ad19f6b917d30c6c0ef70421a149ab0ef" prot="private" virt="non-virtual"><scope>AUV</scope><name>computeCoriolisMatrix</name></member>
+      <member refid="classAUV_1a1adfb0172aa1417cca317d81767769ae" prot="private" virt="non-virtual"><scope>AUV</scope><name>computeDampingTerms</name></member>
+      <member refid="classAUV_1a858ef25819a3fed05f374304e2f5bb98" prot="private" virt="non-virtual"><scope>AUV</scope><name>computeHydrostaticForces</name></member>
+      <member refid="classAUV_1a6cb1a6416c7141a806729e2472c80591" prot="private" virt="non-virtual"><scope>AUV</scope><name>computeOceanDisturbances</name></member>
+      <member refid="classAUV_1a22c85a75a9a559bce9ca24126c1e6a69" prot="private" virt="non-virtual"><scope>AUV</scope><name>computeVolumeFluidDisplaced</name></member>
+      <member refid="classAUV_1a6425482c627d70c4550da8f5e6f3a46e" prot="private" virt="non-virtual"><scope>AUV</scope><name>convertThrustToForce</name></member>
+      <member refid="classAUV_1a23e34e44bb2c68527c7f503efee63393" prot="private" virt="non-virtual"><scope>AUV</scope><name>convertThrustToGeneralForces</name></member>
+      <member refid="classAUV_1a99d7b5f9e39326906045d95de05e559f" prot="private" virt="non-virtual"><scope>AUV</scope><name>distributions_</name></member>
+      <member refid="classAUV_1a6584bbc8054e26dcad0a0b785f3cfc3f" prot="private" virt="non-virtual"><scope>AUV</scope><name>disturbance_maximum_</name></member>
+      <member refid="classAUV_1abfa464a82f94e20e0e4029ae23cb4e15" prot="private" virt="non-virtual"><scope>AUV</scope><name>disturbance_minimum_</name></member>
+      <member refid="classAUV_1a719a70b39fd0e2958a0814c3bf0e5f6f" prot="private" virt="non-virtual"><scope>AUV</scope><name>Dl_</name></member>
+      <member refid="classAUV_1a8cd07d8f55eefacd159f54662674e618" prot="private" virt="non-virtual"><scope>AUV</scope><name>Dq_</name></member>
+      <member refid="classAUV_1abb2b69c78eabb16164a708061f77297c" prot="private" virt="non-virtual"><scope>AUV</scope><name>fluid_density_</name></member>
+      <member refid="classAUV_1a7aaaf7263f4635904268c52873269a5b" prot="private" virt="non-virtual"><scope>AUV</scope><name>generator_</name></member>
+      <member refid="classAUV_1a4aace0f4b821d4779fc68b57b22e8b59" prot="public" virt="non-virtual"><scope>AUV</scope><name>getNumberThrusters</name></member>
+      <member refid="classAUV_1a36b15331bdf3b8735594a124b7497884" prot="public" virt="non-virtual"><scope>AUV</scope><name>getState</name></member>
+      <member refid="classAUV_1a72cb75287da8cebc274b5e02fdcf3efa" prot="private" virt="non-virtual"><scope>AUV</scope><name>gravity_</name></member>
+      <member refid="classAUV_1a1366d7ade653638935ff8b964b3e664c" prot="private" virt="non-virtual"><scope>AUV</scope><name>last_thruster_output_</name></member>
+      <member refid="classAUV_1a9ca628d725e4adeebac7ab5e7848d0bc" prot="private" virt="non-virtual"><scope>AUV</scope><name>lump_param_negative_</name></member>
+      <member refid="classAUV_1a1ee3af977e1e2eec9f2201cecae2d0fe" prot="private" virt="non-virtual"><scope>AUV</scope><name>lump_param_positive_</name></member>
+      <member refid="classAUV_1ae117a991410e9f24e5b6f9e93e2812ba" prot="private" virt="non-virtual"><scope>AUV</scope><name>M11_</name></member>
+      <member refid="classAUV_1a79648b75dd94404e21f415a82eb9f964" prot="private" virt="non-virtual"><scope>AUV</scope><name>M12_</name></member>
+      <member refid="classAUV_1a5f072dd0bf176766a1c88b015c413390" prot="private" virt="non-virtual"><scope>AUV</scope><name>M21_</name></member>
+      <member refid="classAUV_1ac20d600cc44f428687a5fd6debb9a2fd" prot="private" virt="non-virtual"><scope>AUV</scope><name>M22_</name></member>
+      <member refid="classAUV_1a65939cba2ba1a89fbf454c894e85460c" prot="private" virt="non-virtual"><scope>AUV</scope><name>M_</name></member>
+      <member refid="classAUV_1a74bc1b0e91be296c40d4f6aa6380a21a" prot="private" virt="non-virtual"><scope>AUV</scope><name>M_inv_</name></member>
+      <member refid="classAUV_1af52fbe65d521615653e8b3f620d687da" prot="private" virt="non-virtual"><scope>AUV</scope><name>mass_</name></member>
+      <member refid="classAUV_1a277fa1fd92f1c5420b0d8cdd9cc871af" prot="private" virt="non-virtual"><scope>AUV</scope><name>min_max_thruster_input_</name></member>
+      <member refid="classAUV_1a808a092e6bac437fadb139e6f4cf37cf" prot="private" virt="non-virtual"><scope>AUV</scope><name>number_of_delays_inputs_</name></member>
+      <member refid="classAUV_1ae55c0a684b8c0b4027ca7d73976e3c93" prot="private" virt="non-virtual"><scope>AUV</scope><name>previous_inputs_</name></member>
+      <member refid="classAUV_1a7010ebeccaefc5f70e20ec99db6b0d14" prot="private" virt="non-virtual"><scope>AUV</scope><name>radius_</name></member>
+      <member refid="classAUV_1a2f2e97a4b4d86310cd05340e92d75a17" prot="private" virt="non-virtual"><scope>AUV</scope><name>sampling_period_</name></member>
+      <member refid="classAUV_1af17547988bb064d278b56ed56f9e8584" prot="public" virt="non-virtual"><scope>AUV</scope><name>setState</name></member>
+      <member refid="classAUV_1ae663352172cf989820d75d4a634af5c0" prot="private" virt="non-virtual"><scope>AUV</scope><name>state_</name></member>
+      <member refid="classAUV_1a78449ea79ec7d68d8245a04a67c84e52" prot="private" virt="non-virtual"><scope>AUV</scope><name>thrusters_delay_</name></member>
+      <member refid="classAUV_1a592ff617c47bca7d8ef9c4eb3c1ca992" prot="private" virt="non-virtual"><scope>AUV</scope><name>thrusters_gain_</name></member>
+      <member refid="classAUV_1a41206191c7079e4ca20a3dcc066069b8" prot="private" virt="non-virtual"><scope>AUV</scope><name>thrusters_inputs_</name></member>
+      <member refid="classAUV_1add1c447f7f8ebb11d74eab6be175fefa" prot="private" virt="non-virtual"><scope>AUV</scope><name>thrusters_pole_</name></member>
+      <member refid="classAUV_1a4484b572be4cc530a8079489584816c1" prot="public" virt="non-virtual"><scope>AUV</scope><name>update</name></member>
+      <member refid="classAUV_1ad8e00baed98c592210f89158771463b8" prot="private" virt="non-virtual"><scope>AUV</scope><name>updateDynamics</name></member>
+      <member refid="classAUV_1a09ee8c3e78c1c9af892d20869be74c52" prot="private" virt="non-virtual"><scope>AUV</scope><name>updateKinematics</name></member>
+      <member refid="classAUV_1a3f728222b483f9a51a0572ecc14aabb9" prot="private" virt="non-virtual"><scope>AUV</scope><name>zg_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

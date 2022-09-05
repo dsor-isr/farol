@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="FarolGimmicks_8cpp" kind="file" language="C++">
+    <compoundname>FarolGimmicks.cpp</compoundname>
+    <includes refid="FarolGimmicks_8h" local="yes">farol_gimmicks_library/FarolGimmicks.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="10">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="6">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+        <link refid="FarolGimmicks_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="1">
+        <label>src/FarolGimmicks.cpp</label>
+        <link refid="FarolGimmicks_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>tf2_ros/transform_listener.h</label>
+      </node>
+      <node id="8">
+        <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Developers:<sp/>DSOR<sp/>Team<sp/>-&gt;<sp/>@isr.ist.pt<sp/>Instituto<sp/>Superior<sp/>Tecnico</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Description:<sp/>Please<sp/>check<sp/>the<sp/>documentation<sp/>of<sp/>this<sp/>package<sp/>for<sp/>more<sp/>info.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"></highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Dcon&apos;t<sp/>you<sp/>miss<sp/>the<sp/>danger<sp/>...</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;farol_gimmicks_library/FarolGimmicks.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Method<sp/>for<sp/>converting<sp/>spherical<sp/>coordinates<sp/>into<sp/>cartesian.<sp/>Used<sp/>mainly<sp/>with<sp/>usbl<sp/>fixes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceFarolGimmicks_1a521072fdde5084123f6ecfc25d55d6ec" kindref="member">FarolGimmicks::spherical_to_cartesian</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>bearing,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>elevation,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>range,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*out_pos_cart){</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>out_pos_cart[0]=sin(bearing)*range*cos(elevation);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>out_pos_cart[1]=cos(bearing)*range*cos(elevation);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>out_pos_cart[2]=range*sin(elevation);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;X<sp/>rel<sp/>cartesian:<sp/>%.2f<sp/>|<sp/>Y<sp/>rel<sp/>cartesian:<sp/>%.2f<sp/>|<sp/>Depth<sp/>rel<sp/>cartesian:<sp/>%f&quot;</highlight><highlight class="normal">,out_pos_cart[0],<sp/>out_pos_cart[1],<sp/>out_pos_cart[2]);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Method<sp/>for<sp/>returning<sp/>sign<sp/>of<sp/>a<sp/>value<sp/>1:<sp/>+<sp/>|<sp/>0:<sp/>0<sp/>|<sp/>-1:<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="namespaceFarolGimmicks_1ad819794f2ee42847fb5881763d9d96c6" kindref="member">FarolGimmicks::signVal</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>v)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>v<sp/>&gt;<sp/>0<sp/>?<sp/>1<sp/>:<sp/>(v<sp/>&lt;<sp/>0<sp/>?<sp/>-1<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Method<sp/>for<sp/>wrapping<sp/>angles<sp/>to<sp/>specified<sp/>range.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceFarolGimmicks_1a2560554a6ceefedcbd112e9e953fbe79" kindref="member">FarolGimmicks::wrap2pi</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>theta,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode){</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/>1<sp/>||<sp/>mode<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>theta<sp/>=<sp/>fmod(theta<sp/>+<sp/>(mode<sp/>*<sp/>PI),<sp/>2<sp/>*<sp/>PI);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(theta<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>theta<sp/>+=<sp/>2<sp/>*<sp/><ref refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kindref="member">PI</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>theta<sp/>=<sp/>theta<sp/>-<sp/>mode<sp/>*<sp/><ref refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kindref="member">PI</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>theta<sp/>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Wrap<sp/>angle<sp/>between<sp/>[0,<sp/>2PI]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceFarolGimmicks_1a49df89a216c17a648b06d2388df9c0db" kindref="member">FarolGimmicks::wrapTo2pi</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>in)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>in<sp/>&lt;<sp/>0<sp/>?<sp/>2<sp/>*<sp/><ref refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kindref="member">PI</ref><sp/>+<sp/>in<sp/>:<sp/>in;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>@.@<sp/>Difference<sp/>between<sp/>two<sp/>angles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceFarolGimmicks_1aab641509fbf06a1959f8ffb95db41a9c" kindref="member">FarolGimmicks::angleDiff</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>aux<sp/>=<sp/>fmod(a<sp/>-<sp/>b<sp/>+<sp/>PI,<sp/>2<sp/>*<sp/>PI);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(aux<sp/>&lt;<sp/>0)<sp/>aux<sp/>+=<sp/>(2<sp/>*<sp/><ref refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kindref="member">PI</ref>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>aux<sp/>=<sp/>aux<sp/>-<sp/><ref refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kindref="member">PI</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>aux;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/FarolGimmicks.cpp"/>
+  </compounddef>
+</doxygen>

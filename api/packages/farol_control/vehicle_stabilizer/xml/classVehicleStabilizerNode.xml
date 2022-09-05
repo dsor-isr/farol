@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classVehicleStabilizerNode" kind="class" language="C++" prot="public">
+    <compoundname>VehicleStabilizerNode</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a4b1c52623d36a06f2f9d76a849267659" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle VehicleStabilizerNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+<para>Nodle Handler attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="31" column="21" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a6037cb8a6fa1d83ecb00581ee265b04e" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle VehicleStabilizerNode::nh_p_</definition>
+        <argsstring></argsstring>
+        <name>nh_p_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="32" column="21" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1afac9ea30b6888df6de0c6109a7e81924" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer VehicleStabilizerNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>ROS Timer attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="37" column="16" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a14f90d8432b567a695feabf95b0db188" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, double &gt;</type>
+        <definition>std::map&lt;std::string, double&gt; VehicleStabilizerNode::references_</definition>
+        <argsstring></argsstring>
+        <name>references_</name>
+        <briefdescription>
+<para>References to publish to the inner-loops. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="42" column="14" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a7e509a4d6fac9a349fb091c2edc90e78" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, ros::Publisher &gt;</type>
+        <definition>std::map&lt;std::string, ros::Publisher&gt; VehicleStabilizerNode::publishers_</definition>
+        <argsstring></argsstring>
+        <name>publishers_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="43" column="14" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1ad353f4236ce3c1ddcaa45609aa0a26c7" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::surge_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_ref_pub_</name>
+        <briefdescription>
+<para>ROS publishers to send references. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="50" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a77b15dad413ceda8b89f5c2232d2872e" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::sway_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>sway_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="51" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1ad5975e920552ca171eb14f51483e4426" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::heave_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>heave_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="52" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1added3acdc162d8269af728a5271c5eed" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::roll_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>roll_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="55" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1ae5643450c19e9e43691674bda56630d8" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::pitch_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>pitch_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="56" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a976317cb93eabd64b9f05350be0292d3" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::yaw_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="57" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a2f0b4699734a52d8d81620374c4e4c2a" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::roll_rate_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>roll_rate_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="60" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a5dc7e2b83e2f83d1937e2cae3f7b7bc0" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::pitch_rate_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>pitch_rate_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="61" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a47d4fe14d025703bfe95b67b0e2b15bc" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::yaw_rate_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="62" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a05fdef44634fd4ebd591cccf38445132" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::altitude_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>altitude_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="65" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVehicleStabilizerNode_1a79d3441086c5ac3d3dd5c5cd6b7583d9" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher VehicleStabilizerNode::depth_ref_pub_</definition>
+        <argsstring></argsstring>
+        <name>depth_ref_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="66" column="20" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVehicleStabilizerNode_1a91d230208529b1a2311906508ac2fc5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VehicleStabilizerNode::VehicleStabilizerNode</definition>
+        <argsstring>(ros::NodeHandle *nh, ros::NodeHandle *nh_p)</argsstring>
+        <name>VehicleStabilizerNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh_p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The public ROS nodehandle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private ROS nodehandle </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="19" column="5" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="4" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classVehicleStabilizerNode_1a5a611b309a2609f811cbed21cb076f24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VehicleStabilizerNode::~VehicleStabilizerNode</definition>
+        <argsstring>()</argsstring>
+        <name>~VehicleStabilizerNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor of the <ref refid="classVehicleStabilizerNode" kindref="compound">VehicleStabilizerNode</ref> class </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="24" column="5" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="15" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classVehicleStabilizerNode_1aca0fd68faae7f0dea0ba8e5a1b4f16b4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VehicleStabilizerNode::initializeROSPublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeROSPublishers</name>
+        <briefdescription>
+<para>Methods to initialize ROS. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize all publishers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="71" column="10" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="53" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classVehicleStabilizerNode_1a83f91c8f9399630b07b51c8a4a832612" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VehicleStabilizerNode::initializeParameters</definition>
+        <argsstring>()</argsstring>
+        <name>initializeParameters</name>
+        <briefdescription>
+<para>Initialize all the parameters to define which references to publish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="72" column="10" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="27" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classVehicleStabilizerNode_1a19fe83a11727465725ac76f1d9220841" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VehicleStabilizerNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Initialize the timer callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="73" column="10" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classVehicleStabilizerNode_1a43cc2bdfa2563e658a4798778d672d33" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double VehicleStabilizerNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>Setup the Node working frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="74" column="12" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="85" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classVehicleStabilizerNode_1aeda2a279296b6746d28f6d92007d0163" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VehicleStabilizerNode::timerIterCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerIterCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Method where the logic is located in order to update the control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that will publish periodically the references that we wish to call.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A TimerEvent from ros </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/VehicleStabilizerNode.hpp" line="81" column="10" bodyfile="src/VehicleStabilizerNode.cpp" bodystart="97" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/VehicleStabilizerNode.hpp" line="11" column="28" bodyfile="include/VehicleStabilizerNode.hpp" bodystart="11" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classVehicleStabilizerNode_1a05fdef44634fd4ebd591cccf38445132" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>altitude_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1a79d3441086c5ac3d3dd5c5cd6b7583d9" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>depth_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1ad5975e920552ca171eb14f51483e4426" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>heave_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1a83f91c8f9399630b07b51c8a4a832612" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>initializeParameters</name></member>
+      <member refid="classVehicleStabilizerNode_1aca0fd68faae7f0dea0ba8e5a1b4f16b4" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>initializeROSPublishers</name></member>
+      <member refid="classVehicleStabilizerNode_1a19fe83a11727465725ac76f1d9220841" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>initializeTimer</name></member>
+      <member refid="classVehicleStabilizerNode_1a4b1c52623d36a06f2f9d76a849267659" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>nh_</name></member>
+      <member refid="classVehicleStabilizerNode_1a6037cb8a6fa1d83ecb00581ee265b04e" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>nh_p_</name></member>
+      <member refid="classVehicleStabilizerNode_1a43cc2bdfa2563e658a4798778d672d33" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>nodeFrequency</name></member>
+      <member refid="classVehicleStabilizerNode_1a5dc7e2b83e2f83d1937e2cae3f7b7bc0" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>pitch_rate_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1ae5643450c19e9e43691674bda56630d8" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>pitch_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1a7e509a4d6fac9a349fb091c2edc90e78" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>publishers_</name></member>
+      <member refid="classVehicleStabilizerNode_1a14f90d8432b567a695feabf95b0db188" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>references_</name></member>
+      <member refid="classVehicleStabilizerNode_1a2f0b4699734a52d8d81620374c4e4c2a" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>roll_rate_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1added3acdc162d8269af728a5271c5eed" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>roll_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1ad353f4236ce3c1ddcaa45609aa0a26c7" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>surge_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1a77b15dad413ceda8b89f5c2232d2872e" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>sway_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1afac9ea30b6888df6de0c6109a7e81924" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>timer_</name></member>
+      <member refid="classVehicleStabilizerNode_1aeda2a279296b6746d28f6d92007d0163" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>timerIterCallback</name></member>
+      <member refid="classVehicleStabilizerNode_1a91d230208529b1a2311906508ac2fc5f" prot="public" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>VehicleStabilizerNode</name></member>
+      <member refid="classVehicleStabilizerNode_1a47d4fe14d025703bfe95b67b0e2b15bc" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>yaw_rate_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1a976317cb93eabd64b9f05350be0292d3" prot="private" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>yaw_ref_pub_</name></member>
+      <member refid="classVehicleStabilizerNode_1a5a611b309a2609f811cbed21cb076f24" prot="public" virt="non-virtual"><scope>VehicleStabilizerNode</scope><name>~VehicleStabilizerNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

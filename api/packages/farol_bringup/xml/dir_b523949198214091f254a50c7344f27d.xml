@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_b523949198214091f254a50c7344f27d" kind="dir">
+    <compoundname>src/farol_bringup_algorithms</compoundname>
+    <innerfile refid="farol__bringup__algorithms_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="FarolSetup_8py">FarolSetup.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/farol_bringup_algorithms/"/>
+  </compounddef>
+</doxygen>

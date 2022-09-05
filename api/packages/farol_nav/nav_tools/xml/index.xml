@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classAuvState2mState" kind="class"><name>AuvState2mState</name>
+    <member refid="classAuvState2mState_1a53a4d94c91397a21c528ec13525ef5af" kind="variable"><name>nh_</name></member>
+    <member refid="classAuvState2mState_1a6367e5b71988e31eae5195d012fc2cb7" kind="variable"><name>nh_private_</name></member>
+    <member refid="classAuvState2mState_1a0614aee09b75a71ccd29eb1ba41c19e6" kind="variable"><name>sub_inside_pressure_</name></member>
+    <member refid="classAuvState2mState_1a52f7fd67ff1b362d8ce37a7bacaef436" kind="variable"><name>sub_auv_state_</name></member>
+    <member refid="classAuvState2mState_1a11f98c3360a6ccbc018e0f9d21849c84" kind="variable"><name>sub_gps_status_</name></member>
+    <member refid="classAuvState2mState_1a09aac037a9a3625482c4191359fe7a85" kind="variable"><name>mstate_pub_</name></member>
+    <member refid="classAuvState2mState_1aeca3c01a3e49b6185b61da42f93d91a8" kind="variable"><name>timer_in_pressure_</name></member>
+    <member refid="classAuvState2mState_1aec717a64383410c62f78794ef86df414" kind="variable"><name>in_pressure</name></member>
+    <member refid="classAuvState2mState_1a1d31cb18bbc0b101908859d84a6bd87a" kind="variable"><name>insidePressure</name></member>
+    <member refid="classAuvState2mState_1a4a17fbb35d92398a58597ebe9f0d9de0" kind="variable"><name>in_press</name></member>
+    <member refid="classAuvState2mState_1ac55173d75166b9ce065112c0e46c8d77" kind="variable"><name>in_press_dot</name></member>
+    <member refid="classAuvState2mState_1a84c85b2fcc225f8cca7127f93870e84f" kind="variable"><name>gps_status_</name></member>
+    <member refid="classAuvState2mState_1a94eb94c7e379c157fe82483326263776" kind="function"><name>AuvState2mState</name></member>
+    <member refid="classAuvState2mState_1a47fc04a06e73387bfc163f8bd1cdac13" kind="function"><name>~AuvState2mState</name></member>
+    <member refid="classAuvState2mState_1a37d1c3e0d8911c05e8144a28247fff9c" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classAuvState2mState_1a122a9505daba603b8a061402c2e1f47e" kind="function"><name>initializePublishers</name></member>
+    <member refid="classAuvState2mState_1a20157b7aee54c616023aa8d854e7dbc4" kind="function"><name>initializeTimers</name></member>
+    <member refid="classAuvState2mState_1a4630cb6f457da950057e0cdfa8bc669e" kind="function"><name>loadParams</name></member>
+    <member refid="classAuvState2mState_1ace5261eef309de4fbc66b0b3979d7dec" kind="function"><name>mStateBroadcasterCallback</name></member>
+    <member refid="classAuvState2mState_1a5e98563a48bdd0d2ffcf4a81576fe631" kind="function"><name>insidePressureCallback</name></member>
+    <member refid="classAuvState2mState_1a414063923a480063d77a427ea063e187" kind="function"><name>mGPSStatusCallback</name></member>
+    <member refid="classAuvState2mState_1a6c0a694aa2b5f7c547b5394bc72a6f99" kind="function"><name>insidePressureTimer</name></member>
+  </compound>
+  <compound refid="classGnss2Utm" kind="class"><name>Gnss2Utm</name>
+    <member refid="classGnss2Utm_1aec392de507190c89c8676adc5a2cb1ca" kind="variable"><name>nh_</name></member>
+    <member refid="classGnss2Utm_1a8e8997e6cc7e24ef743eb0dcf1a94bd2" kind="variable"><name>nh_private_</name></member>
+    <member refid="classGnss2Utm_1a2db050e19631bc973420a57d3da09aeb" kind="variable"><name>gnss_sub_</name></member>
+    <member refid="classGnss2Utm_1a5d7f680c840332df8609557dcbd500af" kind="variable"><name>gnss_position_pub_</name></member>
+    <member refid="classGnss2Utm_1a238b58f0bb8d99e053e79d58ef3b63d9" kind="variable"><name>state_gt_pub_</name></member>
+    <member refid="classGnss2Utm_1aa673ad741723cf74e619b4bb19a268e9" kind="variable"><name>p_default_depth_</name></member>
+    <member refid="classGnss2Utm_1a4c6711fab2a4b8d9f165d4647f2f5005" kind="variable"><name>timer_gps_</name></member>
+    <member refid="classGnss2Utm_1acd2f78f280f8896ba706b28bd57e70c2" kind="variable"><name>timer_gps_gt_</name></member>
+    <member refid="classGnss2Utm_1abed777b315809fd64d55e19d011f5191" kind="variable"><name>enable_gps_srv_</name></member>
+    <member refid="classGnss2Utm_1a1311741a8084c245e21580f920e019b2" kind="variable"><name>utm_</name></member>
+    <member refid="classGnss2Utm_1a9a44f7b9e3cbc1114c7c0df0ed01183e" kind="variable"><name>state_gt_</name></member>
+    <member refid="classGnss2Utm_1a0c3be85c15d261a08a69db61993c94df" kind="variable"><name>gps_good_</name></member>
+    <member refid="classGnss2Utm_1ad2042f681b4c8e977040ceba2a94b522" kind="function"><name>Gnss2Utm</name></member>
+    <member refid="classGnss2Utm_1a40a2869782f5fc3493ea3bf070946d18" kind="function"><name>~Gnss2Utm</name></member>
+    <member refid="classGnss2Utm_1aef0967ce36c7ece98d25e8b6e390581e" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classGnss2Utm_1a3fe7540598cf8f50ed1a9f8d182d5050" kind="function"><name>initializePublishers</name></member>
+    <member refid="classGnss2Utm_1a416cc3446e3b527454550f1f782606ae" kind="function"><name>initializeServices</name></member>
+    <member refid="classGnss2Utm_1aebc516f1afcb635b5a1539cac7abbff4" kind="function"><name>initializeTimers</name></member>
+    <member refid="classGnss2Utm_1a38ef5ab81b019d2e71d649aa607269f1" kind="function"><name>loadParams</name></member>
+    <member refid="classGnss2Utm_1a5f67ad406e5af233464e1f2c1eed3178" kind="function"><name>gnssBroadcasterCallback</name></member>
+    <member refid="classGnss2Utm_1a29f98b5e9759b5cbe692b662af83e421" kind="function"><name>timerGPSCallback</name></member>
+    <member refid="classGnss2Utm_1acf527683c269ae9c4597be15c267d157" kind="function"><name>timerGPSGtCallback</name></member>
+    <member refid="classGnss2Utm_1af7014105c651cba66cc7664c04ec135d" kind="function"><name>enableGPSService</name></member>
+  </compound>
+  <compound refid="classGnss2UtmOutlier" kind="class"><name>Gnss2UtmOutlier</name>
+    <member refid="classGnss2UtmOutlier_1af8ee720cec9309c1985cedb3d12fe2c9" kind="variable"><name>nh_</name></member>
+    <member refid="classGnss2UtmOutlier_1a0a1b83c3832d926ac0ee5e453ef73189" kind="variable"><name>nh_private_</name></member>
+    <member refid="classGnss2UtmOutlier_1a57a4047bd93cbf520d9039fe29da77c0" kind="variable"><name>gnss_sub_</name></member>
+    <member refid="classGnss2UtmOutlier_1abe41d1de8a99853b2fb1c78645c25fe3" kind="variable"><name>state_pub_</name></member>
+    <member refid="classGnss2UtmOutlier_1abf10bc06931492b66a3aef621feafce2" kind="variable"><name>utm_</name></member>
+    <member refid="classGnss2UtmOutlier_1ab90ab128e15c728a59412d1f3283a8ad" kind="variable"><name>p_default_depth_</name></member>
+    <member refid="classGnss2UtmOutlier_1ade6dbbf853df2a5bb95f47b462a4ce44" kind="variable"><name>timer_gps_outlier_</name></member>
+    <member refid="classGnss2UtmOutlier_1a51d6cd0c06acc90a1a1fe0baf721a50f" kind="variable"><name>timer_usbl_back_</name></member>
+    <member refid="classGnss2UtmOutlier_1a1c8c69b99b7824cb90a82e97c9ff069f" kind="variable"><name>enable_gps_outlier_srv_</name></member>
+    <member refid="classGnss2UtmOutlier_1a3007cd7d4abaf5c9ed9d8e0dcd9a9f78" kind="variable"><name>enable_usbl_delay_srv_</name></member>
+    <member refid="classGnss2UtmOutlier_1a1639ba3896ce4b454b31c6fd4a76c3b8" kind="function"><name>Gnss2UtmOutlier</name></member>
+    <member refid="classGnss2UtmOutlier_1acca016b0e50fbc2a8983db2147cfc749" kind="function"><name>~Gnss2UtmOutlier</name></member>
+    <member refid="classGnss2UtmOutlier_1a5cb89ae2b8ff3660525add1e01464adf" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classGnss2UtmOutlier_1a8a1aed5bb3d6c6e9281b493ff6beb98a" kind="function"><name>initializeTimers</name></member>
+    <member refid="classGnss2UtmOutlier_1a183db823dabe556560acd6c38e2dcdc2" kind="function"><name>initializePublishers</name></member>
+    <member refid="classGnss2UtmOutlier_1abc31338c442bed8cd7527cf539d84ecd" kind="function"><name>initializeServices</name></member>
+    <member refid="classGnss2UtmOutlier_1acb67be866c4da02b9fafabad07004aeb" kind="function"><name>loadParams</name></member>
+    <member refid="classGnss2UtmOutlier_1a9d26eec42ea1a1bddec09082b34e6403" kind="function"><name>gnssBroadcasterCallback</name></member>
+    <member refid="classGnss2UtmOutlier_1ac34ef34c981398c9d957215f0c0b8c56" kind="function"><name>timerGPSOutlierCallback</name></member>
+    <member refid="classGnss2UtmOutlier_1a48cb4516e9d7c6d482b9d923ba54d793" kind="function"><name>timerUSBLDelayCallback</name></member>
+    <member refid="classGnss2UtmOutlier_1a3100dd3d33761621ea53db729882716a" kind="function"><name>enableGPSService</name></member>
+    <member refid="classGnss2UtmOutlier_1a4b80b42465652da033cbe73a9e21019b" kind="function"><name>enableUSBLService</name></member>
+  </compound>
+  <compound refid="classLowPassFilter" kind="class"><name>LowPassFilter</name>
+    <member refid="classLowPassFilter_1aed0cc63a36d775d098e4262c6d56e011" kind="variable"><name>initialized</name></member>
+    <member refid="classLowPassFilter_1a3c5ece3d98a0b3c33b5debceedfe57ff" kind="variable"><name>wn</name></member>
+    <member refid="classLowPassFilter_1abe1843d348af2843287b85447fce6530" kind="variable"><name>qsi</name></member>
+    <member refid="classLowPassFilter_1a697f7b435c53c5bb57b6fb35acf94d69" kind="variable"><name>K1</name></member>
+    <member refid="classLowPassFilter_1a9c377923805f8651168b28e21eba6b15" kind="variable"><name>K2</name></member>
+    <member refid="classLowPassFilter_1a750ccfb5716fd75fa0697e215f5ebcaf" kind="variable"><name>estimate</name></member>
+    <member refid="classLowPassFilter_1a08e6b6dce9e18f7ec8dafd7686430f8a" kind="variable"><name>last_Update</name></member>
+    <member refid="classLowPassFilter_1a6d6538d3dfe603cce18711c990b85a03" kind="function"><name>LowPassFilter</name></member>
+    <member refid="classLowPassFilter_1a3316b78086d4a6a45aa88fb42b5d05c5" kind="function"><name>LowPassFilter</name></member>
+    <member refid="classLowPassFilter_1aba6ddf5e08a5a0dd8cef115b78532a89" kind="function"><name>LowPassFilter</name></member>
+    <member refid="classLowPassFilter_1a43cba80b2150a2fccb91bbb69465cfac" kind="function"><name>LowPassFilter</name></member>
+    <member refid="classLowPassFilter_1a0c3f3acc5df212a1e702252af9cb27ef" kind="function"><name>~LowPassFilter</name></member>
+    <member refid="classLowPassFilter_1a139d77a86c0d3be87eac55301061dfe3" kind="function"><name>update</name></member>
+    <member refid="classLowPassFilter_1a8c7dafc4ac712f19ae0f4ff947566fb2" kind="function"><name>predict</name></member>
+  </compound>
+  <compound refid="classUsblFix2Pos" kind="class"><name>UsblFix2Pos</name>
+    <member refid="classUsblFix2Pos_1a14b6feb6546e60c6cda90bbee58a5701" kind="variable"><name>nh_</name></member>
+    <member refid="classUsblFix2Pos_1afae1be5b3f4843c326e4ed86fb166f4f" kind="variable"><name>nh_private_</name></member>
+    <member refid="classUsblFix2Pos_1a0d10732cd6f807e38bc572a89af5fca3" kind="variable"><name>sub_usbl</name></member>
+    <member refid="classUsblFix2Pos_1a46ddb53a537d25fd63bcb8c34ceed3f9" kind="variable"><name>sub_state</name></member>
+    <member refid="classUsblFix2Pos_1a1964cfda7823149c0defd19affb262b9" kind="variable"><name>pub_pose_fix</name></member>
+    <member refid="classUsblFix2Pos_1a4dbdf837975e040006ea4c6fe95b92da" kind="variable"><name>pub_usbl_est_state</name></member>
+    <member refid="classUsblFix2Pos_1aedea1296f517ec9bd8c29da0a70c07ef" kind="variable"><name>pub_usbl_est_console</name></member>
+    <member refid="classUsblFix2Pos_1aed99f2557e0b9c3fe6873932edf8c9fe" kind="variable"><name>list_cleaner_timer</name></member>
+    <member refid="classUsblFix2Pos_1ae01721c1be25ab2ab98b0f757f9485cf" kind="variable"><name>p_fix_type</name></member>
+    <member refid="classUsblFix2Pos_1ac70df56f5717e2740f3639444f5028c2" kind="variable"><name>p_t_sync</name></member>
+    <member refid="classUsblFix2Pos_1a1f2ec81b2325261811bd8072eb54c8a5" kind="variable"><name>p_meas_noise</name></member>
+    <member refid="classUsblFix2Pos_1a2be0807196c46e6655458397d7324d76" kind="variable"><name>initialized</name></member>
+    <member refid="classUsblFix2Pos_1aa7a5cf9731ee061dad2d449eaf668a92" kind="variable"><name>state_stamp</name></member>
+    <member refid="classUsblFix2Pos_1a8ed8ccc4678a60882b583ab3be17a3d7" kind="variable"><name>state</name></member>
+    <member refid="classUsblFix2Pos_1a143cff6e194fb0ba1e30281a8bb0d907" kind="variable"><name>state_var</name></member>
+    <member refid="classUsblFix2Pos_1ad05e7f02774d5e66f143851050099169" kind="variable"><name>state_lat_lon</name></member>
+    <member refid="classUsblFix2Pos_1a292bc04f1ee26ef502c7f3b18d62710e" kind="variable"><name>usblfix_list</name></member>
+    <member refid="classUsblFix2Pos_1af72e45a4f8e979898f88babb3c83fa48" kind="function"><name>UsblFix2Pos</name></member>
+    <member refid="classUsblFix2Pos_1a7cbba2ae2dee65ff603d65f593b4834e" kind="function"><name>~UsblFix2Pos</name></member>
+    <member refid="classUsblFix2Pos_1a32c9f8efba755b07dbaecbbc1e3fa43c" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classUsblFix2Pos_1a7e22cede40a3b6a88f089e508e0c6759" kind="function"><name>initializePublishers</name></member>
+    <member refid="classUsblFix2Pos_1a34bde3921a7ec994c0a7c10980a7cb43" kind="function"><name>initializeTimers</name></member>
+    <member refid="classUsblFix2Pos_1add93311101d42c2e25e57da649b7713c" kind="function"><name>loadParams</name></member>
+    <member refid="classUsblFix2Pos_1a40334b8b35f8d67be041cb6263e36b1e" kind="function"><name>usblFixBroadcasterCallback</name></member>
+    <member refid="classUsblFix2Pos_1a450ee20bbc7640fa918456aaa14cc92c" kind="function"><name>stateCallback</name></member>
+    <member refid="classUsblFix2Pos_1ac2e980ebd2d2e5340bd02e60dfe398c7" kind="function"><name>transformPosition</name></member>
+    <member refid="classUsblFix2Pos_1a4888e81fdb5240edbc16cb3d3aa2875a" kind="function"><name>getEstLatLon</name></member>
+    <member refid="classUsblFix2Pos_1a0da8155368c2243b31805b8862020cfc" kind="function"><name>listTimerCallback</name></member>
+  </compound>
+  <compound refid="AuvState2mState_8h" kind="file"><name>AuvState2mState.h</name>
+  </compound>
+  <compound refid="Gnss2Utm_8h" kind="file"><name>Gnss2Utm.h</name>
+  </compound>
+  <compound refid="Gnss2UtmOutlier_8h" kind="file"><name>Gnss2UtmOutlier.h</name>
+  </compound>
+  <compound refid="LowPassFilter_8h" kind="file"><name>LowPassFilter.h</name>
+  </compound>
+  <compound refid="UsblFix2Pos_8h" kind="file"><name>UsblFix2Pos.h</name>
+    <member refid="UsblFix2Pos_8h_1a5c71a5e59a53413cd6c270266d63b031" kind="define"><name>R</name></member>
+  </compound>
+  <compound refid="AuvState2mState_8cpp" kind="file"><name>AuvState2mState.cpp</name>
+    <member refid="AuvState2mState_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="Gnss2Utm_8cpp" kind="file"><name>Gnss2Utm.cpp</name>
+    <member refid="Gnss2Utm_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="Gnss2UtmOutlier_8cpp" kind="file"><name>Gnss2UtmOutlier.cpp</name>
+    <member refid="Gnss2UtmOutlier_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="UsblFix2Pos_8cpp" kind="file"><name>UsblFix2Pos.cpp</name>
+    <member refid="UsblFix2Pos_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

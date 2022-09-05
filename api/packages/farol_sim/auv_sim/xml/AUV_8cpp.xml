@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="AUV_8cpp" kind="file" language="C++">
+    <compoundname>AUV.cpp</compoundname>
+    <includes refid="AUV_8h" local="yes">AUV.h</includes>
+    <includes refid="Utils_8h" local="yes">Utils.h</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">ros/ros.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>State.h</label>
+        <link refid="State_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/AUV.cpp</label>
+        <link refid="AUV_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="4">
+        <label>random</label>
+      </node>
+      <node id="6">
+        <label>tuple</label>
+      </node>
+      <node id="9">
+        <label>Utils.h</label>
+        <link refid="Utils_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="12">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="2">
+        <label>AUV.h</label>
+        <link refid="AUV_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;AUV.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Utils.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ros/ros.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//TODO:<sp/>remove<sp/>this<sp/>header<sp/>-<sp/>only<sp/>used<sp/>for<sp/>debugging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><ref refid="classAUV_1aa36bc79fac59bcd46644491a343bb925" kindref="member">AUV::AUV</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fluid_density,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zg,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vehicle_density,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;inertia_tensor,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>&amp;linear_damping_tensor,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>&amp;quadratic_damping_tensor,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>&amp;added_mass_tensor,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::MatrixXd<sp/>&amp;allocation_matrix,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;lump_param_positive,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;lump_param_negative,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector2d<sp/>&amp;min_max_thruster_input,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>thrusters_gain,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>thrusters_pole,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>thrusters_delay,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sampling_period,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;disturbance_mean,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;disturbance_sigma,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;disturbance_minimum,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;disturbance_maximum):<sp/>mass_(mass),<sp/>fluid_density_(fluid_density),<sp/>zg_(zg),</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lump_param_positive_(lump_param_positive),</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lump_param_negative_(lump_param_negative),</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>min_max_thruster_input_(min_max_thruster_input),</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thrusters_gain_(thrusters_gain),</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thrusters_pole_(thrusters_pole),</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thrusters_delay_(thrusters_delay),</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sampling_period_(sampling_period),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disturbance_minimum_(disturbance_minimum),</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disturbance_maximum_(disturbance_maximum)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>radius<sp/>of<sp/>a<sp/>sphere<sp/>with<sp/>equivalent<sp/>density<sp/>to<sp/>the<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;radius_<sp/>=<sp/>std::pow(mass/((3.0/4.0)*M_PI*vehicle_density),<sp/>1.0/3.0);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>a<sp/>6x6<sp/>diagonal<sp/>rigid<sp/>body<sp/>mass<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>mass_matrix<sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;::Zero(6,<sp/>6);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++)<sp/>mass_matrix(i,<sp/>i)<sp/>=<sp/>mass;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=3;<sp/>i<sp/>&lt;<sp/>6;<sp/>i++)<sp/>mass_matrix(i,<sp/>i)<sp/>=<sp/>inertia_tensor(i-3);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>a<sp/>6x6<sp/>diagonal<sp/>added<sp/>mass<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>added_mass_matrix;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>added_mass_matrix<sp/>=<sp/>added_mass_tensor.asDiagonal();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>6x6<sp/>diagonal<sp/>total<sp/>mass<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;M_<sp/>=<sp/>mass_matrix<sp/>+<sp/>added_mass_matrix;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;M_inv_<sp/>=<sp/>this-&gt;M_.inverse();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;M11_<sp/>=<sp/>this-&gt;M_.block(0,<sp/>0,<sp/>3,<sp/>3);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;M12_<sp/>=<sp/>this-&gt;M_.block(0,<sp/>3,<sp/>3,<sp/>3);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;M21_<sp/>=<sp/>this-&gt;M_.block(3,<sp/>0,<sp/>3,<sp/>3);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;M22_<sp/>=<sp/>this-&gt;M_.block(3,<sp/>3,<sp/>3,<sp/>3);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>a<sp/>6x6<sp/>diagonal<sp/>linear<sp/>damping<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Dl_<sp/>=<sp/>linear_damping_tensor.asDiagonal();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>a<sp/>6x6<sp/>diagonal<sp/>quadratic<sp/>damping<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Dq_<sp/>=<sp/>quadratic_damping_tensor.asDiagonal();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>allocation<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;allocation_matrix_<sp/>=<sp/>allocation_matrix;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>the<sp/>thrusters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;number_of_delays_inputs_<sp/>=<sp/>int(std::round(this-&gt;thrusters_delay_<sp/>/<sp/>this-&gt;sampling_period_));</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>the<sp/>thrusters<sp/>input<sp/>vectors<sp/>with<sp/>zeros<sp/>(used<sp/>as<sp/>circular<sp/>buffer)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>number_thrusters<sp/>=<sp/>this-&gt;allocation_matrix_.rows();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>this-&gt;number_of_delays_inputs_;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>a<sp/>vector<sp/>full<sp/>of<sp/>zeros<sp/>with<sp/>the<sp/>size<sp/>corresponding<sp/>to<sp/>the<sp/>number<sp/>of<sp/>thrusters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;thrusters_inputs_.emplace_back(Eigen::VectorXd::Zero(number_thrusters));</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>the<sp/>thrusters<sp/>last<sp/>output<sp/>vector<sp/>with<sp/>zeros<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;last_thruster_output_<sp/>=<sp/>Eigen::VectorXd::Zero(number_thrusters);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initiate<sp/>the<sp/>ocean<sp/>disturbances<sp/>random<sp/>process<sp/>distributions<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;generator_<sp/>=<sp/>std::default_random_engine();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>3;<sp/>i++)<sp/>distributions_[i]<sp/>=<sp/>std::normal_distribution&lt;double&gt;(disturbance_mean(i),<sp/>disturbance_sigma(i));</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classAUV_1a4484b572be4cc530a8079489584816c1" kindref="member">AUV::update</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>&amp;thrust)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Verify<sp/>if<sp/>the<sp/>size<sp/>of<sp/>the<sp/>thrust<sp/>vector<sp/>corresponds<sp/>to<sp/>the<sp/>number<sp/>of<sp/>thrusters<sp/>of<sp/>the<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(thrust.size()<sp/>!=<sp/>this-&gt;getNumberThrusters())<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;Thrust<sp/>vector<sp/>size<sp/>should<sp/>be<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::to_string(this-&gt;<ref refid="classAUV_1a4aace0f4b821d4779fc68b57b22e8b59" kindref="member">getNumberThrusters</ref>()));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Verify<sp/>that<sp/>dt<sp/>(time<sp/>difference<sp/>is<sp/>positive)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(dt<sp/>&lt;<sp/>0)<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;dt<sp/>parameter<sp/>should<sp/>be<sp/>positive&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Propagate<sp/>the<sp/>desired<sp/>thrust<sp/>through<sp/>the<sp/>thruster<sp/>model<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::VectorXd<sp/>applied_thrust;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>applied_thrust<sp/>=<sp/>this-&gt;applyThrustersModel(thrust);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Convert<sp/>the<sp/>applied<sp/>thrust<sp/>in<sp/>the<sp/>motors<sp/>to<sp/>forces<sp/>and<sp/>torques<sp/>applied<sp/>to<sp/>the<sp/>rigid<sp/>body<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>applied_forces_and_torques;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>applied_forces_and_torques<sp/>=<sp/>this-&gt;convertThrustToGeneralForces(applied_thrust);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>ocean<sp/>disturbances<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>ocean_disturbances;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>ocean_disturbances<sp/>=<sp/>this-&gt;computeOceanDisturbances();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>dynamics<sp/>of<sp/>the<sp/>rigid<sp/>body<sp/>-<sp/>linear<sp/>and<sp/>angular<sp/>acceleration<sp/>in<sp/>body<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>v1_dot,<sp/>v2_dot;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>std::tie(v1_dot,<sp/>v2_dot)<sp/>=<sp/>this-&gt;updateDynamics(applied_forces_and_torques);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Integrate<sp/>the<sp/>dynamics<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>v1(this-&gt;state_.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>),<sp/>v2(this-&gt;state_.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>v1<sp/>=<sp/>eulerIntegration(dt,<sp/>v1,<sp/>v1_dot);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>v2<sp/>=<sp/>eulerIntegration(dt,<sp/>v2,<sp/>v2_dot);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>kinematics<sp/>of<sp/>the<sp/>rigid<sp/>body<sp/>-<sp/>linear<sp/>angular<sp/>velocity<sp/>in<sp/>inertial<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>eta1_dot,<sp/>eta2_dot;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>std::tie(eta1_dot,<sp/>eta2_dot)<sp/>=<sp/>this-&gt;updateKinematics(v1,<sp/>v2,<sp/>ocean_disturbances);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Integrate<sp/>the<sp/>kinematics<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>eta1(this-&gt;state_.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>),<sp/>eta2(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>eta1<sp/>=<sp/>eulerIntegration(dt,<sp/>eta1,<sp/>eta1_dot);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>eta2<sp/>=<sp/>eulerIntegration(dt,<sp/>eta2,<sp/>eta2_dot);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Wrap<sp/>angles<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;3;<sp/>i++)<sp/>eta2(i)<sp/>=<sp/>wrapAngle(eta2(i));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>state<sp/>of<sp/>the<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;state_.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref><sp/>=<sp/>eta1;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref><sp/>=<sp/>eta2;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;state_.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref><sp/>=<sp/>v1;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;state_.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref><sp/>=<sp/>v2;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">Eigen::MatrixXd<sp/>AUV::applyThrustersModel(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>&amp;thrust)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>a<sp/>vector<sp/>of<sp/>input<sp/>thrust<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::VectorXd<sp/>input_thrust<sp/>=<sp/>Eigen::VectorXd(thrust.size());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>For<sp/>each<sp/>thruster<sp/>input<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>thrust.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>values<sp/>that<sp/>go<sp/>beyond<sp/>the<sp/>maximum<sp/>values<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input_thrust(i)<sp/>=<sp/>saturation(thrust(i),<sp/>-this-&gt;min_max_thruster_input_(1),<sp/>this-&gt;min_max_thruster_input_(1));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Apply<sp/>a<sp/>dead-zone<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(input_thrust(i)<sp/>&lt;<sp/>this-&gt;min_max_thruster_input_(0)<sp/>&amp;&amp;<sp/>input_thrust(i)<sp/>&gt;<sp/>-this-&gt;min_max_thruster_input_(0))<sp/>input_thrust(i)<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Rotate<sp/>the<sp/>circular<sp/>buffer<sp/>of<sp/>inputs<sp/>(rotate<sp/>to<sp/>the<sp/>left),<sp/>and<sp/>save<sp/>the<sp/>new<sp/>input<sp/>in<sp/>the<sp/>last<sp/>element<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>std::rotate(this-&gt;thrusters_inputs_.begin(),<sp/>this-&gt;thrusters_inputs_.begin()<sp/>+<sp/>1,<sp/>this-&gt;thrusters_inputs_.end());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;thrusters_inputs_.back()<sp/>=<sp/>input_thrust;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>---<sp/>Apply<sp/>the<sp/>thrusters<sp/>(simple-pole<sp/>+<sp/>delay)<sp/>discrete<sp/>model<sp/>---<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>load<sp/>from<sp/>the<sp/>thruster<sp/>buffer<sp/>the<sp/>desired<sp/>inputs,<sp/>such<sp/>that:<sp/>input<sp/>=<sp/>u[k-delay]<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::VectorXd<sp/>u_old<sp/>=<sp/>this-&gt;thrusters_inputs_[0];</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Calculate<sp/>the<sp/>applied<sp/>y[k]<sp/>using<sp/>the<sp/>difference<sp/>equations<sp/>(discretized<sp/>model<sp/>of<sp/>simple-pole<sp/>motor<sp/>+<sp/>delay)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>y(k+1)<sp/>=<sp/>e^{-pole<sp/>*<sp/>period}<sp/>*<sp/>y(k)<sp/>+<sp/>(1-e^{-pole<sp/>*<sp/>period})<sp/>*<sp/>u(k-number_of_delays)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::VectorXd<sp/>y_k1,<sp/>y_k;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>y_k<sp/>=<sp/>this-&gt;last_thruster_output_;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>y_k1<sp/>=<sp/>(std::exp(-this-&gt;thrusters_pole_<sp/>*<sp/>this-&gt;sampling_period_)<sp/>*<sp/>y_k)<sp/>+<sp/>((-std::exp(-this-&gt;thrusters_pole_<sp/>*<sp/>this-&gt;sampling_period_)<sp/>+<sp/>1)<sp/>*<sp/>u_old);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>output<sp/>between<sp/>the<sp/>minimum<sp/>and<sp/>maximum<sp/>values<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>thrust.size();<sp/>i++)<sp/>y_k1(i)<sp/>=<sp/>saturation(y_k1(i),<sp/>-this-&gt;min_max_thruster_input_(1),<sp/>this-&gt;min_max_thruster_input_(1));</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>new<sp/>output<sp/>to<sp/>used<sp/>in<sp/>the<sp/>next<sp/>iteration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;last_thruster_output_<sp/>=<sp/>y_k1;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Apply<sp/>the<sp/>actuators<sp/>gain<sp/>(to<sp/>scale<sp/>from<sp/>0-100<sp/>to<sp/>some<sp/>other<sp/>unit,<sp/>for<sp/>example<sp/>RPM)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>y_k1<sp/>*=<sp/>this-&gt;thrusters_gain_;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Convert<sp/>the<sp/>output<sp/>values<sp/>to<sp/>forces<sp/>[N],<sp/>using<sp/>the<sp/>parable<sp/>curves<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::VectorXd<sp/>output_force<sp/>=<sp/>y_k1;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>y_k1.size();<sp/>i++)<sp/>output_force[i]<sp/>=<sp/>this-&gt;convertThrustToForce(y_k1[i]);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>the<sp/>output<sp/>force<sp/>applied<sp/>by<sp/>each<sp/>thruster<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output_force;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>AUV::convertThrustToForce(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>thrust)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/>b,<sp/>c;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Choose<sp/>the<sp/>constants<sp/>for<sp/>the<sp/>parable<sp/>depending<sp/>if<sp/>we<sp/>are<sp/>on<sp/>the<sp/>positive<sp/>or<sp/>negative<sp/>side<sp/>of<sp/>the<sp/>thrust<sp/>curve<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(thrust<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>=<sp/>this-&gt;lump_param_positive_[0];</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b<sp/>=<sp/>this-&gt;lump_param_positive_[1];</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/>=<sp/>this-&gt;lump_param_positive_[2];</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>a<sp/>=<sp/>this-&gt;lump_param_negative_[0];</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b<sp/>=<sp/>this-&gt;lump_param_negative_[1];</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/>=<sp/>this-&gt;lump_param_negative_[2];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Apply<sp/>the<sp/>parable<sp/>formula<sp/>F<sp/>=<sp/>a|x|^2<sp/>+<sp/>b|x|<sp/>+<sp/>c<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(a<sp/>*<sp/>std::pow(thrust,<sp/>2))<sp/>+<sp/>(b<sp/>*<sp/>std::abs(thrust))<sp/>+<sp/>c;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>AUV::convertThrustToGeneralForces(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXd<sp/>&amp;thrust)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Inititate<sp/>the<sp/>matrix<sp/>with<sp/>all<sp/>forces<sp/>and<sp/>torques<sp/>with<sp/>contributions<sp/>from<sp/>all<sp/>vehicles<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>forces_and_torques<sp/>=<sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;::Zero();</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initiate<sp/>the<sp/>vector<sp/>of<sp/>forces<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>total_force;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>total_torque;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>contribution<sp/>of<sp/>the<sp/>force<sp/>applied<sp/>by<sp/>each<sp/>thruster<sp/>to<sp/>the<sp/>total<sp/>force<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>this-&gt;<ref refid="classAUV_1a4aace0f4b821d4779fc68b57b22e8b59" kindref="member">getNumberThrusters</ref>();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>contribution<sp/>of<sp/>the<sp/>thruster<sp/>to<sp/>the<sp/>force<sp/>in<sp/>Fx,<sp/>Fy<sp/>and<sp/>Fz<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;allocation_matrix_.block&lt;1,3&gt;(i,0);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>total<sp/>force<sp/>applied<sp/>in<sp/>each<sp/>direction<sp/>by<sp/>thruster<sp/>&quot;i&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>total_force<sp/>=<sp/>thrust[i]<sp/>*<sp/>this-&gt;allocation_matrix_.block&lt;1,3&gt;(i,0);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>total<sp/>torque<sp/>applied<sp/>about<sp/>each<sp/>axis<sp/>by<sp/>thruster<sp/>&quot;i&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>total_torque<sp/>=<sp/>this-&gt;allocation_matrix_.block&lt;1,3&gt;(i,3).cross(total_force);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Accumulate<sp/>the<sp/>forces<sp/>and<sp/>torques<sp/>from<sp/>all<sp/>the<sp/>thrusters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>forces_and_torques.block&lt;3,1&gt;(0,<sp/>0)<sp/>+=<sp/>total_force;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>forces_and_torques.block&lt;3,1&gt;(3,<sp/>0)<sp/>+=<sp/>total_torque;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>forces_and_torques;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">Eigen::Vector3d<sp/>AUV::computeOceanDisturbances()<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>ocean_disturbances<sp/>=<sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Generate<sp/>random<sp/>numbers<sp/>according<sp/>to<sp/>the<sp/>desired<sp/>mean<sp/>and<sp/>standard<sp/>deviation<sp/>for<sp/>x,<sp/>y<sp/>and<sp/>z<sp/>axis<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;3;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>the<sp/>random<sp/>number<sp/>according<sp/>to<sp/>the<sp/>gaussian<sp/>distribution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ocean_disturbances(i)<sp/>=<sp/>distributions_[i](generator_);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bound<sp/>the<sp/>disturbances<sp/>with<sp/>limits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ocean_disturbances(i)<sp/>&lt;<sp/>disturbance_minimum_(i))<sp/>ocean_disturbances(i)<sp/>=<sp/>disturbance_minimum_(i);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ocean_disturbances(i)<sp/>&gt;<sp/>disturbance_maximum_(i))<sp/>ocean_disturbances(i)<sp/>=<sp/>disturbance_maximum_(i);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ocean_disturbances;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal">std::tuple&lt;Eigen::Vector3d,<sp/>Eigen::Vector3d&gt;<sp/>AUV::updateDynamics(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>&amp;forces_and_torques)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>v1_dot,<sp/>v2_dot;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>Coriolis<sp/>Matrix<sp/>(6x6)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>coriolis;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>coriolis<sp/>=<sp/>this-&gt;computeCoriolisMatrix();</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>Damping<sp/>Matrix<sp/>(6x6)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>damping;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>damping<sp/>=<sp/>this-&gt;computeDampingTerms();</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>Gravitational<sp/>Forces<sp/>Vector<sp/>(6x1)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>hydrostatic_forces;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>hydrostatic_forces<sp/>=<sp/>this-&gt;computeHydrostaticForces();</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>updated<sp/>v_dot<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>v,<sp/>v_dot;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>v<sp/>&lt;&lt;<sp/>this-&gt;state_.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>,<sp/>this-&gt;state_.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Note:<sp/>Damping<sp/>terms<sp/>already<sp/>contain<sp/>the<sp/>(-)<sp/>sign,<sp/>therefore<sp/>we<sp/>should<sp/>sum<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>v_dot<sp/>=<sp/>this-&gt;M_inv_<sp/>*<sp/>(forces_and_torques<sp/>-<sp/>hydrostatic_forces<sp/>-<sp/>(coriolis<sp/>*<sp/>v)<sp/>+<sp/>(damping<sp/>*<sp/>v));</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>individual<sp/>linear<sp/>and<sp/>angular<sp/>velocity<sp/>terms<sp/>and<sp/>return<sp/>them<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>v1_dot<sp/>&lt;&lt;<sp/>v_dot(0),<sp/>v_dot(1),<sp/>v_dot(2);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/>v2_dot<sp/>&lt;&lt;<sp/>v_dot(3),<sp/>v_dot(4),<sp/>v_dot(5);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_tuple(v1_dot,<sp/>v2_dot);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal">std::tuple&lt;Eigen::Vector3d,<sp/>Eigen::Vector3d&gt;<sp/>AUV::updateKinematics(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;v1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;v2,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/>&amp;ocean_disturbances)<sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>eta1_dot,<sp/>eta2_dot;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>linear<sp/>velocity<sp/>in<sp/>the<sp/>inertial<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/>eta1_dot<sp/>=<sp/>(rotationBodyToInertial(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(0),<sp/>this-&gt;state_.eta2(1),<sp/>this-&gt;state_.eta2(2))<sp/>*<sp/>v1)<sp/>+<sp/>ocean_disturbances;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>angular<sp/>velocity<sp/>in<sp/>the<sp/>inertial<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>eta2_dot<sp/>=<sp/>rotationAngularBodyToInertial(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(0),<sp/>this-&gt;state_.eta2(1),<sp/>this-&gt;state_.eta2(2))<sp/>*<sp/>v2;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_tuple(eta1_dot,<sp/>eta2_dot);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal">Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>AUV::computeCoriolisMatrix()<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>coriolis<sp/>=<sp/>Eigen::MatrixXd::Zero(6,<sp/>6);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>coriolis<sp/>terms<sp/>from<sp/>the<sp/>mass<sp/>matrix<sp/>and<sp/>the<sp/>velocity<sp/>vector<sp/>in<sp/>the<sp/>body<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3d<sp/>s1,<sp/>s2;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/>s1<sp/>=<sp/>computeSkewSymmetric((this-&gt;M11_<sp/>*<sp/>this-&gt;state_.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>)<sp/>+<sp/>(this-&gt;M12_<sp/>*<sp/>this-&gt;state_.v2));</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/>s2<sp/>=<sp/>computeSkewSymmetric((this-&gt;M21_<sp/>*<sp/>this-&gt;state_.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>)<sp/>+<sp/>(this-&gt;M22_<sp/>*<sp/>this-&gt;state_.v2));</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>coriolis.block(0,<sp/>3,<sp/>3,<sp/>3)<sp/>=<sp/>-s1;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>coriolis.block(3,<sp/>0,<sp/>3,<sp/>3)<sp/>=<sp/>-s1;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>coriolis.block(3,<sp/>3,<sp/>3,<sp/>3)<sp/>=<sp/>-s2;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>coriolis;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal">Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>AUV::computeDampingTerms()<sp/>{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>6&gt;<sp/>damping,<sp/>quadratic_damping;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>state<sp/>vector<sp/>corresponding<sp/>to<sp/>linear<sp/>and<sp/>angular<sp/>velocities<sp/>in<sp/>the<sp/>Body<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>v,<sp/>quadratic_damping_vector;</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>v<sp/>&lt;&lt;<sp/>this-&gt;state_.<ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>,<sp/>this-&gt;state_.<ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>damping<sp/>matrix<sp/>according<sp/>to<sp/>the<sp/>formulas<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>quadratic_damping_vector<sp/>=<sp/>this-&gt;Dq_<sp/>*<sp/>v.cwiseAbs();</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/>quadratic_damping<sp/>=<sp/>quadratic_damping_vector.asDiagonal();</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>damping<sp/>=<sp/>this-&gt;Dl_<sp/>+<sp/>quadratic_damping;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>damping;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight></codeline>
+<codeline lineno="317"><highlight class="normal">Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>AUV::computeHydrostaticForces()<sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>hydrostatic_forces;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>Weight<sp/>force<sp/>applied<sp/>to<sp/>the<sp/>vehicle<sp/>in<sp/>the<sp/>inertial<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>W<sp/>=<sp/>this-&gt;mass_<sp/>*<sp/>this-&gt;gravity_;</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>volume<sp/>of<sp/>fluid<sp/>displaced<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>volume_fluid_displaced<sp/>=<sp/>this-&gt;computeVolumeFluidDisplaced();</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>buoyancy<sp/>force<sp/>applied<sp/>to<sp/>the<sp/>vehicle<sp/>in<sp/>the<sp/>inertial<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>B<sp/>=<sp/>this-&gt;fluid_density_<sp/>*<sp/>this-&gt;gravity_<sp/>*<sp/>volume_fluid_displaced;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>hydrostatic<sp/>forces<sp/>vector<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>NOTE:<sp/>an<sp/>assumption<sp/>is<sp/>made<sp/>that<sp/>xg<sp/>and<sp/>yg<sp/>(center<sp/>x<sp/>and<sp/>y<sp/>center<sp/>of<sp/>gravity<sp/>of<sp/>the<sp/>robot<sp/>are<sp/>0.0)<sp/>which<sp/>is<sp/>not</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>necessarily<sp/>true.<sp/>This<sp/>model<sp/>can<sp/>be<sp/>improved<sp/>in<sp/>the<sp/>future.<sp/>See<sp/>Fossen&apos;s<sp/>handbook<sp/>to<sp/>marine<sp/>crafts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>hydrostatic_forces<sp/>&lt;&lt;<sp/>(W<sp/>-<sp/>B)<sp/>*<sp/>sin(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(1)),</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-(W<sp/>-<sp/>B)<sp/>*<sp/>cos(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(1))<sp/>*<sp/>sin(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(0)),</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-(W<sp/>-<sp/>B)<sp/>*<sp/>cos(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(1))<sp/>*<sp/>cos(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(0)),</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;zg_<sp/>*<sp/>W<sp/>*<sp/>cos(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(1))<sp/>*<sp/>sin(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(0)),</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;zg_<sp/>*<sp/>W<sp/>*<sp/>sin(this-&gt;state_.<ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>(1)),</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.0;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hydrostatic_forces;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>AUV::computeVolumeFluidDisplaced()<sp/>{</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>this-&gt;radius_;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Assume<sp/>that<sp/>the<sp/>vehicle<sp/>is<sp/>a<sp/>sphere<sp/>that<sp/>decreases<sp/>its<sp/>radius<sp/>when<sp/>the<sp/>center<sp/>of<sp/>mass<sp/>of<sp/>the<sp/>vehicle<sp/>is<sp/>above<sp/>the<sp/>surface<sp/>of<sp/>water<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>NOTE:<sp/>this<sp/>is<sp/>not<sp/>the<sp/>best<sp/>model<sp/>and<sp/>should<sp/>be<sp/>improved<sp/>in<sp/>future<sp/>iterations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;state_.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>(2)<sp/>&lt;<sp/>0.0)<sp/>{</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>r<sp/>=<sp/>this-&gt;radius_<sp/>+<sp/>this-&gt;state_.<ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>(2);</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(r<sp/>&lt;<sp/>0.0)<sp/>r<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>the<sp/>volume<sp/>of<sp/>the<sp/>sphere<sp/>(which<sp/>corresponds<sp/>to<sp/>the<sp/>amount<sp/>of<sp/>fluid<sp/>displaced<sp/>by<sp/>itself<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(4.0<sp/>/<sp/>3.0)<sp/>*<sp/>M_PI<sp/>*<sp/>std::pow(r,<sp/>3);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/AUV.cpp"/>
+  </compounddef>
+</doxygen>

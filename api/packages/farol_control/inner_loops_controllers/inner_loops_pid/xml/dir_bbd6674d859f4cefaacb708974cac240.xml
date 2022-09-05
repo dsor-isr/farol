@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_bbd6674d859f4cefaacb708974cac240" kind="dir">
+    <compoundname>src/controllers</compoundname>
+    <innerfile refid="pid__controller_8cpp">pid_controller.cpp</innerfile>
+    <innerfile refid="ros__controller_8cpp">ros_controller.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/controllers/"/>
+  </compounddef>
+</doxygen>

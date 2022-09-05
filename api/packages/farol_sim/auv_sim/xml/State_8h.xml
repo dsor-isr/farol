@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="State_8h" kind="file" language="C++">
+    <compoundname>State.h</compoundname>
+    <includes local="no">Eigen/Dense</includes>
+    <includedby refid="AUV_8h" local="no">include/algorithms/AUV.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/algorithms/State.h</label>
+        <link refid="State_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Eigen/Dense</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/algorithms/State.h</label>
+        <link refid="State_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/ros/SimulationNode.h</label>
+        <link refid="SimulationNode_8h_source"/>
+      </node>
+      <node id="2">
+        <label>include/algorithms/AUV.h</label>
+        <link refid="AUV_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structState" prot="public">State</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="4"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="structState" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structState" kindref="compound">State</ref>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22" refid="structState_1a465822912df4faf669bb7fc071eebb6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structState_1a465822912df4faf669bb7fc071eebb6e" kindref="member">eta1</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kindref="member">eta2</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="structState_1a4a51f0883612632812b9df9c18d832f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structState_1a4a51f0883612632812b9df9c18d832f2" kindref="member">v1</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kindref="member">v2</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/State.h"/>
+  </compounddef>
+</doxygen>

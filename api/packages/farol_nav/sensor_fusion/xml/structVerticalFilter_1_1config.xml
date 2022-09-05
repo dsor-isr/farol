@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structVerticalFilter_1_1config" kind="struct" language="C++" prot="public">
+    <compoundname>VerticalFilter::config</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a7b7dab2acdb2ac75e3d9390fa2048457" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VerticalFilter::config::initialized</definition>
+        <argsstring></argsstring>
+        <name>initialized</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="61" column="14" bodyfile="include/algorithms/VerticalFilter.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1ac6c25e63637e086bc9148447f34e3a23" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VerticalFilter::config::broadcast_tf</definition>
+        <argsstring></argsstring>
+        <name>broadcast_tf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="61" column="26" bodyfile="include/algorithms/VerticalFilter.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1ae3402f3e87ccaedd3e7a653aadb8a3ba" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::config::vertical_drag[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>vertical_drag</name>
+        <briefdescription>
+<para>alpha, beta, bouyancy </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="62" column="16" bodyfile="include/algorithms/VerticalFilter.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1af015aa41ecb8439e7b3a1cbdb9e42eb9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::config::reject_counter[MEAS_LEN]</definition>
+        <argsstring>[MEAS_LEN]</argsstring>
+        <name>reject_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="63" column="16" bodyfile="include/algorithms/VerticalFilter.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1abaf5acf781265a1e8f5230fdeec69734" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::config::init_cov[MEAS_LEN]</definition>
+        <argsstring>[MEAS_LEN]</argsstring>
+        <name>init_cov</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="63" column="31" bodyfile="include/algorithms/VerticalFilter.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1ad33aad52e1abb4535d4524f36eeba42a" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::config::process_noise[MEAS_LEN]</definition>
+        <argsstring>[MEAS_LEN]</argsstring>
+        <name>process_noise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="63" column="40" bodyfile="include/algorithms/VerticalFilter.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a88be04b61c4f6019c0c433cf7f908738" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::config::kalman_config[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>kalman_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="63" column="54" bodyfile="include/algorithms/VerticalFilter.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a876f107396e43f3bdda9c7d38d45c740" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::config::base_frame</definition>
+        <argsstring></argsstring>
+        <name>base_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="64" column="21" bodyfile="include/algorithms/VerticalFilter.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a727142c37450ecfdd75e6ba77890fa0a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::config::odom_frame</definition>
+        <argsstring></argsstring>
+        <name>odom_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="64" column="32" bodyfile="include/algorithms/VerticalFilter.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a20a3089b6b2a744c21f1457782806169" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::config::map_frame</definition>
+        <argsstring></argsstring>
+        <name>map_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="64" column="43" bodyfile="include/algorithms/VerticalFilter.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a360f71c850778d65bfc5e2a09ecf6694" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::config::world_frame</definition>
+        <argsstring></argsstring>
+        <name>world_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="64" column="53" bodyfile="include/algorithms/VerticalFilter.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1af3d52fe246b59c6d75b824fc869215f2" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::config::name_vehicle_id</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="65" column="21" bodyfile="include/algorithms/VerticalFilter.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a3636fe2dff59565b1dd1f6fedf2c3303" prot="public" static="no" mutable="no">
+        <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref></type>
+        <definition>FilterGimmicks::measurement VerticalFilter::config::meas_init</definition>
+        <argsstring></argsstring>
+        <name>meas_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="67" column="37" bodyfile="include/algorithms/VerticalFilter.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a4362dd5c297c2d5ddb0fbd1e23647a28" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
+        <definition>std::vector&lt;FilterGimmicks::measurement&gt; VerticalFilter::config::sensors</definition>
+        <argsstring></argsstring>
+        <name>sensors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="68" column="21" bodyfile="include/algorithms/VerticalFilter.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVerticalFilter_1_1config_1a1e0375f378a19e69c50cad2216aa448b" prot="public" static="no" mutable="no">
+        <type>tf2_ros::TransformBroadcaster *</type>
+        <definition>tf2_ros::TransformBroadcaster* VerticalFilter::config::br_node</definition>
+        <argsstring></argsstring>
+        <name>br_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="69" column="39" bodyfile="include/algorithms/VerticalFilter.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FilterGimmicks::measurement</label>
+        <link refid="structFilterGimmicks_1_1measurement"/>
+      </node>
+      <node id="1">
+        <label>VerticalFilter::config</label>
+        <link refid="structVerticalFilter_1_1config"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>meas_init</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/VerticalFilter.h" line="60" column="1" bodyfile="include/algorithms/VerticalFilter.h" bodystart="59" bodyend="71"/>
+    <listofallmembers>
+      <member refid="structVerticalFilter_1_1config_1a876f107396e43f3bdda9c7d38d45c740" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>base_frame</name></member>
+      <member refid="structVerticalFilter_1_1config_1a1e0375f378a19e69c50cad2216aa448b" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>br_node</name></member>
+      <member refid="structVerticalFilter_1_1config_1ac6c25e63637e086bc9148447f34e3a23" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>broadcast_tf</name></member>
+      <member refid="structVerticalFilter_1_1config_1abaf5acf781265a1e8f5230fdeec69734" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>init_cov</name></member>
+      <member refid="structVerticalFilter_1_1config_1a7b7dab2acdb2ac75e3d9390fa2048457" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>initialized</name></member>
+      <member refid="structVerticalFilter_1_1config_1a88be04b61c4f6019c0c433cf7f908738" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>kalman_config</name></member>
+      <member refid="structVerticalFilter_1_1config_1a20a3089b6b2a744c21f1457782806169" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>map_frame</name></member>
+      <member refid="structVerticalFilter_1_1config_1a3636fe2dff59565b1dd1f6fedf2c3303" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>meas_init</name></member>
+      <member refid="structVerticalFilter_1_1config_1af3d52fe246b59c6d75b824fc869215f2" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>name_vehicle_id</name></member>
+      <member refid="structVerticalFilter_1_1config_1a727142c37450ecfdd75e6ba77890fa0a" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>odom_frame</name></member>
+      <member refid="structVerticalFilter_1_1config_1ad33aad52e1abb4535d4524f36eeba42a" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>process_noise</name></member>
+      <member refid="structVerticalFilter_1_1config_1af015aa41ecb8439e7b3a1cbdb9e42eb9" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>reject_counter</name></member>
+      <member refid="structVerticalFilter_1_1config_1a4362dd5c297c2d5ddb0fbd1e23647a28" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>sensors</name></member>
+      <member refid="structVerticalFilter_1_1config_1ae3402f3e87ccaedd3e7a653aadb8a3ba" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>vertical_drag</name></member>
+      <member refid="structVerticalFilter_1_1config_1a360f71c850778d65bfc5e2a09ecf6694" prot="public" virt="non-virtual"><scope>VerticalFilter::config</scope><name>world_frame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

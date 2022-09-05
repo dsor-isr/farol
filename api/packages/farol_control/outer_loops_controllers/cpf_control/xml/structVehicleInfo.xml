@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structVehicleInfo" kind="struct" language="C++" prot="public">
+    <compoundname>VehicleInfo</compoundname>
+    <includes refid="EventTriggered_8h" local="no">EventTriggered.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VehicleInfo::gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The real value of gamma received by the network and the corresponding time at which this value was received by the network. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="23" column="10" bodyfile="include/algorithms/EventTriggered.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVehicleInfo_1a4fb1829bc00e652a21f55d4223433738" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VehicleInfo::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The time instant expressed in seconds corresponding to the instant when gamma was received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="29" column="10" bodyfile="include/algorithms/EventTriggered.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVehicleInfo_1a2acff7799310a8d9c86cdc3d3cd88ec6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VehicleInfo::gamma_hat</definition>
+        <argsstring></argsstring>
+        <name>gamma_hat</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The estimated value of gamma. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="34" column="10" bodyfile="include/algorithms/EventTriggered.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVehicleInfo_1ade9ad7673ecfb12a66938e0743593fa6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VehicleInfo::vd</definition>
+        <argsstring></argsstring>
+        <name>vd</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The desired speed for that gamma. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="39" column="10" bodyfile="include/algorithms/EventTriggered.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structVehicleInfo_1ab17fd68d7ea99b51061e92bb3a6b8ec8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VehicleInfo::is_active</definition>
+        <argsstring></argsstring>
+        <name>is_active</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>Flag that will become true when the first value is received from the network for this vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/EventTriggered.h" line="45" column="8" bodyfile="include/algorithms/EventTriggered.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Auxiliar structure to hold information regarding one vehicle. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/EventTriggered.h" line="17" column="15" bodyfile="include/algorithms/EventTriggered.h" bodystart="17" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" prot="public" virt="non-virtual"><scope>VehicleInfo</scope><name>gamma</name></member>
+      <member refid="structVehicleInfo_1a2acff7799310a8d9c86cdc3d3cd88ec6" prot="public" virt="non-virtual"><scope>VehicleInfo</scope><name>gamma_hat</name></member>
+      <member refid="structVehicleInfo_1ab17fd68d7ea99b51061e92bb3a6b8ec8" prot="public" virt="non-virtual"><scope>VehicleInfo</scope><name>is_active</name></member>
+      <member refid="structVehicleInfo_1a4fb1829bc00e652a21f55d4223433738" prot="public" virt="non-virtual"><scope>VehicleInfo</scope><name>time</name></member>
+      <member refid="structVehicleInfo_1ade9ad7673ecfb12a66938e0743593fa6" prot="public" virt="non-virtual"><scope>VehicleInfo</scope><name>vd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

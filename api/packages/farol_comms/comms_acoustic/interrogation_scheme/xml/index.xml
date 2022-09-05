@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classAcousticPinger" kind="class"><name>AcousticPinger</name>
+    <member refid="classAcousticPinger_1a3c5d637f4ad428af37767fa46e7dc1af" kind="variable"><name>nh_private_</name></member>
+    <member refid="classAcousticPinger_1aa8e5d6babb734f29dc01107d099e0238" kind="variable"><name>nh_</name></member>
+    <member refid="classAcousticPinger_1a0b0242fc792c5c16985040080eb19799" kind="variable"><name>sub_in_modem</name></member>
+    <member refid="classAcousticPinger_1a1509738ed7ee624457807bcb392b206e" kind="variable"><name>sub_serializer</name></member>
+    <member refid="classAcousticPinger_1a008678e4c3f353bb8beb14829381be40" kind="variable"><name>sub_enable</name></member>
+    <member refid="classAcousticPinger_1ac93c159c50922b105819cd7a629c6b01" kind="variable"><name>pub_im</name></member>
+    <member refid="classAcousticPinger_1ad7841c97df761db9cbaf943401f350dd" kind="variable"><name>pub_range</name></member>
+    <member refid="classAcousticPinger_1a67df63b657bbb22be7376679241071a3" kind="variable"><name>pub_triggerserialization</name></member>
+    <member refid="classAcousticPinger_1a0a3526a67bacd88cfca40855e85c4f9f" kind="variable"><name>pub_deserialization</name></member>
+    <member refid="classAcousticPinger_1ad4b3c73ebd26568a13635df778f17eaa" kind="variable"><name>timer</name></member>
+    <member refid="classAcousticPinger_1a19d4ce41bb90cc7e4beb21debb8ef001" kind="variable"><name>modems_list</name></member>
+    <member refid="classAcousticPinger_1a2120b6cd4198a71a5705b476666e856b" kind="variable"><name>timeout_list</name></member>
+    <member refid="classAcousticPinger_1ab0547027299207f21965f5242d392e5d" kind="variable"><name>tslack</name></member>
+    <member refid="classAcousticPinger_1ad3f15478adfecd93f5fcc87926c3a8db" kind="variable"><name>modems</name></member>
+    <member refid="classAcousticPinger_1a4315b679390afde6845309dceb533ec9" kind="variable"><name>timeouts</name></member>
+    <member refid="classAcousticPinger_1a15f6d225db0ac76ae3f8db9bd1510f63" kind="variable"><name>tlastRECVIMS</name></member>
+    <member refid="classAcousticPinger_1a88387d3f61fca7a3bf777b5a7e844104" kind="variable"><name>tlastSENDIMS</name></member>
+    <member refid="classAcousticPinger_1ae1af293337b7a27f38655b8fb05dd7ca" kind="variable"><name>range_max</name></member>
+    <member refid="classAcousticPinger_1ae313559d5a89b6d77f7b69d021401d30" kind="variable"><name>waiting_for_serializer</name></member>
+    <member refid="classAcousticPinger_1a457382ca134cbac3bfaafb01c9b50827" kind="variable"><name>ENABLE_</name></member>
+    <member refid="classAcousticPinger_1a402a0bd324058a43e13a34463aaa5420" kind="variable"><name>lastRECVTime_modem</name></member>
+    <member refid="classAcousticPinger_1a27a3397392863af62bc14b0d616a53ec" kind="variable"><name>lastRECVTime_ros</name></member>
+    <member refid="classAcousticPinger_1a3a598504243a3cfb9393589562da70eb" kind="function"><name>AcousticPinger</name></member>
+    <member refid="classAcousticPinger_1a36c81078275a8183ff2ab85a58f82a95" kind="function"><name>~AcousticPinger</name></member>
+    <member refid="classAcousticPinger_1a34a47e7a30aebd7685c95d633111542d" kind="function"><name>updateClock</name></member>
+    <member refid="classAcousticPinger_1ae8a7fe0590be512a8b7db9c56981755e" kind="function"><name>getModemClockNow</name></member>
+    <member refid="classAcousticPinger_1ab39ebdd85cf5549db31c80b0e23d7163" kind="function"><name>triggerSerialization</name></member>
+    <member refid="classAcousticPinger_1aee449862227f27b2ddc9371e9a02a396" kind="function"><name>pingNextNode</name></member>
+    <member refid="classAcousticPinger_1a3a869e1bd24786cb09b957ab2b95af06" kind="function"><name>serializerCallback</name></member>
+    <member refid="classAcousticPinger_1a01f7c09f27d8cfdb3d39f40f6a764187" kind="function"><name>EnableCallback</name></member>
+    <member refid="classAcousticPinger_1a456ecfbdb51c232cc270ff933ce81ec8" kind="function"><name>RECVIMSCallback</name></member>
+    <member refid="classAcousticPinger_1af7ed29beb50e725e380d287fd4e17e3c" kind="function"><name>Timer</name></member>
+    <member refid="classAcousticPinger_1a8f2598805d41eb427c14aec24e04465b" kind="function"><name>loadParams</name></member>
+    <member refid="classAcousticPinger_1a7ab4e0f360d6298350ac9b65c1ffcc4b" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classAcousticPinger_1afc67eead1b7761bec232580d426afa2b" kind="function"><name>initializePublishers</name></member>
+    <member refid="classAcousticPinger_1ac298ca149f077217c104135a5fc47aec" kind="function"><name>initializeTimer</name></member>
+  </compound>
+  <compound refid="classReplierNode" kind="class"><name>ReplierNode</name>
+    <member refid="classReplierNode_1a49872fa8801deb6a62d3a574e239fcab" kind="variable"><name>nh_</name></member>
+    <member refid="classReplierNode_1ad69e24c39a7ca949ef88ba66ae8080cf" kind="variable"><name>nh_private_</name></member>
+    <member refid="classReplierNode_1a8fc736f639422704a4905e61ab9ba9bd" kind="variable"><name>ack_sub_</name></member>
+    <member refid="classReplierNode_1a446e972bc1fda65043a975d248501785" kind="variable"><name>serializer_sub_</name></member>
+    <member refid="classReplierNode_1a6584358b1a00b1c20bc2bee31f9247ba" kind="variable"><name>range_pub_</name></member>
+    <member refid="classReplierNode_1a77b47e7c9d9825cb0145200c1a859309" kind="variable"><name>im_pub_</name></member>
+    <member refid="classReplierNode_1a5ec0a9b27dc332b894d6092bccc3deb8" kind="variable"><name>trigger_serialization_pub_</name></member>
+    <member refid="classReplierNode_1ad31c287c36ce6b6638102598ea17ff32" kind="variable"><name>deserialization_pub_</name></member>
+    <member refid="classReplierNode_1ac0ad5ae2d48be12f8472f3d30dc21260" kind="variable"><name>timer_</name></member>
+    <member refid="classReplierNode_1a86b7e66f4fddb0b0e634290b43619aa6" kind="variable"><name>p_modem_id_</name></member>
+    <member refid="classReplierNode_1a2b3e9ef4208cdda941dd19fd5ff63399" kind="variable"><name>p_tslack_</name></member>
+    <member refid="classReplierNode_1a48fdf6d3b9f56e362eb0af26ba24831e" kind="variable"><name>timeout_</name></member>
+    <member refid="classReplierNode_1a19949db201c7c443e781cb51c4c25aba" kind="variable"><name>range_</name></member>
+    <member refid="classReplierNode_1acfd060c2230da0d0e87b396147291110" kind="variable"><name>t_last_recv_ims_</name></member>
+    <member refid="classReplierNode_1a3c52570abc7c4080c7e89197bec7b582" kind="variable"><name>t_last_send_ims_</name></member>
+    <member refid="classReplierNode_1a45f086a90f3bf86d1e00233fbba4ef1f" kind="variable"><name>modem_id_last_send_ims_</name></member>
+    <member refid="classReplierNode_1ab3400d9cf7673150eb6c116b13745b3f" kind="variable"><name>reply_ims_</name></member>
+    <member refid="classReplierNode_1a588a06448e7703b40d025c62922af338" kind="function"><name>ReplierNode</name></member>
+    <member refid="classReplierNode_1a0cbc05de54f05c07056201c6e9eb4ae9" kind="function"><name>~ReplierNode</name></member>
+    <member refid="classReplierNode_1a6b59edb2dbda20b1c15d73e9f0a4d9fd" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classReplierNode_1a9beac7b519e7d6e2697d0eb41502068e" kind="function"><name>initializePublishers</name></member>
+    <member refid="classReplierNode_1a79ce9d3b87255aab6959b74cc0f5dd9a" kind="function"><name>initializeTimer</name></member>
+    <member refid="classReplierNode_1a220ba9c59647c978e11117ca017e13ed" kind="function"><name>loadParams</name></member>
+    <member refid="classReplierNode_1a0b1147f3baedcfedbb689ecc012253ae" kind="function"><name>triggerSerialization</name></member>
+    <member refid="classReplierNode_1a821b5a5afc6de9fbf0dfa86abc38110b" kind="function"><name>timerIterCallback</name></member>
+    <member refid="classReplierNode_1a883998f80c91317b77739512af087249" kind="function"><name>replyCallback</name></member>
+    <member refid="classReplierNode_1a868d64ca905d351b9cf976f83c1960df" kind="function"><name>serializerCallback</name></member>
+  </compound>
+  <compound refid="PingerNode_8h" kind="file"><name>PingerNode.h</name>
+    <member refid="PingerNode_8h_1ae73d78f8ad1955fc7efc65b109987632" kind="define"><name>SOUND_SPEED</name></member>
+  </compound>
+  <compound refid="ReplierNode_8h" kind="file"><name>ReplierNode.h</name>
+    <member refid="ReplierNode_8h_1ae73d78f8ad1955fc7efc65b109987632" kind="define"><name>SOUND_SPEED</name></member>
+    <member refid="ReplierNode_8h_1a14522fa37ea8c0da73ec421289b9375b" kind="define"><name>SLACK_TIME</name></member>
+  </compound>
+  <compound refid="PingerNode_8cpp" kind="file"><name>PingerNode.cpp</name>
+    <member refid="PingerNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="ReplierNode_8cpp" kind="file"><name>ReplierNode.cpp</name>
+    <member refid="ReplierNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_d40acc30917718f8b39a299b06ff68cb" kind="dir"><name>include/pinger_ros</name>
+  </compound>
+  <compound refid="dir_3b2130755ba6889a869b465334c68f68" kind="dir"><name>src/pinger_ros</name>
+  </compound>
+  <compound refid="dir_fcf4f7848cdac9bed3444bbefd66fbcf" kind="dir"><name>src/replier_ros</name>
+  </compound>
+  <compound refid="dir_4040aa51f229a119e5bdb5c42598f7d8" kind="dir"><name>include/replier_ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

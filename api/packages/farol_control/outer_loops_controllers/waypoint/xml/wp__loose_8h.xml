@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="wp__loose_8h" kind="file" language="C++">
+    <compoundname>wp_loose.h</compoundname>
+    <includes refid="wp__controller_8h" local="no">wp_controller.h</includes>
+    <includedby refid="waypoint_8h" local="no">include/waypoint_ros/waypoint.h</includedby>
+    <includedby refid="wp__loose_8cpp" local="yes">src/waypoint_algorithms/wp_loose.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/waypoint_algorithms/wp_loose.h</label>
+        <link refid="wp__loose_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>wp_controller.h</label>
+        <link refid="wp__controller_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="6">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
+      <node id="5">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/waypoint_algorithms/wp_loose.h</label>
+        <link refid="wp__loose_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/waypoint_ros/waypoint.h</label>
+        <link refid="waypoint_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classWpLoose" prot="public">WpLoose</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>WP_LOOSE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WP_LOOSE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;wp_controller.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="classWpLoose" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classWpLoose" kindref="compound">WpLoose</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classWaypointController" kindref="compound">WaypointController</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>surge_pub_;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>yaw_pub_;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>calculateRef(<ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>state,<sp/><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>wp_ref);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>publish();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="classWpLoose" kindref="compound">WpLoose</ref>(ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>yaw_pub);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classWpLoose" kindref="compound">WpLoose</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>WP_LOOSE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="include/waypoint_algorithms/wp_loose.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_9e789a3eeaea0be5915b967c15f51206" kind="dir">
+    <compoundname>src/data_serializer_ros</compoundname>
+    <innerfile refid="data__serializer__ros_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="DataSerializerNode_8py">DataSerializerNode.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/data_serializer_ros/"/>
+  </compounddef>
+</doxygen>

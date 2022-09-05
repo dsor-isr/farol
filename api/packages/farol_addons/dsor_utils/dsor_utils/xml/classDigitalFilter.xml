@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classDigitalFilter" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>DigitalFilter</compoundname>
+    <includes refid="digital__filter_8hpp" local="no">digital_filter.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Type</type>
+        <definition>virtual Type DigitalFilter&lt; Type &gt;::update</definition>
+        <argsstring>(Type newValue)=0</argsstring>
+        <name>update</name>
+        <reimplementedby refid="classHighPassFilter_1a8ef008467e2b68303807ae64002946a7">update</reimplementedby>
+        <reimplementedby refid="classLowPassFilter_1a797ed50371cde65adff8aa4bb54f02ed">update</reimplementedby>
+        <reimplementedby refid="classLowPassFilter2_1ae797151cf9521885d8961ecc73b3cab5">update</reimplementedby>
+        <reimplementedby refid="classHighPassFilter3_1a6d2debd366200e31720dc54aaa2a972f">update</reimplementedby>
+        <reimplementedby refid="classLowPassFilter3_1ab5be2e12ad780ccd292400ec03f0b7c1">update</reimplementedby>
+        <reimplementedby refid="classLowPassFilter3MatchedZ_1afa8d5c3dc0df055a76a94fe9927e8a0e">update</reimplementedby>
+        <reimplementedby refid="classLowPassFilter3DiffApprox_1a52edbdfa6d8fcd642b9cc8b606c3514f">update</reimplementedby>
+        <reimplementedby refid="classDifferentiator_1aaad3555ad3d244d5c166a6b72dabc855">update</reimplementedby>
+        <param>
+          <type>Type</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/digital_filter.hpp" line="34" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>Type</type>
+        <definition>virtual Type DigitalFilter&lt; Type &gt;::getOutput</definition>
+        <argsstring>()=0</argsstring>
+        <name>getOutput</name>
+        <reimplementedby refid="classDifferentiator_1a108758b2c7607d9eb8ba4c3c7d1147bf">getOutput</reimplementedby>
+        <reimplementedby refid="classLowPassFilter_1a74ca69ff19bd6e8c24ba760f4eb791b6">getOutput</reimplementedby>
+        <reimplementedby refid="classHighPassFilter_1a39f275c76e7024461e61ef1221e45711">getOutput</reimplementedby>
+        <reimplementedby refid="classLowPassFilter2_1a9a923d114a00f7eeb65eaa59051999b4">getOutput</reimplementedby>
+        <reimplementedby refid="classHighPassFilter3_1a7dcd14b2d7dbae4440d1a3f7e8513713">getOutput</reimplementedby>
+        <reimplementedby refid="classLowPassFilter3_1a96bd875fd986c78fb663c0bac6f4167f">getOutput</reimplementedby>
+        <reimplementedby refid="classLowPassFilter3MatchedZ_1aa1006f717a6bdac2829c2eeb42b58f58">getOutput</reimplementedby>
+        <reimplementedby refid="classLowPassFilter3DiffApprox_1af6f5b8285fbfd7ee3076816cf28b4f7e">getOutput</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/digital_filter.hpp" line="35" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract base class for digital moving filters. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Floating point type used. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/dsor_utils/filters/digital_filter.hpp" line="30" column="20" bodyfile="include/dsor_utils/filters/digital_filter.hpp" bodystart="30" bodyend="36"/>
+    <listofallmembers>
+      <member refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd" prot="public" virt="pure-virtual"><scope>DigitalFilter</scope><name>getOutput</name></member>
+      <member refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac" prot="public" virt="pure-virtual"><scope>DigitalFilter</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

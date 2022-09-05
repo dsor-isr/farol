@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="namespaceFarolGimmicks" kind="namespace"><name>FarolGimmicks</name>
+    <member refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kind="variable"><name>PI</name></member>
+    <member refid="namespaceFarolGimmicks_1aa3f5d8d903ee42f1d9a9e7413a275592" kind="function"><name>getParameters</name></member>
+    <member refid="namespaceFarolGimmicks_1a848f23fbd13b899181e845aefb7959aa" kind="function"><name>getParameters</name></member>
+    <member refid="namespaceFarolGimmicks_1a267b35708e04c8b003a8bd9d63ca2e21" kind="function"><name>getParameters</name></member>
+    <member refid="namespaceFarolGimmicks_1a521072fdde5084123f6ecfc25d55d6ec" kind="function"><name>spherical_to_cartesian</name></member>
+    <member refid="namespaceFarolGimmicks_1ad819794f2ee42847fb5881763d9d96c6" kind="function"><name>signVal</name></member>
+    <member refid="namespaceFarolGimmicks_1a2560554a6ceefedcbd112e9e953fbe79" kind="function"><name>wrap2pi</name></member>
+    <member refid="namespaceFarolGimmicks_1a49df89a216c17a648b06d2388df9c0db" kind="function"><name>wrapTo2pi</name></member>
+    <member refid="namespaceFarolGimmicks_1aab641509fbf06a1959f8ffb95db41a9c" kind="function"><name>angleDiff</name></member>
+    <member refid="namespaceFarolGimmicks_1a539d1bb1bc3aa57693ed8bbeb7c3afd3" kind="function"><name>publishValue</name></member>
+  </compound>
+  <compound refid="FarolGimmicks_8h" kind="file"><name>FarolGimmicks.h</name>
+    <member refid="namespaceFarolGimmicks_1a3e0a0e6debf4e368700059b41de04520" kind="variable"><name>PI</name></member>
+    <member refid="namespaceFarolGimmicks_1aa3f5d8d903ee42f1d9a9e7413a275592" kind="function"><name>getParameters</name></member>
+    <member refid="namespaceFarolGimmicks_1a848f23fbd13b899181e845aefb7959aa" kind="function"><name>getParameters</name></member>
+    <member refid="namespaceFarolGimmicks_1a267b35708e04c8b003a8bd9d63ca2e21" kind="function"><name>getParameters</name></member>
+    <member refid="namespaceFarolGimmicks_1a521072fdde5084123f6ecfc25d55d6ec" kind="function"><name>spherical_to_cartesian</name></member>
+    <member refid="namespaceFarolGimmicks_1ad819794f2ee42847fb5881763d9d96c6" kind="function"><name>signVal</name></member>
+    <member refid="namespaceFarolGimmicks_1a2560554a6ceefedcbd112e9e953fbe79" kind="function"><name>wrap2pi</name></member>
+    <member refid="namespaceFarolGimmicks_1a49df89a216c17a648b06d2388df9c0db" kind="function"><name>wrapTo2pi</name></member>
+    <member refid="namespaceFarolGimmicks_1aab641509fbf06a1959f8ffb95db41a9c" kind="function"><name>angleDiff</name></member>
+    <member refid="namespaceFarolGimmicks_1a539d1bb1bc3aa57693ed8bbeb7c3afd3" kind="function"><name>publishValue</name></member>
+  </compound>
+  <compound refid="FarolGimmicks_8cpp" kind="file"><name>FarolGimmicks.cpp</name>
+  </compound>
+  <compound refid="dir_d044459fed037f7f201ecba1db6483a1" kind="dir"><name>include/farol_gimmicks_library</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

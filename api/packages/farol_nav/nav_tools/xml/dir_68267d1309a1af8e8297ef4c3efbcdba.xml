@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="AuvState2mState_8cpp">AuvState2mState.cpp</innerfile>
+    <innerfile refid="Gnss2Utm_8cpp">Gnss2Utm.cpp</innerfile>
+    <innerfile refid="Gnss2UtmOutlier_8cpp">Gnss2UtmOutlier.cpp</innerfile>
+    <innerfile refid="UsblFix2Pos_8cpp">UsblFix2Pos.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classThrustAllocation" kind="class" language="C++" prot="public">
+    <compoundname>ThrustAllocation</compoundname>
+    <includes refid="thruster__allocation_8h" local="no">thruster_allocation.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classThrustAllocation_1aad9328d22d2c4a909b288314fa542627" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber ThrustAllocation::ft_sub_</definition>
+        <argsstring></argsstring>
+        <name>ft_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="76" column="19" bodyfile="include/thruster_allocation.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1a825de2bfcc0f0b3bb6eb5efc5431d007" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ThrustAllocation::hor_left_thr_pub_</definition>
+        <argsstring></argsstring>
+        <name>hor_left_thr_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="79" column="18" bodyfile="include/thruster_allocation.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1a782bea14d741c6adb15f40e0f8b259a4" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ThrustAllocation::hor_right_thr_pub_</definition>
+        <argsstring></argsstring>
+        <name>hor_right_thr_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="80" column="18" bodyfile="include/thruster_allocation.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1ad1d15c170c3d8175dfb43b4ded889b42" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ThrustAllocation::ver_back_thr_pub_</definition>
+        <argsstring></argsstring>
+        <name>ver_back_thr_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="81" column="18" bodyfile="include/thruster_allocation.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1aea63fcaac75736c8e9463f5ca7999e87" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ThrustAllocation::ver_front_thr_pub_</definition>
+        <argsstring></argsstring>
+        <name>ver_front_thr_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="82" column="18" bodyfile="include/thruster_allocation.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1a464246b07647506edfbb271a23b33f4a" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher ThrustAllocation::thrusters_pub_</definition>
+        <argsstring></argsstring>
+        <name>thrusters_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="82" column="37" bodyfile="include/thruster_allocation.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1a3a448204548f2a1c4a0ddc7b6c79d3f5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float ThrustAllocation::max_thrust_norm_</definition>
+        <argsstring></argsstring>
+        <name>max_thrust_norm_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="85" column="9" bodyfile="include/thruster_allocation.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1af1f1b9cc36ee45857c0364e263e1bfb0" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float ThrustAllocation::min_thrust_norm_</definition>
+        <argsstring></argsstring>
+        <name>min_thrust_norm_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="86" column="9" bodyfile="include/thruster_allocation.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1a9a719c7e537df67bce5998131e98ad32" prot="private" static="no" mutable="no">
+        <type>Eigen::VectorXd</type>
+        <definition>Eigen::VectorXd ThrustAllocation::rpm_gain_</definition>
+        <argsstring></argsstring>
+        <name>rpm_gain_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="87" column="19" bodyfile="include/thruster_allocation.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1afd31b806bd1d286177ca3ead9a3f5a19" prot="private" static="no" mutable="no">
+        <type>Eigen::MatrixXd</type>
+        <definition>Eigen::MatrixXd ThrustAllocation::b_inv_</definition>
+        <argsstring></argsstring>
+        <name>b_inv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="89" column="19" bodyfile="include/thruster_allocation.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1ae0a695a847e6b2301796bb8098978714" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d ThrustAllocation::ctf_</definition>
+        <argsstring></argsstring>
+        <name>ctf_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="90" column="19" bodyfile="include/thruster_allocation.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThrustAllocation_1a9a9683cbe295490cb8588599b8cc1165" prot="private" static="no" mutable="no">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d ThrustAllocation::ctb_</definition>
+        <argsstring></argsstring>
+        <name>ctb_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="91" column="19" bodyfile="include/thruster_allocation.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classThrustAllocation_1a794fa9979dd05139c32e4ece4e9e070e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ThrustAllocation::ThrustAllocation</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>ThrustAllocation</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Thrust Allocation class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to publish, subscribe and read relevant parameters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="18" column="3" bodyfile="src/thruster_allocation.cpp" bodystart="3" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1a2709c031f3c1c3f56b98646d50fcbf2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::initializeSubscribers</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>initializeSubscribers</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to publish, subscribe and read relevant </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="25" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1aec20bf714cbfe094aee1a570b3e504a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::initializePublishers</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>initializePublishers</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Function to initialize publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to publish, subscribe and read relevant </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="32" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1a811564bc00e2ff750cc34a0e3233d84d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::loadParams</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>loadParams</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Function to read parameters. Reads the thruster allocation matrix and computes its pseudo inverse. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to publish, subscribe and read relevant </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="39" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="24" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1a83e7e6f79ac4afad7c3579b3d09c1a99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::saturateVector</definition>
+        <argsstring>(Eigen::VectorXd &amp;thr_thrust)</argsstring>
+        <name>saturateVector</name>
+        <param>
+          <type>Eigen::VectorXd &amp;</type>
+          <declname>thr_thrust</declname>
+        </param>
+        <briefdescription>
+<para>Given a force vector for each thruster, saturate the norm of the vector based on the maximum force of the thruster. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="44" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="32" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1ac9ecc1b9d613eb681a97d8df01746d55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::readTAM</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>readTAM</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Function to read a thruster allocation matrix and compute its pseudo inverse. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="51" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="49" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1a4085fe7bfacb3338b43c3dbdca0bc887" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::readCT</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>readCT</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Function to read the ct parameters (conversion from thrust to RPM and vice versa) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="59" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="66" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1ae87beab53f670a62d614a1dd7b0d8117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::readRPMGain</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>readRPMGain</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Function to read the actuators gain (RPM max value / 100). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="66" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="75" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classThrustAllocation_1ab64d69f5a30a0be2c212c855a4c6b0e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ThrustAllocation::thrusterAllocation</definition>
+        <argsstring>(const auv_msgs::BodyForceRequest &amp;msg)</argsstring>
+        <name>thrusterAllocation</name>
+        <param>
+          <type>const auv_msgs::BodyForceRequest &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of the topic with the tau (force request) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable containing the force request </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/thruster_allocation.h" line="73" column="8" bodyfile="src/thruster_allocation.cpp" bodystart="86" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ROS implementation of the thrust allocation. Receives forces applied to the vehicle and calculates the desired forces to each thruster based on the pseudo inverse of the thrust allocation matrix. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/thruster_allocation.h" line="10" column="23" bodyfile="include/thruster_allocation.h" bodystart="10" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classThrustAllocation_1afd31b806bd1d286177ca3ead9a3f5a19" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>b_inv_</name></member>
+      <member refid="classThrustAllocation_1a9a9683cbe295490cb8588599b8cc1165" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>ctb_</name></member>
+      <member refid="classThrustAllocation_1ae0a695a847e6b2301796bb8098978714" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>ctf_</name></member>
+      <member refid="classThrustAllocation_1aad9328d22d2c4a909b288314fa542627" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>ft_sub_</name></member>
+      <member refid="classThrustAllocation_1a825de2bfcc0f0b3bb6eb5efc5431d007" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>hor_left_thr_pub_</name></member>
+      <member refid="classThrustAllocation_1a782bea14d741c6adb15f40e0f8b259a4" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>hor_right_thr_pub_</name></member>
+      <member refid="classThrustAllocation_1aec20bf714cbfe094aee1a570b3e504a9" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>initializePublishers</name></member>
+      <member refid="classThrustAllocation_1a2709c031f3c1c3f56b98646d50fcbf2d" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>initializeSubscribers</name></member>
+      <member refid="classThrustAllocation_1a811564bc00e2ff750cc34a0e3233d84d" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>loadParams</name></member>
+      <member refid="classThrustAllocation_1a3a448204548f2a1c4a0ddc7b6c79d3f5" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>max_thrust_norm_</name></member>
+      <member refid="classThrustAllocation_1af1f1b9cc36ee45857c0364e263e1bfb0" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>min_thrust_norm_</name></member>
+      <member refid="classThrustAllocation_1a4085fe7bfacb3338b43c3dbdca0bc887" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>readCT</name></member>
+      <member refid="classThrustAllocation_1ae87beab53f670a62d614a1dd7b0d8117" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>readRPMGain</name></member>
+      <member refid="classThrustAllocation_1ac9ecc1b9d613eb681a97d8df01746d55" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>readTAM</name></member>
+      <member refid="classThrustAllocation_1a9a719c7e537df67bce5998131e98ad32" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>rpm_gain_</name></member>
+      <member refid="classThrustAllocation_1a83e7e6f79ac4afad7c3579b3d09c1a99" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>saturateVector</name></member>
+      <member refid="classThrustAllocation_1a794fa9979dd05139c32e4ece4e9e070e" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>ThrustAllocation</name></member>
+      <member refid="classThrustAllocation_1ab64d69f5a30a0be2c212c855a4c6b0e4" prot="public" virt="non-virtual"><scope>ThrustAllocation</scope><name>thrusterAllocation</name></member>
+      <member refid="classThrustAllocation_1a464246b07647506edfbb271a23b33f4a" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>thrusters_pub_</name></member>
+      <member refid="classThrustAllocation_1ad1d15c170c3d8175dfb43b4ded889b42" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>ver_back_thr_pub_</name></member>
+      <member refid="classThrustAllocation_1aea63fcaac75736c8e9463f5ca7999e87" prot="private" virt="non-virtual"><scope>ThrustAllocation</scope><name>ver_front_thr_pub_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

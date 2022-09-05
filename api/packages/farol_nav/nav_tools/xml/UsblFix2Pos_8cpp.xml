@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="UsblFix2Pos_8cpp" kind="file" language="C++">
+    <compoundname>UsblFix2Pos.cpp</compoundname>
+    <includes refid="UsblFix2Pos_8h" local="yes">UsblFix2Pos.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>UsblFix2Pos.h</label>
+        <link refid="UsblFix2Pos_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>dsor_msgs/Measurement.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="9">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>exception</label>
+      </node>
+      <node id="14">
+        <label>GeographicLib/UTMUPS.hpp</label>
+      </node>
+      <node id="10">
+        <label>farol_msgs/mUSBLFix.h</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="8">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="3">
+        <label>math.h</label>
+      </node>
+      <node id="13">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="11">
+        <label>farol_msgs/mState.h</label>
+      </node>
+      <node id="1">
+        <label>src/UsblFix2Pos.cpp</label>
+        <link refid="UsblFix2Pos_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="UsblFix2Pos_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/UsblFix2Pos.cpp" line="236" column="5" bodyfile="src/UsblFix2Pos.cpp" bodystart="236" bodyend="252"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Developers:<sp/>DSOR<sp/>Team<sp/>-&gt;<sp/>@isr.ist.pt<sp/>Instituto<sp/>Superior<sp/>Tecnico</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Description:<sp/>Please<sp/>check<sp/>the<sp/>documentation<sp/>of<sp/>this<sp/>package<sp/>for<sp/>more<sp/>info.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>header<sp/>incorporates<sp/>all<sp/>the<sp/>necessary<sp/>#include<sp/>files<sp/>and<sp/>defines<sp/>the<sp/>class<sp/>&quot;UsblFix2Pos&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;UsblFix2Pos.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>CONSTRUCTOR</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UsblFix2Pos::UsblFix2Pos(ros::NodeHandle<sp/>*nodehandle,<sp/>ros::NodeHandle<sp/>*nodehandle_private)<sp/>:<sp/>nh_(*nodehandle),<sp/>nh_private_(*nodehandle_private)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;in<sp/>class<sp/>constructor<sp/>of<sp/>UsblFix2Pos&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>loadParams();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>initializeSubscribers();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>initializePublishers();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Destructor</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">UsblFix2Pos::~UsblFix2Pos()</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>shutdown<sp/>publishers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>pub_pose_fix.shutdown();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_fix_type<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_usbl_est_state.shutdown();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_usbl_est_console.shutdown();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>shutdown<sp/>subscribers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>sub_state.shutdown();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>sub_usbl.shutdown();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>shutdown<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>nh_.shutdown();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>nh_private_.shutdown();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Member<sp/>Helper<sp/>function<sp/>to<sp/>set<sp/>up<sp/>subscribers;</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::initializeSubscribers()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Initializing<sp/>Subscribers<sp/>for<sp/>UsblFix2Pos&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>sub_usbl<sp/><sp/>=<sp/>nh_private_.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/usbl_fix&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;usbl_fix&quot;</highlight><highlight class="normal">),<sp/>1,<sp/>&amp;UsblFix2Pos::usblFixBroadcasterCallback,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_fix_type){</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>sub_state<sp/>=<sp/>nh_private_.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/acomms_state&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;acomms_state&quot;</highlight><highlight class="normal">),<sp/>1,<sp/>&amp;UsblFix2Pos::stateCallback,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>sub_state<sp/>=<sp/>nh_private_.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/state&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;state&quot;</highlight><highlight class="normal">),<sp/>1,<sp/>&amp;UsblFix2Pos::stateCallback,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Member<sp/>helper<sp/>function<sp/>to<sp/>set<sp/>up<sp/>publishers;</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::initializePublishers()</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Initializing<sp/>Publishers<sp/>for<sp/>UsblFix2Pos&quot;</highlight><highlight class="normal">);<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>pub_pose_fix<sp/>=<sp/>nh_private_.advertise&lt;dsor_msgs::Measurement&gt;(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/position&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;position&quot;</highlight><highlight class="normal">),<sp/>1,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>pub_usbl_est_console<sp/>=<sp/>nh_private_.advertise&lt;farol_msgs::mState&gt;(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/console_state_usbl_estimation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;state_usbl_est&quot;</highlight><highlight class="normal">),<sp/>1,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_fix_type<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_usbl_est_state<sp/>=<sp/>nh_private_.advertise&lt;auv_msgs::NavigationStatus&gt;(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/state_usbl_estimation&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;usbl_est&quot;</highlight><highlight class="normal">),<sp/>1,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Member<sp/>helper<sp/>function<sp/>to<sp/>set<sp/>up<sp/>the<sp/>timer;<sp/>This<sp/>is<sp/>a<sp/>more<sp/>flexible<sp/>and<sp/>useful<sp/>form<sp/>of<sp/>the<sp/>ros::Rate</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::initializeTimers()<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>list_cleaner_timer<sp/>=<sp/>nh_private_.createTimer(ros::Duration(p_t_sync),<sp/>&amp;UsblFix2Pos::listTimerCallback,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Load<sp/>the<sp/>parameters</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::loadParams()<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Load<sp/>the<sp/>UsblFix2Pos<sp/>parameters&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>p_t_sync<sp/><sp/><sp/>=<sp/>FarolGimmicks::getParameters&lt;int&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;t_sync&quot;</highlight><highlight class="normal">,<sp/>2);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>p_fix_type<sp/>=<sp/>FarolGimmicks::getParameters&lt;bool&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;fix_type&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>p_meas_noise<sp/>=<sp/>FarolGimmicks::getParameters&lt;double&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;meas_noise&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::listTimerCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ros::TimerEvent<sp/>&amp;event)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>old<sp/>measurements<sp/>from<sp/>the<sp/>usblfix<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>std::list&lt;farol_msgs::mUSBLFix&gt;::iterator<sp/>it;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(it<sp/>=<sp/>usblfix_list.end();<sp/>it<sp/>!=<sp/>usblfix_list.begin();<sp/>--it)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((ros::Time::now()<sp/>-<sp/>(*it).header.stamp).toSec()<sp/>&lt;<sp/>p_t_sync)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>usblfix_list.erase(usblfix_list.begin(),<sp/>it);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((ros::Time::now().toSec()<sp/>-<sp/>state_stamp)<sp/>&gt;<sp/>p_t_sync){</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>initialized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Callback<sp/>gps<sp/>-&gt;<sp/>convert<sp/>lat<sp/>lon<sp/>to<sp/>utm<sp/>and<sp/>publish<sp/>in<sp/>a<sp/>pose<sp/>message</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//<sp/>spherical<sp/>=<sp/>[range,<sp/>bearing,<sp/>elevation],<sp/>cartesian<sp/>=<sp/>[x,<sp/>y,<sp/>z]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::transformPosition(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>spherical[3],<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cartesian[3]){</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>https://rbrundritt.wordpress.com/2008/10/14/conversion-between-spherical-and-cartesian-coordinates-systems/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>cartesian[0]<sp/>=<sp/>std::fabs(spherical[0]<sp/>*<sp/>std::cos(spherical[2]))<sp/>*<sp/>std::cos(spherical[1]);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>cartesian[1]<sp/>=<sp/>std::fabs(spherical[0]<sp/>*<sp/>std::cos(spherical[2]))<sp/>*<sp/>std::sin(spherical[1]);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>cartesian[2]<sp/>=<sp/>spherical[0]<sp/>*<sp/>std::sin(spherical[2]);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::getEstLatLon(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>spherical[3],<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latLon[2]){</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>https://stackoverflow.com/a/7835325</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latLon_temp[2];</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>latLon_temp[0]<sp/>=<sp/>latLon[0];</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>latLon_temp[1]<sp/>=<sp/>latLon[1];</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>latLon_temp[0]<sp/>=<sp/>(latLon_temp[0]<sp/>*<sp/>FarolGimmicks::PI)<sp/>/<sp/>180.0;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>latLon_temp[1]<sp/>=<sp/>(latLon_temp[1]<sp/>*<sp/>FarolGimmicks::PI)<sp/>/<sp/>180.0;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>latLon[0]<sp/>=<sp/>std::asin(std::sin(latLon_temp[0])<sp/>*<sp/>std::cos((spherical[0]/1000.0)/R)<sp/>+<sp/>std::cos(latLon_temp[0])*std::sin((spherical[0]/1000.0)/R)*std::cos(spherical[1]));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>latLon[1]<sp/>=<sp/>latLon_temp[1]<sp/>+<sp/>std::atan2(std::sin(spherical[1])*std::sin((spherical[0]/1000.0)/R)*std::cos(latLon_temp[0]),<sp/>std::cos((spherical[0]/1000.0)/R)-<sp/>std::sin(latLon_temp[0])*std::sin(latLon[1]));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>latLon[0]<sp/>=<sp/>(latLon[0]<sp/>*<sp/>180.0)<sp/>/<sp/>FarolGimmicks::PI;<sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>latLon[1]<sp/>=<sp/>(latLon[1]<sp/>*<sp/>180.0)<sp/>/<sp/>FarolGimmicks::PI;<sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::usblFixBroadcasterCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>farol_msgs::mUSBLFix<sp/>&amp;msg)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!initialized)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>position<sp/>of<sp/>the<sp/>vehicle<sp/>relative<sp/>to<sp/>the<sp/>anchor<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>farol_msgs::mUSBLFix<sp/>usbl<sp/>=<sp/>msg;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Dumb<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cartesian[3];</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latlon[2];</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>std::copy(std::begin(state_lat_lon),<sp/>std::end(state_lat_lon),<sp/>std::begin(latlon));</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>spherical[3];</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>Position<sp/>only<sp/>if<sp/>Full_Fix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(usbl.type<sp/>==<sp/>usbl.FULL_FIX)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>spherical[0]<sp/>=<sp/>usbl.range;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>spherical[1]<sp/>=<sp/><sp/>usbl.bearing;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>spherical[2]<sp/>=<sp/>usbl.elevation;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>fix<sp/>to<sp/>a<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>usblfix_list.push_back(usbl);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Find<sp/>if<sp/>previous<sp/>ranges<sp/>and<sp/>or<sp/>angles<sp/>are<sp/>in<sp/>sync<sp/>(t_sync<sp/>seconds)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>std::list&lt;farol_msgs::mUSBLFix&gt;::reverse_iterator<sp/>it;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(it<sp/>=<sp/>usblfix_list.rbegin();<sp/>it<sp/>!=<sp/>usblfix_list.rend();<sp/>++it)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((*it).source_name<sp/>==<sp/>usbl.source_name<sp/>&amp;&amp;<sp/>(*it).type<sp/>!=<sp/>usbl.type<sp/>&amp;&amp;<sp/>fabs((usbl.header.stamp-(*it).header.stamp).toSec())<sp/>&lt;<sp/>p_t_sync)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Return<sp/>if<sp/>no<sp/>nearby<sp/>pointer<sp/>is<sp/>found</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(it<sp/>==<sp/>usblfix_list.rend()){</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>position<sp/>fix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(usbl.type<sp/>==<sp/>usbl.AZIMUTH_ONLY)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>spherical[0]<sp/>=<sp/>(*it).range;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>spherical[1]<sp/>=<sp/>usbl.bearing;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>spherical[2]<sp/>=<sp/>usbl.elevation;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>transformPosition(spherical,<sp/>cartesian);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>farol_msgs::mState<sp/>console_state;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>console_state.header.stamp<sp/>=<sp/>usbl.header.stamp;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>console_state.X<sp/>=<sp/>state[1]<sp/>+<sp/>cartesian[1];</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>console_state.Y<sp/>=<sp/>state[0]<sp/>+<sp/>cartesian[0];</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>pub_usbl_est_console.publish(console_state);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Pub<sp/>if<sp/>usbl<sp/>is<sp/>an<sp/>anchor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_fix_type<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>getEstLatLon(spherical,<sp/>latlon);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>auv_msgs::NavigationStatus<sp/>usbl_est;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>usbl_est.header.stamp<sp/>=<sp/>usbl.header.stamp;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>usbl_est.position.north<sp/>=<sp/>state[0]<sp/>+<sp/>cartesian[0];</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>usbl_est.position.east<sp/>=<sp/>state[1]<sp/>+<sp/>cartesian[1];</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>usbl_est.global_position.latitude<sp/>=<sp/>latlon[0];</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>usbl_est.global_position.longitude<sp/>=<sp/>latlon[1];</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_usbl_est_state.publish(usbl_est);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Publish<sp/>final<sp/>pose</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>dsor_msgs::Measurement<sp/>pose_fix;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>pose_fix.header.stamp<sp/>=<sp/>usbl.header.stamp;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>pose_fix.header.frame_id<sp/>=<sp/>usbl.header.frame_id;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>pose_fix.value.push_back(state[0]<sp/>+<sp/>cartesian[0]);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>pose_fix.value.push_back(state[1]<sp/>+<sp/>cartesian[1]);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>noise<sp/>covariance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>pose_fix.noise.push_back(state_var[0]<sp/>+<sp/>usbl.position_covariance[0]<sp/>+<sp/>p_meas_noise);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>pose_fix.noise.push_back(state_var[1]<sp/>+<sp/>usbl.position_covariance[4]<sp/>+<sp/>p_meas_noise);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_pose_fix.publish(pose_fix);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UsblFix2Pos::stateCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg){</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>initialized<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>state_stamp<sp/>=<sp/>msg.header.stamp.toSec();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>state[0]<sp/>=<sp/>msg.position.north;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>state[1]<sp/>=<sp/>msg.position.east;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>state_var[0]<sp/>=<sp/>msg.position_variance.north;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>state_var[1]<sp/>=<sp/>msg.position_variance.east;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(p_fix_type<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>state_lat_lon[0]<sp/>=<sp/>msg.global_position.latitude;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>state_lat_lon[1]<sp/>=<sp/>msg.global_position.longitude;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/><sp/><sp/>@.@<sp/>Main</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>ROS<sp/>set-ups:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;UsblFix2Pos&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//node<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>create<sp/>a<sp/>node<sp/>handle;<sp/>need<sp/>to<sp/>pass<sp/>this<sp/>to<sp/>the<sp/>class<sp/>constructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>ros::NodeHandle<sp/>nh,<sp/>nh_p(</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;main:<sp/>instantiating<sp/>an<sp/>object<sp/>of<sp/>type<sp/>UsblFix2Pos&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>instantiate<sp/>an<sp/>UsblFix2Pos<sp/>class<sp/>object<sp/>and<sp/>pass<sp/>in<sp/>pointer<sp/>to<sp/>nodehandle<sp/>for<sp/>constructor<sp/>to<sp/>use</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><ref refid="classUsblFix2Pos" kindref="compound">UsblFix2Pos</ref><sp/>usblfix2pos(&amp;nh,<sp/>&amp;nh_p);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Added<sp/>to<sp/>work<sp/>with<sp/>timer<sp/>-&gt;<sp/>going<sp/>into<sp/>spin;<sp/>let<sp/>the<sp/>callbacks<sp/>do<sp/>all<sp/>the<sp/>work</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>ros::spin();</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/UsblFix2Pos.cpp"/>
+  </compounddef>
+</doxygen>

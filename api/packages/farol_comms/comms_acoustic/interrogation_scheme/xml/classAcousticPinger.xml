@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAcousticPinger" kind="class" language="C++" prot="public">
+    <compoundname>AcousticPinger</compoundname>
+    <includes refid="PingerNode_8h" local="no">PingerNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAcousticPinger_1a3c5d637f4ad428af37767fa46e7dc1af" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle AcousticPinger::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="110" column="19" bodyfile="include/pinger_ros/PingerNode.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1aa8e5d6babb734f29dc01107d099e0238" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle AcousticPinger::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="111" column="19" bodyfile="include/pinger_ros/PingerNode.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a0b0242fc792c5c16985040080eb19799" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber AcousticPinger::sub_in_modem</definition>
+        <argsstring></argsstring>
+        <name>sub_in_modem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="116" column="19" bodyfile="include/pinger_ros/PingerNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a1509738ed7ee624457807bcb392b206e" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber AcousticPinger::sub_serializer</definition>
+        <argsstring></argsstring>
+        <name>sub_serializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="116" column="32" bodyfile="include/pinger_ros/PingerNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a008678e4c3f353bb8beb14829381be40" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber AcousticPinger::sub_enable</definition>
+        <argsstring></argsstring>
+        <name>sub_enable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="116" column="47" bodyfile="include/pinger_ros/PingerNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ac93c159c50922b105819cd7a629c6b01" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher AcousticPinger::pub_im</definition>
+        <argsstring></argsstring>
+        <name>pub_im</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="120" column="18" bodyfile="include/pinger_ros/PingerNode.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ad7841c97df761db9cbaf943401f350dd" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher AcousticPinger::pub_range</definition>
+        <argsstring></argsstring>
+        <name>pub_range</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="120" column="25" bodyfile="include/pinger_ros/PingerNode.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a67df63b657bbb22be7376679241071a3" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher AcousticPinger::pub_triggerserialization</definition>
+        <argsstring></argsstring>
+        <name>pub_triggerserialization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="120" column="35" bodyfile="include/pinger_ros/PingerNode.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a0a3526a67bacd88cfca40855e85c4f9f" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher AcousticPinger::pub_deserialization</definition>
+        <argsstring></argsstring>
+        <name>pub_deserialization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="120" column="60" bodyfile="include/pinger_ros/PingerNode.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ad4b3c73ebd26568a13635df778f17eaa" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer AcousticPinger::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="124" column="14" bodyfile="include/pinger_ros/PingerNode.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a19d4ce41bb90cc7e4beb21debb8ef001" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; AcousticPinger::modems_list</definition>
+        <argsstring></argsstring>
+        <name>modems_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="128" column="15" bodyfile="include/pinger_ros/PingerNode.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a2120b6cd4198a71a5705b476666e856b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; AcousticPinger::timeout_list</definition>
+        <argsstring></argsstring>
+        <name>timeout_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="129" column="15" bodyfile="include/pinger_ros/PingerNode.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ab0547027299207f21965f5242d392e5d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AcousticPinger::tslack</definition>
+        <argsstring></argsstring>
+        <name>tslack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="130" column="10" bodyfile="include/pinger_ros/PingerNode.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ad3f15478adfecd93f5fcc87926c3a8db" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; int &gt;</type>
+        <definition>std::queue&lt;int&gt; AcousticPinger::modems</definition>
+        <argsstring></argsstring>
+        <name>modems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="134" column="14" bodyfile="include/pinger_ros/PingerNode.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a4315b679390afde6845309dceb533ec9" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; double &gt;</type>
+        <definition>std::queue&lt;double&gt; AcousticPinger::timeouts</definition>
+        <argsstring></argsstring>
+        <name>timeouts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="135" column="14" bodyfile="include/pinger_ros/PingerNode.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a15f6d225db0ac76ae3f8db9bd1510f63" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int AcousticPinger::tlastRECVIMS</definition>
+        <argsstring></argsstring>
+        <name>tlastRECVIMS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="136" column="21" bodyfile="include/pinger_ros/PingerNode.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a88387d3f61fca7a3bf777b5a7e844104" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int AcousticPinger::tlastSENDIMS</definition>
+        <argsstring></argsstring>
+        <name>tlastSENDIMS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="137" column="21" bodyfile="include/pinger_ros/PingerNode.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ae1af293337b7a27f38655b8fb05dd7ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AcousticPinger::range_max</definition>
+        <argsstring></argsstring>
+        <name>range_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="138" column="10" bodyfile="include/pinger_ros/PingerNode.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1ae313559d5a89b6d77f7b69d021401d30" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AcousticPinger::waiting_for_serializer</definition>
+        <argsstring></argsstring>
+        <name>waiting_for_serializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="139" column="8" bodyfile="include/pinger_ros/PingerNode.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a457382ca134cbac3bfaafb01c9b50827" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AcousticPinger::ENABLE_</definition>
+        <argsstring></argsstring>
+        <name>ENABLE_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="140" column="8" bodyfile="include/pinger_ros/PingerNode.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a402a0bd324058a43e13a34463aaa5420" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int AcousticPinger::lastRECVTime_modem</definition>
+        <argsstring></argsstring>
+        <name>lastRECVTime_modem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="143" column="21" bodyfile="include/pinger_ros/PingerNode.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAcousticPinger_1a27a3397392863af62bc14b0d616a53ec" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time AcousticPinger::lastRECVTime_ros</definition>
+        <argsstring></argsstring>
+        <name>lastRECVTime_ros</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="144" column="13" bodyfile="include/pinger_ros/PingerNode.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAcousticPinger_1a3a598504243a3cfb9393589562da70eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AcousticPinger::AcousticPinger</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>AcousticPinger</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param nodehandle @Param nodehandle_private </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="38" column="3" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="8" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1a36c81078275a8183ff2ab85a58f82a95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AcousticPinger::~AcousticPinger</definition>
+        <argsstring>()</argsstring>
+        <name>~AcousticPinger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="39" column="3" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="45" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1a34a47e7a30aebd7685c95d633111542d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::updateClock</definition>
+        <argsstring>(unsigned long int tmodem, ros::Time tros)</argsstring>
+        <name>updateClock</name>
+        <param>
+          <type>unsigned long int</type>
+          <declname>tmodem</declname>
+        </param>
+        <param>
+          <type>ros::Time</type>
+          <declname>tros</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param tmodem @Param tros </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="50" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="152" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1ae8a7fe0590be512a8b7db9c56981755e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned long int</type>
+        <definition>unsigned long int AcousticPinger::getModemClockNow</definition>
+        <argsstring>()</argsstring>
+        <name>getModemClockNow</name>
+        <briefdescription>
+<para>Get the last modem estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Returns <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="58" column="21" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1ab39ebdd85cf5549db31c80b0e23d7163" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::triggerSerialization</definition>
+        <argsstring>()</argsstring>
+        <name>triggerSerialization</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="65" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="164" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1aee449862227f27b2ddc9371e9a02a396" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::pingNextNode</definition>
+        <argsstring>()</argsstring>
+        <name>pingNextNode</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="71" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="212" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1a3a869e1bd24786cb09b957ab2b95af06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::serializerCallback</definition>
+        <argsstring>(const std_msgs::String &amp;msg)</argsstring>
+        <name>serializerCallback</name>
+        <param>
+          <type>const std_msgs::String &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="80" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="171" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1a01f7c09f27d8cfdb3d39f40f6a764187" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::EnableCallback</definition>
+        <argsstring>(const std_msgs::Bool &amp;msg)</argsstring>
+        <name>EnableCallback</name>
+        <param>
+          <type>const std_msgs::Bool &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="88" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="104" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1a456ecfbdb51c232cc270ff933ce81ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::RECVIMSCallback</definition>
+        <argsstring>(const dmac::DMACPayload &amp;msg)</argsstring>
+        <name>RECVIMSCallback</name>
+        <param>
+          <type>const dmac::DMACPayload &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="96" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="114" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1af7ed29beb50e725e380d287fd4e17e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::Timer</definition>
+        <argsstring>(const ros::TimerEvent &amp;e)</argsstring>
+        <name>Timer</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param e </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="104" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="246" bodyend="255"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAcousticPinger_1a8f2598805d41eb427c14aec24e04465b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="146" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="88" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1a7ab4e0f360d6298350ac9b65c1ffcc4b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="147" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="68" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1afc67eead1b7761bec232580d426afa2b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="148" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="76" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classAcousticPinger_1ac298ca149f077217c104135a5fc47aec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AcousticPinger::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/pinger_ros/PingerNode.h" line="149" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="99" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><linebreak/>
+ </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/pinger_ros/PingerNode.h" line="28" column="1" bodyfile="include/pinger_ros/PingerNode.h" bodystart="27" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classAcousticPinger_1a3a598504243a3cfb9393589562da70eb" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>AcousticPinger</name></member>
+      <member refid="classAcousticPinger_1a457382ca134cbac3bfaafb01c9b50827" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>ENABLE_</name></member>
+      <member refid="classAcousticPinger_1a01f7c09f27d8cfdb3d39f40f6a764187" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>EnableCallback</name></member>
+      <member refid="classAcousticPinger_1ae8a7fe0590be512a8b7db9c56981755e" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>getModemClockNow</name></member>
+      <member refid="classAcousticPinger_1afc67eead1b7761bec232580d426afa2b" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>initializePublishers</name></member>
+      <member refid="classAcousticPinger_1a7ab4e0f360d6298350ac9b65c1ffcc4b" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>initializeSubscribers</name></member>
+      <member refid="classAcousticPinger_1ac298ca149f077217c104135a5fc47aec" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>initializeTimer</name></member>
+      <member refid="classAcousticPinger_1a402a0bd324058a43e13a34463aaa5420" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>lastRECVTime_modem</name></member>
+      <member refid="classAcousticPinger_1a27a3397392863af62bc14b0d616a53ec" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>lastRECVTime_ros</name></member>
+      <member refid="classAcousticPinger_1a8f2598805d41eb427c14aec24e04465b" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>loadParams</name></member>
+      <member refid="classAcousticPinger_1ad3f15478adfecd93f5fcc87926c3a8db" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>modems</name></member>
+      <member refid="classAcousticPinger_1a19d4ce41bb90cc7e4beb21debb8ef001" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>modems_list</name></member>
+      <member refid="classAcousticPinger_1aa8e5d6babb734f29dc01107d099e0238" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>nh_</name></member>
+      <member refid="classAcousticPinger_1a3c5d637f4ad428af37767fa46e7dc1af" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>nh_private_</name></member>
+      <member refid="classAcousticPinger_1aee449862227f27b2ddc9371e9a02a396" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>pingNextNode</name></member>
+      <member refid="classAcousticPinger_1a0a3526a67bacd88cfca40855e85c4f9f" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>pub_deserialization</name></member>
+      <member refid="classAcousticPinger_1ac93c159c50922b105819cd7a629c6b01" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>pub_im</name></member>
+      <member refid="classAcousticPinger_1ad7841c97df761db9cbaf943401f350dd" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>pub_range</name></member>
+      <member refid="classAcousticPinger_1a67df63b657bbb22be7376679241071a3" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>pub_triggerserialization</name></member>
+      <member refid="classAcousticPinger_1ae1af293337b7a27f38655b8fb05dd7ca" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>range_max</name></member>
+      <member refid="classAcousticPinger_1a456ecfbdb51c232cc270ff933ce81ec8" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>RECVIMSCallback</name></member>
+      <member refid="classAcousticPinger_1a3a869e1bd24786cb09b957ab2b95af06" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>serializerCallback</name></member>
+      <member refid="classAcousticPinger_1a008678e4c3f353bb8beb14829381be40" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>sub_enable</name></member>
+      <member refid="classAcousticPinger_1a0b0242fc792c5c16985040080eb19799" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>sub_in_modem</name></member>
+      <member refid="classAcousticPinger_1a1509738ed7ee624457807bcb392b206e" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>sub_serializer</name></member>
+      <member refid="classAcousticPinger_1a2120b6cd4198a71a5705b476666e856b" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>timeout_list</name></member>
+      <member refid="classAcousticPinger_1a4315b679390afde6845309dceb533ec9" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>timeouts</name></member>
+      <member refid="classAcousticPinger_1af7ed29beb50e725e380d287fd4e17e3c" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>Timer</name></member>
+      <member refid="classAcousticPinger_1ad4b3c73ebd26568a13635df778f17eaa" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>timer</name></member>
+      <member refid="classAcousticPinger_1a15f6d225db0ac76ae3f8db9bd1510f63" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>tlastRECVIMS</name></member>
+      <member refid="classAcousticPinger_1a88387d3f61fca7a3bf777b5a7e844104" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>tlastSENDIMS</name></member>
+      <member refid="classAcousticPinger_1ab39ebdd85cf5549db31c80b0e23d7163" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>triggerSerialization</name></member>
+      <member refid="classAcousticPinger_1ab0547027299207f21965f5242d392e5d" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>tslack</name></member>
+      <member refid="classAcousticPinger_1a34a47e7a30aebd7685c95d633111542d" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>updateClock</name></member>
+      <member refid="classAcousticPinger_1ae313559d5a89b6d77f7b69d021401d30" prot="private" virt="non-virtual"><scope>AcousticPinger</scope><name>waiting_for_serializer</name></member>
+      <member refid="classAcousticPinger_1a36c81078275a8183ff2ab85a58f82a95" prot="public" virt="non-virtual"><scope>AcousticPinger</scope><name>~AcousticPinger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

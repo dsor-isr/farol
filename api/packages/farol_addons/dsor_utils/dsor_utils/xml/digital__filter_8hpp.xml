@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="digital__filter_8hpp" kind="file" language="C++">
+    <compoundname>digital_filter.hpp</compoundname>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">cmath</includes>
+    <includes refid="circular__buffer_8hpp" local="no">dsor_utils/data_structures/circular_buffer.hpp</includes>
+    <includedby refid="differentiator_8hpp" local="yes">include/dsor_utils/filters/differentiator.hpp</includedby>
+    <includedby refid="highpass__filter_8hpp" local="yes">include/dsor_utils/filters/highpass_filter.hpp</includedby>
+    <includedby refid="lowpass__filter_8hpp" local="yes">include/dsor_utils/filters/lowpass_filter.hpp</includedby>
+    <includedby refid="moving__average__filter_8hpp" local="yes">include/dsor_utils/filters/moving_average_filter.hpp</includedby>
+    <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="2">
+        <label>stdexcept</label>
+      </node>
+      <node id="5">
+        <label>cstdlib</label>
+      </node>
+      <node id="1">
+        <label>include/dsor_utils/filters/digital_filter.hpp</label>
+        <link refid="digital__filter_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>dsor_utils/data_structures/circular_buffer.hpp</label>
+        <link refid="circular__buffer_8hpp_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>include/dsor_utils/filters/moving_average_filter.hpp</label>
+        <link refid="moving__average__filter_8hpp_source"/>
+      </node>
+      <node id="2">
+        <label>include/dsor_utils/filters/differentiator.hpp</label>
+        <link refid="differentiator_8hpp_source"/>
+      </node>
+      <node id="4">
+        <label>include/dsor_utils/filters/lowpass_filter.hpp</label>
+        <link refid="lowpass__filter_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>include/dsor_utils/filters/digital_filter.hpp</label>
+        <link refid="digital__filter_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/dsor_utils/filters/highpass_filter.hpp</label>
+        <link refid="highpass__filter_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classDigitalFilter" prot="public">DigitalFilter</innerclass>
+    <innernamespace refid="namespacetps">tps</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetps_1a4ba84c64ef7f752a77bd0adc41dc1900" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T tps::pow</definition>
+        <argsstring>(T input, unsigned int power)</argsstring>
+        <name>pow</name>
+        <param>
+          <type>T</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>power</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/digital_filter.hpp" line="21" column="13" bodyfile="include/dsor_utils/filters/digital_filter.hpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="13"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_utils/data_structures/circular_buffer.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="namespacetps" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetps" kindref="compound">tps</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/>T<sp/>pow(T<sp/>input,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>power){<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(power<sp/>==<sp/>0<sp/>?<sp/>1<sp/>:<sp/>input<sp/>*<sp/>(power<sp/>&lt;=<sp/>1<sp/>?<sp/>1<sp/>:<sp/>tps::pow(input,<sp/>power-1)));<sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>Type&gt;</highlight></codeline>
+<codeline lineno="30" refid="classDigitalFilter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>Type<sp/>update(Type<sp/>newValue)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>Type<sp/>getOutput()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="include/dsor_utils/filters/digital_filter.hpp"/>
+  </compounddef>
+</doxygen>

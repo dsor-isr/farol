@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="States_8h" kind="file" language="C++">
+    <compoundname>States.h</compoundname>
+    <includes local="no">Eigen/Core</includes>
+    <includes local="no">limits</includes>
+    <includedby refid="PathFollowing_8h" local="yes">include/algorithms/PathFollowing.h</includedby>
+    <includedby refid="PathFollowingNode_8h" local="yes">include/ros/PathFollowingNode.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>limits</label>
+      </node>
+      <node id="1">
+        <label>include/algorithms/States.h</label>
+        <link refid="States_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Eigen/Core</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="10">
+        <label>include/algorithms/RelativeHeading.h</label>
+        <link refid="RelativeHeading_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/ros/PathFollowingNode.h</label>
+        <link refid="PathFollowingNode_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/algorithms/States.h</label>
+        <link refid="States_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>include/algorithms/Romulo.h</label>
+        <link refid="Romulo_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>include/algorithms/Fossen.h</label>
+        <link refid="Fossen_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>include/algorithms/Samson.h</label>
+        <link refid="Samson_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>include/algorithms/Marcelo.h</label>
+        <link refid="Marcelo_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>include/algorithms/Lapierre.h</label>
+        <link refid="Lapierre_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/algorithms/Aguiar.h</label>
+        <link refid="Aguiar_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/algorithms/Brevik.h</label>
+        <link refid="Brevik_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/algorithms/PathFollowing.h</label>
+        <link refid="PathFollowing_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>include/algorithms/Pramod.h</label>
+        <link refid="Pramod_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structVehicleState" prot="public">VehicleState</innerclass>
+    <innerclass refid="structPathState" prot="public">PathState</innerclass>
+    <innerclass refid="structPFollowingDebug" prot="public">PFollowingDebug</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="structVehicleState" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structVehicleState_1ac9730df9dd6e068de2e031d5da4a2c9b" refkind="member"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>v1{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Linear<sp/>velocities<sp/>in<sp/>the<sp/>body<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>v2{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Angular<sp/>velocities<sp/>in<sp/>the<sp/>body<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" refkind="member"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta1{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/></highlight><highlight class="comment">//<sp/>Position<sp/>relative<sp/>to<sp/>the<sp/>inertial<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta2{0.0,<sp/>0.0,<sp/>0.0}<sp/>;<sp/></highlight><highlight class="comment">//<sp/>Orientation<sp/>relative<sp/>to<sp/>the<sp/>inertial<sp/>frame</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/>}<sp/><ref refid="structVehicleState" kindref="compound">VehicleState</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structPathState" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="48" refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma{0.0};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="53" refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" refkind="member"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>pd{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>d_pd{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>dd_pd{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>psi{0.0};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>curvature{0.0};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm{0.0};</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vd{0.0};</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d_vd{0.0};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vehicle_speed{0.0};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vc{0.0};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_min{std::numeric_limits&lt;double&gt;::lowest()};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_max{std::numeric_limits&lt;double&gt;::max()};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}<sp/><ref refid="structPathState" kindref="compound">PathState</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="structPFollowingDebug" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>std::string<sp/>algorithm;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cross_track_error{0.0};</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>along_track_error{0.0};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw{0.0};</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>psi{0.0};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma{0.0};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}<sp/><ref refid="structPFollowingDebug" kindref="compound">PFollowingDebug</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/States.h"/>
+  </compounddef>
+</doxygen>

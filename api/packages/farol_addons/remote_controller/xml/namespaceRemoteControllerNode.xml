@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceRemoteControllerNode" kind="namespace" language="Python">
+    <compoundname>RemoteControllerNode</compoundname>
+    <innerclass refid="classRemoteControllerNode_1_1RemoteControllerNode" prot="public">RemoteControllerNode::RemoteControllerNode</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRemoteControllerNode_1a8803c27f7c4910e3ac422f12fea8d51d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def RemoteControllerNode.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize the RemoteControllerNode and let the timer callback do all the work
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="153" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="153" bodyend="160"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>@author: Marcelo Fialho Jacinto
+@email: marcelo.jacinto@tecnico.ulisboa.pt
+@date: 25/11/2021
+@licence: MIT
+</verbatim> </para>
+    </detaileddescription>
+    <location file="src/RemoteControllerNode.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

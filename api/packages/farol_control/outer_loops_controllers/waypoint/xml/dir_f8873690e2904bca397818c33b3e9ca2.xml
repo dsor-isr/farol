@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_f8873690e2904bca397818c33b3e9ca2" kind="dir">
+    <compoundname>src/waypoint_algorithms</compoundname>
+    <innerfile refid="wp__heading_8cpp">wp_heading.cpp</innerfile>
+    <innerfile refid="wp__loose_8cpp">wp_loose.cpp</innerfile>
+    <innerfile refid="wp__standard_8cpp">wp_standard.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/waypoint_algorithms/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode" kind="class" language="Python" prot="public">
+    <compoundname>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::messages_type</definition>
+        <argsstring></argsstring>
+        <name>messages_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="34" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a6d637680ae6e0e4d3926cb709b2bc570" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::data_populate</definition>
+        <argsstring></argsstring>
+        <name>data_populate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="37" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::sock</definition>
+        <argsstring></argsstring>
+        <name>sock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="43" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a54095bacde94f125a787cc77784054f7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::pubs</definition>
+        <argsstring></argsstring>
+        <name>pubs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="57" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a5ecac7d4cb78702cd72372e38d8f9765" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::node_frequency</definition>
+        <argsstring></argsstring>
+        <name>node_frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="70" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1af66dea08cff552b0a86860ccaa4500df" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="71" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab0486e973db28ad63186d6955b442920" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="72" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afff803d33a8e2320c0171ec1e18dcbbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for ros node
+</verbatim><verbatim>###########################################################################################
+@.@ Init node
+###########################################################################################
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="15" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="15" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a57acafb46bf8759a590cdf35c8f0e2f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.initializePublishers</definition>
+        <argsstring>(self)</argsstring>
+        <name>initializePublishers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="55" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="55" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a556a818cd08864c4898e50bff3c37e08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.loadParams</definition>
+        <argsstring>(self)</argsstring>
+        <name>loadParams</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="69" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aacbb636cb36d828addf792d729c527a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.serverEnable</definition>
+        <argsstring>(self)</argsstring>
+        <name>serverEnable</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="79" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab8aef6c3faaaa77b95e9dec7cd95c174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.parseData</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>parseData</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="89" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="89" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afd88d52c8531127af1dcb0198ba4c058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.cpfGammaMessage</definition>
+        <argsstring>(self, parsed_data)</argsstring>
+        <name>cpfGammaMessage</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>parsed_data</type>
+          <defname>parsed_data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="114" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="114" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a799ae620c7e6c465d7cd6f53cd1f7f74" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.etcpfGammaMessage</definition>
+        <argsstring>(parsed_data)</argsstring>
+        <name>etcpfGammaMessage</name>
+        <param>
+          <type>parsed_data</type>
+          <defname>parsed_data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="138" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="138" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aabd040defeceb48512193efff45c5625" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def cpf_gamma_ros.CpfGammaServerNode.CpfGammaServerNode.etcpfAckMessage</definition>
+        <argsstring>(parsed_data)</argsstring>
+        <name>etcpfAckMessage</name>
+        <param>
+          <type>parsed_data</type>
+          <defname>parsed_data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="147" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="147" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/cpf_gamma_ros/CpfGammaServerNode.py" line="14" column="1" bodyfile="src/cpf_gamma_ros/CpfGammaServerNode.py" bodystart="14" bodyend="151"/>
+    <listofallmembers>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afff803d33a8e2320c0171ec1e18dcbbb" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>__init__</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afd88d52c8531127af1dcb0198ba4c058" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>cpfGammaMessage</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a6d637680ae6e0e4d3926cb709b2bc570" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>data_populate</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aabd040defeceb48512193efff45c5625" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>etcpfAckMessage</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a799ae620c7e6c465d7cd6f53cd1f7f74" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>etcpfGammaMessage</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1af66dea08cff552b0a86860ccaa4500df" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>id</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a57acafb46bf8759a590cdf35c8f0e2f0" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>initializePublishers</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a556a818cd08864c4898e50bff3c37e08" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>loadParams</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aa42c02a84d3b0a25513fb6e41fb8a30f" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>messages_type</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a5ecac7d4cb78702cd72372e38d8f9765" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>node_frequency</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab8aef6c3faaaa77b95e9dec7cd95c174" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>parseData</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1ab0486e973db28ad63186d6955b442920" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>port</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1a54095bacde94f125a787cc77784054f7" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>pubs</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1aacbb636cb36d828addf792d729c527a0" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>serverEnable</name></member>
+      <member refid="classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode_1afea8aaf20e64e742f72a694d58fca7d0" prot="public" virt="non-virtual"><scope>cpf_gamma_ros::CpfGammaServerNode::CpfGammaServerNode</scope><name>sock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

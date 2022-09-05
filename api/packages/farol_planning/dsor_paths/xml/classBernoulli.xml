@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classBernoulli" kind="class" language="C++" prot="public">
+    <compoundname>Bernoulli</compoundname>
+    <basecompoundref refid="classPathSection" prot="public" virt="non-virtual">PathSection</basecompoundref>
+    <includes refid="Bernoulli_8h" local="no">Bernoulli.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBernoulli_1a3a97bc2f151fb3fadd4e0f5aa6cf365c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Bernoulli::radius_</definition>
+        <argsstring></argsstring>
+        <name>radius_</name>
+        <briefdescription>
+<para>The radius of the bernoulli path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="94" column="12" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1a0994a38aedb1c939945cfb8df5e5cad9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Bernoulli::center_x_</definition>
+        <argsstring></argsstring>
+        <name>center_x_</name>
+        <briefdescription>
+<para>The x, y coordinates of the center of the bernoulli path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="99" column="12" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1add016d031f8bded267da86201bc2029b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Bernoulli::center_y_</definition>
+        <argsstring></argsstring>
+        <name>center_y_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="99" column="22" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1ad44955bd9f2aa2efe87c86d83da3bab5" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Bernoulli::z_axis_</definition>
+        <argsstring></argsstring>
+        <name>z_axis_</name>
+        <briefdescription>
+<para>The desired 2D plane in which to place the <ref refid="classBernoulli" kindref="compound">Bernoulli</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="104" column="12" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1a39ee2129c528b4a0233c97f4b369b157" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Bernoulli::first_iteration_</definition>
+        <argsstring></argsstring>
+        <name>first_iteration_</name>
+        <initializer>{true}</initializer>
+        <briefdescription>
+<para>Auxiliary variable to do a better optimization when searching for the closest point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="109" column="10" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1a09baeeb94e9b1ab87bd9125b8dd12fad" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Bernoulli::gamma_o_</definition>
+        <argsstring></argsstring>
+        <name>gamma_o_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="110" column="12" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1a00c73af5736ad35f651ed6fcab378ef5" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Bernoulli::num_partitions_</definition>
+        <argsstring></argsstring>
+        <name>num_partitions_</name>
+        <initializer>{4}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="111" column="15" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBernoulli_1ae79fd242f3b5bd2ebe046f0710d98bf6" prot="private" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double Bernoulli::tolerance_</definition>
+        <argsstring></argsstring>
+        <name>tolerance_</name>
+        <initializer>{0.01}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="112" column="18" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBernoulli_1a2aa1605e6252f68349e4eb749b5b563d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Bernoulli::Bernoulli</definition>
+        <argsstring>(double radius, double center_x, double center_y)</argsstring>
+        <name>Bernoulli</name>
+        <param>
+          <type>double</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_y</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the path section that assumes the plane in which the path is placed is z=0. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius of the bernoulli lamniscaste section </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate of the center of the bernoulli </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate of the center of the bernoulli </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="28" column="5" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBernoulli_1a2f1f60bbda32f135a97529e0dcd46fc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Bernoulli::Bernoulli</definition>
+        <argsstring>(double radius, double center_x, double center_y, double z)</argsstring>
+        <name>Bernoulli</name>
+        <param>
+          <type>double</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>center_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the path section. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The radius of the bernoulli lamniscaste section </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The x coordinate of the center of the bernoulli </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>center_y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The y coordinate of the center of the bernoulli </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The altitude in m in which to place the bernoulli </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="38" column="5" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="5" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBernoulli_1ae7c5b8d12658bb295a089d118d161101" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Bernoulli::eq_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_pd</name>
+        <reimplements refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109">eq_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="classPath" kindref="compound">Path</ref> section equation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the value of the equation of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="47" column="21" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="22" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classBernoulli_1aed005d0fa35c887c0a94e73214bbe77e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Bernoulli::eq_d_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_d_pd</name>
+        <reimplements refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe">eq_d_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>First derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the value of the derivate of the equation of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="56" column="21" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="36" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classBernoulli_1ad454ebe95e1a56a9cbd55f798e8d0c8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Eigen::Vector3d</type>
+        <definition>Eigen::Vector3d Bernoulli::eq_dd_pd</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>eq_dd_pd</name>
+        <reimplements refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad">eq_dd_pd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative of the path section equation with respect to the path parameter t. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path paramter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An Eigen::Vector3d with the value of the derivative of the equation of the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="65" column="21" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classBernoulli_1a4ec726044ec8606b33cb03249b6f0a36" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Bernoulli::curvature</definition>
+        <argsstring>(double t) override</argsstring>
+        <name>curvature</name>
+        <reimplements refid="classPathSection_1adffd7389e5870df945c682481713ba76">curvature</reimplements>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Compute the curvature using the direct formula. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a double with the curvature of the section </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="74" column="12" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="63" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classBernoulli_1a808fe7388f94475d7c3a60911c908288" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double Bernoulli::getClosestPointGamma</definition>
+        <argsstring>(Eigen::Vector3d &amp;coordinate) override</argsstring>
+        <name>getClosestPointGamma</name>
+        <reimplements refid="classPathSection_1a78793a75681c551d37012591404af39c">getClosestPointGamma</reimplements>
+        <param>
+          <type>Eigen::Vector3d &amp;</type>
+          <declname>coordinate</declname>
+        </param>
+        <briefdescription>
+<para>Method for getting the gamma of the closest point. In this implementation the closest point is computed iteratively using Gradient Descent Method. For the first iteration, to get a good initialization, the section is divided into N partitions between [0, 2*PI] and the minimum is computed for each partition. The gamma with the minimum distance will be used to initialize the algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coordinate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An Eigen::Vector3d with the coordinate of the vehicle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a double with the gamma corresponding to the closest point</para>
+</simplesect>
+Method to return the closest point to the path By default just calls the Gradient Descent algorithm </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/path_sections/Bernoulli.h" line="87" column="12" bodyfile="src/algorithms/path_sections/Bernoulli.cpp" bodystart="74" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements a 2D Lemniscate of <ref refid="classBernoulli" kindref="compound">Bernoulli</ref> section. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is used as a part of the sections library <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="1">
+        <label>Bernoulli</label>
+        <link refid="classBernoulli"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>PathSection</label>
+        <link refid="classPathSection"/>
+      </node>
+      <node id="1">
+        <label>Bernoulli</label>
+        <link refid="classBernoulli"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/path_sections/Bernoulli.h" line="16" column="35" bodyfile="include/algorithms/path_sections/Bernoulli.h" bodystart="16" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classBernoulli_1a2aa1605e6252f68349e4eb749b5b563d" prot="public" virt="non-virtual"><scope>Bernoulli</scope><name>Bernoulli</name></member>
+      <member refid="classBernoulli_1a2f1f60bbda32f135a97529e0dcd46fc3" prot="public" virt="non-virtual"><scope>Bernoulli</scope><name>Bernoulli</name></member>
+      <member refid="classPathSection_1ad021a100a135860c764461bc289707e3" prot="protected" virt="non-virtual"><scope>Bernoulli</scope><name>bisection</name></member>
+      <member refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" prot="public" virt="non-virtual"><scope>Bernoulli</scope><name>can_be_composed</name></member>
+      <member refid="classBernoulli_1a0994a38aedb1c939945cfb8df5e5cad9" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>center_x_</name></member>
+      <member refid="classBernoulli_1add016d031f8bded267da86201bc2029b" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>center_y_</name></member>
+      <member refid="classBernoulli_1a4ec726044ec8606b33cb03249b6f0a36" prot="public" virt="virtual"><scope>Bernoulli</scope><name>curvature</name></member>
+      <member refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" prot="public" virt="virtual"><scope>Bernoulli</scope><name>derivative_norm</name></member>
+      <member refid="classBernoulli_1aed005d0fa35c887c0a94e73214bbe77e" prot="public" virt="virtual"><scope>Bernoulli</scope><name>eq_d_pd</name></member>
+      <member refid="classBernoulli_1ad454ebe95e1a56a9cbd55f798e8d0c8d" prot="public" virt="virtual"><scope>Bernoulli</scope><name>eq_dd_pd</name></member>
+      <member refid="classBernoulli_1ae7c5b8d12658bb295a089d118d161101" prot="public" virt="virtual"><scope>Bernoulli</scope><name>eq_pd</name></member>
+      <member refid="classBernoulli_1a39ee2129c528b4a0233c97f4b369b157" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>first_iteration_</name></member>
+      <member refid="classBernoulli_1a09baeeb94e9b1ab87bd9125b8dd12fad" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>gamma_o_</name></member>
+      <member refid="classBernoulli_1a808fe7388f94475d7c3a60911c908288" prot="public" virt="virtual"><scope>Bernoulli</scope><name>getClosestPointGamma</name></member>
+      <member refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" prot="protected" virt="non-virtual"><scope>Bernoulli</scope><name>getInitialGammaEstimate</name></member>
+      <member refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" prot="public" virt="non-virtual"><scope>Bernoulli</scope><name>getMaxGammaValue</name></member>
+      <member refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" prot="public" virt="non-virtual"><scope>Bernoulli</scope><name>getMinGammaValue</name></member>
+      <member refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" prot="protected" virt="non-virtual"><scope>Bernoulli</scope><name>GradientDescent</name></member>
+      <member refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" prot="public" virt="non-virtual"><scope>Bernoulli</scope><name>limitGamma</name></member>
+      <member refid="classBernoulli_1a00c73af5736ad35f651ed6fcab378ef5" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>num_partitions_</name></member>
+      <member refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" prot="protected" virt="non-virtual"><scope>Bernoulli</scope><name>PathSection</name></member>
+      <member refid="classBernoulli_1a3a97bc2f151fb3fadd4e0f5aa6cf365c" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>radius_</name></member>
+      <member refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" prot="protected" virt="non-virtual"><scope>Bernoulli</scope><name>setMaxGammaValue</name></member>
+      <member refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" prot="protected" virt="non-virtual"><scope>Bernoulli</scope><name>setMinGammaValue</name></member>
+      <member refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" prot="public" virt="virtual"><scope>Bernoulli</scope><name>tangent</name></member>
+      <member refid="classBernoulli_1ae79fd242f3b5bd2ebe046f0710d98bf6" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>tolerance_</name></member>
+      <member refid="classBernoulli_1ad44955bd9f2aa2efe87c86d83da3bab5" prot="private" virt="non-virtual"><scope>Bernoulli</scope><name>z_axis_</name></member>
+      <member refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" prot="public" virt="virtual"><scope>Bernoulli</scope><name>~PathSection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

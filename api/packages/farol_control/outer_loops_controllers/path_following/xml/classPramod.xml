@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classPramod" kind="class" language="C++" prot="public">
+    <compoundname>Pramod</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Pramod_8h" local="no">Pramod.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classPramod_1af385d41d0767d7a1a0b903dcf53e7fa2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Pramod::gains_</definition>
+        <argsstring></argsstring>
+        <name>gains_</name>
+        <briefdescription>
+<para>Controller paramter gains. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="83" column="17" bodyfile="include/algorithms/Pramod.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPramod_1ac6f9a9b0620cba76085d766a5c76e38b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Pramod::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Variables to store the desired references. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="88" column="12" bodyfile="include/algorithms/Pramod.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPramod_1a9110783a4d574bc9edfd140180b0ab30" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Pramod::desired_yaw_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="89" column="12" bodyfile="include/algorithms/Pramod.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPramod_1a40419bc17660abdfda1d30d6a8c6cb7e" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Pramod::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="94" column="20" bodyfile="include/algorithms/Pramod.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPramod_1ae125698f9d7708fd86abe5ad95688b4c" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Pramod::yaw_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="95" column="20" bodyfile="include/algorithms/Pramod.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classPramod_1a37f2d24688004d65425f7edd3125902a" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient Pramod::mode_client_</definition>
+        <argsstring></argsstring>
+        <name>mode_client_</name>
+        <briefdescription>
+<para>ROS service to use the closest point to the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="100" column="24" bodyfile="include/algorithms/Pramod.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPramod_1a861fb9927e005dec09dc5054e69a9a29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Pramod::Pramod</definition>
+        <argsstring>(std::vector&lt; double &gt; gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::ServiceClient mode_client)</argsstring>
+        <name>Pramod</name>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_pub</declname>
+        </param>
+        <param>
+          <type>ros::ServiceClient</type>
+          <declname>mode_client</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector with the gains of the controller (2 gains only - Kp and Kd) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode_client</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS service client to change the mode of operation of the path (to the closest point) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="34" column="5" bodyfile="src/algorithms/Pramod.cpp" bodystart="3" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classPramod_1a3fd67677577d64b1af2c556b787aa00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Pramod::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method that given an array of doubles, updates the gains of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains of the controller (only 2 gains Kp and Kd)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="43" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="12" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classPramod_1a44f11799b766cf7246925810bb7891c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Pramod::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time diference between the previous and current call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="50" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="21" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classPramod_1a208ad35f152c1e352155edc01c73bf6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Pramod::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="55" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="66" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classPramod_1a126d336bd731481ba1949e076830d261" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Pramod::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method used to start the algorithm in the first run. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="60" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="74" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classPramod_1a72242417c3edc99e4afefeca99996067" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Pramod::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="67" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="84" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Pramod::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="75" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="95" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classPramod" kindref="compound">Pramod</ref>&apos;s algorithm for path following*. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This algorithm support: Controls:<itemizedlist>
+<listitem><para>yaw</para>
+</listitem><listitem><para>surge Supports Cooperative Path Following - True Contains Currents Observers - False</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Pramod</label>
+        <link refid="classPramod"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="1">
+        <label>Pramod</label>
+        <link refid="classPramod"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Pramod.h" line="22" column="34" bodyfile="include/algorithms/Pramod.h" bodystart="22" bodyend="102"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>algConvert</name></member>
+      <member refid="classPramod_1a44f11799b766cf7246925810bb7891c3" prot="public" virt="virtual"><scope>Pramod</scope><name>callPFController</name></member>
+      <member refid="classPramod_1ac6f9a9b0620cba76085d766a5c76e38b" prot="private" virt="non-virtual"><scope>Pramod</scope><name>desired_surge_</name></member>
+      <member refid="classPramod_1a9110783a4d574bc9edfd140180b0ab30" prot="private" virt="non-virtual"><scope>Pramod</scope><name>desired_yaw_</name></member>
+      <member refid="classPramod_1af385d41d0767d7a1a0b903dcf53e7fa2" prot="private" virt="non-virtual"><scope>Pramod</scope><name>gains_</name></member>
+      <member refid="classPramod_1a37f2d24688004d65425f7edd3125902a" prot="private" virt="non-virtual"><scope>Pramod</scope><name>mode_client_</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPramod_1a861fb9927e005dec09dc5054e69a9a29" prot="public" virt="non-virtual"><scope>Pramod</scope><name>Pramod</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Pramod</scope><name>publish</name></member>
+      <member refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" prot="public" virt="virtual"><scope>Pramod</scope><name>publish_private</name></member>
+      <member refid="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" prot="public" virt="virtual"><scope>Pramod</scope><name>reset</name></member>
+      <member refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" prot="public" virt="virtual"><scope>Pramod</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual"><scope>Pramod</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPramod_1a3fd67677577d64b1af2c556b787aa00f" prot="public" virt="virtual"><scope>Pramod</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Pramod</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classPramod_1a126d336bd731481ba1949e076830d261" prot="public" virt="virtual"><scope>Pramod</scope><name>start</name></member>
+      <member refid="classPramod_1a72242417c3edc99e4afefeca99996067" prot="public" virt="virtual"><scope>Pramod</scope><name>stop</name></member>
+      <member refid="classPramod_1a40419bc17660abdfda1d30d6a8c6cb7e" prot="private" virt="non-virtual"><scope>Pramod</scope><name>surge_pub_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Pramod</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Pramod</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>vehicle_state_</name></member>
+      <member refid="classPramod_1ae125698f9d7708fd86abe5ad95688b4c" prot="private" virt="non-virtual"><scope>Pramod</scope><name>yaw_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Pramod</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

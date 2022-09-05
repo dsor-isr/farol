@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir">
+    <compoundname>include/algorithms</compoundname>
+    <innerfile refid="AUV_8h">AUV.h</innerfile>
+    <innerfile refid="State_8h">State.h</innerfile>
+    <innerfile refid="Utils_8h">Utils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,882 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classFiltersNode" kind="class" language="C++" prot="public">
+    <compoundname>FiltersNode</compoundname>
+    <includes refid="FiltersNode_8h" local="no">FiltersNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFiltersNode_1ab4b3189cd95692661c16f4035d767cd5" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle FiltersNode::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="90" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a88d649661d1b8c8cc4ce63d503b0e805" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle FiltersNode::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+<para>Node handles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="90" column="21" bodyfile="include/ros/FiltersNode.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ad6502a88c0cd2fee63655bb00b2edc11" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber FiltersNode::sub_position_</definition>
+        <argsstring></argsstring>
+        <name>sub_position_</name>
+        <briefdescription>
+<para>Measurement position subscriber. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="93" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a27974a9d2ebe9a22ff0185f8fc44bea3" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber FiltersNode::sub_velocity_</definition>
+        <argsstring></argsstring>
+        <name>sub_velocity_</name>
+        <briefdescription>
+<para>Measurement velocity subscriber. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="94" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1afee97fdb6c43aaa3363ed93eab33d4c1" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber FiltersNode::sub_orientation_</definition>
+        <argsstring></argsstring>
+        <name>sub_orientation_</name>
+        <briefdescription>
+<para>Measurement orientation subscriber. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="95" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1af4923e8ca1be3c763da7113b1d6b2eb2" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber FiltersNode::sub_reset_</definition>
+        <argsstring></argsstring>
+        <name>sub_reset_</name>
+        <briefdescription>
+<para>Reset Filter subscriber. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="98" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a7a8f5d534d43b63b50ff619462ba90b8" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher FiltersNode::state_pub_</definition>
+        <argsstring></argsstring>
+        <name>state_pub_</name>
+        <briefdescription>
+<para>State publisher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="101" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a3cb327d2d800f8d3184ddc94b8fd8d29" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher FiltersNode::currents_pub_</definition>
+        <argsstring></argsstring>
+        <name>currents_pub_</name>
+        <briefdescription>
+<para>Currents publisher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="102" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a12a575914e67c3c3cb91439f365cbdb1" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer FiltersNode::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+<para>Principal timer iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="105" column="12" bodyfile="include/ros/FiltersNode.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ab90a11d742f977e129ca48c52a5a35a0" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer FiltersNode::list_cleaner_timer_</definition>
+        <argsstring></argsstring>
+        <name>list_cleaner_timer_</name>
+        <briefdescription>
+<para>Clear measurement list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="106" column="14" bodyfile="include/ros/FiltersNode.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ada3e323dc2273f3731c801a5bd7e4a81" prot="private" static="no" mutable="no">
+        <type>tf2_ros::Buffer</type>
+        <definition>tf2_ros::Buffer FiltersNode::tfBuffer_</definition>
+        <argsstring></argsstring>
+        <name>tfBuffer_</name>
+        <briefdescription>
+<para>Tf Buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="107" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a40de20d162b2917d53251900c134e2a6" prot="private" static="no" mutable="no">
+        <type>tf2_ros::TransformListener *</type>
+        <definition>tf2_ros::TransformListener* FiltersNode::tfListener_</definition>
+        <argsstring></argsstring>
+        <name>tfListener_</name>
+        <briefdescription>
+<para>tf listener </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="108" column="30" bodyfile="include/ros/FiltersNode.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ae2141b2b86238b1fe567d6d49148622b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string FiltersNode::world_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>world_frame_id_</name>
+        <briefdescription>
+<para>world frame name </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="111" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a17ebbf60f4446ba3eb988fdc679dc4a9" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string FiltersNode::base_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>base_frame_id_</name>
+        <briefdescription>
+<para>base frame name </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="112" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a853daa04a8620f87840960749a09163a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string FiltersNode::map_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>map_frame_id_</name>
+        <briefdescription>
+<para>map frame name </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="113" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1acfdada82f0e66ffedde542d1305b4ebf" prot="private" static="no" mutable="no">
+        <type>auv_msgs::NavigationStatus</type>
+        <definition>auv_msgs::NavigationStatus FiltersNode::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <briefdescription>
+<para>State. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="116" column="30" bodyfile="include/ros/FiltersNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ac0848e521d578f439a6f699573111cc4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FiltersNode::zone_</definition>
+        <argsstring></argsstring>
+        <name>zone_</name>
+        <briefdescription>
+<para>GPS zone. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="117" column="5" bodyfile="include/ros/FiltersNode.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a196d36afde16e5b3ed0dc4d545263167" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FiltersNode::northp_</definition>
+        <argsstring></argsstring>
+        <name>northp_</name>
+        <briefdescription>
+<para>north hemisphere flag </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="118" column="7" bodyfile="include/ros/FiltersNode.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a1624eead060339c2d044dadaa77f066e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FiltersNode::origin_lat_</definition>
+        <argsstring></argsstring>
+        <name>origin_lat_</name>
+        <briefdescription>
+<para>latitude origin for tfs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="119" column="8" bodyfile="include/ros/FiltersNode.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ab9d11ebb44d5dee603ce988ac0c448ad" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FiltersNode::origin_lon_</definition>
+        <argsstring></argsstring>
+        <name>origin_lon_</name>
+        <briefdescription>
+<para>longitude origin for tfs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="120" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1aca31230a8c6f47f0a9022e9d16d11d19" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FiltersNode::origin_alt_</definition>
+        <argsstring></argsstring>
+        <name>origin_alt_</name>
+        <briefdescription>
+<para>altitude origib for tfs </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="121" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a64f755f3c0f9cbdddf1ce320f83db1d1" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
+        <definition>std::vector&lt;FilterGimmicks::measurement&gt; FiltersNode::active_sensors_</definition>
+        <argsstring></argsstring>
+        <name>active_sensors_</name>
+        <briefdescription>
+<para>list of active sensors defined in yaml file </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="122" column="13" bodyfile="include/ros/FiltersNode.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ae8d5595026d01e6da4fe10c5aa0063c4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FiltersNode::p_dvl_body_frame_</definition>
+        <argsstring></argsstring>
+        <name>p_dvl_body_frame_</name>
+        <briefdescription>
+<para>Identify dvl frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="123" column="7" bodyfile="include/ros/FiltersNode.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a1cb32f61ab762ac8113899f241796208" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string FiltersNode::name_vehicle_id_</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id_</name>
+        <briefdescription>
+<para>Name of the vehicle with the correspondent ID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="125" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ac91ef7aad1aae34900e08f19c2583e1d" prot="private" static="no" mutable="no">
+        <type><ref refid="classHorizontalFilter" kindref="compound">HorizontalFilter</ref></type>
+        <definition>HorizontalFilter FiltersNode::hFilter_</definition>
+        <argsstring></argsstring>
+        <name>hFilter_</name>
+        <briefdescription>
+<para>Horizontal filter instantiation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="128" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a63a380385088558b3b2401dbeed28fef" prot="private" static="no" mutable="no">
+        <type><ref refid="classVerticalFilter" kindref="compound">VerticalFilter</ref></type>
+        <definition>VerticalFilter FiltersNode::vFilter_</definition>
+        <argsstring></argsstring>
+        <name>vFilter_</name>
+        <briefdescription>
+<para>Vertical filter instantiation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="129" column="16" bodyfile="include/ros/FiltersNode.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ad1e269fdf079e914206ba09193c1c7fc" prot="private" static="no" mutable="no">
+        <type><ref refid="classRotationalFilter" kindref="compound">RotationalFilter</ref></type>
+        <definition>RotationalFilter FiltersNode::rFilter_</definition>
+        <argsstring></argsstring>
+        <name>rFilter_</name>
+        <briefdescription>
+<para>Rotational filter instantiation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="130" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFiltersNode_1a49d2e8adb13b49affd01f99dce525be3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FiltersNode::FiltersNode</definition>
+        <argsstring>(ros::NodeHandle *nh, ros::NodeHandle *nh_private)</argsstring>
+        <name>FiltersNode</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nh_private</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>node handle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nh_private</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>node handle private </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="68" column="1" bodyfile="src/ros/FiltersNode.cpp" bodystart="7" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a0b77b79828d37ade676078d8e3f16c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FiltersNode::~FiltersNode</definition>
+        <argsstring>()</argsstring>
+        <name>~FiltersNode</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="76" column="3" bodyfile="src/ros/FiltersNode.cpp" bodystart="18" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1ab8595e87f3b9e51348f7885a88468d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double FiltersNode::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>Defines the node frequency. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Node frequency <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="87" column="10" bodyfile="src/ros/FiltersNode.cpp" bodystart="61" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classFiltersNode_1a1d6ea0ca641fd0d0a2c8cb6f94bd96fc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Initialize Subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="139" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a4ef9fe4389a617e856a98a65c9963f2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Initialize Publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="146" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="49" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a3b6221e3025fad5abb499c5767735cfd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Initialize Timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="153" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a589a0ea2eb0281c4b68e6b45e85cb046" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+<para>Load parameters from yaml file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="160" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="69" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a2f5b442d75d4ed7d84fc5d0769f6f6b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::stateTimerCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>stateTimerCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Main loop iteration of the sensor_fusion/filter <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="172" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="261" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a4a316413990259742354122439f5a019" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::listTimerCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>listTimerCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Clear the list of measurements in the horizontal filter after x seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="182" column="6" bodyfile="src/ros/FiltersNode.cpp" bodystart="323" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1abf3d38a0a6baf43c5af1b2390e048107" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::measurementCallback</definition>
+        <argsstring>(const dsor_msgs::Measurement &amp;msg)</argsstring>
+        <name>measurementCallback</name>
+        <param>
+          <type>const dsor_msgs::Measurement &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback for receiving the measurements from sensors or simulations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement type message, can be (position, vel, angles)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+@ note It is assumed that the measurements come always identified with position vel or orientation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="195" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="205" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1ac72db49ce831e16acde43ffb0191d6b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::resetCallback</definition>
+        <argsstring>(const std_msgs::Empty &amp;msg)</argsstring>
+        <name>resetCallback</name>
+        <param>
+          <type>const std_msgs::Empty &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Resets the Filters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="204" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="254" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a30b549d32831bb054d6d8820e4f48fdb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
+        <definition>std::vector&lt; FilterGimmicks::measurement &gt; FiltersNode::readSensors</definition>
+        <argsstring>(XmlRpc::XmlRpcValue valueXml)</argsstring>
+        <name>readSensors</name>
+        <param>
+          <type>XmlRpc::XmlRpcValue</type>
+          <declname>valueXml</declname>
+        </param>
+        <briefdescription>
+<para>Reads from the yaml file the sensors that will active affect the filter outout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>valueXml</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters from yaml file</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a vector of measurements, one for each defined sensor <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="219" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="329" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a1bb6da7d22e2bb1cbce9df2316af26dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref></type>
+        <definition>FilterGimmicks::measurement FiltersNode::readManuallyInitialization</definition>
+        <argsstring>(XmlRpc::XmlRpcValue valueXml)</argsstring>
+        <name>readManuallyInitialization</name>
+        <param>
+          <type>XmlRpc::XmlRpcValue</type>
+          <declname>valueXml</declname>
+        </param>
+        <briefdescription>
+<para>Reads from yaml the initial configuration of the filter, if no sensor(just postion) is defined as the initial input. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>valueXml</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters from yaml file</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns a measurement for using in the filters <linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="232" column="31" bodyfile="src/ros/FiltersNode.cpp" bodystart="351" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a3b64e38f56e01ede1a68e5aa664f9da0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; FiltersNode::extractVectorDouble</definition>
+        <argsstring>(XmlRpc::XmlRpcValue double_vector)</argsstring>
+        <name>extractVectorDouble</name>
+        <param>
+          <type>XmlRpc::XmlRpcValue</type>
+          <declname>double_vector</declname>
+        </param>
+        <briefdescription>
+<para>Helper method to read/parse parameters from yaml. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>double_vector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vector of doubles with values from the yaml file </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="244" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="361" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::extractArrayDouble</definition>
+        <argsstring>(double *array, XmlRpc::XmlRpcValue double_array)</argsstring>
+        <name>extractArrayDouble</name>
+        <param>
+          <type>double *</type>
+          <declname>array</declname>
+        </param>
+        <param>
+          <type>XmlRpc::XmlRpcValue</type>
+          <declname>double_array</declname>
+        </param>
+        <briefdescription>
+<para>Helper method to read/parse parameters from yaml. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>double_array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="254" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="380" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FiltersNode::sensorSplit</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m_in, FilterGimmicks::measurement &amp;m_horizontal, FilterGimmicks::measurement &amp;m_vertical, FilterGimmicks::measurement &amp;m_rotation)</argsstring>
+        <name>sensorSplit</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m_in</declname>
+        </param>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m_horizontal</declname>
+        </param>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m_vertical</declname>
+        </param>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m_rotation</declname>
+        </param>
+        <briefdescription>
+<para>Checks which variable state the sensor will affect (Hposition, Hvelocity, Vposition,orientation,acceleration, altitude). Then builds a corresponding horizontal, rotational or vertical message to send to the individual filters. <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>measurement from sensor or config file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m_horizontal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Horizontal measurement (Hposition, Hvelocity, acceleration) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m_vertical</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vertical measurement (Vposition/depth, altimeter) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m_rotation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rotational measurement (orientation) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="266" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="391" bodyend="533"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classFiltersNode" kindref="compound">FiltersNode</ref> class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>Read all the parameters for each filter(Horicontal, Rotations, Vertical), and configures them. Takes care of the iteration using timer. Also responsible for controlling the measurement buffer of the horizontal filter. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/ros/FiltersNode.h" line="58" column="1" bodyfile="include/ros/FiltersNode.h" bodystart="57" bodyend="267"/>
+    <listofallmembers>
+      <member refid="classFiltersNode_1a64f755f3c0f9cbdddf1ce320f83db1d1" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>active_sensors_</name></member>
+      <member refid="classFiltersNode_1a17ebbf60f4446ba3eb988fdc679dc4a9" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>base_frame_id_</name></member>
+      <member refid="classFiltersNode_1a3cb327d2d800f8d3184ddc94b8fd8d29" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>currents_pub_</name></member>
+      <member refid="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>extractArrayDouble</name></member>
+      <member refid="classFiltersNode_1a3b64e38f56e01ede1a68e5aa664f9da0" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>extractVectorDouble</name></member>
+      <member refid="classFiltersNode_1a49d2e8adb13b49affd01f99dce525be3" prot="public" virt="non-virtual"><scope>FiltersNode</scope><name>FiltersNode</name></member>
+      <member refid="classFiltersNode_1ac91ef7aad1aae34900e08f19c2583e1d" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>hFilter_</name></member>
+      <member refid="classFiltersNode_1a4ef9fe4389a617e856a98a65c9963f2a" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>initializePublishers</name></member>
+      <member refid="classFiltersNode_1a1d6ea0ca641fd0d0a2c8cb6f94bd96fc" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>initializeSubscribers</name></member>
+      <member refid="classFiltersNode_1a3b6221e3025fad5abb499c5767735cfd" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>initializeTimer</name></member>
+      <member refid="classFiltersNode_1ab90a11d742f977e129ca48c52a5a35a0" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>list_cleaner_timer_</name></member>
+      <member refid="classFiltersNode_1a4a316413990259742354122439f5a019" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>listTimerCallback</name></member>
+      <member refid="classFiltersNode_1a589a0ea2eb0281c4b68e6b45e85cb046" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>loadParams</name></member>
+      <member refid="classFiltersNode_1a853daa04a8620f87840960749a09163a" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>map_frame_id_</name></member>
+      <member refid="classFiltersNode_1abf3d38a0a6baf43c5af1b2390e048107" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>measurementCallback</name></member>
+      <member refid="classFiltersNode_1a1cb32f61ab762ac8113899f241796208" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>name_vehicle_id_</name></member>
+      <member refid="classFiltersNode_1ab4b3189cd95692661c16f4035d767cd5" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>nh_</name></member>
+      <member refid="classFiltersNode_1a88d649661d1b8c8cc4ce63d503b0e805" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>nh_private_</name></member>
+      <member refid="classFiltersNode_1ab8595e87f3b9e51348f7885a88468d5f" prot="public" virt="non-virtual"><scope>FiltersNode</scope><name>nodeFrequency</name></member>
+      <member refid="classFiltersNode_1a196d36afde16e5b3ed0dc4d545263167" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>northp_</name></member>
+      <member refid="classFiltersNode_1aca31230a8c6f47f0a9022e9d16d11d19" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>origin_alt_</name></member>
+      <member refid="classFiltersNode_1a1624eead060339c2d044dadaa77f066e" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>origin_lat_</name></member>
+      <member refid="classFiltersNode_1ab9d11ebb44d5dee603ce988ac0c448ad" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>origin_lon_</name></member>
+      <member refid="classFiltersNode_1ae8d5595026d01e6da4fe10c5aa0063c4" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>p_dvl_body_frame_</name></member>
+      <member refid="classFiltersNode_1a1bb6da7d22e2bb1cbce9df2316af26dc" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>readManuallyInitialization</name></member>
+      <member refid="classFiltersNode_1a30b549d32831bb054d6d8820e4f48fdb" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>readSensors</name></member>
+      <member refid="classFiltersNode_1ac72db49ce831e16acde43ffb0191d6b8" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>resetCallback</name></member>
+      <member refid="classFiltersNode_1ad1e269fdf079e914206ba09193c1c7fc" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>rFilter_</name></member>
+      <member refid="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sensorSplit</name></member>
+      <member refid="classFiltersNode_1acfdada82f0e66ffedde542d1305b4ebf" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>state_</name></member>
+      <member refid="classFiltersNode_1a7a8f5d534d43b63b50ff619462ba90b8" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>state_pub_</name></member>
+      <member refid="classFiltersNode_1a2f5b442d75d4ed7d84fc5d0769f6f6b3" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>stateTimerCallback</name></member>
+      <member refid="classFiltersNode_1afee97fdb6c43aaa3363ed93eab33d4c1" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sub_orientation_</name></member>
+      <member refid="classFiltersNode_1ad6502a88c0cd2fee63655bb00b2edc11" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sub_position_</name></member>
+      <member refid="classFiltersNode_1af4923e8ca1be3c763da7113b1d6b2eb2" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sub_reset_</name></member>
+      <member refid="classFiltersNode_1a27974a9d2ebe9a22ff0185f8fc44bea3" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sub_velocity_</name></member>
+      <member refid="classFiltersNode_1ada3e323dc2273f3731c801a5bd7e4a81" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>tfBuffer_</name></member>
+      <member refid="classFiltersNode_1a40de20d162b2917d53251900c134e2a6" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>tfListener_</name></member>
+      <member refid="classFiltersNode_1a12a575914e67c3c3cb91439f365cbdb1" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>timer_</name></member>
+      <member refid="classFiltersNode_1a63a380385088558b3b2401dbeed28fef" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>vFilter_</name></member>
+      <member refid="classFiltersNode_1ae2141b2b86238b1fe567d6d49148622b" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>world_frame_id_</name></member>
+      <member refid="classFiltersNode_1ac0848e521d578f439a6f699573111cc4" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>zone_</name></member>
+      <member refid="classFiltersNode_1a0b77b79828d37ade676078d8e3f16c1a" prot="public" virt="non-virtual"><scope>FiltersNode</scope><name>~FiltersNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

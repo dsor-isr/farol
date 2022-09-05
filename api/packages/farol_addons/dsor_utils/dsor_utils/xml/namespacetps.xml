@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacetps" kind="namespace" language="C++">
+    <compoundname>tps</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetps_1a4ba84c64ef7f752a77bd0adc41dc1900" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr T</type>
+        <definition>constexpr T tps::pow</definition>
+        <argsstring>(T input, unsigned int power)</argsstring>
+        <name>pow</name>
+        <param>
+          <type>T</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>power</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/digital_filter.hpp" line="21" column="13" bodyfile="include/dsor_utils/filters/digital_filter.hpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Authors: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Maintained by: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Last Update: 08/02/2018 Github: <ulink url="https://github.com/jimmyberg/DigitalFilters">https://github.com/jimmyberg/DigitalFilters</ulink> License: GNU Brief: Abstract class for moving filters. Moving filter are real time filter used for applications where continuous filtering is necessary as it can be part of an control system. </para>
+    </detaileddescription>
+    <location file="include/dsor_utils/filters/digital_filter.hpp" line="19" column="13"/>
+  </compounddef>
+</doxygen>

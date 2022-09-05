@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Circle2D_8cpp" kind="file" language="C++">
+    <compoundname>Circle2D.cpp</compoundname>
+    <includes refid="Circle2D_8h" local="yes">Circle2D.h</includes>
+    <includes local="no">stdexcept</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="7">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/path_sections/Circle2D.cpp</label>
+        <link refid="Circle2D_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="2">
+        <label>Circle2D.h</label>
+        <link refid="Circle2D_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>PathSection.h</label>
+        <link refid="PathSection_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Circle2D.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classCircle2D_1ac969123bed710be973348696d2e6d3b4" kindref="member">Circle2D::Circle2D</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_y,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z)<sp/>:<sp/><ref refid="classPathSection" kindref="compound">PathSection</ref>(false)<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Validate<sp/>the<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(radius<sp/>&lt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;Circle<sp/>radius<sp/>&lt;=<sp/>0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>this-&gt;radius_<sp/>=<sp/>radius;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>this-&gt;center_x_<sp/>=<sp/>center_x;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>this-&gt;center_y_<sp/>=<sp/>center_y;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>this-&gt;z_axis_<sp/>=<sp/>z;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><ref refid="classCircle2D_1ac969123bed710be973348696d2e6d3b4" kindref="member">Circle2D::Circle2D</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>center_y)<sp/>:<sp/><ref refid="classCircle2D" kindref="compound">Circle2D</ref>(radius,<sp/>center_x,<sp/>center_y,<sp/>0.0)<sp/>{}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classCircle2D_1a5373120cebf5966f05a6f00d120925c9" kindref="member">Circle2D::eq_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>pd_t;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>pd_t[0]<sp/>=<sp/>this-&gt;radius_<sp/>*<sp/>cos(t)<sp/>+<sp/>this-&gt;center_x_;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>pd_t[1]<sp/>=<sp/>this-&gt;radius_<sp/>*<sp/>sin(t)<sp/>+<sp/>this-&gt;center_y_;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>pd_t[2]<sp/>=<sp/>this-&gt;z_axis_;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pd_t;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classCircle2D_1a883ccdfde062da76232a0ddb7db7ec10" kindref="member">Circle2D::eq_d_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>d_pd_t;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>d_pd_t[0]<sp/>=<sp/>-this-&gt;radius_<sp/>*<sp/>sin(t);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>d_pd_t[1]<sp/>=<sp/>this-&gt;radius_<sp/>*<sp/>cos(t);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>d_pd_t[2]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>d_pd_t;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classCircle2D_1aba1a232913e95329296fd3917114455b" kindref="member">Circle2D::eq_dd_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>dd_pd_t;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>dd_pd_t[0]<sp/>=<sp/>-this-&gt;radius_<sp/>*<sp/>cos(t);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>dd_pd_t[1]<sp/>=<sp/>-this-&gt;radius_<sp/>*<sp/>sin(t);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>dd_pd_t[2]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dd_pd_t;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>curvature<sp/>only<sp/>using<sp/>the<sp/>radius<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classCircle2D_1af1da5e5fc8cd6a7ff9b7e6a9f92e93c0" kindref="member">Circle2D::curvature</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1.0/this-&gt;radius_;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classCircle2D_1a11543f18e9fa8d9d4c21492a904a853b" kindref="member">Circle2D::getClosestPointGamma</ref>(Eigen::Vector3d<sp/>&amp;coordinate)<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>it<sp/>is<sp/>the<sp/>first<sp/>iteration,<sp/>try<sp/>to<sp/>get<sp/>a<sp/>good<sp/>initialization,<sp/>using<sp/>bissection<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;first_iteration_)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;first_iteration_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Search<sp/>for<sp/>the<sp/>initial<sp/>gamma<sp/>in<sp/>4<sp/>different<sp/>partions<sp/>where<sp/>in<sp/>total</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>gamma<sp/>varies<sp/>between<sp/>0<sp/>and<sp/>2PI<sp/>(as<sp/>the<sp/>bernoulli<sp/>is<sp/>periodic)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_o_<sp/>=<sp/><ref refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" kindref="member">getInitialGammaEstimate</ref>(coordinate,<sp/>this-&gt;num_partitions_,<sp/>0,<sp/>2<sp/>*<sp/>M_PI);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;gamma_o_;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_estimated<sp/>=<sp/><ref refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" kindref="member">GradientDescent</ref>(this-&gt;gamma_o_,<sp/>coordinate,<sp/>this-&gt;tolerance_);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>this<sp/>value<sp/>to<sp/>use<sp/>as<sp/>initialization<sp/>for<sp/>a<sp/>next<sp/>usage<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>this-&gt;gamma_o_<sp/>=<sp/>gamma_estimated;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gamma_estimated;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/path_sections/Circle2D.cpp"/>
+  </compounddef>
+</doxygen>

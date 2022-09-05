@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structPFollowingDebug" kind="struct" language="C++" prot="public">
+    <compoundname>PFollowingDebug</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPFollowingDebug_1a5d0cc4a18250ffc5ea669465df5a380c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string PFollowingDebug::algorithm</definition>
+        <argsstring></argsstring>
+        <name>algorithm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="86" column="15" bodyfile="include/algorithms/States.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPFollowingDebug_1adba74c305378bd88b3b3b3762cd206f9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PFollowingDebug::cross_track_error</definition>
+        <argsstring></argsstring>
+        <name>cross_track_error</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="87" column="10" bodyfile="include/algorithms/States.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPFollowingDebug_1a60af7c376362d69250c606d3c0006915" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PFollowingDebug::along_track_error</definition>
+        <argsstring></argsstring>
+        <name>along_track_error</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="88" column="10" bodyfile="include/algorithms/States.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPFollowingDebug_1a5127cfdb987ad2b2ff49088e8fc43e1d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PFollowingDebug::yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="89" column="10" bodyfile="include/algorithms/States.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPFollowingDebug_1ae767c02a2aeadc9607582f5b41d2efb5" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PFollowingDebug::psi</definition>
+        <argsstring></argsstring>
+        <name>psi</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="90" column="10" bodyfile="include/algorithms/States.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPFollowingDebug_1aeb5e4dd677572c475ee1d791bf1c1a0b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double PFollowingDebug::gamma</definition>
+        <argsstring></argsstring>
+        <name>gamma</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/States.h" line="91" column="10" bodyfile="include/algorithms/States.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/States.h" line="84" column="15" bodyfile="include/algorithms/States.h" bodystart="84" bodyend="93"/>
+    <listofallmembers>
+      <member refid="structPFollowingDebug_1a5d0cc4a18250ffc5ea669465df5a380c" prot="public" virt="non-virtual"><scope>PFollowingDebug</scope><name>algorithm</name></member>
+      <member refid="structPFollowingDebug_1a60af7c376362d69250c606d3c0006915" prot="public" virt="non-virtual"><scope>PFollowingDebug</scope><name>along_track_error</name></member>
+      <member refid="structPFollowingDebug_1adba74c305378bd88b3b3b3762cd206f9" prot="public" virt="non-virtual"><scope>PFollowingDebug</scope><name>cross_track_error</name></member>
+      <member refid="structPFollowingDebug_1aeb5e4dd677572c475ee1d791bf1c1a0b" prot="public" virt="non-virtual"><scope>PFollowingDebug</scope><name>gamma</name></member>
+      <member refid="structPFollowingDebug_1ae767c02a2aeadc9607582f5b41d2efb5" prot="public" virt="non-virtual"><scope>PFollowingDebug</scope><name>psi</name></member>
+      <member refid="structPFollowingDebug_1a5127cfdb987ad2b2ff49088e8fc43e1d" prot="public" virt="non-virtual"><scope>PFollowingDebug</scope><name>yaw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

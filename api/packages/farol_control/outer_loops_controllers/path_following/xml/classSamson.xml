@@ -1,0 +1,618 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classSamson" kind="class" language="C++" prot="public">
+    <compoundname>Samson</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Samson_8h" local="no">Samson.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSamson_1a7684a067bcffa8052fe79d067834d0ac" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Samson::num_gains_</definition>
+        <argsstring></argsstring>
+        <name>num_gains_</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+<para>Controller parameters for the <ref refid="classSamson" kindref="compound">Samson</ref> Path Following Algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="87" column="15" bodyfile="include/algorithms/Samson.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a2b6b2cdc92da1007c320950686d21a92" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::k1_</definition>
+        <argsstring></argsstring>
+        <name>k1_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="88" column="12" bodyfile="include/algorithms/Samson.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a827916301ca46c88568e6bfbc6418982" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::k2_</definition>
+        <argsstring></argsstring>
+        <name>k2_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="89" column="12" bodyfile="include/algorithms/Samson.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a5bb86bab1dd2996e9ac1edb0f0c7c207" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::k3_</definition>
+        <argsstring></argsstring>
+        <name>k3_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="90" column="12" bodyfile="include/algorithms/Samson.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a44384db15a426bde913024c35ce5ca3c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::theta_</definition>
+        <argsstring></argsstring>
+        <name>theta_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="91" column="12" bodyfile="include/algorithms/Samson.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1ac85abb962380ca29b1d4985968aeb9dd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::k_delta_</definition>
+        <argsstring></argsstring>
+        <name>k_delta_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="92" column="12" bodyfile="include/algorithms/Samson.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1aeb0d1ebf0909767a43c32acd981ad5bf" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::yaw_out_</definition>
+        <argsstring></argsstring>
+        <name>yaw_out_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Auxiliar variables used to have continuous angles, since this algorithm requires that the angles are differentiable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="98" column="12" bodyfile="include/algorithms/Samson.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1ae763cf683cfe9448547db4b8ec049aa7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::yaw_out_old_</definition>
+        <argsstring></argsstring>
+        <name>yaw_out_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="99" column="12" bodyfile="include/algorithms/Samson.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a0e208b547a4216ea1461aae80122f1f9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::yaw_old_</definition>
+        <argsstring></argsstring>
+        <name>yaw_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="100" column="12" bodyfile="include/algorithms/Samson.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1ade6f94a9d70648793bbd45e2ba494a39" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::psi_out_</definition>
+        <argsstring></argsstring>
+        <name>psi_out_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="102" column="12" bodyfile="include/algorithms/Samson.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a3c62a05a59807c92585db4936c2953e4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::psi_out_old_</definition>
+        <argsstring></argsstring>
+        <name>psi_out_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="103" column="12" bodyfile="include/algorithms/Samson.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a975fbd7f5e619c836689863c5a424880" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::psi_old_</definition>
+        <argsstring></argsstring>
+        <name>psi_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="104" column="12" bodyfile="include/algorithms/Samson.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a691c6a608274a240427b854a1a46035f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <briefdescription>
+<para>The desired references to publish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="112" column="12" bodyfile="include/algorithms/Samson.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a74ab851759c95be0b4befc67f7630150" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Samson::desired_yaw_rate_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_rate_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="113" column="12" bodyfile="include/algorithms/Samson.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1ac94c2fd077c71e396a7c13395dea0d7c" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Samson::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers to publish the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="118" column="20" bodyfile="include/algorithms/Samson.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1a941ab4b1c58bd2d25d7a14616b4b5b16" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Samson::yaw_rate_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="119" column="20" bodyfile="include/algorithms/Samson.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSamson_1ac93862dfd857e594f7300ec64ac4330a" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient Samson::mode_client_</definition>
+        <argsstring></argsstring>
+        <name>mode_client_</name>
+        <briefdescription>
+<para>ROS service to use the closest point to the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="124" column="24" bodyfile="include/algorithms/Samson.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSamson_1a2a9e3d4ad8ed3f447a907b381e2d308a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Samson::Samson</definition>
+        <argsstring>(double k1, double k2, double k3, double theta, double k_delta, ros::Publisher surge_pub, ros::Publisher yaw_rate_pub, ros::ServiceClient mode_client)</argsstring>
+        <name>Samson</name>
+        <param>
+          <type>double</type>
+          <declname>k1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k3</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>theta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_delta</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_rate_pub</declname>
+        </param>
+        <param>
+          <type>ros::ServiceClient</type>
+          <declname>mode_client</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>theta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_delta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_rate_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw rate publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode_client</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS service client to change the mode of operation of the path to be the closest point </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="39" column="5" bodyfile="src/algorithms/Samson.cpp" bodystart="4" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1a66189f0d0e72ef772f95942b8a47842f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Samson::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method that given a vector of doubles, updates the gains of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
+<para><simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="50" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="19" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1a420566323e957d8fe941c40190386a34" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Samson::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="55" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="36" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1ad2f3640e0e943a9920705dc9082be76d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Samson::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="60" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1a00fb9ed24e6b47c06e71af2cf6d25311" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Samson::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method to run in the first iteration of the path following algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="65" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="127" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1abd3a575d30ccc2ef8f211216f354492e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Samson::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="72" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="137" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1ae332100b42728eae11797bf2ef0fed59" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Samson::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="80" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="148" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSamson_1ae3559013a0539a0d93e75ae47491cd28" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Samson::smoothVehicleYaw</definition>
+        <argsstring>()</argsstring>
+        <name>smoothVehicleYaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="106" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="98" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classSamson_1a3e9a4d2a468a4102c686008fb4f440d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Samson::smoothPathYaw</definition>
+        <argsstring>()</argsstring>
+        <name>smoothPathYaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Samson.h" line="107" column="10" bodyfile="src/algorithms/Samson.cpp" bodystart="108" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classLapierre" kindref="compound">Lapierre</ref>&apos;s algorithm for path following Method1: based on the work of <ref refid="classSamson" kindref="compound">Samson</ref> (1993) </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This algorithm support: Controls:<itemizedlist>
+<listitem><para>yaw-rate</para>
+</listitem><listitem><para>surge Supports Cooperative Path Following - True Contains Currents Observers - False</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Samson</label>
+        <link refid="classSamson"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="1">
+        <label>Samson</label>
+        <link refid="classSamson"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Samson.h" line="23" column="34" bodyfile="include/algorithms/Samson.h" bodystart="23" bodyend="125"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Samson</scope><name>algConvert</name></member>
+      <member refid="classSamson_1a420566323e957d8fe941c40190386a34" prot="public" virt="virtual"><scope>Samson</scope><name>callPFController</name></member>
+      <member refid="classSamson_1a691c6a608274a240427b854a1a46035f" prot="private" virt="non-virtual"><scope>Samson</scope><name>desired_surge_</name></member>
+      <member refid="classSamson_1a74ab851759c95be0b4befc67f7630150" prot="private" virt="non-virtual"><scope>Samson</scope><name>desired_yaw_rate_</name></member>
+      <member refid="classSamson_1a2b6b2cdc92da1007c320950686d21a92" prot="private" virt="non-virtual"><scope>Samson</scope><name>k1_</name></member>
+      <member refid="classSamson_1a827916301ca46c88568e6bfbc6418982" prot="private" virt="non-virtual"><scope>Samson</scope><name>k2_</name></member>
+      <member refid="classSamson_1a5bb86bab1dd2996e9ac1edb0f0c7c207" prot="private" virt="non-virtual"><scope>Samson</scope><name>k3_</name></member>
+      <member refid="classSamson_1ac85abb962380ca29b1d4985968aeb9dd" prot="private" virt="non-virtual"><scope>Samson</scope><name>k_delta_</name></member>
+      <member refid="classSamson_1ac93862dfd857e594f7300ec64ac4330a" prot="private" virt="non-virtual"><scope>Samson</scope><name>mode_client_</name></member>
+      <member refid="classSamson_1a7684a067bcffa8052fe79d067834d0ac" prot="private" virt="non-virtual"><scope>Samson</scope><name>num_gains_</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Samson</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Samson</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Samson</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classSamson_1a975fbd7f5e619c836689863c5a424880" prot="private" virt="non-virtual"><scope>Samson</scope><name>psi_old_</name></member>
+      <member refid="classSamson_1ade6f94a9d70648793bbd45e2ba494a39" prot="private" virt="non-virtual"><scope>Samson</scope><name>psi_out_</name></member>
+      <member refid="classSamson_1a3c62a05a59807c92585db4936c2953e4" prot="private" virt="non-virtual"><scope>Samson</scope><name>psi_out_old_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Samson</scope><name>publish</name></member>
+      <member refid="classSamson_1ad2f3640e0e943a9920705dc9082be76d" prot="public" virt="virtual"><scope>Samson</scope><name>publish_private</name></member>
+      <member refid="classSamson_1ae332100b42728eae11797bf2ef0fed59" prot="public" virt="virtual"><scope>Samson</scope><name>reset</name></member>
+      <member refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" prot="public" virt="virtual"><scope>Samson</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual"><scope>Samson</scope><name>resetVirtualTarget</name></member>
+      <member refid="classSamson_1a2a9e3d4ad8ed3f447a907b381e2d308a" prot="public" virt="non-virtual"><scope>Samson</scope><name>Samson</name></member>
+      <member refid="classSamson_1a66189f0d0e72ef772f95942b8a47842f" prot="public" virt="virtual"><scope>Samson</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Samson</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classSamson_1a3e9a4d2a468a4102c686008fb4f440d1" prot="private" virt="non-virtual"><scope>Samson</scope><name>smoothPathYaw</name></member>
+      <member refid="classSamson_1ae3559013a0539a0d93e75ae47491cd28" prot="private" virt="non-virtual"><scope>Samson</scope><name>smoothVehicleYaw</name></member>
+      <member refid="classSamson_1a00fb9ed24e6b47c06e71af2cf6d25311" prot="public" virt="virtual"><scope>Samson</scope><name>start</name></member>
+      <member refid="classSamson_1abd3a575d30ccc2ef8f211216f354492e" prot="public" virt="virtual"><scope>Samson</scope><name>stop</name></member>
+      <member refid="classSamson_1ac94c2fd077c71e396a7c13395dea0d7c" prot="private" virt="non-virtual"><scope>Samson</scope><name>surge_pub_</name></member>
+      <member refid="classSamson_1a44384db15a426bde913024c35ce5ca3c" prot="private" virt="non-virtual"><scope>Samson</scope><name>theta_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Samson</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Samson</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Samson</scope><name>vehicle_state_</name></member>
+      <member refid="classSamson_1a0e208b547a4216ea1461aae80122f1f9" prot="private" virt="non-virtual"><scope>Samson</scope><name>yaw_old_</name></member>
+      <member refid="classSamson_1aeb0d1ebf0909767a43c32acd981ad5bf" prot="private" virt="non-virtual"><scope>Samson</scope><name>yaw_out_</name></member>
+      <member refid="classSamson_1ae763cf683cfe9448547db4b8ec049aa7" prot="private" virt="non-virtual"><scope>Samson</scope><name>yaw_out_old_</name></member>
+      <member refid="classSamson_1a941ab4b1c58bd2d25d7a14616b4b5b16" prot="private" virt="non-virtual"><scope>Samson</scope><name>yaw_rate_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Samson</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

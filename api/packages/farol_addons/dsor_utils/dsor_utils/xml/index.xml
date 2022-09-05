@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classCircularDelay" kind="class"><name>CircularDelay</name>
+    <member refid="classCircularDelay_1a409f43900b46f9faf9b35f9b2b23d1f8" kind="variable"><name>data</name></member>
+    <member refid="classCircularDelay_1a0858003f38fa5b13a92b516d025f4b27" kind="variable"><name>setIterator</name></member>
+    <member refid="classCircularDelay_1adbff4303da3145a6ac1dc297b2ab5b96" kind="function"><name>CircularDelay</name></member>
+    <member refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" kind="function"><name>push</name></member>
+    <member refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" kind="function"><name>get</name></member>
+    <member refid="classCircularDelay_1aa40f6c12296cd5a557b573d7decde8eb" kind="function"><name>end</name></member>
+    <member refid="classCircularDelay_1ae8fedbd231b8e1b99b5a7bb321e4421c" kind="function"><name>begin</name></member>
+    <member refid="classCircularDelay_1ab337ed5b15ecdfdfb26a2b45dc495695" kind="function"><name>rend</name></member>
+    <member refid="classCircularDelay_1a45b712d677523479439f9ece87e11054" kind="function"><name>rbegin</name></member>
+  </compound>
+  <compound refid="classCircularDelay_1_1const__iterator" kind="class"><name>CircularDelay::const_iterator</name>
+    <member refid="classCircularDelay_1_1const__iterator_1a0884b1781f409c108f126cff56b27582" kind="typedef"><name>self_type</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a69c8854551e0c2fdb82d46b8444fd627" kind="typedef"><name>iterator_category</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a10017e443f5b2450577b530807d2229d" kind="typedef"><name>difference_type</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a1468d92667c6a056f280c0d93aff142b" kind="friend"><name>CircularDelay</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a5b96be5c34108fada4cfafde24362618" kind="variable"><name>data_</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1aaa965a73706aa25e582efc71d1c8bb19" kind="variable"><name>ptr_</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a21fd85501937e995d7b7e3090021ec61" kind="function"><name>const_iterator</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1ad4ccf8ebcdbcac8bb64d0b16aab70bfc" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a6529742681a283cb86d1de847e1a0bf2" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1aa2b07b398cacecbd41b88885b8946d94" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a3d7417f2d3d36f40b4369611b98668fd" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a28d2f576c07ab434d0f12aeb9c709a74" kind="function"><name>operator*</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a83425ea7c07301096f50c294b40ae5ba" kind="function"><name>operator-&gt;</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a1892b303b1ad88563d5a7335d39aa0dd" kind="function"><name>operator[]</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a3c911d1bf815ec1ba3cf2a3ca46264e1" kind="function"><name>operator==</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a340fdcc69422b52b056eac91af791537" kind="function"><name>operator!=</name></member>
+    <member refid="classCircularDelay_1_1const__iterator_1a0681cb3cfbbe89ab93ac413ba9452e76" kind="function"><name>const_iterator</name></member>
+  </compound>
+  <compound refid="classCircularDelay_1_1const__reverse__iterator" kind="class"><name>CircularDelay::const_reverse_iterator</name>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a30377f93d5150e091333729e11161676" kind="typedef"><name>self_type</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a93b80303acd8fef1c3bad3e72f9f0dcb" kind="typedef"><name>iterator_category</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a42cf98641a7c171058c9eee0ebe8e581" kind="typedef"><name>difference_type</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a1468d92667c6a056f280c0d93aff142b" kind="friend"><name>CircularDelay</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a83beeb42f6b1768467715729b8f8fa03" kind="variable"><name>data_</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a1e3aa99db64e450a0c267f670912729f" kind="variable"><name>ptr_</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1ac1d14b2632952a220489a3dd85e58caf" kind="function"><name>const_reverse_iterator</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a68919552ba977bf210737e7131767b3a" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1ad038e882e80a16b08b1b5151409a6e3e" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a6f82e7abf956de4b507016b8d18dd3df" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a47251a4c887ab542c24d6da8babe8efd" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a63f07556b9381ce1ba81a469ad6d2939" kind="function"><name>operator*</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a3ff00d286c07d1841ed4a87c08486471" kind="function"><name>operator-&gt;</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1acb85f630a58aaf75a8f47083e0bc6f75" kind="function"><name>operator[]</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a7f7b0cf32639716dace3da9dae631ee5" kind="function"><name>operator==</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1a23f5329c479f8f17cb1c24527ba44632" kind="function"><name>operator!=</name></member>
+    <member refid="classCircularDelay_1_1const__reverse__iterator_1aeb7905c8943141cf9c76467294c75c41" kind="function"><name>const_reverse_iterator</name></member>
+  </compound>
+  <compound refid="classDifferentiator" kind="class"><name>Differentiator</name>
+    <member refid="classDifferentiator_1a969b4cc224a83325413415625808ed8e" kind="variable"><name>sampleTime</name></member>
+    <member refid="classDifferentiator_1a14afa104ad01daf997ca438cc9b44ddf" kind="variable"><name>y</name></member>
+    <member refid="classDifferentiator_1a025b4151b97b20b3d67c41226e0bd620" kind="variable"><name>x1</name></member>
+    <member refid="classDifferentiator_1a9a53cfb8f86f79a696261da27be87a50" kind="function"><name>Differentiator</name></member>
+    <member refid="classDifferentiator_1aaad3555ad3d244d5c166a6b72dabc855" kind="function"><name>update</name></member>
+    <member refid="classDifferentiator_1a108758b2c7607d9eb8ba4c3c7d1147bf" kind="function"><name>getOutput</name></member>
+  </compound>
+  <compound refid="classDigitalFilter" kind="class"><name>DigitalFilter</name>
+    <member refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac" kind="function"><name>update</name></member>
+    <member refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd" kind="function"><name>getOutput</name></member>
+  </compound>
+  <compound refid="classHighPassFilter" kind="class"><name>HighPassFilter</name>
+    <member refid="classHighPassFilter_1ab6fe5a82808c801840c7cdd2b77cc4a6" kind="variable"><name>amplFac</name></member>
+    <member refid="classHighPassFilter_1a99de0c4774b9e21869e77ed8a1c1bee6" kind="variable"><name>y1c</name></member>
+    <member refid="classHighPassFilter_1aabe64d4850ab76ae6f18df42287f3ec3" kind="variable"><name>dt</name></member>
+    <member refid="classHighPassFilter_1adf0526b742f208d11878f849606059ec" kind="variable"><name>x1</name></member>
+    <member refid="classHighPassFilter_1af730a731ad3c90e7b120764e21b07c53" kind="variable"><name>output</name></member>
+    <member refid="classHighPassFilter_1a9fea8fdb7f5aefa0c438b1e93981761d" kind="function"><name>HighPassFilter</name></member>
+    <member refid="classHighPassFilter_1a8ef008467e2b68303807ae64002946a7" kind="function"><name>update</name></member>
+    <member refid="classHighPassFilter_1a39f275c76e7024461e61ef1221e45711" kind="function"><name>getOutput</name></member>
+    <member refid="classHighPassFilter_1a159c89c644d0400b84eeb6944daee164" kind="function"><name>configOutput</name></member>
+    <member refid="classHighPassFilter_1a23693f3f8aad998f808e3a47975373b3" kind="function"><name>outputPointer</name></member>
+  </compound>
+  <compound refid="classHighPassFilter3" kind="class"><name>HighPassFilter3</name>
+    <member refid="classHighPassFilter3_1a3264fcb811b50c7087367ee20a9b958a" kind="variable"><name>xc</name></member>
+    <member refid="classHighPassFilter3_1a1ad241861031802ee7d14d5100275985" kind="variable"><name>yc</name></member>
+    <member refid="classHighPassFilter3_1a5aadbfc2c7288c38ae9f3d9b6fa4a66c" kind="variable"><name>y</name></member>
+    <member refid="classHighPassFilter3_1a16d14974baf74a0dfddf078da4c99a11" kind="variable"><name>x</name></member>
+    <member refid="classHighPassFilter3_1a5e785da80f220ea6a840a1e751bb9cb9" kind="function"><name>HighPassFilter3</name></member>
+    <member refid="classHighPassFilter3_1a6d2debd366200e31720dc54aaa2a972f" kind="function"><name>update</name></member>
+    <member refid="classHighPassFilter3_1a7dcd14b2d7dbae4440d1a3f7e8513713" kind="function"><name>getOutput</name></member>
+  </compound>
+  <compound refid="classCircularDelay_1_1iterator" kind="class"><name>CircularDelay::iterator</name>
+    <member refid="classCircularDelay_1_1iterator_1a0664fcbb593436b59076701c4fe5d462" kind="typedef"><name>self_type</name></member>
+    <member refid="classCircularDelay_1_1iterator_1ab2b9ce2101b4b534671f869d6abed24e" kind="typedef"><name>iterator_category</name></member>
+    <member refid="classCircularDelay_1_1iterator_1aa38bad85ebc509a5e74a550c0db98146" kind="typedef"><name>difference_type</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a1468d92667c6a056f280c0d93aff142b" kind="friend"><name>CircularDelay</name></member>
+    <member refid="classCircularDelay_1_1iterator_1aa54fec9d6d8cb441a7f1466131092019" kind="variable"><name>data_</name></member>
+    <member refid="classCircularDelay_1_1iterator_1af6a2dc3f35a56b9e5682d83141020366" kind="variable"><name>ptr_</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a2673a257ba85ed9b44ccb91faab80ac3" kind="function"><name>iterator</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a5ac62fe9f57baacbc551fd7bbcdfdd8c" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a346ea66456ae77e63748477c804d5a08" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1iterator_1aa72942498988445804626b8ab43c3da8" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1iterator_1ababb01d237c35cc4c04654add4835f1e" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1iterator_1aadb48c2ecc6c0d0f9147e4bae08ea910" kind="function"><name>operator*</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a60dc86892af8cb3ac53df3c6c81b683b" kind="function"><name>operator-&gt;</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a07ac76ab28f1cf37cce503e77c67692b" kind="function"><name>operator[]</name></member>
+    <member refid="classCircularDelay_1_1iterator_1ae37fc2deaa139e7b7c6125259ab5628c" kind="function"><name>operator==</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a6339c1fb32cfb2e664a040bfc011a873" kind="function"><name>operator!=</name></member>
+    <member refid="classCircularDelay_1_1iterator_1a78499cc8d0fb65bfbf1743f9fd72485c" kind="function"><name>iterator</name></member>
+  </compound>
+  <compound refid="classLowPassFilter" kind="class"><name>LowPassFilter</name>
+    <member refid="classLowPassFilter_1ad4d70bf4e67de868d94599e7afd767fd" kind="variable"><name>epow</name></member>
+    <member refid="classLowPassFilter_1a9716f07f974b825f064a9e75667e453c" kind="variable"><name>dt</name></member>
+    <member refid="classLowPassFilter_1aba1355c6f79c3f4c516446537c0a5439" kind="variable"><name>output</name></member>
+    <member refid="classLowPassFilter_1a784fd0cdf178fcb52aed9a684abf48f4" kind="function"><name>LowPassFilter</name></member>
+    <member refid="classLowPassFilter_1a797ed50371cde65adff8aa4bb54f02ed" kind="function"><name>update</name></member>
+    <member refid="classLowPassFilter_1a74ca69ff19bd6e8c24ba760f4eb791b6" kind="function"><name>getOutput</name></member>
+    <member refid="classLowPassFilter_1a801535d71982a9f1d59144615725fd94" kind="function"><name>configOutput</name></member>
+    <member refid="classLowPassFilter_1a6a3a87d4e1f22166b34941a9efffb025" kind="function"><name>outputPointer</name></member>
+  </compound>
+  <compound refid="classLowPassFilter2" kind="class"><name>LowPassFilter2</name>
+    <member refid="classLowPassFilter2_1a1c5780e6c5718043ee26496d63adcedc" kind="variable"><name>yc</name></member>
+    <member refid="classLowPassFilter2_1a85018bcbe6735a735ae75ffb603066d5" kind="variable"><name>xc</name></member>
+    <member refid="classLowPassFilter2_1a7ededf11f9b0df43c4e922e7073d402a" kind="variable"><name>y</name></member>
+    <member refid="classLowPassFilter2_1a0dae11df6308269bfd92ea51f4dfd7b3" kind="variable"><name>x</name></member>
+    <member refid="classLowPassFilter2_1a1f5429b71eeb2b2d4777e2cb034c4b9d" kind="function"><name>LowPassFilter2</name></member>
+    <member refid="classLowPassFilter2_1ae797151cf9521885d8961ecc73b3cab5" kind="function"><name>update</name></member>
+    <member refid="classLowPassFilter2_1a9a923d114a00f7eeb65eaa59051999b4" kind="function"><name>getOutput</name></member>
+    <member refid="classLowPassFilter2_1a1472b711b343cdb9abe43cdbb6454efa" kind="function"><name>configOutput</name></member>
+  </compound>
+  <compound refid="classLowPassFilter3" kind="class"><name>LowPassFilter3</name>
+    <member refid="classLowPassFilter3_1a6b514b1b3de18bd20090e3d3e289fbf2" kind="variable"><name>yc</name></member>
+    <member refid="classLowPassFilter3_1a4a8ca48c062b54784b60efb2823648b4" kind="variable"><name>xc</name></member>
+    <member refid="classLowPassFilter3_1a1d6fc788756fbaf9403864fb9b121cac" kind="variable"><name>y</name></member>
+    <member refid="classLowPassFilter3_1afa2ec22bed35d18af7fc0bc976270343" kind="variable"><name>x</name></member>
+    <member refid="classLowPassFilter3_1a2c2ecd2c2ed1aa715024679ce4ed5ffe" kind="function"><name>LowPassFilter3</name></member>
+    <member refid="classLowPassFilter3_1ab5be2e12ad780ccd292400ec03f0b7c1" kind="function"><name>update</name></member>
+    <member refid="classLowPassFilter3_1a96bd875fd986c78fb663c0bac6f4167f" kind="function"><name>getOutput</name></member>
+  </compound>
+  <compound refid="classLowPassFilter3DiffApprox" kind="class"><name>LowPassFilter3DiffApprox</name>
+    <member refid="classLowPassFilter3DiffApprox_1a761171f00fc3853fec36551e79b8d20f" kind="variable"><name>xc</name></member>
+    <member refid="classLowPassFilter3DiffApprox_1a9ddfd29b60247e8155665de84464525f" kind="variable"><name>yc</name></member>
+    <member refid="classLowPassFilter3DiffApprox_1a1b53ffaccb1c95b04699d7075724dc2f" kind="variable"><name>y</name></member>
+    <member refid="classLowPassFilter3DiffApprox_1a33e44e3aecaa4d4ced62ce8c0b2b0ec9" kind="variable"><name>x</name></member>
+    <member refid="classLowPassFilter3DiffApprox_1af197c3df5682887c92b5277c2d83dcd1" kind="function"><name>LowPassFilter3DiffApprox</name></member>
+    <member refid="classLowPassFilter3DiffApprox_1a52edbdfa6d8fcd642b9cc8b606c3514f" kind="function"><name>update</name></member>
+    <member refid="classLowPassFilter3DiffApprox_1af6f5b8285fbfd7ee3076816cf28b4f7e" kind="function"><name>getOutput</name></member>
+  </compound>
+  <compound refid="classLowPassFilter3MatchedZ" kind="class"><name>LowPassFilter3MatchedZ</name>
+    <member refid="classLowPassFilter3MatchedZ_1af8ca912872ca0e75be4b5c49e1bb6b21" kind="variable"><name>amplFac</name></member>
+    <member refid="classLowPassFilter3MatchedZ_1aa45b1a4224a8cfbd369b7bc521938052" kind="variable"><name>yc</name></member>
+    <member refid="classLowPassFilter3MatchedZ_1a049958184ee9b1de52218b8c70eecae9" kind="variable"><name>y</name></member>
+    <member refid="classLowPassFilter3MatchedZ_1a8012061f5743bf2d2a00318131a1dd2e" kind="function"><name>LowPassFilter3MatchedZ</name></member>
+    <member refid="classLowPassFilter3MatchedZ_1afa8d5c3dc0df055a76a94fe9927e8a0e" kind="function"><name>update</name></member>
+    <member refid="classLowPassFilter3MatchedZ_1aa1006f717a6bdac2829c2eeb42b58f58" kind="function"><name>getOutput</name></member>
+  </compound>
+  <compound refid="classMovingAvarageFilter" kind="class"><name>MovingAvarageFilter</name>
+    <member refid="classMovingAvarageFilter_1a483543602aa2bd53213fff78ce23323a" kind="variable"><name>output</name></member>
+    <member refid="classMovingAvarageFilter_1a50520eacf783dbf5dfc2b1fc8827e925" kind="variable"><name>buffer</name></member>
+    <member refid="classMovingAvarageFilter_1a84c7823e71ebfcc1859d8512cfd8ae81" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="classCircularDelay_1_1reverse__iterator" kind="class"><name>CircularDelay::reverse_iterator</name>
+    <member refid="classCircularDelay_1_1reverse__iterator_1adea6e1a71f1906b4e33433e932a41728" kind="typedef"><name>self_type</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a8cadbeea7a22353cf490897e019fde07" kind="typedef"><name>iterator_category</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a712e6ffcd99c6950cc19150f880fd03c" kind="typedef"><name>difference_type</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a1468d92667c6a056f280c0d93aff142b" kind="friend"><name>CircularDelay</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1ad83de42d02fb65f4568fba32be854a8b" kind="variable"><name>data_</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1aeeeac425da65985f422937b9033e52b8" kind="variable"><name>ptr_</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a1a8a9dbdf9f48b930a4ea8a922c06770" kind="function"><name>reverse_iterator</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a201c7bf46395e887738bf5bb1fc03ca6" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1af594e1909028e9d2b7f9b6ee21175688" kind="function"><name>operator++</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a25ba7a505e7345d0500caa16138b505e" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1ae5b7fa1a6e4583e06ba92a6da053b9ed" kind="function"><name>operator--</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1adbeae1faf0dbed8fbe630458926936f0" kind="function"><name>operator*</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a17ec60aac4cff31cbe5cb2c77c1ca978" kind="function"><name>operator-&gt;</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a80992cdc94c0da7fb302915bf1a903b5" kind="function"><name>operator[]</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a374bff53086d2e6f6a17e8408d744f9d" kind="function"><name>operator==</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a016a38b165eafc948d3308c795ce10e3" kind="function"><name>operator!=</name></member>
+    <member refid="classCircularDelay_1_1reverse__iterator_1a04b7a182d1fd56acc00e3f50d4ee4922" kind="function"><name>reverse_iterator</name></member>
+  </compound>
+  <compound refid="structDSOR_1_1VehicleState" kind="struct"><name>DSOR::VehicleState</name>
+    <member refid="structDSOR_1_1VehicleState_1a527517f0a78743511177e41dbaa0d827" kind="variable"><name>eta1</name></member>
+    <member refid="structDSOR_1_1VehicleState_1a276049b56dfa058b4fa54d0e9d65fa13" kind="variable"><name>eta2</name></member>
+    <member refid="structDSOR_1_1VehicleState_1a54fba7e2d93615b9c5d5d9878b69ace6" kind="variable"><name>v1</name></member>
+    <member refid="structDSOR_1_1VehicleState_1a3355804502fbb8e565003fd3fd0a33a8" kind="variable"><name>v2</name></member>
+  </compound>
+  <compound refid="namespaceDSOR" kind="namespace"><name>DSOR</name>
+    <member refid="namespaceDSOR_1aa122503266a9150ac8f3cf814489d170" kind="variable"><name>ENU_NED_INERTIAL_Q</name></member>
+    <member refid="namespaceDSOR_1a96a7f395f44c4ad9531b4dbabac78aa5" kind="variable"><name>ENU_NED_BODY_Q</name></member>
+    <member refid="namespaceDSOR_1a4e62353e2a0ca8ea23ec9725628d49e6" kind="variable"><name>BODY_ENU_NED_Q</name></member>
+    <member refid="namespaceDSOR_1a46de8bf6105c5130ca026f2e55956e8c" kind="variable"><name>BODY_ENU_NED_TF</name></member>
+    <member refid="namespaceDSOR_1acb3269d659d9b4bee13a69eae2873e02" kind="function"><name>saturateControlDepthUsingMinAltitude</name></member>
+    <member refid="namespaceDSOR_1af1f533be6e5a752a175fcd27fceb626b" kind="function"><name>saturateControlAltitudeUsingMinAltitude</name></member>
+    <member refid="namespaceDSOR_1a0ad43d3ff79571d22942e9e73c315c93" kind="function"><name>saturateControlDepthUsingMaxDepth</name></member>
+    <member refid="namespaceDSOR_1ac5b886df7a55e90fa0287e58114e3ac9" kind="function"><name>saturateControlAltitudeUsingMaxDepth</name></member>
+    <member refid="namespaceDSOR_1a51f7ff8d336b1c25efa3ca81a932a4c8" kind="function"><name>NED_ENU_REFLECTION_XY</name></member>
+    <member refid="namespaceDSOR_1a034dd0a8bd449363c65bebcb6562f5c5" kind="function"><name>NED_ENU_REFLECTION_Z</name></member>
+    <member refid="namespaceDSOR_1a9ee41c331beace8a4d3cf2e54a4b634c" kind="function"><name>rot_body_rotation</name></member>
+    <member refid="namespaceDSOR_1ac137fae9964e195246618dc8e08c5b00" kind="function"><name>rot_inertial_rotation</name></member>
+    <member refid="namespaceDSOR_1a59b63be2850649301cf741ef0bdb8042" kind="function"><name>rot_body_to_inertial</name></member>
+    <member refid="namespaceDSOR_1a5c16e87bba9f4282e6dd29f7ba64e4eb" kind="function"><name>transform_vect_body_enu_ned</name></member>
+    <member refid="namespaceDSOR_1a2ed6b8ba2f0d17ee455a90d9987a2389" kind="function"><name>transform_vect_between_arbitrary_ref</name></member>
+    <member refid="namespaceDSOR_1afd9875e55e41f70cab660dec2475e982" kind="function"><name>transform_vect_inertial_enu_ned</name></member>
+    <member refid="namespaceDSOR_1a75b855583612ca2ddcc0565e7d6f826b" kind="function"><name>transform_cov3_body_enu_ned</name></member>
+    <member refid="namespaceDSOR_1a1fe1d20a64b477cc5ed243f2ea2e2bec" kind="function"><name>transform_cov3_inertial_enu_ned</name></member>
+    <member refid="namespaceDSOR_1ab41535dd03e74723cc17a9bda3270b97" kind="function"><name>sign</name></member>
+    <member refid="namespaceDSOR_1a49277e23e657cc24dee6176d85fd6fe2" kind="function"><name>saturation</name></member>
+    <member refid="namespaceDSOR_1a7ede75090e4f4cfe7af1a1ae018a4163" kind="function"><name>approximatelyEquals</name></member>
+    <member refid="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" kind="function"><name>quaternion_to_euler</name></member>
+    <member refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kind="function"><name>euler_to_quaternion</name></member>
+    <member refid="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" kind="function"><name>yaw_from_quaternion</name></member>
+    <member refid="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" kind="function"><name>wrapTo2pi</name></member>
+    <member refid="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" kind="function"><name>wrapTopi</name></member>
+    <member refid="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" kind="function"><name>radToDeg</name></member>
+    <member refid="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" kind="function"><name>degToRad</name></member>
+    <member refid="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" kind="function"><name>angleDiff</name></member>
+    <member refid="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" kind="function"><name>computeSkewSymmetric3</name></member>
+    <member refid="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" kind="function"><name>computeSkewSymmetric2</name></member>
+    <member refid="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" kind="function"><name>rotationAngularBodyToInertial</name></member>
+    <member refid="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" kind="function"><name>rotationBodyToInertial</name></member>
+    <member refid="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" kind="function"><name>spherical_to_cartesian</name></member>
+  </compound>
+  <compound refid="namespacetps" kind="namespace"><name>tps</name>
+    <member refid="namespacetps_1a4ba84c64ef7f752a77bd0adc41dc1900" kind="function"><name>pow</name></member>
+  </compound>
+  <compound refid="vehicle__saturations_8hpp" kind="file"><name>vehicle_saturations.hpp</name>
+    <member refid="namespaceDSOR_1acb3269d659d9b4bee13a69eae2873e02" kind="function"><name>saturateControlDepthUsingMinAltitude</name></member>
+    <member refid="namespaceDSOR_1af1f533be6e5a752a175fcd27fceb626b" kind="function"><name>saturateControlAltitudeUsingMinAltitude</name></member>
+    <member refid="namespaceDSOR_1a0ad43d3ff79571d22942e9e73c315c93" kind="function"><name>saturateControlDepthUsingMaxDepth</name></member>
+    <member refid="namespaceDSOR_1ac5b886df7a55e90fa0287e58114e3ac9" kind="function"><name>saturateControlAltitudeUsingMaxDepth</name></member>
+  </compound>
+  <compound refid="vehicle__state_8hpp" kind="file"><name>vehicle_state.hpp</name>
+  </compound>
+  <compound refid="circular__buffer_8hpp" kind="file"><name>circular_buffer.hpp</name>
+  </compound>
+  <compound refid="differentiator_8hpp" kind="file"><name>differentiator.hpp</name>
+  </compound>
+  <compound refid="digital__filter_8hpp" kind="file"><name>digital_filter.hpp</name>
+    <member refid="namespacetps_1a4ba84c64ef7f752a77bd0adc41dc1900" kind="function"><name>pow</name></member>
+  </compound>
+  <compound refid="highpass__filter_8hpp" kind="file"><name>highpass_filter.hpp</name>
+  </compound>
+  <compound refid="lowpass__filter_8hpp" kind="file"><name>lowpass_filter.hpp</name>
+  </compound>
+  <compound refid="moving__average__filter_8hpp" kind="file"><name>moving_average_filter.hpp</name>
+  </compound>
+  <compound refid="frames_8hpp" kind="file"><name>frames.hpp</name>
+    <member refid="namespaceDSOR_1aa122503266a9150ac8f3cf814489d170" kind="variable"><name>ENU_NED_INERTIAL_Q</name></member>
+    <member refid="namespaceDSOR_1a96a7f395f44c4ad9531b4dbabac78aa5" kind="variable"><name>ENU_NED_BODY_Q</name></member>
+    <member refid="namespaceDSOR_1a4e62353e2a0ca8ea23ec9725628d49e6" kind="variable"><name>BODY_ENU_NED_Q</name></member>
+    <member refid="namespaceDSOR_1a46de8bf6105c5130ca026f2e55956e8c" kind="variable"><name>BODY_ENU_NED_TF</name></member>
+    <member refid="namespaceDSOR_1a51f7ff8d336b1c25efa3ca81a932a4c8" kind="function"><name>NED_ENU_REFLECTION_XY</name></member>
+    <member refid="namespaceDSOR_1a034dd0a8bd449363c65bebcb6562f5c5" kind="function"><name>NED_ENU_REFLECTION_Z</name></member>
+    <member refid="namespaceDSOR_1a9ee41c331beace8a4d3cf2e54a4b634c" kind="function"><name>rot_body_rotation</name></member>
+    <member refid="namespaceDSOR_1ac137fae9964e195246618dc8e08c5b00" kind="function"><name>rot_inertial_rotation</name></member>
+    <member refid="namespaceDSOR_1a59b63be2850649301cf741ef0bdb8042" kind="function"><name>rot_body_to_inertial</name></member>
+    <member refid="namespaceDSOR_1a5c16e87bba9f4282e6dd29f7ba64e4eb" kind="function"><name>transform_vect_body_enu_ned</name></member>
+    <member refid="namespaceDSOR_1a2ed6b8ba2f0d17ee455a90d9987a2389" kind="function"><name>transform_vect_between_arbitrary_ref</name></member>
+    <member refid="namespaceDSOR_1afd9875e55e41f70cab660dec2475e982" kind="function"><name>transform_vect_inertial_enu_ned</name></member>
+    <member refid="namespaceDSOR_1a75b855583612ca2ddcc0565e7d6f826b" kind="function"><name>transform_cov3_body_enu_ned</name></member>
+    <member refid="namespaceDSOR_1a1fe1d20a64b477cc5ed243f2ea2e2bec" kind="function"><name>transform_cov3_inertial_enu_ned</name></member>
+  </compound>
+  <compound refid="math_8hpp" kind="file"><name>math.hpp</name>
+    <member refid="namespaceDSOR_1ab41535dd03e74723cc17a9bda3270b97" kind="function"><name>sign</name></member>
+    <member refid="namespaceDSOR_1a49277e23e657cc24dee6176d85fd6fe2" kind="function"><name>saturation</name></member>
+    <member refid="namespaceDSOR_1a7ede75090e4f4cfe7af1a1ae018a4163" kind="function"><name>approximatelyEquals</name></member>
+  </compound>
+  <compound refid="rotations_8hpp" kind="file"><name>rotations.hpp</name>
+    <member refid="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" kind="function"><name>quaternion_to_euler</name></member>
+    <member refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kind="function"><name>euler_to_quaternion</name></member>
+    <member refid="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" kind="function"><name>yaw_from_quaternion</name></member>
+    <member refid="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" kind="function"><name>wrapTo2pi</name></member>
+    <member refid="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" kind="function"><name>wrapTopi</name></member>
+    <member refid="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" kind="function"><name>radToDeg</name></member>
+    <member refid="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" kind="function"><name>degToRad</name></member>
+    <member refid="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" kind="function"><name>angleDiff</name></member>
+    <member refid="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" kind="function"><name>computeSkewSymmetric3</name></member>
+    <member refid="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" kind="function"><name>computeSkewSymmetric2</name></member>
+    <member refid="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" kind="function"><name>rotationAngularBodyToInertial</name></member>
+    <member refid="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" kind="function"><name>rotationBodyToInertial</name></member>
+  </compound>
+  <compound refid="spherical__coordinates_8hpp" kind="file"><name>spherical_coordinates.hpp</name>
+    <member refid="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" kind="function"><name>spherical_to_cartesian</name></member>
+  </compound>
+  <compound refid="spherical__coordinates_8cpp" kind="file"><name>spherical_coordinates.cpp</name>
+  </compound>
+  <compound refid="test__frames_8cpp" kind="file"><name>test_frames.cpp</name>
+    <member refid="test__frames_8cpp_1aaf898856e2f6ddb4b564938bb3394855" kind="function"><name>TEST</name></member>
+    <member refid="test__frames_8cpp_1a034f1b1c17b71886883d1b42de482506" kind="function"><name>TEST</name></member>
+    <member refid="test__frames_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="test__math_8cpp" kind="file"><name>test_math.cpp</name>
+    <member refid="test__math_8cpp_1af4d9ce5b43a525708562b6692e922a4f" kind="function"><name>TEST</name></member>
+    <member refid="test__math_8cpp_1a2f939fd040fff6ee36bd31c803c16fae" kind="function"><name>TEST</name></member>
+    <member refid="test__math_8cpp_1a60e20b211dab42fc6079b2b54b6dcc3c" kind="function"><name>TEST</name></member>
+    <member refid="test__math_8cpp_1a458940c52b38befaf0a2bd9efdfa0b94" kind="function"><name>TEST</name></member>
+    <member refid="test__math_8cpp_1afa6c2f7afefcb28bddd323ed9088640a" kind="function"><name>TEST</name></member>
+    <member refid="test__math_8cpp_1a4de0717017d2002f2cc22646c8afc19c" kind="function"><name>TEST</name></member>
+    <member refid="test__math_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="test__rotations_8cpp" kind="file"><name>test_rotations.cpp</name>
+    <member refid="test__rotations_8cpp_1a59e657f80f9f990ace57b2c3c8b95d6f" kind="define"><name>APPROX_PRECISION</name></member>
+    <member refid="test__rotations_8cpp_1a8ec5444c5a98f378fcb7b45fa173dae9" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a0332bbcfda4ae53cd60fab5fd5b798bf" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a5a6c616096875052f83eddbbeec1c215" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a402219bb70610c2b99b865bdfafdcfa9" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a116f5649e871e60fe088848f8633cca3" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1adf8c8d5518f9ae0075804f6156e19fe6" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a2843ee36c13d3a2036ea9d172632deb4" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1ad01e314e90226072e9c28e70bb97afc6" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a1bc3dcb5c09ab427b8899d97a421a177" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1adfc3a8cdc4141b38ff5941b77ea52751" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a926dc6562b6372ccb1951f7dea00caeb" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a0c74862e16fc1b7aef4cbf047d7ada41" kind="function"><name>TEST</name></member>
+    <member refid="test__rotations_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="test__spherical_8cpp" kind="file"><name>test_spherical.cpp</name>
+    <member refid="test__spherical_8cpp_1a49a0415ed30809a7aeceb4bdba939644" kind="function"><name>TEST</name></member>
+    <member refid="test__spherical_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_86cc65f59c387f88a53e6a5589d17b3f" kind="dir"><name>include/dsor_utils/control</name>
+  </compound>
+  <compound refid="dir_b337c12a0810fe36020fb925f0562431" kind="dir"><name>include/dsor_utils/data_structures</name>
+  </compound>
+  <compound refid="dir_b1917256322077d83bc663fc1c59b492" kind="dir"><name>include/dsor_utils</name>
+  </compound>
+  <compound refid="dir_f6c1dcc424497ddba09b0b228675fc96" kind="dir"><name>include/dsor_utils/filters</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_13e138d54eb8818da29c3992edef070a" kind="dir"><name>test</name>
+  </compound>
+</doxygenindex>

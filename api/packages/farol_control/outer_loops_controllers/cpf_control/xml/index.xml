@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classCPFControl" kind="class"><name>CPFControl</name>
+    <member refid="classCPFControl_1a569fdbc5aef0d04cc69bd50fa9d60618" kind="variable"><name>adjency_matrix_</name></member>
+    <member refid="classCPFControl_1a0e46beb8984f659451a2974cfa6dbdda" kind="variable"><name>neighbors_</name></member>
+    <member refid="classCPFControl_1ac379ca878fd5583c13fa549dcaa3c431" kind="variable"><name>num_vehicles_</name></member>
+    <member refid="classCPFControl_1ae1427903020b781bba75f1a5751521ba" kind="variable"><name>vehicle_id_</name></member>
+    <member refid="classCPFControl_1a3b3fe82e9904b76e4ce5a958b4e994e7" kind="function"><name>coordinationController</name></member>
+    <member refid="classCPFControl_1a7cba3d9edc57f3b3b221e1d9e41f33ff" kind="function"><name>updateVehiclesInformation</name></member>
+    <member refid="classCPFControl_1a144e56d1ae80b050c5861029b96038fe" kind="function"><name>publishCurrentGamma</name></member>
+    <member refid="classCPFControl_1a406bda171c3ca7a11ca9367819f21688" kind="function"><name>reset</name></member>
+    <member refid="classCPFControl_1a14421e28a0cbaae016c406f04ef4b8a4" kind="function"><name>getAdjencyMatrix</name></member>
+    <member refid="classCPFControl_1a52c5a204c6ef07878e1db7073252d55d" kind="function"><name>getNeighbors</name></member>
+    <member refid="classCPFControl_1a69fd47672868a3712154d38c26c9a847" kind="function"><name>updateAdjencyMatrix</name></member>
+    <member refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" kind="function"><name>getNetworkSize</name></member>
+    <member refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" kind="function"><name>getCurrentVehicleID</name></member>
+    <member refid="classCPFControl_1a98053c7bf5fdb54d82b8789fa845889b" kind="function"><name>~CPFControl</name></member>
+    <member refid="classCPFControl_1a5081b3021c3c1aafdf2562b97d562c15" kind="function"><name>CPFControl</name></member>
+  </compound>
+  <compound refid="classCpfNode" kind="class"><name>CpfNode</name>
+    <member refid="classCpfNode_1adcdd5bf7bb523d370c293dfb8617a352" kind="variable"><name>adjency_matrix_</name></member>
+    <member refid="classCpfNode_1ab5df5705f11aa0b704082e43e7c15b9d" kind="variable"><name>cooperative_</name></member>
+    <member refid="classCpfNode_1aee7b1be81ecc00bd5fe8777c2d9cacc2" kind="variable"><name>gamma_</name></member>
+    <member refid="classCpfNode_1adefb8f971a929678f5b7885204b06192" kind="variable"><name>vd_</name></member>
+    <member refid="classCpfNode_1a834aa8e7cc97280a3cad0dda2f094ee3" kind="variable"><name>ID_</name></member>
+    <member refid="classCpfNode_1a64ef3471855dfd60453a29c0c7269ee2" kind="variable"><name>seq_</name></member>
+    <member refid="classCpfNode_1ab56c4105599360f15c26e933fb65e0f4" kind="variable"><name>nh_</name></member>
+    <member refid="classCpfNode_1a747a863d9d6c2a1b9ab4fca71e96f470" kind="variable"><name>nh_p_</name></member>
+    <member refid="classCpfNode_1ad6f59d62a3dc34b5760038236c4386c9" kind="variable"><name>external_gamma_sub_</name></member>
+    <member refid="classCpfNode_1aeffa60d99c2bf91b55258dd858752487" kind="variable"><name>internal_gamma_sub_</name></member>
+    <member refid="classCpfNode_1ab789db0dd3016393c85d3b711c01dab2" kind="variable"><name>vc_pub_</name></member>
+    <member refid="classCpfNode_1ab599957d525d18d4c732e9df2b7ab9f2" kind="variable"><name>cpf_server_pub_</name></member>
+    <member refid="classCpfNode_1a54f1a8dece6f162caf957cd392d29116" kind="variable"><name>startCPF_srv_</name></member>
+    <member refid="classCpfNode_1acc1203ba9129281fa980269bfed2f52a" kind="variable"><name>stopCPF_srv_</name></member>
+    <member refid="classCpfNode_1a5a3506fc5984b97667ea09b4f9c6635a" kind="variable"><name>change_topology_srv_</name></member>
+    <member refid="classCpfNode_1a77c496ca4dc3469f5b54e79802c88661" kind="variable"><name>timer_</name></member>
+    <member refid="classCpfNode_1a1b7f752478d2daf72f9c5a1df2955777" kind="function"><name>CpfNode</name></member>
+    <member refid="classCpfNode_1ac34df7e37019f3f4d726563707b2df5d" kind="function"><name>~CpfNode</name></member>
+    <member refid="classCpfNode_1a147f28b8e5b83ffe719e317466267fec" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classCpfNode_1a81dcd7d31c1c14882347ca348cc9657c" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classCpfNode_1a63a93a01cb4c9add270ca308ed20b38e" kind="function"><name>initializePublishers</name></member>
+    <member refid="classCpfNode_1a3d4088fb118c08b4ea4d5cd94f4cbc80" kind="function"><name>initializeServices</name></member>
+    <member refid="classCpfNode_1a729642f95f5882c4f055ad619df64773" kind="function"><name>initializeTimer</name></member>
+    <member refid="classCpfNode_1a3f63b097ebff5843029323bfe79f5e16" kind="function"><name>createEventTriggeredControl</name></member>
+    <member refid="classCpfNode_1adb7f54b2a219aceac669955dbede1ac7" kind="function"><name>stop</name></member>
+    <member refid="classCpfNode_1acd4858c06204d90529fa828d996285bd" kind="function"><name>timerIterCallback</name></member>
+    <member refid="classCpfNode_1a515b72ec3b2158ee0e44ba7516a243e0" kind="function"><name>externalInfoCallback</name></member>
+    <member refid="classCpfNode_1a26e70f739fb96c332939526e50905b75" kind="function"><name>internalInfoCallback</name></member>
+    <member refid="classCpfNode_1af0baf2371f860f57dc20e5b62c4168c0" kind="function"><name>StartService</name></member>
+    <member refid="classCpfNode_1a5183bc11e1dcd633522538dceb90cb05" kind="function"><name>StopService</name></member>
+    <member refid="classCpfNode_1ab9d450d7263147c73d096c6533a398e4" kind="function"><name>ChangeTopologyService</name></member>
+  </compound>
+  <compound refid="classEventTriggered" kind="class"><name>EventTriggered</name>
+    <member refid="classEventTriggered_1aaa4382ef56b71a38b18aa030753c9d96" kind="variable"><name>k_epsilon_</name></member>
+    <member refid="classEventTriggered_1a2018511893b22906c5e1d395ba609a36" kind="variable"><name>c0_</name></member>
+    <member refid="classEventTriggered_1a1f464d6f7d028e5ff0a2733ad6ab79bd" kind="variable"><name>c1_</name></member>
+    <member refid="classEventTriggered_1ac70922e77c94f22449fddb3718f1aca8" kind="variable"><name>alpha_</name></member>
+    <member refid="classEventTriggered_1ae94a54eacc152548be084a90418cdd42" kind="variable"><name>time_last_broadcast_</name></member>
+    <member refid="classEventTriggered_1aeba0d95d27fe24c5df9eac803bfece22" kind="variable"><name>last_gamma_broadcast_</name></member>
+    <member refid="classEventTriggered_1af967e1aed1092f36b42d911bffb5b23a" kind="variable"><name>first_broadcast_</name></member>
+    <member refid="classEventTriggered_1a5d9d2e7f32624b0c52ae530fe7cc1954" kind="variable"><name>time_first_broadcast_</name></member>
+    <member refid="classEventTriggered_1ae66a906264a916525b35a89b41ed1266" kind="variable"><name>vehicles_data_</name></member>
+    <member refid="classEventTriggered_1abb12ba7aa86b1fe0b0ffc4d827fa5b21" kind="function"><name>EventTriggered</name></member>
+    <member refid="classEventTriggered_1a3257a2d03ef60e6528bb863931a5aa2d" kind="function"><name>~EventTriggered</name></member>
+    <member refid="classEventTriggered_1a46f8c45a317e4f25750f2973ed712b53" kind="function"><name>coordinationController</name></member>
+    <member refid="classEventTriggered_1aac2bf06030dd8d47ee769f7acf4f8dd9" kind="function"><name>updateVehiclesInformation</name></member>
+    <member refid="classEventTriggered_1abfadcab13af9890ac2ffcd12c78d4b1c" kind="function"><name>publishCurrentGamma</name></member>
+    <member refid="classEventTriggered_1a87665678c35d20f3387293675eeb8cde" kind="function"><name>reset</name></member>
+    <member refid="classEventTriggered_1a2b0ec4788227654379b638362ad04b7c" kind="function"><name>predictVehicleEstimator</name></member>
+  </compound>
+  <compound refid="structVehicleInfo" kind="struct"><name>VehicleInfo</name>
+    <member refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" kind="variable"><name>gamma</name></member>
+    <member refid="structVehicleInfo_1a4fb1829bc00e652a21f55d4223433738" kind="variable"><name>time</name></member>
+    <member refid="structVehicleInfo_1a2acff7799310a8d9c86cdc3d3cd88ec6" kind="variable"><name>gamma_hat</name></member>
+    <member refid="structVehicleInfo_1ade9ad7673ecfb12a66938e0743593fa6" kind="variable"><name>vd</name></member>
+    <member refid="structVehicleInfo_1ab17fd68d7ea99b51061e92bb3a6b8ec8" kind="variable"><name>is_active</name></member>
+  </compound>
+  <compound refid="CPFControl_8h" kind="file"><name>CPFControl.h</name>
+  </compound>
+  <compound refid="EventTriggered_8h" kind="file"><name>EventTriggered.h</name>
+  </compound>
+  <compound refid="CpfNode_8h" kind="file"><name>CpfNode.h</name>
+  </compound>
+  <compound refid="CPFControl_8cpp" kind="file"><name>CPFControl.cpp</name>
+  </compound>
+  <compound refid="EventTriggered_8cpp" kind="file"><name>EventTriggered.cpp</name>
+  </compound>
+  <compound refid="CpfNode_8cpp" kind="file"><name>CpfNode.cpp</name>
+    <member refid="CpfNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="CpfServices_8cpp" kind="file"><name>CpfServices.cpp</name>
+  </compound>
+  <compound refid="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir"><name>include/algorithms</name>
+  </compound>
+  <compound refid="dir_e6df591b0639d4c4807ef64d058833e2" kind="dir"><name>src/algorithms</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir"><name>src/ros</name>
+  </compound>
+  <compound refid="dir_16d3284317caf78c0e25eb64bbba3d38" kind="dir"><name>include/ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

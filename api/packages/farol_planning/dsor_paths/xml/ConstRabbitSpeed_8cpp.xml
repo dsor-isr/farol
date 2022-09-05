@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ConstRabbitSpeed_8cpp" kind="file" language="C++">
+    <compoundname>ConstRabbitSpeed.cpp</compoundname>
+    <includes refid="ConstRabbitSpeed_8h" local="yes">ConstRabbitSpeed.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
+      </node>
+      <node id="2">
+        <label>ConstRabbitSpeed.h</label>
+        <link refid="ConstRabbitSpeed_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/algorithms/speed_profiles/ConstRabbitSpeed.cpp</label>
+        <link refid="ConstRabbitSpeed_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;ConstRabbitSpeed.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Constructor<sp/>for<sp/>the<sp/>ConstRabbitSpeed<sp/>class<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classConstRabbitSpeed_1ae953a7f65ae5146c7d35b43c505d6533" kindref="member">ConstRabbitSpeed::ConstRabbitSpeed</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>rabbit_speed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>default_val)<sp/>:<sp/></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>rabbit_speed_(rabbit_speed),</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>default_speed_(default_val)<sp/>{}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>get<sp/>the<sp/>desired<sp/>velocity<sp/>in<sp/>the<sp/>path<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstRabbitSpeed_1a4f0bba8bdaaa5d7ce0e7ef366bc507e8" kindref="member">ConstRabbitSpeed::getVd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>desired<sp/>rabbit<sp/>speed<sp/>is<sp/>already<sp/>in<sp/>the<sp/>path<sp/>frame<sp/>therefore<sp/>no<sp/>coversion<sp/>is<sp/>needed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;rabbit_speed_;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>get<sp/>the<sp/>derivative<sp/>of<sp/>the<sp/>desired<sp/>velocity<sp/>in<sp/>the<sp/>path<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstRabbitSpeed_1a4d5b2103d2280d3b6b354ef60a927ace" kindref="member">ConstRabbitSpeed::get_d_Vd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>velocity<sp/>desired<sp/>is<sp/>constant<sp/>-<sp/>we<sp/>desire<sp/>no<sp/>acceleration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>use<sp/>as<sp/>a<sp/>default<sp/>value<sp/>if<sp/>something<sp/>goes<sp/>wrong<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classConstRabbitSpeed_1a85ea7054d57b1d783a62086199236aa3" kindref="member">ConstRabbitSpeed::getDefaultVd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tangent_norm)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>The<sp/>default<sp/>in<sp/>this<sp/>case<sp/>will<sp/>be<sp/>the<sp/>same<sp/>constant<sp/>velocity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;default_speed_;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/speed_profiles/ConstRabbitSpeed.cpp"/>
+  </compounddef>
+</doxygen>

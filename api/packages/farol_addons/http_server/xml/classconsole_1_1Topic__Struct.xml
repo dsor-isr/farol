@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1Topic__Struct" kind="class" language="Python" prot="public">
+    <compoundname>console::Topic_Struct</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classconsole_1_1Topic__Struct_1af0a1a26b2e38b9fa70f33144c02545b1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.Topic_Struct::time_rcv</definition>
+        <argsstring></argsstring>
+        <name>time_rcv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="63" column="1" bodyfile="src/console.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1Topic__Struct_1a034485ebea32118986df3d61bfd5e25b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.Topic_Struct::topics</definition>
+        <argsstring></argsstring>
+        <name>topics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="64" column="1" bodyfile="src/console.py" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1Topic__Struct_1a72bafc9e1dd41d4e3275cdf893f45ca8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.Topic_Struct::topics_data</definition>
+        <argsstring></argsstring>
+        <name>topics_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="65" column="1" bodyfile="src/console.py" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a82c9281974448a5431b4bb2dcba1c870" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="62" column="1" bodyfile="src/console.py" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a1071e6e48f85daf97eb56fecf1b155bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.__str__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__str__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="68" column="1" bodyfile="src/console.py" bodystart="68" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a01e3a924aad8ad4b0e7e6e94a4900c7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.add_value</definition>
+        <argsstring>(self, topic_name, data)</argsstring>
+        <name>add_value</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic_name</type>
+          <defname>topic_name</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="78" column="1" bodyfile="src/console.py" bodystart="78" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a1b8d411225d7959d4f8ad06b527fc4de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.del_value</definition>
+        <argsstring>(self, topic_name)</argsstring>
+        <name>del_value</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic_name</type>
+          <defname>topic_name</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="92" column="1" bodyfile="src/console.py" bodystart="92" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a4ff643171a09d3ca858fea6f29728a33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.data_topic</definition>
+        <argsstring>(self, topic_name)</argsstring>
+        <name>data_topic</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic_name</type>
+          <defname>topic_name</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="101" column="1" bodyfile="src/console.py" bodystart="101" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a40bb987ff167e9c288548b334f27e074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.count</definition>
+        <argsstring>(self, topic_name)</argsstring>
+        <name>count</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic_name</type>
+          <defname>topic_name</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="111" column="1" bodyfile="src/console.py" bodystart="111" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1Topic__Struct_1a1484b813af55242eebbf9fbe47a5a8ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.Topic_Struct.str_list</definition>
+        <argsstring>(self)</argsstring>
+        <name>str_list</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="124" column="1" bodyfile="src/console.py" bodystart="124" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>console.Topic_Struct</label>
+        <link refid="classconsole_1_1Topic__Struct"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>console.Topic_Struct</label>
+        <link refid="classconsole_1_1Topic__Struct"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="60" column="1" bodyfile="src/console.py" bodystart="60" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classconsole_1_1Topic__Struct_1a82c9281974448a5431b4bb2dcba1c870" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>__init__</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a1071e6e48f85daf97eb56fecf1b155bc" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>__str__</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a01e3a924aad8ad4b0e7e6e94a4900c7d" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>add_value</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a40bb987ff167e9c288548b334f27e074" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>count</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a4ff643171a09d3ca858fea6f29728a33" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>data_topic</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a1b8d411225d7959d4f8ad06b527fc4de" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>del_value</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a1484b813af55242eebbf9fbe47a5a8ba" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>str_list</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1af0a1a26b2e38b9fa70f33144c02545b1" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>time_rcv</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a034485ebea32118986df3d61bfd5e25b" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>topics</name></member>
+      <member refid="classconsole_1_1Topic__Struct_1a72bafc9e1dd41d4e3275cdf893f45ca8" prot="public" virt="non-virtual"><scope>console::Topic_Struct</scope><name>topics_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

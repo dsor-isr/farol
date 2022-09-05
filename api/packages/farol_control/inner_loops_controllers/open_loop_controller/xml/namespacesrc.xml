@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacesrc" kind="namespace" language="Python">
+    <compoundname>src</compoundname>
+    <innernamespace refid="namespacesrc_1_1open__loop__controller">src::open_loop_controller</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/__init__.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

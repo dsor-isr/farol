@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceFilterGimmicks" kind="namespace" language="C++">
+    <compoundname>FilterGimmicks</compoundname>
+    <innerclass refid="structFilterGimmicks_1_1measurement" prot="public">FilterGimmicks::measurement</innerclass>
+    <innerclass refid="structFilterGimmicks_1_1predicate__frame__id" prot="public">FilterGimmicks::predicate_frame_id</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceFilterGimmicks_1a77af842d3d9584d2cb746bf898c88619" prot="public" static="no">
+        <type>struct <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref></type>
+        <definition>typedef struct FilterGimmicks::measurement FilterGimmicks::measurement</definition>
+        <argsstring></argsstring>
+        <name>measurement</name>
+        <briefdescription>
+<para>Define a measurement object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>measurement struct temporary placed here. To be moved later somewhere </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="114" column="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceFilterGimmicks_1a02ffaeee0705e19c682221ce7b12c938" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool FilterGimmicks::isinvalid</definition>
+        <argsstring>(const measurement &amp;m, double time)</argsstring>
+        <name>isinvalid</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+<para>Validates a measurement if time is not negative, measurement or covariance are not nan. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>measurement </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if measurement is invalid </para>
+</simplesect>
+<simplesect kind="return"><para>false if measurement is valid </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/FilterGimmicks.h" line="135" column="13" bodyfile="include/algorithms/FilterGimmicks.h" bodystart="135" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="namespaceFilterGimmicks" kindref="compound">FilterGimmicks</ref> namespace. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>gimmicks methods for navigation filters </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/FilterGimmicks.h" line="26" column="24"/>
+  </compounddef>
+</doxygen>

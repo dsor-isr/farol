@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir">
+    <compoundname>src/ros</compoundname>
+    <innerfile refid="Publishers_8cpp">Publishers.cpp</innerfile>
+    <innerfile refid="Services_8cpp">Services.cpp</innerfile>
+    <innerfile refid="SimulationNode_8cpp">SimulationNode.cpp</innerfile>
+    <innerfile refid="Subscribers_8cpp">Subscribers.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/ros/"/>
+  </compounddef>
+</doxygen>

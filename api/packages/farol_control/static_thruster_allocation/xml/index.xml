@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classThrustAllocation" kind="class"><name>ThrustAllocation</name>
+    <member refid="classThrustAllocation_1aad9328d22d2c4a909b288314fa542627" kind="variable"><name>ft_sub_</name></member>
+    <member refid="classThrustAllocation_1a825de2bfcc0f0b3bb6eb5efc5431d007" kind="variable"><name>hor_left_thr_pub_</name></member>
+    <member refid="classThrustAllocation_1a782bea14d741c6adb15f40e0f8b259a4" kind="variable"><name>hor_right_thr_pub_</name></member>
+    <member refid="classThrustAllocation_1ad1d15c170c3d8175dfb43b4ded889b42" kind="variable"><name>ver_back_thr_pub_</name></member>
+    <member refid="classThrustAllocation_1aea63fcaac75736c8e9463f5ca7999e87" kind="variable"><name>ver_front_thr_pub_</name></member>
+    <member refid="classThrustAllocation_1a464246b07647506edfbb271a23b33f4a" kind="variable"><name>thrusters_pub_</name></member>
+    <member refid="classThrustAllocation_1a3a448204548f2a1c4a0ddc7b6c79d3f5" kind="variable"><name>max_thrust_norm_</name></member>
+    <member refid="classThrustAllocation_1af1f1b9cc36ee45857c0364e263e1bfb0" kind="variable"><name>min_thrust_norm_</name></member>
+    <member refid="classThrustAllocation_1a9a719c7e537df67bce5998131e98ad32" kind="variable"><name>rpm_gain_</name></member>
+    <member refid="classThrustAllocation_1afd31b806bd1d286177ca3ead9a3f5a19" kind="variable"><name>b_inv_</name></member>
+    <member refid="classThrustAllocation_1ae0a695a847e6b2301796bb8098978714" kind="variable"><name>ctf_</name></member>
+    <member refid="classThrustAllocation_1a9a9683cbe295490cb8588599b8cc1165" kind="variable"><name>ctb_</name></member>
+    <member refid="classThrustAllocation_1a794fa9979dd05139c32e4ece4e9e070e" kind="function"><name>ThrustAllocation</name></member>
+    <member refid="classThrustAllocation_1a2709c031f3c1c3f56b98646d50fcbf2d" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classThrustAllocation_1aec20bf714cbfe094aee1a570b3e504a9" kind="function"><name>initializePublishers</name></member>
+    <member refid="classThrustAllocation_1a811564bc00e2ff750cc34a0e3233d84d" kind="function"><name>loadParams</name></member>
+    <member refid="classThrustAllocation_1a83e7e6f79ac4afad7c3579b3d09c1a99" kind="function"><name>saturateVector</name></member>
+    <member refid="classThrustAllocation_1ac9ecc1b9d613eb681a97d8df01746d55" kind="function"><name>readTAM</name></member>
+    <member refid="classThrustAllocation_1a4085fe7bfacb3338b43c3dbdca0bc887" kind="function"><name>readCT</name></member>
+    <member refid="classThrustAllocation_1ae87beab53f670a62d614a1dd7b0d8117" kind="function"><name>readRPMGain</name></member>
+    <member refid="classThrustAllocation_1ab64d69f5a30a0be2c212c855a4c6b0e4" kind="function"><name>thrusterAllocation</name></member>
+  </compound>
+  <compound refid="thruster__allocation_8h" kind="file"><name>thruster_allocation.h</name>
+  </compound>
+  <compound refid="thruster__allocation_8cpp" kind="file"><name>thruster_allocation.cpp</name>
+    <member refid="thruster__allocation_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

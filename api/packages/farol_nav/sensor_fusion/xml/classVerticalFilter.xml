@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classVerticalFilter" kind="class" language="C++" prot="public">
+    <compoundname>VerticalFilter</compoundname>
+    <includes refid="VerticalFilter_8h" local="no">VerticalFilter.h</includes>
+    <innerclass refid="structVerticalFilter_1_1config" prot="public">VerticalFilter::config</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int VerticalFilter::MEAS_LEN</definition>
+        <argsstring></argsstring>
+        <name>MEAS_LEN</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+<para>Measurement length. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="55" column="22" bodyfile="include/algorithms/VerticalFilter.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classVerticalFilter_1ace599db570ccaffd763b118d10afbd1f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VerticalFilter::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="135" column="10" bodyfile="include/algorithms/VerticalFilter.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1ab202c93d3e3344d95a8ecfb91598af21" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::alpha_</definition>
+        <argsstring></argsstring>
+        <name>alpha_</name>
+        <briefdescription>
+<para>&lt; Initialized Filter </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="138" column="12" bodyfile="include/algorithms/VerticalFilter.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1aec4b244bc60d7888970e787206e75b31" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::beta_</definition>
+        <argsstring></argsstring>
+        <name>beta_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="138" column="19" bodyfile="include/algorithms/VerticalFilter.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a1977888fd4c8a1ff3c79437606fb4ba3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::buoyancy_</definition>
+        <argsstring></argsstring>
+        <name>buoyancy_</name>
+        <briefdescription>
+<para>Parameters for vertical dynamic model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="138" column="25" bodyfile="include/algorithms/VerticalFilter.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a04d3d5152bf1f2039140ede82777c14a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::t_period_</definition>
+        <argsstring></argsstring>
+        <name>t_period_</name>
+        <briefdescription>
+<para>filter prediction perido </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="139" column="12" bodyfile="include/algorithms/VerticalFilter.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a6adbc506678957b96f0dfc8a1978f13c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::t_save_measurement_</definition>
+        <argsstring></argsstring>
+        <name>t_save_measurement_</name>
+        <briefdescription>
+<para>measurments older than this time are rejected. Note: not being used </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="140" column="12" bodyfile="include/algorithms/VerticalFilter.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1ad4895a7d6693970dc34f7b6cc2150ae8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::t_reset</definition>
+        <argsstring></argsstring>
+        <name>t_reset</name>
+        <briefdescription>
+<para>Reset filter, if after t_reset no measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="141" column="12" bodyfile="include/algorithms/VerticalFilter.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1ae6390ccc15887c7056c8c30bb10ee4b6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double VerticalFilter::t_wait_altimeter_</definition>
+        <argsstring></argsstring>
+        <name>t_wait_altimeter_</name>
+        <initializer>= 2.0</initializer>
+        <briefdescription>
+<para>During the initicalization wait 2sec for a altimeter measurement other wise will initiate with a depth measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="142" column="12" bodyfile="include/algorithms/VerticalFilter.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a5ca6973aa12c562bf81f057a6043db89" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec VerticalFilter::state_vec_</definition>
+        <argsstring></argsstring>
+        <name>state_vec_</name>
+        <briefdescription>
+<para>State vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="143" column="9" bodyfile="include/algorithms/VerticalFilter.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a1ad8d1877f47968ef6a078985440f69f" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat VerticalFilter::state_cov_</definition>
+        <argsstring></argsstring>
+        <name>state_cov_</name>
+        <briefdescription>
+<para>Covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="144" column="9" bodyfile="include/algorithms/VerticalFilter.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1aacbe5657154e4a7be44e535a537f4288" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat VerticalFilter::process_cov_</definition>
+        <argsstring></argsstring>
+        <name>process_cov_</name>
+        <briefdescription>
+<para>Process covariance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="145" column="9" bodyfile="include/algorithms/VerticalFilter.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1aa306ff142bd8e1b0cf2193bb50e44ad6" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec VerticalFilter::state_reject_counter_</definition>
+        <argsstring></argsstring>
+        <name>state_reject_counter_</name>
+        <briefdescription>
+<para>For outlier rejection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="146" column="9" bodyfile="include/algorithms/VerticalFilter.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1ad839d069aa49a62a21ea610cd54f483f" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec VerticalFilter::reject_counter_</definition>
+        <argsstring></argsstring>
+        <name>reject_counter_</name>
+        <briefdescription>
+<para>Keep track of outliers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="147" column="5" bodyfile="include/algorithms/VerticalFilter.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a79f00a7def94e87f3fa366a4d90e4f3d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VerticalFilter::broadcast_tf_</definition>
+        <argsstring></argsstring>
+        <name>broadcast_tf_</name>
+        <briefdescription>
+<para>Flag to switch TF broadcast. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="150" column="10" bodyfile="include/algorithms/VerticalFilter.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a273e131d518aea0b105e6ac7d5b236bb" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::world_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>world_frame_id_</name>
+        <briefdescription>
+<para>world frame id </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="151" column="17" bodyfile="include/algorithms/VerticalFilter.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a6937131c7b377f0813cfb0829f03d78d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string VerticalFilter::name_vehicle_id_</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="152" column="17" bodyfile="include/algorithms/VerticalFilter.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a7142c03014253ca1d7a2faacc8c6bd34" prot="private" static="no" mutable="no">
+        <type>tf2_ros::TransformBroadcaster</type>
+        <definition>tf2_ros::TransformBroadcaster VerticalFilter::br_</definition>
+        <argsstring></argsstring>
+        <name>br_</name>
+        <briefdescription>
+<para>transform brodcaster tf </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="153" column="35" bodyfile="include/algorithms/VerticalFilter.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a8773eb1cf9a3d4a6092f2b9999a41617" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time VerticalFilter::last_predict_</definition>
+        <argsstring></argsstring>
+        <name>last_predict_</name>
+        <briefdescription>
+<para>Time of last predict. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="156" column="15" bodyfile="include/algorithms/VerticalFilter.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1a1e67a2847f93c3013438c8d51ba2c5af" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time VerticalFilter::last_update_</definition>
+        <argsstring></argsstring>
+        <name>last_update_</name>
+        <briefdescription>
+<para>Time of last update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="157" column="10" bodyfile="include/algorithms/VerticalFilter.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classVerticalFilter_1aa96c4010af10d6bbdd984b490c5399ac" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time VerticalFilter::init_with_depth_</definition>
+        <argsstring></argsstring>
+        <name>init_with_depth_</name>
+        <briefdescription>
+<para>Time until we wait for a altimeter measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="158" column="15" bodyfile="include/algorithms/VerticalFilter.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVerticalFilter_1a2e0795ebf2df2ad1b9164fff5b7973ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VerticalFilter::VerticalFilter</definition>
+        <argsstring>()</argsstring>
+        <name>VerticalFilter</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="79" column="5" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="3" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1a13ec5aa4fe6b9d48fbacea731bf13eab" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual VerticalFilter::~VerticalFilter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~VerticalFilter</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="86" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1aecf6e8a357eda4740decf01c4223b3bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::configure</definition>
+        <argsstring>(const VerticalFilter::config configurations)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const <ref refid="structVerticalFilter_1_1config" kindref="compound">VerticalFilter::config</ref></type>
+          <declname>configurations</declname>
+        </param>
+        <briefdescription>
+<para>Configure filter program variables and set initialization conditions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structure with configurations </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="98" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="23" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1a07b36ed347b4631d0d83cca4f641ae39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::computePredict</definition>
+        <argsstring>(auv_msgs::NavigationStatus &amp;state, ros::Time t_request)</argsstring>
+        <name>computePredict</name>
+        <param>
+          <type>auv_msgs::NavigationStatus &amp;</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>ros::Time</type>
+          <declname>t_request</declname>
+        </param>
+        <briefdescription>
+<para>Propagate the state to the current time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t_request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>current time </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="109" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="55" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1a1ceca4f1ae15d83904893ad332fdd88b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::newMeasurement</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>newMeasurement</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Checks and processes a new measurement. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if measurement is processed successfully </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="120" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="97" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1a04b65c8d22f08b194e9091453fb67743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::resetFilter</definition>
+        <argsstring>()</argsstring>
+        <name>resetFilter</name>
+        <briefdescription>
+<para>Resets the filter, will require re-initialization to start back update again. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="129" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="253" bodyend="258"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classVerticalFilter_1a8fada9e8036ae98eae4c31d5757e2b31" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VerticalFilter::initialize</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>initialize</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Initialize vertical filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement from a sensor or Initial state defined in config file</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or Failure bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="172" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="115" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1aa6e3d866652e4588dd6be471ebe833af" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::predict</definition>
+        <argsstring>(Vec &amp;state_vec, Mat &amp;state_cov, double dt)</argsstring>
+        <name>predict</name>
+        <param>
+          <type>Vec &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>Mat &amp;</type>
+          <declname>state_cov</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Predict phase Kalman Filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_cov_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State covariance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time step </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="185" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="140" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1a34f0f02c700242335a8ab769a038afff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::update</definition>
+        <argsstring>(Vec &amp;state_vec, Mat &amp;state_cov, const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Vec &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>Mat &amp;</type>
+          <declname>state_cov</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Update phase Kalman Filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State Vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_cov_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State Covariande Vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="197" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="166" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classVerticalFilter_1a927fc83b70d69a3a608249ba3b95032a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VerticalFilter::forwardPropagation</definition>
+        <argsstring>(const FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>forwardPropagation</name>
+        <param>
+          <type>const <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Propagate the state and covariance until measurement time and then update the state with update() method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/VerticalFilter.h" line="209" column="10" bodyfile="src/algorithms/VerticalFilter.cpp" bodystart="235" bodyend="251"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This Class estimates the state of the vehicle in the horizontal frame. The state includes depth, velocity, altitude, and bouyancy. The latest state estimate of the filter is obtained using the exposed function getEstimate(). Measurement updates to the filter is done either using measCallback(). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>@Note Bouyancy is estimated but the output is not exposed to the user. </para>
+    </detaileddescription>
+    <location file="include/algorithms/VerticalFilter.h" line="53" column="1" bodyfile="include/algorithms/VerticalFilter.h" bodystart="52" bodyend="211"/>
+    <listofallmembers>
+      <member refid="classVerticalFilter_1ab202c93d3e3344d95a8ecfb91598af21" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>alpha_</name></member>
+      <member refid="classVerticalFilter_1aec4b244bc60d7888970e787206e75b31" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>beta_</name></member>
+      <member refid="classVerticalFilter_1a7142c03014253ca1d7a2faacc8c6bd34" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>br_</name></member>
+      <member refid="classVerticalFilter_1a79f00a7def94e87f3fa366a4d90e4f3d" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>broadcast_tf_</name></member>
+      <member refid="classVerticalFilter_1a1977888fd4c8a1ff3c79437606fb4ba3" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>buoyancy_</name></member>
+      <member refid="classVerticalFilter_1a07b36ed347b4631d0d83cca4f641ae39" prot="public" virt="non-virtual"><scope>VerticalFilter</scope><name>computePredict</name></member>
+      <member refid="classVerticalFilter_1aecf6e8a357eda4740decf01c4223b3bd" prot="public" virt="non-virtual"><scope>VerticalFilter</scope><name>configure</name></member>
+      <member refid="classVerticalFilter_1a927fc83b70d69a3a608249ba3b95032a" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>forwardPropagation</name></member>
+      <member refid="classVerticalFilter_1aa96c4010af10d6bbdd984b490c5399ac" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>init_with_depth_</name></member>
+      <member refid="classVerticalFilter_1a8fada9e8036ae98eae4c31d5757e2b31" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>initialize</name></member>
+      <member refid="classVerticalFilter_1ace599db570ccaffd763b118d10afbd1f" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>initialized_</name></member>
+      <member refid="classVerticalFilter_1a8773eb1cf9a3d4a6092f2b9999a41617" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>last_predict_</name></member>
+      <member refid="classVerticalFilter_1a1e67a2847f93c3013438c8d51ba2c5af" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>last_update_</name></member>
+      <member refid="classVerticalFilter_1aa4c50a769ba7782bf354b86af46df4ba" prot="public" virt="non-virtual"><scope>VerticalFilter</scope><name>MEAS_LEN</name></member>
+      <member refid="classVerticalFilter_1a6937131c7b377f0813cfb0829f03d78d" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>name_vehicle_id_</name></member>
+      <member refid="classVerticalFilter_1a1ceca4f1ae15d83904893ad332fdd88b" prot="public" virt="non-virtual"><scope>VerticalFilter</scope><name>newMeasurement</name></member>
+      <member refid="classVerticalFilter_1aa6e3d866652e4588dd6be471ebe833af" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>predict</name></member>
+      <member refid="classVerticalFilter_1aacbe5657154e4a7be44e535a537f4288" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>process_cov_</name></member>
+      <member refid="classVerticalFilter_1ad839d069aa49a62a21ea610cd54f483f" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>reject_counter_</name></member>
+      <member refid="classVerticalFilter_1a04b65c8d22f08b194e9091453fb67743" prot="public" virt="non-virtual"><scope>VerticalFilter</scope><name>resetFilter</name></member>
+      <member refid="classVerticalFilter_1a1ad8d1877f47968ef6a078985440f69f" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>state_cov_</name></member>
+      <member refid="classVerticalFilter_1aa306ff142bd8e1b0cf2193bb50e44ad6" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>state_reject_counter_</name></member>
+      <member refid="classVerticalFilter_1a5ca6973aa12c562bf81f057a6043db89" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>state_vec_</name></member>
+      <member refid="classVerticalFilter_1a04d3d5152bf1f2039140ede82777c14a" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>t_period_</name></member>
+      <member refid="classVerticalFilter_1ad4895a7d6693970dc34f7b6cc2150ae8" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>t_reset</name></member>
+      <member refid="classVerticalFilter_1a6adbc506678957b96f0dfc8a1978f13c" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>t_save_measurement_</name></member>
+      <member refid="classVerticalFilter_1ae6390ccc15887c7056c8c30bb10ee4b6" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>t_wait_altimeter_</name></member>
+      <member refid="classVerticalFilter_1a34f0f02c700242335a8ab769a038afff" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>update</name></member>
+      <member refid="classVerticalFilter_1a2e0795ebf2df2ad1b9164fff5b7973ce" prot="public" virt="non-virtual"><scope>VerticalFilter</scope><name>VerticalFilter</name></member>
+      <member refid="classVerticalFilter_1a273e131d518aea0b105e6ac7d5b236bb" prot="private" virt="non-virtual"><scope>VerticalFilter</scope><name>world_frame_id_</name></member>
+      <member refid="classVerticalFilter_1a13ec5aa4fe6b9d48fbacea731bf13eab" prot="public" virt="virtual"><scope>VerticalFilter</scope><name>~VerticalFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

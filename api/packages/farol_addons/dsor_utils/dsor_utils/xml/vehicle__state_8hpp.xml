@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vehicle__state_8hpp" kind="file" language="C++">
+    <compoundname>vehicle_state.hpp</compoundname>
+    <includes local="no">Eigen/Dense</includes>
+    <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="1">
+        <label>include/dsor_utils/control/vehicle_state.hpp</label>
+        <link refid="vehicle__state_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structDSOR_1_1VehicleState" prot="public">DSOR::VehicleState</innerclass>
+    <innernamespace refid="namespaceDSOR">DSOR</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceDSOR" kindref="compound">DSOR</ref>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="structDSOR_1_1VehicleState" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structDSOR_1_1VehicleState" kindref="compound">VehicleState</ref>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23" refid="structDSOR_1_1VehicleState_1a527517f0a78743511177e41dbaa0d827" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structDSOR_1_1VehicleState_1a527517f0a78743511177e41dbaa0d827" kindref="member">eta1</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="structDSOR_1_1VehicleState_1a276049b56dfa058b4fa54d0e9d65fa13" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structDSOR_1_1VehicleState_1a276049b56dfa058b4fa54d0e9d65fa13" kindref="member">eta2</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structDSOR_1_1VehicleState_1a54fba7e2d93615b9c5d5d9878b69ace6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structDSOR_1_1VehicleState_1a54fba7e2d93615b9c5d5d9878b69ace6" kindref="member">v1</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structDSOR_1_1VehicleState_1a3355804502fbb8e565003fd3fd0a33a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/><ref refid="structDSOR_1_1VehicleState_1a3355804502fbb8e565003fd3fd0a33a8" kindref="member">v2</ref>{0.0,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="include/dsor_utils/control/vehicle_state.hpp"/>
+  </compounddef>
+</doxygen>

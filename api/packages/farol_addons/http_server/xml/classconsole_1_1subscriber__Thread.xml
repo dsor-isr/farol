@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1subscriber__Thread" kind="class" language="Python" prot="public">
+    <compoundname>console::subscriber_Thread</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Thread</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classconsole_1_1subscriber__Thread_1af588b9ff2d031b7524ee55bab01e4a0d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.subscriber_Thread::topic</definition>
+        <argsstring></argsstring>
+        <name>topic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="871" column="1" bodyfile="src/console.py" bodystart="871" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1subscriber__Thread_1a0fb6f08c6a73db7bf21c737acc254320" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.subscriber_Thread::callback_echo</definition>
+        <argsstring></argsstring>
+        <name>callback_echo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="872" column="1" bodyfile="src/console.py" bodystart="872" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1subscriber__Thread_1aa9cde5948e418d25888be717f9a55fb5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.subscriber_Thread::msg_eval</definition>
+        <argsstring></argsstring>
+        <name>msg_eval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="873" column="1" bodyfile="src/console.py" bodystart="873" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classconsole_1_1subscriber__Thread_1aafbd16cfa6a207679d75984270fdb06c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.subscriber_Thread.__init__</definition>
+        <argsstring>(self, topic)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="870" column="1" bodyfile="src/console.py" bodystart="870" bodyend="878"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1subscriber__Thread_1adbcae10639d38601fd91b648a8813a17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.subscriber_Thread.run</definition>
+        <argsstring>(self)</argsstring>
+        <name>run</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="879" column="1" bodyfile="src/console.py" bodystart="879" bodyend="883"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>threading::Thread</label>
+      </node>
+      <node id="1">
+        <label>console.subscriber_Thread</label>
+        <link refid="classconsole_1_1subscriber__Thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>threading::Thread</label>
+      </node>
+      <node id="1">
+        <label>console.subscriber_Thread</label>
+        <link refid="classconsole_1_1subscriber__Thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="869" column="1" bodyfile="src/console.py" bodystart="869" bodyend="884"/>
+    <listofallmembers>
+      <member refid="classconsole_1_1subscriber__Thread_1aafbd16cfa6a207679d75984270fdb06c" prot="public" virt="non-virtual"><scope>console::subscriber_Thread</scope><name>__init__</name></member>
+      <member refid="classconsole_1_1subscriber__Thread_1a0fb6f08c6a73db7bf21c737acc254320" prot="public" virt="non-virtual"><scope>console::subscriber_Thread</scope><name>callback_echo</name></member>
+      <member refid="classconsole_1_1subscriber__Thread_1aa9cde5948e418d25888be717f9a55fb5" prot="public" virt="non-virtual"><scope>console::subscriber_Thread</scope><name>msg_eval</name></member>
+      <member refid="classconsole_1_1subscriber__Thread_1adbcae10639d38601fd91b648a8813a17" prot="public" virt="non-virtual"><scope>console::subscriber_Thread</scope><name>run</name></member>
+      <member refid="classconsole_1_1subscriber__Thread_1af588b9ff2d031b7524ee55bab01e4a0d" prot="public" virt="non-virtual"><scope>console::subscriber_Thread</scope><name>topic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

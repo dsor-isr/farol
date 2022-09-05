@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="thruster__allocation_8h" kind="file" language="C++">
+    <compoundname>thruster_allocation.h</compoundname>
+    <includes local="no">Eigen/Dense</includes>
+    <includes local="no">auv_msgs/BodyForceRequest.h</includes>
+    <includes local="no">dsor_msgs/Thruster.h</includes>
+    <includes local="no">farol_gimmicks_library/FarolGimmicks.h</includes>
+    <includes local="no">ros/ros.h</includes>
+    <includedby refid="thruster__allocation_8cpp" local="yes">src/thruster_allocation.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>auv_msgs/BodyForceRequest.h</label>
+      </node>
+      <node id="4">
+        <label>dsor_msgs/Thruster.h</label>
+      </node>
+      <node id="1">
+        <label>include/thruster_allocation.h</label>
+        <link refid="thruster__allocation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="6">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="5">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classThrustAllocation" prot="public">ThrustAllocation</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;auv_msgs/BodyForceRequest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_msgs/Thruster.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_gimmicks_library/FarolGimmicks.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ros/ros.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="classThrustAllocation" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classThrustAllocation" kindref="compound">ThrustAllocation</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="classThrustAllocation_1a794fa9979dd05139c32e4ece4e9e070e" kindref="member">ThrustAllocation</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a2709c031f3c1c3f56b98646d50fcbf2d" kindref="member">initializeSubscribers</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1aec20bf714cbfe094aee1a570b3e504a9" kindref="member">initializePublishers</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a811564bc00e2ff750cc34a0e3233d84d" kindref="member">loadParams</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a83e7e6f79ac4afad7c3579b3d09c1a99" kindref="member">saturateVector</ref>(Eigen::VectorXd<sp/>&amp;thr_thrust);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1ac9ecc1b9d613eb681a97d8df01746d55" kindref="member">readTAM</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1a4085fe7bfacb3338b43c3dbdca0bc887" kindref="member">readCT</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1ae87beab53f670a62d614a1dd7b0d8117" kindref="member">readRPMGain</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classThrustAllocation_1ab64d69f5a30a0be2c212c855a4c6b0e4" kindref="member">thrusterAllocation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::BodyForceRequest<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>ft_sub_;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>thruster<sp/>publishers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>hor_left_thr_pub_;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>hor_right_thr_pub_;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>ver_back_thr_pub_;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>ver_front_thr_pub_,<sp/>thrusters_pub_;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>max<sp/>and<sp/>min<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max_thrust_norm_;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min_thrust_norm_;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>Eigen::VectorXd<sp/>rpm_gain_;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>Eigen::MatrixXd<sp/>b_inv_;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>ctf_;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>ctb_;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="include/thruster_allocation.h"/>
+  </compounddef>
+</doxygen>

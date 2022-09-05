@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="PathSection_8h" kind="file" language="C++">
+    <compoundname>PathSection.h</compoundname>
+    <includes local="no">Eigen/Core</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">limits</includes>
+    <includedby refid="Path_8h" local="yes">include/algorithms/Path.h</includedby>
+    <includedby refid="Arc2D_8h" local="yes">include/algorithms/path_sections/Arc2D.h</includedby>
+    <includedby refid="Bernoulli_8h" local="yes">include/algorithms/path_sections/Bernoulli.h</includedby>
+    <includedby refid="Circle2D_8h" local="yes">include/algorithms/path_sections/Circle2D.h</includedby>
+    <includedby refid="Line_8h" local="yes">include/algorithms/path_sections/Line.h</includedby>
+    <includedby refid="Polinomial5_8h" local="yes">include/algorithms/path_sections/Polinomial5.h</includedby>
+    <includedby refid="Polynomial5_8h" local="yes">include/algorithms/path_sections/Polynomial5.h</includedby>
+    <includedby refid="Sinusoid2D_8h" local="yes">include/algorithms/path_sections/Sinusoid2D.h</includedby>
+    <includedby refid="PathNode_8h" local="yes">include/ros/PathNode.h</includedby>
+    <includedby refid="PathSection_8cpp" local="yes">src/algorithms/path_sections/PathSection.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="3">
+        <label>math.h</label>
+      </node>
+      <node id="1">
+        <label>include/algorithms/path_sections/PathSection.h</label>
+        <link refid="PathSection_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>include/algorithms/path_sections/Arc2D.h</label>
+        <link refid="Arc2D_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/ros/PathNode.h</label>
+        <link refid="PathNode_8h_source"/>
+      </node>
+      <node id="2">
+        <label>include/algorithms/Path.h</label>
+        <link refid="Path_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>include/algorithms/path_sections/Line.h</label>
+        <link refid="Line_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/algorithms/path_sections/Bernoulli.h</label>
+        <link refid="Bernoulli_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>include/algorithms/path_sections/Polynomial5.h</label>
+        <link refid="Polynomial5_8h_source"/>
+      </node>
+      <node id="8">
+        <label>include/algorithms/path_sections/Polinomial5.h</label>
+        <link refid="Polinomial5_8h_source"/>
+      </node>
+      <node id="10">
+        <label>include/algorithms/path_sections/Sinusoid2D.h</label>
+        <link refid="Sinusoid2D_8h_source"/>
+      </node>
+      <node id="6">
+        <label>include/algorithms/path_sections/Circle2D.h</label>
+        <link refid="Circle2D_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/algorithms/path_sections/PathSection.h</label>
+        <link refid="PathSection_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classPathSection" prot="public">PathSection</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="classPathSection" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classPathSection" kindref="compound">PathSection</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:<sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/><ref refid="classPathSection_1a8bfb8c4e2ee0175687673af20ee1f109" kindref="member">eq_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/><ref refid="classPathSection_1ae07e37a99265be8b16ebadf05ea0f9fe" kindref="member">eq_d_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>Eigen::Vector3d<sp/><ref refid="classPathSection_1aebd57c623306c783cd374a5e7f3f25ad" kindref="member">eq_dd_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a558020d4864409b74ef73ecd3f64456c" kindref="member">tangent</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1adffd7389e5870df945c682481713ba76" kindref="member">curvature</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a822d6b196a48e1fbd47dc3548ebd4a50" kindref="member">derivative_norm</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a78793a75681c551d37012591404af39c" kindref="member">getClosestPointGamma</ref>(Eigen::Vector3d<sp/>&amp;coordinate);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" kindref="member">can_be_composed</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a6e1733fef57bb0fdb83fd230e6d76d79" kindref="member">limitGamma</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1ac7d453fb1c8c1553e75ac5b5bae82950" kindref="member">getMaxGammaValue</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1ae42551487a9bdc586d26dafbf5f12d9f" kindref="member">getMinGammaValue</ref>();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1ad061288d4c5446b96cd8403cf46e3530" kindref="member">~PathSection</ref>();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPathSection_1a9ec8116da8291b32971bf3728cd06d02" kindref="member">PathSection</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a23eb0a156b8f0d92700e549695e3e726" kindref="member">can_be_composed</ref>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1af038ff4fc933afc3ee0f47023fc18cdc" kindref="member">setMaxGammaValue</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_max);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1abfac7845d2c5a4c63f369de0d44143b6" kindref="member">setMinGammaValue</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_min);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1a52ee3a35d0da5d522a10345587e9333f" kindref="member">GradientDescent</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_o,<sp/>Eigen::Vector3d<sp/>&amp;x_pos,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tolerance);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1abf595d551b130edbec7a103391a0b6dc" kindref="member">getInitialGammaEstimate</ref>(Eigen::Vector3d<sp/>&amp;x_pos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_partitions,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_val,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max_val);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathSection_1ad021a100a135860c764461bc289707e3" kindref="member">bisection</ref>(Eigen::Vector3d<sp/>&amp;x_pos,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>a,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>b);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max_value_gamma_{std::numeric_limits&lt;double&gt;::max()<sp/>/<sp/>2};</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_value_gamma_{std::numeric_limits&lt;double&gt;::lowest()<sp/>/<sp/>2};</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>can_be_composed_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_hat_{0.01};</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon_{0.0001};</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>beta_{0.5};</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tolerance_{0.1};</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_o_{0.0};</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>first_iteration_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>default_num_partitions_{3};</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>EP_bissection_{0.001};</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>backtrack(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/>Eigen::Vector3d<sp/>&amp;x_pos,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>d_k,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>grad_f,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_hat,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>beta,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>epsilon);<sp/></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>F(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/>Eigen::Vector3d<sp/>&amp;x_pos);</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>grad_F(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/>Eigen::Vector3d<sp/>&amp;x_pos);<sp/></highlight></codeline>
+<codeline lineno="287"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/algorithms/path_sections/PathSection.h"/>
+  </compounddef>
+</doxygen>

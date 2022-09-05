@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classLowPassFilter" kind="class" language="C++" prot="public">
+    <compoundname>LowPassFilter</compoundname>
+    <basecompoundref refid="classDigitalFilter" prot="public" virt="non-virtual">DigitalFilter&lt; float &gt;</basecompoundref>
+    <includes refid="lowpass__filter_8hpp" local="no">lowpass_filter.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLowPassFilter_1ad4d70bf4e67de868d94599e7afd767fd" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LowPassFilter::epow</definition>
+        <argsstring></argsstring>
+        <name>epow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="71" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter_1a9716f07f974b825f064a9e75667e453c" prot="private" static="no" mutable="no">
+        <type>const float</type>
+        <definition>const float LowPassFilter::dt</definition>
+        <argsstring></argsstring>
+        <name>dt</name>
+        <briefdescription>
+<para>one time calculation constant </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="72" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLowPassFilter_1aba1355c6f79c3f4c516446537c0a5439" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LowPassFilter::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="73" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLowPassFilter_1a784fd0cdf178fcb52aed9a684abf48f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LowPassFilter::LowPassFilter</definition>
+        <argsstring>(float idt, float omega_c, float ioutput=0)</argsstring>
+        <name>LowPassFilter</name>
+        <param>
+          <type>float</type>
+          <declname>idt</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>omega_c</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ioutput</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor to set sample time and the tau constant. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample time for the low pass filter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">omega_c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Cutoff angular frequency <formula id="0">$ \omega_c = 2 pi f_c$</formula> where <formula id="1">$ f_c $</formula> is the cutoff frequency </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="33" column="9" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="33" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter_1a797ed50371cde65adff8aa4bb54f02ed" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float LowPassFilter::update</definition>
+        <argsstring>(float newValue) final</argsstring>
+        <name>update</name>
+        <reimplements refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac">update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Update function to push new value into the low pass filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value after dt time</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new output value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="48" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter_1a74ca69ff19bd6e8c24ba760f4eb791b6" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="virtual">
+        <type>float</type>
+        <definition>float LowPassFilter::getOutput</definition>
+        <argsstring>() final</argsstring>
+        <name>getOutput</name>
+        <reimplements refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd">getOutput</reimplements>
+        <briefdescription>
+<para>Gets the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="55" column="15" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter_1a801535d71982a9f1d59144615725fd94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void LowPassFilter::configOutput</definition>
+        <argsstring>(float newOutput)</argsstring>
+        <name>configOutput</name>
+        <param>
+          <type>float</type>
+          <declname>newOutput</declname>
+        </param>
+        <briefdescription>
+<para>Force the output to a desired value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>        This can be useful when the output needs to be forced in case
+        of extreme inputs or such
+</verbatim></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">newOutput</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new output </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="65" column="14" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classLowPassFilter_1a6a3a87d4e1f22166b34941a9efffb025" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const float *</type>
+        <definition>const float* LowPassFilter::outputPointer</definition>
+        <argsstring>()</argsstring>
+        <name>outputPointer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="67" column="21" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for a low pass filter. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Authors: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Maintained by: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Last Update: 08/02/2018 Github: <ulink url="https://github.com/jimmyberg/DigitalFilters">https://github.com/jimmyberg/DigitalFilters</ulink> License: GNU Brief: Multiple classes for low pass filters of different orders, inherited from the <ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref> class of moving filters. A low-pass filter is a filter that passes signals with a frequency lower than a selected cutoff frequency and attenuates signals with frequencies higher than the cutoff frequency. <verbatim>        Design to be a first order Butterworth low pass filter.
+        Transformation done using the matched-Z-transform method
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LowPassFilter</label>
+        <link refid="classLowPassFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LowPassFilter</label>
+        <link refid="classLowPassFilter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DigitalFilter&lt; float &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/dsor_utils/filters/lowpass_filter.hpp" line="23" column="42" bodyfile="include/dsor_utils/filters/lowpass_filter.hpp" bodystart="23" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classLowPassFilter_1a801535d71982a9f1d59144615725fd94" prot="public" virt="non-virtual"><scope>LowPassFilter</scope><name>configOutput</name></member>
+      <member refid="classLowPassFilter_1a9716f07f974b825f064a9e75667e453c" prot="private" virt="non-virtual"><scope>LowPassFilter</scope><name>dt</name></member>
+      <member refid="classLowPassFilter_1ad4d70bf4e67de868d94599e7afd767fd" prot="private" virt="non-virtual"><scope>LowPassFilter</scope><name>epow</name></member>
+      <member refid="classLowPassFilter_1a74ca69ff19bd6e8c24ba760f4eb791b6" prot="public" virt="virtual"><scope>LowPassFilter</scope><name>getOutput</name></member>
+      <member refid="classLowPassFilter_1a784fd0cdf178fcb52aed9a684abf48f4" prot="public" virt="non-virtual"><scope>LowPassFilter</scope><name>LowPassFilter</name></member>
+      <member refid="classLowPassFilter_1aba1355c6f79c3f4c516446537c0a5439" prot="private" virt="non-virtual"><scope>LowPassFilter</scope><name>output</name></member>
+      <member refid="classLowPassFilter_1a6a3a87d4e1f22166b34941a9efffb025" prot="public" virt="non-virtual"><scope>LowPassFilter</scope><name>outputPointer</name></member>
+      <member refid="classLowPassFilter_1a797ed50371cde65adff8aa4bb54f02ed" prot="public" virt="virtual"><scope>LowPassFilter</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

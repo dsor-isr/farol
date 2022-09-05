@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_49143434998848ee7776d61a2a263b5b" kind="dir">
+    <compoundname>include/algorithms/speed_profiles</compoundname>
+    <innerfile refid="ConstRabbitSpeed_8h">ConstRabbitSpeed.h</innerfile>
+    <innerfile refid="ConstVehicleSpeed_8h">ConstVehicleSpeed.h</innerfile>
+    <innerfile refid="Speed_8h">Speed.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/algorithms/speed_profiles/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classAUV" kind="class"><name>AUV</name>
+    <member refid="classAUV_1ae663352172cf989820d75d4a634af5c0" kind="variable"><name>state_</name></member>
+    <member refid="classAUV_1a72cb75287da8cebc274b5e02fdcf3efa" kind="variable"><name>gravity_</name></member>
+    <member refid="classAUV_1af52fbe65d521615653e8b3f620d687da" kind="variable"><name>mass_</name></member>
+    <member refid="classAUV_1abb2b69c78eabb16164a708061f77297c" kind="variable"><name>fluid_density_</name></member>
+    <member refid="classAUV_1a3f728222b483f9a51a0572ecc14aabb9" kind="variable"><name>zg_</name></member>
+    <member refid="classAUV_1a7010ebeccaefc5f70e20ec99db6b0d14" kind="variable"><name>radius_</name></member>
+    <member refid="classAUV_1a65939cba2ba1a89fbf454c894e85460c" kind="variable"><name>M_</name></member>
+    <member refid="classAUV_1a74bc1b0e91be296c40d4f6aa6380a21a" kind="variable"><name>M_inv_</name></member>
+    <member refid="classAUV_1a719a70b39fd0e2958a0814c3bf0e5f6f" kind="variable"><name>Dl_</name></member>
+    <member refid="classAUV_1a8cd07d8f55eefacd159f54662674e618" kind="variable"><name>Dq_</name></member>
+    <member refid="classAUV_1ae117a991410e9f24e5b6f9e93e2812ba" kind="variable"><name>M11_</name></member>
+    <member refid="classAUV_1a79648b75dd94404e21f415a82eb9f964" kind="variable"><name>M12_</name></member>
+    <member refid="classAUV_1a5f072dd0bf176766a1c88b015c413390" kind="variable"><name>M21_</name></member>
+    <member refid="classAUV_1ac20d600cc44f428687a5fd6debb9a2fd" kind="variable"><name>M22_</name></member>
+    <member refid="classAUV_1a26fe30efcb6de0558ce25ac618564994" kind="variable"><name>allocation_matrix_</name></member>
+    <member refid="classAUV_1a1ee3af977e1e2eec9f2201cecae2d0fe" kind="variable"><name>lump_param_positive_</name></member>
+    <member refid="classAUV_1a9ca628d725e4adeebac7ab5e7848d0bc" kind="variable"><name>lump_param_negative_</name></member>
+    <member refid="classAUV_1a277fa1fd92f1c5420b0d8cdd9cc871af" kind="variable"><name>min_max_thruster_input_</name></member>
+    <member refid="classAUV_1a592ff617c47bca7d8ef9c4eb3c1ca992" kind="variable"><name>thrusters_gain_</name></member>
+    <member refid="classAUV_1add1c447f7f8ebb11d74eab6be175fefa" kind="variable"><name>thrusters_pole_</name></member>
+    <member refid="classAUV_1a78449ea79ec7d68d8245a04a67c84e52" kind="variable"><name>thrusters_delay_</name></member>
+    <member refid="classAUV_1a2f2e97a4b4d86310cd05340e92d75a17" kind="variable"><name>sampling_period_</name></member>
+    <member refid="classAUV_1ae55c0a684b8c0b4027ca7d73976e3c93" kind="variable"><name>previous_inputs_</name></member>
+    <member refid="classAUV_1a808a092e6bac437fadb139e6f4cf37cf" kind="variable"><name>number_of_delays_inputs_</name></member>
+    <member refid="classAUV_1a41206191c7079e4ca20a3dcc066069b8" kind="variable"><name>thrusters_inputs_</name></member>
+    <member refid="classAUV_1a1366d7ade653638935ff8b964b3e664c" kind="variable"><name>last_thruster_output_</name></member>
+    <member refid="classAUV_1abfa464a82f94e20e0e4029ae23cb4e15" kind="variable"><name>disturbance_minimum_</name></member>
+    <member refid="classAUV_1a6584bbc8054e26dcad0a0b785f3cfc3f" kind="variable"><name>disturbance_maximum_</name></member>
+    <member refid="classAUV_1a7aaaf7263f4635904268c52873269a5b" kind="variable"><name>generator_</name></member>
+    <member refid="classAUV_1a99d7b5f9e39326906045d95de05e559f" kind="variable"><name>distributions_</name></member>
+    <member refid="classAUV_1aa36bc79fac59bcd46644491a343bb925" kind="function"><name>AUV</name></member>
+    <member refid="classAUV_1a4484b572be4cc530a8079489584816c1" kind="function"><name>update</name></member>
+    <member refid="classAUV_1a36b15331bdf3b8735594a124b7497884" kind="function"><name>getState</name></member>
+    <member refid="classAUV_1af17547988bb064d278b56ed56f9e8584" kind="function"><name>setState</name></member>
+    <member refid="classAUV_1a4aace0f4b821d4779fc68b57b22e8b59" kind="function"><name>getNumberThrusters</name></member>
+    <member refid="classAUV_1a29282a54144cbf1880e71fa8c9afaf28" kind="function"><name>applyThrustersModel</name></member>
+    <member refid="classAUV_1a6425482c627d70c4550da8f5e6f3a46e" kind="function"><name>convertThrustToForce</name></member>
+    <member refid="classAUV_1a23e34e44bb2c68527c7f503efee63393" kind="function"><name>convertThrustToGeneralForces</name></member>
+    <member refid="classAUV_1a6cb1a6416c7141a806729e2472c80591" kind="function"><name>computeOceanDisturbances</name></member>
+    <member refid="classAUV_1ad8e00baed98c592210f89158771463b8" kind="function"><name>updateDynamics</name></member>
+    <member refid="classAUV_1a09ee8c3e78c1c9af892d20869be74c52" kind="function"><name>updateKinematics</name></member>
+    <member refid="classAUV_1ad19f6b917d30c6c0ef70421a149ab0ef" kind="function"><name>computeCoriolisMatrix</name></member>
+    <member refid="classAUV_1a1adfb0172aa1417cca317d81767769ae" kind="function"><name>computeDampingTerms</name></member>
+    <member refid="classAUV_1a858ef25819a3fed05f374304e2f5bb98" kind="function"><name>computeHydrostaticForces</name></member>
+    <member refid="classAUV_1a22c85a75a9a559bce9ca24126c1e6a69" kind="function"><name>computeVolumeFluidDisplaced</name></member>
+  </compound>
+  <compound refid="classSimulationNode" kind="class"><name>SimulationNode</name>
+    <member refid="classSimulationNode_1a768b39cce134333928817fcea189ea97" kind="variable"><name>auv_</name></member>
+    <member refid="classSimulationNode_1acd19190f09ead8721f2c92e75b7d008b" kind="variable"><name>frame_id_</name></member>
+    <member refid="classSimulationNode_1ac3a00227846a2e7eecaddafefb08d414" kind="variable"><name>paused_</name></member>
+    <member refid="classSimulationNode_1ad01fbcbb9ec9c1a887d31d9a4577f84b" kind="variable"><name>desired_thrust_</name></member>
+    <member refid="classSimulationNode_1a38f928c553d4db6732f690d338983320" kind="variable"><name>nh_</name></member>
+    <member refid="classSimulationNode_1a855c167af266aea977285f48d593800b" kind="variable"><name>nh_p_</name></member>
+    <member refid="classSimulationNode_1a8efd9a442ce2d1c89e1287099fe91f46" kind="variable"><name>timer_</name></member>
+    <member refid="classSimulationNode_1a4113d6f252f8c2f54b1e3175111e0e15" kind="variable"><name>thrusters_sub_</name></member>
+    <member refid="classSimulationNode_1a5d79cf4df51acf0c6b7d15c9bbddb3cf" kind="variable"><name>odometry_pub_</name></member>
+    <member refid="classSimulationNode_1aa965f13c81c99d15d989d6ba8e013033" kind="variable"><name>start_pause_srv_</name></member>
+    <member refid="classSimulationNode_1a0ff6f8c9db413c058a87ef8d9d5e31d4" kind="function"><name>SimulationNode</name></member>
+    <member refid="classSimulationNode_1a02c9125fcfc3f99d80ded3583dc370c5" kind="function"><name>~SimulationNode</name></member>
+    <member refid="classSimulationNode_1a7b2539661fcc90a1b29578c0e81c5d3e" kind="function"><name>instantiateAUV</name></member>
+    <member refid="classSimulationNode_1a62dea6623e413b0531d968a9f7858ae0" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classSimulationNode_1afbf59c5d4159cc603da092b8c79fa6fb" kind="function"><name>shutdownSubscribers</name></member>
+    <member refid="classSimulationNode_1a86667ff00e1dda8b550ac76f2a2778a2" kind="function"><name>initializePublishers</name></member>
+    <member refid="classSimulationNode_1a5b8a95f01e42eda71c92c7bd9d60c792" kind="function"><name>shutdownPublishers</name></member>
+    <member refid="classSimulationNode_1a8b8362781e69502e05e3ec7fbed784e1" kind="function"><name>initializeServices</name></member>
+    <member refid="classSimulationNode_1a03e663b27cbe8a8aec9fa661f99b15c4" kind="function"><name>shutdownServices</name></member>
+    <member refid="classSimulationNode_1a6e0e1f42ce2fc8ed5b5e6483b19a9ed3" kind="function"><name>initializeTimer</name></member>
+    <member refid="classSimulationNode_1a94b0d8273e3f67a10fdd1f69bb09aa21" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classSimulationNode_1a9e8859325e9280f194fb2fbc3b25ff54" kind="function"><name>updateDesiredThrustCallback</name></member>
+    <member refid="classSimulationNode_1ad3162cc328aa5ac25c430c3cc9d08178" kind="function"><name>startPauseServiceCallback</name></member>
+    <member refid="classSimulationNode_1a4d7eb41bee009f594be848d1e006e7db" kind="function"><name>timerUpdateCallback</name></member>
+  </compound>
+  <compound refid="structState" kind="struct"><name>State</name>
+    <member refid="structState_1a465822912df4faf669bb7fc071eebb6e" kind="variable"><name>eta1</name></member>
+    <member refid="structState_1a7c33c72514da22c1279c0f65ca2589a1" kind="variable"><name>eta2</name></member>
+    <member refid="structState_1a4a51f0883612632812b9df9c18d832f2" kind="variable"><name>v1</name></member>
+    <member refid="structState_1a0ec003d3903c0c5664f7ba9b7dae5d8b" kind="variable"><name>v2</name></member>
+  </compound>
+  <compound refid="AUV_8h" kind="file"><name>AUV.h</name>
+  </compound>
+  <compound refid="State_8h" kind="file"><name>State.h</name>
+  </compound>
+  <compound refid="Utils_8h" kind="file"><name>Utils.h</name>
+    <member refid="Utils_8h_1ae2da575d766b8ff1556a908f86418df8" kind="function"><name>eulerIntegration</name></member>
+    <member refid="Utils_8h_1a5a20544122d4996a45a4b602bc405d97" kind="function"><name>wrapAngle</name></member>
+    <member refid="Utils_8h_1a3e17f1a1284e2823316f74718a0c4552" kind="function"><name>rotationBodyToInertial</name></member>
+    <member refid="Utils_8h_1a16bb570b6007a5a3199d66361631c856" kind="function"><name>rotationAngularBodyToInertial</name></member>
+    <member refid="Utils_8h_1a03dd2c925d19ca4f5e6266a5bdde7dc7" kind="function"><name>computeSkewSymmetric</name></member>
+    <member refid="Utils_8h_1ad1b4a4749275ce926a4ea7047f0f9463" kind="function"><name>saturation</name></member>
+  </compound>
+  <compound refid="SimulationNode_8h" kind="file"><name>SimulationNode.h</name>
+  </compound>
+  <compound refid="AUV_8cpp" kind="file"><name>AUV.cpp</name>
+  </compound>
+  <compound refid="Publishers_8cpp" kind="file"><name>Publishers.cpp</name>
+  </compound>
+  <compound refid="Services_8cpp" kind="file"><name>Services.cpp</name>
+  </compound>
+  <compound refid="SimulationNode_8cpp" kind="file"><name>SimulationNode.cpp</name>
+    <member refid="SimulationNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="Subscribers_8cpp" kind="file"><name>Subscribers.cpp</name>
+  </compound>
+  <compound refid="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir"><name>include/algorithms</name>
+  </compound>
+  <compound refid="dir_e6df591b0639d4c4807ef64d058833e2" kind="dir"><name>src/algorithms</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir"><name>src/ros</name>
+  </compound>
+  <compound refid="dir_16d3284317caf78c0e25eb64bbba3d38" kind="dir"><name>include/ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

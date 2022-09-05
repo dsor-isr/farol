@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classFormation" kind="class" language="C++" prot="public">
+    <compoundname>Formation</compoundname>
+    <includes refid="Formation_8h" local="no">Formation.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classFormation_1a74b7af08d38b4ff1bb196bfe7309ca78" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Formation::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>vehicle id <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Formation.h" line="15" column="9" bodyfile="include/ros/Formation.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFormation_1aec1bfc92a54fa5ff860d668225b95e29" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Formation::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>x value to change xi and xe in section </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Formation.h" line="16" column="12" bodyfile="include/ros/Formation.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFormation_1a50355d11d5cb0fb15100a3b25a59b2a6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Formation::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+<para>y value to change yi and ye in section </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Formation.h" line="17" column="12" bodyfile="include/ros/Formation.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFormation_1a60c3058dd353550d89183ec529909cb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Formation::Formation</definition>
+        <argsstring>()</argsstring>
+        <name>Formation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Formation.h" line="18" column="5" bodyfile="include/ros/Formation.h" bodystart="18" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains <ref refid="classFormation" kindref="compound">Formation</ref> variables for cooperative path following. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/ros/Formation.h" line="13" column="16" bodyfile="include/ros/Formation.h" bodystart="13" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classFormation_1a60c3058dd353550d89183ec529909cb6" prot="public" virt="non-virtual"><scope>Formation</scope><name>Formation</name></member>
+      <member refid="classFormation_1a74b7af08d38b4ff1bb196bfe7309ca78" prot="public" virt="non-virtual"><scope>Formation</scope><name>id</name></member>
+      <member refid="classFormation_1aec1bfc92a54fa5ff860d668225b95e29" prot="public" virt="non-virtual"><scope>Formation</scope><name>x</name></member>
+      <member refid="classFormation_1a50355d11d5cb0fb15100a3b25a59b2a6" prot="public" virt="non-virtual"><scope>Formation</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

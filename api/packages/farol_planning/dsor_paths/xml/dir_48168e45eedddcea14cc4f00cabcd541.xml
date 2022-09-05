@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_48168e45eedddcea14cc4f00cabcd541" kind="dir">
+    <compoundname>src/algorithms/path_sections</compoundname>
+    <innerfile refid="Arc2D_8cpp">Arc2D.cpp</innerfile>
+    <innerfile refid="Bernoulli_8cpp">Bernoulli.cpp</innerfile>
+    <innerfile refid="Circle2D_8cpp">Circle2D.cpp</innerfile>
+    <innerfile refid="Line_8cpp">Line.cpp</innerfile>
+    <innerfile refid="PathSection_8cpp">PathSection.cpp</innerfile>
+    <innerfile refid="Polynomial5_8cpp">Polynomial5.cpp</innerfile>
+    <innerfile refid="Sinusoid2D_8cpp">Sinusoid2D.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/algorithms/path_sections/"/>
+  </compounddef>
+</doxygen>

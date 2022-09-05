@@ -1,0 +1,759 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classInnerloops" kind="class" language="C++" prot="public">
+    <compoundname>Innerloops</compoundname>
+    <includes refid="innerloops_8h" local="no">innerloops.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classInnerloops_1aeee142282189e117e57d95141ee1e0b0" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle Innerloops::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="119" column="19" bodyfile="include/ros/innerloops.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a5f476225342bc2b35f8f0496483c0d30" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classRosController" kindref="compound">RosController</ref> * &gt;</type>
+        <definition>std::vector&lt;RosController *&gt; Innerloops::controllers_</definition>
+        <argsstring></argsstring>
+        <name>controllers_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="120" column="15" bodyfile="include/ros/innerloops.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ae018c2b7babbc72ad891437120af8918" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::yaw_</definition>
+        <argsstring></argsstring>
+        <name>yaw_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="123" column="10" bodyfile="include/ros/innerloops.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1aeee726361dbb22e0abdcd744b4c9e6f0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::pitch_</definition>
+        <argsstring></argsstring>
+        <name>pitch_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="123" column="15" bodyfile="include/ros/innerloops.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a8849e189379f31c6a059fbf9fa923df8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::roll_</definition>
+        <argsstring></argsstring>
+        <name>roll_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="123" column="22" bodyfile="include/ros/innerloops.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1aff75a264a5d84a5f7bd6ab46ae2b4dbc" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::yaw_rate_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="123" column="28" bodyfile="include/ros/innerloops.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1af0a3ecb7bc108b5e044549a3b785e05e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::pitch_rate_</definition>
+        <argsstring></argsstring>
+        <name>pitch_rate_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="123" column="38" bodyfile="include/ros/innerloops.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ae3ec5fc13a68d0bf9f710519c842a281" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::roll_rate_</definition>
+        <argsstring></argsstring>
+        <name>roll_rate_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="123" column="50" bodyfile="include/ros/innerloops.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a818500f0779d4d1dfa6e346a14bac6b4" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::surge_</definition>
+        <argsstring></argsstring>
+        <name>surge_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="124" column="10" bodyfile="include/ros/innerloops.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1af8da4bed51926f18ed52e147d29ee732" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::sway_</definition>
+        <argsstring></argsstring>
+        <name>sway_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="124" column="17" bodyfile="include/ros/innerloops.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a89b333a9248ebad16a72b86a0c508dcf" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::heave_</definition>
+        <argsstring></argsstring>
+        <name>heave_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="124" column="23" bodyfile="include/ros/innerloops.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a7e74e1c85d602385014e12f6bdbe317a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::depth_</definition>
+        <argsstring></argsstring>
+        <name>depth_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="125" column="10" bodyfile="include/ros/innerloops.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ab10346a1d96a665a603af0cc24f4a815" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::altitude_</definition>
+        <argsstring></argsstring>
+        <name>altitude_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="125" column="17" bodyfile="include/ros/innerloops.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a0b6cb7eee2356d1b5bfbd5dff421e077" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::vdepth_</definition>
+        <argsstring></argsstring>
+        <name>vdepth_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="125" column="27" bodyfile="include/ros/innerloops.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ad2df5e963ad408f0a019026f1a589184" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::valtitude_</definition>
+        <argsstring></argsstring>
+        <name>valtitude_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="125" column="35" bodyfile="include/ros/innerloops.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a72d13c0f1c668c19b52a63b890fcecdf" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::force_request_[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>force_request_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="127" column="10" bodyfile="include/ros/innerloops.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a38849c41d1594e0e61d70a46b8ecadb2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::torque_request_[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>torque_request_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="129" column="10" bodyfile="include/ros/innerloops.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ae660365395f84fcd1b287e6f82ed678b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Innerloops::forces_hard_bypass_</definition>
+        <argsstring></argsstring>
+        <name>forces_hard_bypass_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="134" column="8" bodyfile="include/ros/innerloops.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1aeb546736271beff6e0313a80b8074973" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Innerloops::timeout_ref_</definition>
+        <argsstring></argsstring>
+        <name>timeout_ref_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="135" column="10" bodyfile="include/ros/innerloops.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ade183af83cb332927f322e104c2bd226" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Innerloops::st_sub_</definition>
+        <argsstring></argsstring>
+        <name>st_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="137" column="19" bodyfile="include/ros/innerloops.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a8a69fa333104075599ae22ac23549ae7" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber Innerloops::force_bypass_sub_</definition>
+        <argsstring></argsstring>
+        <name>force_bypass_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="138" column="19" bodyfile="include/ros/innerloops.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a5199406c6297d9594c60d1c17830bda1" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer Innerloops::change_ff_gains_srv_</definition>
+        <argsstring></argsstring>
+        <name>change_ff_gains_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="140" column="22" bodyfile="include/ros/innerloops.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1aab9ed1138b9d7769eb82c557a9a45513" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer Innerloops::change_gains_srv_</definition>
+        <argsstring></argsstring>
+        <name>change_gains_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="141" column="22" bodyfile="include/ros/innerloops.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a6c63825212fce6b079d8362f2b29c2f1" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer Innerloops::change_limits_srv_</definition>
+        <argsstring></argsstring>
+        <name>change_limits_srv_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="142" column="22" bodyfile="include/ros/innerloops.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a4be904834c045935cdc3e9b742e794fd" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer Innerloops::timer_</definition>
+        <argsstring></argsstring>
+        <name>timer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="144" column="14" bodyfile="include/ros/innerloops.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1ad36a951a2685bcd88f1d87a1a9ae6597" prot="private" static="no" mutable="no">
+        <type>auv_msgs::BodyForceRequest</type>
+        <definition>auv_msgs::BodyForceRequest Innerloops::force_bypass_</definition>
+        <argsstring></argsstring>
+        <name>force_bypass_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="147" column="30" bodyfile="include/ros/innerloops.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1a28b10b0553bde30d36f470b291fb6375" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time Innerloops::ref_force_bypass_</definition>
+        <argsstring></argsstring>
+        <name>ref_force_bypass_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="149" column="13" bodyfile="include/ros/innerloops.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classInnerloops_1aff8e5ba1b1f1aa866a4c1db82c3b4b19" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Innerloops::ft_pub_</definition>
+        <argsstring></argsstring>
+        <name>ft_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="152" column="18" bodyfile="include/ros/innerloops.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classInnerloops_1afaf92ad344b0ad1fdaaade563a86b7eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Innerloops::Innerloops</definition>
+        <argsstring>(ros::NodeHandle &amp;nh)</argsstring>
+        <name>Innerloops</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <briefdescription>
+<para>Contructor of the innerloops class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to subscribe, publish and read parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="27" column="3" bodyfile="src/ros/innerloops.cpp" bodystart="4" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1a6f8ea21a911360a55247c994156a5638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Innerloops::~Innerloops</definition>
+        <argsstring>()</argsstring>
+        <name>~Innerloops</name>
+        <briefdescription>
+<para>Destructor of the innerloops class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="32" column="3" bodyfile="src/ros/innerloops.cpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classInnerloops_1afd2241fcc81b45f3f2eb7a741afa0bfc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+<para>Function to initialize subscribers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="38" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="21" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1aed8fdd9464377cac36c395f09546e787" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::initializeServices</definition>
+        <argsstring>()</argsstring>
+        <name>initializeServices</name>
+        <briefdescription>
+<para>Function to initialize services. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="43" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="121" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1ae5420a433ac409ec39c139265caca713" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+<para>Function to initialize publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="48" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="130" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1af484fe4edfae14af0ffdeb63eb255304" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+<para>Function to initialize timer function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="53" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="137" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1a7110e12e97a009138d16be09aa9e687c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Innerloops::nodeFrequency</definition>
+        <argsstring>()</argsstring>
+        <name>nodeFrequency</name>
+        <briefdescription>
+<para>Reads the frequency the timer function will run at. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Node frequency </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="60" column="10" bodyfile="src/ros/innerloops.cpp" bodystart="143" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1a9eb22896b792e29219a031c36644d5dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::timerCallback</definition>
+        <argsstring>(const ros::TimerEvent &amp;event)</argsstring>
+        <name>timerCallback</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Main loop of the innerloops. Computes the forces and torques necessary and publishes to the respective topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="68" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="150" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1ae369f0c5c91271cf08741ff25e5ea725" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::StateCallback</definition>
+        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <name>StateCallback</name>
+        <param>
+          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Reads the state topic and saves into the respective variables. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="75" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="212" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1a2e8b64c2141130ef98ac39678fa58438" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Innerloops::forceBypassCallback</definition>
+        <argsstring>(const auv_msgs::BodyForceRequest &amp;msg)</argsstring>
+        <name>forceBypassCallback</name>
+        <param>
+          <type>const auv_msgs::BodyForceRequest &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Receives a desired force to be applied to the vehicle that should be added to the output of the innerloops. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired force </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="83" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="202" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1ae0930c9a4d5eb7c6695856410ff1cb0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Innerloops::changeFFGainsService</definition>
+        <argsstring>(inner_loops_pid::ChangeFFGains::Request &amp;req, inner_loops_pid::ChangeFFGains::Response &amp;res)</argsstring>
+        <name>changeFFGainsService</name>
+        <param>
+          <type>inner_loops_pid::ChangeFFGains::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>inner_loops_pid::ChangeFFGains::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Service to change feedforward gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>client request </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>server response </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true </para>
+</simplesect>
+<simplesect kind="return"><para>false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="93" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="234" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1a0e98a6adac7be21f924cdd3814d6837d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Innerloops::changeGainsService</definition>
+        <argsstring>(inner_loops_pid::ChangeInnerGains::Request &amp;req, inner_loops_pid::ChangeInnerGains::Response &amp;res)</argsstring>
+        <name>changeGainsService</name>
+        <param>
+          <type>inner_loops_pid::ChangeInnerGains::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>inner_loops_pid::ChangeInnerGains::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Service to change gains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>client request </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>server response </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true </para>
+</simplesect>
+<simplesect kind="return"><para>false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="104" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="268" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classInnerloops_1ae56c1655a8df8b41843ac95662ba0ffc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Innerloops::changeLimitsService</definition>
+        <argsstring>(inner_loops_pid::ChangeInnerLimits::Request &amp;req, inner_loops_pid::ChangeInnerLimits::Response &amp;res)</argsstring>
+        <name>changeLimitsService</name>
+        <param>
+          <type>inner_loops_pid::ChangeInnerLimits::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>inner_loops_pid::ChangeInnerLimits::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Service to change Limits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>client request </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>server response </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true </para>
+</simplesect>
+<simplesect kind="return"><para>false </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/innerloops.h" line="115" column="3" bodyfile="src/ros/innerloops.cpp" bodystart="301" bodyend="331"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of the inner loops. Computes the forces and torques (tau) to be applied on the vehicle based on desired reference values. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/ros/innerloops.h" line="20" column="17" bodyfile="include/ros/innerloops.h" bodystart="20" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classInnerloops_1ab10346a1d96a665a603af0cc24f4a815" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>altitude_</name></member>
+      <member refid="classInnerloops_1a5199406c6297d9594c60d1c17830bda1" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>change_ff_gains_srv_</name></member>
+      <member refid="classInnerloops_1aab9ed1138b9d7769eb82c557a9a45513" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>change_gains_srv_</name></member>
+      <member refid="classInnerloops_1a6c63825212fce6b079d8362f2b29c2f1" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>change_limits_srv_</name></member>
+      <member refid="classInnerloops_1ae0930c9a4d5eb7c6695856410ff1cb0c" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>changeFFGainsService</name></member>
+      <member refid="classInnerloops_1a0e98a6adac7be21f924cdd3814d6837d" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>changeGainsService</name></member>
+      <member refid="classInnerloops_1ae56c1655a8df8b41843ac95662ba0ffc" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>changeLimitsService</name></member>
+      <member refid="classInnerloops_1a5f476225342bc2b35f8f0496483c0d30" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>controllers_</name></member>
+      <member refid="classInnerloops_1a7e74e1c85d602385014e12f6bdbe317a" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>depth_</name></member>
+      <member refid="classInnerloops_1ad36a951a2685bcd88f1d87a1a9ae6597" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>force_bypass_</name></member>
+      <member refid="classInnerloops_1a8a69fa333104075599ae22ac23549ae7" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>force_bypass_sub_</name></member>
+      <member refid="classInnerloops_1a72d13c0f1c668c19b52a63b890fcecdf" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>force_request_</name></member>
+      <member refid="classInnerloops_1a2e8b64c2141130ef98ac39678fa58438" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>forceBypassCallback</name></member>
+      <member refid="classInnerloops_1ae660365395f84fcd1b287e6f82ed678b" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>forces_hard_bypass_</name></member>
+      <member refid="classInnerloops_1aff8e5ba1b1f1aa866a4c1db82c3b4b19" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>ft_pub_</name></member>
+      <member refid="classInnerloops_1a89b333a9248ebad16a72b86a0c508dcf" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>heave_</name></member>
+      <member refid="classInnerloops_1ae5420a433ac409ec39c139265caca713" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>initializePublishers</name></member>
+      <member refid="classInnerloops_1aed8fdd9464377cac36c395f09546e787" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>initializeServices</name></member>
+      <member refid="classInnerloops_1afd2241fcc81b45f3f2eb7a741afa0bfc" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>initializeSubscribers</name></member>
+      <member refid="classInnerloops_1af484fe4edfae14af0ffdeb63eb255304" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>initializeTimer</name></member>
+      <member refid="classInnerloops_1afaf92ad344b0ad1fdaaade563a86b7eb" prot="public" virt="non-virtual"><scope>Innerloops</scope><name>Innerloops</name></member>
+      <member refid="classInnerloops_1aeee142282189e117e57d95141ee1e0b0" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>nh_</name></member>
+      <member refid="classInnerloops_1a7110e12e97a009138d16be09aa9e687c" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>nodeFrequency</name></member>
+      <member refid="classInnerloops_1aeee726361dbb22e0abdcd744b4c9e6f0" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>pitch_</name></member>
+      <member refid="classInnerloops_1af0a3ecb7bc108b5e044549a3b785e05e" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>pitch_rate_</name></member>
+      <member refid="classInnerloops_1a28b10b0553bde30d36f470b291fb6375" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>ref_force_bypass_</name></member>
+      <member refid="classInnerloops_1a8849e189379f31c6a059fbf9fa923df8" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>roll_</name></member>
+      <member refid="classInnerloops_1ae3ec5fc13a68d0bf9f710519c842a281" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>roll_rate_</name></member>
+      <member refid="classInnerloops_1ade183af83cb332927f322e104c2bd226" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>st_sub_</name></member>
+      <member refid="classInnerloops_1ae369f0c5c91271cf08741ff25e5ea725" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>StateCallback</name></member>
+      <member refid="classInnerloops_1a818500f0779d4d1dfa6e346a14bac6b4" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>surge_</name></member>
+      <member refid="classInnerloops_1af8da4bed51926f18ed52e147d29ee732" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>sway_</name></member>
+      <member refid="classInnerloops_1aeb546736271beff6e0313a80b8074973" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>timeout_ref_</name></member>
+      <member refid="classInnerloops_1a4be904834c045935cdc3e9b742e794fd" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>timer_</name></member>
+      <member refid="classInnerloops_1a9eb22896b792e29219a031c36644d5dd" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>timerCallback</name></member>
+      <member refid="classInnerloops_1a38849c41d1594e0e61d70a46b8ecadb2" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>torque_request_</name></member>
+      <member refid="classInnerloops_1ad2df5e963ad408f0a019026f1a589184" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>valtitude_</name></member>
+      <member refid="classInnerloops_1a0b6cb7eee2356d1b5bfbd5dff421e077" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>vdepth_</name></member>
+      <member refid="classInnerloops_1ae018c2b7babbc72ad891437120af8918" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>yaw_</name></member>
+      <member refid="classInnerloops_1aff75a264a5d84a5f7bd6ab46ae2b4dbc" prot="private" virt="non-virtual"><scope>Innerloops</scope><name>yaw_rate_</name></member>
+      <member refid="classInnerloops_1a6f8ea21a911360a55247c994156a5638" prot="public" virt="non-virtual"><scope>Innerloops</scope><name>~Innerloops</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

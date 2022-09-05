@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classCircularDelay" kind="class" language="C++" prot="public">
+    <compoundname>CircularDelay</compoundname>
+    <includes refid="circular__buffer_8hpp" local="no">circular_buffer.hpp</includes>
+    <innerclass refid="classCircularDelay_1_1const__iterator" prot="public">CircularDelay::const_iterator</innerclass>
+    <innerclass refid="classCircularDelay_1_1const__reverse__iterator" prot="public">CircularDelay::const_reverse_iterator</innerclass>
+    <innerclass refid="classCircularDelay_1_1iterator" prot="public">CircularDelay::iterator</innerclass>
+    <innerclass refid="classCircularDelay_1_1reverse__iterator" prot="public">CircularDelay::reverse_iterator</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename type</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>size</declname>
+        <defname>size</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classCircularDelay_1a409f43900b46f9faf9b35f9b2b23d1f8" prot="private" static="no" mutable="no">
+        <type>type</type>
+        <definition>type CircularDelay&lt; type, size &gt;::data[size+1]</definition>
+        <argsstring>[size+1]</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="285" column="6" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircularDelay_1a0858003f38fa5b13a92b516d025f4b27" prot="private" static="no" mutable="no">
+        <type><ref refid="classCircularDelay_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator CircularDelay&lt; type, size &gt;::setIterator</definition>
+        <argsstring></argsstring>
+        <name>setIterator</name>
+        <initializer>= <ref refid="classCircularDelay_1_1iterator" kindref="compound">iterator</ref>(data, data)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="286" column="10" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCircularDelay_1adbff4303da3145a6ac1dc297b2ab5b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CircularDelay&lt; type, size &gt;::CircularDelay</definition>
+        <argsstring>()</argsstring>
+        <name>CircularDelay</name>
+        <briefdescription>
+<para>Constructor that initializes that buffer and its set index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of sample that needs to be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of how big the history buffer is. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="44" column="1" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="296" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>type</type>
+        <definition>type CircularDelay&lt; type, size &gt;::push</definition>
+        <argsstring>(type input)</argsstring>
+        <name>push</name>
+        <param>
+          <type>type</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>With this function you can insert a new sample into the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample to push into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of sample that needs to be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of how big the history buffer is.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Value that has been pushed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="265" column="6" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="314" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>type</type>
+        <definition>type CircularDelay&lt; type, size &gt;::get</definition>
+        <argsstring>(size_t delay)</argsstring>
+        <name>get</name>
+        <param>
+          <type>size_t</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+<para>With this function you can retrieve a sample from the past. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Maximum delay is the size of the <ref refid="classCircularDelay" kindref="compound">CircularDelay</ref> - 1.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>delay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How many samples you ago you want to get.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of sample that needs to be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of how big the history buffer is.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The sample of delay ago. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="266" column="6" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="333" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircularDelay_1aa40f6c12296cd5a557b573d7decde8eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCircularDelay_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator CircularDelay&lt; type, size &gt;::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="267" column="10" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="267" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircularDelay_1ae8fedbd231b8e1b99b5a7bb321e4421c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCircularDelay_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator CircularDelay&lt; type, size &gt;::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="269" column="10" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="269" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircularDelay_1ab337ed5b15ecdfdfb26a2b45dc495695" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCircularDelay_1_1reverse__iterator" kindref="compound">reverse_iterator</ref></type>
+        <definition>reverse_iterator CircularDelay&lt; type, size &gt;::rend</definition>
+        <argsstring>()</argsstring>
+        <name>rend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="275" column="18" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="275" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classCircularDelay_1a45b712d677523479439f9ece87e11054" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classCircularDelay_1_1reverse__iterator" kindref="compound">reverse_iterator</ref></type>
+        <definition>reverse_iterator CircularDelay&lt; type, size &gt;::rbegin</definition>
+        <argsstring>()</argsstring>
+        <name>rbegin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="277" column="18" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="277" bodyend="281"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class that functions as a sample buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Authors: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Maintained by: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Last Update: 08/02/2018 Github: <ulink url="https://github.com/jimmyberg/CircularDelay/tree/master">https://github.com/jimmyberg/CircularDelay/tree/master</ulink> Brief: Circular delay software library. Here data can be stored and retrieved is a LiFo manner. License: GNU <simplesect kind="copyright"><para>GPL V3</para>
+</simplesect>
+Copyright (C) 2018 Jimmy van den Berg</para>
+<para>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</para>
+<para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
+<para>You should have received a copy of the GNU General Public License along with this program. If not, see <ulink url="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</ulink>.</para>
+<para>You can use this to insert samples and use the get function to get a sample from the past.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of sample that needs to be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of how big the history buffer is. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="include/dsor_utils/data_structures/circular_buffer.hpp" line="40" column="20" bodyfile="include/dsor_utils/data_structures/circular_buffer.hpp" bodystart="40" bodyend="287"/>
+    <listofallmembers>
+      <member refid="classCircularDelay_1ae8fedbd231b8e1b99b5a7bb321e4421c" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>begin</name></member>
+      <member refid="classCircularDelay_1adbff4303da3145a6ac1dc297b2ab5b96" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>CircularDelay</name></member>
+      <member refid="classCircularDelay_1a409f43900b46f9faf9b35f9b2b23d1f8" prot="private" virt="non-virtual"><scope>CircularDelay</scope><name>data</name></member>
+      <member refid="classCircularDelay_1aa40f6c12296cd5a557b573d7decde8eb" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>end</name></member>
+      <member refid="classCircularDelay_1a18051b383e209f0f52779626f5c9d49e" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>get</name></member>
+      <member refid="classCircularDelay_1a0741f8e9b436b89620c56870457f22fa" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>push</name></member>
+      <member refid="classCircularDelay_1a45b712d677523479439f9ece87e11054" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>rbegin</name></member>
+      <member refid="classCircularDelay_1ab337ed5b15ecdfdfb26a2b45dc495695" prot="public" virt="non-virtual"><scope>CircularDelay</scope><name>rend</name></member>
+      <member refid="classCircularDelay_1a0858003f38fa5b13a92b516d025f4b27" prot="private" virt="non-virtual"><scope>CircularDelay</scope><name>setIterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

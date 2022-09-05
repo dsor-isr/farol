@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classDifferentiator" kind="class" language="C++" prot="public">
+    <compoundname>Differentiator</compoundname>
+    <basecompoundref refid="classDigitalFilter" prot="public" virt="non-virtual">DigitalFilter&lt; T &gt;</basecompoundref>
+    <includes refid="differentiator_8hpp" local="no">differentiator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classDifferentiator_1a969b4cc224a83325413415625808ed8e" prot="private" static="no" mutable="no">
+        <type>const T</type>
+        <definition>const T Differentiator&lt; T &gt;::sampleTime</definition>
+        <argsstring></argsstring>
+        <name>sampleTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/differentiator.hpp" line="55" column="17" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDifferentiator_1a14afa104ad01daf997ca438cc9b44ddf" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T Differentiator&lt; T &gt;::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/differentiator.hpp" line="56" column="11" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classDifferentiator_1a025b4151b97b20b3d67c41226e0bd620" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T Differentiator&lt; T &gt;::x1</definition>
+        <argsstring></argsstring>
+        <name>x1</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/differentiator.hpp" line="57" column="11" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classDifferentiator_1a9a53cfb8f86f79a696261da27be87a50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Differentiator&lt; T &gt;::Differentiator</definition>
+        <argsstring>(T sampleTime)</argsstring>
+        <name>Differentiator</name>
+        <param>
+          <type>T</type>
+          <declname>sampleTime</declname>
+        </param>
+        <briefdescription>
+<para>Constructor to set sample time and the tau constant. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">sampleTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sample time for the low pass filter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/differentiator.hpp" line="30" column="9" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classDifferentiator_1aaad3555ad3d244d5c166a6b72dabc855" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>T</type>
+        <definition>T Differentiator&lt; T &gt;::update</definition>
+        <argsstring>(T input)</argsstring>
+        <name>update</name>
+        <reimplements refid="classDigitalFilter_1add8ed2fd242acaf42e18cf44cdb314ac">update</reimplements>
+        <param>
+          <type>T</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Update function to push new value into the differentiator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value after dt time</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new output value </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/differentiator.hpp" line="39" column="11" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="39" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classDifferentiator_1a108758b2c7607d9eb8ba4c3c7d1147bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>T</type>
+        <definition>T Differentiator&lt; T &gt;::getOutput</definition>
+        <argsstring>()</argsstring>
+        <name>getOutput</name>
+        <reimplements refid="classDigitalFilter_1a7fe3a1d7a5ed94d245d06412e1805acd">getOutput</reimplements>
+        <briefdescription>
+<para>Gets the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The output. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/differentiator.hpp" line="51" column="11" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for the differentiator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Authors: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Maintained by: Jimmy van den Berg (<ulink url="mailto:vandenberg.jimmy@gmail.com">vandenberg.jimmy@gmail.com</ulink>) Last Update: 08/02/2018 Github: <ulink url="https://github.com/jimmyberg/DigitalFilters">https://github.com/jimmyberg/DigitalFilters</ulink> License: GNU Brief: Class for a differentiator, inherited from the <ref refid="classDigitalFilter" kindref="compound">DigitalFilter</ref> class of moving filters. A differentiator is a filter that is designed such that the output is approximately directly proportionalto the rate of change (the time derivative) of the input. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>DigitalFilter&lt; T &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+      <node id="1">
+        <label>Differentiator&lt; T &gt;</label>
+        <link refid="classDifferentiator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>DigitalFilter&lt; T &gt;</label>
+        <link refid="classDigitalFilter"/>
+      </node>
+      <node id="1">
+        <label>Differentiator&lt; T &gt;</label>
+        <link refid="classDifferentiator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/dsor_utils/filters/differentiator.hpp" line="21" column="43" bodyfile="include/dsor_utils/filters/differentiator.hpp" bodystart="21" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classDifferentiator_1a9a53cfb8f86f79a696261da27be87a50" prot="public" virt="non-virtual"><scope>Differentiator</scope><name>Differentiator</name></member>
+      <member refid="classDifferentiator_1a108758b2c7607d9eb8ba4c3c7d1147bf" prot="public" virt="virtual"><scope>Differentiator</scope><name>getOutput</name></member>
+      <member refid="classDifferentiator_1a969b4cc224a83325413415625808ed8e" prot="private" virt="non-virtual"><scope>Differentiator</scope><name>sampleTime</name></member>
+      <member refid="classDifferentiator_1aaad3555ad3d244d5c166a6b72dabc855" prot="public" virt="virtual"><scope>Differentiator</scope><name>update</name></member>
+      <member refid="classDifferentiator_1a025b4151b97b20b3d67c41226e0bd620" prot="private" virt="non-virtual"><scope>Differentiator</scope><name>x1</name></member>
+      <member refid="classDifferentiator_1a14afa104ad01daf997ca438cc9b44ddf" prot="private" virt="non-virtual"><scope>Differentiator</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

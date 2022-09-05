@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classpos2simmodem_1_1Pos2SimModem" kind="class" language="Python" prot="public">
+    <compoundname>pos2simmodem::Pos2SimModem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1a1d5befa69745c59865e804bececb3bc7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>pos2simmodem.Pos2SimModem::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pos2simmodem.py" line="36" column="1" bodyfile="src/pos2simmodem.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1a8d750bd1d9c6af72ebd1a48f0aa9e648" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>pos2simmodem.Pos2SimModem::sock</definition>
+        <argsstring></argsstring>
+        <name>sock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pos2simmodem.py" line="39" column="1" bodyfile="src/pos2simmodem.py" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1acd752515f9145ab8f72fe1770a2d4d78" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>pos2simmodem.Pos2SimModem::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pos2simmodem.py" line="44" column="1" bodyfile="src/pos2simmodem.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1a6ed5eccaf44997c21a6f9123f9053200" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>pos2simmodem.Pos2SimModem::sub_odom</definition>
+        <argsstring></argsstring>
+        <name>sub_odom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pos2simmodem.py" line="47" column="1" bodyfile="src/pos2simmodem.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpos2simmodem_1_1Pos2SimModem_1a005b7b5eb579e8d2bc1f7d3af5058ba4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def pos2simmodem.Pos2SimModem.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initializing the necessary variables.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pos2simmodem.py" line="29" column="1" bodyfile="src/pos2simmodem.py" bodystart="29" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classpos2simmodem_1_1Pos2SimModem_1a755084ccbb48c3b8b87552ba5da44d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def pos2simmodem.Pos2SimModem.position_callback</definition>
+        <argsstring>(self, msg)</argsstring>
+        <name>position_callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Reads Odometry and sends position.
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pos2simmodem.py" line="51" column="1" bodyfile="src/pos2simmodem.py" bodystart="51" bodyend="83"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Class to hold the read of Odometry messages and send position to the
+simulated modem.
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>pos2simmodem.Pos2SimModem</label>
+        <link refid="classpos2simmodem_1_1Pos2SimModem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>pos2simmodem.Pos2SimModem</label>
+        <link refid="classpos2simmodem_1_1Pos2SimModem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/pos2simmodem.py" line="22" column="1" bodyfile="src/pos2simmodem.py" bodystart="22" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classpos2simmodem_1_1Pos2SimModem_1a005b7b5eb579e8d2bc1f7d3af5058ba4" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>__init__</name></member>
+      <member refid="classpos2simmodem_1_1Pos2SimModem_1a1d5befa69745c59865e804bececb3bc7" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>address</name></member>
+      <member refid="classpos2simmodem_1_1Pos2SimModem_1a755084ccbb48c3b8b87552ba5da44d41" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>position_callback</name></member>
+      <member refid="classpos2simmodem_1_1Pos2SimModem_1a8d750bd1d9c6af72ebd1a48f0aa9e648" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>sock</name></member>
+      <member refid="classpos2simmodem_1_1Pos2SimModem_1a6ed5eccaf44997c21a6f9123f9053200" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>sub_odom</name></member>
+      <member refid="classpos2simmodem_1_1Pos2SimModem_1acd752515f9145ab8f72fe1770a2d4d78" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

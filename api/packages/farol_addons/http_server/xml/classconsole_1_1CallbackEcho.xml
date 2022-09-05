@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1CallbackEcho" kind="class" language="Python" prot="public">
+    <compoundname>console::CallbackEcho</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1a476baa288c45b41133f85157f81e984f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::topic</definition>
+        <argsstring></argsstring>
+        <name>topic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="383" column="1" bodyfile="src/console.py" bodystart="383" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1a51b6990fdf7281b49791e721e12bfd7e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="387" column="1" bodyfile="src/console.py" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1a6e6aa30f1b9071bd5c20249e12177a4e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::prefix</definition>
+        <argsstring></argsstring>
+        <name>prefix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="388" column="1" bodyfile="src/console.py" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1ab2b1f46b4a29b186fe7aee169b15d784" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::suffix</definition>
+        <argsstring></argsstring>
+        <name>suffix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="389" column="1" bodyfile="src/console.py" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1a9c00a1934ab65eb018c5d7128960f050" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="395" column="1" bodyfile="src/console.py" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1a9f225401ca8026d9eea5cb8476c2745c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::str_fn</definition>
+        <argsstring></argsstring>
+        <name>str_fn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="399" column="1" bodyfile="src/console.py" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1adb21d1ca7caed4cc89a99fced3d28908" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::first</definition>
+        <argsstring></argsstring>
+        <name>first</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="406" column="1" bodyfile="src/console.py" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1aae5c3b3fc69e2eeb9f8d8d4c3d0d58ab" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::last_msg_eval</definition>
+        <argsstring></argsstring>
+        <name>last_msg_eval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="427" column="1" bodyfile="src/console.py" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classconsole_1_1CallbackEcho_1a6d71a28b5bb4f9e916b99018bac1d88a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>console.CallbackEcho::last_topic</definition>
+        <argsstring></argsstring>
+        <name>last_topic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="428" column="1" bodyfile="src/console.py" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classconsole_1_1CallbackEcho_1a1216ba853d80f26917e9da22de221989" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.CallbackEcho.__init__</definition>
+        <argsstring>(self, topic)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>:param plot: if ``True``, echo in plotting-friendly format, ``bool``
+:param filter_fn: function that evaluates to ``True`` if message is to be echo&apos;d, ``fn(topic, msg)``
+:param echo_all_topics: (optional) if ``True``, echo all messages in bag, ``bool``
+:param offset_time: (optional) if ``True``, display time as offset from current time, ``bool``
+:param count: number of messages to echo, ``None`` for infinite, ``int``
+:param field_filter_fn: filter the fields that are strified for Messages, ``fn(Message)-&gt;iter(str)``
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="372" column="1" bodyfile="src/console.py" bodystart="372" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="classconsole_1_1CallbackEcho_1a9aaacc2bb05e48d0bc18ddf5aa2b09c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def console.CallbackEcho.callback</definition>
+        <argsstring>(self, data, topic, current_time=None)</argsstring>
+        <name>callback</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>topic</type>
+          <defname>topic</defname>
+        </param>
+        <param>
+          <type>current_time</type>
+          <defname>current_time</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Callback to pass to rospy.Subscriber or to call
+manually. rospy.Subscriber constructor must also pass in the
+topic name as an additional arg
+:param data: Message
+:param topic: topic name, ``str``
+:param current_time: override calculation of current time, :class:`genpy.Time`
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/console.py" line="412" column="1" bodyfile="src/console.py" bodystart="412" bodyend="465"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Callback instance that can print callback data in a variety of
+formats. Used for all variants of rostopic echo
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>console.CallbackEcho</label>
+        <link refid="classconsole_1_1CallbackEcho"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>console.CallbackEcho</label>
+        <link refid="classconsole_1_1CallbackEcho"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="366" column="1" bodyfile="src/console.py" bodystart="366" bodyend="466"/>
+    <listofallmembers>
+      <member refid="classconsole_1_1CallbackEcho_1a1216ba853d80f26917e9da22de221989" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>__init__</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a9aaacc2bb05e48d0bc18ddf5aa2b09c8" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>callback</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a51b6990fdf7281b49791e721e12bfd7e" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>count</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a9c00a1934ab65eb018c5d7128960f050" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>done</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1adb21d1ca7caed4cc89a99fced3d28908" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>first</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1aae5c3b3fc69e2eeb9f8d8d4c3d0d58ab" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>last_msg_eval</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a6d71a28b5bb4f9e916b99018bac1d88a" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>last_topic</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a6e6aa30f1b9071bd5c20249e12177a4e" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>prefix</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a9f225401ca8026d9eea5cb8476c2745c" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>str_fn</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1ab2b1f46b4a29b186fe7aee169b15d784" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>suffix</name></member>
+      <member refid="classconsole_1_1CallbackEcho_1a476baa288c45b41133f85157f81e984f" prot="public" virt="non-virtual"><scope>console::CallbackEcho</scope><name>topic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

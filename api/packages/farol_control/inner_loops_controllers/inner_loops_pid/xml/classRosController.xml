@@ -1,0 +1,793 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRosController" kind="class" language="C++" prot="public">
+    <compoundname>RosController</compoundname>
+    <includes refid="ros__controller_8h" local="no">ros_controller.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classRosController_1a8017e8402e9b726400eb2d6673a10f7f" prot="protected" static="no" mutable="no">
+        <type>ros::Duration</type>
+        <definition>ros::Duration RosController::timeout_ref_</definition>
+        <argsstring></argsstring>
+        <name>timeout_ref_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="120" column="17" bodyfile="include/controllers/ros_controller.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1aac1ed03e2a8b32935a25082d01d5999f" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RosController::controller_name_</definition>
+        <argsstring></argsstring>
+        <name>controller_name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="121" column="15" bodyfile="include/controllers/ros_controller.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a01654872cf299435e61217d4aea6d702" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RosController::ref_value_</definition>
+        <argsstring></argsstring>
+        <name>ref_value_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="123" column="10" bodyfile="include/controllers/ros_controller.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1ac1fb5f9c91404fab70bf6090d0a302b7" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RosController::max_ref_value_</definition>
+        <argsstring></argsstring>
+        <name>max_ref_value_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="124" column="10" bodyfile="include/controllers/ros_controller.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a05ba56172246faa40e85bb797d820140" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RosController::min_ref_value_</definition>
+        <argsstring></argsstring>
+        <name>min_ref_value_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="125" column="10" bodyfile="include/controllers/ros_controller.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a5d2a896d2c72476a0f4c0165c555ba5a" prot="protected" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time RosController::ref_time_</definition>
+        <argsstring></argsstring>
+        <name>ref_time_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="126" column="13" bodyfile="include/controllers/ros_controller.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1ac769c5ca791b053fac3b25e653e4c5cb" prot="protected" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time RosController::last_cmd_</definition>
+        <argsstring></argsstring>
+        <name>last_cmd_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="127" column="13" bodyfile="include/controllers/ros_controller.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1aac0ad5b9456b9a67a35544600c4329b9" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RosController::debug_</definition>
+        <argsstring></argsstring>
+        <name>debug_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="128" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a0476f4eb9e2f84cd0ee6d59f51d55479" prot="protected" static="no" mutable="no">
+        <type>farol_msgs::mPidDebug</type>
+        <definition>farol_msgs::mPidDebug RosController::debug_msg_</definition>
+        <argsstring></argsstring>
+        <name>debug_msg_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="129" column="25" bodyfile="include/controllers/ros_controller.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1ab8982ec61063f4f144e41238c7d79f92" prot="protected" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* RosController::state_ptr_</definition>
+        <argsstring></argsstring>
+        <name>state_ptr_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="132" column="10" bodyfile="include/controllers/ros_controller.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a2c80f7be729d1be22ba76700f3fb66ec" prot="protected" static="no" mutable="no">
+        <type>double *</type>
+        <definition>double* RosController::force_or_torque_ptr_</definition>
+        <argsstring></argsstring>
+        <name>force_or_torque_ptr_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="135" column="10" bodyfile="include/controllers/ros_controller.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a5ad240cf76fa34359278b0becb25799c" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RosController::frequency_</definition>
+        <argsstring></argsstring>
+        <name>frequency_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="138" column="10" bodyfile="include/controllers/ros_controller.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a9caab69f6586c9ff4fb459cd9fa22db9" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RosController::circular_units_</definition>
+        <argsstring></argsstring>
+        <name>circular_units_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="140" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a61b84cc1f02d51502e191e7a5db8190a" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RosController::positive_output_</definition>
+        <argsstring></argsstring>
+        <name>positive_output_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="141" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a19b430a8c0dd847567d0929d44a933f5" prot="protected" static="no" mutable="no">
+        <type><ref refid="classPID__Controller" kindref="compound">PID_Controller</ref> *</type>
+        <definition>PID_Controller* RosController::pid_c_</definition>
+        <argsstring></argsstring>
+        <name>pid_c_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="144" column="18" bodyfile="include/controllers/ros_controller.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1ab55a28b828f221e7fdd7650e5e7fc9ba" prot="protected" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber RosController::ros_sub_</definition>
+        <argsstring></argsstring>
+        <name>ros_sub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="145" column="19" bodyfile="include/controllers/ros_controller.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRosController_1a7d7c604e1e134892d1ee956380fe6dd2" prot="protected" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher RosController::debug_pub_</definition>
+        <argsstring></argsstring>
+        <name>debug_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="146" column="18" bodyfile="include/controllers/ros_controller.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRosController_1ae27eab505df99d6333095b8936257381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RosController::RosController</definition>
+        <argsstring>(ros::NodeHandle &amp;nh, std::string controller_name, std::string refCallback_topic, double *state, double *force_or_torque, double frequency)</argsstring>
+        <name>RosController</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>controller_name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>refCallback_topic</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>force_or_torque</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>frequency</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a innerloop controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to read parameters and subscribe to relevant topics </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>controller_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller name (variable being controlled) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>refCallback_topic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Topic name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to state variable being controlled </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>force_or_torque</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to force or torque output </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency of controller sampling rate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="26" column="3" bodyfile="src/controllers/ros_controller.cpp" bodystart="3" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1ac2a79c7059f4fc69c2aaaf97da093be6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RosController::RosController</definition>
+        <argsstring>(ros::NodeHandle &amp;nh, std::string controller_name, std::string refCallback_topic, double *state, double *state_dot, double *force_or_torque, double frequency)</argsstring>
+        <name>RosController</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>controller_name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>refCallback_topic</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>state_dot</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>force_or_torque</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>frequency</declname>
+        </param>
+        <briefdescription>
+<para>Constructor of a innerloop controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ROS nodehandle to read parameters and subscribe to relevant topics </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>controller_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller name (variable being controlled) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>refCallback_topic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Topic name </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to state variable being controlled </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_dot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the derivative of the state variable being controlled </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>force_or_torque</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to force or torque output </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency of controller sampling rate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="43" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1a8193292ddc96349fce5e52706462e0c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double RosController::computeCommand</definition>
+        <argsstring>()</argsstring>
+        <name>computeCommand</name>
+        <briefdescription>
+<para>Core function. Computes the PID output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The force or torque that result from the PID computation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="51" column="18" bodyfile="src/controllers/ros_controller.cpp" bodystart="90" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1a0901e130893758f6153ff2928b3bda78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::setCircularUnits</definition>
+        <argsstring>(const bool &amp;flag)</argsstring>
+        <name>setCircularUnits</name>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Setter function for the circular units flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>true for controllers using angles, false otherwise </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="58" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1a96cbee01e7e62dea807d8c00d072b312" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::setPositiveOutput</definition>
+        <argsstring>(const bool &amp;flag)</argsstring>
+        <name>setPositiveOutput</name>
+        <param>
+          <type>const bool &amp;</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Set the Positive Output object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="65" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1aff1428958d7f177c28715ddcea907e00" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RosController::getControllerName</definition>
+        <argsstring>() const</argsstring>
+        <name>getControllerName</name>
+        <briefdescription>
+<para>Get the Controller Name object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="71" column="15" bodyfile="include/controllers/ros_controller.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::setFFGainsPID</definition>
+        <argsstring>(const float &amp;kff, const float &amp;kff_d, const float &amp;kff_lin_drag, const float kff_quad_drag)</argsstring>
+        <name>setFFGainsPID</name>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kff</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kff_d</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kff_lin_drag</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>kff_quad_drag</declname>
+        </param>
+        <briefdescription>
+<para>Set the Feedforwar gains P I D object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kff</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward gain (quadratic) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kff_d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforwad derivative gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kff_lin_drag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforward linear drag gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kff_quad_drag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Feedforwad quadratic drag gain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="81" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1a7be3ccc5904464248334b085ab0c8c34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::setGainsPID</definition>
+        <argsstring>(const float &amp;kp, const float &amp;ki, const float &amp;kd)</argsstring>
+        <name>setGainsPID</name>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kp</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>ki</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>kd</declname>
+        </param>
+        <briefdescription>
+<para>Set the Gains P I D object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>kp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Proportional gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ki</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integral gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Derivative gain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="90" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1af59b693c0bb4c48e7f3c2145a76426c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::setLimitBoundsPID</definition>
+        <argsstring>(const float &amp;max_out, const float &amp;min_out)</argsstring>
+        <name>setLimitBoundsPID</name>
+        <param>
+          <type>const float &amp;</type>
+          <declname>max_out</declname>
+        </param>
+        <param>
+          <type>const float &amp;</type>
+          <declname>min_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="92" column="8" bodyfile="include/controllers/ros_controller.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classRosController_1ac4ec0c37e0bead0adb9844be25bb9e74" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::refCallback</definition>
+        <argsstring>(const std_msgs::Float64 &amp;ptr)</argsstring>
+        <name>refCallback</name>
+        <param>
+          <type>const std_msgs::Float64 &amp;</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Callback function. Saturates the value if boundaries exist. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Float64 value of the variable being controlled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="100" column="8" bodyfile="src/controllers/ros_controller.cpp" bodystart="81" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1af7be9fc16c6889d00652fb7d839cb51c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RosController::init</definition>
+        <argsstring>(ros::NodeHandle &amp;nh, std::string controller_name, std::string refCallback_topic)</argsstring>
+        <name>init</name>
+        <param>
+          <type>ros::NodeHandle &amp;</type>
+          <declname>nh</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>controller_name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>refCallback_topic</declname>
+        </param>
+        <briefdescription>
+<para>Initialize function. Reads the parameters, creates a pid controller if any gain is different from zero and subscribes to the relevant topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nh</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Nodehandle to read parameters and subscribe to relevant topics </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>controller_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller name (variable being controlled) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>refCallback_topic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Topic name </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="111" column="8" bodyfile="src/controllers/ros_controller.cpp" bodystart="11" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classRosController_1a5bdfbf66b3ad946e0b7b49cdc0e3a5e3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RosController::validRef</definition>
+        <argsstring>()</argsstring>
+        <name>validRef</name>
+        <briefdescription>
+<para>Check if the reference is new. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if valid, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/controllers/ros_controller.h" line="118" column="16" bodyfile="src/controllers/ros_controller.cpp" bodystart="169" bodyend="184"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ROS implementation of the innerloops controllers. Based on a desired reference computes the force or torque to be applied. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RosController</label>
+        <link refid="classRosController"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>pid_c_</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PID_Controller</label>
+        <link refid="classPID__Controller"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/controllers/ros_controller.h" line="13" column="20" bodyfile="include/controllers/ros_controller.h" bodystart="13" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classRosController_1a9caab69f6586c9ff4fb459cd9fa22db9" prot="protected" virt="non-virtual"><scope>RosController</scope><name>circular_units_</name></member>
+      <member refid="classRosController_1a8193292ddc96349fce5e52706462e0c5" prot="public" virt="virtual"><scope>RosController</scope><name>computeCommand</name></member>
+      <member refid="classRosController_1aac1ed03e2a8b32935a25082d01d5999f" prot="protected" virt="non-virtual"><scope>RosController</scope><name>controller_name_</name></member>
+      <member refid="classRosController_1aac0ad5b9456b9a67a35544600c4329b9" prot="protected" virt="non-virtual"><scope>RosController</scope><name>debug_</name></member>
+      <member refid="classRosController_1a0476f4eb9e2f84cd0ee6d59f51d55479" prot="protected" virt="non-virtual"><scope>RosController</scope><name>debug_msg_</name></member>
+      <member refid="classRosController_1a7d7c604e1e134892d1ee956380fe6dd2" prot="protected" virt="non-virtual"><scope>RosController</scope><name>debug_pub_</name></member>
+      <member refid="classRosController_1a2c80f7be729d1be22ba76700f3fb66ec" prot="protected" virt="non-virtual"><scope>RosController</scope><name>force_or_torque_ptr_</name></member>
+      <member refid="classRosController_1a5ad240cf76fa34359278b0becb25799c" prot="protected" virt="non-virtual"><scope>RosController</scope><name>frequency_</name></member>
+      <member refid="classRosController_1aff1428958d7f177c28715ddcea907e00" prot="public" virt="non-virtual"><scope>RosController</scope><name>getControllerName</name></member>
+      <member refid="classRosController_1af7be9fc16c6889d00652fb7d839cb51c" prot="protected" virt="non-virtual"><scope>RosController</scope><name>init</name></member>
+      <member refid="classRosController_1ac769c5ca791b053fac3b25e653e4c5cb" prot="protected" virt="non-virtual"><scope>RosController</scope><name>last_cmd_</name></member>
+      <member refid="classRosController_1ac1fb5f9c91404fab70bf6090d0a302b7" prot="protected" virt="non-virtual"><scope>RosController</scope><name>max_ref_value_</name></member>
+      <member refid="classRosController_1a05ba56172246faa40e85bb797d820140" prot="protected" virt="non-virtual"><scope>RosController</scope><name>min_ref_value_</name></member>
+      <member refid="classRosController_1a19b430a8c0dd847567d0929d44a933f5" prot="protected" virt="non-virtual"><scope>RosController</scope><name>pid_c_</name></member>
+      <member refid="classRosController_1a61b84cc1f02d51502e191e7a5db8190a" prot="protected" virt="non-virtual"><scope>RosController</scope><name>positive_output_</name></member>
+      <member refid="classRosController_1a5d2a896d2c72476a0f4c0165c555ba5a" prot="protected" virt="non-virtual"><scope>RosController</scope><name>ref_time_</name></member>
+      <member refid="classRosController_1a01654872cf299435e61217d4aea6d702" prot="protected" virt="non-virtual"><scope>RosController</scope><name>ref_value_</name></member>
+      <member refid="classRosController_1ac4ec0c37e0bead0adb9844be25bb9e74" prot="protected" virt="non-virtual"><scope>RosController</scope><name>refCallback</name></member>
+      <member refid="classRosController_1ab55a28b828f221e7fdd7650e5e7fc9ba" prot="protected" virt="non-virtual"><scope>RosController</scope><name>ros_sub_</name></member>
+      <member refid="classRosController_1ae27eab505df99d6333095b8936257381" prot="public" virt="non-virtual"><scope>RosController</scope><name>RosController</name></member>
+      <member refid="classRosController_1ac2a79c7059f4fc69c2aaaf97da093be6" prot="public" virt="non-virtual"><scope>RosController</scope><name>RosController</name></member>
+      <member refid="classRosController_1a0901e130893758f6153ff2928b3bda78" prot="public" virt="non-virtual"><scope>RosController</scope><name>setCircularUnits</name></member>
+      <member refid="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" prot="public" virt="non-virtual"><scope>RosController</scope><name>setFFGainsPID</name></member>
+      <member refid="classRosController_1a7be3ccc5904464248334b085ab0c8c34" prot="public" virt="non-virtual"><scope>RosController</scope><name>setGainsPID</name></member>
+      <member refid="classRosController_1af59b693c0bb4c48e7f3c2145a76426c2" prot="public" virt="non-virtual"><scope>RosController</scope><name>setLimitBoundsPID</name></member>
+      <member refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" prot="public" virt="non-virtual"><scope>RosController</scope><name>setPositiveOutput</name></member>
+      <member refid="classRosController_1ab8982ec61063f4f144e41238c7d79f92" prot="protected" virt="non-virtual"><scope>RosController</scope><name>state_ptr_</name></member>
+      <member refid="classRosController_1a8017e8402e9b726400eb2d6673a10f7f" prot="protected" virt="non-virtual"><scope>RosController</scope><name>timeout_ref_</name></member>
+      <member refid="classRosController_1a5bdfbf66b3ad946e0b7b49cdc0e3a5e3" prot="protected" virt="virtual"><scope>RosController</scope><name>validRef</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

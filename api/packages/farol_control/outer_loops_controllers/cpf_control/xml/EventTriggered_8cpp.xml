@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="EventTriggered_8cpp" kind="file" language="C++">
+    <compoundname>EventTriggered.cpp</compoundname>
+    <includes refid="EventTriggered_8h" local="yes">EventTriggered.h</includes>
+    <includes local="no">cmath</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/EventTriggered.cpp</label>
+        <link refid="EventTriggered_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="6">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>CPFControl.h</label>
+        <link refid="CPFControl_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>EventTriggered.h</label>
+        <link refid="EventTriggered_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;EventTriggered.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><ref refid="classEventTriggered_1abb12ba7aa86b1fe0b0ffc4d827fa5b21" kindref="member">EventTriggered::EventTriggered</ref>(Eigen::Matrix&lt;int,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic&gt;<sp/>&amp;adjency_matrix,<sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vehicle_ID,<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k_epsilon,<sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c0,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c1,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha)<sp/>:<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="classCPFControl" kindref="compound">CPFControl</ref>(adjency_matrix,<sp/>vehicle_ID),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>k_epsilon_(k_epsilon),</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>c0_(c0),</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>c1_(c1),</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>alpha_(alpha)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Alocate<sp/>memory<sp/>for<sp/>the<sp/>array<sp/>of<sp/>estimated<sp/>gammas<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>this-&gt;vehicles_data_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structVehicleInfo" kindref="compound">VehicleInfo</ref>[this-&gt;getNetworkSize()];</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="classEventTriggered_1a3257a2d03ef60e6528bb863931a5aa2d" kindref="member">EventTriggered::~EventTriggered</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Free<sp/>the<sp/>memory<sp/>used<sp/>for<sp/>the<sp/>estimated<sp/>gammas<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>this-&gt;vehicles_data_;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classEventTriggered_1a46f8c45a317e4f25750f2973ed712b53" kindref="member">EventTriggered::coordinationController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>time)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_hat_sum<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sync_error<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_vehicles_used<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vc<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>line<sp/>of<sp/>the<sp/>adjency<sp/>matrix<sp/>that<sp/>tells<sp/>who<sp/>talks<sp/>to<sp/>this<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>Eigen::VectorXi<sp/>neighbors_vec<sp/>=<sp/>this-&gt;<ref refid="classCPFControl_1a52c5a204c6ef07878e1db7073252d55d" kindref="member">getNeighbors</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>we<sp/>do<sp/>not<sp/>have<sp/>data<sp/>on<sp/>our<sp/>on<sp/>vehicle<sp/>yet,<sp/>PF<sp/>has<sp/>not<sp/>started<sp/>yet<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!this-&gt;vehicles_data_[this-&gt;<ref refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" kindref="member">getCurrentVehicleID</ref>()].is_active)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>For<sp/>all<sp/>the<sp/>vehicles<sp/>in<sp/>the<sp/>network<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&lt;<sp/>this-&gt;<ref refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" kindref="member">getNetworkSize</ref>();<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">++)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>the<sp/>vehicle<sp/>i<sp/>is<sp/>a<sp/>neighbor<sp/>of<sp/>this<sp/>particular<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(neighbors_vec[</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">]<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>this-&gt;vehicles_data_[</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">].is_active<sp/>&amp;&amp;<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>!=<sp/>this-&gt;<ref refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" kindref="member">getCurrentVehicleID</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Predict<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>neighbors<sp/>in<sp/>the<sp/>current<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="classEventTriggered_1a2b0ec4788227654379b638362ad04b7c" kindref="member">predictVehicleEstimator</ref>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>time);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Acumulate<sp/>the<sp/>sum<sp/>of<sp/>the<sp/>gamma_hat<sp/>of<sp/>the<sp/>neighbors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gamma_hat_sum<sp/>+=<sp/>this-&gt;vehicles_data_[id].<ref refid="structVehicleInfo_1a2acff7799310a8d9c86cdc3d3cd88ec6" kindref="member">gamma_hat</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_vehicles_used++;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>we<sp/>already<sp/>have<sp/>data<sp/>from<sp/>the<sp/>other<sp/>vehicles<sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(num_vehicles_used<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>synchronization<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>sync_error<sp/>=<sp/>this-&gt;vehicles_data_[this-&gt;<ref refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" kindref="member">getCurrentVehicleID</ref>()].<ref refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" kindref="member">gamma</ref><sp/>-<sp/>((1.0<sp/>/<sp/>num_vehicles_used)<sp/>*<sp/>gamma_hat_sum);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>correction<sp/>speed<sp/>and<sp/>saturate<sp/>using<sp/>hyperbolic<sp/>tangent<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>vc<sp/>=<sp/>-this-&gt;k_epsilon_<sp/>*<sp/>tanh(sync_error);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>vc;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classEventTriggered_1aac2bf06030dd8d47ee769f7acf4f8dd9" kindref="member">EventTriggered::updateVehiclesInformation</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>time,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ID,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>vd)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>check<sp/>if<sp/>ID<sp/>is<sp/>whithin<sp/>the<sp/>valid<sp/>bounds<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ID<sp/>&lt;<sp/>0<sp/>||<sp/>ID<sp/>&gt;=<sp/>this-&gt;<ref refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" kindref="member">getNetworkSize</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>gamma<sp/>in<sp/>the<sp/>corresponding<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" kindref="member">gamma</ref><sp/>=<sp/>gamma;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a4fb1829bc00e652a21f55d4223433738" kindref="member">time</ref><sp/>=<sp/>time;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1ade9ad7673ecfb12a66938e0743593fa6" kindref="member">vd</ref><sp/>=<sp/>vd;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1ab17fd68d7ea99b51061e92bb3a6b8ec8" kindref="member">is_active</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classEventTriggered_1abfadcab13af9890ac2ffcd12c78d4b1c" kindref="member">EventTriggered::publishCurrentGamma</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>time)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>ID<sp/>of<sp/>our<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ID<sp/>=<sp/>this-&gt;<ref refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" kindref="member">getCurrentVehicleID</ref>();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>check<sp/>if<sp/>we<sp/>have<sp/>already<sp/>received<sp/>values<sp/>from<sp/>gamma<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!this-&gt;vehicles_data_[ID].is_active)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>gamma<sp/>was<sp/>not<sp/>published<sp/>yet,<sp/>then<sp/>publish<sp/>it<sp/>(first<sp/>iteration)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;first_broadcast_)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;first_broadcast_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;last_gamma_broadcast_<sp/>=<sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" kindref="member">gamma</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;time_last_broadcast_<sp/>=<sp/>time;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;time_first_broadcast_<sp/>=<sp/>time;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>estimator<sp/>that<sp/>the<sp/>other<sp/>vehicles<sp/>see<sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Note,<sp/>here<sp/>we<sp/>do<sp/>not<sp/>want<sp/>to<sp/>compute<sp/>gamma<sp/>hat<sp/>the<sp/>standard<sp/>way,<sp/>because</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/>*<sp/>the<sp/>gamma<sp/>that<sp/>counts<sp/>is<sp/>the<sp/>last<sp/>that<sp/>went<sp/>to<sp/>the<sp/>network<sp/>(that<sp/>is<sp/>the<sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/><sp/>*<sp/>one<sp/>we<sp/>should<sp/>compute<sp/>the<sp/>estimation<sp/>with)<sp/>and<sp/>not<sp/>with<sp/>the<sp/>lastest<sp/>gamma</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/>*<sp/>that<sp/>we<sp/>got<sp/>internally</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>my_gamma_hat<sp/>=<sp/>this-&gt;last_gamma_broadcast_<sp/>+<sp/>(this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1ade9ad7673ecfb12a66938e0743593fa6" kindref="member">vd</ref><sp/>*<sp/>(time<sp/>-<sp/>this-&gt;time_last_broadcast_));</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>error<sp/>between<sp/>the<sp/>gamma<sp/>of<sp/>this<sp/>real<sp/>vehicle<sp/>and<sp/>the<sp/>predicted<sp/>gamma<sp/>for<sp/>this<sp/>real<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_error<sp/>=<sp/>std::abs(my_gamma_hat<sp/>-<sp/>this-&gt;vehicles_data_[ID].gamma);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t<sp/>=<sp/>std::abs(this-&gt;time_first_broadcast_<sp/>-<sp/>time);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>threshold<sp/>=<sp/>this-&gt;c0_<sp/>+<sp/>(this-&gt;c1_<sp/>*<sp/>std::exp(-this-&gt;alpha_<sp/>*<sp/>t));<sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Only<sp/>publish<sp/>the<sp/>gamma<sp/>to<sp/>the<sp/>network<sp/>is<sp/>the<sp/>error<sp/>is<sp/>above<sp/>a<sp/>given<sp/>threshold<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(gamma_error<sp/>&gt;<sp/>threshold)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>last<sp/>information<sp/>sent<sp/>to<sp/>the<sp/>network<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;last_gamma_broadcast_<sp/>=<sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" kindref="member">gamma</ref>;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;time_last_broadcast_<sp/>=<sp/>time;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Otherwise,<sp/>do<sp/>not<sp/>publish<sp/>in<sp/>this<sp/>iteration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classEventTriggered_1a2b0ec4788227654379b638362ad04b7c" kindref="member">EventTriggered::predictVehicleEstimator</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ID,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>time)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>First<sp/>check<sp/>if<sp/>ID<sp/>is<sp/>whithin<sp/>the<sp/>valid<sp/>bounds<sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(ID<sp/>&lt;<sp/>0<sp/>||<sp/>ID<sp/>&gt;=<sp/>this-&gt;<ref refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" kindref="member">getNetworkSize</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Check<sp/>if<sp/>the<sp/>time<sp/>stamp<sp/>received<sp/>is<sp/>lower<sp/>than<sp/>the<sp/>previous<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(time<sp/>&lt;<sp/>this-&gt;vehicles_data_[ID].time)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>prediction<sp/>(gamma_hat)<sp/>for<sp/>that<sp/>particular<sp/>vehicle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;vehicles_data_[ID].is_active)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a2acff7799310a8d9c86cdc3d3cd88ec6" kindref="member">gamma_hat</ref><sp/>=<sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a11b4439c1a48ee64f2cbc35ffcd8fbc7" kindref="member">gamma</ref><sp/>+<sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1ade9ad7673ecfb12a66938e0743593fa6" kindref="member">vd</ref><sp/>*<sp/>(time<sp/>-<sp/>this-&gt;vehicles_data_[ID].<ref refid="structVehicleInfo_1a4fb1829bc00e652a21f55d4223433738" kindref="member">time</ref>);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}<sp/></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classEventTriggered_1a87665678c35d20f3387293675eeb8cde" kindref="member">EventTriggered::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>all<sp/>the<sp/>variables<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>this-&gt;time_last_broadcast_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>this-&gt;last_gamma_broadcast_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/>this-&gt;first_broadcast_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>this-&gt;time_first_broadcast_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Free<sp/>the<sp/>old<sp/>memory<sp/>used<sp/>to<sp/>store<sp/>the<sp/>vehicle<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>this-&gt;vehicles_data_;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Alocate<sp/>memory<sp/>for<sp/>the<sp/>array<sp/>of<sp/>estimated<sp/>gammas<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>this-&gt;vehicles_data_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structVehicleInfo" kindref="compound">VehicleInfo</ref>[this-&gt;<ref refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" kindref="member">getNetworkSize</ref>()];</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Inform<sp/>the<sp/>reset<sp/>was<sp/>made<sp/>with<sp/>success*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/EventTriggered.cpp"/>
+  </compounddef>
+</doxygen>

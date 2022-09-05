@@ -1,0 +1,682 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classLapierre" kind="class" language="C++" prot="public">
+    <compoundname>Lapierre</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Lapierre_8h" local="no">Lapierre.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classLapierre_1af57243e03a75f8cc079ffcd40182ff99" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Lapierre::num_gains_</definition>
+        <argsstring></argsstring>
+        <name>num_gains_</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+<para>Controller parameters for the <ref refid="classLapierre" kindref="compound">Lapierre</ref> Path Following Algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="97" column="15" bodyfile="include/algorithms/Lapierre.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a72b69053d213a8f7d9caf316466f2928" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::k1_</definition>
+        <argsstring></argsstring>
+        <name>k1_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="99" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a59f68f11f409b51136defd267f020fd7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::k2_</definition>
+        <argsstring></argsstring>
+        <name>k2_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="100" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a62035553b7c5e597be3a66b15e8932c0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::k3_</definition>
+        <argsstring></argsstring>
+        <name>k3_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="101" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a51d5af5bda5707cea67f330462118f58" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::theta_</definition>
+        <argsstring></argsstring>
+        <name>theta_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="102" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1ab46e5179542c01b8ec7e136460f7bf1e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::k_delta_</definition>
+        <argsstring></argsstring>
+        <name>k_delta_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="103" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1aefc97089b7451373086b97405f5bf20e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::yaw_out_</definition>
+        <argsstring></argsstring>
+        <name>yaw_out_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Auxiliar variables used to have continuous angles, since this algorithm requires that the angles are differentiable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="109" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a0c9d05e1b437b9ec14f28a67c8e5e543" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::yaw_out_old_</definition>
+        <argsstring></argsstring>
+        <name>yaw_out_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="110" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a6df55dd958380a0c7ff8b3d3e2c5d4f6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::yaw_old_</definition>
+        <argsstring></argsstring>
+        <name>yaw_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="111" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a11de0a8da11104fca77310b5fffcc948" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::psi_out_</definition>
+        <argsstring></argsstring>
+        <name>psi_out_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="113" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a419ca7d71b726b16525ab960472a9c89" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::psi_out_old_</definition>
+        <argsstring></argsstring>
+        <name>psi_out_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="114" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a6521621fec78066e8e15d994e7b7c756" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::psi_old_</definition>
+        <argsstring></argsstring>
+        <name>psi_old_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="115" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a53f8faa847352913eedd116efca95ba0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <briefdescription>
+<para>The desired references to publish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="123" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a6c2fbd164439f356d1c34d3b11fce731" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::desired_yaw_rate_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_rate_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="124" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a30d463ca67ce58a3506b087e57d70d49" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::gamma_dot_</definition>
+        <argsstring></argsstring>
+        <name>gamma_dot_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The values for the dynamics of the gamma (virtual target) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="129" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1aa193efe230f36d2f351622997c9142b6" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Lapierre::gamma_</definition>
+        <argsstring></argsstring>
+        <name>gamma_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="130" column="12" bodyfile="include/algorithms/Lapierre.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1ab99bfb78a7cccf57e583e311063ed6f7" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Lapierre::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers to publish the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="135" column="20" bodyfile="include/algorithms/Lapierre.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1aa1d920bb28a3fcdd0ef513d814cf6626" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Lapierre::yaw_rate_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_rate_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="136" column="20" bodyfile="include/algorithms/Lapierre.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classLapierre_1a1feaad36c435bfcd244c20f7dab53453" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Lapierre::rabbit_pub_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="137" column="20" bodyfile="include/algorithms/Lapierre.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLapierre_1a67b1e5cc85067b9f2b703d44f1eccaa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Lapierre::Lapierre</definition>
+        <argsstring>(double k1, double k2, double k3, double theta, double k_delta, ros::Publisher surge_pub, ros::Publisher yaw_rate_pub, ros::Publisher rabbit_pub)</argsstring>
+        <name>Lapierre</name>
+        <param>
+          <type>double</type>
+          <declname>k1</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k3</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>theta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>k_delta</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_rate_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>rabbit_pub</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>k1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>theta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>k_delta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Controller gain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_rate_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw rate publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rabbit_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS rabbit publisher </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="39" column="5" bodyfile="src/algorithms/Lapierre.cpp" bodystart="5" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1a226c4d9f079fedfb4e2ad6217486e4d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Lapierre::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method that given a vector of doubles, updates the gains of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A vector of gains</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
+<para><simplesect kind="return"><para>a boolean which represents the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="50" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="19" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1a157551d6ab50a40d8a8e2d8936d97524" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Lapierre::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time diference between the last and current call (in seconds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="57" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="36" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1a89363272413509c51652a49083551334" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Lapierre::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="62" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="137" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1afd59b79eabff995106f7b9060e717c11" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Lapierre::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method to run in the first iteration of the path following algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="67" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="149" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1aa32c65b3e912fcd41ce6a37c4d96cb75" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Lapierre::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="74" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="156" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1ad1b2b208e7c4086be10f3d245baff029" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Lapierre::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="82" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="168" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1acb005748cfa8f9ced5c0275f432148e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Lapierre::resetVirtualTarget</definition>
+        <argsstring>(float value) override</argsstring>
+        <name>resetVirtualTarget</name>
+        <reimplements refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429">resetVirtualTarget</reimplements>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. Not all controllers need this (example: <ref refid="classSamson" kindref="compound">Samson</ref>, <ref refid="classFossen" kindref="compound">Fossen</ref> which use the closest point) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="90" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="191" bodyend="198"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classLapierre_1a60da2af7bd3e90ca1d0e193d3abde664" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Lapierre::smoothVehicleYaw</definition>
+        <argsstring>()</argsstring>
+        <name>smoothVehicleYaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="117" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="117" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classLapierre_1aeff7041576864bd0fe0c8953ec900abc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Lapierre::smoothPathYaw</definition>
+        <argsstring>()</argsstring>
+        <name>smoothPathYaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Lapierre.h" line="118" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="127" bodyend="134"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classLapierre" kindref="compound">Lapierre</ref>&apos;s algorithm for path following Method2: developed from the work of Lionel <ref refid="classLapierre" kindref="compound">Lapierre</ref> and Antonio(2003) </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This algorithm support: Controls:<itemizedlist>
+<listitem><para>yaw-rate</para>
+</listitem><listitem><para>surge</para>
+</listitem><listitem><para>virtual-target (gamma) Supports Cooperative Path Following - True Contains Currents Observers - False</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Lapierre</label>
+        <link refid="classLapierre"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Lapierre</label>
+        <link refid="classLapierre"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Lapierre.h" line="24" column="36" bodyfile="include/algorithms/Lapierre.h" bodystart="24" bodyend="138"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>algConvert</name></member>
+      <member refid="classLapierre_1a157551d6ab50a40d8a8e2d8936d97524" prot="public" virt="virtual"><scope>Lapierre</scope><name>callPFController</name></member>
+      <member refid="classLapierre_1a53f8faa847352913eedd116efca95ba0" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>desired_surge_</name></member>
+      <member refid="classLapierre_1a6c2fbd164439f356d1c34d3b11fce731" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>desired_yaw_rate_</name></member>
+      <member refid="classLapierre_1aa193efe230f36d2f351622997c9142b6" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>gamma_</name></member>
+      <member refid="classLapierre_1a30d463ca67ce58a3506b087e57d70d49" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>gamma_dot_</name></member>
+      <member refid="classLapierre_1a72b69053d213a8f7d9caf316466f2928" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>k1_</name></member>
+      <member refid="classLapierre_1a59f68f11f409b51136defd267f020fd7" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>k2_</name></member>
+      <member refid="classLapierre_1a62035553b7c5e597be3a66b15e8932c0" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>k3_</name></member>
+      <member refid="classLapierre_1ab46e5179542c01b8ec7e136460f7bf1e" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>k_delta_</name></member>
+      <member refid="classLapierre_1a67b1e5cc85067b9f2b703d44f1eccaa7" prot="public" virt="non-virtual"><scope>Lapierre</scope><name>Lapierre</name></member>
+      <member refid="classLapierre_1af57243e03a75f8cc079ffcd40182ff99" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>num_gains_</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classLapierre_1a6521621fec78066e8e15d994e7b7c756" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>psi_old_</name></member>
+      <member refid="classLapierre_1a11de0a8da11104fca77310b5fffcc948" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>psi_out_</name></member>
+      <member refid="classLapierre_1a419ca7d71b726b16525ab960472a9c89" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>psi_out_old_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Lapierre</scope><name>publish</name></member>
+      <member refid="classLapierre_1a89363272413509c51652a49083551334" prot="public" virt="virtual"><scope>Lapierre</scope><name>publish_private</name></member>
+      <member refid="classLapierre_1a1feaad36c435bfcd244c20f7dab53453" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>rabbit_pub_</name></member>
+      <member refid="classLapierre_1ad1b2b208e7c4086be10f3d245baff029" prot="public" virt="virtual"><scope>Lapierre</scope><name>reset</name></member>
+      <member refid="classLapierre_1acb005748cfa8f9ced5c0275f432148e9" prot="public" virt="virtual"><scope>Lapierre</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual" ambiguityscope="PathFollowing::"><scope>Lapierre</scope><name>resetVirtualTarget</name></member>
+      <member refid="classLapierre_1a226c4d9f079fedfb4e2ad6217486e4d3" prot="public" virt="virtual"><scope>Lapierre</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Lapierre</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classLapierre_1aeff7041576864bd0fe0c8953ec900abc" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>smoothPathYaw</name></member>
+      <member refid="classLapierre_1a60da2af7bd3e90ca1d0e193d3abde664" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>smoothVehicleYaw</name></member>
+      <member refid="classLapierre_1afd59b79eabff995106f7b9060e717c11" prot="public" virt="virtual"><scope>Lapierre</scope><name>start</name></member>
+      <member refid="classLapierre_1aa32c65b3e912fcd41ce6a37c4d96cb75" prot="public" virt="virtual"><scope>Lapierre</scope><name>stop</name></member>
+      <member refid="classLapierre_1ab99bfb78a7cccf57e583e311063ed6f7" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>surge_pub_</name></member>
+      <member refid="classLapierre_1a51d5af5bda5707cea67f330462118f58" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>theta_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Lapierre</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Lapierre</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>vehicle_state_</name></member>
+      <member refid="classLapierre_1a6df55dd958380a0c7ff8b3d3e2c5d4f6" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>yaw_old_</name></member>
+      <member refid="classLapierre_1aefc97089b7451373086b97405f5bf20e" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>yaw_out_</name></member>
+      <member refid="classLapierre_1a0c9d05e1b437b9ec14f28a67c8e5e543" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>yaw_out_old_</name></member>
+      <member refid="classLapierre_1aa1d920bb28a3fcdd0ef513d814cf6626" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>yaw_rate_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Lapierre</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

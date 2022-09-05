@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="OpenLoopNode_8py" kind="file" language="Python">
+    <compoundname>OpenLoopNode.py</compoundname>
+    <innerclass refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode" prot="public">src::open_loop_controller::OpenLoopNode::OpenLoopNode</innerclass>
+    <innernamespace refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode">src::open_loop_controller::OpenLoopNode</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode_1a653fdd0501592d94a1e8295c07dbe21f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def src.open_loop_controller.OpenLoopNode.main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Initialize the RemoteControllerNode and let the timer callback do all the work
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/open_loop_controller/OpenLoopNode.py" line="117" column="1" bodyfile="src/open_loop_controller/OpenLoopNode.py" bodystart="117" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode" refkind="compound"><highlight class="comment">#!/usr/bin/env<sp/>python3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="4"><highlight class="stringliteral">@author:<sp/>Marcelo<sp/>Fialho<sp/>Jacinto</highlight></codeline>
+<codeline lineno="5"><highlight class="stringliteral">@email:<sp/>marcelo.jacinto@tecnico.ulisboa.pt</highlight></codeline>
+<codeline lineno="6"><highlight class="stringliteral">@date:<sp/>30/03/2022</highlight></codeline>
+<codeline lineno="7"><highlight class="stringliteral">@licence:<sp/>MIT</highlight></codeline>
+<codeline lineno="8"><highlight class="stringliteral">&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>rospy</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>numpy<sp/></highlight><highlight class="keyword">as</highlight><highlight class="normal"><sp/>np</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>std_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>Float64</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">from</highlight><highlight class="normal"><sp/>auv_msgs.msg<sp/></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>BodyForceRequest</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode" kindref="compound">OpenLoopNode</ref>:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="16"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Remote<sp/>controller<sp/>ROS<sp/>node<sp/>class.<sp/>Receives<sp/>from<sp/>a<sp/>joystick<sp/>(using<sp/>pygame)<sp/>the<sp/>desired<sp/>controls<sp/>for</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>the<sp/>inner-loops<sp/>and<sp/>publishes<sp/>these<sp/>periodically<sp/>(at<sp/>a<sp/>pre-defined<sp/>frequency)<sp/>to<sp/>the<sp/>inner-loops<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>vehicle</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aee20358e9902de02ca1a0c7eee978758" kindref="member">__init__</ref>(self):</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Class<sp/>constructor.<sp/>Initializes<sp/>the<sp/>ros<sp/>node,<sp/>loads<sp/>the<sp/>parameters<sp/>from<sp/>the<sp/>ros<sp/>parameter<sp/>server,<sp/>creates<sp/>the<sp/>inner-loops</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>publishers<sp/>and<sp/>initializes<sp/>the<sp/>timer<sp/>that<sp/>publishes<sp/>the<sp/>desired<sp/>inputs<sp/>to<sp/>the<sp/>inner-loops</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>---Initialize<sp/>the<sp/>ROS<sp/>NODE---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rospy.init_node(</highlight><highlight class="stringliteral">&apos;open_loop_controller&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>---<sp/>Load<sp/>parameters<sp/>from<sp/>the<sp/>ROS<sp/>parameter<sp/>server</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1abed795cf1ed94de2fd8856e454b42fc4" kindref="member">load_params</ref>()</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>---<sp/>Initialize<sp/>subscribers<sp/>and<sp/>publishers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a24674880024ab0346cea4c46edcb6383" kindref="member">initializeSubscribers</ref>()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a6f77b68c12db695c996aa4dd2f983744" kindref="member">initializePublishers</ref>()</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9e680bbd50484464a86e96158237e658" kindref="member">h_timerActivate</ref><sp/>=<sp/></highlight><highlight class="keyword">False</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>---<sp/>Desired<sp/>variables<sp/>to<sp/>apply<sp/>to<sp/>the<sp/>vehicle<sp/>(NOTE:<sp/>this<sp/>is<sp/>not<sp/>speeds<sp/>but<sp/>rather<sp/>forces<sp/>and<sp/>torques<sp/>to<sp/>applyt<sp/>to<sp/>the<sp/>vehicle)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a720b871b9be42d1ec4646f1c1ff3db49" kindref="member">surge_desired</ref><sp/>=<sp/>0.0<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Fx<sp/>(force<sp/>on<sp/>x-axis)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a99298b5211c13e41eb91a6d1be63e677" kindref="member">sway_desired</ref><sp/>=<sp/>0.0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Fy<sp/>(force<sp/>on<sp/>y-axis)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a2ef0c46453fdf43d5f8829ebe653ee1e" kindref="member">heave_desired</ref><sp/>=<sp/>0.0<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Fz<sp/>(force<sp/>on<sp/>z-axis)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9b435d7edb7f807386158ac291bc4d93" kindref="member">yaw_rate_desired</ref><sp/>=<sp/>0.0<sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Tz<sp/>(torque<sp/>about<sp/>the<sp/>z-axis)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Last<sp/>time<sp/>instant<sp/>where<sp/>a<sp/>message<sp/>with<sp/>desired<sp/>speeds<sp/>was<sp/>received</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" kindref="member">last_update</ref><sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>---Start<sp/>the<sp/>ROS<sp/>NODE<sp/>callback---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a3c501b8580ad5c7d373b7f83a4145b08" kindref="member">initializeTimer</ref>()</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">load_params(self):</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Read<sp/>the<sp/>node<sp/>frequency</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aa642d0e78425b75b356c4cce3a2e0dab" kindref="member">node_frequency</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~node_frequency&apos;</highlight><highlight class="normal">,<sp/>10)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Read<sp/>the<sp/>configurations<sp/>from<sp/>the<sp/>ros<sp/>parameter<sp/>server</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a90f31158a31c3e3d2586d9b6b41e5b15" kindref="member">gain_Fx</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~gain_Fx&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1acad394e3ed4456ce0242668d4417b801" kindref="member">gain_Fy</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~gain_Fy&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a87ca7e4b934a9d4febb3f3ea3cfef831" kindref="member">gain_Fz</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~gain_Fz&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad1af7efa769e73c8937b371a583d0503" kindref="member">gain_Tz</ref><sp/>=<sp/>rospy.get_param(</highlight><highlight class="stringliteral">&apos;~gain_Tz&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">initializeSubscribers(self):</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a57e4d5bbb15b7ee61fb45cd293061454" kindref="member">surge_sub</ref><sp/>=<sp/>rospy.Subscriber(rospy.get_param(</highlight><highlight class="stringliteral">&apos;~topics/subscribers/surge_ref&apos;</highlight><highlight class="normal">),<sp/>Float64,<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a839322021452645f461e843c9aef3e70" kindref="member">surgeCallback</ref>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a0910997208bd38a998d03556d73af5d9" kindref="member">sway_sub</ref><sp/>=<sp/>rospy.Subscriber(rospy.get_param(</highlight><highlight class="stringliteral">&apos;~topics/subscribers/sway_ref&apos;</highlight><highlight class="normal">),<sp/>Float64,<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ab9a189851edf882477e8e3dca26522f6" kindref="member">swayCallback</ref>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af8bb5d323e52492906972f553ce79152" kindref="member">heave_sub</ref><sp/>=<sp/>rospy.Subscriber(rospy.get_param(</highlight><highlight class="stringliteral">&apos;~topics/subscribers/heave_ref&apos;</highlight><highlight class="normal">),<sp/>Float64,<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a560e479a2f33d05125e69733dfd0bb68" kindref="member">heaveCallback</ref>)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af6fdb8898743c9238c6c616718f0837d" kindref="member">yaw_rate_sub</ref><sp/>=<sp/>rospy.Subscriber(rospy.get_param(</highlight><highlight class="stringliteral">&apos;~topics/subscribers/yaw_rate_ref&apos;</highlight><highlight class="normal">),<sp/>Float64,<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad2289026eaf8eb13adfb2e47e019328c" kindref="member">yawRateCallback</ref>)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">initializePublishers(self):</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a5d9e4d3da1a7afc0e7e6b574acf721cf" kindref="member">force_pub</ref><sp/>=<sp/>rospy.Publisher(rospy.get_param(</highlight><highlight class="stringliteral">&apos;~topics/publishers/body_force_request&apos;</highlight><highlight class="normal">),<sp/>BodyForceRequest,<sp/>queue_size=1)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aaaa22a84f433594c819f8330781a298c" kindref="member">timerCallback</ref>(self,<sp/>event):</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Callback<sp/>used<sp/>to<sp/>publish<sp/>to<sp/>the<sp/>inner-loops<sp/>the<sp/>desired<sp/>control<sp/>inputs</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:param<sp/>event:<sp/>A<sp/>timer<sp/>event<sp/>-<sp/>unused<sp/>but<sp/>required<sp/>by<sp/>the<sp/>ROS<sp/>API</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Scale<sp/>the<sp/>desired<sp/>input<sp/>(surge,<sp/>sway,<sp/>heave<sp/>and<sp/>yaw-rate<sp/>to<sp/>some<sp/>force<sp/>and<sp/>torque)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg<sp/>=<sp/>BodyForceRequest()</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.header.stamp<sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.wrench.force.x<sp/>=<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a90f31158a31c3e3d2586d9b6b41e5b15" kindref="member">gain_Fx</ref><sp/>*<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a720b871b9be42d1ec4646f1c1ff3db49" kindref="member">surge_desired</ref></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.wrench.force.y<sp/>=<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1acad394e3ed4456ce0242668d4417b801" kindref="member">gain_Fy</ref><sp/>*<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a99298b5211c13e41eb91a6d1be63e677" kindref="member">sway_desired</ref></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.wrench.force.z<sp/>=<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a87ca7e4b934a9d4febb3f3ea3cfef831" kindref="member">gain_Fz</ref><sp/>*<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a2ef0c46453fdf43d5f8829ebe653ee1e" kindref="member">heave_desired</ref></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.wrench.torque.x<sp/>=<sp/>0.0</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.wrench.torque.y<sp/>=<sp/>0.0</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_msg.wrench.torque.z<sp/>=<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad1af7efa769e73c8937b371a583d0503" kindref="member">gain_Tz</ref><sp/>*<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9b435d7edb7f807386158ac291bc4d93" kindref="member">yaw_rate_desired</ref></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a5d9e4d3da1a7afc0e7e6b574acf721cf" kindref="member">force_pub</ref>.publish(output_msg)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>----<sp/>Callbacks<sp/>section<sp/>----</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">surgeCallback(self,<sp/>msg:<sp/>Float64):</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a720b871b9be42d1ec4646f1c1ff3db49" kindref="member">surge_desired</ref><sp/>=<sp/>float(msg.data)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" kindref="member">last_update</ref><sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">swayCallback(self,<sp/>msg:<sp/>Float64):</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a99298b5211c13e41eb91a6d1be63e677" kindref="member">sway_desired</ref><sp/>=<sp/>float(msg.data)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" kindref="member">last_update</ref><sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">heaveCallback(self,<sp/>msg:<sp/>Float64):</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a2ef0c46453fdf43d5f8829ebe653ee1e" kindref="member">heave_desired</ref><sp/>=<sp/>float(msg.data)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" kindref="member">last_update</ref><sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">yawRateCallback(self,<sp/>msg:<sp/>Float64):</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9b435d7edb7f807386158ac291bc4d93" kindref="member">yaw_rate_desired</ref><sp/>=<sp/>float(msg.data)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" kindref="member">last_update</ref><sp/>=<sp/>rospy.Time.now()</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a3c501b8580ad5c7d373b7f83a4145b08" kindref="member">initializeTimer</ref>(self):</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="113"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Method<sp/>that<sp/>starts<sp/>the<sp/>system<sp/>timer<sp/>that<sp/>periodically<sp/>calls<sp/>a<sp/>callback</highlight></codeline>
+<codeline lineno="114"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a915ab7c76979b92991475d92ae47f5e0" kindref="member">timer</ref><sp/>=<sp/>rospy.Timer(rospy.Duration(1.0<sp/>/<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aa642d0e78425b75b356c4cce3a2e0dab" kindref="member">node_frequency</ref>),<sp/>self.<ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aaaa22a84f433594c819f8330781a298c" kindref="member">timerCallback</ref>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal"><ref refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode_1a653fdd0501592d94a1e8295c07dbe21f" kindref="member">main</ref>():</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&quot;&quot;</highlight></codeline>
+<codeline lineno="119"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>Initialize<sp/>the<sp/>RemoteControllerNode<sp/>and<sp/>let<sp/>the<sp/>timer<sp/>callback<sp/>do<sp/>all<sp/>the<sp/>work</highlight></codeline>
+<codeline lineno="120"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>&quot;&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>open_loop_controller<sp/>=<sp/><ref refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode" kindref="compound">OpenLoopNode</ref>()</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>rospy.spin()</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>__name__<sp/>==<sp/></highlight><highlight class="stringliteral">&apos;__main__&apos;</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode_1a653fdd0501592d94a1e8295c07dbe21f" kindref="member">main</ref>()</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/open_loop_controller/OpenLoopNode.py"/>
+  </compounddef>
+</doxygen>

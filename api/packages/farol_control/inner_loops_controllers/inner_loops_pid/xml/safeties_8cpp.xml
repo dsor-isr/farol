@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="safeties_8cpp" kind="file" language="C++">
+    <compoundname>safeties.cpp</compoundname>
+    <includes refid="safeties_8h" local="yes">safeties.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>safeties.h</label>
+        <link refid="safeties_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="6">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="1">
+        <label>src/ros/safeties.cpp</label>
+        <link refid="safeties_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="4">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;safeties.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classSafeties_1a03f659e922cb8506557695481cf8b6dc" kindref="member">Safeties::Safeties</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><ref refid="classSafeties_1a7e973531d4333a225a3460cd4663e93e" kindref="member">loadParams</ref>(nh);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><ref refid="classSafeties_1a807230c46ea90e382b5ab1bbfbcb638c" kindref="member">initializeSubscribers</ref>(nh);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><ref refid="classSafeties_1a45b1ee02442a938c60bdfd039ceabce3" kindref="member">initializePublishers</ref>(nh);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><ref refid="classSafeties_1a80bd26a487cd031e0394617c69d1dc85" kindref="member">Safeties::~Safeties</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a7e973531d4333a225a3460cd4663e93e" kindref="member">Safeties::loadParams</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>min_altitude_<sp/>=<sp/>FarolGimmicks::getParameters&lt;double&gt;(nh,<sp/></highlight><highlight class="stringliteral">&quot;min_alt&quot;</highlight><highlight class="normal">,<sp/>2.0);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a807230c46ea90e382b5ab1bbfbcb638c" kindref="member">Safeties::initializeSubscribers</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>depth_sub_<sp/>=<sp/>nh.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>nh,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/depth&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/ref/depth&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>10,<sp/>&amp;<ref refid="classSafeties_1abd831d1ff46fd5d812634bc2e2a4413c" kindref="member">Safeties::depthSafetyCallback</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>altitude_sub_<sp/>=<sp/>nh.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>nh,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/altitude&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/ref/altitude&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>10,<sp/>&amp;<ref refid="classSafeties_1a2bf71ca8d839f0a64e945e0ca8fcdcd5" kindref="member">Safeties::altitudeSafetyCallback</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>state_sub_<sp/>=<sp/>nh.subscribe(FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>nh,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/state&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/nav/filter/state&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>10,<sp/>&amp;<ref refid="classSafeties_1a050079341e56d889faeb0c32103e559b" kindref="member">Safeties::stateCallback</ref>,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a45b1ee02442a938c60bdfd039ceabce3" kindref="member">Safeties::initializePublishers</ref>(ros::NodeHandle<sp/>&amp;nh)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>depth_safety_pub_<sp/>=<sp/>nh.advertise&lt;std_msgs::Float64&gt;(</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nh,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/depth_safety&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/ref/depth_safety&quot;</highlight><highlight class="normal">),<sp/>1);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>altitude_safety_pub_<sp/>=<sp/>nh.advertise&lt;std_msgs::Float64&gt;(</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nh,<sp/></highlight><highlight class="stringliteral">&quot;topics/subscribers/altitude_safety&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/ref/altitude_safety&quot;</highlight><highlight class="normal">),<sp/>1);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1abd831d1ff46fd5d812634bc2e2a4413c" kindref="member">Safeties::depthSafetyCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Float64<sp/>&amp;msg)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ref_depth<sp/>=<sp/>msg.data;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>std_msgs::Float64<sp/>out;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state_depth_<sp/>+<sp/>state_altitude_<sp/>-<sp/>ref_depth<sp/>&lt;<sp/>min_altitude_)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>out.data<sp/>=<sp/>min_altitude_;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>altitude_safety_pub_.publish(out);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>out.data<sp/>=<sp/>ref_depth;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>depth_safety_pub_.publish(out);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a2bf71ca8d839f0a64e945e0ca8fcdcd5" kindref="member">Safeties::altitudeSafetyCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Float64<sp/>&amp;msg)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ref_altitude<sp/>=<sp/>msg.data;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>std_msgs::Float64<sp/>out;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>ref_altitude<sp/>=<sp/>(ref_altitude<sp/>&gt;<sp/>min_altitude_)<sp/>?<sp/>ref_altitude<sp/>:<sp/>min_altitude_;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>out.data<sp/>=<sp/>ref_altitude;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>altitude_safety_pub_.publish(out);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSafeties_1a050079341e56d889faeb0c32103e559b" kindref="member">Safeties::stateCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>state_depth_<sp/>=<sp/>msg.position.depth;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>state_altitude_<sp/>=<sp/>msg.altitude;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/ros/safeties.cpp"/>
+  </compounddef>
+</doxygen>

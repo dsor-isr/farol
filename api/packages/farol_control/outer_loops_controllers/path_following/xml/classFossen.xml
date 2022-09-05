@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classFossen" kind="class" language="C++" prot="public">
+    <compoundname>Fossen</compoundname>
+    <basecompoundref refid="classPathFollowing" prot="public" virt="non-virtual">PathFollowing</basecompoundref>
+    <includes refid="Fossen_8h" local="no">Fossen.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classFossen_1ad7d71b3d7cccada91b61d37164af9ed8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Fossen::desired_surge_</definition>
+        <argsstring></argsstring>
+        <name>desired_surge_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Variables to store the desired references. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="88" column="12" bodyfile="include/algorithms/Fossen.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFossen_1a62bcf3415ce8cab08bc47b94d62aff89" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Fossen::desired_yaw_</definition>
+        <argsstring></argsstring>
+        <name>desired_yaw_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="89" column="12" bodyfile="include/algorithms/Fossen.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFossen_1abdf86b05a447b898993a8cd3376ad11b" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Fossen::surge_pub_</definition>
+        <argsstring></argsstring>
+        <name>surge_pub_</name>
+        <briefdescription>
+<para>ROS publishers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="94" column="20" bodyfile="include/algorithms/Fossen.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFossen_1a3e4f80023d1782476825c9fd284dc2b1" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Fossen::yaw_pub_</definition>
+        <argsstring></argsstring>
+        <name>yaw_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="95" column="20" bodyfile="include/algorithms/Fossen.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFossen_1aca5a77389029ae8a88b5eb749d5ea4f5" prot="private" static="no" mutable="no">
+        <type>ros::ServiceClient</type>
+        <definition>ros::ServiceClient Fossen::mode_client_</definition>
+        <argsstring></argsstring>
+        <name>mode_client_</name>
+        <briefdescription>
+<para>ROS service to use the closest point to the path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="100" column="24" bodyfile="include/algorithms/Fossen.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFossen_1a27c0abfde8dedc28bc3769fc2b9f627a" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int Fossen::num_gains_</definition>
+        <argsstring></argsstring>
+        <name>num_gains_</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="102" column="15" bodyfile="include/algorithms/Fossen.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFossen_1a1c9dbc81ef8e2b40e08bc5229cb740bb" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Fossen::Delta_h</definition>
+        <argsstring></argsstring>
+        <name>Delta_h</name>
+        <initializer>{2.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="103" column="12" bodyfile="include/algorithms/Fossen.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classFossen_1ae2ec59223e4f803d35a7c8aec6156f22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Fossen::Fossen</definition>
+        <argsstring>(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::ServiceClient mode_client)</argsstring>
+        <name>Fossen</name>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>surge_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>yaw_pub</declname>
+        </param>
+        <param>
+          <type>ros::ServiceClient</type>
+          <declname>mode_client</declname>
+        </param>
+        <briefdescription>
+<para>Constructor method for the Path Following class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>surge_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS surge publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>yaw_pub</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS yaw publisher </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode_client</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ROS client for the path (to change the mode of operation to closest point) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="34" column="5" bodyfile="src/algorithms/Fossen.cpp" bodystart="3" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classFossen_1a25a5f0ffc65eff7d7f5f50f03215f740" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Fossen::setPFGains</definition>
+        <argsstring>(std::vector&lt; double &gt; gains) override</argsstring>
+        <name>setPFGains</name>
+        <reimplements refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8">setPFGains</reimplements>
+        <param>
+          <type>std::vector&lt; double &gt;</type>
+          <declname>gains</declname>
+        </param>
+        <briefdescription>
+<para>Method that given an array of doubles, updates the gains of the controller. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gains</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gains of the controller</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+NOTE: In this controller this method does nothing, as there are no gains to tweak. They are all fixed</para>
+<para><simplesect kind="return"><para>By default just returns false for this algorithm </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="46" column="10" bodyfile="src/algorithms/Fossen.cpp" bodystart="10" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classFossen_1aaacdb35bae5e984c391fdf2e8ad9261e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Fossen::callPFController</definition>
+        <argsstring>(double dt) override</argsstring>
+        <name>callPFController</name>
+        <reimplements refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1">callPFController</reimplements>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Method that implements the path following control law. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Method that implements the path Following algorihtm.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time diference between last call and current call (in seconds)</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time difference in seconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="53" column="10" bodyfile="src/algorithms/Fossen.cpp" bodystart="27" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classFossen_1a41c9bef0f7e5134697c16ad4a04f5f58" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Fossen::publish_private</definition>
+        <argsstring>() override</argsstring>
+        <name>publish_private</name>
+        <reimplements refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292">publish_private</reimplements>
+        <briefdescription>
+<para>Method to publish the data from the path following. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="58" column="10" bodyfile="src/algorithms/Fossen.cpp" bodystart="65" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classFossen_1a512a2fb4f757092125be2d340c2bc333" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Fossen::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <reimplements refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f">start</reimplements>
+        <briefdescription>
+<para>Method used to start the algorithm in the first run. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="65" column="10" bodyfile="src/algorithms/Fossen.cpp" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classFossen_1aec20d90ed038d52a443a3768e38fee4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Fossen::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <reimplements refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba">stop</reimplements>
+        <briefdescription>
+<para>Method used to check whether we reached the end of the algorithm or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the success of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="72" column="10" bodyfile="src/algorithms/Fossen.cpp" bodystart="84" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classFossen_1a7e629ef79f95d4d4c0e9dde0fdf3ae73" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Fossen::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <reimplements refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe">reset</reimplements>
+        <briefdescription>
+<para>Method used to reset the algorithm control parameters when running the algorithm more than once. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether the reset was made successfully or not </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Fossen.h" line="80" column="10" bodyfile="src/algorithms/Fossen.cpp" bodystart="95" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Path following using <ref refid="classFossen" kindref="compound">Fossen</ref>&apos;s algorithm for path following Method3: based on the work of <ref refid="classFossen" kindref="compound">Fossen(2015)</ref> </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This algorithm support: Controls:<itemizedlist>
+<listitem><para>yaw</para>
+</listitem><listitem><para>surge Supports Cooperative Path Following - True Contains Currents Observers - False</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="author"><para><ref refid="classMarcelo" kindref="compound">Marcelo</ref> Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+      </node>
+      <node id="1">
+        <label>Fossen</label>
+        <link refid="classFossen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>PFollowingDebug</label>
+        <link refid="structPFollowingDebug"/>
+      </node>
+      <node id="4">
+        <label>VehicleState</label>
+        <link refid="structVehicleState"/>
+      </node>
+      <node id="3">
+        <label>PathState</label>
+        <link refid="structPathState"/>
+      </node>
+      <node id="2">
+        <label>PathFollowing</label>
+        <link refid="classPathFollowing"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>path_state_</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vehicle_state_</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>pfollowing_debug_</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Fossen</label>
+        <link refid="classFossen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/Fossen.h" line="23" column="34" bodyfile="include/algorithms/Fossen.h" bodystart="23" bodyend="104"/>
+    <listofallmembers>
+      <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>algConvert</name></member>
+      <member refid="classFossen_1aaacdb35bae5e984c391fdf2e8ad9261e" prot="public" virt="virtual"><scope>Fossen</scope><name>callPFController</name></member>
+      <member refid="classFossen_1a1c9dbc81ef8e2b40e08bc5229cb740bb" prot="private" virt="non-virtual"><scope>Fossen</scope><name>Delta_h</name></member>
+      <member refid="classFossen_1ad7d71b3d7cccada91b61d37164af9ed8" prot="private" virt="non-virtual"><scope>Fossen</scope><name>desired_surge_</name></member>
+      <member refid="classFossen_1a62bcf3415ce8cab08bc47b94d62aff89" prot="private" virt="non-virtual"><scope>Fossen</scope><name>desired_yaw_</name></member>
+      <member refid="classFossen_1ae2ec59223e4f803d35a7c8aec6156f22" prot="public" virt="non-virtual"><scope>Fossen</scope><name>Fossen</name></member>
+      <member refid="classFossen_1aca5a77389029ae8a88b5eb749d5ea4f5" prot="private" virt="non-virtual"><scope>Fossen</scope><name>mode_client_</name></member>
+      <member refid="classFossen_1a27c0abfde8dedc28bc3769fc2b9f627a" prot="private" virt="non-virtual"><scope>Fossen</scope><name>num_gains_</name></member>
+      <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>path_state_</name></member>
+      <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>pfollowing_debug_</name></member>
+      <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Fossen</scope><name>publish</name></member>
+      <member refid="classFossen_1a41c9bef0f7e5134697c16ad4a04f5f58" prot="public" virt="virtual"><scope>Fossen</scope><name>publish_private</name></member>
+      <member refid="classFossen_1a7e629ef79f95d4d4c0e9dde0fdf3ae73" prot="public" virt="virtual"><scope>Fossen</scope><name>reset</name></member>
+      <member refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" prot="public" virt="virtual"><scope>Fossen</scope><name>resetVirtualTarget</name></member>
+      <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" virt="non-virtual"><scope>Fossen</scope><name>resetVirtualTarget</name></member>
+      <member refid="classFossen_1a25a5f0ffc65eff7d7f5f50f03215f740" prot="public" virt="virtual"><scope>Fossen</scope><name>setPFGains</name></member>
+      <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" prot="public" virt="non-virtual"><scope>Fossen</scope><name>setPFollowingDebugPublisher</name></member>
+      <member refid="classFossen_1a512a2fb4f757092125be2d340c2bc333" prot="public" virt="virtual"><scope>Fossen</scope><name>start</name></member>
+      <member refid="classFossen_1aec20d90ed038d52a443a3768e38fee4c" prot="public" virt="virtual"><scope>Fossen</scope><name>stop</name></member>
+      <member refid="classFossen_1abdf86b05a447b898993a8cd3376ad11b" prot="private" virt="non-virtual"><scope>Fossen</scope><name>surge_pub_</name></member>
+      <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" prot="public" virt="non-virtual"><scope>Fossen</scope><name>UpdatePathState</name></member>
+      <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" prot="public" virt="non-virtual"><scope>Fossen</scope><name>UpdateVehicleState</name></member>
+      <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>vehicle_state_</name></member>
+      <member refid="classFossen_1a3e4f80023d1782476825c9fd284dc2b1" prot="private" virt="non-virtual"><scope>Fossen</scope><name>yaw_pub_</name></member>
+      <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" prot="public" virt="virtual"><scope>Fossen</scope><name>~PathFollowing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

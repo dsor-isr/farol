@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="wp__controller_8h" kind="file" language="C++">
+    <compoundname>wp_controller.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">farol_gimmicks_library/FarolGimmicks.h</includes>
+    <includes local="no">ros/ros.h</includes>
+    <includes local="no">std_msgs/Float64.h</includes>
+    <includedby refid="wp__heading_8h" local="no">include/waypoint_algorithms/wp_heading.h</includedby>
+    <includedby refid="wp__loose_8h" local="no">include/waypoint_algorithms/wp_loose.h</includedby>
+    <includedby refid="wp__standard_8h" local="no">include/waypoint_algorithms/wp_standard.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/waypoint_algorithms/wp_controller.h</label>
+        <link refid="wp__controller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="5">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="3">
+        <label>math.h</label>
+      </node>
+      <node id="4">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>include/waypoint_algorithms/wp_loose.h</label>
+        <link refid="wp__loose_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/waypoint_algorithms/wp_standard.h</label>
+        <link refid="wp__standard_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/waypoint_algorithms/wp_controller.h</label>
+        <link refid="wp__controller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/waypoint_ros/waypoint.h</label>
+        <link refid="waypoint_8h_source"/>
+      </node>
+      <node id="2">
+        <label>include/waypoint_algorithms/wp_heading.h</label>
+        <link refid="wp__heading_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structVehicle__t" prot="public">Vehicle_t</innerclass>
+    <innerclass refid="structWPref__t" prot="public">WPref_t</innerclass>
+    <innerclass refid="structOutput__t" prot="public">Output_t</innerclass>
+    <innerclass refid="classWaypointController" prot="public">WaypointController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">Developers:<sp/>DSOR<sp/>Team<sp/>-&gt;<sp/>@irt.ist.pt<sp/>Instituto<sp/>Superior<sp/>Tecnico</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CATKIN_WS_WAYPOINTALGORITHM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CATKIN_WS_WAYPOINTALGORITHM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>some<sp/>generically<sp/>useful<sp/>stuff<sp/>to<sp/>include...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_gimmicks_library/FarolGimmicks.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ros/ros.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//ALWAYS<sp/>need<sp/>to<sp/>include<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_msgs/Float64.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="structVehicle__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta1{0.0,<sp/>0.0,<sp/>0.0};<sp/></highlight><highlight class="comment">//<sp/>vehicle<sp/>position<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta2{0.0,<sp/>0.0,<sp/>0.0};<sp/></highlight><highlight class="comment">//<sp/>vehicle<sp/>orientation<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>v1{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>linear<sp/>velocities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>v2{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>angular<sp/>velocities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="structWPref__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta1{0.0,<sp/>0.0,<sp/>0.0};<sp/></highlight><highlight class="comment">//<sp/>vehicle<sp/>position<sp/>vector<sp/>(output)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta2{0.0,<sp/>0.0,<sp/>0.0};<sp/></highlight><highlight class="comment">//<sp/>vehicle<sp/>orientation<sp/>vector<sp/>(output)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structOutput__t" refkind="compound"><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structOutput__t" kindref="compound">Output_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>eta2{0.0,<sp/>0.0,<sp/>0.0};<sp/></highlight><highlight class="comment">//<sp/>orientation<sp/>vector<sp/>(desired)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>v1{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>linear<sp/>velocities<sp/>(desired)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>v2{0.0,<sp/>0.0,<sp/>0.0};<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>angular<sp/>velocities<sp/>(desired)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classWaypointController" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classWaypointController" kindref="compound">WaypointController</ref><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="classWaypointController" kindref="compound">WaypointController</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classWaypointController" kindref="compound">WaypointController</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" kindref="member">setFrequency</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;f)<sp/>{<sp/>ts_<sp/>=<sp/>1<sp/>/<sp/>f;<sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" kindref="member">setGains</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;gains)<sp/>{<sp/>gains_<sp/>=<sp/>gains;<sp/>};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" kindref="member">compute</ref>(<ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>state,<sp/><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>wp_ref)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" kindref="member">calculateRef</ref>(state,<sp/>wp_ref);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087" kindref="member">publish</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ts_{0.0};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>gains_;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087" kindref="member">publish</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" kindref="member">calculateRef</ref>(<ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>state,<sp/><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>wp_ref)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" kindref="member">getYawOut</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wp_out_.eta2[2];<sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" kindref="member">getYawrateOut</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wp_out_.v2[2];<sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" kindref="member">getSurgeOut</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wp_out_.v1[0];<sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" kindref="member">getSwayOut</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>wp_out_.v1[1];<sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128" refid="classWaypointController_1a3c5c2fdb5a1244d288cd61d69d832b43" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a3c5c2fdb5a1244d288cd61d69d832b43" kindref="member">setYawOut</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;value)<sp/>{<sp/>wp_out_.eta2[2]<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1af6604a7fb8a30fce32ac2c27051185f0" kindref="member">setYawrateOut</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;value)<sp/>{<sp/>wp_out_.v2[2]<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a1438fe9b880d24ae349c984d1ac12636" kindref="member">setSurgeOut</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;value)<sp/>{<sp/>wp_out_.v1[0]<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classWaypointController_1a647a3d77abba0e41c7dd5046651548c2" kindref="member">setSwayOut</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;value)<sp/>{<sp/>wp_out_.v1[1]<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><ref refid="structOutput__t" kindref="compound">Output_t</ref><sp/>wp_out_;<sp/></highlight><highlight class="comment">//<sp/>output<sp/>of<sp/>the<sp/>controller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>CATKIN_WS_WAYPOINTALGORITHM_H</highlight></codeline>
+    </programlisting>
+    <location file="include/waypoint_algorithms/wp_controller.h"/>
+  </compounddef>
+</doxygen>

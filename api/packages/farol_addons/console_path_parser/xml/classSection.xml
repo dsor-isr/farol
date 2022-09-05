@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classSection" kind="class" language="C++" prot="public">
+    <compoundname>Section</compoundname>
+    <includes refid="Section_8h" local="no">Section.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classSection_1a66c245c5d792ebd8ab650c2264c44379" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Section::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>1= WP; 2=Line; 3=Arc; 4=Depth </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="16" column="9" bodyfile="include/ros/Section.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a8e9b0e3ebd4bc028a91b626845f99bf7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::xi</definition>
+        <argsstring></argsstring>
+        <name>xi</name>
+        <briefdescription>
+<para>initial x of section </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="17" column="12" bodyfile="include/ros/Section.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a4b788beab8f058f67b97c402acc4eb07" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::yi</definition>
+        <argsstring></argsstring>
+        <name>yi</name>
+        <briefdescription>
+<para>initial y of section </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="18" column="12" bodyfile="include/ros/Section.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a35c5756892a8380c05b732150a30f5ea" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::xc</definition>
+        <argsstring></argsstring>
+        <name>xc</name>
+        <briefdescription>
+<para>x of center of arc (-1 if line or point) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="19" column="12" bodyfile="include/ros/Section.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a6394415440348c1d9da89f0463c120fb" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::yc</definition>
+        <argsstring></argsstring>
+        <name>yc</name>
+        <briefdescription>
+<para>y of center of arc (-1 if line or point) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="20" column="12" bodyfile="include/ros/Section.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a837e94fbef6731e6fe354c0f8b07c357" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::xe</definition>
+        <argsstring></argsstring>
+        <name>xe</name>
+        <briefdescription>
+<para>ending x of section </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="21" column="12" bodyfile="include/ros/Section.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1addb85ef123821858f62937a693e58d67" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::ye</definition>
+        <argsstring></argsstring>
+        <name>ye</name>
+        <briefdescription>
+<para>ending y of section </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="22" column="12" bodyfile="include/ros/Section.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1afbe2a2c29aacf67683646809cfc0267d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Section::velocity</definition>
+        <argsstring></argsstring>
+        <name>velocity</name>
+        <briefdescription>
+<para>velocity desired of the vehicle </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="23" column="11" bodyfile="include/ros/Section.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a91cdf7332802c2e1a04b044ac7caa005" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Section::adirection</definition>
+        <argsstring></argsstring>
+        <name>adirection</name>
+        <briefdescription>
+<para>-1 if vehicle is turning clockwise, -1 otherwise (only applied to arcs) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="24" column="9" bodyfile="include/ros/Section.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1ab747ac37984161ecab8ec7630bf5e2fe" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Section::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <briefdescription>
+<para>adius of the arc </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="25" column="11" bodyfile="include/ros/Section.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a4bab719ad10f0396598e704bc916cecf" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Section::heading</definition>
+        <argsstring></argsstring>
+        <name>heading</name>
+        <briefdescription>
+<para>yaw of the vehicle </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="26" column="11" bodyfile="include/ros/Section.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1ad2bda88f94afa8924b0a47f9452d5849" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Section::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+<para>only used for point, depth and alt, time to use the reference </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="27" column="11" bodyfile="include/ros/Section.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a608cbf1d2ee06190ee42bea34c1128cf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Section::nVehicle</definition>
+        <argsstring></argsstring>
+        <name>nVehicle</name>
+        <briefdescription>
+<para>number of the vehicle (possible id) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="28" column="9" bodyfile="include/ros/Section.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1a66eab18117d9204b316c9d2e88fede20" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::gamma_s</definition>
+        <argsstring></argsstring>
+        <name>gamma_s</name>
+        <briefdescription>
+<para>Starting gamma (not normalized) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="29" column="12" bodyfile="include/ros/Section.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1aedca6024e8ff158d512323ad2d9632c3" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Section::gamma_e</definition>
+        <argsstring></argsstring>
+        <name>gamma_e</name>
+        <briefdescription>
+<para>Ending gamma (not normalized) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="30" column="12" bodyfile="include/ros/Section.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSection_1aa58f7cc10b85ce6d6d5b14441ff5f420" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Section::depth</definition>
+        <argsstring></argsstring>
+        <name>depth</name>
+        <briefdescription>
+<para>Depth of the section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="31" column="11" bodyfile="include/ros/Section.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSection_1a77b88e06692841ba49559d22a25a09f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Section::Section</definition>
+        <argsstring>()</argsstring>
+        <name>Section</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/Section.h" line="32" column="5" bodyfile="include/ros/Section.h" bodystart="32" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Contains <ref refid="classSection" kindref="compound">Section</ref> variables for path followin algorithms. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>nVehicle is always -1, probably not being used </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/ros/Section.h" line="14" column="14" bodyfile="include/ros/Section.h" bodystart="14" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classSection_1a91cdf7332802c2e1a04b044ac7caa005" prot="public" virt="non-virtual"><scope>Section</scope><name>adirection</name></member>
+      <member refid="classSection_1aa58f7cc10b85ce6d6d5b14441ff5f420" prot="public" virt="non-virtual"><scope>Section</scope><name>depth</name></member>
+      <member refid="classSection_1aedca6024e8ff158d512323ad2d9632c3" prot="public" virt="non-virtual"><scope>Section</scope><name>gamma_e</name></member>
+      <member refid="classSection_1a66eab18117d9204b316c9d2e88fede20" prot="public" virt="non-virtual"><scope>Section</scope><name>gamma_s</name></member>
+      <member refid="classSection_1a4bab719ad10f0396598e704bc916cecf" prot="public" virt="non-virtual"><scope>Section</scope><name>heading</name></member>
+      <member refid="classSection_1a608cbf1d2ee06190ee42bea34c1128cf" prot="public" virt="non-virtual"><scope>Section</scope><name>nVehicle</name></member>
+      <member refid="classSection_1ab747ac37984161ecab8ec7630bf5e2fe" prot="public" virt="non-virtual"><scope>Section</scope><name>radius</name></member>
+      <member refid="classSection_1a77b88e06692841ba49559d22a25a09f9" prot="public" virt="non-virtual"><scope>Section</scope><name>Section</name></member>
+      <member refid="classSection_1ad2bda88f94afa8924b0a47f9452d5849" prot="public" virt="non-virtual"><scope>Section</scope><name>time</name></member>
+      <member refid="classSection_1a66c245c5d792ebd8ab650c2264c44379" prot="public" virt="non-virtual"><scope>Section</scope><name>type</name></member>
+      <member refid="classSection_1afbe2a2c29aacf67683646809cfc0267d" prot="public" virt="non-virtual"><scope>Section</scope><name>velocity</name></member>
+      <member refid="classSection_1a35c5756892a8380c05b732150a30f5ea" prot="public" virt="non-virtual"><scope>Section</scope><name>xc</name></member>
+      <member refid="classSection_1a837e94fbef6731e6fe354c0f8b07c357" prot="public" virt="non-virtual"><scope>Section</scope><name>xe</name></member>
+      <member refid="classSection_1a8e9b0e3ebd4bc028a91b626845f99bf7" prot="public" virt="non-virtual"><scope>Section</scope><name>xi</name></member>
+      <member refid="classSection_1a6394415440348c1d9da89f0463c120fb" prot="public" virt="non-virtual"><scope>Section</scope><name>yc</name></member>
+      <member refid="classSection_1addb85ef123821858f62937a693e58d67" prot="public" virt="non-virtual"><scope>Section</scope><name>ye</name></member>
+      <member refid="classSection_1a4b788beab8f058f67b97c402acc4eb07" prot="public" virt="non-virtual"><scope>Section</scope><name>yi</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

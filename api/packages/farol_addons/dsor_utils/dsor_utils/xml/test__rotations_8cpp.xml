@@ -1,0 +1,646 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="test__rotations_8cpp" kind="file" language="C++">
+    <compoundname>test_rotations.cpp</compoundname>
+    <includes refid="rotations_8hpp" local="yes">dsor_utils/rotations.hpp</includes>
+    <includes local="no">Eigen/Dense</includes>
+    <includes local="no">gtest/gtest.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>cmath</label>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="5">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="6">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="2">
+        <label>dsor_utils/rotations.hpp</label>
+        <link refid="rotations_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>test/test_rotations.cpp</label>
+        <link refid="test__rotations_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="test__rotations_8cpp_1a59e657f80f9f990ace57b2c3c8b95d6f" prot="public" static="no">
+        <name>APPROX_PRECISION</name>
+        <initializer>0.0001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Authors: Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) Maintained by: Andre Potes (<ulink url="mailto:andre.potes@tecnico.ulisboa.pt">andre.potes@tecnico.ulisboa.pt</ulink>) Marcelo Jacinto (<ulink url="mailto:marcelo.jacinto@tecnico.ulisboa.pt">marcelo.jacinto@tecnico.ulisboa.pt</ulink>) <linebreak/>
+ Last Update: 17/12/2021 License: MIT File: test_rotations.cpp Brief: Tests all the functions declared in <ref refid="rotations_8hpp_source" kindref="compound">rotations.hpp</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="17" column="9" bodyfile="test/test_rotations.cpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test__rotations_8cpp_1a8ec5444c5a98f378fcb7b45fa173dae9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, QuatToEuler)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>QuatToEuler</type>
+        </param>
+        <briefdescription>
+<para>Test function: Eigen::Matrix&lt;T, 3, 1&gt; quaternion_to_euler(const Eigen::Quaternion&lt;T&gt; &amp;q) Function to convert from quaternion to (roll, pitch and yaw), according to Z-Y-X convention. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="25" column="1" bodyfile="test/test_rotations.cpp" bodystart="25" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a0332bbcfda4ae53cd60fab5fd5b798bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, EulerToQuat)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>EulerToQuat</type>
+        </param>
+        <briefdescription>
+<para>Test function: Eigen::Quaternion&lt;T&gt; euler_to_quaternion(const Eigen::Matrix&lt;T, 3, 1&gt; &amp;v) Function to convert a vector of euler angles according to Z-Y-X convention into a quaternion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="61" column="1" bodyfile="test/test_rotations.cpp" bodystart="61" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a5a6c616096875052f83eddbbeec1c215" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, YawFromQuat)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>YawFromQuat</type>
+        </param>
+        <briefdescription>
+<para>Test function: T yaw_from_quaternion(const Eigen::Quaternion&lt;T&gt; &amp;q) Gets the yaw angle from a quaternion (assumed a Z-Y-X rotation) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="89" column="1" bodyfile="test/test_rotations.cpp" bodystart="89" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a402219bb70610c2b99b865bdfafdcfa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, WrapToTwoPi)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>WrapToTwoPi</type>
+        </param>
+        <briefdescription>
+<para>Test unit: wrapTo2pi(T angle) Wrap angle between [0, 2PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="116" column="1" bodyfile="test/test_rotations.cpp" bodystart="116" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a116f5649e871e60fe088848f8633cca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, WrapToPi)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>WrapToPi</type>
+        </param>
+        <briefdescription>
+<para>Test function: T wrapTopi(T angle) that wraps angles between -pi and pi The tests were developed for floats, doubles and int types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="146" column="1" bodyfile="test/test_rotations.cpp" bodystart="146" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1adf8c8d5518f9ae0075804f6156e19fe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, radToDeg)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>radToDeg</type>
+        </param>
+        <briefdescription>
+<para>Test function: T radToDeg(T angle) that converts angles in radians to angles in degrees. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="174" column="1" bodyfile="test/test_rotations.cpp" bodystart="174" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a2843ee36c13d3a2036ea9d172632deb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, degToRad)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>degToRad</type>
+        </param>
+        <briefdescription>
+<para>Test function: T degToRad(T angle) that converts angles in radians to angles in degrees. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="198" column="1" bodyfile="test/test_rotations.cpp" bodystart="198" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1ad01e314e90226072e9c28e70bb97afc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, angleDiff)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>angleDiff</type>
+        </param>
+        <briefdescription>
+<para>Test function: T angleDiff(T a, T b) that calculate the diference between angles. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="222" column="1" bodyfile="test/test_rotations.cpp" bodystart="222" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a1bc3dcb5c09ab427b8899d97a421a177" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SkewSymmetric3)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SkewSymmetric3</type>
+        </param>
+        <briefdescription>
+<para>Test function: Eigen::Matrix&lt;T, 3, 3&gt; computeSkewSymmetric(const Eigen::Matrix&lt;T, 3, 1&gt; &amp;v) Computes the 3D skew-symmetric matrix given a vector of values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="259" column="1" bodyfile="test/test_rotations.cpp" bodystart="259" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1adfc3a8cdc4141b38ff5941b77ea52751" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, SkewSymmetric2)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>SkewSymmetric2</type>
+        </param>
+        <briefdescription>
+<para>Test function: Eigen::Matrix&lt;T, 2, 2&gt; computeSkewSymmetric(T c) Compute the 2x2 skew-symmetric matrix from a constant (int, float or double) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="290" column="1" bodyfile="test/test_rotations.cpp" bodystart="290" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a926dc6562b6372ccb1951f7dea00caeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, rotationAngularBodyToInertial)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>rotationAngularBodyToInertial</type>
+        </param>
+        <briefdescription>
+<para>Test function: inline Eigen::Matrix&lt;T, 3, 3&gt; rotationAngularBodyToInertial(const Eigen::Matrix&lt;T, 3, 1&gt; &amp;v) Compute the 3x3 rotation of angular body velocity to inertial angular velocity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="315" column="1" bodyfile="test/test_rotations.cpp" bodystart="315" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a0c74862e16fc1b7aef4cbf047d7ada41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(TestSuite, rotationBodyInertial)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>TestSuite</type>
+        </param>
+        <param>
+          <type>rotationBodyInertial</type>
+        </param>
+        <briefdescription>
+<para>Test function: Eigen::Matrix&lt;T, 3, 3&gt; rotationBodyToInertial(const Eigen::Matrix&lt;T, 3, 1&gt; &amp;v) Converts a rotation matrix from body to inertial. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="352" column="1" bodyfile="test/test_rotations.cpp" bodystart="352" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="test__rotations_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/test_rotations.cpp" line="375" column="5" bodyfile="test/test_rotations.cpp" bodystart="375" bodyend="380"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="13"><highlight class="preprocessor">#include<sp/>&quot;dsor_utils/rotations.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>APPROX_PRECISION<sp/>0.0001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Call<sp/>EXPECT_*<sp/>and/or<sp/>ASSERT_*<sp/>macros<sp/>as<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">TEST(TestSuite,<sp/>QuatToEuler)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>conversion<sp/>from<sp/>quaternion<sp/>(x,y,z,w)<sp/>to<sp/>euler<sp/>angles<sp/>(roll,<sp/>pitch,<sp/>yaw)<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>ZYX<sp/>convention</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;double&gt;<sp/>q_double;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.x()<sp/>=<sp/>0.0364663;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.y()<sp/>=<sp/>0.7259515;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.z()<sp/>=<sp/>-0.5696747;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.w()<sp/>=<sp/>0.3835823;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;float&gt;<sp/>q_float;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.x()<sp/>=<sp/>0.0364663;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.y()<sp/>=<sp/>0.7259515;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.z()<sp/>=<sp/>-0.5696747;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.w()<sp/>=<sp/>0.3835823;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;int&gt;<sp/>q_int;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>q_int.x()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>q_int.y()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>q_int.z()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>q_int.w()<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>3,<sp/>1&gt;<sp/>angles_double(-1.64159,<sp/>0.641593,<sp/>-2.64159);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;float,<sp/>3,<sp/>1&gt;<sp/>angles_float(-1.64159,<sp/>0.641593,<sp/>-2.64159);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;int,<sp/>3,<sp/>1&gt;<sp/>angles_int(0,<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert<sp/>true<sp/>due<sp/>to<sp/>approximation<sp/>errors<sp/>in<sp/>double<sp/>and<sp/>float<sp/>conversions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::quaternion_to_euler&lt;double&gt;(q_double).isApprox(angles_double,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::quaternion_to_euler&lt;float&gt;(q_float).isApprox(angles_float,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::quaternion_to_euler&lt;int&gt;(q_int).isApprox(angles_int,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">TEST(TestSuite,<sp/>EulerToQuat)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>conversion<sp/>from<sp/>euler<sp/>angle<sp/>(roll,<sp/>pitch,<sp/>yaw)<sp/>to<sp/>quaternion<sp/>(x,y,z,w)<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>ZYX<sp/>convention</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;double&gt;<sp/>q_double;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.x()<sp/>=<sp/>0.79157;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.y()<sp/>=<sp/>0.0763388;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.z()<sp/>=<sp/>0.605307;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.w()<sp/>=<sp/>-0.034531;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;float&gt;<sp/>q_float;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.x()<sp/>=<sp/>0.397474;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.y()<sp/>=<sp/>0.453882;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.z()<sp/>=<sp/>0.783772;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.w()<sp/>=<sp/>-0.147335;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>3,<sp/>1&gt;<sp/>angles_double(3,<sp/>-1.3,<sp/>0.3);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;float,<sp/>3,<sp/>1&gt;<sp/>angles_float(-2.0,<sp/>4,<sp/>-0.2);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert<sp/>true<sp/>due<sp/>to<sp/>approximation<sp/>errors<sp/>in<sp/>double<sp/>and<sp/>float<sp/>conversions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::euler_to_quaternion&lt;double&gt;(angles_double).isApprox(q_double,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::euler_to_quaternion&lt;float&gt;(angles_float).isApprox(q_float,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">TEST(TestSuite,<sp/>YawFromQuat)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>obtaining<sp/>a<sp/>yaw<sp/>angle<sp/>form<sp/>a<sp/>quaternion</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;double&gt;<sp/>q_double;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.x()<sp/>=<sp/>0.79157;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.y()<sp/>=<sp/>0.0763388;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.z()<sp/>=<sp/>0.605307;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>q_double.w()<sp/>=<sp/>-0.034531;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Quaternion&lt;float&gt;<sp/>q_float;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.x()<sp/>=<sp/>0.397474;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.y()<sp/>=<sp/>0.453882;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.z()<sp/>=<sp/>0.783772;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>q_float.w()<sp/>=<sp/>-0.147335;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_angle_double<sp/>=<sp/>DSOR::quaternion_to_euler&lt;double&gt;(q_double).z();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>yaw_angle_float<sp/>=<sp/>DSOR::quaternion_to_euler&lt;float&gt;(q_float).z();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>assert<sp/>true<sp/>due<sp/>to<sp/>approximation<sp/>errors<sp/>in<sp/>double<sp/>and<sp/>float<sp/>conversions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(DSOR::yaw_from_quaternion&lt;double&gt;(q_double)<sp/>-<sp/>yaw_angle_double)<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(DSOR::yaw_from_quaternion&lt;float&gt;(q_float)<sp/>-<sp/>yaw_angle_float)<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">TEST(TestSuite,<sp/>WrapToTwoPi)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>test<sp/>wrapping<sp/>an<sp/>angle<sp/>between<sp/>0<sp/>and<sp/>2<sp/>pi<sp/>radians</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>angles_double{-M_PI-0.1,<sp/>-M_PI,<sp/>-2.8,<sp/>3.1,<sp/>M_PI,<sp/>M_PI+1};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>angles_float{-M_PI-0.1,<sp/>-M_PI,<sp/>-2.8,<sp/>3.1,<sp/>M_PI,<sp/>M_PI+1};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>angles_wrapped_int{0,<sp/>3,<sp/>4,<sp/>3,<sp/>4,<sp/>6};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>angles_wrapped_double{3.04159,<sp/>3.14159,<sp/>3.48319,<sp/>3.1,<sp/>3.14159,<sp/>4.141592};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>angles_wrapped_float{3.04159,<sp/>3.14159,<sp/>3.48319,<sp/>3.1,<sp/>3.14159,<sp/>4.141592};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>angles_int{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-2*M_PI),<sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-M_PI-0.1),<sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-2.8),<sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(3.1),<sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(M_PI+1),</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*M_PI)</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>angles_double.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(DSOR::wrapTo2pi&lt;double&gt;(angles_double[i])<sp/>-<sp/>angles_wrapped_double[i])<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(DSOR::wrapTo2pi&lt;float&gt;(angles_float[i])<sp/>-<sp/>angles_wrapped_float[i])<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(DSOR::wrapTo2pi&lt;int&gt;(angles_int[i])<sp/>-<sp/>angles_wrapped_int[i])<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">TEST(TestSuite,<sp/>WrapToPi)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>the<sp/>function<sp/>for<sp/>type<sp/>float,<sp/>double<sp/>and<sp/>int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>input_f{-2*M_PI,<sp/>-M_PI-0.1,<sp/>-2.8,<sp/>3.1,<sp/>M_PI+1,<sp/>2*M_PI};</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>input_d{-2*M_PI,<sp/>-M_PI-0.1,<sp/>-2.8,<sp/>3.1,<sp/>M_PI+1,<sp/>2*M_PI};</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>input_i{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-2*M_PI),<sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-M_PI-0.1),<sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-2.8),<sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(3.1),<sp/></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(M_PI+1),</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*M_PI)</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>expected_wrapped_f{0,<sp/>3.04159265358979,<sp/>-2.8000000,<sp/>3.1000000,<sp/>-2.14159265358979,<sp/>0};</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>expected_wrapped_d{0,<sp/>3.04159265358979,<sp/>-2.8000000,<sp/>3.1000000,<sp/>-2.14159265358979,<sp/>0};</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>expected_wrapped_i{0,<sp/>-3,<sp/>-2,<sp/>3,<sp/>-2,<sp/>0};</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i<sp/>&lt;<sp/>input_d.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::wrapTopi&lt;float&gt;(input_f[i])<sp/>-<sp/>expected_wrapped_f[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::wrapTopi&lt;double&gt;(input_d[i])<sp/>-<sp/>expected_wrapped_d[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::wrapTopi&lt;int&gt;(input_i[i])<sp/>-<sp/>expected_wrapped_i[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal">TEST(TestSuite,<sp/>radToDeg)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Input<sp/>values<sp/>to<sp/>the<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>input_i{0,<sp/>0,<sp/>0,<sp/>1,<sp/>4,<sp/>6,<sp/>6,<sp/>0,<sp/>-6,<sp/>3,<sp/>0};</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>input_f{0.0,<sp/>0.174533,<sp/>0.349066,<sp/>1.78024,<sp/>4.53786,<sp/>6.28319,<sp/>6.98132,<sp/>-0.174533,<sp/>-6.98132,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>input_d{0.0,<sp/>0.174533,<sp/>0.349066,<sp/>1.78024,<sp/>4.53786,<sp/>6.28319,<sp/>6.98132,<sp/>-0.174533,<sp/>-6.98132,<sp/>0.0,<sp/>0.0};</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Output<sp/>values<sp/>to<sp/>the<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>expected_i{0,<sp/>0,<sp/>0,<sp/>57,<sp/>229,<sp/>343,<sp/>343,<sp/>0,<sp/>-343};</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>expected_f{0,<sp/>10.00000429,<sp/>20.00000857,<sp/>102.0002385,<sp/>260.000226,<sp/>360.0002689,<sp/>400.0001714,<sp/>-10.00000429,<sp/>-400.0001714};</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>expected_d{0,<sp/>10.00000429,<sp/>20.00000857,<sp/>102.0002385,<sp/>260.000226,<sp/>360.0002689,<sp/>400.0001714,<sp/>-10.00000429,<sp/>-400.0001714};</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>the<sp/>result<sp/>for<sp/>int,<sp/>floats<sp/>and<sp/>doubles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>expected_i.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::radToDeg&lt;int&gt;(input_i[i])<sp/>-<sp/>expected_i[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::radToDeg&lt;float&gt;(input_f[i])<sp/>-<sp/>expected_f[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::radToDeg&lt;double&gt;(input_d[i])<sp/>-<sp/>expected_d[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal">TEST(TestSuite,<sp/>degToRad)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Inputs<sp/>values<sp/>to<sp/>the<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>input_i{0,<sp/>10,<sp/>20,<sp/>99,<sp/>102,<sp/>260,<sp/>360,<sp/>400,<sp/>-10,<sp/>-400};</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>input_f{0.0,<sp/>10.0,<sp/>20.0,<sp/>99.0,<sp/>102.0,<sp/>260.0,<sp/>360.0,<sp/>400.0,<sp/>-10.0,<sp/>-400.0};</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>input_d{0.0,<sp/>10.0,<sp/>20.0,<sp/>99.0,<sp/>102.0,<sp/>260.0,<sp/>360.0,<sp/>400.0,<sp/>-10.0,<sp/>-400.0};</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Output<sp/>values<sp/>to<sp/>the<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>expected_i{0,<sp/>0,<sp/>0,<sp/>1,<sp/>1,<sp/>4,<sp/>6,<sp/>6,<sp/>0,<sp/>-6};</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>expected_f{0.0,<sp/>0.174533,<sp/>0.349066,<sp/>1.72788,<sp/>1.78024,<sp/>4.53786,<sp/>6.28319,<sp/>6.98132,<sp/>-0.174533,<sp/>-6.98132};</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>expected_d{0.0,<sp/>0.174533,<sp/>0.349066,<sp/>1.72788,<sp/>1.78024,<sp/>4.53786,<sp/>6.28319,<sp/>6.98132,<sp/>-0.174533,<sp/>-6.98132};</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>the<sp/>result<sp/>for<sp/>int,<sp/>floats<sp/>and<sp/>doubles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>expected_i.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::degToRad&lt;int&gt;(input_i[i])<sp/>-<sp/>expected_i[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::degToRad&lt;float&gt;(input_f[i])<sp/>-<sp/>expected_f[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(std::abs(DSOR::degToRad&lt;double&gt;(input_d[i])<sp/>-<sp/>expected_d[i])<sp/>&lt;<sp/>APPROX_PRECISION);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal">TEST(TestSuite,<sp/>angleDiff)<sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>input_a_d{-2*M_PI,<sp/>-1.0,<sp/>0,<sp/>2.4,<sp/>M_PI,<sp/>2*M_PI};</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>input_a_f{-2*M_PI,<sp/>-1.0,<sp/>0,<sp/>2.4,<sp/>M_PI,<sp/>2*M_PI};</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>input_a_i{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-2*M_PI),<sp/></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-1.0),<sp/></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(0.0),<sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2.4),<sp/></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(M_PI),</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*M_PI)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>input_b_d{2*M_PI,<sp/>2.0,<sp/>0.0,<sp/>0.0,<sp/>-M_PI,<sp/>3.0};</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>input_b_f{2*M_PI,<sp/>2.0,<sp/>0.0,<sp/>0.0,<sp/>-M_PI,<sp/>3.0};</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>input_b_i{</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2*M_PI),</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2.0),</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(0.0),</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(0.0),</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-M_PI),</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(3.0)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>expect_d{0,<sp/>-3,<sp/>0,<sp/>2.4,<sp/>0,<sp/>-3};</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;float&gt;<sp/>expect_f{0,<sp/>-3,<sp/>0,<sp/>2.4,<sp/>0,<sp/>-3};</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>expect_i{0,<sp/>-3,<sp/>0,<sp/>2,<sp/>0,<sp/>3};</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>input_a_d.size();<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(<sp/>DSOR::angleDiff&lt;double&gt;(input_a_d[i],<sp/>input_b_d[i])<sp/>-<sp/>expect_d[i]<sp/>)<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(<sp/>DSOR::angleDiff&lt;float&gt;(input_a_f[i],<sp/>input_b_f[i])<sp/>-<sp/>expect_f[i]<sp/>)<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>std::abs(<sp/>DSOR::angleDiff&lt;int&gt;(input_a_i[i],<sp/>input_b_i[i])<sp/>-<sp/>expect_i[i]<sp/>)<sp/>&lt;<sp/>APPROX_PRECISION<sp/>);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal">TEST(TestSuite,<sp/>SkewSymmetric3)<sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>input_d(0.2,<sp/>9.3,<sp/>1.5);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3f<sp/>input_f(0.2,<sp/>9.3,<sp/>1.5);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3i<sp/>input_i(20,<sp/>9,<sp/>1);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>3,<sp/>3&gt;<sp/>expect_d;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;float,<sp/>3,<sp/>3&gt;<sp/>expect_f;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;int,<sp/>3,<sp/>3&gt;<sp/>expect_i;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>expect_d<sp/>&lt;&lt;<sp/>0.0,<sp/>-1.5,<sp/>9.3,</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.5,<sp/>0.0,<sp/>-0.2,</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-9.3,<sp/>0.2,<sp/>0.0;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>expect_f<sp/>&lt;&lt;<sp/>0.0,<sp/>-1.5,<sp/>9.3,</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.5,<sp/>0.0,<sp/>-0.2,</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-9.3,<sp/>0.2,<sp/>0.0;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>expect_i<sp/>&lt;&lt;<sp/>0,<sp/>-1,<sp/>9,</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/>0,<sp/>-20,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-9,<sp/>20,<sp/>0;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::computeSkewSymmetric3&lt;double&gt;(input_d).isApprox(expect_d,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::computeSkewSymmetric3&lt;float&gt;(input_f).isApprox(expect_f,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::computeSkewSymmetric3&lt;int&gt;(input_i).isApprox(expect_i,<sp/>APPROX_PRECISION)<sp/>);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal">TEST(TestSuite,<sp/>SkewSymmetric2)<sp/>{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>input_d<sp/>=<sp/>1.5;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>input_f<sp/>=<sp/>1.5;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_i<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>2,<sp/>2&gt;<sp/>expect_d;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;float,<sp/>2,<sp/>2&gt;<sp/>expect_f;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;int,<sp/>2,<sp/>2&gt;<sp/>expect_i;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>expect_d<sp/>&lt;&lt;<sp/>0.0,<sp/>-1.5,</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.5,<sp/>0.0;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>expect_f<sp/>&lt;&lt;<sp/>0.0,<sp/>-1.5,</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1.5,<sp/>0.0;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>expect_i<sp/>&lt;&lt;<sp/>0,<sp/>-1,</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/>0;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::computeSkewSymmetric2&lt;double&gt;(input_d).isApprox(expect_d,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::computeSkewSymmetric2&lt;float&gt;(input_f).isApprox(expect_f,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::computeSkewSymmetric2&lt;int&gt;(input_i).isApprox(expect_i,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal">TEST(TestSuite,<sp/>rotationAngularBodyToInertial)<sp/>{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3i<sp/>angle_i;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3f<sp/>angle_f;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>angle_d;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Define<sp/>the<sp/>input<sp/>angles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>angle_i<sp/>&lt;&lt;<sp/>0,<sp/>1,<sp/>1;</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>angle_f<sp/>&lt;&lt;<sp/>0.349,<sp/>1.3,<sp/>1.3;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>angle_d<sp/>&lt;&lt;<sp/>0.349,<sp/>1.3,<sp/>1.3;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Expected<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3i<sp/>m_i;</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3f<sp/>m_f;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3d<sp/>m_d;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/>m_i<sp/>&lt;&lt;<sp/>1,<sp/>0,<sp/>1,</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>1,<sp/>0,</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>0,<sp/>1;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>m_f<sp/>&lt;&lt;<sp/>1,<sp/>1.2317687,<sp/>3.3849502,<sp/></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>0.9397151,<sp/>-0.3419,</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>1.2783542,<sp/>3.5129692;</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>m_d<sp/>&lt;&lt;<sp/>1,<sp/>1.2317687,<sp/>3.3849502,<sp/></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>0.9397151,<sp/>-0.3419583,<sp/></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/>1.2783542,<sp/>3.5129692;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::rotationAngularBodyToInertial&lt;double&gt;(angle_d).isApprox(m_d,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::rotationAngularBodyToInertial&lt;float&gt;(angle_f).isApprox(m_f,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::rotationAngularBodyToInertial&lt;int&gt;(angle_i).isApprox(m_i,<sp/>APPROX_PRECISION)<sp/>);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="346"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal">TEST(TestSuite,<sp/>rotationBodyInertial)<sp/>{</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3f<sp/>input_f;</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Vector3d<sp/>input_d;</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Define<sp/>the<sp/>input<sp/>angles<sp/>(rad)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>input_f<sp/>&lt;&lt;<sp/>1,<sp/>2,<sp/>3;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/>input_d<sp/>&lt;&lt;<sp/>1,<sp/>2,<sp/>3;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;double,<sp/>3,<sp/>3&gt;<sp/>expected_d;</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix&lt;float,<sp/>3,<sp/>3&gt;<sp/>expected_f;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/>expected_d<sp/>&lt;&lt;<sp/>0.4119822,<sp/>-0.8337377,<sp/>-0.3676305,</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-0.0587266,<sp/>-0.4269176,<sp/><sp/>0.9023816,</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-0.9092974,<sp/>-0.3501755,<sp/>-0.2248451;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>expected_f<sp/>&lt;&lt;<sp/>0.4119822,<sp/>-0.8337377,<sp/>-0.3676305,</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-0.0587266,<sp/>-0.4269176,<sp/><sp/>0.9023816,</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-0.9092974,<sp/>-0.3501755,<sp/>-0.2248451;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::rotationBodyToInertial&lt;double&gt;(input_d).isApprox(expected_d,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(<sp/>DSOR::rotationBodyToInertial&lt;float&gt;(input_f).isApprox(expected_f,<sp/>APPROX_PRECISION)<sp/>);</highlight></codeline>
+<codeline lineno="373"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)<sp/>{</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/>testing::InitGoogleTest(&amp;argc,<sp/>argv);</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RUN_ALL_TESTS();</highlight></codeline>
+<codeline lineno="380"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="test/test_rotations.cpp"/>
+  </compounddef>
+</doxygen>

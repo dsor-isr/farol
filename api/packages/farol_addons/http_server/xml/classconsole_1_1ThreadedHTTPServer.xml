@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1ThreadedHTTPServer" kind="class" language="Python" prot="public">
+    <compoundname>console::ThreadedHTTPServer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ThreadingMixIn</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">HTTPServer</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Handle requests in a separate thread.</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ThreadingMixIn</label>
+      </node>
+      <node id="3">
+        <label>HTTPServer</label>
+      </node>
+      <node id="1">
+        <label>console.ThreadedHTTPServer</label>
+        <link refid="classconsole_1_1ThreadedHTTPServer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ThreadingMixIn</label>
+      </node>
+      <node id="3">
+        <label>HTTPServer</label>
+      </node>
+      <node id="1">
+        <label>console.ThreadedHTTPServer</label>
+        <link refid="classconsole_1_1ThreadedHTTPServer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="1102" column="1" bodyfile="src/console.py" bodystart="1102" bodyend="1106"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_b1917256322077d83bc663fc1c59b492" kind="dir">
+    <compoundname>include/dsor_utils</compoundname>
+    <innerdir refid="dir_86cc65f59c387f88a53e6a5589d17b3f">include/dsor_utils/control</innerdir>
+    <innerdir refid="dir_b337c12a0810fe36020fb925f0562431">include/dsor_utils/data_structures</innerdir>
+    <innerdir refid="dir_f6c1dcc424497ddba09b0b228675fc96">include/dsor_utils/filters</innerdir>
+    <innerfile refid="frames_8hpp">frames.hpp</innerfile>
+    <innerfile refid="math_8hpp">math.hpp</innerfile>
+    <innerfile refid="rotations_8hpp">rotations.hpp</innerfile>
+    <innerfile refid="spherical__coordinates_8hpp">spherical_coordinates.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/dsor_utils/"/>
+  </compounddef>
+</doxygen>

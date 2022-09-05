@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="CPFControl_8cpp" kind="file" language="C++">
+    <compoundname>CPFControl.cpp</compoundname>
+    <includes refid="CPFControl_8h" local="yes">CPFControl.h</includes>
+    <includes local="no">stdexcept</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/algorithms/CPFControl.cpp</label>
+        <link refid="CPFControl_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdexcept</label>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="2">
+        <label>CPFControl.h</label>
+        <link refid="CPFControl_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;CPFControl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Constructor<sp/>for<sp/>the<sp/>CPF<sp/>Control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="classCPFControl_1a5081b3021c3c1aafdf2562b97d562c15" kindref="member">CPFControl::CPFControl</ref>(Eigen::Matrix&lt;int,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic&gt;<sp/>&amp;adjency_matrix,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>vehicle_ID)<sp/>:<sp/>adjency_matrix_(adjency_matrix),<sp/>vehicle_id_(vehicle_ID)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Check<sp/>if<sp/>the<sp/>adjency<sp/>matrix<sp/>is<sp/>a<sp/>square<sp/>matrix.<sp/>If<sp/>not,<sp/>throw<sp/>an<sp/>exception<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">((adjency_matrix.rows()<sp/>!=<sp/>adjency_matrix.cols())<sp/>||<sp/>adjency_matrix.rows()<sp/>&lt;=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;Adjency<sp/>Matrix<sp/>must<sp/>be<sp/>square<sp/>and<sp/>must<sp/>be<sp/>at<sp/>least<sp/>2x2.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Check<sp/>if<sp/>the<sp/>current<sp/>vehicle<sp/>ID<sp/>is<sp/>within<sp/>the<sp/>size<sp/>of<sp/>the<sp/>adjency<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(vehicle_ID<sp/>&lt;<sp/>0<sp/>||<sp/>vehicle_ID<sp/>&gt;=<sp/>adjency_matrix.rows())<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;ID<sp/>of<sp/>the<sp/>vehicle<sp/>must<sp/>be<sp/>between<sp/>[0,<sp/>Adjency<sp/>Matriz<sp/>Size[.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>number<sp/>of<sp/>vehicles<sp/>in<sp/>the<sp/>network<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>this-&gt;num_vehicles_<sp/>=<sp/>adjency_matrix.rows();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>neighbors<sp/>in<sp/>the<sp/>newtork<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>this-&gt;neighbors_<sp/>=<sp/>adjency_matrix.row(vehicle_ID);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Destructor<sp/>for<sp/>the<sp/>abstract<sp/>class<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="classCPFControl_1a98053c7bf5fdb54d82b8789fa845889b" kindref="member">CPFControl::~CPFControl</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">Eigen::MatrixXi<sp/><ref refid="classCPFControl_1a14421e28a0cbaae016c406f04ef4b8a4" kindref="member">CPFControl::getAdjencyMatrix</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;adjency_matrix_;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">Eigen::VectorXi<sp/><ref refid="classCPFControl_1a52c5a204c6ef07878e1db7073252d55d" kindref="member">CPFControl::getNeighbors</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;neighbors_;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classCPFControl_1a69fd47672868a3712154d38c26c9a847" kindref="member">CPFControl::updateAdjencyMatrix</ref>(Eigen::Matrix&lt;int,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic&gt;<sp/>&amp;adjency_matrix)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Deal<sp/>with<sp/>the<sp/>special<sp/>case<sp/>where<sp/>the<sp/>matrix<sp/>received<sp/>is<sp/>not<sp/>square<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(adjency_matrix.rows()<sp/>!=<sp/>adjency_matrix.cols())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Deal<sp/>with<sp/>the<sp/>fact<sp/>that<sp/>the<sp/>matrix<sp/>received<sp/>might<sp/>have<sp/>a<sp/>different<sp/>size<sp/>than<sp/>the<sp/>current<sp/>one<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(adjency_matrix.rows()<sp/>!=<sp/>this-&gt;adjency_matrix_.rows())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>non<sp/>of<sp/>the<sp/>above<sp/>conditions<sp/>appear,<sp/>just<sp/>update<sp/>the<sp/>new<sp/>adjency<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>this-&gt;adjency_matrix_<sp/>=<sp/>adjency_matrix;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>neighbors<sp/>in<sp/>the<sp/>newtork<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>this-&gt;neighbors_<sp/>=<sp/>adjency_matrix.row(vehicle_id_);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classCPFControl_1a15ff71544fb418576d1a041d294f25fd" kindref="member">CPFControl::getNetworkSize</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;num_vehicles_;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classCPFControl_1a9338bd882af5eece8f5e480f3b2bfd9d" kindref="member">CPFControl::getCurrentVehicleID</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;vehicle_id_;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/CPFControl.cpp"/>
+  </compounddef>
+</doxygen>

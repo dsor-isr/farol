@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_a62c291a0eba8a58397d86d64239dad6" kind="dir">
+    <compoundname>src/data_serializer_algorithms</compoundname>
+    <innerfile refid="data__serializer__algorithms_2____init_____8py">__init__.py</innerfile>
+    <innerfile refid="DataSerializerAlgorithm_8py">DataSerializerAlgorithm.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/data_serializer_algorithms/"/>
+  </compounddef>
+</doxygen>

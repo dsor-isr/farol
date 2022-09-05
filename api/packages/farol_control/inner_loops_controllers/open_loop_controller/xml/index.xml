@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode" kind="class"><name>src::open_loop_controller::OpenLoopNode::OpenLoopNode</name>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9e680bbd50484464a86e96158237e658" kind="variable"><name>h_timerActivate</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a720b871b9be42d1ec4646f1c1ff3db49" kind="variable"><name>surge_desired</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a99298b5211c13e41eb91a6d1be63e677" kind="variable"><name>sway_desired</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a2ef0c46453fdf43d5f8829ebe653ee1e" kind="variable"><name>heave_desired</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a9b435d7edb7f807386158ac291bc4d93" kind="variable"><name>yaw_rate_desired</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1afbff2814ebc31a1df56fed298bedf95a" kind="variable"><name>last_update</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aa642d0e78425b75b356c4cce3a2e0dab" kind="variable"><name>node_frequency</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a90f31158a31c3e3d2586d9b6b41e5b15" kind="variable"><name>gain_Fx</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1acad394e3ed4456ce0242668d4417b801" kind="variable"><name>gain_Fy</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a87ca7e4b934a9d4febb3f3ea3cfef831" kind="variable"><name>gain_Fz</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad1af7efa769e73c8937b371a583d0503" kind="variable"><name>gain_Tz</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a57e4d5bbb15b7ee61fb45cd293061454" kind="variable"><name>surge_sub</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a0910997208bd38a998d03556d73af5d9" kind="variable"><name>sway_sub</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af8bb5d323e52492906972f553ce79152" kind="variable"><name>heave_sub</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1af6fdb8898743c9238c6c616718f0837d" kind="variable"><name>yaw_rate_sub</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a5d9e4d3da1a7afc0e7e6b574acf721cf" kind="variable"><name>force_pub</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a915ab7c76979b92991475d92ae47f5e0" kind="variable"><name>timer</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aee20358e9902de02ca1a0c7eee978758" kind="function"><name>__init__</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1abed795cf1ed94de2fd8856e454b42fc4" kind="function"><name>load_params</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a24674880024ab0346cea4c46edcb6383" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a6f77b68c12db695c996aa4dd2f983744" kind="function"><name>initializePublishers</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1aaaa22a84f433594c819f8330781a298c" kind="function"><name>timerCallback</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a839322021452645f461e843c9aef3e70" kind="function"><name>surgeCallback</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ab9a189851edf882477e8e3dca26522f6" kind="function"><name>swayCallback</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a560e479a2f33d05125e69733dfd0bb68" kind="function"><name>heaveCallback</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1ad2289026eaf8eb13adfb2e47e019328c" kind="function"><name>yawRateCallback</name></member>
+    <member refid="classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode_1a3c501b8580ad5c7d373b7f83a4145b08" kind="function"><name>initializeTimer</name></member>
+  </compound>
+  <compound refid="namespacesetup" kind="namespace"><name>setup</name>
+    <member refid="setup_8py_1aa2586b6c4dd84a0aaaf49cb1565cee6e" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="namespacesrc" kind="namespace"><name>src</name>
+  </compound>
+  <compound refid="namespacesrc_1_1open__loop__controller" kind="namespace"><name>src::open_loop_controller</name>
+  </compound>
+  <compound refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode" kind="namespace"><name>src::open_loop_controller::OpenLoopNode</name>
+    <member refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode_1a653fdd0501592d94a1e8295c07dbe21f" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="setup_8py" kind="file"><name>setup.py</name>
+    <member refid="setup_8py_1aa2586b6c4dd84a0aaaf49cb1565cee6e" kind="variable"><name>d</name></member>
+  </compound>
+  <compound refid="____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="open__loop__controller_2____init_____8py" kind="file"><name>__init__.py</name>
+  </compound>
+  <compound refid="OpenLoopNode_8py" kind="file"><name>OpenLoopNode.py</name>
+    <member refid="namespacesrc_1_1open__loop__controller_1_1OpenLoopNode_1a653fdd0501592d94a1e8295c07dbe21f" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_9a16925de62ed134482987b9dbafcaec" kind="dir"><name>src/open_loop_controller</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

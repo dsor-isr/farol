@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structHorizontalFilter_1_1config" kind="struct" language="C++" prot="public">
+    <compoundname>HorizontalFilter::config</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1ab1a286abd8d38a0b0dfe3a012091f2b6" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::config::initialized</definition>
+        <argsstring></argsstring>
+        <name>initialized</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="56" column="10" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1a6120b02fcd680d2d6071cdfa6bdd89ef" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::config::broadcast_tf</definition>
+        <argsstring></argsstring>
+        <name>broadcast_tf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="56" column="22" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1aa8e7f7560b0cbc2ff47aa4e8b786acc1" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HorizontalFilter::config::reject_counter[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>reject_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="57" column="12" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1ab3c963954b2d94d7ee388ba08b05261b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HorizontalFilter::config::init_cov[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>init_cov</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="57" column="27" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1a695982e13fa92e3df9cb981bb858c807" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HorizontalFilter::config::process_noise[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>process_noise</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="57" column="36" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1ab2f20c377c42000a01aec7a7ae311ffa" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HorizontalFilter::config::kalman_config[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>kalman_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="57" column="50" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1aa069840e7f543f8db15cd6cdcf7333ff" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::config::base_frame</definition>
+        <argsstring></argsstring>
+        <name>base_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="58" column="17" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1afb17f028ffa5aaa31e9fef3eaf50554a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::config::odom_frame</definition>
+        <argsstring></argsstring>
+        <name>odom_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="58" column="28" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1a6e0e26d6c3193a791bcb28c9775e4e81" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::config::map_frame</definition>
+        <argsstring></argsstring>
+        <name>map_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="58" column="39" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1a64003dd82a54a18519749a734c64ee32" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::config::world_frame</definition>
+        <argsstring></argsstring>
+        <name>world_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="58" column="49" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1a2f9cd79e65c387e867b2e1f8afc8720a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::config::name_vehicle_id</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="59" column="17" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1a9d6420c210e5504655b158f235ded0af" prot="public" static="no" mutable="no">
+        <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref></type>
+        <definition>FilterGimmicks::measurement HorizontalFilter::config::meas_init</definition>
+        <argsstring></argsstring>
+        <name>meas_init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="61" column="33" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1ad397363eb86cb7037388680d1827dfdc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
+        <definition>std::vector&lt;FilterGimmicks::measurement&gt; HorizontalFilter::config::sensors</definition>
+        <argsstring></argsstring>
+        <name>sensors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="62" column="17" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structHorizontalFilter_1_1config_1af097db67262b035603521f24fbf2f70a" prot="public" static="no" mutable="no">
+        <type>tf2_ros::TransformBroadcaster *</type>
+        <definition>tf2_ros::TransformBroadcaster* HorizontalFilter::config::br_node</definition>
+        <argsstring></argsstring>
+        <name>br_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="63" column="35" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FilterGimmicks::measurement</label>
+        <link refid="structFilterGimmicks_1_1measurement"/>
+      </node>
+      <node id="1">
+        <label>HorizontalFilter::config</label>
+        <link refid="structHorizontalFilter_1_1config"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>meas_init</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/HorizontalFilter.h" line="55" column="13" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="55" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structHorizontalFilter_1_1config_1aa069840e7f543f8db15cd6cdcf7333ff" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>base_frame</name></member>
+      <member refid="structHorizontalFilter_1_1config_1af097db67262b035603521f24fbf2f70a" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>br_node</name></member>
+      <member refid="structHorizontalFilter_1_1config_1a6120b02fcd680d2d6071cdfa6bdd89ef" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>broadcast_tf</name></member>
+      <member refid="structHorizontalFilter_1_1config_1ab3c963954b2d94d7ee388ba08b05261b" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>init_cov</name></member>
+      <member refid="structHorizontalFilter_1_1config_1ab1a286abd8d38a0b0dfe3a012091f2b6" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>initialized</name></member>
+      <member refid="structHorizontalFilter_1_1config_1ab2f20c377c42000a01aec7a7ae311ffa" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>kalman_config</name></member>
+      <member refid="structHorizontalFilter_1_1config_1a6e0e26d6c3193a791bcb28c9775e4e81" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>map_frame</name></member>
+      <member refid="structHorizontalFilter_1_1config_1a9d6420c210e5504655b158f235ded0af" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>meas_init</name></member>
+      <member refid="structHorizontalFilter_1_1config_1a2f9cd79e65c387e867b2e1f8afc8720a" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>name_vehicle_id</name></member>
+      <member refid="structHorizontalFilter_1_1config_1afb17f028ffa5aaa31e9fef3eaf50554a" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>odom_frame</name></member>
+      <member refid="structHorizontalFilter_1_1config_1a695982e13fa92e3df9cb981bb858c807" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>process_noise</name></member>
+      <member refid="structHorizontalFilter_1_1config_1aa8e7f7560b0cbc2ff47aa4e8b786acc1" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>reject_counter</name></member>
+      <member refid="structHorizontalFilter_1_1config_1ad397363eb86cb7037388680d1827dfdc" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>sensors</name></member>
+      <member refid="structHorizontalFilter_1_1config_1a64003dd82a54a18519749a734c64ee32" prot="public" virt="non-virtual"><scope>HorizontalFilter::config</scope><name>world_frame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

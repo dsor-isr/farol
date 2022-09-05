@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classHorizontalFilter" kind="class" language="C++" prot="public">
+    <compoundname>HorizontalFilter</compoundname>
+    <includes refid="HorizontalFilter_8h" local="no">HorizontalFilter.h</includes>
+    <innerclass refid="structHorizontalFilter_1_1config" prot="public">HorizontalFilter::config</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classHorizontalFilter_1a89aa392b71d0f74e3814f939dab908e8" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int HorizontalFilter::MEAS_LEN</definition>
+        <argsstring></argsstring>
+        <name>MEAS_LEN</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="49" column="18" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a1d15757db4c9713ab599be694a4bea8b" prot="public" static="yes" mutable="no">
+        <type>const static int</type>
+        <definition>const static int HorizontalFilter::STATE_LEN</definition>
+        <argsstring></argsstring>
+        <name>STATE_LEN</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="50" column="18" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classHorizontalFilter_1aef19210c5cc0f938ea82069c3f897283" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <briefdescription>
+<para>Initialized Filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="142" column="6" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a9ac6abb9e6fbbdbdca75342b53218d97" prot="private" static="no" mutable="no">
+        <type>std::list&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
+        <definition>std::list&lt;FilterGimmicks::measurement&gt; HorizontalFilter::meas_list_</definition>
+        <argsstring></argsstring>
+        <name>meas_list_</name>
+        <briefdescription>
+<para>measurement list </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="143" column="11" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a7b73cd67636bd67c66d7da97567aadd1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HorizontalFilter::t_save_measurement_</definition>
+        <argsstring></argsstring>
+        <name>t_save_measurement_</name>
+        <briefdescription>
+<para>period to save measurements in the list </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="146" column="8" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1abfc5958ce307ebff2f310cb22d6984be" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double HorizontalFilter::t_reset_</definition>
+        <argsstring></argsstring>
+        <name>t_reset_</name>
+        <briefdescription>
+<para>reset time for filter, if no measurement received </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="147" column="8" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a4031aed0902183bb7f75f70943931427" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec HorizontalFilter::state_vec_</definition>
+        <argsstring></argsstring>
+        <name>state_vec_</name>
+        <briefdescription>
+<para>State vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="148" column="5" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a1c69ae3fd064a259f93a2d68304e179d" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat HorizontalFilter::state_cov_</definition>
+        <argsstring></argsstring>
+        <name>state_cov_</name>
+        <briefdescription>
+<para>Covariance matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="149" column="5" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1abd88f239df9d6d7dcf073fd85b959ea5" prot="private" static="no" mutable="no">
+        <type>Mat</type>
+        <definition>Mat HorizontalFilter::process_cov_</definition>
+        <argsstring></argsstring>
+        <name>process_cov_</name>
+        <briefdescription>
+<para>Process covariance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="150" column="5" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a2c13f07586f132246eeedd8ea85c6c7f" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec HorizontalFilter::state_reject_counter_</definition>
+        <argsstring></argsstring>
+        <name>state_reject_counter_</name>
+        <briefdescription>
+<para>for outlier rejection </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="151" column="5" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1ae5e8a74e979cefcab46542310f62da88" prot="private" static="no" mutable="no">
+        <type>Vec</type>
+        <definition>Vec HorizontalFilter::reject_counter_</definition>
+        <argsstring></argsstring>
+        <name>reject_counter_</name>
+        <briefdescription>
+<para>keep track of outliers </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="152" column="5" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1ab4a07bdfb3d91983a4d70154ce5c4983" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::tf_broadcast_flag_</definition>
+        <argsstring></argsstring>
+        <name>tf_broadcast_flag_</name>
+        <briefdescription>
+<para>Flag to switch TF broadcast. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="155" column="6" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a5f27660e8cbff20f007eb637751acf90" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::world_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>world_frame_id_</name>
+        <briefdescription>
+<para>world frame id </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="156" column="14" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a63396efe1ead551b35e1034f8d68aec4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::init_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>init_frame_id_</name>
+        <briefdescription>
+<para>init frame id </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="157" column="13" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1ac2a2f9c6481555c0ff2c7af704cf4b23" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string HorizontalFilter::name_vehicle_id_</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="158" column="13" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a100c2bcb36f1b510edc3acfa65c1ab95" prot="private" static="no" mutable="no">
+        <type>tf2_ros::TransformBroadcaster</type>
+        <definition>tf2_ros::TransformBroadcaster HorizontalFilter::tf_broadcast_</definition>
+        <argsstring></argsstring>
+        <name>tf_broadcast_</name>
+        <briefdescription>
+<para>transform broadcaster tf </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="159" column="31" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a3014c95920f506f49a3fb736259fc6c3" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time HorizontalFilter::last_predict_</definition>
+        <argsstring></argsstring>
+        <name>last_predict_</name>
+        <briefdescription>
+<para>Time of last predict. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="162" column="11" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classHorizontalFilter_1a09cc0a69859a645449c6962482caf6c5" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time HorizontalFilter::last_update_</definition>
+        <argsstring></argsstring>
+        <name>last_update_</name>
+        <briefdescription>
+<para>Time of last update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="163" column="11" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classHorizontalFilter_1ad7654142dd2d8704e446915f22392def" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HorizontalFilter::HorizontalFilter</definition>
+        <argsstring>()</argsstring>
+        <name>HorizontalFilter</name>
+        <briefdescription>
+<para>Contructor Horizontal Filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="72" column="1" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="3" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1a47d6d7001fc1ef1edb62665c1490610a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual HorizontalFilter::~HorizontalFilter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~HorizontalFilter</name>
+        <briefdescription>
+<para>Desctructor Horizontal Filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1ac6f1f02d0916ed73238c71288e439b61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::computePredict</definition>
+        <argsstring>(auv_msgs::NavigationStatus &amp;state, const ros::Time &amp;t_request)</argsstring>
+        <name>computePredict</name>
+        <param>
+          <type>auv_msgs::NavigationStatus &amp;</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>const ros::Time &amp;</type>
+          <declname>t_request</declname>
+        </param>
+        <briefdescription>
+<para>Propagate the state to the current time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t_request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>current time</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or Failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="94" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="18" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1a0ee25d3a0cb0155d907629d58d7fa5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HorizontalFilter::configure</definition>
+        <argsstring>(HorizontalFilter::config &amp;configurations)</argsstring>
+        <name>configure</name>
+        <param>
+          <type><ref refid="structHorizontalFilter_1_1config" kindref="compound">HorizontalFilter::config</ref> &amp;</type>
+          <declname>configurations</declname>
+        </param>
+        <briefdescription>
+<para>Configure filter variables and set initialization conditions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configurations</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="103" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="67" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1ae786c137e3dcb23c8d4beaeb6c852875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HorizontalFilter::newMeasurement</definition>
+        <argsstring>(FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>newMeasurement</name>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Tranforms the measurement from the sensor frame to the filter world frame. Calls addMeasurement and forwardPropagation methods. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="113" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="102" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1a0157428ae0e862dd3a7bdb1b0db065ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HorizontalFilter::deleteMeasurementsInBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>deleteMeasurementsInBuffer</name>
+        <briefdescription>
+<para>Clears all measurements older than a timer period defined in save_meas_interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="120" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="120" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1a2c072c54c6e27337f96b99a3e27dee3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; HorizontalFilter::getExtimateCurrents</definition>
+        <argsstring>()</argsstring>
+        <name>getExtimateCurrents</name>
+        <briefdescription>
+<para>Returns the currents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>x_current, y_current </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="129" column="13" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="57" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1ad393f414ecd694614ae7d50917eb4db4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HorizontalFilter::resetFilter</definition>
+        <argsstring>()</argsstring>
+        <name>resetFilter</name>
+        <briefdescription>
+<para>Reset horizontal filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="137" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="365" bodyend="369"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classHorizontalFilter_1a8f3ff8e725e8415a89de58376c3182c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::initialize</definition>
+        <argsstring>(FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>initialize</name>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Intialize the filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement from a sensor or Initial state defined in config file</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><linebreak/>
+ </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="177" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="149" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1afc66deb61dece6ba53b014a6986f5f39" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HorizontalFilter::predict</definition>
+        <argsstring>(Vec &amp;state_vec, Mat &amp;state_cov, double dt)</argsstring>
+        <name>predict</name>
+        <param>
+          <type>Vec &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>Mat &amp;</type>
+          <declname>state_cov</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Predict step Kalman filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_cov</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Covariance matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>period </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="188" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="179" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1aa396d349dc8fae09f5a2a995ff568d60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool HorizontalFilter::update</definition>
+        <argsstring>(Vec &amp;state_vec, Mat &amp;state_cov, std::list&lt; FilterGimmicks::measurement &gt;::iterator &amp;it_measurement)</argsstring>
+        <name>update</name>
+        <param>
+          <type>Vec &amp;</type>
+          <declname>state_vec</declname>
+        </param>
+        <param>
+          <type>Mat &amp;</type>
+          <declname>state_cov</declname>
+        </param>
+        <param>
+          <type>std::list&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;::iterator &amp;</type>
+          <declname>it_measurement</declname>
+        </param>
+        <briefdescription>
+<para>Update step Kalman filter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state_vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>State vector </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state_cov</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Matrix covariance </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="200" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="210" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1a4118ee38c126347cca5f611b59de5a0f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::list&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;::iterator</type>
+        <definition>std::list&lt; FilterGimmicks::measurement &gt;::iterator HorizontalFilter::addMeasurementToBuffer</definition>
+        <argsstring>(FilterGimmicks::measurement &amp;m)</argsstring>
+        <name>addMeasurementToBuffer</name>
+        <param>
+          <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Add a new measurement to a ordered buffer according to the time stamp. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurement</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Iterator that points to the message before the new one. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="214" column="22" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="293" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classHorizontalFilter_1abf74ed82fe569023641af2c1a1706a10" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void HorizontalFilter::forwardPropagation</definition>
+        <argsstring>(std::list&lt; FilterGimmicks::measurement &gt;::iterator it_measurement)</argsstring>
+        <name>forwardPropagation</name>
+        <param>
+          <type>std::list&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;::iterator</type>
+          <declname>it_measurement</declname>
+        </param>
+        <briefdescription>
+<para>Progate the state and the covariance until measurement time and then update. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>it_measurement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Measurment from a buffer <linebreak/>
+ </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/HorizontalFilter.h" line="224" column="6" bodyfile="src/algorithms/HorizontalFilter.cpp" bodystart="323" bodyend="363"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Horizontal Filter class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>This Class estimates the state of the vehicle in the horizontal frame. The state includes position, velocity, acceleration and currents. The latest state estimate of the filter is obtained using the exposed function getEstimate(). Measurement updates to the filter is done either using measCallback() and the latest state estimate is accessed using getEstimate(). Water currents are estimated but the output is not exposed to the user. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="include/algorithms/HorizontalFilter.h" line="47" column="23" bodyfile="include/algorithms/HorizontalFilter.h" bodystart="47" bodyend="226"/>
+    <listofallmembers>
+      <member refid="classHorizontalFilter_1a4118ee38c126347cca5f611b59de5a0f" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>addMeasurementToBuffer</name></member>
+      <member refid="classHorizontalFilter_1ac6f1f02d0916ed73238c71288e439b61" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>computePredict</name></member>
+      <member refid="classHorizontalFilter_1a0ee25d3a0cb0155d907629d58d7fa5b7" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>configure</name></member>
+      <member refid="classHorizontalFilter_1a0157428ae0e862dd3a7bdb1b0db065ab" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>deleteMeasurementsInBuffer</name></member>
+      <member refid="classHorizontalFilter_1abf74ed82fe569023641af2c1a1706a10" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>forwardPropagation</name></member>
+      <member refid="classHorizontalFilter_1a2c072c54c6e27337f96b99a3e27dee3f" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>getExtimateCurrents</name></member>
+      <member refid="classHorizontalFilter_1ad7654142dd2d8704e446915f22392def" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>HorizontalFilter</name></member>
+      <member refid="classHorizontalFilter_1a63396efe1ead551b35e1034f8d68aec4" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>init_frame_id_</name></member>
+      <member refid="classHorizontalFilter_1a8f3ff8e725e8415a89de58376c3182c7" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>initialize</name></member>
+      <member refid="classHorizontalFilter_1aef19210c5cc0f938ea82069c3f897283" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>initialized_</name></member>
+      <member refid="classHorizontalFilter_1a3014c95920f506f49a3fb736259fc6c3" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>last_predict_</name></member>
+      <member refid="classHorizontalFilter_1a09cc0a69859a645449c6962482caf6c5" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>last_update_</name></member>
+      <member refid="classHorizontalFilter_1a89aa392b71d0f74e3814f939dab908e8" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>MEAS_LEN</name></member>
+      <member refid="classHorizontalFilter_1a9ac6abb9e6fbbdbdca75342b53218d97" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>meas_list_</name></member>
+      <member refid="classHorizontalFilter_1ac2a2f9c6481555c0ff2c7af704cf4b23" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>name_vehicle_id_</name></member>
+      <member refid="classHorizontalFilter_1ae786c137e3dcb23c8d4beaeb6c852875" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>newMeasurement</name></member>
+      <member refid="classHorizontalFilter_1afc66deb61dece6ba53b014a6986f5f39" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>predict</name></member>
+      <member refid="classHorizontalFilter_1abd88f239df9d6d7dcf073fd85b959ea5" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>process_cov_</name></member>
+      <member refid="classHorizontalFilter_1ae5e8a74e979cefcab46542310f62da88" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>reject_counter_</name></member>
+      <member refid="classHorizontalFilter_1ad393f414ecd694614ae7d50917eb4db4" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>resetFilter</name></member>
+      <member refid="classHorizontalFilter_1a1c69ae3fd064a259f93a2d68304e179d" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>state_cov_</name></member>
+      <member refid="classHorizontalFilter_1a1d15757db4c9713ab599be694a4bea8b" prot="public" virt="non-virtual"><scope>HorizontalFilter</scope><name>STATE_LEN</name></member>
+      <member refid="classHorizontalFilter_1a2c13f07586f132246eeedd8ea85c6c7f" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>state_reject_counter_</name></member>
+      <member refid="classHorizontalFilter_1a4031aed0902183bb7f75f70943931427" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>state_vec_</name></member>
+      <member refid="classHorizontalFilter_1abfc5958ce307ebff2f310cb22d6984be" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>t_reset_</name></member>
+      <member refid="classHorizontalFilter_1a7b73cd67636bd67c66d7da97567aadd1" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>t_save_measurement_</name></member>
+      <member refid="classHorizontalFilter_1a100c2bcb36f1b510edc3acfa65c1ab95" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>tf_broadcast_</name></member>
+      <member refid="classHorizontalFilter_1ab4a07bdfb3d91983a4d70154ce5c4983" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>tf_broadcast_flag_</name></member>
+      <member refid="classHorizontalFilter_1aa396d349dc8fae09f5a2a995ff568d60" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>update</name></member>
+      <member refid="classHorizontalFilter_1a5f27660e8cbff20f007eb637751acf90" prot="private" virt="non-virtual"><scope>HorizontalFilter</scope><name>world_frame_id_</name></member>
+      <member refid="classHorizontalFilter_1a47d6d7001fc1ef1edb62665c1490610a" prot="public" virt="virtual"><scope>HorizontalFilter</scope><name>~HorizontalFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

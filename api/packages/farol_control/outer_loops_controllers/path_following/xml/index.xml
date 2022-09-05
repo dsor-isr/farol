@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classAguiar" kind="class"><name>Aguiar</name>
+    <member refid="classAguiar_1addcc46803d217c67c5b46d553407c00f" kind="variable"><name>epsilon_</name></member>
+    <member refid="classAguiar_1a0e7e172776b9f8f54190dead62e5beaf" kind="variable"><name>delta_</name></member>
+    <member refid="classAguiar_1a9867660c8fbe6e259ba36c519dffd159" kind="variable"><name>delta_inv_</name></member>
+    <member refid="classAguiar_1afae344cf15afdd9fba6cee759e8da1d8" kind="variable"><name>kk_</name></member>
+    <member refid="classAguiar_1a43f0a30b6dd9c572042612c359535026" kind="variable"><name>kz_</name></member>
+    <member refid="classAguiar_1a0b7f0a59204b7460f8a1d72cec2fdee5" kind="variable"><name>k_currents_</name></member>
+    <member refid="classAguiar_1ad89e08d376abbd6f9d8b0710ae76fb56" kind="variable"><name>k_pos_</name></member>
+    <member refid="classAguiar_1abfacd04fc996dd17df193a192d3791d1" kind="variable"><name>first_iteration_</name></member>
+    <member refid="classAguiar_1aa6f12962493be4c09ac046f8b75caac7" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classAguiar_1a13548938e6fe78b0940ba4346a36975c" kind="variable"><name>desired_yaw_rate_</name></member>
+    <member refid="classAguiar_1a402955e977f963a7c1807d8c4d2e3a6a" kind="variable"><name>pos_hat_</name></member>
+    <member refid="classAguiar_1a2270812380229c498e632b5859599b5f" kind="variable"><name>currents_hat_</name></member>
+    <member refid="classAguiar_1a0ccb5862e65ffc3c5708999959ea7f4b" kind="variable"><name>gamma_ddot_</name></member>
+    <member refid="classAguiar_1acc2973169efe68a3f65455aa0d8357d7" kind="variable"><name>gamma_dot_</name></member>
+    <member refid="classAguiar_1a7ef372cfbee1d5c471b466f9eacc380f" kind="variable"><name>gamma_</name></member>
+    <member refid="classAguiar_1af3f76782bbc7d589f388b2c71c800012" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classAguiar_1a6435b3064713c499cfab73b9297bd5a5" kind="variable"><name>yaw_rate_pub_</name></member>
+    <member refid="classAguiar_1a29573093448fff4879ec54d80b4468b3" kind="variable"><name>rabbit_pub_</name></member>
+    <member refid="classAguiar_1a3276babf6cbd1c0dd3a3b3b76998c1b4" kind="function"><name>Aguiar</name></member>
+    <member refid="classAguiar_1a2b8e255947da062e8a2ba05fb3765dc4" kind="function"><name>setPFGains</name></member>
+    <member refid="classAguiar_1a7e2b3f75d7936b9a6e79c8da8fbb2f09" kind="function"><name>callPFController</name></member>
+    <member refid="classAguiar_1a52bf1c7b6bd3944258ae6ad9cb3fae71" kind="function"><name>publish_private</name></member>
+    <member refid="classAguiar_1a6fc468667620e8499c9e50033f3bca65" kind="function"><name>start</name></member>
+    <member refid="classAguiar_1a58fd931b33569f377e4c2ddf82072075" kind="function"><name>stop</name></member>
+    <member refid="classAguiar_1af26d4f03ef2d8c3b91226c2f450868a9" kind="function"><name>reset</name></member>
+    <member refid="classAguiar_1a21955e6ba34dc1cdc69d2df5fcc579ae" kind="function"><name>resetVirtualTarget</name></member>
+  </compound>
+  <compound refid="classBrevik" kind="class"><name>Brevik</name>
+    <member refid="classBrevik_1aff0c3ed2db9059e10398bf89064a1853" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classBrevik_1a1e41954cbc02c79772a3284e7882f705" kind="variable"><name>desired_yaw_</name></member>
+    <member refid="classBrevik_1a6ef2a04b61cc4f068bdbbd7b69eae113" kind="variable"><name>yaw_out_</name></member>
+    <member refid="classBrevik_1a5d61d6ff225fb7a8316160e4fd43b118" kind="variable"><name>yaw_out_old_</name></member>
+    <member refid="classBrevik_1a92f7aa1290ee095cacfcbd232b588cad" kind="variable"><name>yaw_old_</name></member>
+    <member refid="classBrevik_1a4901f8854df1158101a9379e4e56bcca" kind="variable"><name>psi_out_</name></member>
+    <member refid="classBrevik_1a1058a2d5ed0f7251087faf7af2117ce0" kind="variable"><name>psi_out_old_</name></member>
+    <member refid="classBrevik_1a266c654cb3cd94fda1d67fff13c6a6d3" kind="variable"><name>psi_old_</name></member>
+    <member refid="classBrevik_1a7324ae7ef9e4888232a807a5bc3fb52e" kind="variable"><name>gamma_dot_</name></member>
+    <member refid="classBrevik_1ab445f2388b68bfd5761a3987a6c3ee7b" kind="variable"><name>gamma_</name></member>
+    <member refid="classBrevik_1ac7064617a7b2c528977d70db23b0b83c" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classBrevik_1a088e644b5595f70a6a3768c64305dfee" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classBrevik_1a4ef3752b9c88e189dc718ec0d26ae1ff" kind="variable"><name>rabbit_pub_</name></member>
+    <member refid="classBrevik_1ac841624393966798324ad0194cf994d7" kind="function"><name>Brevik</name></member>
+    <member refid="classBrevik_1a13a11e919bbc74abaae3d054dbde6830" kind="function"><name>setPFGains</name></member>
+    <member refid="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43" kind="function"><name>callPFController</name></member>
+    <member refid="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca" kind="function"><name>publish_private</name></member>
+    <member refid="classBrevik_1a351c87315b5ed60c9ce57ccdf16633e7" kind="function"><name>start</name></member>
+    <member refid="classBrevik_1aa707b7da34dab13fc0bdb4241091289b" kind="function"><name>stop</name></member>
+    <member refid="classBrevik_1a42009e150fee33a5bbbf22c761c8d70f" kind="function"><name>reset</name></member>
+    <member refid="classBrevik_1aea01199e76dcacc2be914896b0600100" kind="function"><name>resetVirtualTarget</name></member>
+    <member refid="classBrevik_1a0e9d058eda7fe9b221b121537d0d48e0" kind="function"><name>smoothVehicleYaw</name></member>
+    <member refid="classBrevik_1a900ff60cdda9546585cf6f34727d2328" kind="function"><name>smoothPathYaw</name></member>
+  </compound>
+  <compound refid="classFossen" kind="class"><name>Fossen</name>
+    <member refid="classFossen_1ad7d71b3d7cccada91b61d37164af9ed8" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classFossen_1a62bcf3415ce8cab08bc47b94d62aff89" kind="variable"><name>desired_yaw_</name></member>
+    <member refid="classFossen_1abdf86b05a447b898993a8cd3376ad11b" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classFossen_1a3e4f80023d1782476825c9fd284dc2b1" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classFossen_1aca5a77389029ae8a88b5eb749d5ea4f5" kind="variable"><name>mode_client_</name></member>
+    <member refid="classFossen_1a27c0abfde8dedc28bc3769fc2b9f627a" kind="variable"><name>num_gains_</name></member>
+    <member refid="classFossen_1a1c9dbc81ef8e2b40e08bc5229cb740bb" kind="variable"><name>Delta_h</name></member>
+    <member refid="classFossen_1ae2ec59223e4f803d35a7c8aec6156f22" kind="function"><name>Fossen</name></member>
+    <member refid="classFossen_1a25a5f0ffc65eff7d7f5f50f03215f740" kind="function"><name>setPFGains</name></member>
+    <member refid="classFossen_1aaacdb35bae5e984c391fdf2e8ad9261e" kind="function"><name>callPFController</name></member>
+    <member refid="classFossen_1a41c9bef0f7e5134697c16ad4a04f5f58" kind="function"><name>publish_private</name></member>
+    <member refid="classFossen_1a512a2fb4f757092125be2d340c2bc333" kind="function"><name>start</name></member>
+    <member refid="classFossen_1aec20d90ed038d52a443a3768e38fee4c" kind="function"><name>stop</name></member>
+    <member refid="classFossen_1a7e629ef79f95d4d4c0e9dde0fdf3ae73" kind="function"><name>reset</name></member>
+  </compound>
+  <compound refid="classLapierre" kind="class"><name>Lapierre</name>
+    <member refid="classLapierre_1af57243e03a75f8cc079ffcd40182ff99" kind="variable"><name>num_gains_</name></member>
+    <member refid="classLapierre_1a72b69053d213a8f7d9caf316466f2928" kind="variable"><name>k1_</name></member>
+    <member refid="classLapierre_1a59f68f11f409b51136defd267f020fd7" kind="variable"><name>k2_</name></member>
+    <member refid="classLapierre_1a62035553b7c5e597be3a66b15e8932c0" kind="variable"><name>k3_</name></member>
+    <member refid="classLapierre_1a51d5af5bda5707cea67f330462118f58" kind="variable"><name>theta_</name></member>
+    <member refid="classLapierre_1ab46e5179542c01b8ec7e136460f7bf1e" kind="variable"><name>k_delta_</name></member>
+    <member refid="classLapierre_1aefc97089b7451373086b97405f5bf20e" kind="variable"><name>yaw_out_</name></member>
+    <member refid="classLapierre_1a0c9d05e1b437b9ec14f28a67c8e5e543" kind="variable"><name>yaw_out_old_</name></member>
+    <member refid="classLapierre_1a6df55dd958380a0c7ff8b3d3e2c5d4f6" kind="variable"><name>yaw_old_</name></member>
+    <member refid="classLapierre_1a11de0a8da11104fca77310b5fffcc948" kind="variable"><name>psi_out_</name></member>
+    <member refid="classLapierre_1a419ca7d71b726b16525ab960472a9c89" kind="variable"><name>psi_out_old_</name></member>
+    <member refid="classLapierre_1a6521621fec78066e8e15d994e7b7c756" kind="variable"><name>psi_old_</name></member>
+    <member refid="classLapierre_1a53f8faa847352913eedd116efca95ba0" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classLapierre_1a6c2fbd164439f356d1c34d3b11fce731" kind="variable"><name>desired_yaw_rate_</name></member>
+    <member refid="classLapierre_1a30d463ca67ce58a3506b087e57d70d49" kind="variable"><name>gamma_dot_</name></member>
+    <member refid="classLapierre_1aa193efe230f36d2f351622997c9142b6" kind="variable"><name>gamma_</name></member>
+    <member refid="classLapierre_1ab99bfb78a7cccf57e583e311063ed6f7" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classLapierre_1aa1d920bb28a3fcdd0ef513d814cf6626" kind="variable"><name>yaw_rate_pub_</name></member>
+    <member refid="classLapierre_1a1feaad36c435bfcd244c20f7dab53453" kind="variable"><name>rabbit_pub_</name></member>
+    <member refid="classLapierre_1a67b1e5cc85067b9f2b703d44f1eccaa7" kind="function"><name>Lapierre</name></member>
+    <member refid="classLapierre_1a226c4d9f079fedfb4e2ad6217486e4d3" kind="function"><name>setPFGains</name></member>
+    <member refid="classLapierre_1a157551d6ab50a40d8a8e2d8936d97524" kind="function"><name>callPFController</name></member>
+    <member refid="classLapierre_1a89363272413509c51652a49083551334" kind="function"><name>publish_private</name></member>
+    <member refid="classLapierre_1afd59b79eabff995106f7b9060e717c11" kind="function"><name>start</name></member>
+    <member refid="classLapierre_1aa32c65b3e912fcd41ce6a37c4d96cb75" kind="function"><name>stop</name></member>
+    <member refid="classLapierre_1ad1b2b208e7c4086be10f3d245baff029" kind="function"><name>reset</name></member>
+    <member refid="classLapierre_1acb005748cfa8f9ced5c0275f432148e9" kind="function"><name>resetVirtualTarget</name></member>
+    <member refid="classLapierre_1a60da2af7bd3e90ca1d0e193d3abde664" kind="function"><name>smoothVehicleYaw</name></member>
+    <member refid="classLapierre_1aeff7041576864bd0fe0c8953ec900abc" kind="function"><name>smoothPathYaw</name></member>
+  </compound>
+  <compound refid="classMarcelo" kind="class"><name>Marcelo</name>
+    <member refid="classMarcelo_1a5825ff95a14b017655b2102a48706ee8" kind="variable"><name>epsilon_</name></member>
+    <member refid="classMarcelo_1a8e69c7057a26c10da3bb52d5a280682c" kind="variable"><name>delta_</name></member>
+    <member refid="classMarcelo_1a31d72b443ef7ddc20f71abeac2678ff0" kind="variable"><name>delta_inv_</name></member>
+    <member refid="classMarcelo_1a2fcb436b0550aff5bc98e0cb5f1a0048" kind="variable"><name>kk_</name></member>
+    <member refid="classMarcelo_1af7cc69fe9ae997384c10f4e98de2a527" kind="variable"><name>kz_</name></member>
+    <member refid="classMarcelo_1a67a909f179110333e4296ed04d7407ec" kind="variable"><name>k_currents_</name></member>
+    <member refid="classMarcelo_1a8b5ccb5c4b87abff55fad5f4e3723963" kind="variable"><name>k_pos_</name></member>
+    <member refid="classMarcelo_1afd6dd8296f3ec292e7de57f5021073d6" kind="variable"><name>first_iteration_</name></member>
+    <member refid="classMarcelo_1ae39ad6d5b561873622d268010b4b385d" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classMarcelo_1abe70a00a095a6203d5f903052f5cebf9" kind="variable"><name>desired_yaw_rate_</name></member>
+    <member refid="classMarcelo_1a43bcaefc4d204ba35894978d2924a45c" kind="variable"><name>pos_hat_</name></member>
+    <member refid="classMarcelo_1ae366754aef15796ae43214339cc8d4c0" kind="variable"><name>currents_hat_</name></member>
+    <member refid="classMarcelo_1ac6b1e3dbcf9e751fe0640486d32fa865" kind="variable"><name>gamma_ddot_</name></member>
+    <member refid="classMarcelo_1aeb27f32ac4a6be85f6d92c2c6f1cf5ca" kind="variable"><name>gamma_dot_</name></member>
+    <member refid="classMarcelo_1af9a94279092bc6cedb023717733c4ae9" kind="variable"><name>gamma_</name></member>
+    <member refid="classMarcelo_1a39318ed0f45b40d406580baebf590c47" kind="variable"><name>rd_</name></member>
+    <member refid="classMarcelo_1a40a22dffb3ea23a042c6fc18ec741972" kind="variable"><name>d_</name></member>
+    <member refid="classMarcelo_1a096c2be4b1652ab1ff5bb757d804a7ec" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classMarcelo_1aaabaffea584cd05bb64cef7ce3672d1f" kind="variable"><name>yaw_rate_pub_</name></member>
+    <member refid="classMarcelo_1a121bfe86f6f8fe572b5f39732c488306" kind="variable"><name>rabbit_pub_</name></member>
+    <member refid="classMarcelo_1abb84e76c8517695c0b2db789902f1481" kind="variable"><name>currents_estimation_x_pub_</name></member>
+    <member refid="classMarcelo_1ab6ed8699b5b179fd21254ac969b41dc2" kind="variable"><name>currents_estimation_y_pub_</name></member>
+    <member refid="classMarcelo_1a70de62e9cdca72e81b91753151ec88f1" kind="function"><name>Marcelo</name></member>
+    <member refid="classMarcelo_1a0bcfa8cfd64f3db2400bbd977a08787c" kind="function"><name>setPFGains</name></member>
+    <member refid="classMarcelo_1a7c6bf0d19b0ca042068fd2e908ab8145" kind="function"><name>callPFController</name></member>
+    <member refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" kind="function"><name>publish_private</name></member>
+    <member refid="classMarcelo_1abc33f038979fa05a92c6b8df05127778" kind="function"><name>start</name></member>
+    <member refid="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" kind="function"><name>stop</name></member>
+    <member refid="classMarcelo_1a5835e08725f01af3fb719423d523fe25" kind="function"><name>reset</name></member>
+    <member refid="classMarcelo_1a4bf70b72554f4a87b0b8bf478631d753" kind="function"><name>resetVirtualTarget</name></member>
+  </compound>
+  <compound refid="classPathFollowing" kind="class"><name>PathFollowing</name>
+    <member refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kind="variable"><name>vehicle_state_</name></member>
+    <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kind="variable"><name>path_state_</name></member>
+    <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kind="variable"><name>pfollowing_debug_</name></member>
+    <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" kind="variable"><name>pfollowing_debug_pub_</name></member>
+    <member refid="classPathFollowing_1a07c1e827227b1b14dff2df69aa9438b2" kind="function"><name>~PathFollowing</name></member>
+    <member refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1" kind="function"><name>callPFController</name></member>
+    <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" kind="function"><name>publish</name></member>
+    <member refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292" kind="function"><name>publish_private</name></member>
+    <member refid="classPathFollowing_1a29c973b4bb0bb105cc20272aa0067a3f" kind="function"><name>start</name></member>
+    <member refid="classPathFollowing_1a8ec7c82e205a82a1e2f3b0d895d702ba" kind="function"><name>stop</name></member>
+    <member refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe" kind="function"><name>reset</name></member>
+    <member refid="classPathFollowing_1afe73524a5ae2fb0c51497de2a245c429" kind="function"><name>resetVirtualTarget</name></member>
+    <member refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kind="function"><name>resetVirtualTarget</name></member>
+    <member refid="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8" kind="function"><name>setPFGains</name></member>
+    <member refid="classPathFollowing_1a00f71ae3ea5e4997037849caab6b49c9" kind="function"><name>UpdateVehicleState</name></member>
+    <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" kind="function"><name>UpdatePathState</name></member>
+    <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" kind="function"><name>setPFollowingDebugPublisher</name></member>
+    <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kind="function"><name>algConvert</name></member>
+  </compound>
+  <compound refid="classPathFollowingNode" kind="class"><name>PathFollowingNode</name>
+    <member refid="classPathFollowingNode_1a5cefbf81fdac17bcc1b163e3ddedd64b" kind="variable"><name>pf_algorithm_</name></member>
+    <member refid="classPathFollowingNode_1a7b4e06d76cb6d7e382af47e2a8a12e0f" kind="variable"><name>vehicle_state_</name></member>
+    <member refid="classPathFollowingNode_1ab0d5e9b1db6d6e8ee91e0412b2d62b47" kind="variable"><name>path_state_</name></member>
+    <member refid="classPathFollowingNode_1ada5fae73e8a72edaac263aa169191ed1" kind="variable"><name>has_received_vehicle_state</name></member>
+    <member refid="classPathFollowingNode_1a66e13f4b6b537e00b9e00d1f3ef714ff" kind="variable"><name>has_received_path_state</name></member>
+    <member refid="classPathFollowingNode_1a563f8a15ead7c55669a7d8b246f1f44e" kind="variable"><name>prev_time_</name></member>
+    <member refid="classPathFollowingNode_1a6d9983569928dc67e8062e2ce3b9f799" kind="variable"><name>nh_</name></member>
+    <member refid="classPathFollowingNode_1a9038d5044c97c2cd64687a2e8507dfbd" kind="variable"><name>nh_p_</name></member>
+    <member refid="classPathFollowingNode_1a6a745ef2048bfa360f7ff3521bee1f84" kind="variable"><name>pf_start_srv_</name></member>
+    <member refid="classPathFollowingNode_1ab50af4274e3c0079d4804104cf65bfa0" kind="variable"><name>pf_stop_srv_</name></member>
+    <member refid="classPathFollowingNode_1a05c13299a3f6085a88f84ba39d1fb321" kind="variable"><name>pf_update_gains_srv_</name></member>
+    <member refid="classPathFollowingNode_1a041282ec4a55924c88a2bb00fb90d623" kind="variable"><name>pf_aguiar_srv_</name></member>
+    <member refid="classPathFollowingNode_1a1f5014fe7b9239b523a240e6e75f1636" kind="variable"><name>pf_brevik_srv_</name></member>
+    <member refid="classPathFollowingNode_1a2ff56b5d86407d2d9c3a2e0bd4664eda" kind="variable"><name>pf_fossen_srv_</name></member>
+    <member refid="classPathFollowingNode_1a6999faf5dac55af6896cd5eed29fe005" kind="variable"><name>pf_romulo_srv_</name></member>
+    <member refid="classPathFollowingNode_1a4dad88fa7f36770221b5d11e526448dd" kind="variable"><name>pf_lapierre_srv_</name></member>
+    <member refid="classPathFollowingNode_1a2729cc7dd50c5f3b3212e342b4da9a91" kind="variable"><name>pf_pramod_srv_</name></member>
+    <member refid="classPathFollowingNode_1a3628993c85d808251529eab88bd79a29" kind="variable"><name>pf_samson_srv_</name></member>
+    <member refid="classPathFollowingNode_1a026c669195053ab920301419f9cf0d28" kind="variable"><name>pf_marcelo_srv_</name></member>
+    <member refid="classPathFollowingNode_1ae6867e7394669d4aece4802867e257d2" kind="variable"><name>pf_relative_heading_srv_</name></member>
+    <member refid="classPathFollowingNode_1a3d86b6d107185d3e58ec55611d2269ad" kind="variable"><name>pf_reset_vt_srv_</name></member>
+    <member refid="classPathFollowingNode_1a27ab891eea0cf43bedcd005ae870c71d" kind="variable"><name>set_path_mode_client_</name></member>
+    <member refid="classPathFollowingNode_1a1e9a79eada19d1aaa901c3a2321d890b" kind="variable"><name>wp_standard_client_</name></member>
+    <member refid="classPathFollowingNode_1a57cddcd7e6cac9d750a83b36833a38ff" kind="variable"><name>reset_path_client_</name></member>
+    <member refid="classPathFollowingNode_1a0659aa0f59e93c9745b775f6257c7525" kind="variable"><name>dr_reset_client_</name></member>
+    <member refid="classPathFollowingNode_1a7a84a2d5b9b41393adf6ca6f4f1f2de1" kind="variable"><name>publishers_</name></member>
+    <member refid="classPathFollowingNode_1ac7b40fc1cdab64370a7ec95c27f1c636" kind="variable"><name>flag_pub_</name></member>
+    <member refid="classPathFollowingNode_1ab6fb016ee7173ff9949b29a5b22b4bfe" kind="variable"><name>subscribers_</name></member>
+    <member refid="classPathFollowingNode_1a038e9ed844657cfaa40aaccb93bc1f9e" kind="variable"><name>state_sub_</name></member>
+    <member refid="classPathFollowingNode_1a05db73217b7cab8e1d83a7fa6ffbb1e5" kind="variable"><name>path_sub_</name></member>
+    <member refid="classPathFollowingNode_1a5fbae5ee8f9bda41234801a57290c13c" kind="variable"><name>vc_sub_</name></member>
+    <member refid="classPathFollowingNode_1ab5cf4d09769de2ce1f39a9934dee0d44" kind="variable"><name>flag_sub_</name></member>
+    <member refid="classPathFollowingNode_1a39be410cfb2daa0f6844c095501235f6" kind="variable"><name>timer_</name></member>
+    <member refid="classPathFollowingNode_1a42425dbdb16c95886d8c61dd38f8892c" kind="function"><name>PathFollowingNode</name></member>
+    <member refid="classPathFollowingNode_1a8654dd153de14437d5d6ece246f47c5e" kind="function"><name>~PathFollowingNode</name></member>
+    <member refid="classPathFollowingNode_1a83d9ddb9f6e1742e4f9c462be8b6de5e" kind="function"><name>getDefaultControllerLapierre</name></member>
+    <member refid="classPathFollowingNode_1a0ab1707000b47d2d752b84c0d9ce8486" kind="function"><name>getDefaultControllerBrevik</name></member>
+    <member refid="classPathFollowingNode_1a961d83fa540554d42b95bd9aba3da31b" kind="function"><name>getDefaultControllerAguiar</name></member>
+    <member refid="classPathFollowingNode_1a9b7319cfba6e11c31badfe33c88fb793" kind="function"><name>deleteCurrentController</name></member>
+    <member refid="classPathFollowingNode_1a7ad7399cd13a936930219068d15802a5" kind="function"><name>stopAlgorithm</name></member>
+    <member refid="classPathFollowingNode_1ab1fb9904c5ba2ad6bb89d252b2ceb5ef" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classPathFollowingNode_1a81718f2e52be317fec0db8098b87bb05" kind="function"><name>initializePublishers</name></member>
+    <member refid="classPathFollowingNode_1a093e363126da8b59557ad9ab5b9b1442" kind="function"><name>initializeServices</name></member>
+    <member refid="classPathFollowingNode_1ab4b5aa420f8ca2300ca5e409fd2f151a" kind="function"><name>initializeTimer</name></member>
+    <member refid="classPathFollowingNode_1ab274b946e9c87f095e85076026722cab" kind="function"><name>nodeFrequency</name></member>
+    <member refid="classPathFollowingNode_1a8b8eab81e4c613f09f606315c8a15116" kind="function"><name>timerIterCallback</name></member>
+    <member refid="classPathFollowingNode_1af30547dc4c4a77abb7fa9b45a6bbd559" kind="function"><name>vcCallback</name></member>
+    <member refid="classPathFollowingNode_1a18cf17c9cfa1c1db78433b341d084d8b" kind="function"><name>pathStateCallback</name></member>
+    <member refid="classPathFollowingNode_1ab064701e38516d3c2ae80dc419122188" kind="function"><name>vehicleStateCallback</name></member>
+    <member refid="classPathFollowingNode_1a1b103aa23c9bd9cc2dd581a06999b32c" kind="function"><name>flagCallback</name></member>
+    <member refid="classPathFollowingNode_1a84784a87e8f56734cdbc9eb1abbc128c" kind="function"><name>StartPFService</name></member>
+    <member refid="classPathFollowingNode_1a32e92477c71753889b6c59651980f9bd" kind="function"><name>StopPFService</name></member>
+    <member refid="classPathFollowingNode_1a7bf1e0f3e9e72165b1bf9d4e8e712d48" kind="function"><name>UpdateGainsPFService</name></member>
+    <member refid="classPathFollowingNode_1a7ce9cd6a36f69582656b44ae581f2765" kind="function"><name>SetRelativeHeadingService</name></member>
+    <member refid="classPathFollowingNode_1a38b04d0d9737a4a98409d77460897b3c" kind="function"><name>SetMarceloService</name></member>
+    <member refid="classPathFollowingNode_1a19dbc2ffe0baa0a25333bb1fc6ae251c" kind="function"><name>SetAguiarService</name></member>
+    <member refid="classPathFollowingNode_1a52e9a3bf8f73f7f4bd0da3a9e3eeb725" kind="function"><name>SetBrevikService</name></member>
+    <member refid="classPathFollowingNode_1a63536a05316f4d249ea9277748d3e343" kind="function"><name>SetFossenService</name></member>
+    <member refid="classPathFollowingNode_1a45f747a7cb4a1e248f743c227eb1572c" kind="function"><name>SetRomuloService</name></member>
+    <member refid="classPathFollowingNode_1a656e332e8ed475956022905948214ac7" kind="function"><name>SetLapierreService</name></member>
+    <member refid="classPathFollowingNode_1aa67db77b4e8a5efaa1d43b816227ea8c" kind="function"><name>SetPramodService</name></member>
+    <member refid="classPathFollowingNode_1a0e5a3a377054c9d52510b98dd9388e93" kind="function"><name>SetSamsonService</name></member>
+    <member refid="classPathFollowingNode_1ad0485e612c2418ee4a5459a9c092ae8f" kind="function"><name>ResetVirtualTargetService</name></member>
+    <member refid="classPathFollowingNode_1a5981bd9a97a6d53f5b3b988d9b4e1a9e" kind="function"><name>sendWaypoint</name></member>
+    <member refid="classPathFollowingNode_1aff4ff17d7716ccd38c974ce74f5c8f22" kind="function"><name>sendResetDeadReckoning</name></member>
+  </compound>
+  <compound refid="structPathState" kind="struct"><name>PathState</name>
+    <member refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" kind="variable"><name>gamma</name></member>
+    <member refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kind="variable"><name>pd</name></member>
+    <member refid="structPathState_1ab93da861fcda09fc5dec99c664e58ef7" kind="variable"><name>d_pd</name></member>
+    <member refid="structPathState_1aaca8e3cc9078828499dfb2755f32d6ab" kind="variable"><name>dd_pd</name></member>
+    <member refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kind="variable"><name>psi</name></member>
+    <member refid="structPathState_1aeab8a07b35d052ce2add20c7c69ddb66" kind="variable"><name>curvature</name></member>
+    <member refid="structPathState_1aee1533a50001ac16759b1410e87f4f64" kind="variable"><name>tangent_norm</name></member>
+    <member refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kind="variable"><name>vd</name></member>
+    <member refid="structPathState_1a5bde149ec7796036a7e87c4cab9d6a2a" kind="variable"><name>d_vd</name></member>
+    <member refid="structPathState_1ad39411d0bcd3738fbf0a98d8ad5baca5" kind="variable"><name>vehicle_speed</name></member>
+    <member refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kind="variable"><name>vc</name></member>
+    <member refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kind="variable"><name>gamma_min</name></member>
+    <member refid="structPathState_1ad473d7e8be30a79fbac6e85fcc0c5e63" kind="variable"><name>gamma_max</name></member>
+  </compound>
+  <compound refid="structPFollowingDebug" kind="struct"><name>PFollowingDebug</name>
+    <member refid="structPFollowingDebug_1a5d0cc4a18250ffc5ea669465df5a380c" kind="variable"><name>algorithm</name></member>
+    <member refid="structPFollowingDebug_1adba74c305378bd88b3b3b3762cd206f9" kind="variable"><name>cross_track_error</name></member>
+    <member refid="structPFollowingDebug_1a60af7c376362d69250c606d3c0006915" kind="variable"><name>along_track_error</name></member>
+    <member refid="structPFollowingDebug_1a5127cfdb987ad2b2ff49088e8fc43e1d" kind="variable"><name>yaw</name></member>
+    <member refid="structPFollowingDebug_1ae767c02a2aeadc9607582f5b41d2efb5" kind="variable"><name>psi</name></member>
+    <member refid="structPFollowingDebug_1aeb5e4dd677572c475ee1d791bf1c1a0b" kind="variable"><name>gamma</name></member>
+  </compound>
+  <compound refid="classPramod" kind="class"><name>Pramod</name>
+    <member refid="classPramod_1af385d41d0767d7a1a0b903dcf53e7fa2" kind="variable"><name>gains_</name></member>
+    <member refid="classPramod_1ac6f9a9b0620cba76085d766a5c76e38b" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classPramod_1a9110783a4d574bc9edfd140180b0ab30" kind="variable"><name>desired_yaw_</name></member>
+    <member refid="classPramod_1a40419bc17660abdfda1d30d6a8c6cb7e" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classPramod_1ae125698f9d7708fd86abe5ad95688b4c" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classPramod_1a37f2d24688004d65425f7edd3125902a" kind="variable"><name>mode_client_</name></member>
+    <member refid="classPramod_1a861fb9927e005dec09dc5054e69a9a29" kind="function"><name>Pramod</name></member>
+    <member refid="classPramod_1a3fd67677577d64b1af2c556b787aa00f" kind="function"><name>setPFGains</name></member>
+    <member refid="classPramod_1a44f11799b766cf7246925810bb7891c3" kind="function"><name>callPFController</name></member>
+    <member refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" kind="function"><name>publish_private</name></member>
+    <member refid="classPramod_1a126d336bd731481ba1949e076830d261" kind="function"><name>start</name></member>
+    <member refid="classPramod_1a72242417c3edc99e4afefeca99996067" kind="function"><name>stop</name></member>
+    <member refid="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" kind="function"><name>reset</name></member>
+  </compound>
+  <compound refid="classRelativeHeading" kind="class"><name>RelativeHeading</name>
+    <member refid="classRelativeHeading_1af2368c1566ab472db2075ab0ecabc785" kind="variable"><name>kx_</name></member>
+    <member refid="classRelativeHeading_1a35279da5426580d88d49d72a92ae5a13" kind="variable"><name>ky_</name></member>
+    <member refid="classRelativeHeading_1acf2439f4935c95e080d1c28236752f25" kind="variable"><name>kz_</name></member>
+    <member refid="classRelativeHeading_1a3c30dc3a2ac01b3230de9515f0659771" kind="variable"><name>p_sat_</name></member>
+    <member refid="classRelativeHeading_1a32506c774a268820a2c3046922fd58a6" kind="variable"><name>yaw_offset_</name></member>
+    <member refid="classRelativeHeading_1a35834073fa12e01c700cfcc92009d57f" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classRelativeHeading_1af4b7953d02102ea12fdcbdf8dc4957bc" kind="variable"><name>desired_sway_</name></member>
+    <member refid="classRelativeHeading_1af51a56b8d9d73d5814ea5c1daff0e413" kind="variable"><name>desired_yaw_</name></member>
+    <member refid="classRelativeHeading_1abbe9d31f44643ade17f876ee3dd1e96b" kind="variable"><name>gamma_ddot_</name></member>
+    <member refid="classRelativeHeading_1a4e135f31e51e3692b84fbaf3fda5f5a7" kind="variable"><name>gamma_dot_</name></member>
+    <member refid="classRelativeHeading_1ae187f77210c6abbc51aae8bd0abc8a25" kind="variable"><name>gamma_</name></member>
+    <member refid="classRelativeHeading_1a14b1c503906950e45b7c4aff01324650" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classRelativeHeading_1aad75d671ee961ffea383b58f12ebcf30" kind="variable"><name>sway_pub_</name></member>
+    <member refid="classRelativeHeading_1ad347f82f46d3fb08169c7af8cb3b1858" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classRelativeHeading_1a2e17a8c46d330e392fcb445816f85898" kind="variable"><name>rabbit_pub_</name></member>
+    <member refid="classRelativeHeading_1a803e58f9761eec06a40d3f6af2280846" kind="function"><name>RelativeHeading</name></member>
+    <member refid="classRelativeHeading_1a9a32db056e32d19d2d0db541cf842305" kind="function"><name>setPFGains</name></member>
+    <member refid="classRelativeHeading_1ace03b6fccd8ff3b0450b92841e389fe8" kind="function"><name>callPFController</name></member>
+    <member refid="classRelativeHeading_1a63aadbf95202501372dd69bd085d78b8" kind="function"><name>publish_private</name></member>
+    <member refid="classRelativeHeading_1a56cead9c8d63a7eb98cdc05cc2cede02" kind="function"><name>start</name></member>
+    <member refid="classRelativeHeading_1a344c8b1a1561d1b99669d9e061c0b140" kind="function"><name>stop</name></member>
+    <member refid="classRelativeHeading_1af1115046fbdcf8ba032a6e170ed746ca" kind="function"><name>reset</name></member>
+    <member refid="classRelativeHeading_1a6b17687f0a164ad340235f8604e05b58" kind="function"><name>resetVirtualTarget</name></member>
+  </compound>
+  <compound refid="classRomulo" kind="class"><name>Romulo</name>
+    <member refid="classRomulo_1a18ab613e250b67ec6b90a330347884fe" kind="variable"><name>gains_</name></member>
+    <member refid="classRomulo_1a746f3e33ada29ed53de454b0363ff950" kind="variable"><name>ke</name></member>
+    <member refid="classRomulo_1a3f3a3d1a2b08b47947a375d267ff686d" kind="variable"><name>kz</name></member>
+    <member refid="classRomulo_1ab7a056312953900d4b389a56e5ca244b" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classRomulo_1afbd2b7719ee6bb3bd05d555a007053a0" kind="variable"><name>desired_sway_</name></member>
+    <member refid="classRomulo_1a5fcdb8fa17c0096334de45c10f3fe981" kind="variable"><name>gamma_ddot_</name></member>
+    <member refid="classRomulo_1afd70852c2de5256fb4606b7b8a1d1f94" kind="variable"><name>gamma_dot_</name></member>
+    <member refid="classRomulo_1a94187c5ad279dcb208b50cda8dbe6e49" kind="variable"><name>gamma_</name></member>
+    <member refid="classRomulo_1ad07625ba6e9298be26b7d76a8c98b04b" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classRomulo_1abee8b693e88342228e328d2ce04556ad" kind="variable"><name>sway_pub_</name></member>
+    <member refid="classRomulo_1ac8ba779bfd48fd913d132cee8e850d06" kind="variable"><name>rabbit_pub_</name></member>
+    <member refid="classRomulo_1a63d53463861836239f39439f2c0adfb2" kind="function"><name>Romulo</name></member>
+    <member refid="classRomulo_1a93ca06e72d25f11aa0afe94fafe32d41" kind="function"><name>setPFGains</name></member>
+    <member refid="classRomulo_1a9ff207f47b6e51b1281612e8fad4433b" kind="function"><name>callPFController</name></member>
+    <member refid="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" kind="function"><name>publish_private</name></member>
+    <member refid="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a" kind="function"><name>start</name></member>
+    <member refid="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640" kind="function"><name>stop</name></member>
+    <member refid="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5" kind="function"><name>reset</name></member>
+    <member refid="classRomulo_1ae625695768ca1f9d0845e18dda2a1512" kind="function"><name>resetVirtualTarget</name></member>
+  </compound>
+  <compound refid="classSamson" kind="class"><name>Samson</name>
+    <member refid="classSamson_1a7684a067bcffa8052fe79d067834d0ac" kind="variable"><name>num_gains_</name></member>
+    <member refid="classSamson_1a2b6b2cdc92da1007c320950686d21a92" kind="variable"><name>k1_</name></member>
+    <member refid="classSamson_1a827916301ca46c88568e6bfbc6418982" kind="variable"><name>k2_</name></member>
+    <member refid="classSamson_1a5bb86bab1dd2996e9ac1edb0f0c7c207" kind="variable"><name>k3_</name></member>
+    <member refid="classSamson_1a44384db15a426bde913024c35ce5ca3c" kind="variable"><name>theta_</name></member>
+    <member refid="classSamson_1ac85abb962380ca29b1d4985968aeb9dd" kind="variable"><name>k_delta_</name></member>
+    <member refid="classSamson_1aeb0d1ebf0909767a43c32acd981ad5bf" kind="variable"><name>yaw_out_</name></member>
+    <member refid="classSamson_1ae763cf683cfe9448547db4b8ec049aa7" kind="variable"><name>yaw_out_old_</name></member>
+    <member refid="classSamson_1a0e208b547a4216ea1461aae80122f1f9" kind="variable"><name>yaw_old_</name></member>
+    <member refid="classSamson_1ade6f94a9d70648793bbd45e2ba494a39" kind="variable"><name>psi_out_</name></member>
+    <member refid="classSamson_1a3c62a05a59807c92585db4936c2953e4" kind="variable"><name>psi_out_old_</name></member>
+    <member refid="classSamson_1a975fbd7f5e619c836689863c5a424880" kind="variable"><name>psi_old_</name></member>
+    <member refid="classSamson_1a691c6a608274a240427b854a1a46035f" kind="variable"><name>desired_surge_</name></member>
+    <member refid="classSamson_1a74ab851759c95be0b4befc67f7630150" kind="variable"><name>desired_yaw_rate_</name></member>
+    <member refid="classSamson_1ac94c2fd077c71e396a7c13395dea0d7c" kind="variable"><name>surge_pub_</name></member>
+    <member refid="classSamson_1a941ab4b1c58bd2d25d7a14616b4b5b16" kind="variable"><name>yaw_rate_pub_</name></member>
+    <member refid="classSamson_1ac93862dfd857e594f7300ec64ac4330a" kind="variable"><name>mode_client_</name></member>
+    <member refid="classSamson_1a2a9e3d4ad8ed3f447a907b381e2d308a" kind="function"><name>Samson</name></member>
+    <member refid="classSamson_1a66189f0d0e72ef772f95942b8a47842f" kind="function"><name>setPFGains</name></member>
+    <member refid="classSamson_1a420566323e957d8fe941c40190386a34" kind="function"><name>callPFController</name></member>
+    <member refid="classSamson_1ad2f3640e0e943a9920705dc9082be76d" kind="function"><name>publish_private</name></member>
+    <member refid="classSamson_1a00fb9ed24e6b47c06e71af2cf6d25311" kind="function"><name>start</name></member>
+    <member refid="classSamson_1abd3a575d30ccc2ef8f211216f354492e" kind="function"><name>stop</name></member>
+    <member refid="classSamson_1ae332100b42728eae11797bf2ef0fed59" kind="function"><name>reset</name></member>
+    <member refid="classSamson_1ae3559013a0539a0d93e75ae47491cd28" kind="function"><name>smoothVehicleYaw</name></member>
+    <member refid="classSamson_1a3e9a4d2a468a4102c686008fb4f440d1" kind="function"><name>smoothPathYaw</name></member>
+  </compound>
+  <compound refid="structVehicleState" kind="struct"><name>VehicleState</name>
+    <member refid="structVehicleState_1ac9730df9dd6e068de2e031d5da4a2c9b" kind="variable"><name>v1</name></member>
+    <member refid="structVehicleState_1af583d499d58520b5eba902dad4ce011d" kind="variable"><name>v2</name></member>
+    <member refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kind="variable"><name>eta1</name></member>
+    <member refid="structVehicleState_1a45bdf3fe795bf9b5f09c55c044271ab7" kind="variable"><name>eta2</name></member>
+  </compound>
+  <compound refid="Aguiar_8h" kind="file"><name>Aguiar.h</name>
+  </compound>
+  <compound refid="Brevik_8h" kind="file"><name>Brevik.h</name>
+  </compound>
+  <compound refid="Fossen_8h" kind="file"><name>Fossen.h</name>
+  </compound>
+  <compound refid="Lapierre_8h" kind="file"><name>Lapierre.h</name>
+  </compound>
+  <compound refid="Marcelo_8h" kind="file"><name>Marcelo.h</name>
+  </compound>
+  <compound refid="PathFollowing_8h" kind="file"><name>PathFollowing.h</name>
+  </compound>
+  <compound refid="Pramod_8h" kind="file"><name>Pramod.h</name>
+  </compound>
+  <compound refid="RelativeHeading_8h" kind="file"><name>RelativeHeading.h</name>
+  </compound>
+  <compound refid="Romulo_8h" kind="file"><name>Romulo.h</name>
+  </compound>
+  <compound refid="Samson_8h" kind="file"><name>Samson.h</name>
+  </compound>
+  <compound refid="States_8h" kind="file"><name>States.h</name>
+  </compound>
+  <compound refid="PathFollowingNode_8h" kind="file"><name>PathFollowingNode.h</name>
+    <member refid="PathFollowingNode_8h_1a41e379aa643bb54c12a65340d365603f" kind="define"><name>WP_FINISH</name></member>
+    <member refid="PathFollowingNode_8h_1aa45cc5f9ed667aac0b0e100b5a66ec96" kind="define"><name>FLAG_IDLE</name></member>
+    <member refid="PathFollowingNode_8h_1a9110b772ac704bd1274772a0cf1c7cd9" kind="define"><name>FLAG_PF</name></member>
+  </compound>
+  <compound refid="Aguiar_8cpp" kind="file"><name>Aguiar.cpp</name>
+  </compound>
+  <compound refid="Brevik_8cpp" kind="file"><name>Brevik.cpp</name>
+  </compound>
+  <compound refid="Fossen_8cpp" kind="file"><name>Fossen.cpp</name>
+  </compound>
+  <compound refid="Lapierre_8cpp" kind="file"><name>Lapierre.cpp</name>
+  </compound>
+  <compound refid="Marcelo_8cpp" kind="file"><name>Marcelo.cpp</name>
+  </compound>
+  <compound refid="PathFollowing_8cpp" kind="file"><name>PathFollowing.cpp</name>
+  </compound>
+  <compound refid="Pramod_8cpp" kind="file"><name>Pramod.cpp</name>
+  </compound>
+  <compound refid="RelativeHeading_8cpp" kind="file"><name>RelativeHeading.cpp</name>
+  </compound>
+  <compound refid="Romulo_8cpp" kind="file"><name>Romulo.cpp</name>
+  </compound>
+  <compound refid="Samson_8cpp" kind="file"><name>Samson.cpp</name>
+  </compound>
+  <compound refid="PathFollowingNode_8cpp" kind="file"><name>PathFollowingNode.cpp</name>
+    <member refid="PathFollowingNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="PathFollowingServices_8cpp" kind="file"><name>PathFollowingServices.cpp</name>
+  </compound>
+  <compound refid="dir_6b92e76864548cad5abed9ff7db49a2b" kind="dir"><name>include/algorithms</name>
+  </compound>
+  <compound refid="dir_e6df591b0639d4c4807ef64d058833e2" kind="dir"><name>src/algorithms</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_25fa3bd956a0e340fed2a78c3e08b83c" kind="dir"><name>src/ros</name>
+  </compound>
+  <compound refid="dir_16d3284317caf78c0e25eb64bbba3d38" kind="dir"><name>include/ros</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classConstRabbitSpeed" kind="class" language="C++" prot="public">
+    <compoundname>ConstRabbitSpeed</compoundname>
+    <basecompoundref refid="classSpeed" prot="public" virt="non-virtual">Speed</basecompoundref>
+    <includes refid="ConstRabbitSpeed_8h" local="no">ConstRabbitSpeed.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classConstRabbitSpeed_1ac9f62f6bc06f729fb78cd5f5519c6150" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConstRabbitSpeed::rabbit_speed_</definition>
+        <argsstring></argsstring>
+        <name>rabbit_speed_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>Attribute used to store the desired rabbit speed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="71" column="12" bodyfile="include/algorithms/speed_profiles/ConstRabbitSpeed.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConstRabbitSpeed_1ad1c560bf20c0afe828b0f58fd7fcf40c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ConstRabbitSpeed::default_speed_</definition>
+        <argsstring></argsstring>
+        <name>default_speed_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+<para>The default speed to be used if we have less speed sections then path sections in the path. This is the value that will be used for the other path sections (the paths that do not have a corresponding speed sections) and if this is the last speed section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="79" column="12" bodyfile="include/algorithms/speed_profiles/ConstRabbitSpeed.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classConstRabbitSpeed_1ae953a7f65ae5146c7d35b43c505d6533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConstRabbitSpeed::ConstRabbitSpeed</definition>
+        <argsstring>(double rabbit_speed, double default_val)</argsstring>
+        <name>ConstRabbitSpeed</name>
+        <param>
+          <type>double</type>
+          <declname>rabbit_speed</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>default_val</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for the <ref refid="classConstVehicleSpeed" kindref="compound">ConstVehicleSpeed</ref> class. Receives as a parameter a double which represents the desired speed of the vehicle in the inertial frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rabbit_speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The speed of the path parameter (in the path frame) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>default_val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The default value of the path parameter (if outside the parameterization bounds) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="30" column="5" bodyfile="src/algorithms/speed_profiles/ConstRabbitSpeed.cpp" bodystart="4" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classConstRabbitSpeed_1a4f0bba8bdaaa5d7ce0e7ef366bc507e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double ConstRabbitSpeed::getVd</definition>
+        <argsstring>(double gamma, double tangent_norm) override</argsstring>
+        <name>getVd</name>
+        <reimplements refid="classSpeed_1a3de51bdd958cfc92e939441d6e6de268">getVd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tangent_norm</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the desired velocity for the virtual target on the path given the path parameter (given by the value of gamma) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tangent_norm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The norm of the tangent to the path</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the desired speed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="41" column="12" bodyfile="src/algorithms/speed_profiles/ConstRabbitSpeed.cpp" bodystart="9" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classConstRabbitSpeed_1a4d5b2103d2280d3b6b354ef60a927ace" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double ConstRabbitSpeed::get_d_Vd</definition>
+        <argsstring>(double gamma, double tangent_norm) override</argsstring>
+        <name>get_d_Vd</name>
+        <reimplements refid="classSpeed_1a4937f3061c322c0bf804f3d1248dab08">get_d_Vd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tangent_norm</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the desired acceleration for the virtual target on the path given the path parameter (given by the value of gamma) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tangent_norm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The norm of the tangent to the path</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the desired acceleration </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="52" column="12" bodyfile="src/algorithms/speed_profiles/ConstRabbitSpeed.cpp" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classConstRabbitSpeed_1a85ea7054d57b1d783a62086199236aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double ConstRabbitSpeed::getDefaultVd</definition>
+        <argsstring>(double gamma, double tangent_norm) override</argsstring>
+        <name>getDefaultVd</name>
+        <reimplements refid="classSpeed_1a8d0c9eaca96107cd1ed8d13d2a117e64">getDefaultVd</reimplements>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tangent_norm</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the default desired velocity for safety when we are doing path following and want to have a backup value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tangent_norm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The norm of the tangent to the path in gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the default desired speed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="63" column="12" bodyfile="src/algorithms/speed_profiles/ConstRabbitSpeed.cpp" bodystart="23" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements a constant speed value requirement. This class will receive in its constructor the desired velocity for the speed in the path frame. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is used as a part of the speeds library <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ConstRabbitSpeed</label>
+        <link refid="classConstRabbitSpeed"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Speed</label>
+        <link refid="classSpeed"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ConstRabbitSpeed</label>
+        <link refid="classConstRabbitSpeed"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Speed</label>
+        <link refid="classSpeed"/>
+      </node>
+    </collaborationgraph>
+    <location file="include/algorithms/speed_profiles/ConstRabbitSpeed.h" line="18" column="36" bodyfile="include/algorithms/speed_profiles/ConstRabbitSpeed.h" bodystart="18" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classConstRabbitSpeed_1ae953a7f65ae5146c7d35b43c505d6533" prot="public" virt="non-virtual"><scope>ConstRabbitSpeed</scope><name>ConstRabbitSpeed</name></member>
+      <member refid="classConstRabbitSpeed_1ad1c560bf20c0afe828b0f58fd7fcf40c" prot="private" virt="non-virtual"><scope>ConstRabbitSpeed</scope><name>default_speed_</name></member>
+      <member refid="classConstRabbitSpeed_1a4d5b2103d2280d3b6b354ef60a927ace" prot="public" virt="virtual"><scope>ConstRabbitSpeed</scope><name>get_d_Vd</name></member>
+      <member refid="classConstRabbitSpeed_1a85ea7054d57b1d783a62086199236aa3" prot="public" virt="virtual"><scope>ConstRabbitSpeed</scope><name>getDefaultVd</name></member>
+      <member refid="classConstRabbitSpeed_1a4f0bba8bdaaa5d7ce0e7ef366bc507e8" prot="public" virt="virtual"><scope>ConstRabbitSpeed</scope><name>getVd</name></member>
+      <member refid="classConstRabbitSpeed_1ac9f62f6bc06f729fb78cd5f5519c6150" prot="private" virt="non-virtual"><scope>ConstRabbitSpeed</scope><name>rabbit_speed_</name></member>
+      <member refid="classSpeed_1a47ac1336c636f4dc4fb1d288dea76e3c" prot="public" virt="virtual"><scope>ConstRabbitSpeed</scope><name>~Speed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

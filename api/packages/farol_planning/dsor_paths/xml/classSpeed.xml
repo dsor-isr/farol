@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classSpeed" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Speed</compoundname>
+    <derivedcompoundref refid="classConstRabbitSpeed" prot="public" virt="non-virtual">ConstRabbitSpeed</derivedcompoundref>
+    <derivedcompoundref refid="classConstVehicleSpeed" prot="public" virt="non-virtual">ConstVehicleSpeed</derivedcompoundref>
+    <includes refid="Speed_8h" local="no">Speed.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSpeed_1a3de51bdd958cfc92e939441d6e6de268" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double Speed::getVd</definition>
+        <argsstring>(double gamma, double tangent_norm)=0</argsstring>
+        <name>getVd</name>
+        <reimplementedby refid="classConstRabbitSpeed_1a4f0bba8bdaaa5d7ce0e7ef366bc507e8">getVd</reimplementedby>
+        <reimplementedby refid="classConstVehicleSpeed_1aac81ee1a32179f281ed69bd693825a58">getVd</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tangent_norm</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the desired velocity for the virtual target on the path given the path parameter (given by the value of gamma) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tangent_norm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The norm of the tangent to the path in gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the desired speed</para>
+</simplesect>
+NOTE: This method is pure virtual which means it must be implemented by a class that inherits <ref refid="classSpeed" kindref="compound">Speed</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/Speed.h" line="31" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classSpeed_1a4937f3061c322c0bf804f3d1248dab08" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double Speed::get_d_Vd</definition>
+        <argsstring>(double gamma, double tangent_norm)=0</argsstring>
+        <name>get_d_Vd</name>
+        <reimplementedby refid="classConstRabbitSpeed_1a4d5b2103d2280d3b6b354ef60a927ace">get_d_Vd</reimplementedby>
+        <reimplementedby refid="classConstVehicleSpeed_1abe43b77b6647396792fdbc1587e79dba">get_d_Vd</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tangent_norm</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the desired acceleration for the virtual target on the path given the path parameter (given by the value of gamma) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tangent_norm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The norm of the tangent to the path in gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the desired acceleration</para>
+</simplesect>
+NOTE: This method is pure virtual which means it must be implemented by a class that inherits <ref refid="classSpeed" kindref="compound">Speed</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/Speed.h" line="45" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classSpeed_1a8d0c9eaca96107cd1ed8d13d2a117e64" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double Speed::getDefaultVd</definition>
+        <argsstring>(double gamma, double tangent_norm)=0</argsstring>
+        <name>getDefaultVd</name>
+        <reimplementedby refid="classConstRabbitSpeed_1a85ea7054d57b1d783a62086199236aa3">getDefaultVd</reimplementedby>
+        <reimplementedby refid="classConstVehicleSpeed_1a164ee6184451deeaf754c2d6466e3969">getDefaultVd</reimplementedby>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tangent_norm</declname>
+        </param>
+        <briefdescription>
+<para>Method to get the default desired velocity for safety when we are doing path following and want to have a backup value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>gamma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the path parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tangent_norm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The norm of the tangent to the path in gamma</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A double with the default desired speed</para>
+</simplesect>
+NOTE: THis method is pura virtual which means it must be implemented by a class that inherits <ref refid="classSpeed" kindref="compound">Speed</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/Speed.h" line="59" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classSpeed_1a47ac1336c636f4dc4fb1d288dea76e3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Speed::~Speed</definition>
+        <argsstring>()</argsstring>
+        <name>~Speed</name>
+        <briefdescription>
+<para>Virtual destructor for the abstract class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/speed_profiles/Speed.h" line="64" column="13" bodyfile="src/algorithms/speed_profiles/Speed.cpp" bodystart="4" bodyend="4"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract class to serve as the base for speed as a function of gamma. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Since this class is abstract it cannot be instantiated. It must be inherited. <simplesect kind="author"><para>Marcelo Jacinto </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Quintas </para>
+</simplesect>
+<simplesect kind="author"><para>Joao Cruz </para>
+</simplesect>
+<simplesect kind="author"><para>Hung Tuan </para>
+</simplesect>
+<simplesect kind="version"><para>1.0a </para>
+</simplesect>
+<simplesect kind="date"><para>2021 </para>
+</simplesect>
+<simplesect kind="copyright"><para>MIT </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ConstRabbitSpeed</label>
+        <link refid="classConstRabbitSpeed"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ConstVehicleSpeed</label>
+        <link refid="classConstVehicleSpeed"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Speed</label>
+        <link refid="classSpeed"/>
+      </node>
+    </inheritancegraph>
+    <location file="include/algorithms/speed_profiles/Speed.h" line="15" column="12" bodyfile="include/algorithms/speed_profiles/Speed.h" bodystart="15" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classSpeed_1a4937f3061c322c0bf804f3d1248dab08" prot="public" virt="pure-virtual"><scope>Speed</scope><name>get_d_Vd</name></member>
+      <member refid="classSpeed_1a8d0c9eaca96107cd1ed8d13d2a117e64" prot="public" virt="pure-virtual"><scope>Speed</scope><name>getDefaultVd</name></member>
+      <member refid="classSpeed_1a3de51bdd958cfc92e939441d6e6de268" prot="public" virt="pure-virtual"><scope>Speed</scope><name>getVd</name></member>
+      <member refid="classSpeed_1a47ac1336c636f4dc4fb1d288dea76e3c" prot="public" virt="virtual"><scope>Speed</scope><name>~Speed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

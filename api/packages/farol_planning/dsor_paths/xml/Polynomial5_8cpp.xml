@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="Polynomial5_8cpp" kind="file" language="C++">
+    <compoundname>Polynomial5.cpp</compoundname>
+    <includes refid="Polynomial5_8h" local="yes">Polynomial5.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="2">
+        <label>Polynomial5.h</label>
+        <link refid="Polynomial5_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>array</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/path_sections/Polynomial5.cpp</label>
+        <link refid="Polynomial5_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>PathSection.h</label>
+        <link refid="PathSection_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Polynomial5.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><ref refid="classPolynomial5_1a48b417f30bb6cec5353691b13754f755" kindref="member">Polynomial5::Polynomial5</ref>(Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>&amp;a,<sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>&amp;b,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>c,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>offset_x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>offset_y)<sp/>:<sp/><ref refid="classPathSection" kindref="compound">PathSection</ref>(true)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>parameters<sp/>for<sp/>the<sp/>curve<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>this-&gt;a_<sp/>=<sp/>a;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>this-&gt;b_<sp/>=<sp/>b;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>this-&gt;c_<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>this-&gt;offset_x_<sp/>=<sp/>offset_x;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>this-&gt;offset_y_<sp/>=<sp/>offset_y;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classPolynomial5_1a912c6f47588d89cf0b4d785aeb1b02f7" kindref="member">Polynomial5::eq_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z<sp/>=<sp/>t<sp/>+<sp/>this-&gt;c_;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>Eigen::Matrix&lt;double,<sp/>6,<sp/>1&gt;<sp/>phi;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>phi<sp/>&lt;&lt;<sp/>pow(z,<sp/>5),<sp/>pow(z,<sp/>4),<sp/>pow(z,<sp/>3),<sp/>pow(z,<sp/>2),<sp/>z,<sp/>1;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>Eigen::Vector3d<sp/>pd;<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>pd<sp/>&lt;&lt;<sp/>(this-&gt;a_.transpose()<sp/>*<sp/>phi)<sp/>+<sp/>this-&gt;offset_x_,<sp/>(this-&gt;b_.transpose()<sp/>*<sp/>phi)<sp/>+<sp/>this-&gt;offset_y_,<sp/>z;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pd;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classPolynomial5_1a107c3e73884ca7cbb2d23d2f14666bb3" kindref="member">Polynomial5::eq_d_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0);<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">Eigen::Vector3d<sp/><ref refid="classPolynomial5_1adc8f407c725fb5067908ff0ad3b525b8" kindref="member">Polynomial5::eq_dd_pd</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Eigen::Vector3d(0.0,<sp/>0.0,<sp/>0.0);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPolynomial5_1a5a490d74027af95865e817e1dbb46730" kindref="member">Polynomial5::getClosestPointGamma</ref>(Eigen::Vector3d<sp/>&amp;coordinate)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/algorithms/path_sections/Polynomial5.cpp"/>
+  </compounddef>
+</doxygen>

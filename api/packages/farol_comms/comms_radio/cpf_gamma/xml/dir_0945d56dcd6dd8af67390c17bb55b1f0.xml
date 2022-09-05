@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_0945d56dcd6dd8af67390c17bb55b1f0" kind="dir">
+    <compoundname>src/cpf_gamma_ros</compoundname>
+    <innerfile refid="____init_____8py">__init__.py</innerfile>
+    <innerfile refid="CpfGammaClientNode_8py">CpfGammaClientNode.py</innerfile>
+    <innerfile refid="CpfGammaServerNode_8py">CpfGammaServerNode.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/cpf_gamma_ros/"/>
+  </compounddef>
+</doxygen>

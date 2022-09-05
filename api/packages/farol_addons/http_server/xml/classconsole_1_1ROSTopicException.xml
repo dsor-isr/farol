@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classconsole_1_1ROSTopicException" kind="class" language="Python" prot="public">
+    <compoundname>console::ROSTopicException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+    <derivedcompoundref refid="classconsole_1_1ROSTopicIOException" prot="public" virt="non-virtual">console.ROSTopicIOException</derivedcompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Base exception class of rostopic-related errors
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>console.ROSTopicException</label>
+        <link refid="classconsole_1_1ROSTopicException"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+      <node id="3">
+        <label>console.ROSTopicIOException</label>
+        <link refid="classconsole_1_1ROSTopicIOException"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>console.ROSTopicException</label>
+        <link refid="classconsole_1_1ROSTopicException"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/console.py" line="49" column="1" bodyfile="src/console.py" bodystart="49" bodyend="54"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
