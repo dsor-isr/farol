@@ -3,10 +3,10 @@
 pipeline {
     agent {
         docker {
-            //image 'docker.io/dsorisr/farol:latest'
-            image 'harbor.dsor.isr.tecnico.ulisboa.pt/farol/farol:latest'
-            registryUrl 'https://harbor.dsor.isr.tecnico.ulisboa.pt'
-            registryCredentialsId 'harbor-robot-token'
+            image 'docker.io/dsorisr/farol_jenkins:latest'
+            //image 'harbor.dsor.isr.tecnico.ulisboa.pt/farol/farol:latest'
+            //registryUrl 'https://harbor.dsor.isr.tecnico.ulisboa.pt'
+            //registryCredentialsId 'harbor-robot-token'
             args '--entrypoint=""'
             reuseNode false
         }
