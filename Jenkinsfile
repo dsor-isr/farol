@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 // Only test the code inside the farol meta-packages (ignoring 3rd party code)
-                dir('catkin_ws/src/test') {
+                dir('catkin_ws/src/farol_cicd_test') {
                     sh '''#!/bin/bash
                     bash unit_test.sh
                     '''
