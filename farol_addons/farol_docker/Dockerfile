@@ -92,7 +92,7 @@ USER $USER
 # ----------------------------------------------------
 # Get the script to use as entrypoint to the container
 # ----------------------------------------------------
-RUN wget https://raw.githubusercontent.com/dsor-isr/farol/main/farol_docker/scripts/basic_entrypoint.sh
+RUN wget https://raw.githubusercontent.com/dsor-isr/farol/main/farol_addonds/farol_docker/basic_entrypoint.sh
 RUN chmod +x /home/farol/basic_entrypoint.sh
 
 # ----------------------------------
