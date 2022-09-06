@@ -197,7 +197,7 @@ nav:
         - Namespaces:
           - api/markdown/farol_addons/libraries/farol_gimmicks_library/Namespaces
     - Farol Scripts: '!include ./farol_addons/farol_scripts/mkdocs.yml'
-    - Farol Docker: '!include ./farol_addons/farol_docker/mkdocs.yml'
+    - Farol Docker: '!include ./farol_addons/farol_docker/farol_docker/mkdocs.yml'
     - Remote Controller:
       - Documentation: '!include ./farol_addons/remote_controller/mkdocs.yml'
       - Classes:
