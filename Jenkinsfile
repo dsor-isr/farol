@@ -23,7 +23,7 @@ pipeline {
                 dir('catkin_ws') {
                     sh '''#!/bin/bash
                     source /opt/ros/noetic/setup.bash
-                    catkin build --no-status -j10'''
+                    catkin build --no-status -j4'''
                 }
             }
         }
