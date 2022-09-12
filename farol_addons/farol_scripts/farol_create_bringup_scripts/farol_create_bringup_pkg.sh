@@ -73,11 +73,22 @@ README_CONTENT="${PKG_NAME} documentation"
 MKDOCS_CONTENT=""
 
 DEFAULT_CONSOLE_PORT=7080
+DEFAULT_CPF_BROADCAST_PORT=2808
 
+# Check if the console_port (environment variable) is defined, if not set with the default value
 [ -z "$console_port" ] && CONSOLE_PORT=$DEFAULT_CONSOLE_PORT || CONSOLE_PORT=$console_port
+
+# Check if the cpf_broadcast_port (environment variable) is defined, if not set with the default value
+[ -z "$cpf_broadcast_port" ] && CPF_BROADCAST_PORT=$DEFAULT_CPF_BROADCAST_PORT || CPF_BROADCAST_PORT=$cpf_broadcast_port
 
 PERSONAL_ROS_CONTENT="addons/console_server:
     PORT: $CONSOLE_PORT
+
+cooperative/cpf_wifi_server:
+    broadcast_port: $CPF_BROADCAST_PORT
+
+cooperative/cpf_wifi_client:
+    broadcast_port: $CPF_BROADCAST_PORT
 "
 
 CMAKELISTS_CONTENT="cmake_minimum_required(VERSION 3.1)
