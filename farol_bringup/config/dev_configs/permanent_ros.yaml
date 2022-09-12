@@ -297,6 +297,7 @@ cooperative/cpf_control:
             change_topology: "/#vehicle#/CPFChangeTopology"
 
 cooperative/cpf_wifi_server:
+    broadcast_port: 2808
     node_frequency: 10
     topics:
       subscribers:
@@ -305,6 +306,7 @@ cooperative/cpf_wifi_server:
         cpf_gamma: "/#vehicle#/External/Gamma"
         
 cooperative/cpf_wifi_client:
+    broadcast_port: 2808
     node_frequency: 10
     topics:
       subscribers:
