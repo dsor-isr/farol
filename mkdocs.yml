@@ -1,0 +1,283 @@
+# Site metadata
+site_name: Farol Documentation
+site_url: https://dsor-isr.github.io/farol/
+repo_url: https://github.com/dsor-isr/farol
+repo_name: farol
+edit_uri: edit/main/docs/
+site_author: The DSOR Team
+
+# Copyright
+copyright: Copyright &copy 2022 The DSOR Team, Dynamical Systems and Ocean Robotics
+  Laboratory (ISR-Lisboa, LARSyS, Portugal)
+
+# Theme Setup
+theme:
+  name: material
+  language: en
+  logo: Images/icons/dsor.png
+  favicon: Images/icons/dsor.png
+  # Font for text and code
+  font:
+    text: Titillium Web
+    code: Roboto Mono
+  # Enabling light and dark mode
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+  # Extra features
+  features:
+    # ---------------------
+    # Navigation
+    # ---------------------
+    # Search index survives navigation
+  - navigation.instant
+    # The URL in the address bar is automatically updated with scroll
+  - navigation.tracking
+    # Top address bar with sections
+    #- navigation.tabs
+    # Bold level 2 sections in left bar
+  - navigation.sections
+    # Documents can be directly attached to sections (see https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#section-index-pages)
+  - navigation.indexes
+    # Automatic left bar scroll
+  - toc.follow
+    # Back to top button
+  - navigation.top
+    # ---------------------
+    # Search
+    # ---------------------
+    # Search suggestions in search button
+  - search.suggest
+  - search.highlight
+    # Allow sharing a search result
+  - search.share
+
+# Plugins Section
+plugins:
+  # -----------------------------------------------------
+  # Used to have the documentation inside its own package
+  # -----------------------------------------------------
+- monorepo
+- include_dir_to_nav
+- macros:
+      # toggle to true if you are in CD/CI environment
+    on_error_fail: true
+
+  # Include markdown files inside other markdown files
+- include-markdown
+
+  # ---------------------
+  # Search
+  # ---------------------
+  # Better search-bar plugin
+- search:
+    separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+    lang:
+    - en
+    - pt
+
+  # ------------------------------------------
+  # Support for tags in the begining of a page
+  # ------------------------------------------
+- tags
+- git-revision-date-localized:
+    type: date
+    fallback_to_build_date: true
+
+# ---------------------------
+# Support for latex equations
+# ---------------------------
+markdown_extensions:
+- pymdownx.arithmatex:
+    generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Cookies consent (Future proofing if we haver enable Google Analytics)
+extra:
+  # ---------------------
+  # Support page versions
+  # ---------------------
+  version:
+    provider: mike
+
+  # ---------------------
+  # Remove the 'made with mkdocs'
+  # ---------------------
+  generator: false
+
+# Configure the packages to show documentation of
+nav:
+- Introduction: index.md
+- Get Started:
+  - pages/get_started/Repository-Structure.md
+  - pages/get_started/Install-Guide.md
+  - pages/get_started/Build-the-Code.md
+# ---------------------------------------------------------------------------------------------------
+# This section is populted automatically by the CI tool when generating the automatic documentation
+# You can change it, to see how it looks localy, but it well get ovewritten by Jenkins when deploying
+# ---------------------------------------------------------------------------------------------------
+- Packages documentation:
+  - Farol Comms:
+    - Comms Msgs:
+      - Documentation: '!include ./farol_comms/comms_msgs/mkdocs.yml'
+    - Comms Radio:
+      - Cpf Gamma:
+        - Documentation: '!include ./farol_comms/comms_radio/cpf_gamma/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_radio/cpf_gamma/Classes
+        - Namespaces:
+          - api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces
+    - Comms Acoustic:
+      - Data Serializer:
+        - Documentation: '!include ./farol_comms/comms_acoustic/data_serializer/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/data_serializer/Classes
+        - Namespaces:
+          - api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces
+      - Comms State Broadcaster:
+        - Documentation: '!include ./farol_comms/comms_acoustic/comms_state_broadcaster/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Classes
+      - Evo Tools:
+        - Documentation: '!include ./farol_comms/comms_acoustic/evo_tools/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/evo_tools/Classes
+        - Namespaces:
+          - api/markdown/farol_comms/comms_acoustic/evo_tools/Namespaces
+      - Interrogation Scheme:
+        - Documentation: '!include ./farol_comms/comms_acoustic/interrogation_scheme/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Classes
+  - Dsor Utils:
+    - Dsor Msgs:
+      - Documentation: '!include ./dsor_utils/dsor_msgs/mkdocs.yml'
+    - Dsor Utils:
+      - Documentation: '!include ./dsor_utils/dsor_utils/mkdocs.yml'
+      - Classes:
+        - api/markdown/dsor_utils/dsor_utils/Classes
+      - Namespaces:
+        - api/markdown/dsor_utils/dsor_utils/Namespaces
+  - Farol Sim:
+    - Auv Sim:
+      - Documentation: '!include ./farol_sim/auv_sim/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_sim/auv_sim/Classes
+    - Sensor Sim:
+      - Documentation: '!include ./farol_sim/sensor_sim/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_sim/sensor_sim/Classes
+  - Farol Addons:
+    - Http Server:
+      - Documentation: '!include ./farol_addons/http_server/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_addons/http_server/Classes
+      - Namespaces:
+        - api/markdown/farol_addons/http_server/Namespaces
+    - Libraries:
+      - Farol Diagnostics Library:
+        - Documentation: '!include ./farol_addons/libraries/farol_diagnostics_library/mkdocs.yml'
+        - Namespaces:
+          - api/markdown/farol_addons/libraries/farol_diagnostics_library/Namespaces
+      - Farol Gimmicks Library:
+        - Documentation: '!include ./farol_addons/libraries/farol_gimmicks_library/mkdocs.yml'
+        - Namespaces:
+          - api/markdown/farol_addons/libraries/farol_gimmicks_library/Namespaces
+    - Farol Scripts: '!include ./farol_addons/farol_scripts/mkdocs.yml'
+    - Farol Docker: '!include ./farol_addons/farol_docker/farol_docker/mkdocs.yml'
+    - Remote Controller:
+      - Documentation: '!include ./farol_addons/remote_controller/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_addons/remote_controller/Classes
+      - Namespaces:
+        - api/markdown/farol_addons/remote_controller/Namespaces
+    - Safety Feature:
+      - Documentation: '!include ./farol_addons/safety_feature/mkdocs.yml'
+    - Status Aggregator:
+      - Documentation: '!include ./farol_addons/status_aggregator/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_addons/status_aggregator/Classes
+      - Namespaces:
+        - api/markdown/farol_addons/status_aggregator/Namespaces
+    - Console Path Parser:
+      - Documentation: '!include ./farol_addons/console_path_parser/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_addons/console_path_parser/Classes
+  - Farol Msgs:
+    - Documentation: '!include ./farol_msgs/mkdocs.yml'
+  - Farol Bringup:
+    - Documentation: '!include ./farol_bringup/mkdocs.yml'
+    - Classes:
+      - api/markdown/farol_bringup/Classes
+    - Namespaces:
+      - api/markdown/farol_bringup/Namespaces
+  - Farol Planning:
+    - Dsor Paths:
+      - Documentation: '!include ./farol_planning/dsor_paths/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_planning/dsor_paths/Classes
+  - Farol Control:
+    - Outer Loops Controllers:
+      - Cpf Control:
+        - Documentation: '!include ./farol_control/outer_loops_controllers/cpf_control/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_control/outer_loops_controllers/cpf_control/Classes
+      - Waypoint:
+        - Documentation: '!include ./farol_control/outer_loops_controllers/waypoint/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_control/outer_loops_controllers/waypoint/Classes
+      - Path Following:
+        - Documentation: '!include ./farol_control/outer_loops_controllers/path_following/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_control/outer_loops_controllers/path_following/Classes
+    - Inner Loops Controllers:
+      - Inner Loops Pid:
+        - Documentation: '!include ./farol_control/inner_loops_controllers/inner_loops_pid/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes
+      - Open Loop Controller:
+        - Documentation: '!include ./farol_control/inner_loops_controllers/open_loop_controller/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Classes
+        - Namespaces:
+          - api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Namespaces
+    - Static Thruster Allocation:
+      - Documentation: '!include ./farol_control/static_thruster_allocation/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_control/static_thruster_allocation/Classes
+    - Vehicle Stabilizer:
+      - Documentation: '!include ./farol_control/vehicle_stabilizer/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_control/vehicle_stabilizer/Classes
+  - Farol Nav:
+    - Farol Nav:
+      - Documentation: '!include ./farol_nav/farol_nav/mkdocs.yml'
+    - Nav Tools:
+      - Documentation: '!include ./farol_nav/nav_tools/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_nav/nav_tools/Classes
+    - Sensor Fusion:
+      - Documentation: '!include ./farol_nav/sensor_fusion/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_nav/sensor_fusion/Classes
+      - Namespaces:
+        - api/markdown/farol_nav/sensor_fusion/Namespaces
+- Contributing:
+  - Code of Conduct: pages/CODE_OF_CONDUCT.md
+  - Contributing: pages/CONTRIBUTING.md
+  - Changelog: pages/CHANGELOG.md
+  - Acknowledgments: pages/Acknowledgments.md
+  - License: pages/LICENSE.md

@@ -1,0 +1,4 @@
+site_name: Farol Docker
+
+nav:
+  - Reference: "README.md"
