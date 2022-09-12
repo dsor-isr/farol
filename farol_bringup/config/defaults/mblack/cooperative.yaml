@@ -1,11 +1,9 @@
 # Used for cooperative path following
 cpf_wifi_client:
-  broadcast_port: 2808
   broadcast_address: "127.255.255.255"
   ID: 1 
 
 cpf_wifi_server:
-  broadcast_port: 2808
   broadcast_address: "127.255.255.255"
   ID: 1 
 
