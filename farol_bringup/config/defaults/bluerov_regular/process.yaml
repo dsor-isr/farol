@@ -19,7 +19,7 @@ processes:
     - name: 'gazebo_simulation' # Set to true to use the gazebo simulator
       launch_on_startup: true
       delay_before_start: 1.0
-      cmd: 'roslaunch farol_gazebo_bringup gazebo_simulation.launch'
+      cmd: 'roslaunch farol_gazebo_bringup vehicle_model.launch'
       args:
             - x:= 0.0
             - y:= 0.0
