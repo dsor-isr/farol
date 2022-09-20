@@ -46,7 +46,7 @@ START_VEHICLE_CONTENT="<?xml version=\"1.0\"?>
     <!-- Parameters and Arguments -->
     <arg name=\"name\"               default=\"${VEHICLE_NAME}\" />     <!-- Name of the vehicle being launched --> 
     <arg name=\"id\"                 default=\"0\" />                   <!-- Number of the vehicle -->
-    <arg name=\"config_package\"     default=\"${PKG_NAME}_bringup\"/>  <!-- Name of the package where the configuration files are stored -->
+    <arg name=\"config_package\"     default=\"${PKG_NAME}\"/>  <!-- Name of the package where the configuration files are stored -->
     <arg name=\"folder\"             default=\"vehicles\" />            <!-- Name of the folder for the configuration files -->     
 
     <arg name=\"dollar\" value=\"$\" />
