@@ -111,9 +111,9 @@ void FiltersNode::loadParams() {
   p_rconfig.br_node = &br_node;
 
   // +.+ Get Origin Global Position
-  origin_lat_ = FarolGimmicks::getParameters<double>(nh_private_, "/originLat",
+  origin_lat_ = FarolGimmicks::getParameters<double>(nh_private_, "originLat",
       38.765852);
-  origin_lon_ = FarolGimmicks::getParameters<double>(nh_private_, "/originLon",
+  origin_lon_ = FarolGimmicks::getParameters<double>(nh_private_, "originLon",
       -9.09281873);
   origin_alt_ =
     FarolGimmicks::getParameters<double>(nh_private_, "/originAlt", 1.0);
