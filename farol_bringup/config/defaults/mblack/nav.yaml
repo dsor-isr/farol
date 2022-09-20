@@ -1,4 +1,7 @@
 filter:
+    originLat: 38.765852
+    originLon: -9.09281873
+    
     tf:                         # TF publishers
         broadcast: true         # flag to publish TF
         frames: 

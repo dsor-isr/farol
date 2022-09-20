@@ -50,6 +50,8 @@ world_frame: "world"
 base_link: "base_link"
 
 sensors:
+    originLat: 38.765852
+    originLon: -9.09281873
     water_column: 100
     sensors:
         - type     : "GNSS"
