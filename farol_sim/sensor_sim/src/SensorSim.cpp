@@ -112,8 +112,8 @@ void SensorSim::loadParams() {
   p_water_column_length = FarolGimmicks::getParameters<double>(nh_private_, "water_column_length", 100);
 
   int zone; bool northp; double gamma, k;
-  double origin_lat = FarolGimmicks::getParameters<double>(nh_, "/originLat", 38.765852);
-  double origin_lon = FarolGimmicks::getParameters<double>(nh_, "/originLon", -9.09281873);
+  double origin_lat = FarolGimmicks::getParameters<double>(nh_private_, "originLat", 38.765852);
+  double origin_lon = FarolGimmicks::getParameters<double>(nh_private_, "originLon", -9.09281873);
   try
   {
     GeographicLib::UTMUPS::Forward(origin_lat, origin_lon, zone, northp, origin_east, origin_north, gamma, k);
