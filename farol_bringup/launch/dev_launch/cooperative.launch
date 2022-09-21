@@ -17,10 +17,6 @@
     <group ns="cooperative">
         <!-- Vehicle Specific Config File -->
         <arg name="dollar" value="$" />
-        <!-- Load default configurations (from farol)-->
-        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/cooperative.yaml" />-->
-        <!--[> Load "personal" configurations ro override the default ones <]-->
-        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/cooperative.yaml" />-->
 
         <!-- CPF Controller -->
         <group if="$(arg cpf_control)">

@@ -8,7 +8,7 @@
   <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
   <arg name="folder"                      default="simulation" />  <!-- Name of the folder for the configuration files --> 
   <arg name="namespace"                   default="false" />
-  <arg name="vehicle_id"           default="0" />
+  <arg name="vehicle_id"                  default="0" />
 
   <arg name="static_thruster_allocation"  default="false" />
   <arg name="inner_loops_pid"             default="false" />   
@@ -20,10 +20,6 @@
 
     <!-- Vehicle Specific Config File -->
     <arg name="dollar" value="$" />
-    <!-- Load default configurations (from farol)-->
-    <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/control.yaml" />-->
-    <!--[> Load "personal" configurations ro override the default ones <]-->
-    <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/control.yaml" />-->
 
     <!-- Launch Nodes that are common to all vehicles -->
 
