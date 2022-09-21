@@ -8,6 +8,7 @@
     <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
     <arg name="folder"             default="simulation" />  <!-- Name of the folder for the configuration files -->     
     <arg name="namespace"          default="false" />
+    <arg name="vehicle_id"         default="0" />
 
     <arg name="broadcast_tf"       default="false" />
 

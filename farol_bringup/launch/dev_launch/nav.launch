@@ -8,21 +8,17 @@
     <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
     <arg name="folder"              default="simulation" />  <!-- Name of the folder for the configuration files --> 
     <arg name="namespace"           default="false" />
+    <arg name="vehicle_id"          default="0" />
 
     <arg name="filter"              default="false" />  
     <arg name="gnss2utm"            default="false" />  
     <arg name="gnss2utmoutlier"     default="false" />  
     <arg name="usbl2pos"            default="false" />
     <arg name="auvstate2mstate"     default="false" />
-    <arg name="vehicle_id"          default="0" />
 
     <group ns="nav">
         <!-- Vehicle Specific Config File -->
         <arg name="dollar" value="$" />
-        <!-- Load default configurations (from farol)-->
-        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/nav.yaml" />-->
-        <!--[> Load "personal" configurations ro override the default ones <]-->
-        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/nav.yaml" />-->
 
         <!-- Launch Nodes that are common to all vehicles -->
         <!-- filters: sensor fusion -->

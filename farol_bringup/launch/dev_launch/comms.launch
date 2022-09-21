@@ -4,29 +4,24 @@
     <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${time}]: ${node}: ${message}"/>
 
     <!-- Parameters and Arguments -->
-    <arg name="name"            /> <!-- Name of the vehicle being launched -->   
-    <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
-    <arg name="folder"             default="simulation" />  <!-- Name of the folder for the configuration files --> 
-    <arg name="namespace"          default="false" />
+    <arg name="name"                 />                         <!-- Name of the vehicle being launched -->   
+    <arg name="config_package_path"  />                         <!-- Name of the package where the configuration files are stored -->
+    <arg name="folder"               default="simulation" />    <!-- Name of the folder for the configuration files --> 
+    <arg name="namespace"            default="false" />
+    <arg name="vehicle_id"           default="0" />
 
-    <arg name="dmac"               default="false"      />
-    <arg name="pinger"             default="false"      />
-    <arg name="replier"            default="false"      />
-    <arg name="data_serializer"    default="false"      />
-    <arg name="pos2sim_modem"      default="false"      />
-    <arg name="dmac2farol"        default="false"      />
-    <arg name="gnss2state"         default="false"      />
+    <arg name="dmac"                 default="false"      />
+    <arg name="pinger"               default="false"      />
+    <arg name="replier"              default="false"      />
+    <arg name="data_serializer"      default="false"      />
+    <arg name="pos2sim_modem"        default="false"      />
+    <arg name="dmac2farol"           default="false"      />
+    <arg name="gnss2state"           default="false"      />
 
     <group ns="acomms">
 
         <!-- Vehicle Specific Config File -->
         <arg name="dollar" value="$" />
-        <!-- Load default configurations (from farol)-->
-        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/comms.yaml" />-->
-        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/acoustic_data.yaml" />-->
-        <!--[> Load "personal" configurations ro override the default ones <]-->
-        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/comms.yaml" />-->
-        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/acoustic_data.yaml" />-->
 
         <!-- Launch Nodes that are common to all vehicles -->
         <!-- Modem Driver  -->

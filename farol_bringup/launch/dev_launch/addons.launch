@@ -8,6 +8,7 @@
     <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
     <arg name="folder"                      default="simulation" />  <!-- Name of the folder for the configuration files --> 
     <arg name="namespace"                   default="false" />
+    <arg name="vehicle_id"                  default="0" />
 
     <arg name="wifi_acoustic_safety"        default="false"  /> 
     <arg name="console_path_parser"         default="false"  />   
@@ -23,20 +24,8 @@
 
         <!-- Vehicle Specific Config File -->
         <arg name="dollar" value="$" />
-        <!-- Load default configurations (from farol)-->
-        <!--<rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/addons.yaml" />-->
-        <!-- Load "personal" configurations ro override the default ones -->
-        <!--<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/addons.yaml" />-->
 
         <!-- Launch Nodes that are common to all vehicles -->
-        <!-- Acoustic Safety -->
-        <group if="$(arg wifi_acoustic_safety)">
-            <node pkg="safety_feature" type="wifi_acoustic_safety" name="wifi_acoustic_safety" output="screen">
-		    <param name="name"              value="$(arg name)" />
-		    <param name="surface_vehicle"   value="dummy"/>
-            </node>
-        </group>
-
         <!-- RosBridge Server for 3rd Party -->
         <group if="$(arg rosbridge_server)">
             <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
@@ -66,11 +55,5 @@
                 <param name="pages_folder"   value="$(find http_server)/pages/" />
             </node>
         </group>
-
-        <!-- Diagnostics aggregator for sensors -->
-        <group if="$(arg aggregator)">
-            <node pkg="diagnostic_aggregator" type="aggregator_node" name="aggregator" output="screen" />
-        </group>
-    </group>
 
 </launch>

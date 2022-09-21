@@ -2,17 +2,18 @@
 <launch>
 
 	<!-- Parameters and Arguments -->
-    <arg name="name"            /> 	                         <!-- Name of the vehicle being launched -->   
-    <arg name="config_package_path"  /> 	                 <!-- Name of the package where the configuration files are stored -->
-    <arg name="folder"              default="simulation" />  <!-- Name of the folder for the configuration files -->   
+  <arg name="name"                /> 	                     <!-- Name of the vehicle being launched -->   
+  <arg name="config_package_path" /> 	                     <!-- Name of the package where the configuration files are stored -->
+  <arg name="folder"              default="simulation" />  <!-- Name of the folder for the configuration files -->   
 	<arg name="namespace"           default="false" />
+  <arg name="vehicle_id"          default="0" />
 
-	<arg name="onebag" 				default="false" />
-	<arg name="prefix" 			    default="$(arg name)" />
+	<arg name="onebag" 				      default="false" />
+	<arg name="prefix" 			        default="$(arg name)" />
 	<arg name="bags_folder"         default="$(env ROS_BAG_FOLDER)/ROSData"	/>
-	<arg name="not_farol_topics" 	value="/$(arg folder)(.*)|/tf_$(arg folder)" />
-	<arg name="ignore_topics" 		value="(.*)/map|(.*)/camera(.*)|(.*)/air(.*)camera(.*)|(.*)/stereo(.*)"	/>
-	<arg name="split" 				value="--split --size=1024"	/> <!-- MB -->
+	<arg name="not_farol_topics" 	  value="/$(arg folder)(.*)|/tf_$(arg folder)" />
+	<arg name="ignore_topics" 		  value="(.*)/map|(.*)/camera(.*)|(.*)/air(.*)camera(.*)|(.*)/stereo(.*)"	/>
+	<arg name="split" 				      value="--split --size=1024"	/> <!-- MB -->
 	
 	<group if="$(arg onebag)">
 		<!-- store everything in one bag -->

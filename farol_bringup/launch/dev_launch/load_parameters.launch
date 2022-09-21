@@ -29,16 +29,6 @@
   <!-- Load personal topic names -->
   <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/dev_configs/.ros_tmp/personal_ros_$(arg name)$(arg vehicle_id).yaml" />
   
-    <!--##############################
-        # Load common configurations #
-        ##############################-->
-  <!-- Load common configurations for all topics -->
-  <rosparam command="load" file="$(find farol_bringup)/config/defaults/$(arg name)/common.yaml" />
-  <!-- Load common configurations for all topics -->
-  <group if="$(arg common)">
-    <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/common.yaml" />
-  </group>
-
     <!--#############################
         # Load simulation Parameter #
         #############################-->
