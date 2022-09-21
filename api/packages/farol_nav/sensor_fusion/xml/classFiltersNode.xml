@@ -686,7 +686,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="232" column="31" bodyfile="src/ros/FiltersNode.cpp" bodystart="351" bodyend="357"/>
+        <location file="include/ros/FiltersNode.h" line="232" column="31" bodyfile="src/ros/FiltersNode.cpp" bodystart="351" bodyend="358"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a3b64e38f56e01ede1a68e5aa664f9da0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
@@ -716,7 +716,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="244" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="361" bodyend="377"/>
+        <location file="include/ros/FiltersNode.h" line="244" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="362" bodyend="378"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -756,7 +756,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="254" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="380" bodyend="388"/>
+        <location file="include/ros/FiltersNode.h" line="254" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="381" bodyend="389"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -821,7 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="266" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="391" bodyend="533"/>
+        <location file="include/ros/FiltersNode.h" line="266" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="392" bodyend="534"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
