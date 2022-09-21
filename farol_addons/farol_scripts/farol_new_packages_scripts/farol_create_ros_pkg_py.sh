@@ -6,7 +6,6 @@
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of parameters"
     echo "Usage : bash farol_create_ros_pkg_py.sh fiic_awesome_py"
-    exit
 fi
 
 # @.@ assign first received argument to variable PKG_NAME

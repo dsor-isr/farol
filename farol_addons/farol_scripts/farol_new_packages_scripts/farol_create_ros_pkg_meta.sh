@@ -26,7 +26,6 @@
 if [ "$#" -ne 1 ]; then
     echo "Illegal number of parameters"
     echo "Usage : bash farol_create_ros_pkg_meta.sh fiic_awesome_meta"
-    exit
 fi
 
 ################################################################
@@ -39,9 +38,9 @@ PKG_NAME=$(echo "$PKG_NAME_IN" | sed -r 's/_([a-z])/\U\1/g')
 # @.@ Give some author love                                    # 
 ################################################################
 AUTHOR_NAME="DSOR GROUP"
-AUTHOR_EMAIL="dsor@gmail.com"
-MAINTAINER_NAME="genX"
-MAINTAINER_EMAIL="dsor@gmail.com"
+AUTHOR_EMAIL="dsor.isr@gmail.com"
+MAINTAINER_NAME="#DSORTeam"
+MAINTAINER_EMAIL="dsor.isr@gmail.com"
 
 ################################################################
 # @.@ setup file content                                       # 
