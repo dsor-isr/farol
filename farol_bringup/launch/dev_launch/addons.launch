@@ -55,5 +55,5 @@
                 <param name="pages_folder"   value="$(find http_server)/pages/" />
             </node>
         </group>
-
+    </group>
 </launch>
