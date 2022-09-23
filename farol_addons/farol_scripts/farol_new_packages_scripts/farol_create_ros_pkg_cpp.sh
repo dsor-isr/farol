@@ -136,7 +136,7 @@ ${PKG_NAME^}Node::~${PKG_NAME^}Node() {
 void ${PKG_NAME^}Node::loadParams() {
   ROS_INFO(\"Load the ${PKG_NAME^}Node parameters\");
 
-  p_node_frequency_ = FarolGimmicks::getParameters<double>(nh_, \"node_frequency\", 5);
+  p_node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, \"node_frequency\", 5);
 
 }
 
@@ -165,7 +165,6 @@ void ${PKG_NAME^}Node::initializeServices() {
 // @.@ Member helper function to set up the timer
 void ${PKG_NAME^}Node::initializeTimer() {
   timer_ =nh_.createTimer(ros::Duration(1.0/p_node_frequency_), &${PKG_NAME^}Node::timerIterCallback, this);
-  timer_.stop();
 }
 
 
