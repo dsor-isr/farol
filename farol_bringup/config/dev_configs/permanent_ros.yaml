@@ -363,7 +363,7 @@ acomms/replier:
             deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
         subscribers:
             modem_recv: "/#vehicle#/acomms/modem/recv"
-            serialize: "/#vehicle#/acomms/serializer/payload_to_transmit"
+            payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
 
 acomms/data_serializer:
     topics:
