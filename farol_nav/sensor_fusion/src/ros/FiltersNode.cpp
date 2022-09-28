@@ -165,7 +165,7 @@ void FiltersNode::loadParams() {
   m_initial.header.stamp = ros::Time::now();
   sensorSplit(m_initial, p_hconfig.meas_init, p_vconfig.meas_init, p_rconfig.meas_init);
 
-  if (m_initial.header.frame_id == "" || m_initial.header.frame_id == "null"){
+  if (m_initial.header.frame_id == name_vehicle_id_ + "_" + "" || m_initial.header.frame_id == name_vehicle_id_ + "_" + "null"){
     p_hconfig.initialized = true;
     p_vconfig.initialized = true;
 		p_rconfig.initialized = true;
