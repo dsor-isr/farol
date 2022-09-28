@@ -351,7 +351,7 @@ FilterGimmicks::measurement
 FiltersNode::readManuallyInitialization(XmlRpc::XmlRpcValue valueXml) {
  // When manually we don't care about the name of the vehicle
   FilterGimmicks::measurement sensor(
-      static_cast<std::string>(valueXml["frame_id"]),
+      name_vehicle_id_ + '_' + static_cast<std::string>(valueXml["frame_id"]),
       extractVectorDouble(valueXml["value"]),
       extractVectorDouble(valueXml["noise"]));
   return sensor;
@@ -517,7 +517,7 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
       m_vertical.value = m_in.value; 
     }
   }
-  else if(m_in.header.frame_id == "" || m_in.header.frame_id == "null"){
+  else if(m_in.header.frame_id == name_vehicle_id_ + "_" + "" || m_in.header.frame_id == name_vehicle_id_ + '_' + "null"){
     // +.+ When we want to initialize manually
     m_horizontal.noise << m_in.noise.segment<2>(0), m_in.noise.segment<2>(3),
     m_in.noise.segment<2>(12);
