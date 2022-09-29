@@ -190,6 +190,10 @@ controls/inner_loops_pid:
             force_bypass: "/#vehicle#/force_bypass"
         publishers:
             thrust_body_request: "/#vehicle#/thrust_body_request"
+        services: 
+            change_ff_gains: "/#vehicle#/inner_forces/change_ff_gains"
+            change_inner_gains: "/#vehicle#/inner_forces/change_inner_gains"
+            change_inner_limits: "/#vehicle#/inner_forces/change_inner_limits"
 
 controls/waypoint:
     node_frequency: 10.0
