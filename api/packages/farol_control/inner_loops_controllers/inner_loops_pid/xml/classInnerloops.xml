@@ -442,7 +442,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="43" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="121" bodyend="128"/>
+        <location file="include/ros/innerloops.h" line="43" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="121" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1ae5420a433ac409ec39c139265caca713" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -456,7 +456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="48" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="130" bodyend="135"/>
+        <location file="include/ros/innerloops.h" line="48" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="127" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1af484fe4edfae14af0ffdeb63eb255304" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -470,7 +470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="53" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="137" bodyend="141"/>
+        <location file="include/ros/innerloops.h" line="53" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="134" bodyend="138"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1a7110e12e97a009138d16be09aa9e687c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -487,7 +487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="60" column="10" bodyfile="src/ros/innerloops.cpp" bodystart="143" bodyend="148"/>
+        <location file="include/ros/innerloops.h" line="60" column="10" bodyfile="src/ros/innerloops.cpp" bodystart="140" bodyend="145"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1a9eb22896b792e29219a031c36644d5dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -515,7 +515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="68" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="150" bodyend="200"/>
+        <location file="include/ros/innerloops.h" line="68" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="147" bodyend="197"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1ae369f0c5c91271cf08741ff25e5ea725" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -543,7 +543,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="75" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="212" bodyend="232"/>
+        <location file="include/ros/innerloops.h" line="75" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="209" bodyend="229"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1a2e8b64c2141130ef98ac39678fa58438" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -571,7 +571,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="83" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="202" bodyend="210"/>
+        <location file="include/ros/innerloops.h" line="83" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="199" bodyend="207"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1ae0930c9a4d5eb7c6695856410ff1cb0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -615,7 +615,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="93" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="234" bodyend="266"/>
+        <location file="include/ros/innerloops.h" line="93" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="231" bodyend="263"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1a0e98a6adac7be21f924cdd3814d6837d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -659,7 +659,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="104" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="268" bodyend="299"/>
+        <location file="include/ros/innerloops.h" line="104" column="8" bodyfile="src/ros/innerloops.cpp" bodystart="265" bodyend="296"/>
       </memberdef>
       <memberdef kind="function" id="classInnerloops_1ae56c1655a8df8b41843ac95662ba0ffc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -703,7 +703,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/innerloops.h" line="115" column="3" bodyfile="src/ros/innerloops.cpp" bodystart="301" bodyend="331"/>
+        <location file="include/ros/innerloops.h" line="115" column="3" bodyfile="src/ros/innerloops.cpp" bodystart="298" bodyend="328"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
