@@ -131,56 +131,16 @@ nav:
 # You can change it, to see how it looks localy, but it well get ovewritten by Jenkins when deploying
 # ---------------------------------------------------------------------------------------------------
 - Packages documentation:
-  - Farol Comms:
-    - Comms Msgs:
-      - Documentation: '!include ./farol_comms/comms_msgs/mkdocs.yml'
-    - Comms Radio:
-      - Cpf Gamma:
-        - Documentation: '!include ./farol_comms/comms_radio/cpf_gamma/mkdocs.yml'
-        - Classes:
-          - api/markdown/farol_comms/comms_radio/cpf_gamma/Classes
-        - Namespaces:
-          - api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces
-    - Comms Acoustic:
-      - Data Serializer:
-        - Documentation: '!include ./farol_comms/comms_acoustic/data_serializer/mkdocs.yml'
-        - Classes:
-          - api/markdown/farol_comms/comms_acoustic/data_serializer/Classes
-        - Namespaces:
-          - api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces
-      - Comms State Broadcaster:
-        - Documentation: '!include ./farol_comms/comms_acoustic/comms_state_broadcaster/mkdocs.yml'
-        - Classes:
-          - api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Classes
-      - Evo Tools:
-        - Documentation: '!include ./farol_comms/comms_acoustic/evo_tools/mkdocs.yml'
-        - Classes:
-          - api/markdown/farol_comms/comms_acoustic/evo_tools/Classes
-        - Namespaces:
-          - api/markdown/farol_comms/comms_acoustic/evo_tools/Namespaces
-      - Interrogation Scheme:
-        - Documentation: '!include ./farol_comms/comms_acoustic/interrogation_scheme/mkdocs.yml'
-        - Classes:
-          - api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Classes
-  - Dsor Utils:
-    - Dsor Msgs:
-      - Documentation: '!include ./dsor_utils/dsor_msgs/mkdocs.yml'
-    - Dsor Utils:
-      - Documentation: '!include ./dsor_utils/dsor_utils/mkdocs.yml'
-      - Classes:
-        - api/markdown/dsor_utils/dsor_utils/Classes
-      - Namespaces:
-        - api/markdown/dsor_utils/dsor_utils/Namespaces
-  - Farol Sim:
-    - Auv Sim:
-      - Documentation: '!include ./farol_sim/auv_sim/mkdocs.yml'
-      - Classes:
-        - api/markdown/farol_sim/auv_sim/Classes
-    - Sensor Sim:
-      - Documentation: '!include ./farol_sim/sensor_sim/mkdocs.yml'
-      - Classes:
-        - api/markdown/farol_sim/sensor_sim/Classes
   - Farol Addons:
+    - Dsor Utils:
+      - Dsor Msgs:
+        - Documentation: '!include ./dsor_utils/dsor_msgs/mkdocs.yml'
+      - Dsor Utils:
+        - Documentation: '!include ./dsor_utils/dsor_utils/mkdocs.yml'
+        - Classes:
+          - api/markdown/dsor_utils/dsor_utils/Classes
+        - Namespaces:
+          - api/markdown/dsor_utils/dsor_utils/Namespaces
     - Http Server:
       - Documentation: '!include ./farol_addons/http_server/mkdocs.yml'
       - Classes:
@@ -216,19 +176,43 @@ nav:
       - Documentation: '!include ./farol_addons/console_path_parser/mkdocs.yml'
       - Classes:
         - api/markdown/farol_addons/console_path_parser/Classes
-  - Farol Msgs:
-    - Documentation: '!include ./farol_msgs/mkdocs.yml'
   - Farol Bringup:
     - Documentation: '!include ./farol_bringup/mkdocs.yml'
     - Classes:
       - api/markdown/farol_bringup/Classes
     - Namespaces:
       - api/markdown/farol_bringup/Namespaces
-  - Farol Planning:
-    - Dsor Paths:
-      - Documentation: '!include ./farol_planning/dsor_paths/mkdocs.yml'
-      - Classes:
-        - api/markdown/farol_planning/dsor_paths/Classes
+  - Farol Comms:
+    - Comms Msgs:
+      - Documentation: '!include ./farol_comms/comms_msgs/mkdocs.yml'
+    - Comms Radio:
+      - Cpf Gamma:
+        - Documentation: '!include ./farol_comms/comms_radio/cpf_gamma/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_radio/cpf_gamma/Classes
+        - Namespaces:
+          - api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces
+    - Comms Acoustic:
+      - Data Serializer:
+        - Documentation: '!include ./farol_comms/comms_acoustic/data_serializer/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/data_serializer/Classes
+        - Namespaces:
+          - api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces
+      - Comms State Broadcaster:
+        - Documentation: '!include ./farol_comms/comms_acoustic/comms_state_broadcaster/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Classes
+      - Evo Tools:
+        - Documentation: '!include ./farol_comms/comms_acoustic/evo_tools/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/evo_tools/Classes
+        - Namespaces:
+          - api/markdown/farol_comms/comms_acoustic/evo_tools/Namespaces
+      - Interrogation Scheme:
+        - Documentation: '!include ./farol_comms/comms_acoustic/interrogation_scheme/mkdocs.yml'
+        - Classes:
+          - api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Classes
   - Farol Control:
     - Outer Loops Controllers:
       - Cpf Control:
@@ -262,6 +246,8 @@ nav:
       - Documentation: '!include ./farol_control/vehicle_stabilizer/mkdocs.yml'
       - Classes:
         - api/markdown/farol_control/vehicle_stabilizer/Classes
+  - Farol Msgs:
+    - Documentation: '!include ./farol_msgs/mkdocs.yml'
   - Farol Nav:
     - Farol Nav:
       - Documentation: '!include ./farol_nav/farol_nav/mkdocs.yml'
@@ -275,6 +261,20 @@ nav:
         - api/markdown/farol_nav/sensor_fusion/Classes
       - Namespaces:
         - api/markdown/farol_nav/sensor_fusion/Namespaces
+  - Farol Planning:
+    - Dsor Paths:
+      - Documentation: '!include ./farol_planning/dsor_paths/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_planning/dsor_paths/Classes
+  - Farol Sim:
+    - Auv Sim:
+      - Documentation: '!include ./farol_sim/auv_sim/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_sim/auv_sim/Classes
+    - Sensor Sim:
+      - Documentation: '!include ./farol_sim/sensor_sim/mkdocs.yml'
+      - Classes:
+        - api/markdown/farol_sim/sensor_sim/Classes
 - Contributing:
   - Code of Conduct: pages/CODE_OF_CONDUCT.md
   - Contributing: pages/CONTRIBUTING.md

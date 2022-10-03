@@ -16,6 +16,7 @@ A simple dynamic model simulator is included with FAROL. It is also possible to 
 [Farol Gazebo](https://github.com/dsor-isr/farol_gazebo). For a quick setup please check [DSOR Simulation](https://github.com/dsor-isr/dsor_simulation) repository.
 
 Currently FAROL acts as the pivotal piece in the control, navigation and communications of the following DSOR marine vehicles:
+
 * [Medusa](http://dsor.isr.ist.utl.pt/vehicles/medusa/)
 * [BlueRov2](https://bluerobotics.com/store/rov/bluerov2/)
 * [Delfim](https://welcome.isr.tecnico.ulisboa.pt/wp-content/uploads/2015/05/1501_MED06_DELFIM.pdf)
