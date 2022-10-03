@@ -7219,33 +7219,41 @@
 
 <h2 id="1-ubuntu-and-ros-installation"><strong>1. Ubuntu and ROS installation:</strong></h2>
 <ol>
-<li>Install Ubuntu 20.04LTS (https://releases.ubuntu.com/20.04)</li>
-<li>Install ROS 1 Noetic (http://wiki.ros.org/noetic/Installation/Ubuntu)</li>
+<li>Install <a href="https://releases.ubuntu.com/20.04">Ubuntu 20.04LTS</a></li>
+<li>Install <a href="http://wiki.ros.org/noetic/Installation/Ubuntu">ROS 1 Noetic</a></li>
 <li>
 <p>Add the following Functions and Alias to your <code>.bashrc</code> file, to make development easier 🤓</p>
 <ol>
-<li>Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws
-    <code>if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config &amp;&amp; echo catkin_ws &gt; ~/.catkin_ws_config ;fi</code></li>
-<li>Set the variable CATKIN_PACKAGE with the workspace in the catkin_ws_config file
-    <code>export CATKIN_PACKAGE=$(head -n 1 ~/.catkin_ws_config)</code></li>
-<li>Function to update the default catkin workspace variable and store the last setting in the file
-    ```
-    set_catkin_ws_function() {
-        #set CATKIN_PACKAGE according the an input parameter
-        export CATKIN_PACKAGE=catkin_ws_$1
-        echo CATKIN_PACKAGE = ${CATKIN_PACKAGE}<pre><code># save into a hidden file the catkin workspace setting
+<li>
+<p>Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws</p>
+<p><code>if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config &amp;&amp; echo catkin_ws &gt; ~/.catkin_ws_config ;fi</code></p>
+</li>
+<li>
+<p>Set the variable CATKIN_PACKAGE with the workspace in the catkin_ws_config file</p>
+<p><code>export CATKIN_PACKAGE=$(head -n 1 ~/.catkin_ws_config)</code></p>
+</li>
+<li>
+<p>Function to update the default catkin workspace variable and store the last setting in the file</p>
+<p>```
+set_catkin_ws_function() {
+    #set CATKIN_PACKAGE according the an input parameter
+    export CATKIN_PACKAGE=catkin_ws_$1
+    echo CATKIN_PACKAGE = ${CATKIN_PACKAGE}</p>
+<pre><code># save into a hidden file the catkin workspace setting
 echo $CATKIN_PACKAGE &gt; ~/.catkin_ws_config
 source ~/.bashrc
 </code></pre>
 <p>}
-<code>4. This is required (to source the ROS and farol files)</code>
-source /opt/ros/noetic/setup.bash
-export CATKIN_ROOT=<span class="arithmatex">\({HOME}/&lt;path_to_workspace&gt;
-export ROS_WORKSPACE=\)</span>{CATKIN_ROOT}/<span class="arithmatex">\({CATKIN_PACKAGE}
-export FAROL_SCRIPTS=\)</span>(find ${ROS_WORKSPACE}/src/ -type d -iname farol_scripts | head -n 1)
-source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh
-<code>``
-NOTE: replace</code>/<path_to_workspace><code>with the folder where you put you catkin_ws inside (for example</code>/dsor`). If you put in your home folder, then this variable should be left empty!</p>
+```</p>
+</li>
+<li>
+<p>This is required (to source the ROS and farol files)</p>
+<p><code>source /opt/ros/noetic/setup.bash
+export CATKIN_ROOT=${HOME}/&lt;path_to_workspace&gt;
+export ROS_WORKSPACE=${CATKIN_ROOT}/${CATKIN_PACKAGE}
+export FAROL_SCRIPTS=$(find ${ROS_WORKSPACE}/src/ -type d -iname farol_scripts | head -n 1)
+source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh</code></p>
+<p>NOTE: replace <code>/&lt;path_to_workspace&gt;</code> with the folder where you put you catkin_ws inside (for example <code>/dsor</code>). If you put in your home folder, then this variable should be left empty!</p>
 </li>
 </ol>
 </li>
