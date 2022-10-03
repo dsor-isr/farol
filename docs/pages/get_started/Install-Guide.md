@@ -1,4 +1,4 @@
-<ins>**1. Ubuntu and ROS installation:**</ins>
+## **1. Ubuntu and ROS installation:**
 1. Install Ubuntu 20.04LTS (https://releases.ubuntu.com/20.04)
 2. Install ROS 1 Noetic (http://wiki.ros.org/noetic/Installation/Ubuntu)
 3. Add the following Functions and Alias to your `.bashrc` file, to make development easier 🤓
@@ -34,15 +34,24 @@
 NOTE: replace `/<path_to_workspace>` with the folder where you put you catkin_ws inside (for example `/dsor`). If you put in your home folder, then this variable should be left empty!
 
 4. Create a catkin_ws directory
+```
+cd ~
+mkdir -p <path_to_workspace>/catkin_ws_farol/src
+cd <path_to_workspace>/catkin_ws_farol/src
+```
 
-<ins>**2. Downloading the repository:**</ins>
+## **2. Downloading the repository:**
 
 Start by cloning the repository with `git clone --recursive https://github.com/dsor-isr/farol`.
 
 If the repository was cloned non-recursively previously, use `git submodule update --init` to clone the necessary submodules.
 
-<ins>**3. Configuring the dependencies:**</ins>
+## **3. Configuring the dependencies:**
 Run the installation bash script using
 ```
-./
+cd ~
+wget /https://github.com/dsor-isr/farol/blob/main/farol_addons/farol_docker/install_requirements.sh
+./install_requirements.sh
+rm install_requirements.sh
 ```
+

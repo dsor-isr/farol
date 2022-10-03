@@ -1,6 +1,4 @@
-# Farol Base
-
-This repository holds the Farol Base code stack for underwater marine vehicles of DSOR-ISR (Dynamical Systems for Ocean Robotics - Institute for System Robotics). It contains the base of the control and navigation stack found in the FAROL class of marine vehicles.
+# FAROL 
 
 [![Build Status](https://ci.dsor.isr.tecnico.ulisboa.pt/buildStatus/icon?job=GitHub+DSOR%2Ffarol%2Fmain)](https://ci.dsor.isr.tecnico.ulisboa.pt/job/GitHub%20DSOR/job/farol/job/main/)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/dsor-isr/farol/main)
@@ -10,28 +8,22 @@ This repository holds the Farol Base code stack for underwater marine vehicles o
 [![GitHub stars](https://img.shields.io/github/stars/dsor-isr/farol)](https://github.com/dsor-isr/farol/stargazers)
 [![License](https://img.shields.io/github/license/dsor-isr/farol?color=blue)](https://github.com/dsor-isr/farol/blob/main/LICENSE)
 
-Introduction
-============
+## Introduction
 
-The Farol Base stack is the set of software utilities used at DSOR for simulation and field trials of actual marine vehicles. It comprises a set of ROS packages written in Python and C++ together with external dependencies.
+FAROL (Free Autonomous Robots for Observations and Labelling) is the core software of NetMARSys Toolchain developed at DSOR - ISR (Dynamical Systems for Ocean Robotics - Institute for System Robotics) research group. It is used for simulations and field trials of actual marine vehicles (ASVs, AUVs and ROVs). It comprises a set of ROS packages written in Python and C++ together with external dependencies, please see [Repository Structure](https://dsor-isr.github.io/farol/pages/get_started/Repository-Structure/) for detailed information.
 
-Currently the DSOR vehicles run Ubuntu 18.04 with ROS Melodic and the stack supports and is actively tested on Ubuntu 20.04 (Focal) with ROS Noetic. For this check out our repositories Farol Gazebo and Farol Simulation
+A simple dynamic model simulator is included with FAROL. It is also possible to connect FAROL to a Gazebo simulator with more advanced sensor models, actuators and dynamics. For this check out our repositories
+[Farol Gazebo](https://github.com/dsor-isr/farol_gazebo). For a quick setup please check [DSOR Simulation](https://github.com/dsor-isr/dsor_simulation) repository.
 
-A simple vehicle dynamic model simulator is included with the stack. It is possible to connect the stack to a Gazebo simulator for access to advanced sensor models, actuators and dynamics.
+Currently FAROL acts as the pivotal piece in the control, navigation and communications of the following DSOR marine vehicles:
+* [Medusa](http://dsor.isr.ist.utl.pt/vehicles/medusa/)
+* [BlueRov2](https://bluerobotics.com/store/rov/bluerov2/)
+* [Delfim](https://welcome.isr.tecnico.ulisboa.pt/wp-content/uploads/2015/05/1501_MED06_DELFIM.pdf)
 
-The software is currently hosted at bitbucket.org and set as private to the DSOR group. A migration for Github and public repositories is envisioned to happen soon.
 
-## Platforms
+## Requirements
+This code stack was developed with ROS1 in mind. In order to use it, you are required to have:
 
-The stack runs natively in Linux (Ubuntu 20.04LTS) and you will need a ROS NOETIC capable operative system. 
-
-- **Linux users** should consider using a distribution supporting ROS Noetic, ideally Ubuntu 20.04. The farol stack can run on other OSs or ROS Melodic but support will soon cease.
-
-- For **Windows and macOS users** there are two alternatives:
-    - Install a virtualization software (Virtualbox, VMware, Parallels) and create a virtual machine where you will install Ubuntu.
-
-- Install Docker Desktop for Windows/macOS and follow the instructions to run the Farol Stack in a docker container.
-
-- It is recommended to set up SSH keys and add them to your github account. This will enable you to interact with the DSOR software repositories without having to explicitly using your github credentials.
-
-- If you are connecting to another computer it is recommended to setup `ssh-agent` and key forwarding. This will give you passwordless access also on the computer you are connecting to.
+* Ubuntu 20.04LTS (64-bit)
+* ROS1 Noetic
+* Python 3
