@@ -17,7 +17,7 @@
     
     
       
-        <title>Repository Structure - Farol Documentation</title>
+        <title>Repository Structure - FAROL Documentation</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview-farol" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +86,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Farol Documentation" class="md-header__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="../../.." title="FAROL Documentation" class="md-header__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="../../../Images/icons/dsor.png" alt="logo">
 
@@ -93,7 +98,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Farol Documentation
+            FAROL Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -206,12 +211,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Farol Documentation" class="md-nav__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="../../.." title="FAROL Documentation" class="md-nav__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="../../../Images/icons/dsor.png" alt="logo">
 
     </a>
-    Farol Documentation
+    FAROL Documentation
   </label>
   
     <div class="md-nav__source">
@@ -296,9 +301,38 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Repository Structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Repository Structure
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-farol" class="md-nav__link">
+    Overview Farol
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -7119,6 +7153,21 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview-farol" class="md-nav__link">
+    Overview Farol
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7140,14 +7189,65 @@
 
   <h1>Repository Structure</h1>
 
-
+<h2 id="overview-farol">Overview Farol</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Package/Metapackage</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">3rd_party</td>
+<td align="left">ROS packages and messages from the ROS community.</td>
+</tr>
+<tr>
+<td align="center">farol_addons</td>
+<td align="left">Handy material common to all the stack like libraries, parsers, alias and bash scripts</td>
+</tr>
+<tr>
+<td align="center">farol_behaviors</td>
+<td align="left">State machines for vehicle missions</td>
+</tr>
+<tr>
+<td align="center">farol_bringup</td>
+<td align="left">Setup vehicle primitives and bringup architecture</td>
+</tr>
+<tr>
+<td align="center">farol_comms</td>
+<td align="left">Acoustic, radio, optical comms</td>
+</tr>
+<tr>
+<td align="center">farol_control</td>
+<td align="left">Inner and outer loops controllers.</td>
+</tr>
+<tr>
+<td align="center">farol_msgs</td>
+<td align="left">FAROL stack messages</td>
+</tr>
+<tr>
+<td align="center">farol_nav</td>
+<td align="left">Sensor fusion, navigation filter</td>
+</tr>
+<tr>
+<td align="center">farol_planning</td>
+<td align="left">Motion planning algorithms</td>
+</tr>
+<tr>
+<td align="center">farol_sim</td>
+<td align="left">Simple dynamic model and sensor simulation</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Farol Stack" src="../img/farol_stack.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 3, 2022</span>
       
     
   </small>

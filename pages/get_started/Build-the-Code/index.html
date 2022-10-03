@@ -17,7 +17,7 @@
     
     
       
-        <title>Build the Code - Farol Documentation</title>
+        <title>Build the Code - FAROL Documentation</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#compile-the-code" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +86,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Farol Documentation" class="md-header__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="../../.." title="FAROL Documentation" class="md-header__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="../../../Images/icons/dsor.png" alt="logo">
 
@@ -93,7 +98,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Farol Documentation
+            FAROL Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -206,12 +211,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Farol Documentation" class="md-nav__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="../../.." title="FAROL Documentation" class="md-nav__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="../../../Images/icons/dsor.png" alt="logo">
 
     </a>
-    Farol Documentation
+    FAROL Documentation
   </label>
   
     <div class="md-nav__source">
@@ -324,9 +329,58 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Build the Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Build the Code
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compile-the-code" class="md-nav__link">
+    Compile the code
+  </a>
+  
+    <nav class="md-nav" aria-label="Compile the code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-time" class="md-nav__link">
+    First Time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-first-time-and-using-alias" class="md-nav__link">
+    After first time and using alias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -7119,6 +7173,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#compile-the-code" class="md-nav__link">
+    Compile the code
+  </a>
+  
+    <nav class="md-nav" aria-label="Compile the code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-time" class="md-nav__link">
+    First Time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-first-time-and-using-alias" class="md-nav__link">
+    After first time and using alias
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7140,14 +7229,25 @@
 
   <h1>Build the Code</h1>
 
-
+<h2 id="compile-the-code">Compile the code</h2>
+<h3 id="first-time">First Time</h3>
+<pre><code>cd ~/&lt;path_to_workspace&gt;/&lt;catkin_ws&gt;/
+catkin build
+</code></pre>
+<h2 id="after-first-time-and-using-alias">After first time and using alias</h2>
+<pre><code>S
+farol_cb
+</code></pre>
+<p>Note: This can be done in any folder because the alias is the following:</p>
+<pre><code>alias farol_cb='roscd; catkin build; cd $OLDPWD'
+</code></pre>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 3, 2022</span>
       
     
   </small>

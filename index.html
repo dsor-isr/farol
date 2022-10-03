@@ -17,7 +17,7 @@
     
     
       
-        <title>Farol Documentation</title>
+        <title>FAROL Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#farol-base" class="md-skip">
+        <a href="#farol" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Farol Documentation" class="md-header__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="." title="FAROL Documentation" class="md-header__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="Images/icons/dsor.png" alt="logo">
 
@@ -98,7 +98,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Farol Documentation
+            FAROL Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -211,12 +211,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Farol Documentation" class="md-nav__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="." title="FAROL Documentation" class="md-nav__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="Images/icons/dsor.png" alt="logo">
 
     </a>
-    Farol Documentation
+    FAROL Documentation
   </label>
   
     <div class="md-nav__source">
@@ -250,9 +250,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         Introduction
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -7126,6 +7164,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7145,8 +7205,7 @@
 
 
 
-<h1 id="farol-base">Farol Base</h1>
-<p>This repository holds the Farol Base code stack for underwater marine vehicles of DSOR-ISR (Dynamical Systems for Ocean Robotics - Institute for System Robotics). It contains the base of the control and navigation stack found in the FAROL class of marine vehicles.</p>
+<h1 id="farol">FAROL</h1>
 <p><a href="https://ci.dsor.isr.tecnico.ulisboa.pt/job/GitHub%20DSOR/job/farol/job/main/"><img alt="Build Status" src="https://ci.dsor.isr.tecnico.ulisboa.pt/buildStatus/icon?job=GitHub+DSOR%2Ffarol%2Fmain" /></a>
 <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/dsor-isr/farol/main" />
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/dsor-isr/farol" />
@@ -7154,32 +7213,20 @@
 <a href="https://github.com/dsor-isr/farol/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/dsor-isr/farol" /></a>
 <a href="https://github.com/dsor-isr/farol/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/dsor-isr/farol" /></a>
 <a href="https://github.com/dsor-isr/farol/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/dsor-isr/farol?color=blue" /></a></p>
-<h1 id="introduction">Introduction</h1>
-<p>The Farol Base stack is the set of software utilities used at DSOR for simulation and field trials of actual marine vehicles. It comprises a set of ROS packages written in Python and C++ together with external dependencies.</p>
-<p>Currently the DSOR vehicles run Ubuntu 18.04 with ROS Melodic and the stack supports and is actively tested on Ubuntu 20.04 (Focal) with ROS Noetic. For this check out our repositories Farol Gazebo and Farol Simulation</p>
-<p>A simple vehicle dynamic model simulator is included with the stack. It is possible to connect the stack to a Gazebo simulator for access to advanced sensor models, actuators and dynamics.</p>
-<p>The software is currently hosted at bitbucket.org and set as private to the DSOR group. A migration for Github and public repositories is envisioned to happen soon.</p>
-<h2 id="platforms">Platforms</h2>
-<p>The stack runs natively in Linux (Ubuntu 20.04LTS) and you will need a ROS NOETIC capable operative system. </p>
+<h2 id="introduction">Introduction</h2>
+<p>FAROL (Free Autonomous Robots for Observations and Labelling) is the core software of NetMARSys Toolchain developed at DSOR - ISR (Dynamical Systems for Ocean Robotics - Institute for System Robotics) research group. It is used for simulations and field trials of actual marine vehicles (ASVs, AUVs and ROVs). It comprises a set of ROS packages written in Python and C++ together with external dependencies, please see <a href="https://dsor-isr.github.io/farol/pages/get_started/Repository-Structure/">Repository Structure</a> for detailed information.</p>
+<p>A simple dynamic model simulator is included with FAROL. It is also possible to connect FAROL to a Gazebo simulator with more advanced sensor models, actuators and dynamics. For this check out our repositories
+<a href="https://github.com/dsor-isr/farol_gazebo">Farol Gazebo</a>. For a quick setup please check <a href="https://github.com/dsor-isr/dsor_simulation">DSOR Simulation</a> repository.</p>
+<p>Currently FAROL acts as the pivotal piece in the control, navigation and communications of the following DSOR marine vehicles:
+* <a href="http://dsor.isr.ist.utl.pt/vehicles/medusa/">Medusa</a>
+* <a href="https://bluerobotics.com/store/rov/bluerov2/">BlueRov2</a>
+* <a href="https://welcome.isr.tecnico.ulisboa.pt/wp-content/uploads/2015/05/1501_MED06_DELFIM.pdf">Delfim</a></p>
+<h2 id="requirements">Requirements</h2>
+<p>This code stack was developed with ROS1 in mind. In order to use it, you are required to have:</p>
 <ul>
-<li>
-<p><strong>Linux users</strong> should consider using a distribution supporting ROS Noetic, ideally Ubuntu 20.04. The farol stack can run on other OSs or ROS Melodic but support will soon cease.</p>
-</li>
-<li>
-<p>For <strong>Windows and macOS users</strong> there are two alternatives:</p>
-<ul>
-<li>Install a virtualization software (Virtualbox, VMware, Parallels) and create a virtual machine where you will install Ubuntu.</li>
-</ul>
-</li>
-<li>
-<p>Install Docker Desktop for Windows/macOS and follow the instructions to run the Farol Stack in a docker container.</p>
-</li>
-<li>
-<p>It is recommended to set up SSH keys and add them to your github account. This will enable you to interact with the DSOR software repositories without having to explicitly using your github credentials.</p>
-</li>
-<li>
-<p>If you are connecting to another computer it is recommended to setup <code>ssh-agent</code> and key forwarding. This will give you passwordless access also on the computer you are connecting to.</p>
-</li>
+<li>Ubuntu 20.04LTS (64-bit)</li>
+<li>ROS1 Noetic</li>
+<li>Python 3</li>
 </ul>
 
   <hr>
@@ -7187,7 +7234,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 3, 2022</span>
       
     
   </small>

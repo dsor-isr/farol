@@ -17,7 +17,7 @@
     
     
       
-        <title>Install Guide - Farol Documentation</title>
+        <title>Install Guide - FAROL Documentation</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-ubuntu-and-ros-installation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +86,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Farol Documentation" class="md-header__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="../../.." title="FAROL Documentation" class="md-header__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="../../../Images/icons/dsor.png" alt="logo">
 
@@ -93,7 +98,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Farol Documentation
+            FAROL Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -206,12 +211,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Farol Documentation" class="md-nav__button md-logo" aria-label="Farol Documentation" data-md-component="logo">
+    <a href="../../.." title="FAROL Documentation" class="md-nav__button md-logo" aria-label="FAROL Documentation" data-md-component="logo">
       
   <img src="../../../Images/icons/dsor.png" alt="logo">
 
     </a>
-    Farol Documentation
+    FAROL Documentation
   </label>
   
     <div class="md-nav__source">
@@ -310,9 +315,52 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Install Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Install Guide
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ubuntu-and-ros-installation" class="md-nav__link">
+    1. Ubuntu and ROS installation:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-downloading-the-repository" class="md-nav__link">
+    2. Downloading the repository:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuring-the-dependencies" class="md-nav__link">
+    3. Configuring the dependencies:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -7119,6 +7167,35 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ubuntu-and-ros-installation" class="md-nav__link">
+    1. Ubuntu and ROS installation:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-downloading-the-repository" class="md-nav__link">
+    2. Downloading the repository:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuring-the-dependencies" class="md-nav__link">
+    3. Configuring the dependencies:
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -7140,49 +7217,55 @@
 
   <h1>Install Guide</h1>
 
-<p><ins><strong>1. Ubuntu and ROS installation:</strong></ins>
-1. Install Ubuntu 20.04LTS (https://releases.ubuntu.com/20.04)
-2. Install ROS 1 Noetic (http://wiki.ros.org/noetic/Installation/Ubuntu)
-3. Add the following Functions and Alias to your <code>.bashrc</code> file, to make development easier 🤓</p>
-<pre><code>1.  Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws
-    ```
-    if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config &amp;&amp; echo catkin_ws &gt; ~/.catkin_ws_config ;fi
-    ```
-2. Set the variable CATKIN_PACKAGE with the workspace in the catkin_ws_config file
-    ```
-    export CATKIN_PACKAGE=$(head -n 1 ~/.catkin_ws_config)
-    ```
-3. Function to update the default catkin workspace variable and store the last setting in the file
+<h2 id="1-ubuntu-and-ros-installation"><strong>1. Ubuntu and ROS installation:</strong></h2>
+<ol>
+<li>Install Ubuntu 20.04LTS (https://releases.ubuntu.com/20.04)</li>
+<li>Install ROS 1 Noetic (http://wiki.ros.org/noetic/Installation/Ubuntu)</li>
+<li>
+<p>Add the following Functions and Alias to your <code>.bashrc</code> file, to make development easier 🤓</p>
+<ol>
+<li>Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws
+    <code>if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config &amp;&amp; echo catkin_ws &gt; ~/.catkin_ws_config ;fi</code></li>
+<li>Set the variable CATKIN_PACKAGE with the workspace in the catkin_ws_config file
+    <code>export CATKIN_PACKAGE=$(head -n 1 ~/.catkin_ws_config)</code></li>
+<li>Function to update the default catkin workspace variable and store the last setting in the file
     ```
     set_catkin_ws_function() {
         #set CATKIN_PACKAGE according the an input parameter
         export CATKIN_PACKAGE=catkin_ws_$1
-        echo CATKIN_PACKAGE = ${CATKIN_PACKAGE}
-
-        # save into a hidden file the catkin workspace setting
-        echo $CATKIN_PACKAGE &gt; ~/.catkin_ws_config
-        source ~/.bashrc
-    }
-    ```
-4. This is required (to source the ROS and farol files)
-    ```
-    source /opt/ros/noetic/setup.bash
-    export CATKIN_ROOT=${HOME}/&lt;path_to_workspace&gt;
-    export ROS_WORKSPACE=${CATKIN_ROOT}/${CATKIN_PACKAGE}
-    export FAROL_SCRIPTS=$(find ${ROS_WORKSPACE}/src/ -type d -iname farol_scripts | head -n 1)
-    source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh
-    ```
+        echo CATKIN_PACKAGE = ${CATKIN_PACKAGE}<pre><code># save into a hidden file the catkin workspace setting
+echo $CATKIN_PACKAGE &gt; ~/.catkin_ws_config
+source ~/.bashrc
 </code></pre>
-<p>NOTE: replace <code>/&lt;path_to_workspace&gt;</code> with the folder where you put you catkin_ws inside (for example <code>/dsor</code>). If you put in your home folder, then this variable should be left empty!</p>
-<ol>
-<li>Create a catkin_ws directory</li>
+<p>}
+<code>4. This is required (to source the ROS and farol files)</code>
+source /opt/ros/noetic/setup.bash
+export CATKIN_ROOT=<span class="arithmatex">\({HOME}/&lt;path_to_workspace&gt;
+export ROS_WORKSPACE=\)</span>{CATKIN_ROOT}/<span class="arithmatex">\({CATKIN_PACKAGE}
+export FAROL_SCRIPTS=\)</span>(find ${ROS_WORKSPACE}/src/ -type d -iname farol_scripts | head -n 1)
+source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh
+<code>``
+NOTE: replace</code>/<path_to_workspace><code>with the folder where you put you catkin_ws inside (for example</code>/dsor`). If you put in your home folder, then this variable should be left empty!</p>
+</li>
 </ol>
-<p><ins><strong>2. Downloading the repository:</strong></ins></p>
+</li>
+<li>
+<p>Create a catkin_ws directory</p>
+</li>
+</ol>
+<pre><code>cd ~
+mkdir -p &lt;path_to_workspace&gt;/catkin_ws_farol/src
+cd &lt;path_to_workspace&gt;/catkin_ws_farol/src
+</code></pre>
+<h2 id="2-downloading-the-repository"><strong>2. Downloading the repository:</strong></h2>
 <p>Start by cloning the repository with <code>git clone --recursive https://github.com/dsor-isr/farol</code>.</p>
 <p>If the repository was cloned non-recursively previously, use <code>git submodule update --init</code> to clone the necessary submodules.</p>
-<p><ins><strong>3. Configuring the dependencies:</strong></ins>
-Run the installation bash script using</p>
-<pre><code>./
+<h2 id="3-configuring-the-dependencies"><strong>3. Configuring the dependencies:</strong></h2>
+<p>Run the installation bash script using</p>
+<pre><code>cd ~
+wget /https://github.com/dsor-isr/farol/blob/main/farol_addons/farol_docker/install_requirements.sh
+./install_requirements.sh
+rm install_requirements.sh
 </code></pre>
 
   <hr>
@@ -7190,7 +7273,7 @@ Run the installation bash script using</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 3, 2022</span>
       
     
   </small>
