@@ -224,6 +224,19 @@
         </inbodydescription>
         <location file="include/UsblFix2Pos.h" line="70" column="11" bodyfile="include/UsblFix2Pos.h" bodystart="70" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classUsblFix2Pos_1a7de8a80b5e749a55e6c7f62d6bcea878" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string UsblFix2Pos::name_vehicle_id_</definition>
+        <argsstring></argsstring>
+        <name>name_vehicle_id_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/UsblFix2Pos.h" line="71" column="15" bodyfile="include/UsblFix2Pos.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="classUsblFix2Pos_1af72e45a4f8e979898f88babb3c83fa48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -273,7 +286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="75" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="43" bodyend="53"/>
+        <location file="include/UsblFix2Pos.h" line="76" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="43" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1a7e22cede40a3b6a88f089e508e0c6759" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -286,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="76" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="58" bodyend="67"/>
+        <location file="include/UsblFix2Pos.h" line="77" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="58" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1a34bde3921a7ec994c0a7c10980a7cb43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -299,7 +312,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="77" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="72" bodyend="74"/>
+        <location file="include/UsblFix2Pos.h" line="78" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="72" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1add93311101d42c2e25e57da649b7713c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -312,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="78" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="79" bodyend="84"/>
+        <location file="include/UsblFix2Pos.h" line="79" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="79" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1a40334b8b35f8d67be041cb6263e36b1e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -329,7 +342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="89" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="130" bodyend="215"/>
+        <location file="include/UsblFix2Pos.h" line="90" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="131" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1a450ee20bbc7640fa918456aaa14cc92c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -346,7 +359,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="96" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="217" bodyend="231"/>
+        <location file="include/UsblFix2Pos.h" line="97" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="218" bodyend="232"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1ac2e980ebd2d2e5340bd02e60dfe398c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -369,7 +382,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="107" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="104" bodyend="109"/>
+        <location file="include/UsblFix2Pos.h" line="108" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="105" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1a4888e81fdb5240edbc16cb3d3aa2875a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -392,7 +405,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="109" column="8" bodyfile="src/UsblFix2Pos.cpp" bodystart="111" bodyend="128"/>
+        <location file="include/UsblFix2Pos.h" line="110" column="8" bodyfile="src/UsblFix2Pos.cpp" bodystart="112" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="classUsblFix2Pos_1a0da8155368c2243b31805b8862020cfc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -409,14 +422,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/UsblFix2Pos.h" line="112" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="86" bodyend="98"/>
+        <location file="include/UsblFix2Pos.h" line="113" column="6" bodyfile="src/UsblFix2Pos.cpp" bodystart="87" bodyend="99"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/UsblFix2Pos.h" line="30" column="1" bodyfile="include/UsblFix2Pos.h" bodystart="29" bodyend="114"/>
+    <location file="include/UsblFix2Pos.h" line="30" column="1" bodyfile="include/UsblFix2Pos.h" bodystart="29" bodyend="115"/>
     <listofallmembers>
       <member refid="classUsblFix2Pos_1a4888e81fdb5240edbc16cb3d3aa2875a" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>getEstLatLon</name></member>
       <member refid="classUsblFix2Pos_1a2be0807196c46e6655458397d7324d76" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>initialized</name></member>
@@ -426,6 +439,7 @@
       <member refid="classUsblFix2Pos_1aed99f2557e0b9c3fe6873932edf8c9fe" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>list_cleaner_timer</name></member>
       <member refid="classUsblFix2Pos_1a0da8155368c2243b31805b8862020cfc" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>listTimerCallback</name></member>
       <member refid="classUsblFix2Pos_1add93311101d42c2e25e57da649b7713c" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>loadParams</name></member>
+      <member refid="classUsblFix2Pos_1a7de8a80b5e749a55e6c7f62d6bcea878" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>name_vehicle_id_</name></member>
       <member refid="classUsblFix2Pos_1a14b6feb6546e60c6cda90bbee58a5701" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>nh_</name></member>
       <member refid="classUsblFix2Pos_1afae1be5b3f4843c326e4ed86fb166f4f" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>nh_private_</name></member>
       <member refid="classUsblFix2Pos_1ae01721c1be25ab2ab98b0f757f9485cf" prot="private" virt="non-virtual"><scope>UsblFix2Pos</scope><name>p_fix_type</name></member>

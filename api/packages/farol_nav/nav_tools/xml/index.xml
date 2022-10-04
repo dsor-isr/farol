@@ -107,6 +107,7 @@
     <member refid="classUsblFix2Pos_1a143cff6e194fb0ba1e30281a8bb0d907" kind="variable"><name>state_var</name></member>
     <member refid="classUsblFix2Pos_1ad05e7f02774d5e66f143851050099169" kind="variable"><name>state_lat_lon</name></member>
     <member refid="classUsblFix2Pos_1a292bc04f1ee26ef502c7f3b18d62710e" kind="variable"><name>usblfix_list</name></member>
+    <member refid="classUsblFix2Pos_1a7de8a80b5e749a55e6c7f62d6bcea878" kind="variable"><name>name_vehicle_id_</name></member>
     <member refid="classUsblFix2Pos_1af72e45a4f8e979898f88babb3c83fa48" kind="function"><name>UsblFix2Pos</name></member>
     <member refid="classUsblFix2Pos_1a7cbba2ae2dee65ff603d65f593b4834e" kind="function"><name>~UsblFix2Pos</name></member>
     <member refid="classUsblFix2Pos_1a32c9f8efba755b07dbaecbbc1e3fa43c" kind="function"><name>initializeSubscribers</name></member>
