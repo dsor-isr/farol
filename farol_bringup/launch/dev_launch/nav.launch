@@ -40,7 +40,9 @@
 
         <!-- nav_tools: convert (mUSBLFix) Spherical coordinates to Position -->
         <group if="$(arg usbl2pos)">
-            <node pkg="nav_tools" type="usbl_to_pos" name="usbl2pos" respawn="true" output="screen" />
+          <node pkg="nav_tools" type="usbl_to_pos" name="usbl2pos" respawn="true" output="screen">
+            <param name="name_vehicle_id"   value="$(arg name)$(arg vehicle_id)"/> 
+          </node>
         </group>
 
         <!-- nav_tools: convert auv_msgs::NavigationStatus state to farol_msgs::mState -->

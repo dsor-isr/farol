@@ -81,6 +81,7 @@ void UsblFix2Pos::loadParams() {
   p_t_sync   = FarolGimmicks::getParameters<int>(nh_private_, "t_sync", 2);
   p_fix_type = FarolGimmicks::getParameters<bool>(nh_private_, "fix_type", true);
   p_meas_noise = FarolGimmicks::getParameters<double>(nh_private_, "meas_noise", true);
+  name_vehicle_id_ = FarolGimmicks::getParameters<std::string>(nh_private_, "name_vehicle_id");
 }
 
 void UsblFix2Pos::listTimerCallback(const ros::TimerEvent &event) {
@@ -201,7 +202,7 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     // Publish final pose
     dsor_msgs::Measurement pose_fix;
     pose_fix.header.stamp = usbl.header.stamp;
-    pose_fix.header.frame_id = usbl.header.frame_id;
+    pose_fix.header.frame_id = name_vehicle_id_ + '_' + usbl.header.frame_id;
     // set position
     pose_fix.value.push_back(state[0] + cartesian[0]);
     pose_fix.value.push_back(state[1] + cartesian[1]);

@@ -68,6 +68,7 @@ private:
 	bool initialized;
 	double state_stamp, state[2], state_var[2], state_lat_lon[2];
 	std::list<farol_msgs::mUSBLFix> usblfix_list;
+  std::string name_vehicle_id_;
 
     // #######################################################################################
 	// @.@ Encapsulation the gory details of initializing subscribers, publishers and services
