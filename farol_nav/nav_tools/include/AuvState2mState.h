@@ -17,8 +17,9 @@ Developers: DSOR Team -> @isr.ist.pt Instituto Superior Tecnico
 // ROS messages and stuff
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_msgs/mState.h>
-#include <farol_msgs/Pressure.h>
+//#include <farol_msgs/Pressure.h>
 #include <sensor_msgs/NavSatFix.h>
+#include <std_msgs/Float32.h>
 
 // Farol Libraries and msgs
 #include <farol_gimmicks_library/FarolGimmicks.h>
@@ -53,7 +54,7 @@ private:
 	ros::NodeHandle nh_, nh_private_;
 
 	// @.@ Subsctibers
-    ros::Subscriber sub_inside_pressure_, sub_auv_state_, sub_gps_status_;
+    ros::Subscriber sub_inside_pressure_filtered_, sub_inside_pressure_rate_, sub_auv_state_, sub_gps_status_;
 
 	// @.@ Publishers
 	ros::Publisher mstate_pub_;
@@ -62,9 +63,9 @@ private:
 	ros::Timer timer_in_pressure_;
 
 	// +.+ Problem variables
-	farol_msgs::Pressure in_pressure;
-	LowPassFilter* insidePressure;
-	double in_press, in_press_dot;
+	//farol_msgs::Pressure in_pressure;
+	//LowPassFilter* insidePressure;
+	float in_press_, in_press_dot_;
 	unsigned int gps_status_{1};
 
   /* -------------------------------------------------------------------------*/
@@ -111,7 +112,18 @@ private:
    * @Param msg
    */
   /* -------------------------------------------------------------------------*/
-	void insidePressureCallback(const farol_msgs::Pressure &msg);
+	//void insidePressureCallback(const farol_msgs::Pressure &msg);
+  void insidePressureFilteredCallback(const std_msgs::Float32 &msg);
+
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief  
+   *
+   * @param msg
+   */
+  /* -------------------------------------------------------------------------*/
+  void insidePressureRateCallback(const std_msgs::Float32 &msg);
   
   /* -------------------------------------------------------------------------*/
   /**
@@ -129,7 +141,7 @@ private:
    * @Param event
    */
   /* -------------------------------------------------------------------------*/
-  void insidePressureTimer(const ros::TimerEvent& event);
+  //void insidePressureTimer(const ros::TimerEvent& event);
 
 };
 #endif //AuvState2mState_H
