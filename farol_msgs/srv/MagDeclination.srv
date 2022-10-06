@@ -1,4 +1,0 @@
-float64 lat #deg
-float64 lon #deg
----
-float64 declination #deg

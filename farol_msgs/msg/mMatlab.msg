@@ -1,6 +1,0 @@
-Header header
-float64 CycleTime
-float64 MATLAB_Value1
-float64 MATLAB_Value2
-float64 MATLAB_Value3
-float64 MATLAB_Value4

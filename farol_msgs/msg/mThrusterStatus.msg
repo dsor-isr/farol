@@ -1,9 +1,0 @@
-Header header
-int16 Speed
-float64 Current
-float64 Temperature
-uint8 Errors
-uint8 OVERTEMP=1
-uint8 STALLMOTOR=2
-uint8 HALLSENSOR=4
-uint8 LEAK=8
