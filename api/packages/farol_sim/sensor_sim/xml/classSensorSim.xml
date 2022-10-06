@@ -98,19 +98,6 @@
         </inbodydescription>
         <location file="include/SensorSim.h" line="98" column="30" bodyfile="include/SensorSim.h" bodystart="98" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classSensorSim_1a8079457d48093e4a7e3c324b00dc5272" prot="private" static="no" mutable="no">
-        <type>ros::Subscriber</type>
-        <definition>ros::Subscriber SensorSim::sub_thruster</definition>
-        <argsstring></argsstring>
-        <name>sub_thruster</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/SensorSim.h" line="98" column="40" bodyfile="include/SensorSim.h" bodystart="98" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a618da567f09dc9816784ae09ed1ac1fa" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
         <definition>ros::Subscriber SensorSim::HSB_T</definition>
@@ -243,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="107" column="16" bodyfile="include/SensorSim.h" bodystart="107" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="107" column="14" bodyfile="include/SensorSim.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a2b877aab048863dcd2d5e0bba5f70428" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -257,7 +244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="109" column="10" bodyfile="include/SensorSim.h" bodystart="109" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="109" column="8" bodyfile="include/SensorSim.h" bodystart="109" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a7bd3aff851a9fb315774c5c4ea244233" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -271,7 +258,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="110" column="10" bodyfile="include/SensorSim.h" bodystart="110" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="110" column="8" bodyfile="include/SensorSim.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1ac4a4e8519908a615acf18e115b560cf0" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -284,7 +271,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="111" column="24" bodyfile="include/SensorSim.h" bodystart="111" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="111" column="22" bodyfile="include/SensorSim.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a4084e1e5eb2c1d87c74d5dbab2c5b384" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -297,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="112" column="24" bodyfile="include/SensorSim.h" bodystart="112" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="112" column="22" bodyfile="include/SensorSim.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a4853955c4b490fe5e373a6fe029ca1c7" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -390,19 +377,6 @@
         </inbodydescription>
         <location file="include/SensorSim.h" line="118" column="16" bodyfile="include/SensorSim.h" bodystart="118" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classSensorSim_1a28103f751bdc4c145a8f98bbc2eb743d" prot="private" static="no" mutable="no">
-        <type>ros::Publisher</type>
-        <definition>ros::Publisher SensorSim::pub_thrustStatus</definition>
-        <argsstring></argsstring>
-        <name>pub_thrustStatus</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/SensorSim.h" line="118" column="30" bodyfile="include/SensorSim.h" bodystart="118" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a0dbc075a49e1b22ab3323888a48d9eb3" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
         <definition>ros::Timer SensorSim::timer_sensor</definition>
@@ -414,7 +388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="123" column="16" bodyfile="include/SensorSim.h" bodystart="123" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="123" column="14" bodyfile="include/SensorSim.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a7b526b227587ae49a2fc05f1b64103fe" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
@@ -427,7 +401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="124" column="16" bodyfile="include/SensorSim.h" bodystart="124" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="124" column="14" bodyfile="include/SensorSim.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a01c621d038f0bb201ba671bbf34deb34" prot="private" static="no" mutable="no">
         <type>tf2_ros::Buffer</type>
@@ -453,7 +427,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="127" column="32" bodyfile="include/SensorSim.h" bodystart="127" bodyend="-1"/>
+        <location file="include/SensorSim.h" line="127" column="30" bodyfile="include/SensorSim.h" bodystart="127" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classSensorSim_1a79b2bfde2ca9dfe012fd891829112183" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -632,7 +606,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="82" column="1" bodyfile="src/SensorSim.cpp" bodystart="27" bodyend="45"/>
+        <location file="include/SensorSim.h" line="82" column="1" bodyfile="src/SensorSim.cpp" bodystart="27" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a04256904a90cce2d7ca8356d56b90146" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -645,7 +619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="87" column="8" bodyfile="src/SensorSim.cpp" bodystart="96" bodyend="102"/>
+        <location file="include/SensorSim.h" line="87" column="8" bodyfile="src/SensorSim.cpp" bodystart="95" bodyend="101"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -728,7 +702,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="153" column="6" bodyfile="src/SensorSim.cpp" bodystart="54" bodyend="57"/>
+        <location file="include/SensorSim.h" line="153" column="6" bodyfile="src/SensorSim.cpp" bodystart="53" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a781ca547a7276dc514854985305d5a7f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -741,7 +715,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="154" column="6" bodyfile="src/SensorSim.cpp" bodystart="64" bodyend="73"/>
+        <location file="include/SensorSim.h" line="154" column="6" bodyfile="src/SensorSim.cpp" bodystart="63" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1aacb6bc558b7b1d5a697a911e56e0ea4d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -754,7 +728,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="155" column="8" bodyfile="src/SensorSim.cpp" bodystart="75" bodyend="80"/>
+        <location file="include/SensorSim.h" line="155" column="8" bodyfile="src/SensorSim.cpp" bodystart="74" bodyend="79"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a0c94f410457d33997198dc859dd8c1f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -767,7 +741,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="156" column="6" bodyfile="src/SensorSim.cpp" bodystart="87" bodyend="89"/>
+        <location file="include/SensorSim.h" line="156" column="6" bodyfile="src/SensorSim.cpp" bodystart="86" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a48d1b5cbeb2427e4318a8b2fc5d5a4f6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -780,7 +754,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="157" column="6" bodyfile="src/SensorSim.cpp" bodystart="109" bodyend="141"/>
+        <location file="include/SensorSim.h" line="157" column="6" bodyfile="src/SensorSim.cpp" bodystart="108" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1ade703252ad62252da2a3a7a3e6d55175" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -797,7 +771,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="162" column="6" bodyfile="src/SensorSim.cpp" bodystart="154" bodyend="197"/>
+        <location file="include/SensorSim.h" line="162" column="6" bodyfile="src/SensorSim.cpp" bodystart="153" bodyend="196"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a6afee802845a629ad3f998c01861e5a8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -848,7 +822,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="165" column="6" bodyfile="src/SensorSim.cpp" bodystart="204" bodyend="246"/>
+        <location file="include/SensorSim.h" line="165" column="6" bodyfile="src/SensorSim.cpp" bodystart="203" bodyend="245"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1af89b32896ca9e2947c9eb116fe94dc75" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -884,23 +858,6 @@
         </inbodydescription>
         <location file="include/SensorSim.h" line="167" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="classSensorSim_1ae03ef2cfa40a8d7b3e970d540a1201f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void SensorSim::thrustStatusCallback</definition>
-        <argsstring>(dsor_msgs::Thruster data)</argsstring>
-        <name>thrustStatusCallback</name>
-        <param>
-          <type>dsor_msgs::Thruster</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="include/SensorSim.h" line="168" column="6" bodyfile="src/SensorSim.cpp" bodystart="248" bodyend="257"/>
-      </memberdef>
       <memberdef kind="function" id="classSensorSim_1a4d21ca96680b0a164108d287d5c82025" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool SensorSim::enableDVLService</definition>
@@ -920,7 +877,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="169" column="10" bodyfile="src/SensorSim.cpp" bodystart="259" bodyend="273"/>
+        <location file="include/SensorSim.h" line="169" column="8" bodyfile="src/SensorSim.cpp" bodystart="258" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a6b45cf663e25af0d9181bd50dc0268b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -941,7 +898,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="170" column="10" bodyfile="src/SensorSim.cpp" bodystart="275" bodyend="289"/>
+        <location file="include/SensorSim.h" line="170" column="8" bodyfile="src/SensorSim.cpp" bodystart="274" bodyend="288"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1aec8cc80e53de153bc9c18382dd83c019" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -966,7 +923,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="176" column="6" bodyfile="src/SensorSim.cpp" bodystart="317" bodyend="364"/>
+        <location file="include/SensorSim.h" line="176" column="6" bodyfile="src/SensorSim.cpp" bodystart="316" bodyend="363"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a5d631b2839d7c07d038abbdb27dab5f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -991,7 +948,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="177" column="6" bodyfile="src/SensorSim.cpp" bodystart="366" bodyend="384"/>
+        <location file="include/SensorSim.h" line="177" column="6" bodyfile="src/SensorSim.cpp" bodystart="365" bodyend="383"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a4b7b63656a4f8ede74f5159018f5e4de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1016,7 +973,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="178" column="6" bodyfile="src/SensorSim.cpp" bodystart="386" bodyend="393"/>
+        <location file="include/SensorSim.h" line="178" column="6" bodyfile="src/SensorSim.cpp" bodystart="385" bodyend="392"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a70136da9933667ae019081ab810cbf01" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -1037,7 +994,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="179" column="8" bodyfile="src/SensorSim.cpp" bodystart="396" bodyend="417"/>
+        <location file="include/SensorSim.h" line="179" column="8" bodyfile="src/SensorSim.cpp" bodystart="395" bodyend="416"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1ab09af1d265ed3bdb9182b1ce92bf5992" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; Sensor &gt;</type>
@@ -1054,7 +1011,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="181" column="13" bodyfile="src/SensorSim.cpp" bodystart="291" bodyend="315"/>
+        <location file="include/SensorSim.h" line="181" column="13" bodyfile="src/SensorSim.cpp" bodystart="290" bodyend="314"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1aaeb0ef782db45a688f1877f657307b43" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1075,7 +1032,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/SensorSim.h" line="183" column="6" bodyfile="src/SensorSim.cpp" bodystart="419" bodyend="432"/>
+        <location file="include/SensorSim.h" line="183" column="6" bodyfile="src/SensorSim.cpp" bodystart="418" bodyend="431"/>
       </memberdef>
       <memberdef kind="function" id="classSensorSim_1a52c33bab9ce1b4600b5c1a5ba72bc304" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1154,7 +1111,6 @@
       <member refid="classSensorSim_1a4853955c4b490fe5e373a6fe029ca1c7" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>pub_position</name></member>
       <member refid="classSensorSim_1a0c00191530e4b4221a70fc60e1cf99e5" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>pub_range</name></member>
       <member refid="classSensorSim_1a8b6d4ae353535356701a939ef11ca2b2" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>pub_thrusters</name></member>
-      <member refid="classSensorSim_1a28103f751bdc4c145a8f98bbc2eb743d" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>pub_thrustStatus</name></member>
       <member refid="classSensorSim_1ab9eb0f6f7476c5f7d93872258254c2e1" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>pub_velocity</name></member>
       <member refid="classSensorSim_1a70136da9933667ae019081ab810cbf01" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>randn</name></member>
       <member refid="classSensorSim_1a52c33bab9ce1b4600b5c1a5ba72bc304" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>readXML</name></member>
@@ -1168,13 +1124,11 @@
       <member refid="classSensorSim_1ac7b493f32f12e269f0ff7f8dfe8fc375" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>stateCallback</name></member>
       <member refid="classSensorSim_1a5c8afe10e302218c618bd3349e48145e" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>sub_odometry</name></member>
       <member refid="classSensorSim_1a8e89072f3b240b54561d92e0ab7c6ad7" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>sub_reset</name></member>
-      <member refid="classSensorSim_1a8079457d48093e4a7e3c324b00dc5272" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>sub_thruster</name></member>
       <member refid="classSensorSim_1aecb72a316c06cd7343f4a665f2cca070" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>t_latest</name></member>
       <member refid="classSensorSim_1a01c621d038f0bb201ba671bbf34deb34" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>tfBuffer</name></member>
       <member refid="classSensorSim_1ab6984693dc0478c6067b42f0e5643f47" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>tfListener</name></member>
       <member refid="classSensorSim_1a7f14bd414ed95916fc036fa4cdb3e99e" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>thrust2TimerCallback</name></member>
       <member refid="classSensorSim_1a4a2133e38557d0041f65610b60b6b007" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>thrustCallback</name></member>
-      <member refid="classSensorSim_1ae03ef2cfa40a8d7b3e970d540a1201f5" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>thrustStatusCallback</name></member>
       <member refid="classSensorSim_1a6afee802845a629ad3f998c01861e5a8" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>thrustTimerCallback</name></member>
       <member refid="classSensorSim_1a0dbc075a49e1b22ab3323888a48d9eb3" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>timer_sensor</name></member>
       <member refid="classSensorSim_1a7b526b227587ae49a2fc05f1b64103fe" prot="private" virt="non-virtual"><scope>SensorSim</scope><name>timer_thrust</name></member>

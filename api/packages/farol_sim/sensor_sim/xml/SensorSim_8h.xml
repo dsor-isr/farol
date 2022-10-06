@@ -10,7 +10,6 @@
     <includes local="no">dsor_msgs/Measurement.h</includes>
     <includes local="no">dsor_msgs/Thruster.h</includes>
     <includes local="no">farol_msgs/mUSBLFix.h</includes>
-    <includes local="no">farol_msgs/mThrusterStatus.h</includes>
     <includes local="no">auv_msgs/NavigationStatus.h</includes>
     <includes local="no">geometry_msgs/TransformStamped.h</includes>
     <includes local="no">std_srvs/SetBool.h</includes>
@@ -30,7 +29,7 @@
       <node id="6">
         <label>nav_msgs/Odometry.h</label>
       </node>
-      <node id="11">
+      <node id="10">
         <label>auv_msgs/NavigationStatus.h</label>
       </node>
       <node id="4">
@@ -71,25 +70,20 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>GeographicLib/UTMUPS.hpp</label>
-      </node>
-      <node id="10">
-        <label>farol_msgs/mThrusterStatus.h</label>
       </node>
       <node id="9">
         <label>farol_msgs/mUSBLFix.h</label>
       </node>
-      <node id="12">
+      <node id="11">
         <label>geometry_msgs/TransformStamped.h</label>
       </node>
-      <node id="13">
+      <node id="12">
         <label>std_srvs/SetBool.h</label>
       </node>
-      <node id="16">
+      <node id="15">
         <label>std_msgs/Empty.h</label>
       </node>
       <node id="5">
@@ -98,16 +92,16 @@
       <node id="2">
         <label>ros/ros.h</label>
       </node>
-      <node id="15">
+      <node id="14">
         <label>std_msgs/String.h</label>
       </node>
-      <node id="17">
+      <node id="16">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
       <node id="3">
         <label>tf2_ros/transform_listener.h</label>
       </node>
-      <node id="14">
+      <node id="13">
         <label>std_msgs/Int8.h</label>
       </node>
     </incdepgraph>
@@ -149,7 +143,7 @@
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_msgs/Measurement.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_msgs/Thruster.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_msgs/mUSBLFix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_msgs/mThrusterStatus.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&lt;farol_msgs/mThrusterStatus.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;auv_msgs/NavigationStatus.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;geometry_msgs/TransformStamped.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_srvs/SetBool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
@@ -229,7 +223,7 @@
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#####################</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@.@<sp/>Subsctibers</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#####################</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Subscriber<sp/>sub_odometry,<sp/>sub_reset,<sp/>sub_thruster;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Subscriber<sp/>sub_odometry,<sp/>sub_reset;<sp/></highlight><highlight class="comment">//sub_thruster;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Subscriber<sp/>HSB_T,<sp/>HPS_T,<sp/>VSB_T,<sp/>VPS_T;</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>HSB=0,HPS=0,VSB=0,VPS=0;</highlight></codeline>
@@ -238,27 +232,27 @@
 <codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>HPS_Callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Int8&amp;<sp/>ptr);</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>VSB_Callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Int8&amp;<sp/>ptr);</highlight></codeline>
 <codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>VPS_Callback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Int8&amp;<sp/>ptr);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Timer<sp/>timer_thrust2;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>ros::Timer<sp/>timer_thrust2;</highlight></codeline>
 <codeline lineno="108"><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enable_dvl_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enable_altimeter_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::ServiceServer<sp/>enable_dvl_srv_;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::ServiceServer<sp/>enable_altimeter_srv_;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enable_dvl_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enable_altimeter_{</highlight><highlight class="keyword">true</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>enable_dvl_srv_;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>enable_altimeter_srv_;</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"></highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#####################</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@.@<sp/>Publishers</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#####################</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>pub_position,<sp/>pub_velocity,<sp/>pub_orientation,<sp/>pub_range,<sp/>pub_model,<sp/>pub_gnss;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>pub_thrusters,<sp/>pub_thrustStatus;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>pub_thrusters;<sp/></highlight><highlight class="comment">//,<sp/>pub_thrustStatus;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#######################</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>@.@<sp/>Timer</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#######################</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Timer<sp/>timer_sensor;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Timer<sp/>timer_thrust;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>ros::Timer<sp/>timer_sensor;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>ros::Timer<sp/>timer_thrust;</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"></highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>tf2_ros::Buffer<sp/>tfBuffer;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>tf2_ros::TransformListener<sp/>*tfListener;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>tf2_ros::TransformListener<sp/>*tfListener;</highlight></codeline>
 <codeline lineno="128"><highlight class="normal"></highlight></codeline>
 <codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>####################################################################################################################</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>member<sp/>variable:<sp/>better<sp/>than<sp/>using<sp/>globals;<sp/>convenient<sp/>way<sp/>to<sp/>pass<sp/>data<sp/>from<sp/>a<sp/>subscriber<sp/>to<sp/>other<sp/>member<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
@@ -299,9 +293,9 @@
 <codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>stateCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>nav_msgs::Odometry<sp/>&amp;msg);</highlight></codeline>
 <codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Empty<sp/>&amp;msg);</highlight></codeline>
 <codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>thrustCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dsor_msgs::Thruster<sp/>&amp;msg);</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>thrustStatusCallback(dsor_msgs::Thruster<sp/>data);</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enableDVLService(std_srvs::SetBool::Request<sp/>&amp;req,<sp/>std_srvs::SetBool::Response<sp/>&amp;res);</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enableAltimeterService(std_srvs::SetBool::Request<sp/>&amp;req,<sp/>std_srvs::SetBool::Response<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//void<sp/>thrustStatusCallback(dsor_msgs::Thruster<sp/>data);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enableDVLService(std_srvs::SetBool::Request<sp/>&amp;req,<sp/>std_srvs::SetBool::Response<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enableAltimeterService(std_srvs::SetBool::Request<sp/>&amp;req,<sp/>std_srvs::SetBool::Response<sp/>&amp;res);</highlight></codeline>
 <codeline lineno="171"><highlight class="normal"></highlight></codeline>
 <codeline lineno="172"><highlight class="normal"></highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#######################################################################################</highlight><highlight class="normal"></highlight></codeline>

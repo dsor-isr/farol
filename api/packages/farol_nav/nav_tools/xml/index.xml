@@ -3,15 +3,14 @@
   <compound refid="classAuvState2mState" kind="class"><name>AuvState2mState</name>
     <member refid="classAuvState2mState_1a53a4d94c91397a21c528ec13525ef5af" kind="variable"><name>nh_</name></member>
     <member refid="classAuvState2mState_1a6367e5b71988e31eae5195d012fc2cb7" kind="variable"><name>nh_private_</name></member>
-    <member refid="classAuvState2mState_1a0614aee09b75a71ccd29eb1ba41c19e6" kind="variable"><name>sub_inside_pressure_</name></member>
+    <member refid="classAuvState2mState_1a4706b2d33db9c9a6184b105321b0103b" kind="variable"><name>sub_inside_pressure_filtered_</name></member>
+    <member refid="classAuvState2mState_1aa7fba0988d4e955cb719ff53ba1a63a9" kind="variable"><name>sub_inside_pressure_rate_</name></member>
     <member refid="classAuvState2mState_1a52f7fd67ff1b362d8ce37a7bacaef436" kind="variable"><name>sub_auv_state_</name></member>
     <member refid="classAuvState2mState_1a11f98c3360a6ccbc018e0f9d21849c84" kind="variable"><name>sub_gps_status_</name></member>
     <member refid="classAuvState2mState_1a09aac037a9a3625482c4191359fe7a85" kind="variable"><name>mstate_pub_</name></member>
     <member refid="classAuvState2mState_1aeca3c01a3e49b6185b61da42f93d91a8" kind="variable"><name>timer_in_pressure_</name></member>
-    <member refid="classAuvState2mState_1aec717a64383410c62f78794ef86df414" kind="variable"><name>in_pressure</name></member>
-    <member refid="classAuvState2mState_1a1d31cb18bbc0b101908859d84a6bd87a" kind="variable"><name>insidePressure</name></member>
-    <member refid="classAuvState2mState_1a4a17fbb35d92398a58597ebe9f0d9de0" kind="variable"><name>in_press</name></member>
-    <member refid="classAuvState2mState_1ac55173d75166b9ce065112c0e46c8d77" kind="variable"><name>in_press_dot</name></member>
+    <member refid="classAuvState2mState_1ae49f4573934841f71a35efeb77d8c8cc" kind="variable"><name>in_press_</name></member>
+    <member refid="classAuvState2mState_1abca1215f685de70122467d82e68b9a37" kind="variable"><name>in_press_dot_</name></member>
     <member refid="classAuvState2mState_1a84c85b2fcc225f8cca7127f93870e84f" kind="variable"><name>gps_status_</name></member>
     <member refid="classAuvState2mState_1a94eb94c7e379c157fe82483326263776" kind="function"><name>AuvState2mState</name></member>
     <member refid="classAuvState2mState_1a47fc04a06e73387bfc163f8bd1cdac13" kind="function"><name>~AuvState2mState</name></member>
@@ -20,9 +19,9 @@
     <member refid="classAuvState2mState_1a20157b7aee54c616023aa8d854e7dbc4" kind="function"><name>initializeTimers</name></member>
     <member refid="classAuvState2mState_1a4630cb6f457da950057e0cdfa8bc669e" kind="function"><name>loadParams</name></member>
     <member refid="classAuvState2mState_1ace5261eef309de4fbc66b0b3979d7dec" kind="function"><name>mStateBroadcasterCallback</name></member>
-    <member refid="classAuvState2mState_1a5e98563a48bdd0d2ffcf4a81576fe631" kind="function"><name>insidePressureCallback</name></member>
+    <member refid="classAuvState2mState_1acb3414da9f143ce54f96013884e68b4a" kind="function"><name>insidePressureFilteredCallback</name></member>
+    <member refid="classAuvState2mState_1a3e9038982bf1b75430d693e86ebc71d5" kind="function"><name>insidePressureRateCallback</name></member>
     <member refid="classAuvState2mState_1a414063923a480063d77a427ea063e187" kind="function"><name>mGPSStatusCallback</name></member>
-    <member refid="classAuvState2mState_1a6c0a694aa2b5f7c547b5394bc72a6f99" kind="function"><name>insidePressureTimer</name></member>
   </compound>
   <compound refid="classGnss2Utm" kind="class"><name>Gnss2Utm</name>
     <member refid="classGnss2Utm_1aec392de507190c89c8676adc5a2cb1ca" kind="variable"><name>nh_</name></member>

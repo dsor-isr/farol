@@ -35,7 +35,6 @@
     <member refid="classSensorSim_1a75c89c1cba7cf0c5b5713964adfb73a7" kind="variable"><name>aux_frame_id_</name></member>
     <member refid="classSensorSim_1a5c8afe10e302218c618bd3349e48145e" kind="variable"><name>sub_odometry</name></member>
     <member refid="classSensorSim_1a8e89072f3b240b54561d92e0ab7c6ad7" kind="variable"><name>sub_reset</name></member>
-    <member refid="classSensorSim_1a8079457d48093e4a7e3c324b00dc5272" kind="variable"><name>sub_thruster</name></member>
     <member refid="classSensorSim_1a618da567f09dc9816784ae09ed1ac1fa" kind="variable"><name>HSB_T</name></member>
     <member refid="classSensorSim_1a7e213cdabc9d18135e21ecb4d21d41c1" kind="variable"><name>HPS_T</name></member>
     <member refid="classSensorSim_1a2a33b264d095de655559c8e512017316" kind="variable"><name>VSB_T</name></member>
@@ -57,7 +56,6 @@
     <member refid="classSensorSim_1a0768206c26e3f06992daf270ace5a245" kind="variable"><name>pub_model</name></member>
     <member refid="classSensorSim_1acad7da003dde9cbfb5ea147a5d94aa5c" kind="variable"><name>pub_gnss</name></member>
     <member refid="classSensorSim_1a8b6d4ae353535356701a939ef11ca2b2" kind="variable"><name>pub_thrusters</name></member>
-    <member refid="classSensorSim_1a28103f751bdc4c145a8f98bbc2eb743d" kind="variable"><name>pub_thrustStatus</name></member>
     <member refid="classSensorSim_1a0dbc075a49e1b22ab3323888a48d9eb3" kind="variable"><name>timer_sensor</name></member>
     <member refid="classSensorSim_1a7b526b227587ae49a2fc05f1b64103fe" kind="variable"><name>timer_thrust</name></member>
     <member refid="classSensorSim_1a01c621d038f0bb201ba671bbf34deb34" kind="variable"><name>tfBuffer</name></member>
@@ -91,7 +89,6 @@
     <member refid="classSensorSim_1ac7b493f32f12e269f0ff7f8dfe8fc375" kind="function"><name>stateCallback</name></member>
     <member refid="classSensorSim_1af89b32896ca9e2947c9eb116fe94dc75" kind="function"><name>resetCallback</name></member>
     <member refid="classSensorSim_1a4a2133e38557d0041f65610b60b6b007" kind="function"><name>thrustCallback</name></member>
-    <member refid="classSensorSim_1ae03ef2cfa40a8d7b3e970d540a1201f5" kind="function"><name>thrustStatusCallback</name></member>
     <member refid="classSensorSim_1a4d21ca96680b0a164108d287d5c82025" kind="function"><name>enableDVLService</name></member>
     <member refid="classSensorSim_1a6b45cf663e25af0d9181bd50dc0268b3" kind="function"><name>enableAltimeterService</name></member>
     <member refid="classSensorSim_1aec8cc80e53de153bc9c18382dd83c019" kind="function"><name>addNoise</name></member>
