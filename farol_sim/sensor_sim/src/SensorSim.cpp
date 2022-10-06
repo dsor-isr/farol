@@ -34,11 +34,10 @@ SensorSim::~SensorSim() {
   pub_velocity.shutdown();
   pub_orientation.shutdown();
   pub_thrusters.shutdown();
-  pub_thrustStatus.shutdown();
 
   // +.+ shutdown subscribers
   sub_odometry.shutdown();
-  sub_thruster.shutdown();
+  //sub_thruster.shutdown();
 
   // +.+ shutdown node
   nh_.shutdown();
@@ -69,7 +68,7 @@ void SensorSim::initializePublishers() {
   pub_gnss  = nh_.advertise<sensor_msgs::NavSatFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/gnss", "gnss"), 10);
   pub_range = nh_.advertise<farol_msgs::mUSBLFix> (FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/range", "range"), 10);
   pub_model = nh_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
-  pub_thrustStatus = nh_.advertise<farol_msgs::mThrusterStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/thrustStatus", "thrustStatus"), 10);
+  //pub_thrustStatus = nh_.advertise<farol_msgs::mThrusterStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/thrustStatus", "thrustStatus"), 10);
 }
 
 void SensorSim::initializeServices(){
@@ -245,16 +244,16 @@ void SensorSim::stateCallback(const nav_msgs::Odometry &msg) {
   }
 }
 
-void SensorSim::thrustStatusCallback(dsor_msgs::Thruster data){
-  for (int i = 0; i < data.value.size(); i++){
-    farol_msgs::mThrusterStatus thrustStatus;
-    thrustStatus.header.stamp = ros::Time::now();
-    thrustStatus.header.frame_id = std::to_string(i);
-    thrustStatus.Speed = data.value[i];
-    thrustStatus.Temperature = 20;
-    pub_thrustStatus.publish(thrustStatus);
-  }
-}
+//void SensorSim::thrustStatusCallback(dsor_msgs::Thruster data){
+  //for (int i = 0; i < data.value.size(); i++){
+    //farol_msgs::mThrusterStatus thrustStatus;
+    //thrustStatus.header.stamp = ros::Time::now();
+    //thrustStatus.header.frame_id = std::to_string(i);
+    //thrustStatus.Speed = data.value[i];
+    //thrustStatus.Temperature = 20;
+    //pub_thrustStatus.publish(thrustStatus);
+  //}
+//}
 
 bool SensorSim::enableDVLService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res){
 

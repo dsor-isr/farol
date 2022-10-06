@@ -15,7 +15,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
 #include <dsor_msgs/Measurement.h>
 #include <dsor_msgs/Thruster.h>
 #include <farol_msgs/mUSBLFix.h>
-#include <farol_msgs/mThrusterStatus.h>
+//#include <farol_msgs/mThrusterStatus.h>
 #include <auv_msgs/NavigationStatus.h>
 #include <geometry_msgs/TransformStamped.h>
 #include <std_srvs/SetBool.h>
@@ -95,7 +95,7 @@ private:
 	// #####################
 	// @.@ Subsctibers
 	// #####################
-	ros::Subscriber sub_odometry, sub_reset, sub_thruster;
+	ros::Subscriber sub_odometry, sub_reset; //sub_thruster;
 	
 	ros::Subscriber HSB_T, HPS_T, VSB_T, VPS_T;
 	double HSB=0,HPS=0,VSB=0,VPS=0;
@@ -104,27 +104,27 @@ private:
 	void HPS_Callback(const std_msgs::Int8& ptr);
 	void VSB_Callback(const std_msgs::Int8& ptr);
 	void VPS_Callback(const std_msgs::Int8& ptr);
-    ros::Timer timer_thrust2;
+  ros::Timer timer_thrust2;
 
-    bool enable_dvl_{true};
-    bool enable_altimeter_{true};
-    ros::ServiceServer enable_dvl_srv_;
-    ros::ServiceServer enable_altimeter_srv_;
+  bool enable_dvl_{true};
+  bool enable_altimeter_{true};
+  ros::ServiceServer enable_dvl_srv_;
+  ros::ServiceServer enable_altimeter_srv_;
 
 	// #####################
 	// @.@ Publishers
 	// #####################
 	ros::Publisher pub_position, pub_velocity, pub_orientation, pub_range, pub_model, pub_gnss;
-	ros::Publisher pub_thrusters, pub_thrustStatus;
+	ros::Publisher pub_thrusters; //, pub_thrustStatus;
 	
 	// #######################
 	// @.@ Timer
 	// #######################
-    ros::Timer timer_sensor;
-    ros::Timer timer_thrust;
+  ros::Timer timer_sensor;
+  ros::Timer timer_thrust;
 
 	tf2_ros::Buffer tfBuffer;
-    tf2_ros::TransformListener *tfListener;
+  tf2_ros::TransformListener *tfListener;
 
 	// ####################################################################################################################
 	// member variable: better than using globals; convenient way to pass data from a subscriber to other member functions
@@ -165,9 +165,9 @@ private:
 	void stateCallback(const nav_msgs::Odometry &msg);
 	void resetCallback(const std_msgs::Empty &msg);
 	void thrustCallback(const dsor_msgs::Thruster &msg);
-	void thrustStatusCallback(dsor_msgs::Thruster data);
-    bool enableDVLService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
-    bool enableAltimeterService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
+	//void thrustStatusCallback(dsor_msgs::Thruster data);
+  bool enableDVLService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
+  bool enableAltimeterService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
 
 
 	// #######################################################################################
