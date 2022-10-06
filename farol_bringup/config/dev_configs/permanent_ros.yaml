@@ -86,7 +86,6 @@ sim/sensors:
             gnss: "/#vehicle#/sensors/gnss"
             range: "/#vehicle#/sensors/range"
             state: "/#vehicle#/sim/model/state"
-            thrusterStatus: "/#vehicle#/diagnostics/thrusterStatus"
     services:
       enable_dvl: "/#vehicle#/sim/enable_dvl"
       enable_altimeter: "/#vehicle#/sim/enable_altimeter"
@@ -154,8 +153,9 @@ nav/auvstate2mstate:
     topics:
         subscribers:
             state: "/#vehicle#/nav/filter/state"
-            inside_pressure: "/#vehicle#/drivers/inside_pressure/data"
             gnss: "/#vehicle#/sensors/gnss"
+            inside_pressure_filter: "/#vehicle#/drivers/inside_pressure_filter/data"
+            inside_pressure_rate: "/#vehicle#/drivers/inside_pressure_filter/data_dot"
         publishers:  
             console_state: "/#vehicle#/State"
 
