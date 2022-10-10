@@ -5,7 +5,6 @@
     <innerfile refid="AuvState2mState_8h">AuvState2mState.h</innerfile>
     <innerfile refid="Gnss2Utm_8h">Gnss2Utm.h</innerfile>
     <innerfile refid="Gnss2UtmOutlier_8h">Gnss2UtmOutlier.h</innerfile>
-    <innerfile refid="LowPassFilter_8h">LowPassFilter.h</innerfile>
     <innerfile refid="UsblFix2Pos_8h">UsblFix2Pos.h</innerfile>
     <briefdescription>
     </briefdescription>
