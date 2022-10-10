@@ -10,14 +10,12 @@ Developers: DSOR Team -> @isr.ist.pt Instituto Superior Tecnico
 #include <string>
 #include <vector>
 #include <exception>
-#include "LowPassFilter.h"
 
 #include <ros/ros.h>
 
 // ROS messages and stuff
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_msgs/mState.h>
-//#include <farol_msgs/Pressure.h>
 #include <sensor_msgs/NavSatFix.h>
 #include <std_msgs/Float32.h>
 
@@ -134,14 +132,6 @@ private:
   /* -------------------------------------------------------------------------*/
 	void mGPSStatusCallback(const sensor_msgs::NavSatFix &msg);
 	
-  /* -------------------------------------------------------------------------*/
-  /**
-   * @brief  
-   *
-   * @Param event
-   */
-  /* -------------------------------------------------------------------------*/
-  //void insidePressureTimer(const ros::TimerEvent& event);
 
 };
 #endif //AuvState2mState_H

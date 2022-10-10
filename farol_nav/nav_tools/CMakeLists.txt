@@ -44,6 +44,6 @@ add_dependencies(gnss_to_utm_outlier ${catkin_EXPORTED_TARGETS})
 target_link_libraries(gnss_to_utm_outlier ${catkin_LIBRARIES} ${GeographicLib_LIBRARIES})
 
 # auvstate_to_mstate
-add_executable(auvstate_to_mstate src/AuvState2mState.cpp include/LowPassFilter.h)
+add_executable(auvstate_to_mstate src/AuvState2mState.cpp)
 add_dependencies(auvstate_to_mstate ${catkin_EXPORTED_TARGETS})
 target_link_libraries(auvstate_to_mstate ${catkin_LIBRARIES} ${GeographicLib_LIBRARIES})

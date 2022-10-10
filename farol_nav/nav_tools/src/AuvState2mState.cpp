@@ -16,7 +16,6 @@ AuvState2mState::AuvState2mState(ros::NodeHandle *nodehandle, ros::NodeHandle *n
 	initializePublishers();
 	initializeTimers();
 
-	//insidePressure = new LowPassFilter();
 }
 
 /*
@@ -60,18 +59,8 @@ void AuvState2mState::initializePublishers()
 
 void AuvState2mState::initializeTimers()
 {
-	//timer_in_pressure_ = nh_.createTimer(ros::Duration(0.1), &AuvState2mState::insidePressureTimer, this);
+
 }
-
-/*
-@.@ Member helper function to set up the timer; This is a more flexible and useful form of the ros::Rate
-*/
-
-//void AuvState2mState::insidePressureTimer(const ros::TimerEvent& event){
-	//std::pair<double, double> ipressure = insidePressure->predict();
-	//in_press = ipressure.first;
-    //in_press_dot = ipressure.second;
-//}
 
 /*
 @.@ Load the parameters
@@ -82,21 +71,15 @@ void AuvState2mState::loadParams()
 }
 
 /*
- @.@ Callback gps -> convert lat lon to utm and publish in a state message
-*/
-//void AuvState2mState::insidePressureCallback(const farol_msgs::Pressure &msg){
-	//// Hack due to the pressure cell repeating old values
-	//static double old_pressure = 0;
-	//if(msg.pressure != old_pressure){
-		//insidePressure->update(msg.pressure);
-		//old_pressure = msg.pressure;
-	//}
-//}
-
+ @.@ Callback inside_pressure from a low pass filter 
+ */
 void AuvState2mState::insidePressureFilteredCallback(const std_msgs::Float32 &msg){
   in_press_ = msg.data;
 }
 
+/*
+ * @.@ Callback inside_pressure rate from a low pass filter
+ */
 void AuvState2mState::insidePressureRateCallback(const std_msgs::Float32 &msg){
   in_press_dot_ = msg.data;
 }
@@ -144,6 +127,9 @@ void AuvState2mState::mStateBroadcasterCallback(const auv_msgs::NavigationStatus
     mstate_pub_.publish(mstate);
 }
 
+/*
+ * @.@ Callback to update GPS status 
+ */
 void AuvState2mState::mGPSStatusCallback(const sensor_msgs::NavSatFix &msg){
 	gps_status_ = msg.status.status;
 }
