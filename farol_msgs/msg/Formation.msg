@@ -1,6 +1,15 @@
+# Formation vehicle message
+
+# Header information
 Header header
+
+# vehicle id
 int8[] ID
-float64[] x  # towards the path
-float64[] y  # perpendicular left from x
-float64[] Gamma_e # Gamma end for all sections
-float64[] Length # Length for all sections
+# Towards the path
+float64[] x  
+# Perpendicular left from x
+float64[] y  
+# Gamma end for all sections
+float64[] Gamma_e 
+# Length for all sections
+float64[] Length 
