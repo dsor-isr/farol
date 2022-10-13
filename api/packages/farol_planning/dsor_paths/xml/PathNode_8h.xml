@@ -29,50 +29,14 @@
     <includedby refid="PathNode_8cpp" local="yes">src/ros/PathNode.cpp</includedby>
     <includedby refid="PathServices_8cpp" local="yes">src/ros/PathServices.cpp</includedby>
     <incdepgraph>
-      <node id="24">
-        <label>ConstRabbitSpeed.h</label>
-        <link refid="ConstRabbitSpeed_8h_source"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="21">
-        <label>Bernoulli.h</label>
-        <link refid="Bernoulli_8h_source"/>
+      <node id="20">
+        <label>Arc2D.h</label>
+        <link refid="Arc2D_8h_source"/>
         <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>ConstVehicleSpeed.h</label>
-        <link refid="ConstVehicleSpeed_8h_source"/>
-        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="15">
         <label>limits</label>
-      </node>
-      <node id="23">
-        <label>Line.h</label>
-        <link refid="Line_8h_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>stdlib.h</label>
-      </node>
-      <node id="26">
-        <label>dsor_paths/ResetPath.h</label>
-      </node>
-      <node id="31">
-        <label>dsor_paths/SpawnLine.h</label>
-      </node>
-      <node id="13">
-        <label>Eigen/Core</label>
-      </node>
-      <node id="8">
-        <label>auv_msgs/NavigationStatus.h</label>
-      </node>
-      <node id="6">
-        <label>std_msgs/Float64.h</label>
       </node>
       <node id="1">
         <label>include/ros/PathNode.h</label>
@@ -126,76 +90,20 @@
         <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="7">
-        <label>dsor_paths/PathData.h</label>
+      <node id="2">
+        <label>stdlib.h</label>
       </node>
-      <node id="27">
-        <label>dsor_paths/SetMode.h</label>
+      <node id="26">
+        <label>dsor_paths/ResetPath.h</label>
       </node>
-      <node id="22">
-        <label>Circle2D.h</label>
-        <link refid="Circle2D_8h_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
+      <node id="31">
+        <label>dsor_paths/SpawnLine.h</label>
       </node>
-      <node id="30">
-        <label>dsor_paths/SpawnCircle2D.h</label>
+      <node id="13">
+        <label>Eigen/Core</label>
       </node>
-      <node id="18">
-        <label>tuple</label>
-      </node>
-      <node id="4">
-        <label>optional</label>
-      </node>
-      <node id="16">
-        <label>Speed.h</label>
-        <link refid="Speed_8h_source"/>
-      </node>
-      <node id="3">
-        <label>vector</label>
-      </node>
-      <node id="32">
-        <label>dsor_paths/SetConstSpeed.h</label>
-      </node>
-      <node id="19">
-        <label>utility</label>
-      </node>
-      <node id="17">
-        <label>array</label>
-      </node>
-      <node id="12">
-        <label>PathSection.h</label>
-        <link refid="PathSection_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="14">
-        <label>math.h</label>
-      </node>
-      <node id="10">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
-      </node>
-      <node id="9">
-        <label>farol_msgs/mState.h</label>
-      </node>
-      <node id="20">
-        <label>Arc2D.h</label>
-        <link refid="Arc2D_8h_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="29">
-        <label>dsor_paths/SpawnBernoulli.h</label>
-      </node>
-      <node id="28">
-        <label>dsor_paths/SpawnArc2D.h</label>
+      <node id="8">
+        <label>auv_msgs/NavigationStatus.h</label>
       </node>
       <node id="11">
         <label>Path.h</label>
@@ -214,6 +122,98 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+      </node>
+      <node id="6">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="23">
+        <label>Line.h</label>
+        <link refid="Line_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>dsor_paths/PathData.h</label>
+      </node>
+      <node id="27">
+        <label>dsor_paths/SetMode.h</label>
+      </node>
+      <node id="21">
+        <label>Bernoulli.h</label>
+        <link refid="Bernoulli_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
+      </node>
+      <node id="30">
+        <label>dsor_paths/SpawnCircle2D.h</label>
+      </node>
+      <node id="18">
+        <label>tuple</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+      <node id="32">
+        <label>dsor_paths/SetConstSpeed.h</label>
+      </node>
+      <node id="19">
+        <label>utility</label>
+      </node>
+      <node id="17">
+        <label>array</label>
+      </node>
+      <node id="5">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="14">
+        <label>math.h</label>
+      </node>
+      <node id="10">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="9">
+        <label>farol_msgs/mState.h</label>
+      </node>
+      <node id="24">
+        <label>ConstRabbitSpeed.h</label>
+        <link refid="ConstRabbitSpeed_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Circle2D.h</label>
+        <link refid="Circle2D_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>PathSection.h</label>
+        <link refid="PathSection_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>ConstVehicleSpeed.h</label>
+        <link refid="ConstVehicleSpeed_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>dsor_paths/SpawnBernoulli.h</label>
+      </node>
+      <node id="28">
+        <label>dsor_paths/SpawnArc2D.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classPathNode" prot="public">PathNode</innerclass>

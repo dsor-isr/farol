@@ -7,14 +7,17 @@
       <node id="5">
         <label>limits</label>
       </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
       <node id="1">
         <label>include/algorithms/path_sections/Polinomial5.h</label>
         <link refid="Polinomial5_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>Eigen/Core</label>
+      <node id="4">
+        <label>math.h</label>
       </node>
       <node id="2">
         <label>PathSection.h</label>
@@ -25,9 +28,6 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>math.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classPolinomial5" prot="public">Polinomial5</innerclass>

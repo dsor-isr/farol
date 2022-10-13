@@ -22,24 +22,6 @@
       <node id="5">
         <label>Eigen/Core</label>
       </node>
-      <node id="12">
-        <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="9">
-        <label>dsor_paths/PathData.h</label>
-      </node>
-      <node id="7">
-        <label>vector</label>
-      </node>
-      <node id="14">
-        <label>cpf_control/StartStop.h</label>
-      </node>
-      <node id="10">
-        <label>farol_msgs/CPFGamma.h</label>
-      </node>
-      <node id="8">
-        <label>array</label>
-      </node>
       <node id="1">
         <label>include/ros/CpfNode.h</label>
         <link refid="CpfNode_8h"/>
@@ -66,6 +48,24 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
+      <node id="12">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="9">
+        <label>dsor_paths/PathData.h</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="14">
+        <label>cpf_control/StartStop.h</label>
+      </node>
+      <node id="10">
+        <label>farol_msgs/CPFGamma.h</label>
+      </node>
+      <node id="8">
+        <label>array</label>
+      </node>
       <node id="2">
         <label>ros/ros.h</label>
       </node>
@@ -74,6 +74,12 @@
       </node>
       <node id="3">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="4">
+        <label>CPFControl.h</label>
+        <link refid="CPFControl_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>EventTriggered.h</label>
@@ -87,12 +93,6 @@
       </node>
       <node id="11">
         <label>std_msgs/Int8.h</label>
-      </node>
-      <node id="4">
-        <label>CPFControl.h</label>
-        <link refid="CPFControl_8h_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
     <innerclass refid="classCpfNode" prot="public">CpfNode</innerclass>

@@ -15,9 +15,55 @@
     <includes refid="circular__buffer_8hpp" local="yes">dsor_utils/data_structures/circular_buffer.hpp</includes>
     <includes refid="vehicle__state_8hpp" local="yes">dsor_utils/control/vehicle_state.hpp</includes>
     <incdepgraph>
-      <node id="9">
-        <label>dsor_utils/control/vehicle_saturations.hpp</label>
-        <link refid="vehicle__saturations_8hpp_source"/>
+      <node id="10">
+        <label>dsor_utils/spherical_coordinates.hpp</label>
+        <link refid="spherical__coordinates_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>dsor_utils/frames.hpp</label>
+        <link refid="frames_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>dsor_utils/filters/moving_average_filter.hpp</label>
+        <link refid="moving__average__filter_8hpp_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>cmath</label>
+      </node>
+      <node id="13">
+        <label>stdexcept</label>
+      </node>
+      <node id="5">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="2">
+        <label>dsor_utils/math.hpp</label>
+        <link refid="math_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>dsor_utils/filters/differentiator.hpp</label>
+        <link refid="differentiator_8hpp_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>dsor_utils/filters/lowpass_filter.hpp</label>
+        <link refid="lowpass__filter_8hpp_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Eigen/Dense</label>
       </node>
       <node id="1">
         <label>src/spherical_coordinates.cpp</label>
@@ -47,72 +93,8 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="18">
-        <label>dsor_utils/filters/moving_average_filter.hpp</label>
-        <link refid="moving__average__filter_8hpp_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>dsor_utils/control/vehicle_state.hpp</label>
-        <link refid="vehicle__state_8hpp_source"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>cmath</label>
-      </node>
-      <node id="13">
-        <label>stdexcept</label>
-      </node>
-      <node id="5">
-        <label>Eigen/Core</label>
-      </node>
-      <node id="16">
-        <label>dsor_utils/filters/highpass_filter.hpp</label>
-        <link refid="highpass__filter_8hpp_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>Eigen/Dense</label>
-      </node>
-      <node id="2">
-        <label>dsor_utils/math.hpp</label>
-        <link refid="math_8hpp_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
       <node id="15">
         <label>cstdlib</label>
-      </node>
-      <node id="14">
-        <label>dsor_utils/data_structures/circular_buffer.hpp</label>
-        <link refid="circular__buffer_8hpp_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>dsor_utils/filters/lowpass_filter.hpp</label>
-        <link refid="lowpass__filter_8hpp_source"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>dsor_utils/rotations.hpp</label>
-        <link refid="rotations_8hpp_source"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>dsor_utils/spherical_coordinates.hpp</label>
-        <link refid="spherical__coordinates_8hpp_source"/>
-        <childnode refid="8" relation="include">
-        </childnode>
       </node>
       <node id="12">
         <label>digital_filter.hpp</label>
@@ -124,21 +106,39 @@
         <childnode refid="14" relation="include">
         </childnode>
       </node>
+      <node id="19">
+        <label>dsor_utils/control/vehicle_state.hpp</label>
+        <link refid="vehicle__state_8hpp_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>dsor_utils/rotations.hpp</label>
+        <link refid="rotations_8hpp_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>dsor_utils/control/vehicle_saturations.hpp</label>
+        <link refid="vehicle__saturations_8hpp_source"/>
+      </node>
+      <node id="16">
+        <label>dsor_utils/filters/highpass_filter.hpp</label>
+        <link refid="highpass__filter_8hpp_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
       <node id="3">
         <label>algorithm</label>
       </node>
-      <node id="7">
-        <label>dsor_utils/frames.hpp</label>
-        <link refid="frames_8hpp_source"/>
-        <childnode refid="8" relation="include">
+      <node id="14">
+        <label>dsor_utils/data_structures/circular_buffer.hpp</label>
+        <link refid="circular__buffer_8hpp_source"/>
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>dsor_utils/filters/differentiator.hpp</label>
-        <link refid="differentiator_8hpp_source"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
     </incdepgraph>

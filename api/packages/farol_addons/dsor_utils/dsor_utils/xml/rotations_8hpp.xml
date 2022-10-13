@@ -24,15 +24,15 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="2">
+        <label>include/dsor_utils/frames.hpp</label>
+        <link refid="frames_8hpp_source"/>
+      </node>
       <node id="1">
         <label>include/dsor_utils/rotations.hpp</label>
         <link refid="rotations_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>include/dsor_utils/frames.hpp</label>
-        <link refid="frames_8hpp_source"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespaceDSOR">DSOR</innernamespace>

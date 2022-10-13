@@ -4,6 +4,12 @@
     <compoundname>PingerNode.cpp</compoundname>
     <includes refid="PingerNode_8h" local="no">PingerNode.h</includes>
     <incdepgraph>
+      <node id="1">
+        <label>src/pinger_ros/PingerNode.cpp</label>
+        <link refid="PingerNode_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="5">
         <label>queue</label>
       </node>
@@ -54,12 +60,6 @@
       </node>
       <node id="12">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
-      </node>
-      <node id="1">
-        <label>src/pinger_ros/PingerNode.cpp</label>
-        <link refid="PingerNode_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
       <node id="10">
         <label>dmac/DMACPayload.h</label>

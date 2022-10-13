@@ -47,15 +47,15 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="3">
+        <label>include/ros/innerloops.h</label>
+        <link refid="innerloops_8h_source"/>
+      </node>
       <node id="1">
         <label>include/controllers/pid_controller.h</label>
         <link refid="pid__controller_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>include/ros/innerloops.h</label>
-        <link refid="innerloops_8h_source"/>
       </node>
       <node id="2">
         <label>include/controllers/ros_controller.h</label>

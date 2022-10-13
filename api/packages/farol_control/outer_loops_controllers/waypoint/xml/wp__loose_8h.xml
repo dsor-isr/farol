@@ -6,6 +6,12 @@
     <includedby refid="waypoint_8h" local="no">include/waypoint_ros/waypoint.h</includedby>
     <includedby refid="wp__loose_8cpp" local="yes">src/waypoint_algorithms/wp_loose.cpp</includedby>
     <incdepgraph>
+      <node id="1">
+        <label>include/waypoint_algorithms/wp_loose.h</label>
+        <link refid="wp__loose_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="2">
         <label>wp_controller.h</label>
         <link refid="wp__controller_8h_source"/>
@@ -35,23 +41,17 @@
       <node id="3">
         <label>iostream</label>
       </node>
+    </incdepgraph>
+    <invincdepgraph>
       <node id="1">
         <label>include/waypoint_algorithms/wp_loose.h</label>
         <link refid="wp__loose_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-    </incdepgraph>
-    <invincdepgraph>
       <node id="2">
         <label>include/waypoint_ros/waypoint.h</label>
         <link refid="waypoint_8h_source"/>
-      </node>
-      <node id="1">
-        <label>include/waypoint_algorithms/wp_loose.h</label>
-        <link refid="wp__loose_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="classWpLoose" prot="public">WpLoose</innerclass>

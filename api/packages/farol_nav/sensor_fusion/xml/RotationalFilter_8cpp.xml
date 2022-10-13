@@ -4,70 +4,6 @@
     <compoundname>RotationalFilter.cpp</compoundname>
     <includes refid="RotationalFilter_8h" local="yes">RotationalFilter.h</includes>
     <incdepgraph>
-      <node id="15">
-        <label>FilterGimmicks.h</label>
-        <link refid="FilterGimmicks_8h_source"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>dsor_msgs/Measurement.h</label>
-      </node>
-      <node id="13">
-        <label>Eigen/Eigen</label>
-      </node>
-      <node id="10">
-        <label>auv_msgs/NavigationStatus.h</label>
-      </node>
-      <node id="16">
-        <label>string</label>
-      </node>
-      <node id="8">
-        <label>tf2_ros/message_filter.h</label>
-      </node>
-      <node id="5">
-        <label>tf2/convert.h</label>
-      </node>
-      <node id="9">
-        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
-      </node>
-      <node id="18">
-        <label>eigen3/Eigen/Eigen</label>
-      </node>
-      <node id="12">
-        <label>geometry_msgs/TransformStamped.h</label>
-      </node>
-      <node id="11">
-        <label>geometry_msgs/QuaternionStamped.h</label>
-      </node>
-      <node id="17">
-        <label>vector</label>
-      </node>
-      <node id="1">
-        <label>src/algorithms/RotationalFilter.cpp</label>
-        <link refid="RotationalFilter_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>ros/ros.h</label>
-      </node>
       <node id="2">
         <label>RotationalFilter.h</label>
         <link refid="RotationalFilter_8h_source"/>
@@ -98,6 +34,64 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
+      <node id="19">
+        <label>dsor_msgs/Measurement.h</label>
+      </node>
+      <node id="13">
+        <label>Eigen/Eigen</label>
+      </node>
+      <node id="10">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="16">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="5">
+        <label>tf2/convert.h</label>
+      </node>
+      <node id="9">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="18">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="12">
+        <label>geometry_msgs/TransformStamped.h</label>
+      </node>
+      <node id="15">
+        <label>FilterGimmicks.h</label>
+        <link refid="FilterGimmicks_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>geometry_msgs/QuaternionStamped.h</label>
+      </node>
+      <node id="17">
+        <label>vector</label>
+      </node>
+      <node id="4">
+        <label>ros/ros.h</label>
+      </node>
       <node id="14">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
@@ -106,6 +100,12 @@
       </node>
       <node id="7">
         <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/RotationalFilter.cpp</label>
+        <link refid="RotationalFilter_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="3">
         <label>algorithm</label>

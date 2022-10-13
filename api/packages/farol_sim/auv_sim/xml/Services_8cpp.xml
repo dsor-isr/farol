@@ -4,25 +4,29 @@
     <compoundname>Services.cpp</compoundname>
     <includes refid="SimulationNode_8h" local="no">SimulationNode.h</includes>
     <incdepgraph>
+      <node id="1">
+        <label>src/ros/Services.cpp</label>
+        <link refid="Services_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>State.h</label>
+        <link refid="State_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
       <node id="5">
         <label>dsor_msgs/Thruster.h</label>
       </node>
       <node id="8">
         <label>Eigen/Core</label>
       </node>
-      <node id="7">
-        <label>AUV.h</label>
-        <link refid="AUV_8h_source"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
+      <node id="13">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="9">
+        <label>random</label>
       </node>
       <node id="2">
         <label>SimulationNode.h</label>
@@ -38,18 +42,6 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>State.h</label>
-        <link refid="State_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>Eigen/Dense</label>
-      </node>
-      <node id="9">
-        <label>random</label>
-      </node>
       <node id="11">
         <label>tuple</label>
       </node>
@@ -62,10 +54,18 @@
       <node id="4">
         <label>ros/ros.h</label>
       </node>
-      <node id="1">
-        <label>src/ros/Services.cpp</label>
-        <link refid="Services_8cpp"/>
-        <childnode refid="2" relation="include">
+      <node id="7">
+        <label>AUV.h</label>
+        <link refid="AUV_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="3">

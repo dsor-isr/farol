@@ -6,27 +6,27 @@
     <includedby refid="PathNode_8h" local="yes">include/ros/PathNode.h</includedby>
     <includedby refid="ConstRabbitSpeed_8cpp" local="yes">src/algorithms/speed_profiles/ConstRabbitSpeed.cpp</includedby>
     <incdepgraph>
-      <node id="1">
-        <label>include/algorithms/speed_profiles/ConstRabbitSpeed.h</label>
-        <link refid="ConstRabbitSpeed_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="2">
         <label>Speed.h</label>
         <link refid="Speed_8h_source"/>
       </node>
-    </incdepgraph>
-    <invincdepgraph>
       <node id="1">
         <label>include/algorithms/speed_profiles/ConstRabbitSpeed.h</label>
         <link refid="ConstRabbitSpeed_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+    </incdepgraph>
+    <invincdepgraph>
       <node id="2">
         <label>include/ros/PathNode.h</label>
         <link refid="PathNode_8h_source"/>
+      </node>
+      <node id="1">
+        <label>include/algorithms/speed_profiles/ConstRabbitSpeed.h</label>
+        <link refid="ConstRabbitSpeed_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="classConstRabbitSpeed" prot="public">ConstRabbitSpeed</innerclass>

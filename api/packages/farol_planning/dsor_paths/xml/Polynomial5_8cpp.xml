@@ -4,6 +4,12 @@
     <compoundname>Polynomial5.cpp</compoundname>
     <includes refid="Polynomial5_8h" local="yes">Polynomial5.h</includes>
     <incdepgraph>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
       <node id="2">
         <label>Polynomial5.h</label>
         <link refid="Polynomial5_8h_source"/>
@@ -12,20 +18,17 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>limits</label>
+      <node id="7">
+        <label>array</label>
       </node>
-      <node id="4">
-        <label>Eigen/Core</label>
+      <node id="5">
+        <label>math.h</label>
       </node>
       <node id="1">
         <label>src/algorithms/path_sections/Polynomial5.cpp</label>
         <link refid="Polynomial5_8cpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="7">
-        <label>array</label>
       </node>
       <node id="3">
         <label>PathSection.h</label>
@@ -36,9 +39,6 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>math.h</label>
       </node>
     </incdepgraph>
     <briefdescription>

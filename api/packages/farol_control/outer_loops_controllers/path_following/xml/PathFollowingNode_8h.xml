@@ -35,20 +35,17 @@
     <includedby refid="PathFollowingNode_8cpp" local="yes">src/ros/PathFollowingNode.cpp</includedby>
     <includedby refid="PathFollowingServices_8cpp" local="yes">src/ros/PathFollowingServices.cpp</includedby>
     <incdepgraph>
+      <node id="12">
+        <label>RelativeHeading.h</label>
+        <link refid="RelativeHeading_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
       <node id="16">
         <label>limits</label>
       </node>
       <node id="11">
         <label>farol_msgs/mPFollowingDebug.h</label>
-      </node>
-      <node id="25">
-        <label>Pramod.h</label>
-        <link refid="Pramod_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>std_msgs/Bool.h</label>
       </node>
       <node id="1">
         <label>include/ros/PathFollowingNode.h</label>
@@ -114,38 +111,11 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
+      <node id="6">
+        <label>std_msgs/Bool.h</label>
+      </node>
       <node id="4">
         <label>stdlib.h</label>
-      </node>
-      <node id="21">
-        <label>Brevik.h</label>
-        <link refid="Brevik_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="34">
-        <label>dsor_paths/ResetPath.h</label>
-      </node>
-      <node id="19">
-        <label>Marcelo.h</label>
-        <link refid="Marcelo_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>Fossen.h</label>
-        <link refid="Fossen_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>Eigen/Core</label>
-      </node>
-      <node id="9">
-        <label>auv_msgs/NavigationStatus.h</label>
-      </node>
-      <node id="28">
-        <label>path_following/SetPF.h</label>
       </node>
       <node id="15">
         <label>States.h</label>
@@ -154,6 +124,96 @@
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
+      </node>
+      <node id="34">
+        <label>dsor_paths/ResetPath.h</label>
+      </node>
+      <node id="14">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="23">
+        <label>Romulo.h</label>
+        <link refid="Romulo_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="28">
+        <label>path_following/SetPF.h</label>
+      </node>
+      <node id="22">
+        <label>Fossen.h</label>
+        <link refid="Fossen_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>waypoint/sendWpType1.h</label>
+      </node>
+      <node id="7">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="26">
+        <label>Samson.h</label>
+        <link refid="Samson_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Marcelo.h</label>
+        <link refid="Marcelo_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>dsor_paths/PathData.h</label>
+      </node>
+      <node id="17">
+        <label>dsor_paths/SetMode.h</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="24">
+        <label>Lapierre.h</label>
+        <link refid="Lapierre_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="31">
+        <label>path_following/UpdateGainsPF.h</label>
+      </node>
+      <node id="2">
+        <label>math.h</label>
+      </node>
+      <node id="27">
+        <label>path_following/ResetVT.h</label>
+      </node>
+      <node id="20">
+        <label>Aguiar.h</label>
+        <link refid="Aguiar_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="21">
+        <label>Brevik.h</label>
+        <link refid="Brevik_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>path_following/StartPF.h</label>
+      </node>
+      <node id="33">
+        <label>std_srvs/Trigger.h</label>
       </node>
       <node id="13">
         <label>PathFollowing.h</label>
@@ -175,74 +235,14 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="32">
-        <label>waypoint/sendWpType1.h</label>
-      </node>
-      <node id="7">
-        <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="23">
-        <label>Romulo.h</label>
-        <link refid="Romulo_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>dsor_paths/PathData.h</label>
-      </node>
-      <node id="17">
-        <label>dsor_paths/SetMode.h</label>
-      </node>
-      <node id="12">
-        <label>RelativeHeading.h</label>
-        <link refid="RelativeHeading_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>Aguiar.h</label>
-        <link refid="Aguiar_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>vector</label>
-      </node>
-      <node id="26">
-        <label>Samson.h</label>
-        <link refid="Samson_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>Lapierre.h</label>
-        <link refid="Lapierre_8h_source"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="31">
-        <label>path_following/UpdateGainsPF.h</label>
-      </node>
-      <node id="2">
-        <label>math.h</label>
-      </node>
-      <node id="27">
-        <label>path_following/ResetVT.h</label>
-      </node>
-      <node id="18">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
-      </node>
-      <node id="29">
-        <label>path_following/StartPF.h</label>
-      </node>
-      <node id="33">
-        <label>std_srvs/Trigger.h</label>
-      </node>
       <node id="30">
         <label>path_following/StopPF.h</label>
+      </node>
+      <node id="25">
+        <label>Pramod.h</label>
+        <link refid="Pramod_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
       </node>
       <node id="8">
         <label>std_msgs/Int8.h</label>

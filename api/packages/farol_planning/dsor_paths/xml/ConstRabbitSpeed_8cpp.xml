@@ -4,6 +4,10 @@
     <compoundname>ConstRabbitSpeed.cpp</compoundname>
     <includes refid="ConstRabbitSpeed_8h" local="yes">ConstRabbitSpeed.h</includes>
     <incdepgraph>
+      <node id="3">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
+      </node>
       <node id="2">
         <label>ConstRabbitSpeed.h</label>
         <link refid="ConstRabbitSpeed_8h_source"/>
@@ -15,10 +19,6 @@
         <link refid="ConstRabbitSpeed_8cpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>Speed.h</label>
-        <link refid="Speed_8h_source"/>
       </node>
     </incdepgraph>
     <briefdescription>

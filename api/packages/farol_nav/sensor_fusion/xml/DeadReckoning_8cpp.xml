@@ -7,14 +7,11 @@
       <node id="6">
         <label>dsor_msgs/Measurement.h</label>
       </node>
-      <node id="1">
-        <label>src/algorithms/DeadReckoning.cpp</label>
-        <link refid="DeadReckoning_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="4">
         <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="3">
+        <label>ros/ros.h</label>
       </node>
       <node id="2">
         <label>DeadReckoning.h</label>
@@ -36,11 +33,14 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>ros/ros.h</label>
-      </node>
       <node id="9">
         <label>math.h</label>
+      </node>
+      <node id="1">
+        <label>src/algorithms/DeadReckoning.cpp</label>
+        <link refid="DeadReckoning_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="10">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>

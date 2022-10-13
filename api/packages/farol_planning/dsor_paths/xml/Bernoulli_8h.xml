@@ -6,17 +6,20 @@
     <includedby refid="PathNode_8h" local="yes">include/ros/PathNode.h</includedby>
     <includedby refid="Bernoulli_8cpp" local="yes">src/algorithms/path_sections/Bernoulli.cpp</includedby>
     <incdepgraph>
+      <node id="5">
+        <label>limits</label>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
       <node id="1">
         <label>include/algorithms/path_sections/Bernoulli.h</label>
         <link refid="Bernoulli_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>limits</label>
-      </node>
-      <node id="3">
-        <label>Eigen/Core</label>
+      <node id="4">
+        <label>math.h</label>
       </node>
       <node id="2">
         <label>PathSection.h</label>
@@ -28,20 +31,17 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>math.h</label>
-      </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="2">
+        <label>include/ros/PathNode.h</label>
+        <link refid="PathNode_8h_source"/>
+      </node>
       <node id="1">
         <label>include/algorithms/path_sections/Bernoulli.h</label>
         <link refid="Bernoulli_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>include/ros/PathNode.h</label>
-        <link refid="PathNode_8h_source"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classBernoulli" prot="public">Bernoulli</innerclass>

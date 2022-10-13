@@ -4,10 +4,10 @@
     <compoundname>wp_loose.cpp</compoundname>
     <includes refid="wp__loose_8h" local="yes">wp_loose.h</includes>
     <incdepgraph>
-      <node id="1">
-        <label>src/waypoint_algorithms/wp_loose.cpp</label>
-        <link refid="wp__loose_8cpp"/>
-        <childnode refid="2" relation="include">
+      <node id="2">
+        <label>wp_loose.h</label>
+        <link refid="wp__loose_8h_source"/>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -39,10 +39,10 @@
       <node id="4">
         <label>iostream</label>
       </node>
-      <node id="2">
-        <label>wp_loose.h</label>
-        <link refid="wp__loose_8h_source"/>
-        <childnode refid="3" relation="include">
+      <node id="1">
+        <label>src/waypoint_algorithms/wp_loose.cpp</label>
+        <link refid="wp__loose_8cpp"/>
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
     </incdepgraph>

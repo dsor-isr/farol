@@ -10,6 +10,52 @@
       <node id="21">
         <label>geometry_msgs/PointStamped.h</label>
       </node>
+      <node id="5">
+        <label>boost/algorithm/string.hpp</label>
+      </node>
+      <node id="1">
+        <label>src/ros/ConsolePathParserNode.cpp</label>
+        <link refid="ConsolePathParserNode_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>std_msgs/Bool.h</label>
+      </node>
+      <node id="13">
+        <label>dsor_paths/ResetPath.h</label>
+      </node>
+      <node id="15">
+        <label>dsor_paths/SpawnLine.h</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="19">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="20">
+        <label>geometry_msgs/Point.h</label>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="28">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="23">
+        <label>farol_msgs/Formation.h</label>
+      </node>
+      <node id="25">
+        <label>farol_msgs/Section.h</label>
+      </node>
+      <node id="12">
+        <label>Formation.h</label>
+        <link refid="Formation_8h_source"/>
+      </node>
+      <node id="16">
+        <label>dsor_paths/SetConstSpeed.h</label>
+      </node>
       <node id="2">
         <label>ConsolePathParserNode.h</label>
         <link refid="ConsolePathParserNode_8h_source"/>
@@ -70,56 +116,6 @@
         <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="5">
-        <label>boost/algorithm/string.hpp</label>
-      </node>
-      <node id="26">
-        <label>std_msgs/Bool.h</label>
-      </node>
-      <node id="11">
-        <label>Section.h</label>
-        <link refid="Section_8h_source"/>
-      </node>
-      <node id="13">
-        <label>dsor_paths/ResetPath.h</label>
-      </node>
-      <node id="15">
-        <label>dsor_paths/SpawnLine.h</label>
-      </node>
-      <node id="4">
-        <label>Eigen/Core</label>
-      </node>
-      <node id="19">
-        <label>auv_msgs/NavigationStatus.h</label>
-      </node>
-      <node id="1">
-        <label>src/ros/ConsolePathParserNode.cpp</label>
-        <link refid="ConsolePathParserNode_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>geometry_msgs/Point.h</label>
-      </node>
-      <node id="12">
-        <label>Formation.h</label>
-        <link refid="Formation_8h_source"/>
-      </node>
-      <node id="6">
-        <label>fstream</label>
-      </node>
-      <node id="28">
-        <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="23">
-        <label>farol_msgs/Formation.h</label>
-      </node>
-      <node id="25">
-        <label>farol_msgs/Section.h</label>
-      </node>
-      <node id="16">
-        <label>dsor_paths/SetConstSpeed.h</label>
-      </node>
       <node id="22">
         <label>geometry_msgs/Vector3Stamped.h</label>
       </node>
@@ -155,6 +151,10 @@
       </node>
       <node id="14">
         <label>dsor_paths/SpawnArc2D.h</label>
+      </node>
+      <node id="11">
+        <label>Section.h</label>
+        <link refid="Section_8h_source"/>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

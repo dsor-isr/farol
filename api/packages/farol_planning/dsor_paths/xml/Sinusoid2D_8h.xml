@@ -11,6 +11,9 @@
       <node id="3">
         <label>Eigen/Core</label>
       </node>
+      <node id="4">
+        <label>math.h</label>
+      </node>
       <node id="1">
         <label>include/algorithms/path_sections/Sinusoid2D.h</label>
         <link refid="Sinusoid2D_8h"/>
@@ -26,9 +29,6 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>math.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classSinusoid2D" prot="public">Sinusoid2D</innerclass>

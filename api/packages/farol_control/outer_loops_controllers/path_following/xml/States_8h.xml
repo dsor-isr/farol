@@ -10,9 +10,6 @@
       <node id="3">
         <label>limits</label>
       </node>
-      <node id="2">
-        <label>Eigen/Core</label>
-      </node>
       <node id="1">
         <label>include/algorithms/States.h</label>
         <link refid="States_8h"/>
@@ -21,11 +18,14 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>Eigen/Core</label>
+      </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="9">
-        <label>include/algorithms/Pramod.h</label>
-        <link refid="Pramod_8h_source"/>
+      <node id="10">
+        <label>include/algorithms/RelativeHeading.h</label>
+        <link refid="RelativeHeading_8h_source"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
@@ -33,15 +33,17 @@
         <label>include/ros/PathFollowingNode.h</label>
         <link refid="PathFollowingNode_8h_source"/>
       </node>
-      <node id="5">
-        <label>include/algorithms/Brevik.h</label>
-        <link refid="Brevik_8h_source"/>
+      <node id="1">
+        <label>include/algorithms/States.h</label>
+        <link refid="States_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="8">
-        <label>include/algorithms/Marcelo.h</label>
-        <link refid="Marcelo_8h_source"/>
+      <node id="11">
+        <label>include/algorithms/Romulo.h</label>
+        <link refid="Romulo_8h_source"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
@@ -51,11 +53,33 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>include/algorithms/States.h</label>
-        <link refid="States_8h"/>
-        <childnode refid="2" relation="include">
+      <node id="12">
+        <label>include/algorithms/Samson.h</label>
+        <link refid="Samson_8h_source"/>
+        <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="8">
+        <label>include/algorithms/Marcelo.h</label>
+        <link refid="Marcelo_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>include/algorithms/Lapierre.h</label>
+        <link refid="Lapierre_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>include/algorithms/Aguiar.h</label>
+        <link refid="Aguiar_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/algorithms/Brevik.h</label>
+        <link refid="Brevik_8h_source"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
@@ -83,33 +107,9 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="11">
-        <label>include/algorithms/Romulo.h</label>
-        <link refid="Romulo_8h_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>include/algorithms/RelativeHeading.h</label>
-        <link refid="RelativeHeading_8h_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>include/algorithms/Aguiar.h</label>
-        <link refid="Aguiar_8h_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>include/algorithms/Samson.h</label>
-        <link refid="Samson_8h_source"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>include/algorithms/Lapierre.h</label>
-        <link refid="Lapierre_8h_source"/>
+      <node id="9">
+        <label>include/algorithms/Pramod.h</label>
+        <link refid="Pramod_8h_source"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
