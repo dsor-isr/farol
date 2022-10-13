@@ -1,7 +1,7 @@
 site_name: Farol ROS messages
 
 nav:
-  - Messages List: "index-msg.md"
+  - Messages List:
     - CpfFeedback: "CpfFeedback.md"
     - CPFGamma: "CPFGamma.md"
     - Currents: "Currents.md"
