@@ -4,7 +4,7 @@
 Raw Message Definition
 ----------------------
 
-```
+```yaml
 # CPFFeedback message  
   
 # Actual Gamma  
@@ -19,7 +19,7 @@ float64 Coordination_Error
 
 Compact Message Definition
 --------------------------
-```
+```yaml
 float64 Gamma_a  
 float64 Cross_Track_Error  
 float64 Line_Angle  
