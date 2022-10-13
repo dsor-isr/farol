@@ -5,14 +5,14 @@
     <includes local="no">Eigen/Dense</includes>
     <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
     <incdepgraph>
-      <node id="2">
-        <label>Eigen/Dense</label>
-      </node>
       <node id="1">
         <label>include/dsor_utils/control/vehicle_state.hpp</label>
         <link refid="vehicle__state_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>Eigen/Dense</label>
       </node>
     </incdepgraph>
     <innerclass refid="structDSOR_1_1VehicleState" prot="public">DSOR::VehicleState</innerclass>

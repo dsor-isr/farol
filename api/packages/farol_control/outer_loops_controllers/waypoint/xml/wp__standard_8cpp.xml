@@ -4,12 +4,6 @@
     <compoundname>wp_standard.cpp</compoundname>
     <includes refid="wp__standard_8h" local="yes">wp_standard.h</includes>
     <incdepgraph>
-      <node id="2">
-        <label>wp_standard.h</label>
-        <link refid="wp__standard_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
       <node id="3">
         <label>wp_controller.h</label>
         <link refid="wp__controller_8h_source"/>
@@ -24,14 +18,14 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
+      <node id="2">
+        <label>wp_standard.h</label>
+        <link refid="wp__standard_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="8">
         <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="1">
-        <label>src/waypoint_algorithms/wp_standard.cpp</label>
-        <link refid="wp__standard_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
       <node id="7">
         <label>ros/ros.h</label>
@@ -44,6 +38,12 @@
       </node>
       <node id="4">
         <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>src/waypoint_algorithms/wp_standard.cpp</label>
+        <link refid="wp__standard_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <briefdescription>

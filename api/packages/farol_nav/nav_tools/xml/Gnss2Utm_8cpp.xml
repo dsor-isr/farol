@@ -25,6 +25,12 @@
       <node id="7">
         <label>exception</label>
       </node>
+      <node id="1">
+        <label>src/Gnss2Utm.cpp</label>
+        <link refid="Gnss2Utm_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="20">
         <label>GeographicLib/UTMUPS.hpp</label>
       </node>
@@ -97,12 +103,6 @@
       </node>
       <node id="17">
         <label>tf2_ros/transform_broadcaster.h</label>
-      </node>
-      <node id="1">
-        <label>src/Gnss2Utm.cpp</label>
-        <link refid="Gnss2Utm_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

@@ -22,17 +22,17 @@
         <label>include/ros/CpfNode.h</label>
         <link refid="CpfNode_8h_source"/>
       </node>
+      <node id="2">
+        <label>include/algorithms/EventTriggered.h</label>
+        <link refid="EventTriggered_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>include/algorithms/CPFControl.h</label>
         <link refid="CPFControl_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>include/algorithms/EventTriggered.h</label>
-        <link refid="EventTriggered_8h_source"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>

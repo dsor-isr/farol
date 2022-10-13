@@ -38,6 +38,15 @@
       <node id="5">
         <label>vector</label>
       </node>
+      <node id="10">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="9">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
       <node id="1">
         <label>include/controllers/ros_controller.h</label>
         <link refid="ros__controller_8h"/>
@@ -51,15 +60,6 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="10">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="9">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
-      </node>
-      <node id="3">
-        <label>iostream</label>
       </node>
       <node id="7">
         <label>dsor_utils/filters/lowpass_filter.hpp</label>

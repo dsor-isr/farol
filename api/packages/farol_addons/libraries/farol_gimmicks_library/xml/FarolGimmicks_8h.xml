@@ -12,21 +12,6 @@
     <includes local="yes">tf2_geometry_msgs/tf2_geometry_msgs.h</includes>
     <includedby refid="FarolGimmicks_8cpp" local="yes">src/FarolGimmicks.cpp</includedby>
     <incdepgraph>
-      <node id="2">
-        <label>string</label>
-      </node>
-      <node id="8">
-        <label>tf2_ros/message_filter.h</label>
-      </node>
-      <node id="9">
-        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
-      </node>
-      <node id="5">
-        <label>eigen3/Eigen/Eigen</label>
-      </node>
-      <node id="3">
-        <label>vector</label>
-      </node>
       <node id="1">
         <label>include/farol_gimmicks_library/FarolGimmicks.h</label>
         <link refid="FarolGimmicks_8h"/>
@@ -46,6 +31,21 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="9">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="5">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
       </node>
       <node id="4">
         <label>ros/ros.h</label>

@@ -4,20 +4,17 @@
     <compoundname>Sinusoid2D.cpp</compoundname>
     <includes refid="Sinusoid2D_8h" local="yes">Sinusoid2D.h</includes>
     <incdepgraph>
-      <node id="6">
-        <label>limits</label>
-      </node>
-      <node id="4">
-        <label>Eigen/Core</label>
-      </node>
-      <node id="5">
-        <label>math.h</label>
-      </node>
       <node id="1">
         <label>src/algorithms/path_sections/Sinusoid2D.cpp</label>
         <link refid="Sinusoid2D_8cpp"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="6">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>Eigen/Core</label>
       </node>
       <node id="2">
         <label>Sinusoid2D.h</label>
@@ -34,6 +31,9 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>math.h</label>
       </node>
     </incdepgraph>
     <briefdescription>

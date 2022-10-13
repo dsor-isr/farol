@@ -16,20 +16,20 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1">
-        <label>include/algorithms/State.h</label>
-        <link refid="State_8h"/>
-        <childnode refid="2" relation="include">
+      <node id="2">
+        <label>include/algorithms/AUV.h</label>
+        <link refid="AUV_8h_source"/>
+        <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="3">
         <label>include/ros/SimulationNode.h</label>
         <link refid="SimulationNode_8h_source"/>
       </node>
-      <node id="2">
-        <label>include/algorithms/AUV.h</label>
-        <link refid="AUV_8h_source"/>
-        <childnode refid="3" relation="include">
+      <node id="1">
+        <label>include/algorithms/State.h</label>
+        <link refid="State_8h"/>
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

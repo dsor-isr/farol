@@ -4,11 +4,23 @@
     <compoundname>VehicleStabilizerNode.cpp</compoundname>
     <includes refid="VehicleStabilizerNode_8hpp" local="yes">VehicleStabilizerNode.hpp</includes>
     <incdepgraph>
+      <node id="1">
+        <label>src/VehicleStabilizerNode.cpp</label>
+        <link refid="VehicleStabilizerNode_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>map</label>
       </node>
       <node id="6">
         <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="3">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="5">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
       <node id="2">
         <label>VehicleStabilizerNode.hpp</label>
@@ -21,18 +33,6 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-      </node>
-      <node id="1">
-        <label>src/VehicleStabilizerNode.cpp</label>
-        <link refid="VehicleStabilizerNode_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="5">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

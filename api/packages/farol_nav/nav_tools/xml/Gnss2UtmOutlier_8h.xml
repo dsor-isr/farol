@@ -36,6 +36,42 @@
       <node id="16">
         <label>tf2_ros/message_filter.h</label>
       </node>
+      <node id="17">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="6">
+        <label>exception</label>
+      </node>
+      <node id="18">
+        <label>GeographicLib/UTMUPS.hpp</label>
+      </node>
+      <node id="12">
+        <label>std_srvs/SetBool.h</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="8">
+        <label>sensor_msgs/NavSatFix.h</label>
+      </node>
+      <node id="7">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="2">
+        <label>math.h</label>
+      </node>
+      <node id="11">
+        <label>std_msgs/String.h</label>
+      </node>
+      <node id="13">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="14">
+        <label>tf2_ros/transform_listener.h</label>
+      </node>
+      <node id="15">
+        <label>tf2_ros/transform_broadcaster.h</label>
+      </node>
       <node id="1">
         <label>include/Gnss2UtmOutlier.h</label>
         <link refid="Gnss2UtmOutlier_8h"/>
@@ -73,42 +109,6 @@
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-      </node>
-      <node id="17">
-        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
-      </node>
-      <node id="6">
-        <label>exception</label>
-      </node>
-      <node id="18">
-        <label>GeographicLib/UTMUPS.hpp</label>
-      </node>
-      <node id="12">
-        <label>std_srvs/SetBool.h</label>
-      </node>
-      <node id="5">
-        <label>vector</label>
-      </node>
-      <node id="8">
-        <label>sensor_msgs/NavSatFix.h</label>
-      </node>
-      <node id="7">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="2">
-        <label>math.h</label>
-      </node>
-      <node id="11">
-        <label>std_msgs/String.h</label>
-      </node>
-      <node id="13">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
-      </node>
-      <node id="14">
-        <label>tf2_ros/transform_listener.h</label>
-      </node>
-      <node id="15">
-        <label>tf2_ros/transform_broadcaster.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classGnss2UtmOutlier" prot="public">Gnss2UtmOutlier</innerclass>

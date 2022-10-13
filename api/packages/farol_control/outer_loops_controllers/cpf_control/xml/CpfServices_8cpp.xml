@@ -4,17 +4,29 @@
     <compoundname>CpfServices.cpp</compoundname>
     <includes refid="CpfNode_8h" local="yes">CpfNode.h</includes>
     <incdepgraph>
-      <node id="1">
-        <label>src/ros/CpfServices.cpp</label>
-        <link refid="CpfServices_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="16">
         <label>cpf_control/ChangeTopology.h</label>
       </node>
       <node id="6">
         <label>Eigen/Core</label>
+      </node>
+      <node id="13">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="10">
+        <label>dsor_paths/PathData.h</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="15">
+        <label>cpf_control/StartStop.h</label>
+      </node>
+      <node id="11">
+        <label>farol_msgs/CPFGamma.h</label>
+      </node>
+      <node id="9">
+        <label>array</label>
       </node>
       <node id="2">
         <label>CpfNode.h</label>
@@ -42,38 +54,20 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="13">
-        <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="10">
-        <label>dsor_paths/PathData.h</label>
-      </node>
-      <node id="8">
-        <label>vector</label>
-      </node>
-      <node id="15">
-        <label>cpf_control/StartStop.h</label>
-      </node>
-      <node id="11">
-        <label>farol_msgs/CPFGamma.h</label>
-      </node>
-      <node id="9">
-        <label>array</label>
-      </node>
       <node id="3">
         <label>ros/ros.h</label>
+      </node>
+      <node id="1">
+        <label>src/ros/CpfServices.cpp</label>
+        <link refid="CpfServices_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="14">
         <label>std_msgs/String.h</label>
       </node>
       <node id="4">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
-      </node>
-      <node id="5">
-        <label>CPFControl.h</label>
-        <link refid="CPFControl_8h_source"/>
-        <childnode refid="6" relation="include">
-        </childnode>
       </node>
       <node id="7">
         <label>EventTriggered.h</label>
@@ -87,6 +81,12 @@
       </node>
       <node id="12">
         <label>std_msgs/Int8.h</label>
+      </node>
+      <node id="5">
+        <label>CPFControl.h</label>
+        <link refid="CPFControl_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <briefdescription>

@@ -44,6 +44,12 @@
       <node id="5">
         <label>string</label>
       </node>
+      <node id="1">
+        <label>src/UsblFix2Pos.cpp</label>
+        <link refid="UsblFix2Pos_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="7">
         <label>exception</label>
       </node>
@@ -67,12 +73,6 @@
       </node>
       <node id="11">
         <label>farol_msgs/mState.h</label>
-      </node>
-      <node id="1">
-        <label>src/UsblFix2Pos.cpp</label>
-        <link refid="UsblFix2Pos_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

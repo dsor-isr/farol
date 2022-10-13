@@ -20,12 +20,6 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>src/controllers/pid_controller.cpp</label>
-        <link refid="pid__controller_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
       <node id="4">
         <label>cmath</label>
       </node>
@@ -37,6 +31,12 @@
       </node>
       <node id="3">
         <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>src/controllers/pid_controller.cpp</label>
+        <link refid="pid__controller_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>dsor_utils/filters/lowpass_filter.hpp</label>

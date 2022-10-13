@@ -5,6 +5,12 @@
     <includes refid="CPFControl_8h" local="yes">CPFControl.h</includes>
     <includes local="no">stdexcept</includes>
     <incdepgraph>
+      <node id="4">
+        <label>stdexcept</label>
+      </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
       <node id="1">
         <label>src/algorithms/CPFControl.cpp</label>
         <link refid="CPFControl_8cpp"/>
@@ -12,12 +18,6 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>stdexcept</label>
-      </node>
-      <node id="3">
-        <label>Eigen/Core</label>
       </node>
       <node id="2">
         <label>CPFControl.h</label>

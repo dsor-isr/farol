@@ -5,12 +5,14 @@
     <includes refid="ConstVehicleSpeed_8h" local="yes">ConstVehicleSpeed.h</includes>
     <includes local="no">cmath</includes>
     <incdepgraph>
+      <node id="2">
+        <label>ConstVehicleSpeed.h</label>
+        <link refid="ConstVehicleSpeed_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>cmath</label>
-      </node>
-      <node id="3">
-        <label>Speed.h</label>
-        <link refid="Speed_8h_source"/>
       </node>
       <node id="1">
         <label>src/algorithms/speed_profiles/ConstVehicleSpeed.cpp</label>
@@ -20,11 +22,9 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="2">
-        <label>ConstVehicleSpeed.h</label>
-        <link refid="ConstVehicleSpeed_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
+      <node id="3">
+        <label>Speed.h</label>
+        <link refid="Speed_8h_source"/>
       </node>
     </incdepgraph>
     <briefdescription>

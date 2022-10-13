@@ -4,6 +4,15 @@
     <compoundname>safeties.cpp</compoundname>
     <includes refid="safeties_8h" local="yes">safeties.h</includes>
     <incdepgraph>
+      <node id="1">
+        <label>src/ros/safeties.cpp</label>
+        <link refid="safeties_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
       <node id="2">
         <label>safeties.h</label>
         <link refid="safeties_8h_source"/>
@@ -16,17 +25,8 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>auv_msgs/NavigationStatus.h</label>
-      </node>
       <node id="6">
         <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="1">
-        <label>src/ros/safeties.cpp</label>
-        <link refid="safeties_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
       <node id="5">
         <label>ros/ros.h</label>

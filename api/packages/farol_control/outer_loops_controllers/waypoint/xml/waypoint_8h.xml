@@ -22,18 +22,6 @@
       <node id="9">
         <label>geometry_msgs/PointStamped.h</label>
       </node>
-      <node id="16">
-        <label>wp_loose.h</label>
-        <link refid="wp__loose_8h_source"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>wp_standard.h</label>
-        <link refid="wp__standard_8h_source"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
       <node id="3">
         <label>stdlib.h</label>
       </node>
@@ -53,6 +41,24 @@
       </node>
       <node id="8">
         <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="17">
+        <label>wp_standard.h</label>
+        <link refid="wp__standard_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>waypoint/sendWpType1.h</label>
+      </node>
+      <node id="13">
+        <label>wp_heading.h</label>
+        <link refid="wp__heading_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>include/waypoint_ros/waypoint.h</label>
@@ -86,20 +92,8 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>string</label>
-      </node>
-      <node id="7">
-        <label>waypoint/sendWpType1.h</label>
-      </node>
       <node id="11">
         <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="13">
-        <label>wp_heading.h</label>
-        <link refid="wp__heading_8h_source"/>
-        <childnode refid="14" relation="include">
-        </childnode>
       </node>
       <node id="5">
         <label>vector</label>
@@ -118,6 +112,12 @@
       </node>
       <node id="12">
         <label>std_msgs/Int8.h</label>
+      </node>
+      <node id="16">
+        <label>wp_loose.h</label>
+        <link refid="wp__loose_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <innerclass refid="classWaypointNode" prot="public">WaypointNode</innerclass>

@@ -4,122 +4,6 @@
     <compoundname>FiltersNode.cpp</compoundname>
     <includes refid="FiltersNode_8h" local="yes">FiltersNode.h</includes>
     <incdepgraph>
-      <node id="31">
-        <label>geometry_msgs/TwistWithCovarianceStamped.h</label>
-      </node>
-      <node id="32">
-        <label>RotationalFilter.h</label>
-        <link refid="RotationalFilter_8h_source"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>dsor_msgs/Measurement.h</label>
-      </node>
-      <node id="28">
-        <label>std_msgs/Bool.h</label>
-      </node>
-      <node id="27">
-        <label>stdlib.h</label>
-      </node>
-      <node id="29">
-        <label>nav_msgs/Odometry.h</label>
-      </node>
-      <node id="19">
-        <label>Eigen/Eigen</label>
-      </node>
-      <node id="5">
-        <label>auv_msgs/NavigationStatus.h</label>
-      </node>
-      <node id="22">
-        <label>string</label>
-      </node>
-      <node id="15">
-        <label>tf2_ros/message_filter.h</label>
-      </node>
-      <node id="33">
-        <label>tf2/convert.h</label>
-      </node>
-      <node id="25">
-        <label>VerticalFilter.h</label>
-        <link refid="VerticalFilter_8h_source"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
-      </node>
-      <node id="35">
-        <label>fstream</label>
-      </node>
-      <node id="39">
-        <label>GeographicLib/UTMUPS.hpp</label>
-      </node>
-      <node id="24">
-        <label>eigen3/Eigen/Eigen</label>
-      </node>
-      <node id="18">
-        <label>geometry_msgs/TransformStamped.h</label>
-      </node>
-      <node id="30">
-        <label>geometry_msgs/PoseWithCovarianceStamped.h</label>
-      </node>
       <node id="21">
         <label>FilterGimmicks.h</label>
         <link refid="FilterGimmicks_8h_source"/>
@@ -142,6 +26,102 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
+      <node id="31">
+        <label>geometry_msgs/TwistWithCovarianceStamped.h</label>
+      </node>
+      <node id="7">
+        <label>dsor_msgs/Measurement.h</label>
+      </node>
+      <node id="28">
+        <label>std_msgs/Bool.h</label>
+      </node>
+      <node id="27">
+        <label>stdlib.h</label>
+      </node>
+      <node id="29">
+        <label>nav_msgs/Odometry.h</label>
+      </node>
+      <node id="19">
+        <label>Eigen/Eigen</label>
+      </node>
+      <node id="5">
+        <label>auv_msgs/NavigationStatus.h</label>
+      </node>
+      <node id="22">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>DeadReckoning.h</label>
+        <link refid="DeadReckoning_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="33">
+        <label>tf2/convert.h</label>
+      </node>
+      <node id="16">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="35">
+        <label>fstream</label>
+      </node>
+      <node id="39">
+        <label>GeographicLib/UTMUPS.hpp</label>
+      </node>
+      <node id="24">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="12">
+        <label>HorizontalFilter.h</label>
+        <link refid="HorizontalFilter_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>geometry_msgs/TransformStamped.h</label>
+      </node>
+      <node id="30">
+        <label>geometry_msgs/PoseWithCovarianceStamped.h</label>
+      </node>
       <node id="34">
         <label>geometry_msgs/QuaternionStamped.h</label>
       </node>
@@ -150,6 +130,9 @@
       </node>
       <node id="37">
         <label>std_msgs/Empty.h</label>
+      </node>
+      <node id="17">
+        <label>geometry_msgs/Vector3Stamped.h</label>
       </node>
       <node id="2">
         <label>FiltersNode.h</label>
@@ -199,13 +182,20 @@
         <childnode refid="39" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>geometry_msgs/Vector3Stamped.h</label>
+      <node id="4">
+        <label>ros/ros.h</label>
       </node>
-      <node id="12">
-        <label>HorizontalFilter.h</label>
-        <link refid="HorizontalFilter_8h_source"/>
+      <node id="10">
+        <label>math.h</label>
+      </node>
+      <node id="32">
+        <label>RotationalFilter.h</label>
+        <link refid="RotationalFilter_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
         <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
@@ -217,44 +207,16 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-      </node>
-      <node id="4">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="3">
-        <label>DeadReckoning.h</label>
-        <link refid="DeadReckoning_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>math.h</label>
       </node>
       <node id="36">
         <label>std_msgs/String.h</label>
@@ -264,6 +226,44 @@
       </node>
       <node id="20">
         <label>GeographicLib/GeoCoords.hpp</label>
+      </node>
+      <node id="25">
+        <label>VerticalFilter.h</label>
+        <link refid="VerticalFilter_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>farol_msgs/mState.h</label>
@@ -277,6 +277,12 @@
       <node id="38">
         <label>farol_msgs/Currents.h</label>
       </node>
+      <node id="1">
+        <label>src/ros/FiltersNode.cpp</label>
+        <link refid="FiltersNode_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="14">
         <label>tf2_ros/transform_broadcaster.h</label>
       </node>
@@ -285,12 +291,6 @@
       </node>
       <node id="8">
         <label>std_msgs/Int8.h</label>
-      </node>
-      <node id="1">
-        <label>src/ros/FiltersNode.cpp</label>
-        <link refid="FiltersNode_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

@@ -4,11 +4,14 @@
     <compoundname>thruster_allocation.cpp</compoundname>
     <includes refid="thruster__allocation_8h" local="yes">thruster_allocation.h</includes>
     <incdepgraph>
+      <node id="1">
+        <label>src/thruster_allocation.cpp</label>
+        <link refid="thruster__allocation_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>auv_msgs/BodyForceRequest.h</label>
-      </node>
-      <node id="5">
-        <label>dsor_msgs/Thruster.h</label>
       </node>
       <node id="2">
         <label>thruster_allocation.h</label>
@@ -24,11 +27,8 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>src/thruster_allocation.cpp</label>
-        <link refid="thruster__allocation_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
+      <node id="5">
+        <label>dsor_msgs/Thruster.h</label>
       </node>
       <node id="3">
         <label>Eigen/Dense</label>

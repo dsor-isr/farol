@@ -4,20 +4,11 @@
     <compoundname>FarolGimmicks.cpp</compoundname>
     <includes refid="FarolGimmicks_8h" local="yes">farol_gimmicks_library/FarolGimmicks.h</includes>
     <incdepgraph>
-      <node id="3">
-        <label>string</label>
-      </node>
-      <node id="9">
-        <label>tf2_ros/message_filter.h</label>
-      </node>
-      <node id="10">
-        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
-      </node>
-      <node id="6">
-        <label>eigen3/Eigen/Eigen</label>
-      </node>
-      <node id="4">
-        <label>vector</label>
+      <node id="1">
+        <label>src/FarolGimmicks.cpp</label>
+        <link refid="FarolGimmicks_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
@@ -39,14 +30,23 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>tf2_ros/message_filter.h</label>
+      </node>
+      <node id="10">
+        <label>tf2_geometry_msgs/tf2_geometry_msgs.h</label>
+      </node>
+      <node id="6">
+        <label>eigen3/Eigen/Eigen</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
       <node id="5">
         <label>ros/ros.h</label>
-      </node>
-      <node id="1">
-        <label>src/FarolGimmicks.cpp</label>
-        <link refid="FarolGimmicks_8cpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
       </node>
       <node id="7">
         <label>tf2_ros/transform_listener.h</label>

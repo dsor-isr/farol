@@ -14,6 +14,12 @@
       <node id="5">
         <label>std_msgs/Float64.h</label>
       </node>
+      <node id="2">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="4">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
       <node id="1">
         <label>include/VehicleStabilizerNode.hpp</label>
         <link refid="VehicleStabilizerNode_8hpp"/>
@@ -25,12 +31,6 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="4">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="classVehicleStabilizerNode" prot="public">VehicleStabilizerNode</innerclass>

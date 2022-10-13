@@ -12,6 +12,9 @@
       <node id="10">
         <label>farol_msgs/mPFollowingDebug.h</label>
       </node>
+      <node id="3">
+        <label>Eigen/Core</label>
+      </node>
       <node id="5">
         <label>States.h</label>
         <link refid="States_8h_source"/>
@@ -19,30 +22,6 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>Eigen/Core</label>
-      </node>
-      <node id="9">
-        <label>std_msgs/Float64.h</label>
-      </node>
-      <node id="1">
-        <label>include/algorithms/Samson.h</label>
-        <link refid="Samson_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>dsor_paths/SetMode.h</label>
-      </node>
-      <node id="4">
-        <label>vector</label>
-      </node>
-      <node id="7">
-        <label>ros/ros.h</label>
-      </node>
-      <node id="11">
-        <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
       <node id="2">
         <label>PathFollowing.h</label>
@@ -63,6 +42,27 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
+      </node>
+      <node id="9">
+        <label>std_msgs/Float64.h</label>
+      </node>
+      <node id="8">
+        <label>dsor_paths/SetMode.h</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="1">
+        <label>include/algorithms/Samson.h</label>
+        <link refid="Samson_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ros/ros.h</label>
+      </node>
+      <node id="11">
+        <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>

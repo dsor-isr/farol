@@ -6,14 +6,14 @@
     <includedby refid="spherical__coordinates_8cpp" local="yes">src/spherical_coordinates.cpp</includedby>
     <includedby refid="test__spherical_8cpp" local="yes">test/test_spherical.cpp</includedby>
     <incdepgraph>
+      <node id="2">
+        <label>Eigen/Dense</label>
+      </node>
       <node id="1">
         <label>include/dsor_utils/spherical_coordinates.hpp</label>
         <link refid="spherical__coordinates_8hpp"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>Eigen/Dense</label>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceDSOR">DSOR</innernamespace>

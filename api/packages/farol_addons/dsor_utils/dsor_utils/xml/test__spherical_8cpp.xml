@@ -5,11 +5,11 @@
     <includes refid="spherical__coordinates_8hpp" local="yes">dsor_utils/spherical_coordinates.hpp</includes>
     <includes local="no">gtest/gtest.h</includes>
     <incdepgraph>
-      <node id="2">
-        <label>dsor_utils/spherical_coordinates.hpp</label>
-        <link refid="spherical__coordinates_8hpp_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
+      <node id="3">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="4">
+        <label>gtest/gtest.h</label>
       </node>
       <node id="1">
         <label>test/test_spherical.cpp</label>
@@ -19,11 +19,11 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>Eigen/Dense</label>
-      </node>
-      <node id="4">
-        <label>gtest/gtest.h</label>
+      <node id="2">
+        <label>dsor_utils/spherical_coordinates.hpp</label>
+        <link refid="spherical__coordinates_8hpp_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">

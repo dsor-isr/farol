@@ -12,9 +12,6 @@
       <node id="3">
         <label>auv_msgs/BodyForceRequest.h</label>
       </node>
-      <node id="4">
-        <label>dsor_msgs/Thruster.h</label>
-      </node>
       <node id="1">
         <label>include/thruster_allocation.h</label>
         <link refid="thruster__allocation_8h"/>
@@ -28,6 +25,9 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+      </node>
+      <node id="4">
+        <label>dsor_msgs/Thruster.h</label>
       </node>
       <node id="2">
         <label>Eigen/Dense</label>

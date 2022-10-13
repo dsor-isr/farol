@@ -4,15 +4,15 @@
     <compoundname>Formation.h</compoundname>
     <includedby refid="ConsolePathParserNode_8h" local="no">include/ros/ConsolePathParserNode.h</includedby>
     <invincdepgraph>
+      <node id="2">
+        <label>include/ros/ConsolePathParserNode.h</label>
+        <link refid="ConsolePathParserNode_8h_source"/>
+      </node>
       <node id="1">
         <label>include/ros/Formation.h</label>
         <link refid="Formation_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>include/ros/ConsolePathParserNode.h</label>
-        <link refid="ConsolePathParserNode_8h_source"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classFormation" prot="public">Formation</innerclass>

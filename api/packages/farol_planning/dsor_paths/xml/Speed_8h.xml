@@ -7,15 +7,21 @@
     <includedby refid="ConstVehicleSpeed_8h" local="yes">include/algorithms/speed_profiles/ConstVehicleSpeed.h</includedby>
     <includedby refid="Speed_8cpp" local="yes">src/algorithms/speed_profiles/Speed.cpp</includedby>
     <invincdepgraph>
+      <node id="4">
+        <label>include/algorithms/speed_profiles/ConstRabbitSpeed.h</label>
+        <link refid="ConstRabbitSpeed_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/algorithms/speed_profiles/ConstVehicleSpeed.h</label>
+        <link refid="ConstVehicleSpeed_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="3">
         <label>include/ros/PathNode.h</label>
         <link refid="PathNode_8h_source"/>
-      </node>
-      <node id="2">
-        <label>include/algorithms/Path.h</label>
-        <link refid="Path_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>include/algorithms/speed_profiles/Speed.h</label>
@@ -27,15 +33,9 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>include/algorithms/speed_profiles/ConstRabbitSpeed.h</label>
-        <link refid="ConstRabbitSpeed_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>include/algorithms/speed_profiles/ConstVehicleSpeed.h</label>
-        <link refid="ConstVehicleSpeed_8h_source"/>
+      <node id="2">
+        <label>include/algorithms/Path.h</label>
+        <link refid="Path_8h_source"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>

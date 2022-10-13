@@ -6,6 +6,12 @@
     <includes local="no">math.h</includes>
     <includes local="no">stdexcept</includes>
     <incdepgraph>
+      <node id="2">
+        <label>Bernoulli.h</label>
+        <link refid="Bernoulli_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
       <node id="6">
         <label>limits</label>
       </node>
@@ -25,15 +31,6 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="2">
-        <label>Bernoulli.h</label>
-        <link refid="Bernoulli_8h_source"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>math.h</label>
-      </node>
       <node id="3">
         <label>PathSection.h</label>
         <link refid="PathSection_8h_source"/>
@@ -43,6 +40,9 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>math.h</label>
       </node>
     </incdepgraph>
     <briefdescription>

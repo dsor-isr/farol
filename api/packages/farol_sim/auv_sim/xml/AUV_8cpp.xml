@@ -8,17 +8,11 @@
     <includes local="no">algorithm</includes>
     <includes local="no">ros/ros.h</includes>
     <incdepgraph>
-      <node id="7">
-        <label>State.h</label>
-        <link refid="State_8h_source"/>
-        <childnode refid="8" relation="include">
+      <node id="9">
+        <label>Utils.h</label>
+        <link refid="Utils_8h_source"/>
+        <childnode refid="10" relation="include">
         </childnode>
-      </node>
-      <node id="10">
-        <label>cmath</label>
-      </node>
-      <node id="3">
-        <label>Eigen/Core</label>
       </node>
       <node id="1">
         <label>src/algorithms/AUV.cpp</label>
@@ -34,26 +28,11 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="8">
-        <label>Eigen/Dense</label>
+      <node id="10">
+        <label>cmath</label>
       </node>
-      <node id="4">
-        <label>random</label>
-      </node>
-      <node id="6">
-        <label>tuple</label>
-      </node>
-      <node id="9">
-        <label>Utils.h</label>
-        <link refid="Utils_8h_source"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>vector</label>
-      </node>
-      <node id="12">
-        <label>ros/ros.h</label>
+      <node id="3">
+        <label>Eigen/Core</label>
       </node>
       <node id="2">
         <label>AUV.h</label>
@@ -68,6 +47,27 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+      </node>
+      <node id="7">
+        <label>State.h</label>
+        <link refid="State_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Eigen/Dense</label>
+      </node>
+      <node id="4">
+        <label>random</label>
+      </node>
+      <node id="6">
+        <label>tuple</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="12">
+        <label>ros/ros.h</label>
       </node>
       <node id="11">
         <label>algorithm</label>
