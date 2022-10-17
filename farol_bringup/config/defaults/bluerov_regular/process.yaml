@@ -86,7 +86,7 @@ processes:
             - inner_loops_pid:= true
             - waypoint:= true
             - path_following:= true
-            - vehicle_stabilizer:= false
+            - vehicle_stabilizer:= true
       dependencies:
             []
     
