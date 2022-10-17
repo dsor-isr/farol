@@ -1,3 +1,6 @@
+vehicle_stabilizer:
+  references: {'depth': 0.0, 'pitch': 0.0, 'roll': 0.0}
+
 static_thruster_allocation:
   thrusters:
     # Allocation matrix
