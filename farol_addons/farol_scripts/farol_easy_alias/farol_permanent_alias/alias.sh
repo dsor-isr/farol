@@ -167,6 +167,6 @@ alias dsor_add_vehicle_bringup="source ${FAROL_SCRIPTS}/farol_create_bringup_scr
 ######################################################################
 # -- Personal configs if hostname file exists (vehicles included) -- #
 ######################################################################
-if [ -f "${FAROL_SCRIPTS}/farol_easy_alias/farol_personal_alias/${HOSTNAME}_alias.sh" ]; then
-	source ${FAROL_SCRIPTS}/farol_easy_alias/farol_personal_alias/${HOSTNAME}_alias.sh
+if [ -f "${ROS_WORKSPACE}/src/medusa_addons/medusa_scripts/system_configurations/medusa_personal_alias/${HOSTNAME}_alias.sh" ]; then
+	source ${ROS_WORKSPACE}/src/medusa_addons/medusa_scripts/system_configurations/medusa_personal_alias/${HOSTNAME}_alias.sh
 fi
