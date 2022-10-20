@@ -7270,29 +7270,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    Rationale
+  <a href="#in-a-nutshell" class="md-nav__link">
+    In a nutshell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishers" class="md-nav__link">
+    Publishers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscribers" class="md-nav__link">
+    Subscribers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#package-content" class="md-nav__link">
-    Package Content
+    Package content
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-documentation" class="md-nav__link">
-    Code documentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-http_server" class="md-nav__link">
-    Using http_server
+  <a href="#rationale" class="md-nav__link">
+    Rationale
   </a>
   
 </li>
@@ -7326,21 +7354,37 @@
 
 
 <h1 id="http_server-package">http_server package</h1>
-<p>http_server is a ROS package written in Python responsible for exchaning information between a web console (Yebisu) and a vehicle.</p>
-<p><img alt="http_server Diagram" src="img/console_server_diagram.png" /></p>
+<h2 id="in-a-nutshell">In a nutshell</h2>
+<p>http_server is a ROS package written in Python responsible for managing the information between a web console (PONTE) and a marine vehicle/simulation environment.</p>
+<h2 id="diagram">Diagram</h2>
+<p><img alt="http_server Diagram" src="http_server.png" /></p>
+<h2 id="publishers">Publishers</h2>
+<ul>
+<li>/#vehicle#/addons/Mission_String[<a href="http://docs.ros.org/en/noetic/api/std_msgs/html/msg/String.html">std_msgs/String</a>] - String with desired path following mission  </li>
+</ul>
+<h2 id="subscribers">Subscribers</h2>
+<ul>
+<li>/#vehcile#/sensors/* - Information from several sensors</li>
+</ul>
+<h2 id="services">Services</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>/#vehicle#/addons/console_server/PORT - Default 7080</li>
+<li>/#vehicle#/addons/console_server/ROOT_NAMESPACE - True</li>
+<li>/#vehicle#/addons/console_server/pages_folder - Folder with individual pages of each vehicle</li>
+<li>/#vehicle#/addons/console_server/Mission_folder - Folder with stored txt files with path following missions.</li>
+</ul>
+<h2 id="package-content">Package content</h2>
+<p><img alt="http_server struct" src="img/console_server_structure.png" /></p>
 <h2 id="rationale">Rationale</h2>
 <p>A vehicle runs an http server and is responsible to send and read http requests. It also creates a simple html web page displaying relevant vehicle information.</p>
-<p><strong>NOTE:</strong> More details later, maybe the stack will move to rosbridge.</p>
-<h2 id="package-content">Package Content</h2>
-<p><img alt="http_server struct" src="img/console_server_structure.png" /></p>
-<h2 id="code-documentation">Code documentation</h2>
-<p><a href="http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/http_server/html/index.html">source</a></p>
-<h2 id="using-http_server">Using http_server</h2>
-<p><a href="./pages.html">Examples</a></p>
+<p><strong>NOTE:</strong> This package will be replaced with a solution using rosbridge and roslibjs.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>http server</li>
-<li>web console (Yebisu)</li>
+<li>web console (Ponte)</li>
 </ul>
 
   <hr>
@@ -7348,7 +7392,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 20, 2022</span>
       
     
   </small>
