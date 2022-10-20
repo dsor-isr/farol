@@ -1,28 +1,41 @@
 # http_server package
 
-http_server is a ROS package written in Python responsible for exchaning information between a web console (Yebisu) and a vehicle.
+## In a nutshell
+http_server is a ROS package written in Python responsible for managing the information between a web console (PONTE) and a marine vehicle/simulation environment.
 
-![http_server Diagram](img/console_server_diagram.png)
+## Diagram
+
+![http_server Diagram](http_server.png)
+
+## Publishers
+
+* /#vehicle#/addons/Mission_String[[std_msgs/String](http://docs.ros.org/en/noetic/api/std_msgs/html/msg/String.html)] - String with desired path following mission  
+
+## Subscribers
+* /#vehcile#/sensors/* - Information from several sensors
+
+## Services
+* None
+
+## Parameters
+* /#vehicle#/addons/console_server/PORT - Default 7080
+* /#vehicle#/addons/console_server/ROOT_NAMESPACE - True
+* /#vehicle#/addons/console_server/pages_folder - Folder with individual pages of each vehicle
+* /#vehicle#/addons/console_server/Mission_folder - Folder with stored txt files with path following missions.
+
+## Package content 
+
+![http_server struct](img/console_server_structure.png)
 
 ## Rationale
 
 A vehicle runs an http server and is responsible to send and read http requests. It also creates a simple html web page displaying relevant vehicle information.
 
-**NOTE:** More details later, maybe the stack will move to rosbridge.
-
-## Package Content
-
-![http_server struct](img/console_server_structure.png)
-
-## Code documentation
-
-[source](http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/http_server/html/index.html)
-
-## Using http_server
-
-[Examples](./pages.html)
+**NOTE:** This package will be replaced with a solution using rosbridge and roslibjs.
 
 ## Requirements
+* web console (Ponte)
 
-* http server
-* web console (Yebisu)
+
+
+
