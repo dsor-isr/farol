@@ -5,7 +5,7 @@ http_server is a ROS package written in Python responsible for managing the info
 
 ## Diagram
 
-![http_server Diagram](http_server.png)
+![http_server Diagram](img/http_server.png)
 
 ## Publishers
 
