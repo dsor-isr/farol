@@ -1,4 +1,9 @@
 site_name: Nav Tools
 
 nav:
-  - Overview: "nav_tools.md"
+  - Reference: "README.md"
+  - Nodes:
+    - AuvState2mState: "AuvState2mState.md"
+    - Gnss2Utm: "gnss2utm.md"
+    - Gnss2UtmOutlier: "Gnss2UtmOutlier.md"
+    - UsblFix2Pos: "UsblFix2Pos.md"
