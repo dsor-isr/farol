@@ -1356,6 +1356,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/developer_notes/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -1371,7 +1376,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://dsor-isr.github.io/farol/sensors-simulation/sensor_sim/</loc>
+         <loc>https://dsor-isr.github.io/farol/sensors-simulation/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
