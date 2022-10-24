@@ -1,4 +1,4 @@
-# Gnss2Utm Node
+# gnss2utm Node
 
 ## In a nutshell
 This node converts data in WGS84 from sensor_msgs::NavSatFix to UTM NED farol_msgs::Measurement format.

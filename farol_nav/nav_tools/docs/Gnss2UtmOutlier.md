@@ -1,4 +1,4 @@
-# Gnss2UtmOutlier Node
+# gnss2utmoutlier Node
 
 ## In a nutshell
 

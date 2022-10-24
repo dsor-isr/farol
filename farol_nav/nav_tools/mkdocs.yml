@@ -3,7 +3,7 @@ site_name: Nav Tools
 nav:
   - Reference: "README.md"
   - Nodes:
-    - AuvState2mState: "AuvState2mState.md"
-    - Gnss2Utm: "gnss2utm.md"
-    - Gnss2UtmOutlier: "Gnss2UtmOutlier.md"
-    - UsblFix2Pos: "UsblFix2Pos.md"
+    - auvstate2mstate: "AuvState2mState.md"
+    - gnss2utm: "gnss2utm.md"
+    - gnss2utmoutlier: "Gnss2UtmOutlier.md"
+    - usbl2pos: "UsblFix2Pos.md"

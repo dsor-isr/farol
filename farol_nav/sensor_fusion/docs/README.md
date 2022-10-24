@@ -7,4 +7,8 @@ Package with a general-purpose kalman filter for vehicle state estimation. For i
 * [Developer Notes](./developer_notes.md) 
 * [User Guide](./user_guide.md)
 
+## Nodes
+
+[filter](./filter.md)
+
 ## Package Content

@@ -1,4 +1,4 @@
-# UsblFix2Pos Node
+# usbl2pos Node
 
 ## In a nutshell
 This node takes in georeferences usbl position fix and converts it to position updates of the filter. It can be deployed in two ways
