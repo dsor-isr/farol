@@ -1,10 +1,24 @@
 # Console path parser package
 
+## In a nutshell
 Console path parser is a ROS package written in C++ responsible for parsing a mission/path string from an external source to a format that can be interpreted by the path following algorithms of the FAROL stack.
+
+
+## Diagram
 
 ![console_path_parser Diagram](img/console_path_parser.png)
 
+## Subscribers
 
+## Publishers
+
+## Services
+
+## Parameters
+
+## Package content
+
+![console_path_parser struct](img/console_path_parser_structure.png)
 
 ## Rationale
 
@@ -87,20 +101,6 @@ Console path parser will read this information and save in a vector of **section
 The console path parser will then publish the first section (topic **/path_section**) of the vector while subscribing to the topic **/Gamma** which contains the value of the parameter gamma (see path following theory) not normalized. When the received gamma surpasses the ending gamma (**Gamma_e**) of the section, it will then update its section and publish it. It will do this process for the amount of sections in **Mission**.
 
 Note that **/Gamma** is being published by the path following node, where there is a conversion of the gamma from normalized to not normalized. 
-
-
-
-## Package Content
-
-![console_path_parser struct](img/console_path_parser_structure.png)
-
-## Code documentation
-
-[source](http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/console_path_parser/html/index.html)
-
-## Using console path parser
-
-[Examples](./pages.html)
 
 ## Requirements
 
