@@ -2,3 +2,5 @@ site_name: Data Serializer
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - data_serializer: "data_serializer.md"

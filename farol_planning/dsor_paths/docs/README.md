@@ -19,6 +19,9 @@ By default we provide several path sections, from arcs to bernoulli lemnicaste.
 
 **Last Update:** April/2021
 
+## Nodes
+[dsor_paths](dsor_paths.md)
+
 ## Path Sections
 
 We start by providing a set of sections. Each section inherits the class **PathSection**. As we see, every section, even though different is implemented in the same structured manner. The number of sections implemented will grow with time. To see all path available check the provided classes API. Here is an example of some of them provided (see image bellow).

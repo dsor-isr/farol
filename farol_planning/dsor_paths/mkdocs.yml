@@ -2,3 +2,5 @@ site_name: DSOR Paths
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - dsor-paths: "dsor_paths.md"

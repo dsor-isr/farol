@@ -2,3 +2,6 @@ site_name: CPF Gamma
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - cpf_wifi_server: "cpf_wifi_server.md"
+    - cpd_wifi_client: "cpf_wifi_client.md"

@@ -2,3 +2,6 @@ site_name: Interrogation Scheme
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - pinger: "pinger.md"
+    - replier: "replier.md"

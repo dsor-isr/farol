@@ -2,3 +2,5 @@ site_name: Acoustic Vehicle State Broadcaster
 
 nav:
   - Reference: "README.md"
+  - Node:
+    - gnss2state: "gnss2state.md"
