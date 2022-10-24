@@ -1201,11 +1201,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://dsor-isr.github.io/farol/farol-navigation/</loc>
-         <lastmod>2022-10-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -1407,6 +1402,11 @@
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/developer_notes/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/filter/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
