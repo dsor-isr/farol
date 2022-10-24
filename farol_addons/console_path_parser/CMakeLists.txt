@@ -21,7 +21,7 @@ catkin_package(
 )
 find_package(Eigen3 REQUIRED) 
 
-add_compile_options(-std=c++17) 
+add_compile_options(-std=c++17 -Wall -O3) 
 
 include_directories(
  include/ros
