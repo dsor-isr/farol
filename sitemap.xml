@@ -1291,7 +1291,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://dsor-isr.github.io/farol/nav-tools/nav_tools/</loc>
+         <loc>https://dsor-isr.github.io/farol/nav-tools/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/nav-tools/AuvState2mState/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/nav-tools/Gnss2UtmOutlier/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/nav-tools/UsblFix2Pos/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/nav-tools/gnss2utm/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
