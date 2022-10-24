@@ -1,6 +1,7 @@
 site_name: Farol ROS messages
 
 nav:
+  - Reference: "README.md"
   - Messages List:
     - CpfFeedback: "CpfFeedback.md"
     - CPFGamma: "CPFGamma.md"
