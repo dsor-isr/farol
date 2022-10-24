@@ -1,4 +1,8 @@
 site_name: Bringup System
 
 nav:
-  - Reference: "README.md"
+  - Overview: "README.md"
+  - Configuration Files: 
+    - Personal: "Personal.md"
+    - Vehicle: "Vehicle.md"
+  - Launch Files: "Launch.md"
