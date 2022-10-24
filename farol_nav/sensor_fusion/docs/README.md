@@ -1,20 +1,10 @@
-# Filter/sensor fusion package
+# Sensor fusion package
 
 ## In a nutshell
+Package with a general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:
 
-## Diagram
-![Sensor Fusion Diagram](img/filter.png)
+* [Theory](./theory.md) 
+* [Developer Notes](./developer_notes.md) 
+* [User Guide](./user_guide.md)
 
-## Subscribers
-
-## Publishers
-
-## Services
-
-## Parameters
-
-## Package content
-
-## Rationale
-
-## Requirements
+## Package Content
