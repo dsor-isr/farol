@@ -1,16 +1,30 @@
-# Sensor Sim: readme.md
+# Sensor Sim package
 
-## Project Description
+## In a nutshell
 
 This package implements basic sensor models for an underwater/surface vehicles. It has the following features - Simulate GPS, Depth, DVL (Bottom Track and Water Track), Altitude, AHRS, Ranges - Control Gaussian Noise and Measurement Noise - Control Sensor Publish Frequency - Publish State output of the dynamic model in *auv_msgs::NavigationStatus* format
 
-## Getting Started
+## Diagram
+![Sensor Sim Diagram](img/sensor_sim.pmg)
 
-### Installation
+## Subscribers
 
-Pkg `sensor_sim` comes as part of the farol_vx stack.
+## Publishers
 
-## Configuration
+## Services
+
+## Parameters
+
+## Package content
+
+## Rationale
+### Getting Started
+
+#### Installation
+
+Pkg `sensor_sim` comes as part of the farol stack.
+
+#### Configuration
 
 This section explains how to write the node configuration file. Sample are given below
 
@@ -111,16 +125,4 @@ sensors:
 - Its main purpose is to easily tune the measurement noise being fed to the filter
    - This value has no effect while adding noise to the sensor!
 
-## Launching the Node
-
-An example launch file is provided below where `sensor_sim/sensor_sim`.
-
-```
-<?xml version="1.0"?>
-<launch>
-    <arg name="name" default="myellow"/>
-    <node pkg="sensor_sim" type="sensor_sim" name="sensor_sim" respawn="false" output="screen">
-        <rosparam command="load" file="$(find sensor_sim)/config/sensors.yaml"/>
-    </node>
-</launch>
-```
+## Requirements
