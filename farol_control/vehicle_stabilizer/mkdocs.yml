@@ -2,3 +2,5 @@ site_name: Vehicle Stabilizer
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - vehicle_stabilizer: "vehicle_stabilizer.md"

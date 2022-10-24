@@ -19,6 +19,9 @@ By default we provide several algorithms, from Line of Sight (LOS-Fossen) to mor
 
 **Last Update:** April/2021
 
+## Nodes
+[path_following](./path_following.md)
+
 ## Path Following
 We start by providing a set of path following algorithms. Each algorithm inherits the class **PathFollowing**. As we see, every algorithm, even though different is implemented in the same structured manner. Some control *surge* and *yaw*. Others control *yaw rate* and other control *sway*. Some use the *closest point to the path* in the computations, and some use an *adptive virtual target*.
 

@@ -2,3 +2,5 @@ site_name: Waypoint
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - waypoint: "waypoint.md"

@@ -17,6 +17,9 @@ A package that implements the controller responsible for synchronizing the path 
 
 **Last Update:** April/2021
 
+## Nodes
+[cpf_control](./cpf_control.md)
+
 ## Cooperative Path Following (CPF)
 This controllers are only responsible for computing the correction speed for the path following virtual target and when to send information to other vehicles.
 

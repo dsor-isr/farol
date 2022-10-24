@@ -2,3 +2,5 @@ site_name: Cooperative Path Following
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - cpf_control: "cpf_control.md"
