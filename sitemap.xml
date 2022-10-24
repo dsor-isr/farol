@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/Waypoint/waypoint/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/acoustic-vehicle-state-broadcaster/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -1161,6 +1166,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/cooperative-path-following/cpf_control/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/cpf-gamma/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -1386,6 +1396,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/path-following/path_following/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/pid-inner-loops/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -1442,6 +1457,11 @@
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/vehicle-stabilizer/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/vehicle-stabilizer/vehicle_stabilizer/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
