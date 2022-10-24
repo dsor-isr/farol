@@ -2385,7 +2385,7 @@
   
     <li class="md-nav__item">
       <a href="../sensors-simulation/sensor_sim/" class="md-nav__link">
-        Overview
+        Reference
       </a>
     </li>
   
@@ -7270,6 +7270,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#in-a-nutshell" class="md-nav__link">
+    In a nutshell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagram" class="md-nav__link">
+    Diagram
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscribers" class="md-nav__link">
+    Subscribers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishers" class="md-nav__link">
+    Publishers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-content" class="md-nav__link">
+    Package content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rationale" class="md-nav__link">
     Rationale
   </a>
@@ -7293,27 +7342,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#package-content" class="md-nav__link">
-    Package Content
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-documentation" class="md-nav__link">
-    Code documentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-console-path-parser" class="md-nav__link">
-    Using console path parser
-  </a>
   
 </li>
       
@@ -7346,8 +7374,16 @@
 
 
 <h1 id="console-path-parser-package">Console path parser package</h1>
+<h2 id="in-a-nutshell">In a nutshell</h2>
 <p>Console path parser is a ROS package written in C++ responsible for parsing a mission/path string from an external source to a format that can be interpreted by the path following algorithms of the FAROL stack.</p>
+<h2 id="diagram">Diagram</h2>
 <p><img alt="console_path_parser Diagram" src="img/console_path_parser.png" /></p>
+<h2 id="subscribers">Subscribers</h2>
+<h2 id="publishers">Publishers</h2>
+<h2 id="services">Services</h2>
+<h2 id="parameters">Parameters</h2>
+<h2 id="package-content">Package content</h2>
+<p><img alt="console_path_parser struct" src="img/console_path_parser_structure.png" /></p>
 <h2 id="rationale">Rationale</h2>
 <h4 id="missionpath-string-format">Mission/path string format</h4>
 <p>The format of the mission for a single vehicle comes from the console in a string like the following:</p>
@@ -7418,12 +7454,6 @@ Console path parser will read this information and save in a vector of <strong>s
 </code></pre>
 <p>The console path parser will then publish the first section (topic <strong>/path_section</strong>) of the vector while subscribing to the topic <strong>/Gamma</strong> which contains the value of the parameter gamma (see path following theory) not normalized. When the received gamma surpasses the ending gamma (<strong>Gamma_e</strong>) of the section, it will then update its section and publish it. It will do this process for the amount of sections in <strong>Mission</strong>.</p>
 <p>Note that <strong>/Gamma</strong> is being published by the path following node, where there is a conversion of the gamma from normalized to not normalized. </p>
-<h2 id="package-content">Package Content</h2>
-<p><img alt="console_path_parser struct" src="img/console_path_parser_structure.png" /></p>
-<h2 id="code-documentation">Code documentation</h2>
-<p><a href="http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/console_path_parser/html/index.html">source</a></p>
-<h2 id="using-console-path-parser">Using console path parser</h2>
-<p><a href="./pages.html">Examples</a></p>
 <h2 id="requirements">Requirements</h2>
 <p>PONTE - creates the mission to be parsed</p>
 <p>console_server - receives the mission and sends it here</p>
