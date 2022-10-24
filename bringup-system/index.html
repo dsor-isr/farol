@@ -17,7 +17,7 @@
     
     
       
-        <title>Reference - FAROL Documentation</title>
+        <title>Overview - FAROL Documentation</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#farol_bringup-package" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference
+              Overview
             
           </span>
         </div>
@@ -4195,12 +4200,20 @@
             
           
         
+          
+        
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Documentation</a>
+          
+            <label for="__nav_3_5_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -4211,6 +4224,87 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1_2" type="checkbox" id="__nav_3_5_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5_1_2">
+          Configuration Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration Files" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Personal.md" class="md-nav__link">
+        Personal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Vehicle.md" class="md-nav__link">
+        Vehicle
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Launch.md" class="md-nav__link">
+        Launch Files
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -7467,6 +7561,51 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    Rationale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-content" class="md-nav__link">
+    Package Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-documentation" class="md-nav__link">
+    Code documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-http_server" class="md-nav__link">
+    Using http_server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -7487,16 +7626,30 @@
 
 
 
-  <h1>Reference</h1>
-
-
+<h1 id="farol_bringup-package">farol_bringup package</h1>
+<p>farol_bringup is a ROS package that serves as the launching point of the entire farol stack. However, it does not act directly as the launcher, but instead it is used to replicate a bringup of our own to properly launch all the available vehicles.</p>
+<p><img alt="farol_bringup Diagram" src="img/farol_bringup_diagram.png" /></p>
+<h2 id="rationale">Rationale</h2>
+<p>This package serves as the launcher for the entire stack, as it was mentioned before, being replicated 
+where configuration setups are defined, such as default value overriding</p>
+<h2 id="package-content">Package Content</h2>
+<p><img alt="http_server struct" src="img/console_server_structure.png" /></p>
+<h2 id="code-documentation">Code documentation</h2>
+<p><a href="http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/http_server/html/index.html">source</a></p>
+<h2 id="using-http_server">Using http_server</h2>
+<p><a href="./pages.html">Examples</a></p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>http server</li>
+<li>web console (Yebisu)</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
       
     
   </small>
