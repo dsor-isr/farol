@@ -7346,7 +7346,7 @@
 
 
 <h1 id="console-path-parser-package">Console path parser package</h1>
-<p>Console path parser is a ROS package written in C++ responsible for parsing a mission/path string from an external source to a format that can be interpreted by the path following algorithms of the Farol Vx stack.</p>
+<p>Console path parser is a ROS package written in C++ responsible for parsing a mission/path string from an external source to a format that can be interpreted by the path following algorithms of the FAROL stack.</p>
 <p><img alt="console_path_parser Diagram" src="img/console_path_parser.png" /></p>
 <h2 id="rationale">Rationale</h2>
 <h4 id="missionpath-string-format">Mission/path string format</h4>
@@ -7416,7 +7416,7 @@ Console path parser will read this information and save in a vector of <strong>s
         depth = 0.0;
     }
 </code></pre>
-<p>The console path parser will then publish the first section (topic <strong>/path_section</strong>) of the vector while subscribing to the topic <strong>/Gamma</strong> which contains a the value of the parameter gamma (see path following theory) not normalized. When the received gamma surpasses the ending gamma (<strong>Gamma_e</strong>) of the section, it will then update its section and publish it. It will do this process for the amount of sections in <strong>Mission</strong>.</p>
+<p>The console path parser will then publish the first section (topic <strong>/path_section</strong>) of the vector while subscribing to the topic <strong>/Gamma</strong> which contains the value of the parameter gamma (see path following theory) not normalized. When the received gamma surpasses the ending gamma (<strong>Gamma_e</strong>) of the section, it will then update its section and publish it. It will do this process for the amount of sections in <strong>Mission</strong>.</p>
 <p>Note that <strong>/Gamma</strong> is being published by the path following node, where there is a conversion of the gamma from normalized to not normalized. </p>
 <h2 id="package-content">Package Content</h2>
 <p><img alt="console_path_parser struct" src="img/console_path_parser_structure.png" /></p>
@@ -7425,7 +7425,7 @@ Console path parser will read this information and save in a vector of <strong>s
 <h2 id="using-console-path-parser">Using console path parser</h2>
 <p><a href="./pages.html">Examples</a></p>
 <h2 id="requirements">Requirements</h2>
-<p>Yebisu - creates the mission to be parsed</p>
+<p>PONTE - creates the mission to be parsed</p>
 <p>console_server - receives the mission and sends it here</p>
 <p>folder to save path - ex: <em>ROS_BAG_FOLDER/paths_from_console</em></p>
 <p>path following algorithms - receive sections of the mission</p>
@@ -7435,7 +7435,7 @@ Console path parser will read this information and save in a vector of <strong>s
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
       
     
   </small>
