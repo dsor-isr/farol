@@ -2,3 +2,5 @@ site_name: Static Thruster Allocation
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - static_thruster_allocation: "static_thruster_allocation.md"
