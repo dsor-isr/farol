@@ -293,10 +293,148 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Repository Structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Repository Structure" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Repository Structure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../Repository-Structure/" class="md-nav__link">
-        Repository Structure
+      <a href="../General_Overview/" class="md-nav__link">
+        General Overview
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Detailed_Overview/" class="md-nav__link">
+        Detailed Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_3" type="checkbox" id="__nav_2_1_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_3">
+          Use Cases
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Use Cases" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Use Cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WP/" class="md-nav__link">
+        WP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PF/" class="md-nav__link">
+        PF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CPF/" class="md-nav__link">
+        CPF
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -7470,15 +7608,17 @@
 <ol>
 <li>
 <p>Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws</p>
-<p><code>if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config &amp;&amp; echo catkin_ws &gt; ~/.catkin_ws_config ;fi</code></p>
+<p><code>bash
+if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config &amp;&amp; echo catkin_ws &gt; ~/.catkin_ws_config ;fi</code></p>
 </li>
 <li>
 <p>Set the variable CATKIN_PACKAGE with the workspace in the catkin_ws_config file</p>
-<p><code>export CATKIN_PACKAGE=$(head -n 1 ~/.catkin_ws_config)</code></p>
+<p><code>bash
+export CATKIN_PACKAGE=$(head -n 1 ~/.catkin_ws_config)</code></p>
 </li>
 <li>
 <p>Function to update the default catkin workspace variable and store the last setting in the file</p>
-<p>```
+<p>```bash
 set_catkin_ws_function() {
     #set CATKIN_PACKAGE according the an input parameter
     export CATKIN_PACKAGE=catkin_ws_$1
@@ -7492,12 +7632,13 @@ source ~/.bashrc
 </li>
 <li>
 <p>This is required (to source the ROS and farol files)</p>
-<p><code>source /opt/ros/noetic/setup.bash
+<p><code>bash
+source /opt/ros/noetic/setup.bash
 export CATKIN_ROOT=${HOME}/&lt;path_to_workspace&gt;
 export ROS_WORKSPACE=${CATKIN_ROOT}/${CATKIN_PACKAGE}
 export FAROL_SCRIPTS=$(find ${ROS_WORKSPACE}/src/ -type d -iname farol_scripts | head -n 1)
 source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh</code></p>
-<p>NOTE: replace <code>/&lt;path_to_workspace&gt;</code> with the folder where you put you catkin_ws inside (for example <code>/dsor</code>). If you put in your home folder, then this variable should be left empty!</p>
+<p>NOTE: replace <code>/&lt;path_to_workspace&gt;</code> with the folder where you put you catkin_ws inside (for example <code>/dsor</code>). If you put it in your home folder, then this variable should be left empty!</p>
 </li>
 </ol>
 </li>
@@ -7505,7 +7646,7 @@ source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh</code></
 <p>Create a catkin_ws directory</p>
 </li>
 </ol>
-<pre><code>cd ~
+<pre><code class="language-bash">cd ~
 mkdir -p &lt;path_to_workspace&gt;/catkin_ws_farol/src
 cd &lt;path_to_workspace&gt;/catkin_ws_farol/src
 </code></pre>
@@ -7514,8 +7655,8 @@ cd &lt;path_to_workspace&gt;/catkin_ws_farol/src
 <p>If the repository was cloned non-recursively previously, use <code>git submodule update --init</code> to clone the necessary submodules.</p>
 <h2 id="3-configuring-the-dependencies"><strong>3. Configuring the dependencies:</strong></h2>
 <p>Run the installation bash script using</p>
-<pre><code>cd ~
-wget /https://github.com/dsor-isr/farol/blob/main/farol_addons/farol_docker/install_requirements.sh
+<pre><code class="language-bash">roscd farol/farol_addons/farol_docker/
+chmod u+x install_requirements.sh
 ./install_requirements.sh
 rm install_requirements.sh
 </code></pre>
@@ -7525,7 +7666,7 @@ rm install_requirements.sh
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 3, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
       
     
   </small>
@@ -7553,7 +7694,7 @@ rm install_requirements.sh
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../Repository-Structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Repository Structure" rel="prev">
+        <a href="../CPF/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CPF" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -7562,7 +7703,7 @@ rm install_requirements.sh
               <span class="md-footer__direction">
                 Previous
               </span>
-              Repository Structure
+              CPF
             </div>
           </div>
         </a>
