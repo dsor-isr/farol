@@ -16,22 +16,23 @@ This code stack was developed with ROS1 in mind. In order to use, you are requir
 - Python 3
 
 ### Installation
-- Run the installation script (note: you will require administrator priviledges)
-```
-wget https://github.com/dsor-isr/farol/blob/main/install_requirements.sh
-./install_requirements.sh
-rm install_requirements.sh
+- Clone this repository and its submodules to the catkin workspace:
+```bash
+git clone --recursive git@github.com:dsor-isr/farol.git
 ```
 
-- Clone this repository and its submodules to the catkin workspace:
-```
-git clone --recursive git@github.com:dsor-isr/farol.git
+- Run the installation script (note: you will require administrator priviledges)
+```bash
+roscd farol/farol_addons/farol_docker/
+chmod u+x install_requirements.sh
+./install_requirements.sh
+rm install_requirements.sh
 ```
 
 ### Using Farol Scripts and Alias
 In order to make use of the scripts and alias developed to make the development of code easier, please add the following lines to your ~/.bashrc file.
 NOTE: replace '/<path_to_workspace>' with the folder where you put you catkin_ws inside. If you put in your home folder, then this variable should be left empty!
-```
+```bash
 # Function to change between different catkin workspaces on the fly - this is not compulsory, but it is a nice addition 🤓
 
 # Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws
@@ -61,7 +62,7 @@ source ${FAROL_SCRIPTS}/farol_easy_alias/farol_permanent_alias/alias.sh
 
 ### Compile the code
 - Compile the code
-```
+```bash
 cd ~/<path_to_workspace>/<catkin_ws>/
 catkin build
 ```
@@ -82,6 +83,7 @@ https://dsor-isr.github.io/farol/
 - André Potes <andre.potes@tecnico.ulisboa.pt>
 - Francisco Rego <ffcrego@gmail.com>
 - David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
+- Francisco Branco <francisco.branco@tecnico.ulisboa.pt>
 
 ### Previous Contributors
 - João Cruz

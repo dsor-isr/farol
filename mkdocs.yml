@@ -123,7 +123,13 @@ extra:
 nav:
 - Introduction: index.md
 - Get Started:
-  - pages/get_started/Repository-Structure.md
+  - Repository Structure:
+    - pages/get_started/General_Overview.md
+    - pages/get_started/Detailed_Overview.md
+    - Use Cases:
+      - pages/get_started/WP.md
+      - pages/get_started/PF.md
+      - pages/get_started/CPF.md
   - pages/get_started/Install-Guide.md
   - pages/get_started/Build-the-Code.md
 # ---------------------------------------------------------------------------------------------------

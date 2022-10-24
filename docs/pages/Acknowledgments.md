@@ -7,6 +7,7 @@ The Farol project results from the work and dedication of many. Share the love ‚
 - Andr√© Potes <andre.potes@tecnico.ulisboa.pt>
 - Francisco Rego <ffcrego@gmail.com>
 - David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
+- Francisco Branco <francisco.branco@tecnico.ulisboa.pt>
 
 ### We also welcome the new members to the DSOR team
 - Eduardo Cunha 
