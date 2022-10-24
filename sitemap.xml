@@ -1201,7 +1201,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://dsor-isr.github.io/farol/farol-navigation/overview/</loc>
+         <loc>https://dsor-isr.github.io/farol/farol-navigation/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/farol-ros-messages/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1247,11 +1252,6 @@
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/TrackingSection/</loc>
-         <lastmod>2022-10-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://dsor-isr.github.io/farol/farol-ros-messages/index-msg/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
