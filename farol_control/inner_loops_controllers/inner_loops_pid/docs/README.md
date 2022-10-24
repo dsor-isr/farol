@@ -1,15 +1,15 @@
 # Inner Loops
 
-
 ## Sources
 
-From\
-[dos Santos Ribeiro, Jorge Miguel. "Motion control of single and multiple autonomous marine vehicles." PhD diss., MS thesis, Dept. Elect. Comput. Eng., Inst. Superior Técnico, Lisbon, Portugal, 2011.](https://fenix.tecnico.ulisboa.pt/downloadFile/395143403496/Tese_JorgeRibeiro.pdf)
+From
 
-[Resendes Maia, Ana Cristina. "Sensor-Based Formation Control of Autonomous Robotic Vehicles." PhD diss., MS thesis, Dept. Elect. Comput. Eng., Inst. Superior Técnico, Lisbon, Portugal, 2013.](https://fenix.tecnico.ulisboa.pt/downloadFile/395146003786/disserta%C3%A7%C3%A3o.pdf)
+* [dos Santos Ribeiro, Jorge Miguel. "Motion control of single and multiple autonomous marine vehicles." PhD diss., MS thesis, Dept. Elect. Comput. Eng., Inst. Superior Técnico, Lisbon, Portugal, 2011.](https://fenix.tecnico.ulisboa.pt/downloadFile/395143403496/Tese_JorgeRibeiro.pdf)
+
+* [Resendes Maia, Ana Cristina. "Sensor-Based Formation Control of Autonomous Robotic Vehicles." PhD diss., MS thesis, Dept. Elect. Comput. Eng., Inst. Superior Técnico, Lisbon, Portugal, 2013.](https://fenix.tecnico.ulisboa.pt/downloadFile/395146003786/disserta%C3%A7%C3%A3o.pdf)
 
 
-[P. C. Abreu et al., "The FAROL class of autonomous marine vehicles and their role in EU projects," OCEANS 2016 - Shanghai, Shanghai, 2016, pp. 1-10.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7485620)
+* [P. C. Abreu et al., "The FAROL class of autonomous marine vehicles and their role in EU projects," OCEANS 2016 - Shanghai, Shanghai, 2016, pp. 1-10.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7485620)
 
 ## Description
 

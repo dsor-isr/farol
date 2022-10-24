@@ -1,4 +1,6 @@
 site_name: PID Inner-loops
 
 nav:
-  - Overview: "innerloops.md"
+  - Overview: "README.md"
+  - Nodes:
+    - inner_loops_pid: "inner_loops_pid.md"
