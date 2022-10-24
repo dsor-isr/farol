@@ -7,12 +7,12 @@ http_server is a ROS package written in Python responsible for managing the info
 
 ![http_server Diagram](img/http_server.png)
 
+## Subscribers
+* /#vehcile#/sensors/* - Information from several sensors
+
 ## Publishers
 
 * /#vehicle#/addons/Mission_String[[std_msgs/String](http://docs.ros.org/en/noetic/api/std_msgs/html/msg/String.html)] - String with desired path following mission  
-
-## Subscribers
-* /#vehcile#/sensors/* - Information from several sensors
 
 ## Services
 * None
