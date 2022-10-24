@@ -5,7 +5,7 @@
 This package implements basic sensor models for an underwater/surface vehicles. It has the following features - Simulate GPS, Depth, DVL (Bottom Track and Water Track), Altitude, AHRS, Ranges - Control Gaussian Noise and Measurement Noise - Control Sensor Publish Frequency - Publish State output of the dynamic model in *auv_msgs::NavigationStatus* format
 
 ## Diagram
-![Sensor Sim Diagram](img/sensor_sim.pmg)
+![Sensor Sim Diagram](img/sensor_sim.png)
 
 ## Subscribers
 

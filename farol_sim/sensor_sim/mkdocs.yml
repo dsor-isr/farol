@@ -1,4 +1,4 @@
 site_name: Sensors Simulation
 
 nav:
-  - Reference: "sensor_sim.md"
+  - Reference: "README.md"
