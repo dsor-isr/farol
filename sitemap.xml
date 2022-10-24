@@ -1281,6 +1281,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/http-server/console_server/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/interrogation-scheme/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
@@ -1381,7 +1386,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://dsor-isr.github.io/farol/pid-inner-loops/innerloops/</loc>
+         <loc>https://dsor-isr.github.io/farol/pid-inner-loops/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/pid-inner-loops/inner_loops_pid/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1422,6 +1432,11 @@
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/static-thruster-allocation/</loc>
+         <lastmod>2022-10-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/static-thruster-allocation/static_thruster_allocation/</loc>
          <lastmod>2022-10-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
