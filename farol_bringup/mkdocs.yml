@@ -1,8 +1,6 @@
 site_name: Bringup System
 
 nav:
-  - Overview: "README.md"
-  - Configuration Files: 
-    - Personal: "Personal.md"
-    - Vehicle: "Vehicle.md"
-  - Launch Files: "Launch.md"
+  - Documentation: "README.md"
+  - Nodes:
+    - farol_bringup: "farol_bringup.md"

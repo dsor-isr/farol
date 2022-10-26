@@ -183,7 +183,7 @@ nav:
       - Classes:
         - api/markdown/farol_addons/console_path_parser/Classes
   - Farol Bringup:
-    - Overview: '!include ./farol_bringup/mkdocs.yml'
+    - Documentation: '!include ./farol_bringup/mkdocs.yml'
     - Classes:
       - api/markdown/farol_bringup/Classes
     - Namespaces:
