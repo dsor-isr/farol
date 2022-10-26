@@ -16,7 +16,6 @@ console_server is a ROS node written in Python with the main purpose of handling
 
 
 ## Publishers
-
 | Publishers          | msgs type                                                                   | Purpose                                  |
 | -----------         | --------------                                                              | ---------                                |
 | /#vehicle/sensors/* | [std_msgs/String](http://docs.ros.org/en/api/std_msgs/html/msg/String.html) | Mission string to be done by the vehicle |
