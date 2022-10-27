@@ -1,11 +1,10 @@
-# http_server package
+# farol_bringup Node
 
 ## In a nutshell
-console_server is a ROS node written in Python with the main purpose of handling a string mission from the web interface PONTE.
+This node is launched by the custom bringup and subsequently launches the whole system, using the default configurations inside the package `farol_bringup`, and later loading the new configurations to specifically override certain already launched variables.
 
 ## Diagram
-
-![http_server Diagram](img/http_server.png)
+![farol_bringup Diagram](img/farol_bringup.png)
 
 ## Subscribers
 | Subscribers         | msgs type                                                                        | Purpose                      |
@@ -13,7 +12,6 @@ console_server is a ROS node written in Python with the main purpose of handling
 | /#vehicle/sensors/* | [std_msgs](http://docs.ros.org/en/api/std_msgs/html/index-msg.html)              | information from the sensors |
 | /#vehicle/State     | [farol_msgs/mState](https://dsor-isr.github.io/farol/farol-ros-messages/mState/) | State of the vehicle         |
 |                     |                                                                                  |                              |
-
 
 ## Publishers
 | Publishers          | msgs type                                                                   | Purpose                                  |
@@ -30,6 +28,3 @@ console_server is a ROS node written in Python with the main purpose of handling
 | /#vehicle#/addons/console_server/ROOT_NAMESPACE | bool   | True    | Use private namespace                                     |
 | /#vehicle#/addons/console_server/pages_folder   | string | ./      | Folder wit vehicle webpages                               |
 | /#vehicle#/addons/console_server/Mission_folter | string | -       | Folder with stored txt files with path following missions |
-
-
-
