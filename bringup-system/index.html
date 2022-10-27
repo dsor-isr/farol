@@ -17,7 +17,7 @@
     
     
       
-        <title>Overview - FAROL Documentation</title>
+        <title>Documentation - FAROL Documentation</title>
       
     
     
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Documentation
             
           </span>
         </div>
@@ -4535,8 +4535,6 @@
         
           
         
-          
-        
       
       
         
@@ -4575,19 +4573,17 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_3_5_1_2">
-          Configuration Files
+          Nodes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Configuration Files" data-md-level="4">
+      <nav class="md-nav" aria-label="Nodes" data-md-level="4">
         <label class="md-nav__title" for="__nav_3_5_1_2">
           <span class="md-nav__icon md-icon"></span>
-          Configuration Files
+          Nodes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -4597,22 +4593,8 @@
   
   
     <li class="md-nav__item">
-      <a href="Personal.md" class="md-nav__link">
-        Personal
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Vehicle.md" class="md-nav__link">
-        Vehicle
+      <a href="farol_bringup/" class="md-nav__link">
+        farol_bringup
       </a>
     </li>
   
@@ -4621,20 +4603,6 @@
           
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Launch.md" class="md-nav__link">
-        Launch Files
-      </a>
     </li>
   
 
@@ -8295,36 +8263,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    Rationale
+  <a href="#config" class="md-nav__link">
+    Config
+  </a>
+  
+    <nav class="md-nav" aria-label="Config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personalyaml-file" class="md-nav__link">
+    personal.yaml file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle-configuration-files" class="md-nav__link">
+    Vehicle configuration files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processyaml-file" class="md-nav__link">
+    process.yaml file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nodes" class="md-nav__link">
+    Nodes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#package-content" class="md-nav__link">
-    Package Content
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-documentation" class="md-nav__link">
-    Code documentation
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-http_server" class="md-nav__link">
-    Using http_server
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
@@ -8351,21 +8332,70 @@
 
 
 <h1 id="farol_bringup-package">farol_bringup package</h1>
-<p>farol_bringup is a ROS package that serves as the launching point of the entire farol stack. However, it does not act directly as the launcher, but instead it is used to replicate a bringup of our own to properly launch all the available vehicles.</p>
-<p><img alt="farol_bringup Diagram" src="img/farol_bringup_diagram.png" /></p>
-<h2 id="rationale">Rationale</h2>
-<p>This package serves as the launcher for the entire stack, as it was mentioned before, being replicated 
-where configuration setups are defined, such as default value overriding</p>
-<h2 id="package-content">Package Content</h2>
-<p><img alt="http_server struct" src="img/console_server_structure.png" /></p>
-<h2 id="code-documentation">Code documentation</h2>
-<p><a href="http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/http_server/html/index.html">source</a></p>
-<h2 id="using-http_server">Using http_server</h2>
-<p><a href="./pages.html">Examples</a></p>
-<h2 id="requirements">Requirements</h2>
+<p>The <code>farol_bringup</code> is a ROS package that serves as the launching point of the entire farol stack. However, it does not act directly as the launcher, but instead it is used to replicate a bringup of our own to properly launch all the available vehicles. This can be attained using the following command:</p>
+<pre><code class="language-bash">dsor_pkg_bringup &lt;PKG_NAME&gt; &lt;VEHICLE_NAME&gt;
+</code></pre>
+<p>where <code>PKG_NAME</code> is the desired name for the bringup (to be added to <code>_bringup</code>), and <code>VEHICLE_NAME</code> is the desired vehicle to add to your bringup.You can add more vehicles later with the command:</p>
+<pre><code class="language-bash">dsor_add_vehicle_bringup &lt;VEHICLE_NAME&gt;
+</code></pre>
+<p>Inside the newly created bringup, you will find two main folders, the <code>config/</code> and the <code>launch/</code> folder. Each of them are further explained on their respective documentation tabs. However, it is better to tackle first the difference between the original <code>farol_bringup</code> and the replicated bringup.</p>
+<h2 id="config">Config</h2>
+<p>In the <code>config/</code> folder reside the configuration files regarding the system in terms of what is general to all vehicles available in the bringup, on the <code>personal_ros.yaml</code> file in the <code>dev_config/</code> folder, and the configurations specific to each type of vehicle, inside the <code>vehicles/</code> folder.</p>
+<h3 id="personalyaml-file"><code>personal.yaml</code> file</h3>
+<p>In here, you can edit the general parameters, like new topics and ports used for CPF communications, which are common to all types of vehicles. The vehicle within the topic should be replaced by the one instantiated when launching the system. The topics should resemble something like the following:</p>
+<pre><code class="language-yaml">addons/console_server:
+    PORT: 7080
+
+cooperative/cpf_wifi_server:
+    broadcast_port: 2808
+
+cooperative/cpf_wifi_client:
+    broadcast_port: 2808
+
+example_node:
+    topics:
+        publisher:
+            example_pub: '/#vehicle#/example/example_pub'
+        subscriber:
+            example_sub: '/#vehicle#/example/example_sub'
+</code></pre>
+<p>This file is used to override the permanent version with default values inside the <code>farol_bringup</code> package. What really happens is that the permanent file is loaded and then the <code>personal_ros.yaml</code> file is also loaded. This means that if the same fields exist in both files, the fields specified in the <code>personal_ros.yaml</code> are the ones which are effectively loaded.</p>
+<h3 id="vehicle-configuration-files">Vehicle configuration files</h3>
+<p>Inside the <code>vehicles/</code> folder within your own bringup, reside the folders with respect to each type of vehicle available in the bringup. To override certain default parameters defined in the config files inside the <code>farol_bringup</code> stack, you need to create the right config files and write the new values you want to assign to the existing variables. For example, to assign new gains to the controllers, you just need to create the <code>control.yaml</code> file inside the folder of the vehicle you want to override. The following example demonstrates the overriding of the depth controller's PID gains:</p>
+<pre><code class="language-yaml">inner_loops_pid:
+    controllers:
+        depth:
+            kp: 1.0
+            ki: 1.0
+            kd: 1.0
+</code></pre>
+<h3 id="processyaml-file"><code>process.yaml</code> file</h3>
+<p>Finally, the process.yaml file needs to be configured so that the new config file inside the custom bringup is loaded. There are many processes defined within the file, although for now you just need to pay attention to the first one, named 'load':</p>
+<pre><code class="language-yaml">processes:
+    - name: 'load' # Set to true to load all parameters need to run the stack
+      launch_on_startup: true
+      delay_before_start: 0.0
+      cmd: 'roslaunch farol_bringup load_parameters.launch'
+      args: # set to true when you want to add or override any default parameter(s)
+            - common:= false
+            - simulation:= false
+            - addons:= false
+            - navigation:= false
+            - controllers:= false
+            - cooperative:= false
+            - comms:= false
+            - acoustic_data:= false
+            - planning:= false 
+      dependencies:
+            []
+</code></pre>
+<h2 id="nodes">Nodes</h2>
 <ul>
-<li>http server</li>
-<li>web console (Yebisu)</li>
+<li>farol_bringup</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>None</li>
 </ul>
 
   <hr>
@@ -8373,7 +8403,7 @@ where configuration setups are defined, such as default value overriding</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 26, 2022</span>
       
     
   </small>
@@ -8417,13 +8447,13 @@ where configuration setups are defined, such as default value overriding</p>
       
       
         
-        <a href="../api/markdown/farol_bringup/Classes/classfarol__bringup__algorithms_1_1FarolSetup_1_1FarolSetup/" class="md-footer__link md-footer__link--next" aria-label="Next: farol_bringup_algorithms::FarolSetup::FarolSetup" rel="next">
+        <a href="farol_bringup/" class="md-footer__link md-footer__link--next" aria-label="Next: farol_bringup" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              farol_bringup_algorithms::FarolSetup::FarolSetup
+              farol_bringup
             </div>
           </div>
           <div class="md-footer__button md-icon">
