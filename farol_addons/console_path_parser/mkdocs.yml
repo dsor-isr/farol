@@ -2,3 +2,5 @@ site_name: Console Path-parser
 
 nav:
   - Reference: "README.md"
+  - Nodes:
+    - console_path_parser: "console_path_parser.md"

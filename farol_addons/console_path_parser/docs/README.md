@@ -1,28 +1,9 @@
 # Console path parser package
 
-## In a nutshell
-Console path parser is a ROS package written in C++ responsible for parsing a mission/path string from an external source to a format that can be interpreted by the path following algorithms of the FAROL stack.
+## Description
+Console path parser is a ROS package written in C++ responsible for managing a mission/path string from an external source (PONTE  - web interface) and forward by [console_server](https://dsor-isr.github.io/farol/http-server/console_server/) node to a format that can be interpreted by the path following algorithms of the FAROL stack. The mission is then managed by [dsor_paths](https://dsor-isr.github.io/farol/dsor-paths/dsor_paths/) node.
 
-
-## Diagram
-
-![console_path_parser Diagram](img/console_path_parser.png)
-
-## Subscribers
-
-## Publishers
-
-## Services
-
-## Parameters
-
-## Package content
-
-![console_path_parser struct](img/console_path_parser_structure.png)
-
-## Rationale
-
-#### Mission/path string format
+### Mission/path string format
 
 The format of the mission for a single vehicle comes from the console in a string like the following:
 ```
@@ -74,7 +55,7 @@ LINE 24.57 -12.29 24.57 24.57 0.30 -1
 Note that the only difference is the addition of a **FORMATION** line.
 Console path parser will read this information and save in a vector of **sections** (**Mission**). The section structure can be seen below.
 
-#### Path following sections format
+### Path following sections format
 
 ```c++
 	SECTION()
@@ -98,16 +79,12 @@ Console path parser will read this information and save in a vector of **section
 	}
 ```
 
-The console path parser will then publish the first section (topic **/path_section**) of the vector while subscribing to the topic **/Gamma** which contains the value of the parameter gamma (see path following theory) not normalized. When the received gamma surpasses the ending gamma (**Gamma_e**) of the section, it will then update its section and publish it. It will do this process for the amount of sections in **Mission**.
-
-Note that **/Gamma** is being published by the path following node, where there is a conversion of the gamma from normalized to not normalized. 
-
-## Requirements
+## Dependencies
 
 PONTE - creates the mission to be parsed
 
-console_server - receives the mission and sends it here
+console_server((https://dsor-isr.github.io/farol/http-server/console_server/) - receives the mission and sends it here
 
 folder to save path - ex: *ROS_BAG_FOLDER/paths_from_console*
 
-path following algorithms - receive sections of the mission
+[dsor_paths]((https://dsor-isr.github.io/farol/dsor-paths/dsor_paths/) - receive sections of the mission

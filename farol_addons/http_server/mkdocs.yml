@@ -2,3 +2,5 @@ site_name: HTTP Server
 
 nav:
   - Reference: "README.md"
+  - Nodes: 
+    - console_server: "console_server.md"
