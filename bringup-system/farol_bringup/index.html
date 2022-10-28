@@ -2666,6 +2666,8 @@
         
           
         
+          
+        
       
       
         
@@ -2918,6 +2920,57 @@
     <li class="md-nav__item">
       <a href="../../farol-ros-messages/TrackingSection/" class="md-nav__link">
         TrackingSection
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3_1_3" type="checkbox" id="__nav_3_3_1_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_1_3">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Services" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_3_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../farol-ros-messages/ManageProcess/" class="md-nav__link">
+        ManageProcess
       </a>
     </li>
   
@@ -8409,32 +8462,9 @@
 <h2 id="diagram">Diagram</h2>
 <p><img alt="farol_bringup Diagram" src="img/farol_bringup.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
-<table>
-<thead>
-<tr>
-<th>Subscribers</th>
-<th>msgs type</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/#vehicle/sensors/*</td>
-<td><a href="http://docs.ros.org/en/api/std_msgs/html/index-msg.html">std_msgs</a></td>
-<td>information from the sensors</td>
-</tr>
-<tr>
-<td>/#vehicle/State</td>
-<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/mState/">farol_msgs/mState</a></td>
-<td>State of the vehicle</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>None</li>
+</ul>
 <h2 id="publishers">Publishers</h2>
 <table>
 <thead>
@@ -8446,16 +8476,29 @@
 </thead>
 <tbody>
 <tr>
-<td>/#vehicle/sensors/*</td>
-<td><a href="http://docs.ros.org/en/api/std_msgs/html/msg/String.html">std_msgs/String</a></td>
-<td>Mission string to be done by the vehicle</td>
+<td>/#vehicle#/process_state/</td>
+<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/ProcessState/">farol_msgs/ProcessState</a></td>
+<td>What process is being launched at the time</td>
 </tr>
 </tbody>
 </table>
 <h2 id="services">Services</h2>
-<ul>
-<li>None</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Services</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/manage_process/</td>
+<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/ManageProcess/">farol_msgs/ManageProcess</a></td>
+<td>Manually manage processes that are being launched</td>
+</tr>
+</tbody>
+</table>
 <h2 id="parameters">Parameters</h2>
 <table>
 <thead>
@@ -8468,28 +8511,46 @@
 </thead>
 <tbody>
 <tr>
-<td>/#vehicle#/addons/console_server/PORT</td>
-<td>int</td>
-<td>7080</td>
-<td>TCP port</td>
+<td>/#vehicle#/farol_bringup/config_package_path</td>
+<td>string</td>
+<td>find <your_bringup_name>_bringup</td>
+<td>This parameter is used to find your bringup in order to launch everything that is needed</td>
 </tr>
 <tr>
-<td>/#vehicle#/addons/console_server/ROOT_NAMESPACE</td>
+<td>/#vehicle#/farol_bringup/folder</td>
+<td>string</td>
+<td>vehicles</td>
+<td><code>vehicles</code> folder</td>
+</tr>
+<tr>
+<td>/#vehicle#/farol_bringup/name</td>
+<td>string</td>
+<td><vehicle_name_argument></td>
+<td><code>name</code> argument specified while calling the <code>roslaunch</code> command</td>
+</tr>
+<tr>
+<td>/#vehicle#/farol_bringup/namespace</td>
 <td>bool</td>
-<td>True</td>
-<td>Use private namespace</td>
+<td>true</td>
+<td>Specify if there is a vehicle namespace in the topics</td>
 </tr>
 <tr>
-<td>/#vehicle#/addons/console_server/pages_folder</td>
-<td>string</td>
-<td>./</td>
-<td>Folder wit vehicle webpages</td>
+<td>/#vehicle#/farol_bringup/process_state_publish_rate</td>
+<td>float</td>
+<td>0.33</td>
+<td>Specify the rate at which the processes in the bringup are being published</td>
 </tr>
 <tr>
-<td>/#vehicle#/addons/console_server/Mission_folter</td>
+<td>/#vehicle#/farol_bringup/processes</td>
 <td>string</td>
-<td>-</td>
-<td>Folder with stored txt files with path following missions</td>
+<td>process.yaml</td>
+<td>Specify the processes to launch</td>
+</tr>
+<tr>
+<td>/#vehicle#/farol_bringup/vehicle_id</td>
+<td>int</td>
+<td><vehicle_id_argument></td>
+<td><code>id</code> argument specified while calling the <code>roslaunch</code> command</td>
 </tr>
 </tbody>
 </table>
@@ -8499,7 +8560,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 26, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 28, 2022</span>
       
     
   </small>
