@@ -9,7 +9,6 @@ Note: The important action in this node is to call the services of [dsor_paths](
 ![console_path_parser Diagram](img/console_path_parser.png)
 
 ## Subscribers
-## Subscribers
 | Subscribers           | msgs type                                                                        | Purpose                      |
 | -----------           | --------------                                                                   | ---------                    |
 | /#vehicle#/State      | [farol_msgs/mState](https://dsor-isr.github.io/farol/farol-ros-messages/mState/) | State of the vehicle         |
@@ -27,7 +26,8 @@ Not being used
 | "/#vehicle#/PFStart"           | [dsor_paths/StartPF]()       | Start path following controller                       |
 | "/#vehicle#/PFStop"            | [dsor_paths/StopPF]()        | Stop path following controller                        |
 | "/#vehicle#/SetConstVdVehicle" | [dsor_paths/SetConstSpeed]() | Set the desired velocity for each section of the path |
-|                                |                              |                                                       |
+
+
 ## Parameters
 | Parameters                                        | type   | Default               | Purpose                                                   |
 | ----------                                        | ----   | -------               | -------                                                   |

@@ -81,10 +81,7 @@ Console path parser will read this information and save in a vector of **section
 
 ## Dependencies
 
-PONTE - creates the mission to be parsed
-
-console_server((https://dsor-isr.github.io/farol/http-server/console_server/) - receives the mission and sends it here
-
-folder to save path - ex: *ROS_BAG_FOLDER/paths_from_console*
-
-[dsor_paths]((https://dsor-isr.github.io/farol/dsor-paths/dsor_paths/) - receive sections of the mission
+* PONTE - creates the mission to be parsed
+* console_server(https://dsor-isr.github.io/farol/http-server/console_server/) - receives the mission and sends it here
+* folder to save path - ex: *ROS_BAG_FOLDER/paths_from_console*
+* [dsor_paths](https://dsor-isr.github.io/farol/dsor-paths/dsor_paths/) - receive sections of the mission
