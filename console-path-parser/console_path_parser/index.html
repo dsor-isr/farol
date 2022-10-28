@@ -2285,13 +2285,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subscribers_1" class="md-nav__link">
-    Subscribers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#publishers" class="md-nav__link">
     Publishers
   </a>
@@ -2301,6 +2294,13 @@
         <li class="md-nav__item">
   <a href="#services" class="md-nav__link">
     Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
@@ -8531,13 +8531,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subscribers_1" class="md-nav__link">
-    Subscribers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#publishers" class="md-nav__link">
     Publishers
   </a>
@@ -8547,6 +8540,13 @@
         <li class="md-nav__item">
   <a href="#services" class="md-nav__link">
     Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
@@ -8579,7 +8579,6 @@
 <h2 id="diagram">Diagram</h2>
 <p><img alt="console_path_parser Diagram" src="../img/console_path_parser.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
-<h2 id="subscribers_1">Subscribers</h2>
 <table>
 <thead>
 <tr>
@@ -8638,35 +8637,30 @@
 <td><a href="">dsor_paths/SetConstSpeed</a></td>
 <td>Set the desired velocity for each section of the path</td>
 </tr>
+</tbody>
+</table>
+<h2 id="parameters">Parameters</h2>
+<table>
+<thead>
 <tr>
-<td></td>
-<td></td>
-<td></td>
+<th>Parameters</th>
+<th>type</th>
+<th>Default</th>
+<th>Purpose</th>
 </tr>
-<tr>
-<td>## Parameters</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Parameters</td>
-<td>type</td>
-<td>Default</td>
-</tr>
-<tr>
-<td>----------</td>
-<td>----</td>
-<td>-------</td>
-</tr>
+</thead>
+<tbody>
 <tr>
 <td>/#vehicle#/addons/console_path_parser/path_folder</td>
 <td>string</td>
 <td>../paths_from_console</td>
+<td>Store the path received from http_server</td>
 </tr>
 <tr>
 <td>/#vehicle#/addons/vehicle_id</td>
 <td>int</td>
 <td>[1-3]</td>
+<td>IDs of the medusas: 1 - mred, 2 - mblack, 3 - mvector</td>
 </tr>
 </tbody>
 </table>
