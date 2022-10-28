@@ -7,24 +7,25 @@ This node is launched by the custom bringup and subsequently launches the whole 
 ![farol_bringup Diagram](img/farol_bringup.png)
 
 ## Subscribers
-| Subscribers         | msgs type                                                                        | Purpose                      |
-| -----------         | --------------                                                                   | ---------                    |
-| /#vehicle/sensors/* | [std_msgs](http://docs.ros.org/en/api/std_msgs/html/index-msg.html)              | information from the sensors |
-| /#vehicle/State     | [farol_msgs/mState](https://dsor-isr.github.io/farol/farol-ros-messages/mState/) | State of the vehicle         |
-|                     |                                                                                  |                              |
-
-## Publishers
-| Publishers          | msgs type                                                                   | Purpose                                  |
-| -----------         | --------------                                                              | ---------                                |
-| /#vehicle/sensors/* | [std_msgs/String](http://docs.ros.org/en/api/std_msgs/html/msg/String.html) | Mission string to be done by the vehicle |
-
-## Services
 * None
 
+## Publishers
+| Publishers               | msgs type                                                                                    | Purpose                                    |
+| -----------              | --------------                                                                               | ---------                                  |
+| /#vehicle#/process_state/ | [farol_msgs/ProcessState](https://dsor-isr.github.io/farol/farol-ros-messages/ProcessState/) | What process is being launched at the time |
+
+## Services
+| Services                   | msgs type                                                                                      | Purpose                                           |
+| -----------                | --------------                                                                                 | ---------                                         |
+| /#vehicle#/manage_process/ | [farol_msgs/ManageProcess](https://dsor-isr.github.io/farol/farol-ros-messages/ManageProcess/) | Manually manage processes that are being launched |
+
 ## Parameters
-| Parameters                                      | type   | Default | Purpose                                                   |
-| ----------                                      | ----   | ------- | -------                                                   |
-| /#vehicle#/addons/console_server/PORT           | int    | 7080    | TCP port                                                  |
-| /#vehicle#/addons/console_server/ROOT_NAMESPACE | bool   | True    | Use private namespace                                     |
-| /#vehicle#/addons/console_server/pages_folder   | string | ./      | Folder wit vehicle webpages                               |
-| /#vehicle#/addons/console_server/Mission_folter | string | -       | Folder with stored txt files with path following missions |
+| Parameters                                          | type   | Default                              | Purpose                                                                                  |
+| ----------                                          | ----   | -------                              | -------                                                                                  |
+| /#vehicle#/farol_bringup/config_package_path        | string | find <your_bringup_name>\_bringup    | This parameter is used to find your bringup in order to launch everything that is needed |
+| /#vehicle#/farol_bringup/folder                     | string | vehicles                             | `vehicles` folder                                                                        |
+| /#vehicle#/farol_bringup/name                       | string | <vehicle_name_argument>              | `name` argument specified while calling the `roslaunch` command                          |
+| /#vehicle#/farol_bringup/namespace                  | bool   | true                                 | Specify if there is a vehicle namespace in the topics                                    |
+| /#vehicle#/farol_bringup/process_state_publish_rate | float  | 0.33                                 | Specify the rate at which the processes in the bringup are being published               |
+| /#vehicle#/farol_bringup/processes                  | string | process.yaml                         | Specify the processes to launch                                                          |
+| /#vehicle#/farol_bringup/vehicle_id                 | int    | <vehicle_id_argument>                | `id` argument specified while calling the `roslaunch` command                            |

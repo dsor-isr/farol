@@ -81,7 +81,7 @@ processes:
 
 ## Nodes
 
-* farol_bringup
+* [farol_bringup](./farol_bringup.md)
 
 ## Dependencies
 
