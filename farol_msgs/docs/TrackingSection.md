@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/TrackingSection Message
+[farol_msgs](README.md)/TrackingSection Message
 ========================================================
 
 Raw Message Definition

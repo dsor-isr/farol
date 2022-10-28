@@ -1,4 +1,4 @@
-[farol\_msgs](index-msg.md)/mPidDebug Message
+[farol\_msgs](README.md)/mPidDebug Message
 ==================================================
 
 Raw Message Definition

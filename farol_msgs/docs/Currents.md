@@ -1,4 +1,4 @@
-[farol\_msgs](index-msg.md)/Currents Message
+[farol\_msgs](README.md)/Currents Message
 =================================================
 
 Raw Message Definition

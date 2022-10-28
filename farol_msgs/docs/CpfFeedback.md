@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/CpfFeedback Message
+[farol_msgs](README.md)/CpfFeedback Message
 ====================================================
 
 Raw Message Definition
