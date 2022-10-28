@@ -1171,6 +1171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/console-path-parser/console_path_parser/</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/cooperative-path-following/</loc>
          <lastmod>2022-10-28</lastmod>
          <changefreq>daily</changefreq>
