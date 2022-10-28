@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/MultiSection Message
+[farol_msgs](README.md)/MultiSection Message
 =====================================================
 
 Raw Message Definition

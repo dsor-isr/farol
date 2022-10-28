@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/ProcessState Message
+[farol_msgs](README.md)/ProcessState Message
 =====================================================
 
 Raw Message Definition

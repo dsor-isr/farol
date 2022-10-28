@@ -1,0 +1,14 @@
+[farol\_msgs](README.md)/ManageProcess Service
+=================================================
+
+Service inside `farol_msgs` that manages processes.
+
+```yaml
+# start, stop, restart, kill, start_all, stop_all
+
+uint8 action
+string name
+---
+int32 status
+string message
+```

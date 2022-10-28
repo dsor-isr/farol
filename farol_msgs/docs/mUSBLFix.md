@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/mUSBLFix Message
+[farol_msgs](README.md)/mUSBLFix Message
 =================================================
 
 Raw Message Definition

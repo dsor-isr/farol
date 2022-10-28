@@ -16,3 +16,5 @@ nav:
     - ProcessState: "ProcessState.md"
     - Section: "Section.md"
     - TrackingSection: "TrackingSection.md"
+  - Services:
+    - ManageProcess: "ManageProcess.md"

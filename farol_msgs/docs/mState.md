@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/mState Message
+[farol_msgs](README.md)/mState Message
 ===============================================
 
 File: farol_msgs/mState.msg

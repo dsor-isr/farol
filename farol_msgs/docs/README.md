@@ -1,5 +1,6 @@
 # Farol messages stack
 
+Message list:
 * [CpfFeedback.msg](CpfFeedback.md)
 * [CPFGamma.msg](CPFGamma.md)
 * [Currents.msg](Currents.md)
@@ -13,3 +14,6 @@
 * [ProcessState.msg](ProcessState.md)
 * [Section.msg](Section.md)
 * [TrackingSection.msg](TrackingSection.md)
+
+Service list:
+* [ManageProcess.srv](ManageProcess.md)

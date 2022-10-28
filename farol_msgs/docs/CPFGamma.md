@@ -1,4 +1,4 @@
-[farol_msgs](index-msg.md)/CPFGamma Message
+[farol_msgs](README.md)/CPFGamma Message
 =================================================
 
 Raw Message Definition
