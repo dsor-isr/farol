@@ -10,7 +10,7 @@
         <meta name="author" content="The DSOR Team">
       
       
-        <link rel="canonical" href="https://dsor-isr.github.io/farol/farol-docker/">
+        <link rel="canonical" href="https://dsor-isr.github.io/farol/farol-docker-metapackage/">
       
       <link rel="icon" href="../Images/icons/dsor.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
@@ -1200,38 +1200,6 @@
       
         
           
-        
-      
-      
-        <label class="md-nav__link" for="__nav_3_1_2_1">
-          Farol Docker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Farol Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_1_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          Farol Docker
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2_1_1" type="checkbox" id="__nav_3_1_2_1_1" checked>
-      
-      
-      
-        
-          
             
           
         
@@ -1244,20 +1212,13 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Documentation" data-md-level="5">
-        <label class="md-nav__title" for="__nav_3_1_2_1_1">
+      <nav class="md-nav" aria-label="Documentation" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_1_2_1">
           <span class="md-nav__icon md-icon"></span>
           Documentation
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
             
           
         </ul>
@@ -8427,6 +8388,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#relevant-files" class="md-nav__link">
+    Relevant files
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -8437,7 +8413,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/dsor-isr/farol/edit/main/farol_addons/farol_docker/farol_docker/docs/README.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/dsor-isr/farol/edit/main/farol_addons/farol_docker/docs/README.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
@@ -8447,15 +8423,41 @@
 
 
 <h1 id="description">Description</h1>
-<p>Folder with dockerfile and scripts to build an image and upload it to harbor and dockerhub.
-The image is then used for ci/cd of the farol stack. </p>
+<p>Folder with dockerfile and scripts to build an image and upload it to harbor and dockerhub. The image is then used for ci/cd of the FAROL stack.</p>
+<h2 id="relevant-files">Relevant files</h2>
+<table>
+<thead>
+<tr>
+<th>Files</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>basic_entrypoint.sh</td>
+<td>entrypoiny for docker container, basically opens a bash shell and sources ROS environment.</td>
+</tr>
+<tr>
+<td>create_jenkins_image.sh</td>
+<td>Script that builds a docker image to be used for ci/cd of the FAROL stack. It also uploads the docker image to and to dsor harbor and dockerhub.</td>
+</tr>
+<tr>
+<td>Dockerfile</td>
+<td>Dockerfile with all the commands to a assemble the docker image to be used for ci/cd of the farol stack.</td>
+</tr>
+<tr>
+<td>install_requirements.sh</td>
+<td>Install all the libraries and dependencies of the FAROL stack. Useful for preparing the system to run FAROL properly. Used when building docker images and preparing regular machines to run FAROL stack.</td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 6, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 1, 2022</span>
       
     
   </small>
