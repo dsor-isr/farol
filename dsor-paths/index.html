@@ -5090,6 +5090,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -5150,6 +5154,204 @@
     <li class="md-nav__item">
       <a href="dsor_paths/" class="md-nav__link">
         dsor_paths
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_1_1_3" type="checkbox" id="__nav_3_6_1_1_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6_1_1_3">
+          Messages
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Messages" data-md-level="5">
+        <label class="md-nav__title" for="__nav_3_6_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Messages
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="PathData/" class="md-nav__link">
+        PathData
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6_1_1_4" type="checkbox" id="__nav_3_6_1_1_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6_1_1_4">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Services" data-md-level="5">
+        <label class="md-nav__title" for="__nav_3_6_1_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ResetPath/" class="md-nav__link">
+        ResetPath
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SetConstSpeed/" class="md-nav__link">
+        SetConstSpeed
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SetMode/" class="md-nav__link">
+        SetMode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SpawnArc2D/" class="md-nav__link">
+        SpawnArc2D
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SpawnBernoulli/" class="md-nav__link">
+        SpawnBernoulli
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SpawnCircle2D/" class="md-nav__link">
+        SpawnCircle2D
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SpawnLine/" class="md-nav__link">
+        SpawnLine
       </a>
     </li>
   
@@ -8444,6 +8646,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#messages" class="md-nav__link">
+    Messages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependencies" class="md-nav__link">
     Dependencies
   </a>
@@ -8480,9 +8696,9 @@
 <p>But how is a path section made? Well you are only required to be able to implement the path position, it's derivative and second derivative given the path parameter (<em>gamma</em>). The rest is done for you (but of course you can always override default implementations). In the image bellow we can check an example of this.</p>
 <p><img alt="Path Section" src="img/paths_section.png" /></p>
 <p>For example, in the Line implementation we are only required to implement the functions:
-- <code>eq\_pd(gamma)</code> - path equation (evaluated at gamma)
-- <code>eq\_d\_pd(gamma)</code> - derivative of the path equation (evaluated at gamma)
-- <code>eq\_dd\_pd(gamma)</code> - second derivative of the path equation (evaluated at gamma)</p>
+  - <code>eq_pd(gamma)</code> - path equation (evaluated at gamma)
+  - <code>eq_d_pd(gamma)</code> - derivative of the path equation (evaluated at gamma)
+  - <code>eq_dd_pd(gamma)</code> - second derivative of the path equation (evaluated at gamma)</p>
 <p>But since the curvature is constant for a line, there is no need to compute it using the standard way for a line. We can just override the standard implementation and just return 0.</p>
 <p>The same applies to the <code>getClosestPointGamma</code> method. The default implementation uses an iterative method to compute this point in the path (gradient descent). But, for a line we have a closed form solution. This is why we override the function and implement a better solution that exists for this kind of section (see image bellow).</p>
 <p><img alt="Line Section" src="img/line_section.png" /></p>
@@ -8513,8 +8729,8 @@ bool success
 <h2 id="modes-of-operation">Modes of operation</h2>
 <p>Since some path following algorithms require us to use the cloest point of the vehicle in the path, we need to be able to compute this. Therefore we implement the <em>getClosestPointGamma(coordinate)</em> method. This method is supposed to receive the coordinates of the vehicle and give the gamma of the path that encodes the closest point. With that gamma value we can compute anything.</p>
 <p>Modes of operation:
-- Listen to a gamma (default)
-- Closest Point</p>
+  - Listen to a gamma (default)
+  - Closest Point</p>
 <p>To change between modes we provide a service <em>/SetMode</em>. To reset the path we also provide the service <em>/ResetPath</em>. When we reset the path all the section that are inside are clean (both speed and path sections). In addition the mode of operation is also reset to its default value (listen to a gamma) and publish the data.</p>
 <h2 id="data-published-by-the-ros-node">Data published by the ROS node</h2>
 <p>In order to publish all the relevant data from a path evaluated at a specific value of gamma we provide a new ROS message, <em>PathData.msg</em>:</p>
@@ -8534,6 +8750,20 @@ float64 gamma_max        # Max gamma of the path
 <h2 id="nodes">Nodes</h2>
 <ul>
 <li><a href="dsor_paths/">dsor_paths</a></li>
+</ul>
+<h2 id="messages">Messages</h2>
+<ul>
+<li><a href="PathData/">PathData.msg</a></li>
+</ul>
+<h2 id="services">Services</h2>
+<ul>
+<li><a href="ResetPath/">ResetPath.srv</a></li>
+<li><a href="SetConstSpeed/">SetConstSpeed.srv</a></li>
+<li><a href="SetMode/">SetMode.srv</a></li>
+<li><a href="SpawnArc2D/">SpawnArc2D.srv</a></li>
+<li><a href="SpawnBernoulli/">SpawnBernoulli.srv</a></li>
+<li><a href="SpawnCircle2D/">SpawnCircle2D.srv</a></li>
+<li><a href="SpawnLine/">SpawnLine.srv</a></li>
 </ul>
 <h2 id="dependencies">Dependencies</h2>
 <ul>
