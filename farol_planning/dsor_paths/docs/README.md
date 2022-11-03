@@ -14,9 +14,9 @@ But how is a path section made? Well you are only required to be able to impleme
 ![Path Section](img/paths_section.png)
 
 For example, in the Line implementation we are only required to implement the functions:
-- `eq\_pd(gamma)` - path equation (evaluated at gamma)
-- `eq\_d\_pd(gamma)` - derivative of the path equation (evaluated at gamma)
-- `eq\_dd\_pd(gamma)` - second derivative of the path equation (evaluated at gamma)
+  - `eq_pd(gamma)` - path equation (evaluated at gamma)
+  - `eq_d_pd(gamma)` - derivative of the path equation (evaluated at gamma)
+  - `eq_dd_pd(gamma)` - second derivative of the path equation (evaluated at gamma)
 
 But since the curvature is constant for a line, there is no need to compute it using the standard way for a line. We can just override the standard implementation and just return 0.
 
@@ -68,8 +68,8 @@ See the image bellow for a concrete example.
 Since some path following algorithms require us to use the cloest point of the vehicle in the path, we need to be able to compute this. Therefore we implement the *getClosestPointGamma(coordinate)* method. This method is supposed to receive the coordinates of the vehicle and give the gamma of the path that encodes the closest point. With that gamma value we can compute anything.
 
 Modes of operation:
-- Listen to a gamma (default)
-- Closest Point
+  - Listen to a gamma (default)
+  - Closest Point
 
 To change between modes we provide a service */SetMode*. To reset the path we also provide the service */ResetPath*. When we reset the path all the section that are inside are clean (both speed and path sections). In addition the mode of operation is also reset to its default value (listen to a gamma) and publish the data.
 
@@ -92,7 +92,19 @@ float64 gamma_max        # Max gamma of the path
 ```
 
 ## Nodes
-* [dsor_paths](dsor_paths.md)
+* [dsor\_paths](dsor_paths.md)
+
+## Messages
+* [PathData.msg](PathData.md)
+
+## Services
+* [ResetPath.srv](ResetPath.md)
+* [SetConstSpeed.srv](SetConstSpeed.md)
+* [SetMode.srv](SetMode.md)
+* [SpawnArc2D.srv](SpawnArc2D.md)
+* [SpawnBernoulli.srv](SpawnBernoulli.md)
+* [SpawnCircle2D.srv](SpawnCircle2D.md)
+* [SpawnLine.srv](SpawnLine.md)
 
 ## Dependencies
 * None

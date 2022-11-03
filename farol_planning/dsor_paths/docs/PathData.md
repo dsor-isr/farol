@@ -1,5 +1,7 @@
-[dsor\_paths](Services.md)/ResetPath Service
+[dsor\_paths](README.md)/PathData Message
 ==============================================
+
+Message inside `dsor_paths` that carries the path data.
 
 ```
 Header header          # Headers for the message and sequence ID with consecutively increasing ID
