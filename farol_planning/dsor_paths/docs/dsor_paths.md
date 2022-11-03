@@ -1,23 +1,24 @@
 # dsor_paths Node
+This node deals with the rationale previously explained in the *dsor\_paths* documentation. It manages and deploys paths for the vehicles to follow.
 
 ## Diagram
 ![dsor\_paths Diagram](img/dsor_paths.png)
 
 ## Subscribers
-| Subscribers      | msgs type                                                                     | Purpose                                                                           |
-| -----------      | --------------                                                                | ---------                                                                         |
-| /#vehicle#/Gamma | [std\_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | The coordination state of a certain vehicle with respect to others on the network |
-| /#vehicle#/nav/filter/state | [auv\_msgs/NavigationStatus](https://github.com/oceansystemslab/auv_msgs) | The navigation state of the vehicle after filtering                         |
+| Subscribers                 | msgs type                                                                            | Purpose                                                                           |
+| -----------                 | --------------                                                                       | ---------                                                                         |
+| /#vehicle#/Gamma            | [std\_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html)       | The coordination state of a certain vehicle with respect to others on the network |
+| /#vehicle#/nav/filter/state | [auv\_msgs/NavigationStatus](https://github.com/oceansystemslab/auv_msgs)            | The navigation state of the vehicle after filtering                               |
 
 ## Publishers
-| Publishers               | msgs type                                                                        | Purpose                                                                            |
-| -----------              | --------------                                                                   | ---------                                                                          |
+| Publishers               | msgs type                                                                         | Purpose                                                                            |
+| -----------              | --------------                                                                    | ---------                                                                          |
 | /#vehicle#/PathData      | [dsor\_paths/PathData](PathData.md)                                               | Message with the path data on a certain point (curvature, tangent, velocity, etc.) |
 | /#vehicle#/Virtual/State | [farol\_msgs/mState](https://dsor-isr.github.io/farol/farol-ros-messages/mState/) | Vehicle state message                                                              |
 
 ## Services
-| Services                      | msgs type                                      | Purpose                                                                  |
-| -----------                   | --------------                                 | ---------                                                                |
+| Services                      | msgs type                                       | Purpose                                                                  |
+| -----------                   | --------------                                  | ---------                                                                |
 | /#vehicle#/ResetPath          | [dsor\_paths/ResetPath](ResetPath.md)           | Reset the current assigned path                                          |
 | /#vehicle#/SetConstVdRabbit   | [dsor\_paths/SetConstSpeed](SetConstSpeed.md)   | Set a constant speed for the rabbit which a certain vehicle is following |
 | /#vehicle#/SetConstVdVehicle  | [dsor\_paths/SetConstSpeed](SetConstSpeed.md)   | Set a constant speed for the vehicle itself                              |
@@ -28,7 +29,7 @@
 | /#vehicle#/SpawnLineDPath     | [dsor\_paths/SpawnLine](SpawnLine.md)           | Create a Line path                                                       |
 
 ## Parameters
-| Parameters                    | type   | Default     | Purpose    |
-| -----------                   | ----   | ----------  | ---------                                                                |
-| /#vehicle#/frame\_id           | string | Path\_frame  | ID assigned to the path frame |
-| /#vehicle#/node\_frequency     | float  | 10.0        | Working frequency of the node |
+| Parameters                 | type   | Default     | Purpose                       |
+| -----------                | ----   | ----------  | ---------                     |
+| /#vehicle#/frame\_id       | string | Path\_frame | ID assigned to the path frame |
+| /#vehicle#/node\_frequency | float  | 10.0        | Working frequency of the node |

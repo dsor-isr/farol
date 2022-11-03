@@ -4,3 +4,13 @@ nav:
   - Reference: "README.md"
   - Nodes:
     - dsor_paths: "dsor_paths.md"
+  - Messages:
+    - PathData: "PathData.md"
+  - Services:
+    - ResetPath: "ResetPath.md"
+    - SetConstSpeed: "SetConstSpeed.md"
+    - SetMode: "SetMode.md"
+    - SpawnArc2D: "SpawnArc2D.md"
+    - SpawnBernoulli: "SpawnBernoulli.md"
+    - SpawnCircle2D: "SpawnCircle2D.md"
+    - SpawnLine: "SpawnLine.md"
