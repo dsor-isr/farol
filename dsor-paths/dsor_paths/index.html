@@ -17,7 +17,7 @@
     
     
       
-        <title>dsor-paths - FAROL Documentation</title>
+        <title>dsor_paths - FAROL Documentation</title>
       
     
     
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dsor-paths
+              dsor_paths
             
           </span>
         </div>
@@ -5160,12 +5160,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          dsor-paths
+          dsor_paths
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        dsor-paths
+        dsor_paths
       </a>
       
         
@@ -8525,16 +8525,133 @@
 <h2 id="diagram">Diagram</h2>
 <p><img alt="dsor_paths Diagram" src="../img/dsor_paths.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
+<table>
+<thead>
+<tr>
+<th>Subscribers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/Gamma</td>
+<td><a href="http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html">std_msgs/Float64</a></td>
+<td>The coordination state of a certain vehicle with respect to others on the network</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/state</td>
+<td><a href="https://github.com/oceansystemslab/auv_msgs">auv_msgs/NavigationStatus</a></td>
+<td>The navigation state of the vehicle after filtering</td>
+</tr>
+</tbody>
+</table>
 <h2 id="publishers">Publishers</h2>
+<table>
+<thead>
+<tr>
+<th>Publishers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/PathData</td>
+<td><a href="../PathData/">dsor_paths/PathData</a></td>
+<td>Message with the path data on a certain point (curvature, tangent, velocity, etc.)</td>
+</tr>
+<tr>
+<td>/#vehicle#/Virtual/State</td>
+<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/mState/">farol_msgs/mState</a></td>
+<td>Vehicle state message</td>
+</tr>
+</tbody>
+</table>
 <h2 id="services">Services</h2>
+<table>
+<thead>
+<tr>
+<th>Services</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/ResetPath</td>
+<td><a href="../ResetPath/">dsor_paths/ResetPath</a></td>
+<td>Reset the current assigned path</td>
+</tr>
+<tr>
+<td>/#vehicle#/SetConstVdRabbit</td>
+<td><a href="../SetConstSpeed/">dsor_paths/SetConstSpeed</a></td>
+<td>Set a constant speed for the rabbit which a certain vehicle is following</td>
+</tr>
+<tr>
+<td>/#vehicle#/SetConstVdVehicle</td>
+<td><a href="../SetConstSpeed/">dsor_paths/SetConstSpeed</a></td>
+<td>Set a constant speed for the vehicle itself</td>
+</tr>
+<tr>
+<td>/#vehicle#/SetMode</td>
+<td><a href="../SetMode/">dsor_paths/SetMode</a></td>
+<td>Set a certain mode of operation</td>
+</tr>
+<tr>
+<td>/#vehicle#/SpawnArc2DPath</td>
+<td><a href="../SpawnArc2D/">dsor_paths/SpawnArc2D</a></td>
+<td>Create a 2D circumference arc path</td>
+</tr>
+<tr>
+<td>/#vehicle#/SpawnBernoulliPath</td>
+<td><a href="../SpawnBernoulli/">dsor_paths/SpawnBernoulli</a></td>
+<td>Create a Bernoulli path</td>
+</tr>
+<tr>
+<td>/#vehicle#/SpawnCircle2DPath</td>
+<td><a href="../SpawnCircle2D/">dsor_paths/SpawnCircle2D</a></td>
+<td>Create a 2D Circle path</td>
+</tr>
+<tr>
+<td>/#vehicle#/SpawnLineDPath</td>
+<td><a href="../SpawnLine/">dsor_paths/SpawnLine</a></td>
+<td>Create a Line path</td>
+</tr>
+</tbody>
+</table>
 <h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>type</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/frame_id</td>
+<td>string</td>
+<td>Path_frame</td>
+<td>ID assigned to the path frame</td>
+</tr>
+<tr>
+<td>/#vehicle#/node_frequency</td>
+<td>float</td>
+<td>10.0</td>
+<td>Working frequency of the node</td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 3, 2022</span>
       
     
   </small>
