@@ -41,13 +41,9 @@ Add the following
 ```
 FarolGimmicks::method_to_use(...)
 ```
+
+List of methods available [here](https://dsor-isr.github.io/farol/api/markdown/farol_addons/libraries/farol_gimmicks_library/Namespaces/namespaceFarolGimmicks/#functions).
+
 ---
 
-## Package Content
-
-![farol_gimmicks_library struct](img/farol_gimmicks_library_structure.png)
-
-## Code documentation
-
-[source](http://lungfish.isr.tecnico.ulisboa.pt/farol_vx_doxy/farol_addons/farol_gimmicks_library/html/index.html)
 
