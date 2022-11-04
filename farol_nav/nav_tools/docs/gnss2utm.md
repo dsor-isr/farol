@@ -14,7 +14,3 @@ This node converts data in WGS84 from sensor_msgs::NavSatFix to UTM NED farol_ms
 
 ## Parameters
 
-## Rationale
-
-## Requirements
-

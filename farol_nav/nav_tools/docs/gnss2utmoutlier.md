@@ -12,7 +12,3 @@
 
 ## Parameters
 
-## Rationale
-
-## Requirements
-
