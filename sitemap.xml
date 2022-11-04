@@ -1376,6 +1376,26 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/farol-scripts/bash_scripts/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/farol-scripts/bringup_scripts/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/farol-scripts/farol_alias/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dsor-isr.github.io/farol/farol-scripts/packages_scripts/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/http-server/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
