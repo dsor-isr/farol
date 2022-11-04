@@ -18,7 +18,3 @@ This node takes in georeferences usbl position fix and converts it to position u
 
 ## Parameters
 
-## Rationale
-
-## Requirements
-
