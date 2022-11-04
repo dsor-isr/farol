@@ -1536,6 +1536,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/remote-controller/remote_controller/</loc>
+         <lastmod>2022-11-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/</loc>
          <lastmod>2022-11-04</lastmod>
          <changefreq>daily</changefreq>
