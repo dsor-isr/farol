@@ -2,3 +2,5 @@ site_name: Remote Controller
 
 nav:
   - Reference: "README.md"
+  - Nodes: 
+    - remote_controller: "remote_controller.md"
