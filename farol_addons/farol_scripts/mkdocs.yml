@@ -1,4 +1,9 @@
-site_name: Farol Scripts
+site_name: Farol Scripts 
 
 nav:
   - Reference: "README.md"
+  - Scripts:
+    - Bringup scripts: "bringup_scripts.md"
+    - Alias: "farol_alias.md"
+    - New packages scripts: "packages_scripts.md"
+    - Handy bash scripts: "bash_scripts.md"  

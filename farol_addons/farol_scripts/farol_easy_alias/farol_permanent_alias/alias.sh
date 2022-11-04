@@ -18,10 +18,7 @@ source ${FAROL_SCRIPTS}/farol_scripts_for_bash/git_special_commands.sh
 source ${FAROL_SCRIPTS}/farol_scripts_for_bash/roscat.sh
 
 # source autocomplete extensions
-source ${FAROL_SCRIPTS}/farol_scripts_for_bash/autcomplete.sh
-
-# source transfer.sh
-source ${FAROL_SCRIPTS}/farol_scripts_for_bash/transfer.sh
+#source ${FAROL_SCRIPTS}/farol_scripts_for_bash/autcomplete.sh
 
 #####################
 # -- ROS related -- #
@@ -29,9 +26,6 @@ source ${FAROL_SCRIPTS}/farol_scripts_for_bash/transfer.sh
 
 # kill all nodes
 alias kill_all_ros_nodes='sudo pkill -f ros' 
-
-# view state machine
-alias smach_viewer='rosrun smach_viewer smach_viewer.py'
 
 # open rviz visualization
 alias rviz='rosrun rviz rviz'
