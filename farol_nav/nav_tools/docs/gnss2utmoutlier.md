@@ -14,7 +14,7 @@ This node converts data in WGS84 from *sensor_msgs::NavSatFix* to UTM NED *farol
 ## Publishers
 | Publishers                       | msgs type                  | Purpose                                                                    |
 | -----------                      | --------------             | ---------                                                                  |
-| /#vehicle#/measurement/positions | [dsor\_msgs/Measurement]() | Measurement message of vehicles position estimated acquired by the sensors |
+| /#vehicle#/measurement/positions | [dsor\_msgs/Measurement](https://github.com/dsor-isr/dsor_utils/blob/d39195370a36517fc0c1a05c8e043f58720416bb/dsor_msgs/msg/Measurement.msg) | Measurement message of vehicles position estimated acquired by the sensors |
 
 ## Services
 | Services                                    | msgs type                                                                      | Purpose                                                   |

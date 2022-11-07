@@ -17,8 +17,8 @@ This node takes in georeferences usbl position fix and converts it to position u
 ## Publishers
 | Publishers                       | msgs type                  | Purpose                                                                    |
 | -----------                      | --------------             | ---------                                                                  |
-| /#vehicle#/measurement/positions | [dsor\_msgs/Measurement]() | Measurement message of vehicles position estimated acquired by the sensors |
-| /#vehicle#/State\_usbl\_est      | [farol\_msgs/mState]()     |  |
+| /#vehicle#/measurement/positions | [dsor\_msgs/Measurement](https://github.com/dsor-isr/dsor_utils/blob/d39195370a36517fc0c1a05c8e043f58720416bb/dsor_msgs/msg/Measurement.msg) | Measurement message of vehicles position estimated acquired by the sensors |
+| /#vehicle#/State\_usbl\_est      | [farol\_msgs/mState](https://dsor-isr.github.io/farol/farol-ros-messages/mState/)     | State estimated from USBL measurements |
 
 ## Services
 | Services                         | msgs type                                                                      | Purpose                                 |
