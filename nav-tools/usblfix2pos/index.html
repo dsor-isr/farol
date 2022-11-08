@@ -8066,8 +8066,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servers" class="md-nav__link">
-    Servers
+  <a href="#services" class="md-nav__link">
+    Services
   </a>
   
 </li>
@@ -8865,8 +8865,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servers" class="md-nav__link">
-    Servers
+  <a href="#services" class="md-nav__link">
+    Services
   </a>
   
 </li>
@@ -8901,22 +8901,121 @@
 
 <h1 id="usbl2pos-node">usbl2pos Node</h1>
 <h2 id="in-a-nutshell">In a nutshell</h2>
-<p>This node takes in georeferences usbl position fix and converts it to position updates of the filter. It can be deployed in two ways</p>
-<p><strong>Scenario 1: Inverted-USBL</strong> In this scenario, the underwater vehicle localizes itself with respect to an anchor, whose precise global position is known. The usbl onboard the vehicle receives the georeferenced position of the anchor and the usbl-fix. The vehicle uses these two information to estimate its position using simple geometry.</p>
-<p><strong>Scenario 2: Tracking with USBL</strong> In this scenario, the anchor, whose precise global position is known, tracks underwater vehicles using USBL fixes. The anchor receives the usbl-fix of the underwater vehicle and uses its own position to estimate the position of the underwater vehicle.</p>
+<p>This node takes in georeferences usbl position fix and converts it to position updates of the filter. It can be deployed in two ways:
+* <strong>Scenario 1: Inverted-USBL</strong> In this scenario, the underwater vehicle localizes itself with respect to an anchor, whose precise global position is known. The usbl onboard the vehicle receives the georeferenced position of the anchor and the usbl-fix. The vehicle uses these two information to estimate its position using simple geometry.
+* <strong>Scenario 2: Tracking with USBL</strong> In this scenario, the anchor, whose precise global position is known, tracks underwater vehicles using USBL fixes. The anchor receives the usbl-fix of the underwater vehicle and uses its own position to estimate the position of the underwater vehicle.</p>
 <h2 id="diagram">Diagram</h2>
 <p><img alt="UsblFix2Pos" src="../img/usbl2pos.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
+<table>
+<thead>
+<tr>
+<th>Subscribers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/sensors/usbl_fix</td>
+<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/mUSBLFix/">farol_msgs/mUSBLFix</a></td>
+<td>USBL estimation from the sensors</td>
+</tr>
+<tr>
+<td>/#vehicle#/acomms/nav/filter/state</td>
+<td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
+<td>Filtered state received through acoustic communications</td>
+</tr>
+</tbody>
+</table>
 <h2 id="publishers">Publishers</h2>
-<h2 id="servers">Servers</h2>
+<table>
+<thead>
+<tr>
+<th>Publishers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/measurement/positions</td>
+<td><a href="https://github.com/dsor-isr/dsor_utils/blob/d39195370a36517fc0c1a05c8e043f58720416bb/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
+<td>Measurement message of vehicles position estimated acquired by the sensors</td>
+</tr>
+<tr>
+<td>/#vehicle#/State_usbl_est</td>
+<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/mState/">farol_msgs/mState</a></td>
+<td>State estimated from USBL measurements</td>
+</tr>
+</tbody>
+</table>
+<h2 id="services">Services</h2>
+<table>
+<thead>
+<tr>
+<th>Services</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/sensor/fake/enable_gps_outlier</td>
+<td><a href="http://docs.ros.org/en/api/std_srvs/html/srv/SetBool.html">std_srvs/SetBool</a></td>
+<td>Service to enable the gps outlier creation functionality</td>
+</tr>
+<tr>
+<td>/#vehicle#/sensor/fake/enable_usbl_delay</td>
+<td><a href="http://docs.ros.org/en/api/std_srvs/html/srv/SetBool.html">std_srvs/SetBool</a></td>
+<td>Service to enable delay while using acoustic usbl sensors</td>
+</tr>
+</tbody>
+</table>
 <h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>type</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/node_frequency</td>
+<td>float</td>
+<td>10.0</td>
+<td>Working frequency of the node</td>
+</tr>
+<tr>
+<td>/#vehicle#/fix_type</td>
+<td>bool</td>
+<td>false</td>
+<td>Type USBL fix to apply</td>
+</tr>
+<tr>
+<td>/#vehicle#/meas_noise</td>
+<td>float</td>
+<td>0.001</td>
+<td>Noise to apply</td>
+</tr>
+<tr>
+<td>/#vehicle#/t_sync</td>
+<td>float</td>
+<td>2</td>
+<td>Synchronization time</td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 4, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 8, 2022</span>
       
     
   </small>

@@ -8038,8 +8038,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servers" class="md-nav__link">
-    Servers
+  <a href="#services" class="md-nav__link">
+    Services
   </a>
   
 </li>
@@ -8865,8 +8865,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#servers" class="md-nav__link">
-    Servers
+  <a href="#services" class="md-nav__link">
+    Services
   </a>
   
 </li>
@@ -8901,20 +8901,91 @@
 
 <h1 id="gnss2utm-node">gnss2utm Node</h1>
 <h2 id="in-a-nutshell">In a nutshell</h2>
-<p>This node converts data in WGS84 from sensor_msgs::NavSatFix to UTM NED farol_msgs::Measurement format.</p>
+<p>This node converts data in WGS84 from <em>sensor_msgs::NavSatFix</em> to UTM NED <em>farol_msgs::Measurement</em> format.</p>
 <h2 id="diagram">Diagram</h2>
 <p><img alt="Gnss2Utm Diagram" src="../img/gnss2utm.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
+<table>
+<thead>
+<tr>
+<th>Subscribers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/sensor/gnss</td>
+<td><a href="http://docs.ros.org/en/api/sensor_msgs/html/msg/NavSatFix.html">sensor_msgs/NavSatFix</a></td>
+<td>GNSS information from mounted sensors</td>
+</tr>
+</tbody>
+</table>
 <h2 id="publishers">Publishers</h2>
-<h2 id="servers">Servers</h2>
+<table>
+<thead>
+<tr>
+<th>Publishers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/State_gt</td>
+<td><a href="https://dsor-isr.github.io/farol/farol-ros-messages/mState/">farol_msgs/mState</a></td>
+<td>Ground truth state of the vehicle</td>
+</tr>
+<tr>
+<td>/#vehicle#/measurement/positions</td>
+<td><a href="https://github.com/dsor-isr/dsor_utils/blob/d39195370a36517fc0c1a05c8e043f58720416bb/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
+<td>Measurement message of vehicles position estimated acquired by the sensors</td>
+</tr>
+</tbody>
+</table>
+<h2 id="services">Services</h2>
+<table>
+<thead>
+<tr>
+<th>Services</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/sensor/enable_gps</td>
+<td><a href="http://docs.ros.org/en/api/std_srvs/html/srv/SetBool.html">std_srvs/SetBool</a></td>
+<td>Service to enable the gps functionality</td>
+</tr>
+</tbody>
+</table>
 <h2 id="parameters">Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>type</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/#vehicle#/node_frequency</td>
+<td>float</td>
+<td>10.0</td>
+<td>Working frequency of the node</td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 4, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 8, 2022</span>
       
     
   </small>

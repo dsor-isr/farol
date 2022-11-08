@@ -8337,20 +8337,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    Rationale
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8892,20 +8878,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    Rationale
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -8929,27 +8901,270 @@
 
 <h1 id="filter-node">filter Node</h1>
 <h2 id="in-a-nutshell">In a nutshell</h2>
-<p>A general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:</p>
-<ul>
-<li><a href="../theory/">Theory</a> </li>
-<li><a href="../developer_notes/">Developer Notes</a> </li>
-<li><a href="../user_guide/">User Guide</a></li>
-</ul>
+<p>A general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:
+* <a href="../theory/">Theory</a> 
+* <a href="../user_guide/">User Guide</a>
+* <a href="../developer_notes/">Developer Notes</a> </p>
 <h2 id="diagram">Diagram</h2>
 <p><img alt="Sensor Fusion Diagram" src="../img/filter.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
+<table>
+<thead>
+<tr>
+<th>Subscribers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mvector0/Flag</td>
+<td><a href="http://docs.ros.org/en/api/std_msgs/html/msg/Int8.html">std_msgs/Int8</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/measurement/orientation</td>
+<td><a href="https://github.com/dsor-isr/dsor_utils/blob/main/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/measurement/position</td>
+<td><a href="https://github.com/dsor-isr/dsor_utils/blob/main/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/measurement/velocity</td>
+<td><a href="https://github.com/dsor-isr/dsor_utils/blob/main/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/reset</td>
+<td><a href="http://docs.ros.org/en/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/state</td>
+<td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/tf</td>
+<td><a href="http://docs.ros.org/en/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/TFMessage</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/tf_static</td>
+<td><a href="http://docs.ros.org/en/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/TFMessage</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="publishers">Publishers</h2>
+<table>
+<thead>
+<tr>
+<th>Publishers</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mvector0/State_dr</td>
+<td><a href="https://github.com/dsor-isr/farol/blob/main/farol_msgs/msg/mState.msg">farol_msgs/mState</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/currents</td>
+<td><a href="https://github.com/dsor-isr/farol/blob/main/farol_msgs/msg/Currents.msg">farol_msgs/Currents</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/state</td>
+<td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/state_dr</td>
+<td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
+<td></td>
+</tr>
+<tr>
+<td>/tf</td>
+<td><a href="http://docs.ros.org/en/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/TFMessage</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="services">Services</h2>
+<table>
+<thead>
+<tr>
+<th>Services</th>
+<th>msgs type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mvector0/nav/reset_filter_dr</td>
+<td><a href="http://docs.ros.org/en/api/std_srvs/html/srv/Trigger.html">std_srvs/Trigger</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="parameters">Parameters</h2>
-<h2 id="rationale">Rationale</h2>
-<h2 id="requirements">Requirements</h2>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>type</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/mvector0/nav/filter/dvl/body_frame</td>
+<td>bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/bypass_ahrs</td>
+<td>bool</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/manually_initialization/frame_id</td>
+<td>string</td>
+<td>gnss</td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/manually_initialization/noise</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/manually_initialization/value</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/outlier_rejection_threshold</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/predict_period</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/process_covariance</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/reject_counter</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/reset_period</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/save_measurement_interval</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/kalman_filter/sensors</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/name_vehicle_id</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/node_frequency</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/originLat</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/originLon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/services_dr/reset_filter_dr</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/tf/broadcast</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/tf/frames/base_link</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/tf/frames/map</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/tf/frames/odom</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>/mvector0/nav/filter/tf/frames/world</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 8, 2022</span>
       
     
   </small>
