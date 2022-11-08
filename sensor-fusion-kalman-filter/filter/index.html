@@ -8901,10 +8901,12 @@
 
 <h1 id="filter-node">filter Node</h1>
 <h2 id="in-a-nutshell">In a nutshell</h2>
-<p>A general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:
-* <a href="../theory/">Theory</a> 
-* <a href="../user_guide/">User Guide</a>
-* <a href="../developer_notes/">Developer Notes</a> </p>
+<p>A general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:</p>
+<ul>
+<li><a href="../theory/">Theory</a> </li>
+<li><a href="../user_guide/">User Guide</a></li>
+<li><a href="../developer_notes/">Developer Notes</a> </li>
+</ul>
 <h2 id="diagram">Diagram</h2>
 <p><img alt="Sensor Fusion Diagram" src="../img/filter.png" /></p>
 <h2 id="subscribers">Subscribers</h2>
@@ -8918,44 +8920,44 @@
 </thead>
 <tbody>
 <tr>
-<td>/mvector0/Flag</td>
+<td>/#vehicle#/Flag</td>
 <td><a href="http://docs.ros.org/en/api/std_msgs/html/msg/Int8.html">std_msgs/Int8</a></td>
-<td></td>
+<td>Farol stack state machine (waypoint, idle, path following, etc.)</td>
 </tr>
 <tr>
-<td>/mvector0/measurement/orientation</td>
+<td>/#vehicle#/measurement/orientation</td>
 <td><a href="https://github.com/dsor-isr/dsor_utils/blob/main/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
-<td></td>
+<td>Sensor measurement of vehicle orientation</td>
 </tr>
 <tr>
-<td>/mvector0/measurement/position</td>
+<td>/#vehicle#/measurement/position</td>
 <td><a href="https://github.com/dsor-isr/dsor_utils/blob/main/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
-<td></td>
+<td>Sensor measurement of vehicle position</td>
 </tr>
 <tr>
-<td>/mvector0/measurement/velocity</td>
+<td>/#vehicle#/measurement/velocity</td>
 <td><a href="https://github.com/dsor-isr/dsor_utils/blob/main/dsor_msgs/msg/Measurement.msg">dsor_msgs/Measurement</a></td>
-<td></td>
+<td>Sensor measurement of vehicle velocity along body-frame</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/reset</td>
+<td>/#vehicle#/nav/filter/reset</td>
 <td><a href="http://docs.ros.org/en/api/std_msgs/html/msg/Empty.html">std_msgs/Empty</a></td>
-<td></td>
+<td>Empty messages sent to reset the navigation filter</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/state</td>
+<td>/#vehicle#/nav/filter/state</td>
 <td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
-<td></td>
+<td>Filtered state of the vehicle</td>
 </tr>
 <tr>
 <td>/tf</td>
 <td><a href="http://docs.ros.org/en/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/TFMessage</a></td>
-<td></td>
+<td>Transform ROS message to switch between reference frames (rotations)</td>
 </tr>
 <tr>
 <td>/tf_static</td>
 <td><a href="http://docs.ros.org/en/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/TFMessage</a></td>
-<td></td>
+<td>Static reference frame</td>
 </tr>
 </tbody>
 </table>
@@ -8970,29 +8972,29 @@
 </thead>
 <tbody>
 <tr>
-<td>/mvector0/State_dr</td>
+<td>/#vehicle#/State_dr</td>
 <td><a href="https://github.com/dsor-isr/farol/blob/main/farol_msgs/msg/mState.msg">farol_msgs/mState</a></td>
-<td></td>
+<td>Vehicle state determined using dead reckoning (sensors other than GPS and USBL, such as DVL, IMU, etc.) in message form to send to the console</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/currents</td>
+<td>/#vehicle#/nav/filter/currents</td>
 <td><a href="https://github.com/dsor-isr/farol/blob/main/farol_msgs/msg/Currents.msg">farol_msgs/Currents</a></td>
-<td></td>
+<td>Current estimation</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/state</td>
+<td>/#vehicle#/nav/filter/state</td>
 <td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
-<td></td>
+<td>Filtered state of the vehicle</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/state_dr</td>
+<td>/#vehicle#/nav/filter/state_dr</td>
 <td><a href="https://github.com/oceansystemslab/auv_msgs/blob/1faaddd7ee6e9c2c9869e3d8dcff92bb56c2fce4/msg/NavigationStatus.msg">auv_msgs/NavigationStatus</a></td>
-<td></td>
+<td>Vehicle state determined using dead reckoning (sensors other than GPS and USBL, such as DVL, IMU, etc.)</td>
 </tr>
 <tr>
 <td>/tf</td>
 <td><a href="http://docs.ros.org/en/api/tf2_msgs/html/msg/TFMessage.html">tf2_msgs/TFMessage</a></td>
-<td></td>
+<td>Transform ROS message to switch between reference frames (rotations)</td>
 </tr>
 </tbody>
 </table>
@@ -9007,9 +9009,9 @@
 </thead>
 <tbody>
 <tr>
-<td>/mvector0/nav/reset_filter_dr</td>
+<td>/#vehicle#/nav/reset_filter_dr</td>
 <td><a href="http://docs.ros.org/en/api/std_srvs/html/srv/Trigger.html">std_srvs/Trigger</a></td>
-<td></td>
+<td>Service to reset dead reckoning filter estimation</td>
 </tr>
 </tbody>
 </table>
@@ -9025,136 +9027,130 @@
 </thead>
 <tbody>
 <tr>
-<td>/mvector0/nav/filter/dvl/body_frame</td>
+<td>/#vehicle#/nav/filter/dvl/body_frame</td>
 <td>bool</td>
 <td>true</td>
-<td></td>
+<td>Option to incorporate body frame definition for DVL sensor</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/bypass_ahrs</td>
+<td>/#vehicle#/nav/filter/kalman_filter/bypass_ahrs</td>
 <td>bool</td>
 <td>false</td>
-<td></td>
+<td>Option to bypass AHRS measurements</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/manually_initialization/frame_id</td>
+<td>/#vehicle#/nav/filter/kalman_filter/manually_initialization/frame_id</td>
 <td>string</td>
 <td>gnss</td>
+<td>Option on how to initialize the navigation filter</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/kalman_filter/manually_initialization/noise</td>
+<td>array</td>
+<td>[1.0, 1.0, 0.01, 0.001, 0.001, 0.01, 0.02, 0.03, 0.04, 0.01, 0.01, 0.01, 0.0, 0.0, 0.01]</td>
+<td>Sensor noise for the filter</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/kalman_filter/manually_initialization/value</td>
+<td>array</td>
+<td>[4290794.432828665, 491936.5610790758, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0., 0.0, 0.0, 0.0, 0.0, 5.0]</td>
+<td>Initial values for the filter</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/kalman_filter/outlier_rejection_threshold</td>
+<td>int</td>
+<td>15</td>
+<td>Number of outlier values to reject before accepting them</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/kalman_filter/predict_period</td>
+<td>float</td>
+<td>0.1</td>
+<td>Time period between predictions</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/kalman_filter/process_covariance</td>
+<td>array</td>
+<td>[1.0, 0.1, 0.1, 0.1, 0.1, 0.1]</td>
+<td>Process noise covariance for the filter</td>
+</tr>
+<tr>
+<td>/#vehicle#/nav/filter/kalman_filter/reject_counter</td>
+<td>array</td>
+<td>[8, 200, 12, 4, 7, 6]</td>
 <td></td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/manually_initialization/noise</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/kalman_filter/reset_period</td>
+<td>int</td>
+<td>0</td>
+<td>outlier reject counters for position, velocity, angle, angle rate, acceleration, altitude</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/manually_initialization/value</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/kalman_filter/save_measurement_interval</td>
+<td>int</td>
+<td>5</td>
+<td>Buffer for saving measurements while usbl fix is not received</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/outlier_rejection_threshold</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/kalman_filter/sensors</td>
+<td>-</td>
+<td>-</td>
+<td>Sensor configurations for navigation deployment (see <code>nav.yaml</code> for more details)</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/predict_period</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/name_vehicle_id</td>
+<td>string</td>
+<td>/#vehicle#/</td>
+<td>Vehicle name (type) and ID</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/process_covariance</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/node_frequency</td>
+<td>float</td>
+<td>10</td>
+<td>Working frequency of node</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/reject_counter</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/originLat</td>
+<td>float</td>
+<td>38.765852</td>
+<td>Origin Latitude for inertial frame</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/reset_period</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/originLon</td>
+<td>float</td>
+<td>-9.09281873</td>
+<td>Origin Longitude for inertial frame</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/save_measurement_interval</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/tf/broadcast</td>
+<td>bool</td>
+<td>true</td>
+<td>Flag to publish transform to rotate frames</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/kalman_filter/sensors</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/tf/frames/base_link</td>
+<td>string</td>
+<td>base_link</td>
+<td>Type of frame</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/name_vehicle_id</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/tf/frames/map</td>
+<td>string</td>
+<td>map</td>
+<td>Type of map for world that is being loaded</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/node_frequency</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/tf/frames/odom</td>
+<td>string</td>
+<td>null</td>
+<td>Odometry related parameter</td>
 </tr>
 <tr>
-<td>/mvector0/nav/filter/originLat</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/originLon</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/services_dr/reset_filter_dr</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/tf/broadcast</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/tf/frames/base_link</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/tf/frames/map</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/tf/frames/odom</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>/mvector0/nav/filter/tf/frames/world</td>
-<td></td>
-<td></td>
-<td></td>
+<td>/#vehicle#/nav/filter/tf/frames/world</td>
+<td>string</td>
+<td>map</td>
+<td>Type of world that is being loaded</td>
 </tr>
 </tbody>
 </table>
