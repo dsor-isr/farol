@@ -30,6 +30,6 @@ This node takes in georeferences usbl position fix and converts it to position u
 | Parameters                 | type   | Default     | Purpose                       |
 | -----------                | ----   | ----------  | ---------                     |
 | /#vehicle#/node\_frequency | float  | 10.0        | Working frequency of the node |
-| /#vehicle#/fix\_type       | bool   | false       | Type USBL fix to apply        |
+| /#vehicle#/fix\_type       | bool   | false       | Type USBL fix to apply. Set `false` to put the vehicle acting as an anchor, estimating the other vehicles' position, or `true` to put the vehicle estimating its own position with respect to an anchor |
 | /#vehicle#/meas\_noise     | float  | 0.001       | Noise to apply                |
 | /#vehicle#/t\_sync         | float  | 2           | Synchronization time          |

@@ -5,5 +5,4 @@ nav:
   - Nodes:
     - filter: "filter.md"
   - Theory: "theory.md"
-  - User Guide: "user_guide.md"
   - Developer Notes: "developer_notes.md"
