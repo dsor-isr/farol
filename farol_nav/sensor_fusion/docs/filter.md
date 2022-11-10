@@ -170,3 +170,20 @@ sensors:
         outlier_tolerance: 0.2          # inliers should be inside a bubble of 0.2 m/s
         reject_counter: 200   
 ```
+
+## **Note3:**
+
+If you want to "remove" a sensor from being considered in the filter, take this specific case:
+
+Contemplate a sensor that publishes a message with "dummy" in the `frame_id`. To be accepted as a sensor, you must have in the `nav.yaml`the following code:
+
+```yaml
+sensors:
+    -   frame_id:   "dummy"
+        config:     "<type>"
+        noise:      <noise_vector>
+        outlier_tolerance: <out_tol_num>
+        reject_counter: <rej_cou_num>
+```
+
+If you want to take out this sensor from the filter, **you need to change the `frame_id` to a random name, one that the filter code does not recognize.**
