@@ -37,29 +37,33 @@ A general-purpose kalman filter for vehicle state estimation. For indepth docume
 | /#vehicle#/nav/reset\_filter\_dr | [std\_srvs/Trigger](http://docs.ros.org/en/api/std_srvs/html/srv/Trigger.html) | Service to reset dead reckoning filter estimation |
 
 ## Parameters
+
+All the parameters are under the namespace of this node (/#vehicle#/nav/filter/), so we will refrain from repeating it for each parameter. Visit the [`nav.yaml`](https://github.com/dsor-isr/farol/blob/main/farol_bringup/config/defaults/mvector/nav.yaml) config file for each vehicle to check these parameters.
+
 | Parameters                                                              | type   | Default     | Purpose                       |
 | -----------                                                             | ----   | ----------  | ---------                     |
-| /#vehicle#/nav/filter/dvl/body\_frame                                   | bool   | true        | Option to incorporate body frame definition for DVL sensor |
-| /#vehicle#/nav/filter/kalman\_filter/bypass\_ahrs                       | bool   | true       | Option to bypass AHRS measurements |
-| /#vehicle#/nav/filter/kalman\_filter/manually\_initialization/frame\_id | string | ""   | Option on how to initialize the navigation filter (if you use the default value, the system will initialize manually) |
-| /#vehicle#/nav/filter/kalman\_filter/manually\_initialization/noise     | array  | [1.0, 1.0, 0.01, 0.001, 0.001, 0.01, 0.02, 0.03, 0.04, 0.01, 0.01, 0.01, 0.0, 0.0, 0.01] | Noise considered in case of a manual initialization (should be a vector with the same size as the state) |
-| /#vehicle#/nav/filter/kalman\_filter/manually\_initialization/value     | array  | [4290794.432828665, 491936.5610790758, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0., 0.0, 0.0, 0.0, 0.0, 5.0] | Initial values for the filter state (sgould be a vector of the same size as the filter state) |
-| /#vehicle#/nav/filter/kalman\_filter/predict\_period                    | float  | 0.1 | Time period between predictions |
-| /#vehicle#/nav/filter/kalman\_filter/process\_covariance                | array  | [1.0, 0.1, 0.1, 0.1, 0.1, 0.1] | Process noise covariance regarding the prediction stage of the filters (order: position, velocity, angles, angle_rate, acceleration, altitude) |
-| /#vehicle#/nav/filter/kalman\_filter/reset\_period                      | int    | 0 | Reset the filter if no measurement is received for a certain period (any measurement) (0 for no reset) |
-| /#vehicle#/nav/filter/kalman\_filter/save\_measurement\_interval        | int    | 5 | Buffer for saving measurements while USBL fix is not received |
-| /#vehicle#/nav/filter/kalman\_filter/sensors                            | -      | See note below* | Sensor configurations for navigation deployment (see `nav.yaml` for more details) |
-| /#vehicle#/nav/filter/name\_vehicle\_id                                 | string | /#vehicle#/ | Vehicle name (type) and ID |
-| /#vehicle#/nav/filter/node\_frequency                                   | float  | 10 | Working frequency of node |
-| /#vehicle#/nav/filter/originLat                                         | float  | 38.765852 | Origin Latitude for inertial frame |
-| /#vehicle#/nav/filter/originLon                                         | float  | -9.09281873 | Origin Longitude for inertial frame |
-| /#vehicle#/nav/filter/tf/broadcast                                      | bool   | true | Flag to publish transform to rotate frames |
-| /#vehicle#/nav/filter/tf/frames/base\_link                              | string | base\_link | Type of frame |
-| /#vehicle#/nav/filter/tf/frames/map                                     | string | map | Type of map for world that is being loaded |
-| /#vehicle#/nav/filter/tf/frames/odom                                    | string | null | Odometry related parameter |
-| /#vehicle#/nav/filter/tf/frames/world                                   | string | map | Type of world that is being loaded |
+| /dvl/body\_frame                                   | bool   | true        | Option to incorporate body frame definition for DVL sensor. Set `false` for inertial measurements, or `true` for body measurements |
+| /kalman\_filter/bypass\_ahrs                       | bool   | true       | Option to bypass AHRS measurements. Set `true` to consider the AHRS as an input of the filter, or `false` to consider it as a sensor |
+| /kalman\_filter/manually\_initialization/frame\_id | string | ""   | Option on how to initialize the navigation filter (if you use the default value, the system will initialize manually) <br /> See **Note1** below |
+| /kalman\_filter/manually\_initialization/noise     | array  | [1.0, 1.0, 0.01, 0.001, 0.001, 0.01, 0.02, 0.03, 0.04, 0.01, 0.01, 0.01, 0.0, 0.0, 0.01] | Noise considered in case of a manual initialization (should be a vector with the same size as the state) <br /> See **Note1** below |
+| /kalman\_filter/manually\_initialization/value     | array  | [4290822.198309483, 491906.60293571133, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | Initial values for the filter state (sgould be a vector of the same size as the filter state) <br /> See **Note1** below |
+| /kalman\_filter/predict\_period                    | float  | 0.1 | Time period between predictions |
+| /kalman\_filter/process\_covariance                | array  | [1.0, 0.1, 0.1, 0.1, 0.1, 0.1] | Process noise covariance regarding the prediction stage of the filters (order: position, velocity, angles, angle_rate, acceleration, altitude) |
+| /kalman\_filter/reset\_period                      | int    | 0 | Reset the filter if no measurement is received for a certain period (any measurement) (0 for no reset) |
+| /kalman\_filter/save\_measurement\_interval        | int    | 5 | Buffer for saving measurements while USBL fix is not received |
+| /kalman\_filter/sensors                            | -      | See **Note2** below | Sensor configurations for navigation deployment (see `nav.yaml` for more details) |
+| /name\_vehicle\_id                                 | string | /#vehicle#/ | Vehicle name (type) and ID |
+| /node\_frequency                                   | float  | 10 | Working frequency of node |
+| /originLat                                         | float  | 38.765852 | Origin Latitude for inertial frame (EXPO Lisbon site position) |
+| /originLon                                         | float  | -9.09281873 | Origin Longitude for inertial frame (EXPO Lisbon site position) |
+| /tf/broadcast                                      | bool   | true | Flag to publish transform to rotate frames |
+| /tf/frames/base\_link                              | string | base\_link | Type of frame |
+| /tf/frames/map                                     | string | map | Type of map for world that is being loaded |
+| /tf/frames/odom                                    | string | null | Odometry related parameter |
+| /tf/frames/world                                   | string | map | Type of world that is being loaded |
 
-**Note1:** to initialize manually, 
+## **Note1:**
+To initialize manually, you neeed to define the following parameters:
 
 ```yaml
 manually_initialization:
@@ -67,17 +71,37 @@ manually_initialization:
     value: <value_vector>
     noise: <noise_vector>
 ```
-* \<frame_id>
-* \<value_vector> is the starting vector 
+* \<frame_id> is the option on how to initialize the navigation filter. These are the general options:
 
-| Variable         | Value |
-| ------           | -------   |
-| Position  
+| Value | Purpose |
+| ----- | ------- |
+| ""    | Initialize with manual configurations |
+| "null" | Initialize with manual configurations |
+| "\<sensor>" | Initialize with the first measurement from the specified sensor <br /> **(1)** \<sensor> keyword must be replaced with an available sensor (see **Note2**) <br /> **(2)** it is common to initialize the filter with the first "gnss" measurements |
+| 
 
-* \<noise_vector>
+* \<value_vector> is the starting state vector for the filter. It should be in the form of the following vector:
 
+```yaml
+[x,              y,              z,
+ Vx,             Vy,             Vz,
+ roll,           pitch,          yaw,
+ roll_rate,      pitch_rate,     yaw_rate,
+ acceleration_x, acceleration_y, altitude ]
+```
 
-**Note2:** adding sensors (dummy) to the filter must have this format:
+* \<noise_vector> is the noise used for the prediction stage of the filter. It should be in the form of the following vector:
+
+```yaml
+[noise_x,              noise_y,              noise_z,
+ noise_Vx,             noise_Vy,             noise_Vz,
+ noise_roll,           noise_pitch,          noise_yaw,
+ noise_roll_rate,      noise_pitch_rate,     noise_yaw_rate,
+ noise_acceleration_x, noise_acceleration_y, noise_altitude ]
+```
+
+## **Note2:** 
+Adding sensors (dummy) to the filter must have this format:
 
 ```yaml
 sensors:
@@ -95,7 +119,7 @@ where:
 
 | type         | Measurements |
 | ------       | -------   |
-| Hposition    | x, y |
+| Hposition    | x, y (in utm) |
 | Vposition    | z (depth) |
 | Hvelocity    | Vx, Vy (inertial frame) |
 | Vvelocity    | Vz (inertial frame) |
@@ -118,3 +142,31 @@ where:
 * \<out_tol_num> should be a float value defined taking into account the precision of the sensors' measurements. A bubble with radius of \<out_tol_num> will be created around the filtered value. Measurement values outside this bubble are considered as outliers and thus cast aside.
 
 * \<rej_cou_num> should be an integer value definedtaking into account the precision and the frequency of the sensors' measurements. The consecutive outliers are counted and when they reach the rejection number, they are considered true values. The filter will take in this new value.
+
+* \<outlier_increase> should be a float value. It consists on the increase of the outlier tolerance as time goes by (`<out_tol_num> + dt * <outlier_increase>`). This is specifically useful in the case of low frequency sensors, like USBL for example. Whenever you receive a measurement from these sensors, the bubble should reset to the original tolerance value \<out_tol_num>. If not specified should be considered 0.0.
+
+### **Example1:**
+
+Consider a *dummy1* sensor which gives horizontal position (x, y in the inertial frame), at a high frequency and with precision. In order to add this sensor to the filter you should insert these configurations:
+
+```yaml
+sensors:
+    -   frame_id:   "dummy1"
+        config:     "Hposition"
+        noise:      [0.001, 0.001]
+        outlier_tolerance: 0.2          # inliers should be inside a bubble of 20cm
+        reject_counter: 8
+```
+
+### **Example2:**
+
+Consider a *dummy2* sensor which gives horizontal velocity (Vx, Vy in the inertial frame), at a high frequency and with low precision. In order to add this sensor to the filter you should insert these configurations:
+
+```yaml
+sensors:
+    -   frame_id:   "dummy2"
+        config:     "Hvelocity"
+        noise:      [0.0225, 0.0225]
+        outlier_tolerance: 0.2          # inliers should be inside a bubble of 0.2 m/s
+        reject_counter: 200   
+```

@@ -10,7 +10,7 @@ For a more comprehensive literature on the subject, the reader is recommended to
 
 **Predict**
 
-Let xkxk be the state vector and PkPk be the state covariance. The state equation is written as
+Let $x_{k|k}$ be the state vector and $P_{k|k}$ be the state covariance. The state equation is written as
 
 
 $$
@@ -80,18 +80,33 @@ where
 
 - $\delta_t$ = predict_period
 
+**Note:** As of now, the code is considering a model of constant velocity, thus the previous matrix $A_k$ is instead written as
+
+$$
+A_k =
+\begin{bmatrix}
+1 & 0 & \delta t & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & \delta t & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1  & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0  & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 0  & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0  & 0 & 0 & 1\\
+\end{bmatrix}, 
+$$
+
 *Vertical Filter*
 
 $$
-x = \begin{bmatrix} z \\ \dot{z} \\ A \\ B \end{bmatrix}, 
+x = \begin{bmatrix} z \\ \dot{z} \\ A \end{bmatrix}, 
 $$
 
 $$
 A_k = \begin{bmatrix}
-1 & \delta t & 0 & 0 \\
-0 & 1 + \alpha\delta{t} & 0 & \delta{t} \\
-0 & -\delta{t} & 1 & 0 \\
-0 & 0 & 0 & 1 \\
+1 & \delta t & 0 \\
+0 & 1 + \alpha\delta{t} & 0 \\
+0 & -\delta{t} & 1 \\
 \end{bmatrix}, 
 $$
 
@@ -107,7 +122,6 @@ where,
 
 - $\delta_t$ = predict period
 - $A$ = altitude
-- $B$ = buoyancy
 
 *Rotation Filter*
 
@@ -137,21 +151,6 @@ $$
 where
 
 - $\delta_t$ = predict_period
-
-**Outlier Detection**
-
-$$
-e_n = \tilde{y}_k^T S_k^{-1} \tilde{y}_k 
-$$
-
-$$
-e_n < th_{outlier}
-$$
-
-where
-
-- $e_n$ = normalized error
-- $th_{outlier}$ = threshold outlier rejection parameter
 
 ## References
 
