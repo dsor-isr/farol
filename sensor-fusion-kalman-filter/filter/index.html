@@ -8200,8 +8200,6 @@
         
           
         
-          
-        
       
       
         
@@ -8337,6 +8335,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#note1" class="md-nav__link">
+    Note1:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note2" class="md-nav__link">
+    Note2:
+  </a>
+  
+    <nav class="md-nav" aria-label="Note2:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example1" class="md-nav__link">
+    Example1:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example2" class="md-nav__link">
+    Example2:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note3" class="md-nav__link">
+    Note3:
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8361,20 +8400,6 @@
     <li class="md-nav__item">
       <a href="../theory/" class="md-nav__link">
         Theory
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user_guide/" class="md-nav__link">
-        User Guide
       </a>
     </li>
   
@@ -8878,6 +8903,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#note1" class="md-nav__link">
+    Note1:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note2" class="md-nav__link">
+    Note2:
+  </a>
+  
+    <nav class="md-nav" aria-label="Note2:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example1" class="md-nav__link">
+    Example1:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example2" class="md-nav__link">
+    Example2:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note3" class="md-nav__link">
+    Note3:
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8904,7 +8970,7 @@
 <p>A general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:</p>
 <ul>
 <li><a href="../theory/">Theory</a> </li>
-<li><a href="../user_guide/">User Guide</a></li>
+<li><a href="./user_guide.md">User Guide</a></li>
 <li><a href="../developer_notes/">Developer Notes</a> </li>
 </ul>
 <h2 id="diagram">Diagram</h2>
@@ -9016,6 +9082,7 @@
 </tbody>
 </table>
 <h2 id="parameters">Parameters</h2>
+<p>All the parameters are under the namespace of this node (/#vehicle#/nav/filter/), so we will refrain from repeating it for each parameter. Visit the <a href="https://github.com/dsor-isr/farol/blob/main/farol_bringup/config/defaults/mvector/nav.yaml"><code>nav.yaml</code></a> config file for each vehicle to check these parameters.</p>
 <table>
 <thead>
 <tr>
@@ -9027,140 +9094,315 @@
 </thead>
 <tbody>
 <tr>
-<td>/#vehicle#/nav/filter/dvl/body_frame</td>
+<td>/dvl/body_frame</td>
 <td>bool</td>
 <td>true</td>
-<td>Option to incorporate body frame definition for DVL sensor</td>
+<td>Option to incorporate body frame definition for DVL sensor. Set <code>false</code> for inertial measurements, or <code>true</code> for body measurements</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/bypass_ahrs</td>
+<td>/kalman_filter/bypass_ahrs</td>
 <td>bool</td>
-<td>false</td>
-<td>Option to bypass AHRS measurements</td>
+<td>true</td>
+<td>Option to bypass AHRS measurements. Set <code>true</code> to consider the AHRS as an input of the filter, or <code>false</code> to consider it as a sensor</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/manually_initialization/frame_id</td>
+<td>/kalman_filter/manually_initialization/frame_id</td>
 <td>string</td>
-<td>gnss</td>
-<td>Option on how to initialize the navigation filter</td>
+<td>""</td>
+<td>Option on how to initialize the navigation filter (if you use the default value, the system will initialize manually) <br /> See <strong>Note1</strong> below</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/manually_initialization/noise</td>
+<td>/kalman_filter/manually_initialization/noise</td>
 <td>array</td>
 <td>[1.0, 1.0, 0.01, 0.001, 0.001, 0.01, 0.02, 0.03, 0.04, 0.01, 0.01, 0.01, 0.0, 0.0, 0.01]</td>
-<td>Sensor noise for the filter</td>
+<td>Noise considered in case of a manual initialization (should be a vector with the same size as the state) <br /> See <strong>Note1</strong> below</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/manually_initialization/value</td>
+<td>/kalman_filter/manually_initialization/value</td>
 <td>array</td>
-<td>[4290794.432828665, 491936.5610790758, -0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0., 0.0, 0.0, 0.0, 0.0, 5.0]</td>
-<td>Initial values for the filter</td>
+<td>[4290822.198309483, 491906.60293571133, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</td>
+<td>Initial values for the filter state (sgould be a vector of the same size as the filter state) <br /> See <strong>Note1</strong> below</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/outlier_rejection_threshold</td>
-<td>int</td>
-<td>15</td>
-<td>Number of outlier values to reject before accepting them</td>
-</tr>
-<tr>
-<td>/#vehicle#/nav/filter/kalman_filter/predict_period</td>
+<td>/kalman_filter/predict_period</td>
 <td>float</td>
 <td>0.1</td>
 <td>Time period between predictions</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/process_covariance</td>
+<td>/kalman_filter/process_covariance</td>
 <td>array</td>
 <td>[1.0, 0.1, 0.1, 0.1, 0.1, 0.1]</td>
-<td>Process noise covariance for the filter</td>
+<td>Process noise covariance regarding the prediction stage of the filters (order: position, velocity, angles, angle_rate, acceleration, altitude)</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/reject_counter</td>
-<td>array</td>
-<td>[8, 200, 12, 4, 7, 6]</td>
-<td></td>
-</tr>
-<tr>
-<td>/#vehicle#/nav/filter/kalman_filter/reset_period</td>
+<td>/kalman_filter/reset_period</td>
 <td>int</td>
 <td>0</td>
-<td>outlier reject counters for position, velocity, angle, angle rate, acceleration, altitude</td>
+<td>Reset the filter if no measurement is received for a certain period (any measurement) (0 for no reset)</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/save_measurement_interval</td>
+<td>/kalman_filter/save_measurement_interval</td>
 <td>int</td>
 <td>5</td>
-<td>Buffer for saving measurements while usbl fix is not received</td>
+<td>Buffer for saving measurements while USBL fix is not received</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/kalman_filter/sensors</td>
+<td>/kalman_filter/sensors</td>
 <td>-</td>
-<td>-</td>
+<td>See <strong>Note2</strong> below</td>
 <td>Sensor configurations for navigation deployment (see <code>nav.yaml</code> for more details)</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/name_vehicle_id</td>
+<td>/name_vehicle_id</td>
 <td>string</td>
 <td>/#vehicle#/</td>
 <td>Vehicle name (type) and ID</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/node_frequency</td>
+<td>/node_frequency</td>
 <td>float</td>
 <td>10</td>
 <td>Working frequency of node</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/originLat</td>
+<td>/originLat</td>
 <td>float</td>
 <td>38.765852</td>
-<td>Origin Latitude for inertial frame</td>
+<td>Origin Latitude for inertial frame (EXPO Lisbon site position)</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/originLon</td>
+<td>/originLon</td>
 <td>float</td>
 <td>-9.09281873</td>
-<td>Origin Longitude for inertial frame</td>
+<td>Origin Longitude for inertial frame (EXPO Lisbon site position)</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/tf/broadcast</td>
+<td>/tf/broadcast</td>
 <td>bool</td>
 <td>true</td>
 <td>Flag to publish transform to rotate frames</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/tf/frames/base_link</td>
+<td>/tf/frames/base_link</td>
 <td>string</td>
 <td>base_link</td>
 <td>Type of frame</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/tf/frames/map</td>
+<td>/tf/frames/map</td>
 <td>string</td>
 <td>map</td>
 <td>Type of map for world that is being loaded</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/tf/frames/odom</td>
+<td>/tf/frames/odom</td>
 <td>string</td>
 <td>null</td>
 <td>Odometry related parameter</td>
 </tr>
 <tr>
-<td>/#vehicle#/nav/filter/tf/frames/world</td>
+<td>/tf/frames/world</td>
 <td>string</td>
 <td>map</td>
 <td>Type of world that is being loaded</td>
 </tr>
 </tbody>
 </table>
+<h2 id="note1"><strong>Note1:</strong></h2>
+<p>To initialize manually, you neeed to define the following parameters:</p>
+<pre><code class="language-yaml">manually_initialization:
+    frame_id: &quot;&lt;frame_id&gt;&quot;
+    value: &lt;value_vector&gt;
+    noise: &lt;noise_vector&gt;
+</code></pre>
+<ul>
+<li>\<frame_id> is the option on how to initialize the navigation filter. These are the general options:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>""</td>
+<td>Initialize with manual configurations</td>
+</tr>
+<tr>
+<td>"null"</td>
+<td>Initialize with manual configurations</td>
+</tr>
+<tr>
+<td>"\<sensor>"</td>
+<td>Initialize with the first measurement from the specified sensor <br /> <strong>(1)</strong> \<sensor> keyword must be replaced with an available sensor (see <strong>Note2</strong>) <br /> <strong>(2)</strong> it is common to initialize the filter with the first "gnss" measurements</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>\<value_vector> is the starting state vector for the filter. It should be in the form of the following vector:</li>
+</ul>
+<pre><code class="language-yaml">[x,              y,              z,
+ Vx,             Vy,             Vz,
+ roll,           pitch,          yaw,
+ roll_rate,      pitch_rate,     yaw_rate,
+ acceleration_x, acceleration_y, altitude ]
+</code></pre>
+<ul>
+<li>\<noise_vector> is the noise used for the prediction stage of the filter. It should be in the form of the following vector:</li>
+</ul>
+<pre><code class="language-yaml">[noise_x,              noise_y,              noise_z,
+ noise_Vx,             noise_Vy,             noise_Vz,
+ noise_roll,           noise_pitch,          noise_yaw,
+ noise_roll_rate,      noise_pitch_rate,     noise_yaw_rate,
+ noise_acceleration_x, noise_acceleration_y, noise_altitude ]
+</code></pre>
+<h2 id="note2"><strong>Note2:</strong></h2>
+<p>Adding sensors (dummy) to the filter must have this format:</p>
+<pre><code class="language-yaml">sensors:
+    -   frame_id:   &quot;&lt;name&gt;&quot;
+        config:     &quot;&lt;type&gt;&quot;
+        noise:      &lt;noise_vector&gt;
+        outlier_tolerance: &lt;out_tol_num&gt;
+        reject_counter: &lt;rej_cou_num&gt;
+</code></pre>
+<p>where:</p>
+<ul>
+<li>\<name> should be defined according to the <code>frame_id</code> value published directly by the sensor which you want to add to the filter;</li>
+<li>\<type> options are:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>Measurements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hposition</td>
+<td>x, y (in utm)</td>
+</tr>
+<tr>
+<td>Vposition</td>
+<td>z (depth)</td>
+</tr>
+<tr>
+<td>Hvelocity</td>
+<td>Vx, Vy (inertial frame)</td>
+</tr>
+<tr>
+<td>Vvelocity</td>
+<td>Vz (inertial frame)</td>
+</tr>
+<tr>
+<td>orientation</td>
+<td>roll, pitch, yaw, roll_rate, pitch_rate, yaw_rate</td>
+</tr>
+<tr>
+<td>acceleration</td>
+<td>Future work...</td>
+</tr>
+<tr>
+<td>altitude</td>
+<td>altitude</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>\<noise_vector> is the matrix with the noise covariance. If you want to use the noise directly from the sensor, fill the noise with zeros. Otherwise, the options are:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>Noise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hposition</td>
+<td>[noise_x, noise_y]</td>
+</tr>
+<tr>
+<td>Vposition</td>
+<td>[noise_z]</td>
+</tr>
+<tr>
+<td>Hvelocity</td>
+<td>[noise_Vx, noise_Vy]</td>
+</tr>
+<tr>
+<td>Vvelocity</td>
+<td>[noise_Vz]</td>
+</tr>
+<tr>
+<td>orientation</td>
+<td>[noise_roll, noise_pitch, noise_yaw, <br />                 noise_roll_rate, noise_pitch_rate, noise_yaw_rate]</td>
+</tr>
+<tr>
+<td>acceleration</td>
+<td>Future work...</td>
+</tr>
+<tr>
+<td>altitude</td>
+<td>[noise_altitude]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>\<out_tol_num> should be a float value defined taking into account the precision of the sensors' measurements. A bubble with radius of \<out_tol_num> will be created around the filtered value. Measurement values outside this bubble are considered as outliers and thus cast aside.</p>
+</li>
+<li>
+<p>\<rej_cou_num> should be an integer value definedtaking into account the precision and the frequency of the sensors' measurements. The consecutive outliers are counted and when they reach the rejection number, they are considered true values. The filter will take in this new value.</p>
+</li>
+<li>
+<p>\<outlier_increase> should be a float value. It consists on the increase of the outlier tolerance as time goes by (<code>&lt;out_tol_num&gt; + dt * &lt;outlier_increase&gt;</code>). This is specifically useful in the case of low frequency sensors, like USBL for example. Whenever you receive a measurement from these sensors, the bubble should reset to the original tolerance value \<out_tol_num>. If not specified should be considered 0.0.</p>
+</li>
+</ul>
+<h3 id="example1"><strong>Example1:</strong></h3>
+<p>Consider a <em>dummy1</em> sensor which gives horizontal position (x, y in the inertial frame), at a high frequency and with precision. In order to add this sensor to the filter you should insert these configurations:</p>
+<pre><code class="language-yaml">sensors:
+    -   frame_id:   &quot;dummy1&quot;
+        config:     &quot;Hposition&quot;
+        noise:      [0.001, 0.001]
+        outlier_tolerance: 0.2          # inliers should be inside a bubble of 20cm
+        reject_counter: 8
+</code></pre>
+<h3 id="example2"><strong>Example2:</strong></h3>
+<p>Consider a <em>dummy2</em> sensor which gives horizontal velocity (Vx, Vy in the inertial frame), at a high frequency and with low precision. In order to add this sensor to the filter you should insert these configurations:</p>
+<pre><code class="language-yaml">sensors:
+    -   frame_id:   &quot;dummy2&quot;
+        config:     &quot;Hvelocity&quot;
+        noise:      [0.0225, 0.0225]
+        outlier_tolerance: 0.2          # inliers should be inside a bubble of 0.2 m/s
+        reject_counter: 200   
+</code></pre>
+<h2 id="note3"><strong>Note3:</strong></h2>
+<p>If you want to "remove" a sensor from being considered in the filter, take this specific case:</p>
+<p>Contemplate a sensor that publishes a message with "dummy" in the <code>frame_id</code>. To be accepted as a sensor, you must have in the <code>nav.yaml</code>the following code:</p>
+<pre><code class="language-yaml">sensors:
+    -   frame_id:   &quot;dummy&quot;
+        config:     &quot;&lt;type&gt;&quot;
+        noise:      &lt;noise_vector&gt;
+        outlier_tolerance: &lt;out_tol_num&gt;
+        reject_counter: &lt;rej_cou_num&gt;
+</code></pre>
+<p>If you want to take out this sensor from the filter, <strong>you need to change the <code>frame_id</code> to a random name, one that the filter code does not recognize.</strong></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2022</span>
       
     
   </small>

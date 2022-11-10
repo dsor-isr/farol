@@ -8278,8 +8278,6 @@
         
           
         
-          
-        
       
       
         
@@ -8361,20 +8359,6 @@
     <li class="md-nav__item">
       <a href="../../sensor-fusion-kalman-filter/theory/" class="md-nav__link">
         Theory
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sensor-fusion-kalman-filter/user_guide/" class="md-nav__link">
-        User Guide
       </a>
     </li>
   
@@ -8993,7 +8977,7 @@
 <td>/#vehicle#/fix_type</td>
 <td>bool</td>
 <td>false</td>
-<td>Type USBL fix to apply</td>
+<td>Type USBL fix to apply. Set <code>false</code> to put the vehicle acting as an anchor, estimating the other vehicles' position, or <code>true</code> to put the vehicle estimating its own position with respect to an anchor</td>
 </tr>
 <tr>
 <td>/#vehicle#/meas_noise</td>
@@ -9015,7 +8999,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2022</span>
       
     
   </small>

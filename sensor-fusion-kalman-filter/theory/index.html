@@ -8200,8 +8200,6 @@
         
           
         
-          
-        
       
       
         
@@ -8332,20 +8330,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user_guide/" class="md-nav__link">
-        User Guide
-      </a>
     </li>
   
 
@@ -8847,7 +8831,7 @@
 <p>The algorithm works in a two-step process. In the "predict" step, the Kalman filter looks one-step forward in time to predict the estimates of the current state vector and state covariance using an inner dynamic model. In the second step, known as "update", a "kalman gain matrix" is calculated using the state covariances and measurement covariance. This matrix is then used to update the state of the vehicle as shown below. One key advantage of Kalman filter is that it can run efficiently in real-time.</p>
 <p>For a more comprehensive literature on the subject, the reader is recommended to consult [1]. Consult [2] for an excellent introductory article on KFs.</p>
 <p><strong>Predict</strong></p>
-<p>Let xkxk be the state vector and PkPk be the state covariance. The state equation is written as</p>
+<p>Let <span class="arithmatex">\(x_{k|k}\)</span> be the state vector and <span class="arithmatex">\(P_{k|k}\)</span> be the state covariance. The state equation is written as</p>
 <div class="arithmatex">\[
 \hat{x}_{k|k-1} = A_k \hat{x}_{k-1|k-1} + B_k  u_k + w_k \\ \\
 P_{k|k-1} = A_k P_{k-1|k-1} A_k^T + Q_k
@@ -8903,16 +8887,29 @@ B_k = \begin{bmatrix} 0 \end{bmatrix}, w_k = \begin{bmatrix} 0 \end{bmatrix}
 <ul>
 <li><span class="arithmatex">\(\delta_t\)</span> = predict_period</li>
 </ul>
+<p><strong>Note:</strong> As of now, the code is considering a model of constant velocity, thus the previous matrix <span class="arithmatex">\(A_k\)</span> is instead written as</p>
+<div class="arithmatex">\[
+A_k =
+\begin{bmatrix}
+1 &amp; 0 &amp; \delta t &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; \delta t &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1  &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0  &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0  &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0  &amp; 0 &amp; 0 &amp; 1\\
+\end{bmatrix}, 
+\]</div>
 <p><em>Vertical Filter</em></p>
 <div class="arithmatex">\[
-x = \begin{bmatrix} z \\ \dot{z} \\ A \\ B \end{bmatrix}, 
+x = \begin{bmatrix} z \\ \dot{z} \\ A \end{bmatrix}, 
 \]</div>
 <div class="arithmatex">\[
 A_k = \begin{bmatrix}
-1 &amp; \delta t &amp; 0 &amp; 0 \\
-0 &amp; 1 + \alpha\delta{t} &amp; 0 &amp; \delta{t} \\
-0 &amp; -\delta{t} &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; \delta t &amp; 0 \\
+0 &amp; 1 + \alpha\delta{t} &amp; 0 \\
+0 &amp; -\delta{t} &amp; 1 \\
 \end{bmatrix}, 
 \]</div>
 <div class="arithmatex">\[
@@ -8925,7 +8922,6 @@ w_k = \begin{bmatrix} 0 \end{bmatrix}
 <ul>
 <li><span class="arithmatex">\(\delta_t\)</span> = predict period</li>
 <li><span class="arithmatex">\(A\)</span> = altitude</li>
-<li><span class="arithmatex">\(B\)</span> = buoyancy</li>
 </ul>
 <p><em>Rotation Filter</em></p>
 <div class="arithmatex">\[
@@ -8951,18 +8947,6 @@ w_k = \begin{bmatrix} 0 \end{bmatrix}
 <ul>
 <li><span class="arithmatex">\(\delta_t\)</span> = predict_period</li>
 </ul>
-<p><strong>Outlier Detection</strong></p>
-<div class="arithmatex">\[
-e_n = \tilde{y}_k^T S_k^{-1} \tilde{y}_k 
-\]</div>
-<div class="arithmatex">\[
-e_n &lt; th_{outlier}
-\]</div>
-<p>where</p>
-<ul>
-<li><span class="arithmatex">\(e_n\)</span> = normalized error</li>
-<li><span class="arithmatex">\(th_{outlier}\)</span> = threshold outlier rejection parameter</li>
-</ul>
 <h2 id="references">References</h2>
 <ol>
 <li>Rhudy, Matthew &amp; Salguero, Roger &amp; Holappa, Keaton. (2017). A Kalman Filtering Tutorial for Undergraduate Students. International Journal of Computer Science &amp; Engineering Survey. 08. 01-18. 10.5121/ijcses.2017.8101.</li>
@@ -8974,7 +8958,7 @@ e_n &lt; th_{outlier}
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 1, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2022</span>
       
     
   </small>
@@ -9018,13 +9002,13 @@ e_n &lt; th_{outlier}
       
       
         
-        <a href="../user_guide/" class="md-footer__link md-footer__link--next" aria-label="Next: User Guide" rel="next">
+        <a href="../developer_notes/" class="md-footer__link md-footer__link--next" aria-label="Next: Developer Notes" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              User Guide
+              Developer Notes
             </div>
           </div>
           <div class="md-footer__button md-icon">
