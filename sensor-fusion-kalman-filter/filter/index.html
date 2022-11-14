@@ -7182,12 +7182,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../open-loop-control/">Documentation</a>
+          
+            <label for="__nav_3_7_2_2_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -7198,6 +7204,57 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7_2_2_1_2" type="checkbox" id="__nav_3_7_2_2_1_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7_2_2_1_2">
+          Nodes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nodes" data-md-level="6">
+        <label class="md-nav__title" for="__nav_3_7_2_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Nodes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../open-loop-control/openloop/" class="md-nav__link">
+        OpenLoop
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
             
           
         </ul>
@@ -9217,7 +9274,7 @@
     noise: &lt;noise_vector&gt;
 </code></pre>
 <ul>
-<li>\<frame_id> is the option on how to initialize the navigation filter. These are the general options:</li>
+<li>\&lt;frame_id> is the option on how to initialize the navigation filter. These are the general options:</li>
 </ul>
 <table>
 <thead>
@@ -9236,7 +9293,7 @@
 <td>Initialize with manual configurations</td>
 </tr>
 <tr>
-<td>"\<sensor>"</td>
+<td>"\&lt;sensor>"</td>
 <td>Initialize with the first measurement from the specified sensor <br /> <strong>(1)</strong> \<sensor> keyword must be replaced with an available sensor (see <strong>Note2</strong>) <br /> <strong>(2)</strong> it is common to initialize the filter with the first "gnss" measurements</td>
 </tr>
 <tr>
@@ -9246,7 +9303,7 @@
 </tbody>
 </table>
 <ul>
-<li>\<value_vector> is the starting state vector for the filter. It should be in the form of the following vector:</li>
+<li>\&lt;value_vector> is the starting state vector for the filter. It should be in the form of the following vector:</li>
 </ul>
 <pre><code class="language-yaml">[x,              y,              z,
  Vx,             Vy,             Vz,
@@ -9255,7 +9312,7 @@
  acceleration_x, acceleration_y, altitude ]
 </code></pre>
 <ul>
-<li>\<noise_vector> is the noise used for the prediction stage of the filter. It should be in the form of the following vector:</li>
+<li>\&lt;noise_vector> is the noise used for the prediction stage of the filter. It should be in the form of the following vector:</li>
 </ul>
 <pre><code class="language-yaml">[noise_x,              noise_y,              noise_z,
  noise_Vx,             noise_Vy,             noise_Vz,
@@ -9274,8 +9331,8 @@
 </code></pre>
 <p>where:</p>
 <ul>
-<li>\<name> should be defined according to the <code>frame_id</code> value published directly by the sensor which you want to add to the filter;</li>
-<li>\<type> options are:</li>
+<li>\&lt;name> should be defined according to the <code>frame_id</code> value published directly by the sensor which you want to add to the filter;</li>
+<li>\&lt;type> options are:</li>
 </ul>
 <table>
 <thead>
@@ -9316,7 +9373,7 @@
 </tbody>
 </table>
 <ul>
-<li>\<noise_vector> is the matrix with the noise covariance. If you want to use the noise directly from the sensor, fill the noise with zeros. Otherwise, the options are:</li>
+<li>\&lt;noise_vector> is the matrix with the noise covariance. If you want to use the noise directly from the sensor, fill the noise with zeros. Otherwise, the options are:</li>
 </ul>
 <table>
 <thead>
@@ -9344,7 +9401,7 @@
 </tr>
 <tr>
 <td>orientation</td>
-<td>[noise_roll, noise_pitch, noise_yaw, <br />                 noise_roll_rate, noise_pitch_rate, noise_yaw_rate]</td>
+<td>[noise_roll, noise_pitch, noise_yaw, <br /> noise_roll_rate, noise_pitch_rate, noise_yaw_rate]</td>
 </tr>
 <tr>
 <td>acceleration</td>
@@ -9358,13 +9415,13 @@
 </table>
 <ul>
 <li>
-<p>\<out_tol_num> should be a float value defined taking into account the precision of the sensors' measurements. A bubble with radius of \<out_tol_num> will be created around the filtered value. Measurement values outside this bubble are considered as outliers and thus cast aside.</p>
+<p>\&lt;out_tol_num> should be a float value defined taking into account the precision of the sensors' measurements. A bubble with radius of \&lt;out_tol_num> will be created around the filtered value. Measurement values outside this bubble are considered as outliers and thus cast aside.</p>
 </li>
 <li>
-<p>\<rej_cou_num> should be an integer value definedtaking into account the precision and the frequency of the sensors' measurements. The consecutive outliers are counted and when they reach the rejection number, they are considered true values. The filter will take in this new value.</p>
+<p>\&lt;rej_cou_num> should be an integer value definedtaking into account the precision and the frequency of the sensors' measurements. The consecutive outliers are counted and when they reach the rejection number, they are considered true values. The filter will take in this new value.</p>
 </li>
 <li>
-<p>\<outlier_increase> should be a float value. It consists on the increase of the outlier tolerance as time goes by (<code>&lt;out_tol_num&gt; + dt * &lt;outlier_increase&gt;</code>). This is specifically useful in the case of low frequency sensors, like USBL for example. Whenever you receive a measurement from these sensors, the bubble should reset to the original tolerance value \<out_tol_num>. If not specified should be considered 0.0.</p>
+<p>\&lt;outlier_increase> should be a float value. It consists on the increase of the outlier tolerance as time goes by (<code>&lt;out_tol_num&gt; + dt * &lt;outlier_increase&gt;</code>). This is specifically useful in the case of low frequency sensors, like USBL for example. Whenever you receive a measurement from these sensors, the bubble should reset to the original tolerance value \&lt;out_tol_num>. If not specified should be considered 0.0.</p>
 </li>
 </ul>
 <h3 id="example1"><strong>Example1:</strong></h3>
@@ -9402,7 +9459,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2022</span>
       
     
   </small>
