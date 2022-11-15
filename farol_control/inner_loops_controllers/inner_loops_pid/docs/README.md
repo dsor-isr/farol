@@ -21,7 +21,8 @@ $$\begin{equation}
 
 where $\hat{u}$ is the estimate and $u_d$ is the reference to be tracked.
 
-**In code:** 
+**In code:**
+
 * Reference $u_d$ is limited between [-0.5; 1.2] (m/s)
 * Aceleration of the reference is limited to 0.04 (m/s^2).
 * Common Mode is saturated between [-40; 60].
@@ -41,7 +42,8 @@ $$\begin{equation}
 
 where $\hat{\psi}$ is the estimate and $\psi_d$ is the reference to be tracked.
 
-**In code** 
+**In code:**
+
 * *Saturating the Reference Derivative:* Since the vehicle can not do more that 25 degrees per sec, the yaw rate given by the previous reference and the new reference is limited by 5 (ts=0.2). In mathematical terms,
   
 $$\begin{equation}
@@ -75,6 +77,7 @@ DM = k_{f}\dot{\psi_d} + k_p\dot{\tilde{\psi}}-k_i\int_0^t\dot{\tilde{\psi}}(\ta
 \end{equation}$$
 
 **In code:**
+
 * The error $\tilde{\psi}$ is saturated between [-20;20].
 * The diffential mode is saturated between [-(80\*80);(80\*80)], and in case a saturation occurs the integration is is *reverted* to the old value (it is not updated).
 
@@ -88,15 +91,11 @@ CM_{vertical} = k_p\tilde{z} + k_d\dot{\tilde{z}} +k_i\int_0^t\tilde{z}(\tau)d\t
 \end{equation}$$
 
 **In code:**
+
 * If depth references exist then it will work as a depth controller, otherwise if altitude references exist it will work as a altitude controller.
-* *Safety features: Depth*
-   If the water column minus the depth reference is smaller than our minimum altitude reference then it automatically goes to altitude control with a reference of our minimum altitude.
-   It goes back to depth control when the water column minus the reference is bigger than 2m.
-* *Safety features: Altitude*
-   Limitates to our minimum altitude reference
-   If the water column minus the altitude reference is bigger than our maximum depth then it is limited by that value.
- * *Pre filter:* 
-  
+* *Safety features: Depth* - If the water column minus the depth reference is smaller than our minimum altitude reference then it automatically goes to altitude control with a reference of our minimum altitude. It goes back to depth control when the water column minus the reference is bigger than 2m.
+* *Safety features: Altitude* - Limitates to our minimum altitude reference. If the water column minus the altitude reference is bigger than our maximum depth then it is limited by that value.
+* *Pre filter:* 
    - Reference Rate saturation: the reference is saturated taking into account the maximum reference rate $(0.2 \cdot T_s)$.
    - Calculation of:
   
@@ -112,7 +111,7 @@ $$\begin{equation}
 \tilde{z}_{d} = \tilde{z}_{d|k-1} + \dot{\tilde{z}}_d t_s
 \end{equation}$$
 
- * CM is saturated between [-60,60].
+* CM is saturated between [-60,60].
 
 ## Roll Controller (NOT BEING USED)
 The roll controller is a **PD** responsible to return a differential mode for the vertical thrusters.
@@ -143,6 +142,7 @@ Every controller inherits a ControllerInterface Class (*controller_interface.c/h
 * *qsi_old_* - saves the integration value
 
 and the following methods:
+
 * *int execute([arguments]);* - executes the pid controll
 * *void reset();* - resets the filter
 
