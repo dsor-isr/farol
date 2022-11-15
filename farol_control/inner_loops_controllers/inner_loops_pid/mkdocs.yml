@@ -4,4 +4,3 @@ nav:
   - Overview: "README.md"
   - Nodes:
     - inner_loops_pid: "inner_loops_pid.md"
-    - test: "test.md"
