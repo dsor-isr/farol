@@ -2,18 +2,18 @@ The Farol project results from the work and dedication of many. Share the love �
 
 ### Active Developers
 - João Quintas <jquintas@gmail.com>
-- Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
 - David Souto <david.souto@tecnico.ulisboa.pt>
-- André Potes <andre.potes@tecnico.ulisboa.pt>
-- Francisco Rego <ffcrego@gmail.com>
-- David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
 - Francisco Branco <francisco.branco@tecnico.ulisboa.pt>
+- Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
+- David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
+- Francisco Rego <ffcrego@gmail.com>
 
 ### We also welcome the new members to the DSOR team
 - Eduardo Cunha 
 - Daniel Rosa
 
 ### Previous contributors which left us with some precious legacy
+- André Potes
 - João Cruz
 - Hung Tuan
 - Shubham Garg
@@ -31,7 +31,7 @@ The Farol project results from the work and dedication of many. Share the love �
 - Prof. Pedro Batista
 - Luís Sebastião
 - Manuel Rufino
-- Pedro Gois
+- Pedro Góis
 - Helena Santana
 
 And never forget, we stand on the shoulders of giants!

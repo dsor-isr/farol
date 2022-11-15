@@ -78,14 +78,14 @@ https://dsor-isr.github.io/farol/
 
 ### Active Developers
 - João Quintas <jquintas@gmail.com>
-- Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
 - David Souto <david.souto@tecnico.ulisboa.pt>
-- André Potes <andre.potes@tecnico.ulisboa.pt>
-- Francisco Rego <ffcrego@gmail.com>
-- David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
 - Francisco Branco <francisco.branco@tecnico.ulisboa.pt>
+- Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
+- David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
+- Francisco Rego <ffcrego@gmail.com>
 
 ### Previous Contributors
+- André Potes
 - João Cruz
 - Hung Tuan
 - Shubham Garg
@@ -103,7 +103,7 @@ https://dsor-isr.github.io/farol/
 - Prof. Pedro Batista
 - Luís Sebastião
 - Manuel Rufino
-- Pedro Gois
+- Pedro Góis
 - Helena Santana
 
 ### License
