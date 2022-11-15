@@ -6978,6 +6978,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_7_2_1_1_2">
@@ -7000,6 +7002,20 @@
     <li class="md-nav__item">
       <a href="inner_loops_pid/" class="md-nav__link">
         inner_loops_pid
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="test/" class="md-nav__link">
+        test
       </a>
     </li>
   
@@ -8974,10 +8990,12 @@ CM = -k_p \tilde{u} - k_i \int_0^t \tilde{u} (\tau) d\tau,
 \tilde{u} = \hat{u}-u_d
 \end{equation}\]</div>
 <p>where <span class="arithmatex">\(\hat{u}\)</span> is the estimate and <span class="arithmatex">\(u_d\)</span> is the reference to be tracked.</p>
-<p><strong>In code:</strong> 
-* Reference <span class="arithmatex">\(u_d\)</span> is limited between [-0.5; 1.2] (m/s)
-* Aceleration of the reference is limited to 0.04 (m/s^2).
-* Common Mode is saturated between [-40; 60].</p>
+<p><strong>In code:</strong></p>
+<ul>
+<li>Reference <span class="arithmatex">\(u_d\)</span> is limited between [-0.5; 1.2] (m/s)</li>
+<li>Aceleration of the reference is limited to 0.04 (m/s^2).</li>
+<li>Common Mode is saturated between [-40; 60].</li>
+</ul>
 <h2 id="heading-controller">Heading Controller</h2>
 <h3 id="theory_1">Theory</h3>
 <p>The Heading controller is a <strong>PID</strong> responsible to compute a differential mode for the two longitudinal thrusters.</p>
@@ -8988,8 +9006,10 @@ DM = k_p\tilde{\psi} - k_d\dot{\tilde{\psi}} +k_i\int_0^t\tilde{\psi}(\tau)d\tau
 \tilde{\psi} = \hat{\psi}-\psi_d
 \end{equation}\]</div>
 <p>where <span class="arithmatex">\(\hat{\psi}\)</span> is the estimate and <span class="arithmatex">\(\psi_d\)</span> is the reference to be tracked.</p>
-<p><strong>In code</strong> 
-* <em>Saturating the Reference Derivative:</em> Since the vehicle can not do more that 25 degrees per sec, the yaw rate given by the previous reference and the new reference is limited by 5 (ts=0.2). In mathematical terms,</p>
+<p><strong>In code:</strong></p>
+<ul>
+<li><em>Saturating the Reference Derivative:</em> Since the vehicle can not do more that 25 degrees per sec, the yaw rate given by the previous reference and the new reference is limited by 5 (ts=0.2). In mathematical terms,</li>
+</ul>
 <div class="arithmatex">\[\begin{equation}
 \dot{\tilde{\psi}} = \dot{\hat{\psi}} - \dot{\psi}_d
 \end{equation}\]</div>
@@ -9018,25 +9038,23 @@ Note: If <span class="arithmatex">\(\tilde{\psi}\)</span> is below 20 the gain i
 <div class="arithmatex">\[\begin{equation}
 DM = k_{f}\dot{\psi_d} + k_p\dot{\tilde{\psi}}-k_i\int_0^t\dot{\tilde{\psi}}(\tau)d\tau,
 \end{equation}\]</div>
-<p><strong>In code:</strong>
-* The error <span class="arithmatex">\(\tilde{\psi}\)</span> is saturated between [-20;20].
-* The diffential mode is saturated between [-(80*80);(80*80)], and in case a saturation occurs the integration is is <em>reverted</em> to the old value (it is not updated).</p>
+<p><strong>In code:</strong></p>
+<ul>
+<li>The error <span class="arithmatex">\(\tilde{\psi}\)</span> is saturated between [-20;20].</li>
+<li>The diffential mode is saturated between [-(80*80);(80*80)], and in case a saturation occurs the integration is is <em>reverted</em> to the old value (it is not updated).</li>
+</ul>
 <h2 id="z-controller">Z Controller</h2>
 <h3 id="theory_3">Theory</h3>
 <p>The Z controller is a <strong>PID</strong> with <strong>feedforward</strong> acceleration controller responsible to compute a common mode for the vertical thrusters.</p>
 <div class="arithmatex">\[\begin{equation}
 CM_{vertical} = k_p\tilde{z} + k_d\dot{\tilde{z}} +k_i\int_0^t\tilde{z}(\tau)d\tau + \frac{\ddot{\tilde{z}}_d - \alpha\dot{z} - \beta\dot{z}|\dot{z}|}{\gamma},
 \end{equation}\]</div>
-<p><strong>In code:</strong>
-* If depth references exist then it will work as a depth controller, otherwise if altitude references exist it will work as a altitude controller.
-* <em>Safety features: Depth</em>
-   If the water column minus the depth reference is smaller than our minimum altitude reference then it automatically goes to altitude control with a reference of our minimum altitude.
-   It goes back to depth control when the water column minus the reference is bigger than 2m.
-* <em>Safety features: Altitude</em>
-   Limitates to our minimum altitude reference
-   If the water column minus the altitude reference is bigger than our maximum depth then it is limited by that value.
- * <em>Pre filter:</em> </p>
+<p><strong>In code:</strong></p>
 <ul>
+<li>If depth references exist then it will work as a depth controller, otherwise if altitude references exist it will work as a altitude controller.</li>
+<li><em>Safety features: Depth</em> - If the water column minus the depth reference is smaller than our minimum altitude reference then it automatically goes to altitude control with a reference of our minimum altitude. It goes back to depth control when the water column minus the reference is bigger than 2m.</li>
+<li><em>Safety features: Altitude</em> - Limitates to our minimum altitude reference. If the water column minus the altitude reference is bigger than our maximum depth then it is limited by that value.</li>
+<li><em>Pre filter:</em> </li>
 <li>Reference Rate saturation: the reference is saturated taking into account the maximum reference rate <span class="arithmatex">\((0.2 \cdot T_s)\)</span>.</li>
 <li>Calculation of:</li>
 </ul>
@@ -9073,9 +9091,11 @@ DM = \frac{Left\ RPM (\%) - right\ RPM (\%)}{2}
 <li><em>ref_old_</em> - old reference</li>
 <li><em>qsi_old_</em> - saves the integration value</li>
 </ul>
-<p>and the following methods:
-* <em>int execute([arguments]);</em> - executes the pid controll
-* <em>void reset();</em> - resets the filter</p>
+<p>and the following methods:</p>
+<ul>
+<li><em>int execute([arguments]);</em> - executes the pid controll</li>
+<li><em>void reset();</em> - resets the filter</li>
+</ul>
 <p>In this interface, a Saturation struct was created to ease the operation of saturation.
 Basically, it is only necessary to create a Saturation object in the controller constructor defining the minimum and maximum value. To saturate a value we just need to call the function {clip} from the Saturation object.</p>
 <h3 id="innerloops-main-loop">Innerloops main loop</h3>
@@ -9117,7 +9137,7 @@ otherwise if a yaw rate ref exists the heading controller will be reset and the 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 15, 2022</span>
       
     
   </small>
