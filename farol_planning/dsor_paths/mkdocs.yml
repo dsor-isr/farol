@@ -14,3 +14,4 @@ nav:
     - SpawnBernoulli: "SpawnBernoulli.md"
     - SpawnCircle2D: "SpawnCircle2D.md"
     - SpawnLine: "SpawnLine.md"
+  - Implementation: "implementation.md"

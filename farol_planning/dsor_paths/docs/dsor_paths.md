@@ -1,5 +1,7 @@
 # dsor_paths Node
-This node deals with the rationale previously explained in the *dsor\_paths* documentation. It manages and deploys paths for the vehicles to follow.
+This node deals with the rationale previously explained in the *dsor\_paths* documentation. It manages and deploys paths for the vehicles to follow. A detailed exaplanation is offered here:
+
+* [Implementation](implementation.md)
 
 ## Diagram
 ![dsor\_paths Diagram](img/dsor_paths.png)
