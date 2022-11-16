@@ -211,7 +211,7 @@ void PathFollowingNode::initializePublishers() {
 }
 
 /**
- * @brief  Vc callback used to update the correction velocity for cooperative
+ * @brief  Vc callback used to update the velocity correction for cooperative
  * path following
  *
  * @param msg  A pointer to an std_msgs::Float64 with the synchronization speed
