@@ -6,7 +6,7 @@ This module ensures the following of the desired references, which were produced
 * [Theory](./theory.md)
 
 ## Nodes
-* [open\_loop\_pid](inner_loops_pid.md)
+* [open\_loop](openloop.md)
 
 ## Dependencies
 * None
