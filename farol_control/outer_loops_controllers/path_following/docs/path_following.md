@@ -18,8 +18,8 @@
 ## Publishers
 | Publishers | msg type | Purpose |
 | --- | --- | --- |
-| /#vehicle#/Gamma | | |
-| /#vehicle#/pfollowing/debug | | |
+| /#vehicle#/Gamma | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | |
+| /#vehicle#/pfollowing/debug |  | |
 | /#vehicle#/current/x | | |
 | /#vehicle#/current/y | | |
 | /#vehicle#/ref/`<controller>` | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | |
