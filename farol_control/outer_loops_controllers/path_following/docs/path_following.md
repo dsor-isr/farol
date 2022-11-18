@@ -18,16 +18,31 @@
 ## Publishers
 | Publishers | msg type | Purpose |
 | --- | --- | --- |
-| /#vehicle#/Gamma | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | |
-| /#vehicle#/pfollowing/debug |  | |
-| /#vehicle#/current/x | | |
-| /#vehicle#/current/y | | |
-| /#vehicle#/ref/`<controller>` | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | |
+| /#vehicle#/Gamma | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | Vehicle progression relative to the path parameter |
+| /#vehicle#/pfollowing/debug | [farol_msgs](https://dsor-isr.github.io/farol/farol-ros-messages/mPFollowingDebug/) | Topic used for debugging purposes only |
+| /#vehicle#/current/x | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | Observe x current component |
+| /#vehicle#/current/y | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | Observe y current component |
+| /#vehicle#/ref/`<controller>` | [std_msgs/Float64](http://docs.ros.org/en/api/std_msgs/html/msg/Float64.html) | References to be given to the inner loops |
 
 ## Services
 | Services | msg type | Purpose |
 | --- | --- | --- |
-| | | |
+| /#vehicle#/PFStart | [path_following/StartPF](StartPF.md) | Run the previously established path following |
+| /#vehicle#/PFStop | [path_following/StopPF](StopPF.md) | |
+| /#vehicle#/PFUpdateGains | [path_following/UpdateGainsPF](UpdateGainsPF.md) | |
+| /#vehicle#/ResetVT | [path_following/ResetVT](ResetVT.md) | |
+| /#vehicle#/PFSetRelativeHeading | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetMarcelo | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetAguiar | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetBrevik | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetFossen | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetRomulo | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetLapierre | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetPramod | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/PFSetSamson | [path_following/SetPF](SetPF.md) | |
+| /#vehicle#/ResetPath | [path_following/StartPF](StartPF.md) | |
+| /#vehicle#/SetMode | [path_following/StartPF](StartPF.md) | |
+| /#vehicle#/controls/send_wp_standard | [path_following/StartPF](StartPF.md) | |
 
 ## Parameters
 | Parameters | type | Default | Purpose |
