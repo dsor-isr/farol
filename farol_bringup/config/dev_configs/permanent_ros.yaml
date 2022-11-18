@@ -259,7 +259,6 @@ controls/path_following:
             lapierre_pf: "/#vehicle#/PFSetLapierre"
             pramod_pf: "/#vehicle#/PFSetPramod"
             samson_pf: "/#vehicle#/PFSetSamson"
-            relative_heading_pf: "/#vehicle#/PFSetRelativeHeading"
             # Service names related to the path
             reset_path: "/#vehicle#/ResetPath"
             set_path_mode: "/#vehicle#/SetMode"
