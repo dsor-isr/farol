@@ -24,7 +24,7 @@ This node deals with the rationale previously explained in the *dsor\_paths* doc
 | /#vehicle#/ResetPath          | [dsor\_paths/ResetPath](ResetPath.md)           | Reset the current assigned path                                          |
 | /#vehicle#/SetConstVdRabbit   | [dsor\_paths/SetConstSpeed](SetConstSpeed.md)   | Set a constant speed for the rabbit which a certain vehicle is following |
 | /#vehicle#/SetConstVdVehicle  | [dsor\_paths/SetConstSpeed](SetConstSpeed.md)   | Set a constant speed for the vehicle itself                              |
-| /#vehicle#/SetMode            | [dsor\_paths/SetMode](SetMode.md)               | Set a certain mode of operation                                          |
+| /#vehicle#/SetMode            | [dsor\_paths/SetMode](SetMode.md)               | Set if mode of operation calculates closest point to the path or if it receives an external gamma for path progression |
 | /#vehicle#/SpawnArc2DPath     | [dsor\_paths/SpawnArc2D](SpawnArc2D.md)         | Create a 2D circumference arc path                                       |
 | /#vehicle#/SpawnBernoulliPath | [dsor\_paths/SpawnBernoulli](SpawnBernoulli.md) | Create a Bernoulli path                                                  |
 | /#vehicle#/SpawnCircle2DPath  | [dsor\_paths/SpawnCircle2D](SpawnCircle2D.md)   | Create a 2D Circle path                                                  |
