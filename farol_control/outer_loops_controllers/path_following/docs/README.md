@@ -5,6 +5,8 @@ By default we provide several algorithms, from Line of Sight (LOS-Fossen) to mor
 
 Check the [implementation](implementation.md) to see how the package works.
 
+You can find further explanation of the Path Following algorithms in this [paper](https://arxiv.org/abs/2204.07319).
+
 **Authors:**
 - Marcelo Jacinto
 - João Quintas

@@ -1,7 +1,7 @@
 # path\_following Node
 
 ## In a nutshell
-This node manages the PF properties discussed in the [implementation](implementation.md) section.
+This node manages the PF properties discussed in the [implementation](implementation.md) section. You can find further explanation of the Path Following algorithms in this [paper](https://arxiv.org/abs/2204.07319).
 
 ## Diagram
 ![path\_following Diagram](img/path_following_diagram.png)
