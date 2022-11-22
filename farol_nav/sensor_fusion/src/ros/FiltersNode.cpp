@@ -302,7 +302,7 @@ void FiltersNode::stateTimerCallback(const ros::TimerEvent &event) {
           state_.global_position.longitude, gamma, k);
     } catch (...) {
       ROS_ERROR_DELAYED_THROTTLE(
-          2.0, "FitlersNode: Could not convert from UTM to Lan/Lon");
+          2.0, "FiltersNode: Could not convert from UTM to Lan/Lon");
     }
   }
 
