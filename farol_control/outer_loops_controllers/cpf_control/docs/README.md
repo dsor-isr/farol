@@ -1,6 +1,8 @@
 # Cooperative Path Following Documentation
 A package that implements the controller responsible for synchronizing the path following controllers between multiple vehicles in a network. In the [implementation](implementation.md) section you can see more about how this package works.
 
+Check the `farol_comms` section, for example, the radio communications subsection [cpf_gamma](https://dsor-isr.github.io/farol/cpf-gamma/), to understand better the cooperative network connections.
+
 **Authors:**
 - Marcelo Jacinto
 - João Quintas
