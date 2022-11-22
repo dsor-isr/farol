@@ -17,6 +17,7 @@
     <member refid="classVehicleStabilizerNode_1a47d4fe14d025703bfe95b67b0e2b15bc" kind="variable"><name>yaw_rate_ref_pub_</name></member>
     <member refid="classVehicleStabilizerNode_1a05fdef44634fd4ebd591cccf38445132" kind="variable"><name>altitude_ref_pub_</name></member>
     <member refid="classVehicleStabilizerNode_1a79d3441086c5ac3d3dd5c5cd6b7583d9" kind="variable"><name>depth_ref_pub_</name></member>
+    <member refid="classVehicleStabilizerNode_1a4e32dbfcd66891bc7c63d7b1ea73084d" kind="variable"><name>default_null_</name></member>
     <member refid="classVehicleStabilizerNode_1a91d230208529b1a2311906508ac2fc5f" kind="function"><name>VehicleStabilizerNode</name></member>
     <member refid="classVehicleStabilizerNode_1a5a611b309a2609f811cbed21cb076f24" kind="function"><name>~VehicleStabilizerNode</name></member>
     <member refid="classVehicleStabilizerNode_1aca0fd68faae7f0dea0ba8e5a1b4f16b4" kind="function"><name>initializeROSPublishers</name></member>
