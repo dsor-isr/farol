@@ -65,6 +65,9 @@ private:
     ros::Publisher altitude_ref_pub_;
     ros::Publisher depth_ref_pub_;
 
+    // Default null value
+    XmlRpc::XmlRpcValue default_null_ = 999999.9;
+
     /**
      * @brief Methods to initialize ROS
      */
