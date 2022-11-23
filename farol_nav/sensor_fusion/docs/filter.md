@@ -3,9 +3,8 @@
 ## In a nutshell
 A general-purpose kalman filter for vehicle state estimation. For indepth documentation, refer the links below:
 
-* [Theory](./theory.md) 
-* [User Guide](./user_guide.md)
-* [Developer Notes](./developer_notes.md) 
+* [Theory](./theory.md)
+* [Developer Notes](./developer_notes.md)
 
 ## Diagram
 ![Sensor Fusion Diagram](img/filter.png)
@@ -71,7 +70,7 @@ manually_initialization:
     value: <value_vector>
     noise: <noise_vector>
 ```
-* \<frame\_id\> is the option on how to initialize the navigation filter. These are the general options:
+* `<frame_id>` is the option on how to initialize the navigation filter. These are the general options:
 
 | Value | Purpose |
 | ----- | ------- |
@@ -80,7 +79,7 @@ manually_initialization:
 | "\<sensor\>" | Initialize with the first measurement from the specified sensor <br /> **(1)** \<sensor> keyword must be replaced with an available sensor (see **Note2**) <br /> **(2)** it is common to initialize the filter with the first "gnss" measurements |
 | 
 
-* \<value\_vector\> is the starting state vector for the filter. It should be in the form of the following vector:
+* `<value_vector>` is the starting state vector for the filter. It should be in the form of the following vector:
 
 ```yaml
 [x,              y,              z,
@@ -90,7 +89,7 @@ manually_initialization:
  acceleration_x, acceleration_y, altitude ]
 ```
 
-* \<noise\_vector\> is the noise used for the prediction stage of the filter. It should be in the form of the following vector:
+* `<noise_vector>` is the noise used for the prediction stage of the filter. It should be in the form of the following vector:
 
 ```yaml
 [noise_x,              noise_y,              noise_z,
@@ -114,8 +113,8 @@ sensors:
 
 where:
 
-* \<name\> should be defined according to the `frame_id` value published directly by the sensor which you want to add to the filter;
-* \<type\> options are:
+* `<name>` should be defined according to the `<frame_id>` value published directly by the sensor which you want to add to the filter;
+* `<type>` options are:
 
 | type         | Measurements |
 | ------       | -------   |
@@ -127,7 +126,7 @@ where:
 | acceleration | Future work... |
 | altitude     | altitude |
 
-* \<noise\_vector\> is the matrix with the noise covariance. If you want to use the noise directly from the sensor, fill the noise with zeros. Otherwise, the options are:
+* `<noise_vector>` is the matrix with the noise covariance. If you want to use the noise directly from the sensor, fill the noise with zeros. Otherwise, the options are:
 
 | type         | Noise |
 | ------       | -------   |
@@ -139,11 +138,11 @@ where:
 | acceleration | Future work... |
 | altitude     | [noise\_altitude] |
 
-* \<out\_tol\_num\> should be a float value defined taking into account the precision of the sensors' measurements. A bubble with radius of \<out\_tol\_num\> will be created around the filtered value. Measurement values outside this bubble are considered as outliers and thus cast aside.
+* `<out_tol_num>` should be a float value defined taking into account the precision of the sensors' measurements. A bubble with radius of `<out_tol_num>` will be created around the filtered value. Measurement values outside this bubble are considered as outliers and thus cast aside.
 
-* \<rej\_cou\_num\> should be an integer value definedtaking into account the precision and the frequency of the sensors' measurements. The consecutive outliers are counted and when they reach the rejection number, they are considered true values. The filter will take in this new value.
+* `<rej_cou_num>` should be an integer value definedtaking into account the precision and the frequency of the sensors' measurements. The consecutive outliers are counted and when they reach the rejection number, they are considered true values. The filter will take in this new value.
 
-* \<outlier\_increase\> should be a float value. It consists on the increase of the outlier tolerance as time goes by (`<out_tol_num> + dt * <outlier_increase>`). This is specifically useful in the case of low frequency sensors, like USBL for example. Whenever you receive a measurement from these sensors, the bubble should reset to the original tolerance value \<out\_tol\_num\>. If not specified should be considered 0.0.
+* `<outlier_increase>` should be a float value. It consists on the increase of the outlier tolerance as time goes by (`<out_tol_num> + dt * <outlier_increase>`). This is specifically useful in the case of low frequency sensors, like USBL for example. Whenever you receive a measurement from these sensors, the bubble should reset to the original tolerance value `<out_tol_num>`. If not specified should be considered 0.0.
 
 ### **Example1:**
 
@@ -175,7 +174,7 @@ sensors:
 
 If you want to "remove" a sensor from being considered in the filter, take this specific case:
 
-Contemplate a sensor that publishes a message with "dummy" in the `frame_id`. To be accepted as a sensor, you must have in the `nav.yaml`the following code:
+Contemplate a sensor that publishes a message with "dummy" in the `<frame_id>`. To be accepted as a sensor, you must have in the `nav.yaml`the following code:
 
 ```yaml
 sensors:
@@ -186,4 +185,4 @@ sensors:
         reject_counter: <rej_cou_num>
 ```
 
-If you want to take out this sensor from the filter, **you need to change the `frame_id` to a random name, one that the filter code does not recognize.**
+If you want to take out this sensor from the filter, **you need to change the `<frame_id>` to a random name, one that the filter code does not recognize.**

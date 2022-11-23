@@ -4,3 +4,5 @@ nav:
   - Reference: "README.md"
   - Nodes:
     - waypoint: "waypoint.md"
+  - Services: 
+    - sendWpType1: "sendWpType1.md"

@@ -4,3 +4,4 @@ nav:
   - Documentation: "README.md"
   - Nodes:
     - OpenLoop: "openloop.md"
+  - Theory: "theory.md"
