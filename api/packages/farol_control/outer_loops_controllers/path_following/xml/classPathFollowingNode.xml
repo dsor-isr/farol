@@ -706,7 +706,7 @@
 <para>Callbacks. </para>
         </briefdescription>
         <detaileddescription>
-<para>Vc callback used to update the correction velocity for cooperative path following.</para>
+<para>Vc callback used to update the velocity correction for cooperative path following.</para>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>msg</parametername>
