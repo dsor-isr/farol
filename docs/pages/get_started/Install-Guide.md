@@ -4,8 +4,8 @@
 2. Install [ROS 1 Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 3. Add the following Functions and Alias to your `.bashrc` file, to make development easier 🤓
 
-    1.  Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin_ws
-        
+    1. Create a file to store the latest catkin workspace (if it does not exist) and put in the first line the default name, i.e. catkin\_ws
+
         ```bash
         if [ ! -f ~/.catkin_ws_config ]; then touch ~/.catkin_ws_config && echo catkin_ws > ~/.catkin_ws_config ;fi
         ```
