@@ -12,6 +12,7 @@
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <std_msgs/Float64.h>
+#include <std_srvs/SetBool.h>
 
 /**
  * @brief  Implementation of the inner loops. Computes the forces and torques
@@ -152,6 +153,9 @@ private:
   ros::Publisher ft_pub_;
   // tf2_ros::Buffer tf_buffer_;
   // tf2_ros::TransformListener tf_;
+
+  // Turning Radius Limiter (2D) Variables
+  bool turning_radius_limiter;
 };
 
 #endif // MDS_INNERLOOPS_H

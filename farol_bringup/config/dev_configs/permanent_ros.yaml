@@ -194,6 +194,7 @@ controls/inner_loops_pid:
             change_ff_gains: "/#vehicle#/inner_forces/change_ff_gains"
             change_inner_gains: "/#vehicle#/inner_forces/change_inner_gains"
             change_inner_limits: "/#vehicle#/inner_forces/change_inner_limits"
+            turning_radius_limit: "/#vehicle#/iiner_forces/turning_radius_limiter"
 
 controls/waypoint:
     node_frequency: 10.0
