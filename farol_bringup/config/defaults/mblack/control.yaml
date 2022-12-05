@@ -26,6 +26,7 @@ inner_loops_pid:
     # Yaw Params
     controllers:
         yaw:
+            enabled: true
             kp: 0.2
             ki: 0.0005
             kd: 0.133
@@ -35,6 +36,7 @@ inner_loops_pid:
             min_out: -4.0
         # Yaw Rate Params
         yaw_rate:
+            enabled: true
             kp: 0.16
             ki: 0.04444
             max_err:  3.0 # deg
@@ -43,6 +45,7 @@ inner_loops_pid:
             min_out: -4.0
         # Surge Params
         surge:
+            enabled: true
             kp: 26.0
             ki: 3.0
             max_ref:  0.7  # m/s
@@ -53,6 +56,7 @@ inner_loops_pid:
             min_out: -14.0
         # Sway Params
         sway:
+            enabled: true
             kp: 180
             ki: 20 
             max_ref:  0.7  # m/s
@@ -63,6 +67,7 @@ inner_loops_pid:
             min_out: -60.0
         # Depth Params
         depth:
+            enabled: true
             kp: 15
             ki: 0.7
             kd: 20.0
@@ -73,6 +78,7 @@ inner_loops_pid:
             min_alt: 1.0 # m
         # Altitude Params
         altitude:
+            enabled: true
             kp: 10.0
             ki: 0.3
             kd: 30.0

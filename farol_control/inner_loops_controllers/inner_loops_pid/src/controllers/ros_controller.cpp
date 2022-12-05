@@ -31,9 +31,10 @@ void RosController::init(ros::NodeHandle &nh, std::string controller_name,
   max_ref_value_ = nh.param("controllers/" + controller_name + "/max_ref", 0.0);
   min_ref_value_ = nh.param("controllers/" + controller_name + "/min_ref", 0.0);
   debug_ = nh.param("controllers/" + controller_name + "/debug", false);
+  bool enabled = nh.param("controllers/" + controller_name + "/enabled", false);
 
   // Don't create the controller if no gains were specified
-  if (kp == 0.0 && ki == 0.0 && kd == 0.0 && kff == 0.0 && kff_d == 0.0 && kff_lin_drag == 0.0 && kff_quad_drag == 0.0) {
+  if ((kp == 0.0 && ki == 0.0 && kd == 0.0 && kff == 0.0 && kff_d == 0.0 && kff_lin_drag == 0.0 && kff_quad_drag == 0.0) || enabled == false) {
     ROS_WARN_STREAM("No PID and Feedfoward gains were specified for " + controller_name + " controller.");
     pid_c_ = NULL;
     return;
