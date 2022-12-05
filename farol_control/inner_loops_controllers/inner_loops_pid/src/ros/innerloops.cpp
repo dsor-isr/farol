@@ -122,7 +122,7 @@ void Innerloops::initializeServices() {
   change_ff_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_ff_gains", "/inner_forces/change_ff_gains"), &Innerloops::changeFFGainsService, this);
   change_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_inner_gains", "/inner_forces/change_inner_gains"), &Innerloops::changeGainsService, this);
   change_limits_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_inner_limits", "/inner_forces/change_inner_limits"), &Innerloops::changeLimitsService, this);
-  turning_radius_limit = nh_.advertiseService(FarolGimmicks::getParameters<std:string>(nh_, "topics/services/turning_radius_limit", "/inner_forces/turning_radius_limiter"), &Innerloops::turningRadiusLimitService, this);
+  turning_radius_limiter_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/turning_radius_limiter", "/inner_forces/turning_radius_limiter"), &Innerloops::turningRadiusLimiterService, this);
 }
 
 void Innerloops::initializePublishers() {
@@ -328,9 +328,9 @@ bool Innerloops::changeLimitsService(
   return true;
 }
 
-bool Innerloops::turningRadiusLimitService(
-    sdt_srvs::Bool::Request &req,
-    std_srvs::Bool::Response &res) {
+bool Innerloops::turningRadiusLimiterService(
+    std_srvs::SetBool::Request &req,
+    std_srvs::SetBool::Response &res) {
   if (turn_radius_flag == req.data){
     res.success = false;
     res.message = "Turning Radius Limiter already " + std::to_string(turn_radius_flag);
@@ -339,4 +339,6 @@ bool Innerloops::turningRadiusLimitService(
     res.success = true;
     res.message = "Turning Radius Limiter set to " + std::to_string(turn_radius_flag);
   }
+
+  return true;
 }

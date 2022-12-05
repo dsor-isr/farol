@@ -122,6 +122,40 @@ double RosController::computeCommand() {
     return 0.0;
   }
 
+  // Turning Radius Limiter calculations using RateLimiter object (see dsor_utils)
+  if ( (controller_name_ == "yaw" || controller_name_ == "yaw_rate") && *turn_limiter_flag_ptr_) {
+
+    if (min_turn_radius_ <= 0.0) {
+      ROS_WARN_STREAM("Minimum turn limit radius must be higher than 0. Ignoring " + controller_name_ + " reference.");
+      return 0.0;
+    }
+
+    double no_response_time_water_speed = tnow.toSec() - *water_speed_t_received_ptr_;
+    if ( no_response_time_water_speed >= no_response_water_speed_t_max_ ) {
+      ROS_WARN_STREAM("No measurements received from airmar for " << no_response_time_water_speed << "seconds.\n" + controller_name_ + " controller will not provide output.");
+      return 0.0;
+    }
+
+    if (controller_name_ == "yaw") {
+      
+      double rate_limit = (*water_speed_surge_ptr_ / min_turn_radius_) * ( 180 / M_PI );
+
+      rate_limiter_ptr_->setNewRateLimit(rate_limit);
+
+      ref_value_ = DSOR::wrapTo360<double>(rate_limiter_ptr_->Calculate(ref_value_));
+
+      ROS_INFO_STREAM("YAW ref_value saturate: " << ref_value_);    
+    }
+    else if (controller_name_ == "yaw_rate") {
+
+      double max_yaw_rate = (*water_speed_surge_ptr_ / min_turn_radius_) * ( 180 / M_PI );
+
+      ref_value_ = DSOR::saturation<double>(ref_value_, -max_yaw_rate, max_yaw_rate);
+      
+      ROS_INFO_STREAM("YAW_RATE ref_value saturate: " << ref_value_);
+    }
+  }
+
   double error = ref_value_ - *state_ptr_;
   if (isnan(ref_value_)) {
     ROS_ERROR("getting NaN in %s controller", controller_name_.c_str());
