@@ -29,6 +29,9 @@ inner_loops_pid:
     # bypass forces (hard - ignores inner-loop / soft - sums inner-loop and manual forces value)
     forces_hard_bypass: false
 
+    # turning radius limiter minimum radius
+    min_turn_radius: 5.0
+
     # Yaw Params
     controllers:
         yaw:

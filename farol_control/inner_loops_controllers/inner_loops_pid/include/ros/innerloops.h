@@ -12,6 +12,7 @@
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <std_msgs/Float64.h>
+#include <std_srvs/SetBool.h>
 
 /**
  * @brief  Implementation of the inner loops. Computes the forces and torques
@@ -115,6 +116,18 @@ private:
   changeLimitsService(inner_loops_pid::ChangeInnerLimits::Request &req,
                       inner_loops_pid::ChangeInnerLimits::Response &res);
 
+  /**
+   * @brief Service to turn on and off turning radius limiter
+   *
+   * @param req client request
+   * @param res server response
+   * @return true
+   * @return false
+   */
+  bool
+  turningRadiusLimiterService(std_srvs::SetBool::Request &req,
+                      std_srvs::SetBool::Response &res);
+
   // Handlers
   ros::NodeHandle nh_;
   std::vector<RosController *> controllers_;
@@ -140,6 +153,7 @@ private:
   ros::ServiceServer change_ff_gains_srv_;
   ros::ServiceServer change_gains_srv_;
   ros::ServiceServer change_limits_srv_;
+  ros::ServiceServer turning_radius_limiter_;
 
   ros::Timer timer_; // timer
 
@@ -152,6 +166,10 @@ private:
   ros::Publisher ft_pub_;
   // tf2_ros::Buffer tf_buffer_;
   // tf2_ros::TransformListener tf_;
+
+  // Turning Radius Limiter (2D) Variables
+  bool turn_radius_flag{false};
+  RateLimiter rate_limiter_;
 };
 
 #endif // MDS_INNERLOOPS_H

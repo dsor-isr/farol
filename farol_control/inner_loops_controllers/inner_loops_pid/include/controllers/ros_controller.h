@@ -6,6 +6,11 @@
 #include <ros/ros.h>
 #include <std_msgs/Float64.h>
 #include <farol_msgs/mPidDebug.h>
+#include <dsor_utils/filters/rate_limiter.hpp>
+#include <dsor_utils/rotations.hpp>
+#include <dsor_utils/math.hpp>
+
+
 
 /**
  * @brief  ROS implementation of the innerloops controllers. Based on a desired reference computes the force or torque to be applied.
@@ -43,6 +48,44 @@ public:
   RosController(ros::NodeHandle &nh, std::string controller_name,
                 std::string refCallback_topic, double *state, double *state_dot,
                 double *force_or_torque, double frequency);
+
+/**
+   * @brief  Constructor of a innerloop yaw controller.
+   *
+   * @param nh  ROS nodehandle to read parameters and subscribe to relevant
+   * topics
+   * @param controller_name  Controller name (variable being controlled)
+   * @param refCallback_topic  Topic name
+   * @param state  Pointer to state variable being controlled
+   * @param force_or_torque  Pointer to force or torque output
+   * @param frequency Frequency of controller sampling rate
+   * @param turn_limiter_flag On/off flag for turning radius limiter
+   * @param surge Surge speed of vehicle
+   * @param rate_limiter Rate Limiter object from dsor_utils
+   */
+  RosController(ros::NodeHandle &nh, std::string controller_name,
+                std::string refCallback_topic, double *state,
+                double *force_or_torque, double frequency,
+                bool *turn_limiter_flag, double *surge, RateLimiter *rate_limiter);
+
+  /**
+   * @brief  Constructor of a innerloop yaw_rate controller.
+   *
+   * @param nh  ROS nodehandle to read parameters and subscribe to relevant
+   * topics
+   * @param controller_name  Controller name (variable being controlled)
+   * @param refCallback_topic  Topic name
+   * @param state  Pointer to state variable being controlled
+   * @param force_or_torque  Pointer to force or torque output
+   * @param frequency Frequency of controller sampling rate
+   * @param turn_limiter_flag On/off flag for turning radius limiter
+   * @param surge Surge speed of vehicle
+   */
+  RosController(ros::NodeHandle &nh, std::string controller_name,
+                std::string refCallback_topic, double *state,
+                double *force_or_torque, double frequency,
+                bool *turn_limiter_flag, double *surge);
+
   /**
    * @brief  Core function. Computes the PID output
    *
@@ -136,6 +179,17 @@ protected:
 
   // frequency of the controller sampling rate
   double frequency_;
+
+  // pointer to flag for turning ON/OFF the turn limiter for yaw and yaw_rate
+  bool *turn_limiter_flag_ptr_;
+
+  double min_turn_radius_; // maxuimum turning radius to saturate yaw  rate reference
+  bool turn_limit_yaw_ref_{false};
+  bool turn_limit_yaw_rate_ref_{false};
+  double *surge_;
+  
+  // respective handler to the slew rate limiter class
+  RateLimiter *rate_limiter_ptr_;  
 
   bool circular_units_;  // for angles
   bool positive_output_; // positive output or switch sign

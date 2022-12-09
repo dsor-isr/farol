@@ -25,7 +25,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw", 
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/yaw", "yaw_ref"),
-          &yaw_, &torque_request_[2], Innerloops::nodeFrequency()));
+          &yaw_, &torque_request_[2], Innerloops::nodeFrequency(),
+          &turn_radius_flag, &surge_, &rate_limiter_));
 
   controllers_.back()->setCircularUnits(true);
 
@@ -53,7 +54,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw_rate",
           FarolGimmicks::getParameters<std::string>(
             nh_, "topics/subscribers/yaw_rate", "yaw_rate_ref"),
-            &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency()));
+            &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency(),
+            &turn_radius_flag, &surge_));
 
   // Pitch rate
   controllers_.push_back(
@@ -122,6 +124,7 @@ void Innerloops::initializeServices() {
   change_ff_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_ff_gains", "/inner_forces/change_ff_gains"), &Innerloops::changeFFGainsService, this);
   change_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_inner_gains", "/inner_forces/change_inner_gains"), &Innerloops::changeGainsService, this);
   change_limits_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_inner_limits", "/inner_forces/change_inner_limits"), &Innerloops::changeLimitsService, this);
+  turning_radius_limiter_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/turning_radius_limiter", "/inner_forces/turning_radius_limiter"), &Innerloops::turningRadiusLimiterService, this);
 }
 
 void Innerloops::initializePublishers() {
@@ -322,6 +325,22 @@ bool Innerloops::changeLimitsService(
     res.message += "New " + req.inner_type + " limits are" +
                    " max_out: " + std::to_string(req.max_out) +
                    " min_out: " + std::to_string(req.min_out);
+  }
+
+  return true;
+}
+
+bool Innerloops::turningRadiusLimiterService(
+    std_srvs::SetBool::Request &req,
+    std_srvs::SetBool::Response &res) {
+  if (turn_radius_flag == req.data){
+    res.success = false;
+    res.message = "Turning Radius Limiter already " + std::to_string(turn_radius_flag);
+  }else{
+    turn_radius_flag = req.data;
+    rate_limiter_ = RateLimiter(yaw_, true);
+    res.success = true;
+    res.message = "Turning Radius Limiter set to " + std::to_string(turn_radius_flag);
   }
 
   return true;
