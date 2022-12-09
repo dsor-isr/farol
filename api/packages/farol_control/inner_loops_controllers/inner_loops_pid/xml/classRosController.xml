@@ -430,7 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/controllers/ros_controller.h" line="51" column="18" bodyfile="src/controllers/ros_controller.cpp" bodystart="90" bodyend="167"/>
+        <location file="include/controllers/ros_controller.h" line="51" column="18" bodyfile="src/controllers/ros_controller.cpp" bodystart="91" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="classRosController_1a0901e130893758f6153ff2928b3bda78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -667,7 +667,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/controllers/ros_controller.h" line="100" column="8" bodyfile="src/controllers/ros_controller.cpp" bodystart="81" bodyend="88"/>
+        <location file="include/controllers/ros_controller.h" line="100" column="8" bodyfile="src/controllers/ros_controller.cpp" bodystart="82" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="classRosController_1af7be9fc16c6889d00652fb7d839cb51c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -719,7 +719,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/controllers/ros_controller.h" line="111" column="8" bodyfile="src/controllers/ros_controller.cpp" bodystart="11" bodyend="79"/>
+        <location file="include/controllers/ros_controller.h" line="111" column="8" bodyfile="src/controllers/ros_controller.cpp" bodystart="11" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classRosController_1a5bdfbf66b3ad946e0b7b49cdc0e3a5e3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -736,7 +736,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/controllers/ros_controller.h" line="118" column="16" bodyfile="src/controllers/ros_controller.cpp" bodystart="169" bodyend="184"/>
+        <location file="include/controllers/ros_controller.h" line="118" column="16" bodyfile="src/controllers/ros_controller.cpp" bodystart="170" bodyend="185"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
