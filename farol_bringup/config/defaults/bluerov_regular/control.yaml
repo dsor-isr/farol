@@ -36,6 +36,9 @@ inner_loops_pid:
     # NOTE: set this to false during identification tests (not in normal missions otherwise it might provoke unwanted behaviour)
     forces_hard_bypass: true
 
+    # turning radius limiter minimum radius
+    min_turn_radius: 5.0
+
     # Yaw Params
     controllers:
         roll:
