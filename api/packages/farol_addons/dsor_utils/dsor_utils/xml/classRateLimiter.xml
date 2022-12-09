@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRateLimiter" kind="class" language="C++" prot="public">
+    <compoundname>RateLimiter</compoundname>
+    <includes refid="rate__limiter_8hpp" local="no">rate_limiter.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRateLimiter_1a5b44a97d782d939b3f3d97b2dcddc2e9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RateLimiter::using_circular_units_</definition>
+        <argsstring></argsstring>
+        <name>using_circular_units_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="99" column="8" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRateLimiter_1a92258e273840164f569b55fca1f5b3ee" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RateLimiter::m_rateLimit_</definition>
+        <argsstring></argsstring>
+        <name>m_rateLimit_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="100" column="10" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRateLimiter_1a7ef61b0f28a53a5e5d7cceb31951ea1c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RateLimiter::m_prevVal_</definition>
+        <argsstring></argsstring>
+        <name>m_prevVal_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="101" column="10" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRateLimiter_1a7904ce68821be202210741133bdc4ac7" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time RateLimiter::m_prevTime_</definition>
+        <argsstring></argsstring>
+        <name>m_prevTime_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="102" column="13" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRateLimiter_1a77a710aeba236f20fa9a8ca1da9f6713" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RateLimiter::RateLimiter</definition>
+        <argsstring>()</argsstring>
+        <name>RateLimiter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new <ref refid="classRateLimiter" kindref="compound">RateLimiter</ref>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="24" column="3" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRateLimiter_1aa7662dde7959aa8423959af3be4f9be3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RateLimiter::RateLimiter</definition>
+        <argsstring>(double initialValue, bool using_circular_units=false)</argsstring>
+        <name>RateLimiter</name>
+        <param>
+          <type>double</type>
+          <declname>initialValue</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>using_circular_units</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new <ref refid="classRateLimiter" kindref="compound">RateLimiter</ref> with the given rate limit and initial value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initialValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial value of the input. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="32" column="3" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classRateLimiter_1a1bbc9db84c7ab28d1f48043faf1fcb4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double RateLimiter::Calculate</definition>
+        <argsstring>(double input)</argsstring>
+        <name>Calculate</name>
+        <param>
+          <type>double</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Filters the input to limit its slew rate.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input value whose slew rate is to be limited. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The filtered value, which will not change faster than the slew rate. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="43" column="10" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="43" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classRateLimiter_1a38f3b91d62bd4d9eee6bff1274d1a00f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RateLimiter::setNewRateLimit</definition>
+        <argsstring>(double rate_limit)</argsstring>
+        <name>setNewRateLimit</name>
+        <param>
+          <type>double</type>
+          <declname>rate_limit</declname>
+        </param>
+        <briefdescription>
+<para>Set the New Rate Limit value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rate_limit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="68" column="8" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classRateLimiter_1a0843a2a583f548b442e65ba1b6e57813" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double RateLimiter::getRateLimit</definition>
+        <argsstring>()</argsstring>
+        <name>getRateLimit</name>
+        <briefdescription>
+<para>Get the current Rate Limit value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="75" column="10" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classRateLimiter_1a890050e8eaa652822eb047272f626da6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double RateLimiter::getPreviousValue</definition>
+        <argsstring>()</argsstring>
+        <name>getPreviousValue</name>
+        <briefdescription>
+<para>Get the current previous value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="83" column="10" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classRateLimiter_1a03ecfeea658e3926c63d267fc2ce0a0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RateLimiter::Reset</definition>
+        <argsstring>(double value)</argsstring>
+        <name>Reset</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the slew rate limiter to the specified value; ignores the rate limit when doing so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to reset to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/filters/rate_limiter.hpp" line="93" column="8" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="93" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class that limits the rate of change of an input value. Limits the first derivative of the signal passing through it. The output changes no faster than the specified limit. </para>
+    </detaileddescription>
+    <location file="include/dsor_utils/filters/rate_limiter.hpp" line="17" column="18" bodyfile="include/dsor_utils/filters/rate_limiter.hpp" bodystart="17" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classRateLimiter_1a1bbc9db84c7ab28d1f48043faf1fcb4f" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>Calculate</name></member>
+      <member refid="classRateLimiter_1a890050e8eaa652822eb047272f626da6" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>getPreviousValue</name></member>
+      <member refid="classRateLimiter_1a0843a2a583f548b442e65ba1b6e57813" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>getRateLimit</name></member>
+      <member refid="classRateLimiter_1a7904ce68821be202210741133bdc4ac7" prot="private" virt="non-virtual"><scope>RateLimiter</scope><name>m_prevTime_</name></member>
+      <member refid="classRateLimiter_1a7ef61b0f28a53a5e5d7cceb31951ea1c" prot="private" virt="non-virtual"><scope>RateLimiter</scope><name>m_prevVal_</name></member>
+      <member refid="classRateLimiter_1a92258e273840164f569b55fca1f5b3ee" prot="private" virt="non-virtual"><scope>RateLimiter</scope><name>m_rateLimit_</name></member>
+      <member refid="classRateLimiter_1a77a710aeba236f20fa9a8ca1da9f6713" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>RateLimiter</name></member>
+      <member refid="classRateLimiter_1aa7662dde7959aa8423959af3be4f9be3" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>RateLimiter</name></member>
+      <member refid="classRateLimiter_1a03ecfeea658e3926c63d267fc2ce0a0a" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>Reset</name></member>
+      <member refid="classRateLimiter_1a38f3b91d62bd4d9eee6bff1274d1a00f" prot="public" virt="non-virtual"><scope>RateLimiter</scope><name>setNewRateLimit</name></member>
+      <member refid="classRateLimiter_1a5b44a97d782d939b3f3d97b2dcddc2e9" prot="private" virt="non-virtual"><scope>RateLimiter</scope><name>using_circular_units_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

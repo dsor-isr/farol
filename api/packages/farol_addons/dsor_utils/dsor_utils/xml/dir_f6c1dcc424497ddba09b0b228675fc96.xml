@@ -7,6 +7,7 @@
     <innerfile refid="highpass__filter_8hpp">highpass_filter.hpp</innerfile>
     <innerfile refid="lowpass__filter_8hpp">lowpass_filter.hpp</innerfile>
     <innerfile refid="moving__average__filter_8hpp">moving_average_filter.hpp</innerfile>
+    <innerfile refid="rate__limiter_8hpp">rate_limiter.hpp</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

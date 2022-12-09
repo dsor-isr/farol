@@ -798,6 +798,8 @@
           
         
           
+        
+          
             
           
         
@@ -1027,6 +1029,20 @@
     <li class="md-nav__item">
       <a href="../../../../../farol_addons/dsor_utils/dsor_utils/Classes/classMovingAvarageFilter/" class="md-nav__link">
         MovingAvarageFilter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../farol_addons/dsor_utils/dsor_utils/Classes/classRateLimiter/" class="md-nav__link">
+        RateLimiter
       </a>
     </li>
   
@@ -7480,6 +7496,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-roscontroller_2" class="md-nav__link">
+    function RosController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-roscontroller_3" class="md-nav__link">
+    function RosController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-computecommand" class="md-nav__link">
     function computeCommand
   </a>
@@ -7655,6 +7685,48 @@
           <li class="md-nav__item">
   <a href="#variable-frequency_" class="md-nav__link">
     variable frequency_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_limiter_flag_ptr_" class="md-nav__link">
+    variable turn_limiter_flag_ptr_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-min_turn_radius_" class="md-nav__link">
+    variable min_turn_radius_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_limit_yaw_ref_" class="md-nav__link">
+    variable turn_limit_yaw_ref_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_limit_yaw_rate_ref_" class="md-nav__link">
+    variable turn_limit_yaw_rate_ref_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-surge_" class="md-nav__link">
+    variable surge_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-rate_limiter_ptr_" class="md-nav__link">
+    variable rate_limiter_ptr_
   </a>
   
 </li>
@@ -9461,6 +9533,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-roscontroller_2" class="md-nav__link">
+    function RosController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-roscontroller_3" class="md-nav__link">
+    function RosController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-computecommand" class="md-nav__link">
     function computeCommand
   </a>
@@ -9641,6 +9727,48 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-turn_limiter_flag_ptr_" class="md-nav__link">
+    variable turn_limiter_flag_ptr_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-min_turn_radius_" class="md-nav__link">
+    variable min_turn_radius_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_limit_yaw_ref_" class="md-nav__link">
+    variable turn_limit_yaw_ref_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_limit_yaw_rate_ref_" class="md-nav__link">
+    variable turn_limit_yaw_rate_ref_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-surge_" class="md-nav__link">
+    variable surge_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-rate_limiter_ptr_" class="md-nav__link">
+    variable rate_limiter_ptr_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-circular_units_" class="md-nav__link">
     variable circular_units_
   </a>
@@ -9720,6 +9848,14 @@
 <tr>
 <td></td>
 <td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * state_dot, double * force_or_torque, double frequency)<br>Constructor of a innerloop controller.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * force_or_torque, double frequency, bool * turn_limiter_flag, double * surge, RateLimiter * rate_limiter)<br>Constructor of a innerloop yaw controller.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * force_or_torque, double frequency, bool * turn_limiter_flag, double * surge)<br>Constructor of a innerloop yaw_rate controller.</td>
 </tr>
 <tr>
 <td>virtual double</td>
@@ -9832,6 +9968,30 @@
 <td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-frequency-">frequency_</a></strong></td>
 </tr>
 <tr>
+<td>bool *</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-turn-limiter-flag-ptr-">turn_limiter_flag_ptr_</a></strong></td>
+</tr>
+<tr>
+<td>double</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-min-turn-radius-">min_turn_radius_</a></strong></td>
+</tr>
+<tr>
+<td>bool</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-turn-limit-yaw-ref-">turn_limit_yaw_ref_</a></strong></td>
+</tr>
+<tr>
+<td>bool</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-turn-limit-yaw-rate-ref-">turn_limit_yaw_rate_ref_</a></strong></td>
+</tr>
+<tr>
+<td>double *</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-surge-">surge_</a></strong></td>
+</tr>
+<tr>
+<td>RateLimiter *</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-rate-limiter-ptr-">rate_limiter_ptr_</a></strong></td>
+</tr>
+<tr>
 <td>bool</td>
 <td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-circular-units-">circular_units_</a></strong></td>
 </tr>
@@ -9895,6 +10055,56 @@
 <li><strong>state_dot</strong> Pointer to the derivative of the state variable being controlled </li>
 <li><strong>force_or_torque</strong> Pointer to force or torque output </li>
 <li><strong>frequency</strong> Frequency of controller sampling rate </li>
+</ul>
+<h3 id="function-roscontroller_2">function RosController</h3>
+<pre><code class="language-cpp">RosController(
+    ros::NodeHandle &amp; nh,
+    std::string controller_name,
+    std::string refCallback_topic,
+    double * state,
+    double * force_or_torque,
+    double frequency,
+    bool * turn_limiter_flag,
+    double * surge,
+    RateLimiter * rate_limiter
+)
+</code></pre>
+<p>Constructor of a innerloop yaw controller. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>nh</strong> ROS nodehandle to read parameters and subscribe to relevant topics </li>
+<li><strong>controller_name</strong> Controller name (variable being controlled) </li>
+<li><strong>refCallback_topic</strong> Topic name </li>
+<li><strong>state</strong> Pointer to state variable being controlled </li>
+<li><strong>force_or_torque</strong> Pointer to force or torque output </li>
+<li><strong>frequency</strong> Frequency of controller sampling rate </li>
+<li><strong>turn_limiter_flag</strong> On/off flag for turning radius limiter </li>
+<li><strong>surge</strong> Surge speed of vehicle </li>
+<li><strong>rate_limiter</strong> Rate Limiter object from dsor_utils </li>
+</ul>
+<h3 id="function-roscontroller_3">function RosController</h3>
+<pre><code class="language-cpp">RosController(
+    ros::NodeHandle &amp; nh,
+    std::string controller_name,
+    std::string refCallback_topic,
+    double * state,
+    double * force_or_torque,
+    double frequency,
+    bool * turn_limiter_flag,
+    double * surge
+)
+</code></pre>
+<p>Constructor of a innerloop yaw_rate controller. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>nh</strong> ROS nodehandle to read parameters and subscribe to relevant topics </li>
+<li><strong>controller_name</strong> Controller name (variable being controlled) </li>
+<li><strong>refCallback_topic</strong> Topic name </li>
+<li><strong>state</strong> Pointer to state variable being controlled </li>
+<li><strong>force_or_torque</strong> Pointer to force or torque output </li>
+<li><strong>frequency</strong> Frequency of controller sampling rate </li>
+<li><strong>turn_limiter_flag</strong> On/off flag for turning radius limiter </li>
+<li><strong>surge</strong> Surge speed of vehicle </li>
 </ul>
 <h3 id="function-computecommand">function computeCommand</h3>
 <pre><code class="language-cpp">virtual double computeCommand()
@@ -10028,6 +10238,24 @@
 <h3 id="variable-frequency_">variable frequency_</h3>
 <pre><code class="language-cpp">double frequency_;
 </code></pre>
+<h3 id="variable-turn_limiter_flag_ptr_">variable turn_limiter_flag_ptr_</h3>
+<pre><code class="language-cpp">bool * turn_limiter_flag_ptr_;
+</code></pre>
+<h3 id="variable-min_turn_radius_">variable min_turn_radius_</h3>
+<pre><code class="language-cpp">double min_turn_radius_;
+</code></pre>
+<h3 id="variable-turn_limit_yaw_ref_">variable turn_limit_yaw_ref_</h3>
+<pre><code class="language-cpp">bool turn_limit_yaw_ref_ {false};
+</code></pre>
+<h3 id="variable-turn_limit_yaw_rate_ref_">variable turn_limit_yaw_rate_ref_</h3>
+<pre><code class="language-cpp">bool turn_limit_yaw_rate_ref_ {false};
+</code></pre>
+<h3 id="variable-surge_">variable surge_</h3>
+<pre><code class="language-cpp">double * surge_;
+</code></pre>
+<h3 id="variable-rate_limiter_ptr_">variable rate_limiter_ptr_</h3>
+<pre><code class="language-cpp">RateLimiter * rate_limiter_ptr_;
+</code></pre>
 <h3 id="variable-circular_units_">variable circular_units_</h3>
 <pre><code class="language-cpp">bool circular_units_;
 </code></pre>
@@ -10044,7 +10272,7 @@
 <pre><code class="language-cpp">ros::Publisher debug_pub_;
 </code></pre>
 <hr />
-<p>Updated on 2022-12-09 at 14:46:42 +0000</p>
+<p>Updated on 2022-12-09 at 15:11:50 +0000</p>
 
   <hr>
 <div class="md-source-file">

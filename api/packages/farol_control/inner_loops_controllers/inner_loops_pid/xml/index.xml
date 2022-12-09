@@ -25,10 +25,13 @@
     <member refid="classInnerloops_1a5199406c6297d9594c60d1c17830bda1" kind="variable"><name>change_ff_gains_srv_</name></member>
     <member refid="classInnerloops_1aab9ed1138b9d7769eb82c557a9a45513" kind="variable"><name>change_gains_srv_</name></member>
     <member refid="classInnerloops_1a6c63825212fce6b079d8362f2b29c2f1" kind="variable"><name>change_limits_srv_</name></member>
+    <member refid="classInnerloops_1a8716c09ba6ca27648c5a874be620de09" kind="variable"><name>turning_radius_limiter_</name></member>
     <member refid="classInnerloops_1a4be904834c045935cdc3e9b742e794fd" kind="variable"><name>timer_</name></member>
     <member refid="classInnerloops_1ad36a951a2685bcd88f1d87a1a9ae6597" kind="variable"><name>force_bypass_</name></member>
     <member refid="classInnerloops_1a28b10b0553bde30d36f470b291fb6375" kind="variable"><name>ref_force_bypass_</name></member>
     <member refid="classInnerloops_1aff8e5ba1b1f1aa866a4c1db82c3b4b19" kind="variable"><name>ft_pub_</name></member>
+    <member refid="classInnerloops_1a314a7e89811f95e1670d4cea05d52e67" kind="variable"><name>turn_radius_flag</name></member>
+    <member refid="classInnerloops_1a66b813bd14d9c9b9a6095c9870e22832" kind="variable"><name>rate_limiter_</name></member>
     <member refid="classInnerloops_1afaf92ad344b0ad1fdaaade563a86b7eb" kind="function"><name>Innerloops</name></member>
     <member refid="classInnerloops_1a6f8ea21a911360a55247c994156a5638" kind="function"><name>~Innerloops</name></member>
     <member refid="classInnerloops_1afd2241fcc81b45f3f2eb7a741afa0bfc" kind="function"><name>initializeSubscribers</name></member>
@@ -42,6 +45,7 @@
     <member refid="classInnerloops_1ae0930c9a4d5eb7c6695856410ff1cb0c" kind="function"><name>changeFFGainsService</name></member>
     <member refid="classInnerloops_1a0e98a6adac7be21f924cdd3814d6837d" kind="function"><name>changeGainsService</name></member>
     <member refid="classInnerloops_1ae56c1655a8df8b41843ac95662ba0ffc" kind="function"><name>changeLimitsService</name></member>
+    <member refid="classInnerloops_1a06919b444dcfb6b4f5f137dcf99deb20" kind="function"><name>turningRadiusLimiterService</name></member>
   </compound>
   <compound refid="classPID__Controller" kind="class"><name>PID_Controller</name>
     <member refid="classPID__Controller_1ad272d5fabdcb3153eea139ea902ee25e" kind="variable"><name>disable</name></member>
@@ -90,6 +94,12 @@
     <member refid="classRosController_1ab8982ec61063f4f144e41238c7d79f92" kind="variable"><name>state_ptr_</name></member>
     <member refid="classRosController_1a2c80f7be729d1be22ba76700f3fb66ec" kind="variable"><name>force_or_torque_ptr_</name></member>
     <member refid="classRosController_1a5ad240cf76fa34359278b0becb25799c" kind="variable"><name>frequency_</name></member>
+    <member refid="classRosController_1abfda4f297f386ef84fdde95bbaa2adf4" kind="variable"><name>turn_limiter_flag_ptr_</name></member>
+    <member refid="classRosController_1a6b437fb1eb34d5c06aeadf85bede290a" kind="variable"><name>min_turn_radius_</name></member>
+    <member refid="classRosController_1a065f5b6674feb8fbfb42a21faed43f5a" kind="variable"><name>turn_limit_yaw_ref_</name></member>
+    <member refid="classRosController_1a0537054d0c2ce53c2d53cd63ed7319a6" kind="variable"><name>turn_limit_yaw_rate_ref_</name></member>
+    <member refid="classRosController_1ad0c3be373cb20204874a5fc33c5b0699" kind="variable"><name>surge_</name></member>
+    <member refid="classRosController_1a4b997dbaf0562941fe4e55e8cced5f6b" kind="variable"><name>rate_limiter_ptr_</name></member>
     <member refid="classRosController_1a9caab69f6586c9ff4fb459cd9fa22db9" kind="variable"><name>circular_units_</name></member>
     <member refid="classRosController_1a61b84cc1f02d51502e191e7a5db8190a" kind="variable"><name>positive_output_</name></member>
     <member refid="classRosController_1a19b430a8c0dd847567d0929d44a933f5" kind="variable"><name>pid_c_</name></member>
@@ -97,6 +107,8 @@
     <member refid="classRosController_1a7d7c604e1e134892d1ee956380fe6dd2" kind="variable"><name>debug_pub_</name></member>
     <member refid="classRosController_1ae27eab505df99d6333095b8936257381" kind="function"><name>RosController</name></member>
     <member refid="classRosController_1ac2a79c7059f4fc69c2aaaf97da093be6" kind="function"><name>RosController</name></member>
+    <member refid="classRosController_1a91a1643509cf99aa0ec31021548f4710" kind="function"><name>RosController</name></member>
+    <member refid="classRosController_1acd707cf7835f9a2cafd30693aea39a0c" kind="function"><name>RosController</name></member>
     <member refid="classRosController_1a8193292ddc96349fce5e52706462e0c5" kind="function"><name>computeCommand</name></member>
     <member refid="classRosController_1a0901e130893758f6153ff2928b3bda78" kind="function"><name>setCircularUnits</name></member>
     <member refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" kind="function"><name>setPositiveOutput</name></member>

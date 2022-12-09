@@ -804,6 +804,8 @@
           
         
           
+        
+          
             
           
         
@@ -1033,6 +1035,20 @@
     <li class="md-nav__item">
       <a href="../../Classes/classMovingAvarageFilter/" class="md-nav__link">
         MovingAvarageFilter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Classes/classRateLimiter/" class="md-nav__link">
+        RateLimiter
       </a>
     </li>
   
@@ -1324,6 +1340,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-wrapto360" class="md-nav__link">
+    function wrapTo360
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-wrapto2pi" class="md-nav__link">
     function wrapTo2pi
   </a>
@@ -1352,8 +1375,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-anglediff" class="md-nav__link">
-    function angleDiff
+  <a href="#function-anglediffradians" class="md-nav__link">
+    function angleDiffRadians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-anglediffdegrees" class="md-nav__link">
+    function angleDiffDegrees
   </a>
   
 </li>
@@ -9623,6 +9653,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-wrapto360" class="md-nav__link">
+    function wrapTo360
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-wrapto2pi" class="md-nav__link">
     function wrapTo2pi
   </a>
@@ -9651,8 +9688,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-anglediff" class="md-nav__link">
-    function angleDiff
+  <a href="#function-anglediffradians" class="md-nav__link">
+    function angleDiffRadians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-anglediffdegrees" class="md-nav__link">
+    function angleDiffDegrees
   </a>
   
 </li>
@@ -9867,6 +9911,10 @@
 </tr>
 <tr>
 <td>template &lt;typename T > <br>T</td>
+<td><strong><a href="/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespaceDSOR/#function-wrapto360">wrapTo360</a></strong>(T angle)<br>Wrap angle between [0, 2PI].</td>
+</tr>
+<tr>
+<td>template &lt;typename T > <br>T</td>
 <td><strong><a href="/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespaceDSOR/#function-wrapto2pi">wrapTo2pi</a></strong>(T angle)<br>Wrap angle between [0, 2PI].</td>
 </tr>
 <tr>
@@ -9883,7 +9931,11 @@
 </tr>
 <tr>
 <td>template &lt;typename T > <br>T</td>
-<td><strong><a href="/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespaceDSOR/#function-anglediff">angleDiff</a></strong>(T a, T b)<br>Method to calculate the diference between angles correctly even if they wrap between -pi and pi.</td>
+<td><strong><a href="/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespaceDSOR/#function-anglediffradians">angleDiffRadians</a></strong>(T a, T b)<br>Method to calculate the diference between angles correctly even if they wrap between -pi and pi.</td>
+</tr>
+<tr>
+<td>template &lt;typename T > <br>T</td>
+<td><strong><a href="/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespaceDSOR/#function-anglediffdegrees">angleDiffDegrees</a></strong>(T a, T b)<br>Method to calculate the diference between angles correctly even if they wrap between -180 and 180.</td>
 </tr>
 <tr>
 <td>template &lt;typename T > <br>Eigen::Matrix&lt; T, 3, 3 &gt;</td>
@@ -10205,6 +10257,18 @@ inline T yaw_from_quaternion(
 <li><strong>q</strong> A eigen quaternion </li>
 </ul>
 <p><strong>Return</strong>: The yaw angle in radians (assumed a Z-Y-X rotation) </p>
+<h3 id="function-wrapto360">function wrapTo360</h3>
+<pre><code class="language-cpp">template &lt;typename T &gt;
+inline T wrapTo360(
+    T angle
+)
+</code></pre>
+<p>Wrap angle between [0, 2PI]. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>angle</strong> angle in radians </li>
+</ul>
+<p><strong>Return</strong>: The wraped angle </p>
 <h3 id="function-wrapto2pi">function wrapTo2pi</h3>
 <pre><code class="language-cpp">template &lt;typename T &gt;
 inline T wrapTo2pi(
@@ -10253,14 +10317,28 @@ inline T degToRad(
 <li><strong>angle</strong> in degrees </li>
 </ul>
 <p><strong>Return</strong>: angle in radians </p>
-<h3 id="function-anglediff">function angleDiff</h3>
+<h3 id="function-anglediffradians">function angleDiffRadians</h3>
 <pre><code class="language-cpp">template &lt;typename T &gt;
-inline T angleDiff(
+inline T angleDiffRadians(
     T a,
     T b
 )
 </code></pre>
 <p>Method to calculate the diference between angles correctly even if they wrap between -pi and pi. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>a</strong> angle 1 in radians </li>
+<li><strong>b</strong> angle 2 in radians </li>
+</ul>
+<p><strong>Return</strong>: The minimum difference between the two angles </p>
+<h3 id="function-anglediffdegrees">function angleDiffDegrees</h3>
+<pre><code class="language-cpp">template &lt;typename T &gt;
+inline T angleDiffDegrees(
+    T a,
+    T b
+)
+</code></pre>
+<p>Method to calculate the diference between angles correctly even if they wrap between -180 and 180. </p>
 <p><strong>Parameters</strong>: </p>
 <ul>
 <li><strong>a</strong> angle 1 in radians </li>
@@ -10359,7 +10437,7 @@ Eigen::Matrix&lt; T, 3, 1 &gt; spherical_to_cartesian(
 </code></pre>
 <p>Static affine matrix to roate vectors ENU (or NED) -&gt; NED (or ENU) expressed in body frame +PI rotation around X (Forward) axis transforms from Forward, Right, Down (body frame in NED) Fto Forward, Left, Up (body frame in ENU). </p>
 <hr />
-<p>Updated on 2022-12-09 at 14:46:40 +0000</p>
+<p>Updated on 2022-12-09 at 15:11:47 +0000</p>
 
   <hr>
 <div class="md-source-file">

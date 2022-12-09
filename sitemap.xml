@@ -146,6 +146,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classRateLimiter/</loc>
+         <lastmod>2022-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/structDSOR_1_1VehicleState/</loc>
          <lastmod>2022-12-09</lastmod>
          <changefreq>daily</changefreq>

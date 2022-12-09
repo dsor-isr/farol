@@ -927,6 +927,41 @@
         </inbodydescription>
         <location file="include/dsor_utils/rotations.hpp" line="78" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="78" bodyend="80"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1abb60b1e63274b191083503d9054db34b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::wrapTo360</definition>
+        <argsstring>(T angle)</argsstring>
+        <name>wrapTo360</name>
+        <param>
+          <type>T</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+<para>Wrap angle between [0, 2PI]. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The wraped angle </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="89" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="89" bodyend="96"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -960,7 +995,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="89" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="89" bodyend="96"/>
+        <location file="include/dsor_utils/rotations.hpp" line="105" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="105" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -995,7 +1030,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="105" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="105" bodyend="113"/>
+        <location file="include/dsor_utils/rotations.hpp" line="121" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="121" bodyend="129"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1030,7 +1065,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="122" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="122" bodyend="124"/>
+        <location file="include/dsor_utils/rotations.hpp" line="140" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="140" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1065,18 +1100,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="133" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="133" bodyend="135"/>
+        <location file="include/dsor_utils/rotations.hpp" line="151" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="151" bodyend="153"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespaceDSOR_1a172c74bf44857ed39bbe2b75883057b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
         <type>T</type>
-        <definition>T DSOR::angleDiff</definition>
+        <definition>T DSOR::angleDiffRadians</definition>
         <argsstring>(T a, T b)</argsstring>
-        <name>angleDiff</name>
+        <name>angleDiffRadians</name>
         <param>
           <type>T</type>
           <declname>a</declname>
@@ -1112,7 +1147,54 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="145" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="145" bodyend="150"/>
+        <location file="include/dsor_utils/rotations.hpp" line="163" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="163" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceDSOR_1ad616576fad170cfedc25a37231dd848b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T DSOR::angleDiffDegrees</definition>
+        <argsstring>(T a, T b)</argsstring>
+        <name>angleDiffDegrees</name>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Method to calculate the diference between angles correctly even if they wrap between -180 and 180. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 1 in radians </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>angle 2 in radians </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The minimum difference between the two angles </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/dsor_utils/rotations.hpp" line="178" column="10" bodyfile="include/dsor_utils/rotations.hpp" bodystart="178" bodyend="183"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1147,7 +1229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="159" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="159" bodyend="167"/>
+        <location file="include/dsor_utils/rotations.hpp" line="192" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="192" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1182,7 +1264,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="175" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="175" bodyend="182"/>
+        <location file="include/dsor_utils/rotations.hpp" line="208" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="208" bodyend="215"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1217,7 +1299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="191" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="191" bodyend="197"/>
+        <location file="include/dsor_utils/rotations.hpp" line="224" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="224" bodyend="230"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a6b680ecc084e7ee84a55c30213fa2175" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -1252,7 +1334,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/dsor_utils/rotations.hpp" line="205" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="205" bodyend="216"/>
+        <location file="include/dsor_utils/rotations.hpp" line="238" column="22" bodyfile="include/dsor_utils/rotations.hpp" bodystart="238" bodyend="249"/>
       </memberdef>
       <memberdef kind="function" id="namespaceDSOR_1a5627e2d00f1c965d173a4d9f6295f5eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

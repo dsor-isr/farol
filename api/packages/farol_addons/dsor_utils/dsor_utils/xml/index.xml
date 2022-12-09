@@ -152,6 +152,19 @@
     <member refid="classMovingAvarageFilter_1a50520eacf783dbf5dfc2b1fc8827e925" kind="variable"><name>buffer</name></member>
     <member refid="classMovingAvarageFilter_1a84c7823e71ebfcc1859d8512cfd8ae81" kind="function"><name>update</name></member>
   </compound>
+  <compound refid="classRateLimiter" kind="class"><name>RateLimiter</name>
+    <member refid="classRateLimiter_1a5b44a97d782d939b3f3d97b2dcddc2e9" kind="variable"><name>using_circular_units_</name></member>
+    <member refid="classRateLimiter_1a92258e273840164f569b55fca1f5b3ee" kind="variable"><name>m_rateLimit_</name></member>
+    <member refid="classRateLimiter_1a7ef61b0f28a53a5e5d7cceb31951ea1c" kind="variable"><name>m_prevVal_</name></member>
+    <member refid="classRateLimiter_1a7904ce68821be202210741133bdc4ac7" kind="variable"><name>m_prevTime_</name></member>
+    <member refid="classRateLimiter_1a77a710aeba236f20fa9a8ca1da9f6713" kind="function"><name>RateLimiter</name></member>
+    <member refid="classRateLimiter_1aa7662dde7959aa8423959af3be4f9be3" kind="function"><name>RateLimiter</name></member>
+    <member refid="classRateLimiter_1a1bbc9db84c7ab28d1f48043faf1fcb4f" kind="function"><name>Calculate</name></member>
+    <member refid="classRateLimiter_1a38f3b91d62bd4d9eee6bff1274d1a00f" kind="function"><name>setNewRateLimit</name></member>
+    <member refid="classRateLimiter_1a0843a2a583f548b442e65ba1b6e57813" kind="function"><name>getRateLimit</name></member>
+    <member refid="classRateLimiter_1a890050e8eaa652822eb047272f626da6" kind="function"><name>getPreviousValue</name></member>
+    <member refid="classRateLimiter_1a03ecfeea658e3926c63d267fc2ce0a0a" kind="function"><name>Reset</name></member>
+  </compound>
   <compound refid="classCircularDelay_1_1reverse__iterator" kind="class"><name>CircularDelay::reverse_iterator</name>
     <member refid="classCircularDelay_1_1reverse__iterator_1adea6e1a71f1906b4e33433e932a41728" kind="typedef"><name>self_type</name></member>
     <member refid="classCircularDelay_1_1reverse__iterator_1a8cadbeea7a22353cf490897e019fde07" kind="typedef"><name>iterator_category</name></member>
@@ -202,11 +215,13 @@
     <member refid="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" kind="function"><name>quaternion_to_euler</name></member>
     <member refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kind="function"><name>euler_to_quaternion</name></member>
     <member refid="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" kind="function"><name>yaw_from_quaternion</name></member>
+    <member refid="namespaceDSOR_1abb60b1e63274b191083503d9054db34b" kind="function"><name>wrapTo360</name></member>
     <member refid="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" kind="function"><name>wrapTo2pi</name></member>
     <member refid="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" kind="function"><name>wrapTopi</name></member>
     <member refid="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" kind="function"><name>radToDeg</name></member>
     <member refid="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" kind="function"><name>degToRad</name></member>
-    <member refid="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" kind="function"><name>angleDiff</name></member>
+    <member refid="namespaceDSOR_1a172c74bf44857ed39bbe2b75883057b5" kind="function"><name>angleDiffRadians</name></member>
+    <member refid="namespaceDSOR_1ad616576fad170cfedc25a37231dd848b" kind="function"><name>angleDiffDegrees</name></member>
     <member refid="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" kind="function"><name>computeSkewSymmetric3</name></member>
     <member refid="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" kind="function"><name>computeSkewSymmetric2</name></member>
     <member refid="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" kind="function"><name>rotationAngularBodyToInertial</name></member>
@@ -237,6 +252,8 @@
   </compound>
   <compound refid="moving__average__filter_8hpp" kind="file"><name>moving_average_filter.hpp</name>
   </compound>
+  <compound refid="rate__limiter_8hpp" kind="file"><name>rate_limiter.hpp</name>
+  </compound>
   <compound refid="frames_8hpp" kind="file"><name>frames.hpp</name>
     <member refid="namespaceDSOR_1aa122503266a9150ac8f3cf814489d170" kind="variable"><name>ENU_NED_INERTIAL_Q</name></member>
     <member refid="namespaceDSOR_1a96a7f395f44c4ad9531b4dbabac78aa5" kind="variable"><name>ENU_NED_BODY_Q</name></member>
@@ -262,11 +279,13 @@
     <member refid="namespaceDSOR_1aeec1bc408a5566dc241022bf2d0ae5fe" kind="function"><name>quaternion_to_euler</name></member>
     <member refid="namespaceDSOR_1a5b164cbd4ad092423d0c96a04d689863" kind="function"><name>euler_to_quaternion</name></member>
     <member refid="namespaceDSOR_1af620259f88134c2caa636ac18a48841b" kind="function"><name>yaw_from_quaternion</name></member>
+    <member refid="namespaceDSOR_1abb60b1e63274b191083503d9054db34b" kind="function"><name>wrapTo360</name></member>
     <member refid="namespaceDSOR_1af5f74afe59713df7021de1f0a12f9db7" kind="function"><name>wrapTo2pi</name></member>
     <member refid="namespaceDSOR_1a9f5a14eabbda26eb5125e0fcfe451d76" kind="function"><name>wrapTopi</name></member>
     <member refid="namespaceDSOR_1a923d3e95996db45c2b1d9bc514915c86" kind="function"><name>radToDeg</name></member>
     <member refid="namespaceDSOR_1a0c7b70b7532f5db6bf67955d28e5fc8b" kind="function"><name>degToRad</name></member>
-    <member refid="namespaceDSOR_1ac29b41ee66250b2b3cde01d76a900e51" kind="function"><name>angleDiff</name></member>
+    <member refid="namespaceDSOR_1a172c74bf44857ed39bbe2b75883057b5" kind="function"><name>angleDiffRadians</name></member>
+    <member refid="namespaceDSOR_1ad616576fad170cfedc25a37231dd848b" kind="function"><name>angleDiffDegrees</name></member>
     <member refid="namespaceDSOR_1a62d2fe248e869c1589d930e673f31fb3" kind="function"><name>computeSkewSymmetric3</name></member>
     <member refid="namespaceDSOR_1a47b637ddafb2c9962852d110c3906f36" kind="function"><name>computeSkewSymmetric2</name></member>
     <member refid="namespaceDSOR_1ae36f55c338fd6ee906b379a30145d8b9" kind="function"><name>rotationAngularBodyToInertial</name></member>

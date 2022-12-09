@@ -7,9 +7,15 @@
     <includes local="no">ros/ros.h</includes>
     <includes local="no">std_msgs/Float64.h</includes>
     <includes local="no">farol_msgs/mPidDebug.h</includes>
+    <includes local="no">dsor_utils/filters/rate_limiter.hpp</includes>
+    <includes local="no">dsor_utils/rotations.hpp</includes>
+    <includes local="no">dsor_utils/math.hpp</includes>
     <includedby refid="innerloops_8h" local="yes">include/ros/innerloops.h</includedby>
     <includedby refid="ros__controller_8cpp" local="yes">src/controllers/ros_controller.cpp</includedby>
     <incdepgraph>
+      <node id="13">
+        <label>dsor_utils/rotations.hpp</label>
+      </node>
       <node id="2">
         <label>pid_controller.h</label>
         <link refid="pid__controller_8h_source"/>
@@ -38,6 +44,9 @@
       <node id="5">
         <label>vector</label>
       </node>
+      <node id="14">
+        <label>dsor_utils/math.hpp</label>
+      </node>
       <node id="1">
         <label>include/controllers/ros_controller.h</label>
         <link refid="ros__controller_8h"/>
@@ -51,6 +60,12 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="10">
         <label>ros/ros.h</label>
@@ -60,6 +75,9 @@
       </node>
       <node id="3">
         <label>iostream</label>
+      </node>
+      <node id="12">
+        <label>dsor_utils/filters/rate_limiter.hpp</label>
       </node>
       <node id="7">
         <label>dsor_utils/filters/lowpass_filter.hpp</label>
@@ -94,67 +112,94 @@
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ros/ros.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_msgs/Float64.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_msgs/mPidDebug.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13" refid="classRosController" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRosController" kindref="compound">RosController</ref><sp/>{</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state_dot,</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a8193292ddc96349fce5e52706462e0c5" kindref="member">computeCommand</ref>();</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58" refid="classRosController_1a0901e130893758f6153ff2928b3bda78" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a0901e130893758f6153ff2928b3bda78" kindref="member">setCircularUnits</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;flag)<sp/>{<sp/>circular_units_<sp/>=<sp/>flag;<sp/>}</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="65" refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" kindref="member">setPositiveOutput</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;flag)<sp/>{<sp/>positive_output_<sp/>=<sp/>flag;<sp/>}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71" refid="classRosController_1aff1428958d7f177c28715ddcea907e00" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classRosController_1aff1428958d7f177c28715ddcea907e00" kindref="member">getControllerName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>controller_name_;}</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81" refid="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" kindref="member">setFFGainsPID</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_d,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_lin_drag,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>kff_quad_drag)<sp/>{pid_c_-&gt;<ref refid="classPID__Controller_1a94a1c6dc3e3bf85488c39d96b59509f2" kindref="member">setFFGains</ref>(kff,<sp/>kff_d,<sp/>kff_lin_drag,<sp/>kff_quad_drag);}</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90" refid="classRosController_1a7be3ccc5904464248334b085ab0c8c34" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a7be3ccc5904464248334b085ab0c8c34" kindref="member">setGainsPID</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kp,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;ki,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kd)<sp/>{pid_c_-&gt;<ref refid="classPID__Controller_1adb41760ed835a1619de6eeca92f788e1" kindref="member">setGains</ref>(kp,<sp/>ki,<sp/>kd);}</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLimitBoundsPID(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;max_out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;min_out)<sp/>{<sp/>pid_c_-&gt;<ref refid="classPID__Controller_1a0763c1d6af8a7989cc7f4f3084c0665d" kindref="member">setLimitBounds</ref>(max_out,<sp/>min_out);}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1ac4ec0c37e0bead0adb9844be25bb9e74" kindref="member">refCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Float64<sp/>&amp;ptr);</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1af7be9fc16c6889d00652fb7d839cb51c" kindref="member">init</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a5bdfbf66b3ad946e0b7b49cdc0e3a5e3" kindref="member">validRef</ref>();</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/>ros::Duration<sp/>timeout_ref_;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>inverval<sp/>of<sp/>time<sp/>where<sp/>a<sp/>reference<sp/>is<sp/>valid</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/>std::string<sp/>controller_name_;<sp/></highlight><highlight class="comment">//<sp/>string<sp/>of<sp/>the<sp/>variable<sp/>being<sp/>controlled<sp/>(for</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reading<sp/>parameters<sp/>purpose)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ref_value_;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reference<sp/>value<sp/>of<sp/>the<sp/>variable<sp/>being<sp/>controlled</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max_ref_value_;<sp/></highlight><highlight class="comment">//<sp/>maximum<sp/>value<sp/>of<sp/>the<sp/>reference<sp/>being<sp/>controlled</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_ref_value_;<sp/></highlight><highlight class="comment">//<sp/>minimum<sp/>value<sp/>of<sp/>the<sp/>reference<sp/>being<sp/>controlled</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/>ros::Time<sp/>ref_time_;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>timestamp<sp/>of<sp/>the<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>ros::Time<sp/>last_cmd_;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>last<sp/>controller<sp/>call</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>debug_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>flag<sp/>to<sp/>check<sp/>wheter<sp/>to<sp/>output<sp/>or<sp/>not<sp/>pid<sp/>internal<sp/>information<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/>farol_msgs::mPidDebug<sp/>debug_msg_;<sp/></highlight><highlight class="comment">//<sp/>msg<sp/>to<sp/>publish<sp/>debug<sp/>information</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pointers<sp/>to<sp/>state<sp/>values</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state_ptr_;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pointer<sp/>to<sp/>correspondig<sp/>force<sp/>or<sp/>torque</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque_ptr_;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_utils/filters/rate_limiter.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_utils/rotations.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dsor_utils/math.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classRosController" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRosController" kindref="compound">RosController</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state_dot,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*surge,<sp/>RateLimiter<sp/>*rate_limiter);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*surge);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a8193292ddc96349fce5e52706462e0c5" kindref="member">computeCommand</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classRosController_1a0901e130893758f6153ff2928b3bda78" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a0901e130893758f6153ff2928b3bda78" kindref="member">setCircularUnits</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;flag)<sp/>{<sp/>circular_units_<sp/>=<sp/>flag;<sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="108" refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a96cbee01e7e62dea807d8c00d072b312" kindref="member">setPositiveOutput</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>&amp;flag)<sp/>{<sp/>positive_output_<sp/>=<sp/>flag;<sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classRosController_1aff1428958d7f177c28715ddcea907e00" refkind="member"><highlight class="normal"><sp/><sp/>std::string<sp/><ref refid="classRosController_1aff1428958d7f177c28715ddcea907e00" kindref="member">getControllerName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>controller_name_;}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a38e9ea590411e16c33facd8bc1c681d1" kindref="member">setFFGainsPID</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_d,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kff_lin_drag,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>kff_quad_drag)<sp/>{pid_c_-&gt;<ref refid="classPID__Controller_1a94a1c6dc3e3bf85488c39d96b59509f2" kindref="member">setFFGains</ref>(kff,<sp/>kff_d,<sp/>kff_lin_drag,<sp/>kff_quad_drag);}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="classRosController_1a7be3ccc5904464248334b085ab0c8c34" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a7be3ccc5904464248334b085ab0c8c34" kindref="member">setGainsPID</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kp,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;ki,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;kd)<sp/>{pid_c_-&gt;<ref refid="classPID__Controller_1adb41760ed835a1619de6eeca92f788e1" kindref="member">setGains</ref>(kp,<sp/>ki,<sp/>kd);}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLimitBoundsPID(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;max_out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;min_out)<sp/>{<sp/>pid_c_-&gt;<ref refid="classPID__Controller_1a0763c1d6af8a7989cc7f4f3084c0665d" kindref="member">setLimitBounds</ref>(max_out,<sp/>min_out);}</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>frequency<sp/>of<sp/>the<sp/>controller<sp/>sampling<sp/>rate</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency_;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>circular_units_;<sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>angles</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>positive_output_;<sp/></highlight><highlight class="comment">//<sp/>positive<sp/>output<sp/>or<sp/>switch<sp/>sign</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handlers</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><ref refid="classPID__Controller" kindref="compound">PID_Controller</ref><sp/>*pid_c_;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>ros_sub_;</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>debug_pub_;</highlight></codeline>
-<codeline lineno="147"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ifndef<sp/>__ROS_CONTROLLER__*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1ac4ec0c37e0bead0adb9844be25bb9e74" kindref="member">refCallback</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std_msgs::Float64<sp/>&amp;ptr);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRosController_1af7be9fc16c6889d00652fb7d839cb51c" kindref="member">init</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a5bdfbf66b3ad946e0b7b49cdc0e3a5e3" kindref="member">validRef</ref>();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>ros::Duration<sp/>timeout_ref_;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>inverval<sp/>of<sp/>time<sp/>where<sp/>a<sp/>reference<sp/>is<sp/>valid</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>std::string<sp/>controller_name_;<sp/></highlight><highlight class="comment">//<sp/>string<sp/>of<sp/>the<sp/>variable<sp/>being<sp/>controlled<sp/>(for</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reading<sp/>parameters<sp/>purpose)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ref_value_;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reference<sp/>value<sp/>of<sp/>the<sp/>variable<sp/>being<sp/>controlled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>max_ref_value_;<sp/></highlight><highlight class="comment">//<sp/>maximum<sp/>value<sp/>of<sp/>the<sp/>reference<sp/>being<sp/>controlled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_ref_value_;<sp/></highlight><highlight class="comment">//<sp/>minimum<sp/>value<sp/>of<sp/>the<sp/>reference<sp/>being<sp/>controlled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>ros::Time<sp/>ref_time_;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>timestamp<sp/>of<sp/>the<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>ros::Time<sp/>last_cmd_;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>last<sp/>controller<sp/>call</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>debug_;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>flag<sp/>to<sp/>check<sp/>wheter<sp/>to<sp/>output<sp/>or<sp/>not<sp/>pid<sp/>internal<sp/>information<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>farol_msgs::mPidDebug<sp/>debug_msg_;<sp/></highlight><highlight class="comment">//<sp/>msg<sp/>to<sp/>publish<sp/>debug<sp/>information</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pointers<sp/>to<sp/>state<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state_ptr_;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pointer<sp/>to<sp/>correspondig<sp/>force<sp/>or<sp/>torque</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque_ptr_;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>frequency<sp/>of<sp/>the<sp/>controller<sp/>sampling<sp/>rate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency_;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>pointer<sp/>to<sp/>flag<sp/>for<sp/>turning<sp/>ON/OFF<sp/>the<sp/>turn<sp/>limiter<sp/>for<sp/>yaw<sp/>and<sp/>yaw_rate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag_ptr_;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_turn_radius_;<sp/></highlight><highlight class="comment">//<sp/>maxuimum<sp/>turning<sp/>radius<sp/>to<sp/>saturate<sp/>yaw<sp/><sp/>rate<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_limit_yaw_ref_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_limit_yaw_rate_ref_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*surge_;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>respective<sp/>handler<sp/>to<sp/>the<sp/>slew<sp/>rate<sp/>limiter<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>RateLimiter<sp/>*rate_limiter_ptr_;<sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>circular_units_;<sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>angles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>positive_output_;<sp/></highlight><highlight class="comment">//<sp/>positive<sp/>output<sp/>or<sp/>switch<sp/>sign</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handlers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><ref refid="classPID__Controller" kindref="compound">PID_Controller</ref><sp/>*pid_c_;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>ros_sub_;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>debug_pub_;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ifndef<sp/>__ROS_CONTROLLER__*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="include/controllers/ros_controller.h"/>
   </compounddef>
