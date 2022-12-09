@@ -8,6 +8,28 @@ RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
   init(nh, controller_name, refCallback_topic);
 }
 
+// Yaw controller
+RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
+                             std::string refCallback_topic, double *state,
+                             double *force_or_torque, double frequency,
+                             bool *turn_limiter_flag, double *surge, RateLimiter *rate_limiter)
+    : state_ptr_(state), controller_name_(controller_name),
+      force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
+      turn_limiter_flag_ptr_(turn_limiter_flag), surge_(surge), rate_limiter_ptr_(rate_limiter) {
+  init(nh, controller_name, refCallback_topic);
+}
+
+// Yaw_rate controller
+RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
+                             std::string refCallback_topic, double *state,
+                             double *force_or_torque, double frequency,
+                             bool *turn_limiter_flag, double *surge)
+    : state_ptr_(state), controller_name_(controller_name),
+      force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
+      turn_limiter_flag_ptr_(turn_limiter_flag), surge_(surge) {
+  init(nh, controller_name, refCallback_topic);
+}
+
 void RosController::init(ros::NodeHandle &nh, std::string controller_name,
                          std::string refCallback_topic) {
   // default state not angle units
@@ -31,6 +53,8 @@ void RosController::init(ros::NodeHandle &nh, std::string controller_name,
   max_ref_value_ = nh.param("controllers/" + controller_name + "/max_ref", 0.0);
   min_ref_value_ = nh.param("controllers/" + controller_name + "/min_ref", 0.0);
   debug_ = nh.param("controllers/" + controller_name + "/debug", false);
+
+  min_turn_radius_ = nh.param("min_turn_radius", 1.0);
 
   // Don't create the controller if no gains were specified
   if (kp == 0.0 && ki == 0.0 && kd == 0.0 && kff == 0.0 && kff_d == 0.0 && kff_lin_drag == 0.0 && kff_quad_drag == 0.0) {
@@ -130,29 +154,19 @@ double RosController::computeCommand() {
       return 0.0;
     }
 
-    double no_response_time_water_speed = tnow.toSec() - *water_speed_t_received_ptr_;
-    if ( no_response_time_water_speed >= no_response_water_speed_t_max_ ) {
-      ROS_WARN_STREAM("No measurements received from airmar for " << no_response_time_water_speed << "seconds.\n" + controller_name_ + " controller will not provide output.");
-      return 0.0;
-    }
-
     if (controller_name_ == "yaw") {
       
-      double rate_limit = (*water_speed_surge_ptr_ / min_turn_radius_) * ( 180 / M_PI );
+      double rate_limit = (*surge_ / min_turn_radius_) * ( 180 / M_PI );
 
       rate_limiter_ptr_->setNewRateLimit(rate_limit);
 
       ref_value_ = DSOR::wrapTo360<double>(rate_limiter_ptr_->Calculate(ref_value_));
-
-      ROS_INFO_STREAM("YAW ref_value saturate: " << ref_value_);    
     }
     else if (controller_name_ == "yaw_rate") {
 
-      double max_yaw_rate = (*water_speed_surge_ptr_ / min_turn_radius_) * ( 180 / M_PI );
+      double max_yaw_rate = (*surge_ / min_turn_radius_) * ( 180 / M_PI );
 
       ref_value_ = DSOR::saturation<double>(ref_value_, -max_yaw_rate, max_yaw_rate);
-      
-      ROS_INFO_STREAM("YAW_RATE ref_value saturate: " << ref_value_);
     }
   }
 

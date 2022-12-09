@@ -168,7 +168,8 @@ private:
   // tf2_ros::TransformListener tf_;
 
   // Turning Radius Limiter (2D) Variables
-  bool turn_radius_flag;
+  bool turn_radius_flag{false};
+  RateLimiter rate_limiter_;
 };
 
 #endif // MDS_INNERLOOPS_H

@@ -25,7 +25,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw", 
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/yaw", "yaw_ref"),
-          &yaw_, &torque_request_[2], Innerloops::nodeFrequency()));
+          &yaw_, &torque_request_[2], Innerloops::nodeFrequency(),
+          &turn_radius_flag, &surge_, &rate_limiter_));
 
   controllers_.back()->setCircularUnits(true);
 
@@ -53,7 +54,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw_rate",
           FarolGimmicks::getParameters<std::string>(
             nh_, "topics/subscribers/yaw_rate", "yaw_rate_ref"),
-            &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency()));
+            &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency(),
+            &turn_radius_flag, &surge_));
 
   // Pitch rate
   controllers_.push_back(
@@ -336,6 +338,7 @@ bool Innerloops::turningRadiusLimiterService(
     res.message = "Turning Radius Limiter already " + std::to_string(turn_radius_flag);
   }else{
     turn_radius_flag = req.data;
+    rate_limiter_ = RateLimiter(yaw_, true);
     res.success = true;
     res.message = "Turning Radius Limiter set to " + std::to_string(turn_radius_flag);
   }
