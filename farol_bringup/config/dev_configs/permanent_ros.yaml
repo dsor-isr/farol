@@ -270,7 +270,7 @@ controls/vehicle_stabilizer:
   topics:
     publishers:
       surge: "/#vehicle#/ref/surge"
-      sway: "/#vehicle#/ref/heave"
+      sway: "/#vehicle#/ref/sway"
       heave: "/#vehicle#/ref/heave"
 
       roll_rate: "/#vehicle#/ref/roll_rate"
