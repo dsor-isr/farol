@@ -164,3 +164,7 @@ alias dsor_add_vehicle_bringup="source ${FAROL_SCRIPTS}/farol_create_bringup_scr
 if [ -f "${ROS_WORKSPACE}/src/medusa_addons/medusa_scripts/system_configurations/medusa_personal_alias/${HOSTNAME}_alias.sh" ]; then
 	source ${ROS_WORKSPACE}/src/medusa_addons/medusa_scripts/system_configurations/medusa_personal_alias/${HOSTNAME}_alias.sh
 fi
+
+if [ -f "${ROS_WORKSPACE}/src/delfim_addons/delfim_scripts/system_configurations/delfim_personal_alias/${HOSTNAME}_alias.sh" ]; then
+	source ${ROS_WORKSPACE}/src/delfim_addons/delfim_scripts/system_configurations/delfim_personal_alias/${HOSTNAME}_alias.sh
+fi
