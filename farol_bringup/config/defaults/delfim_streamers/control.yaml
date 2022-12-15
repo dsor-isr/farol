@@ -1,0 +1,151 @@
+open_loop_controller:
+  gain_Fx: 10.0 # surge speed to -> Force Fx N
+  gain_Fy: 10.0 # sway speed to -> Force Fy N
+  gain_Fz: 10.0 # heave speed to -> Force Fz N
+  gain_Tz: 0.10 # yaw-rate speed to -> Torque Tz Nm
+
+static_thruster_allocation:
+  thrusters:
+    # Allocation matrix
+    # For each thruster [ Fx, Fy, Fz, lx, ly, lz ] where F = forces and l = moments arms
+    allocation_matrix: [1.0, 0.0, 0.0, -1.5, -0.75, 0.0,  
+                        1.0, 0.0, 0.0, -1.5,  0.75, 0.0]
+        #Forces (N) = ct[0]*RPM^2 + c[1]*RPM + c[2]
+    ctf: [0.001, 0.015, -0.554]     # parameters for medusa seabotix, eqn -> Thrust = f(rpm)
+    ctb: [-0.001, 0.015, -0.554]     # parameters for medusa seabotix, eqn -> Thrust = f(rpm)
+      #Maximum thrust each thruster is capable of outputting (N)
+    max_thrust_norm:  330.0
+    min_thrust_norm: -330.0
+    # RPM max value /100
+    actuators_gain: [6.0, 6.0]            # Inputs to actuators will be scaled to actuators_gain
+
+inner_loops_pid:
+    # minimum altitude safety
+    min_alt: -200.0
+
+    #timout for references [s]
+    timout_ref: 0.5
+
+    # bypass forces (hard - ignores inner-loop / soft - sums inner-loop and manual forces value)
+    forces_hard_bypass: false
+
+    # turning radius limiter minimum radius
+    min_turn_radius: 5.0
+
+    # Yaw Params
+    controllers:
+        yaw:
+            kp: 15.0 #5.0 #0.20
+            ki: 0.1 # 0.01 #0.0005
+            kd: 5.0 # 1.0 #0.133
+            max_err:  60.0 # deg
+            min_err: -60.0 # deg  
+            max_out:  500.0 # N.m
+            min_out: -500.0
+        # Yaw Rate Params
+        yaw_rate:
+            kp: 0.16
+            ki: 0.04444
+            max_err:  20.0 # deg
+            min_err: -20.0 # deg  
+            max_out:  500.0 # N.m
+            min_out: -500.0
+        # Surge Params
+        surge:
+            kp: 200.0 # 100.0  26
+            ki: 50.0 # 20.0   3.0
+            kff: 180.0  
+            max_ref:  3.0  # m/s
+            min_ref: -3.0 # m/s
+            max_err:  0.2 # m/s
+            min_err: -0.2 # m/s  
+            max_out:  1200.0 # N
+            min_out: -1200.0
+        # Sway Params
+        sway:
+            kp: 26.0
+            ki: 3.0
+            max_ref:  0.7  # m/s
+            min_ref: -0.7 # m/s
+            max_err:  0.2 # m/s
+            min_err: -0.2 # m/s  
+            max_out:  500.0 # N
+            min_out: -500.0
+        # Depth Params
+        depth:
+            kp: 16
+            ki: 1.6
+            kd: 10.0
+            max_err:  3.0 # m
+            min_err: -3.0 # m  
+            max_out:  14.0 # N
+            min_out: -14.0
+        # Altitude Params
+        altitude:
+            kp: 16
+            ki: 1.6
+            kd: 3.37
+            max_err:  3.0 # m
+            min_err: -3.0 # m  
+            max_out:  14.0 # N
+            min_out: -14.0 # N
+    
+# Waypoint Controller configurations
+waypoint:
+    cdist: 1.5
+    delta_t: 5.0
+    type1:
+      gains:
+          ku: 1.0
+          ks: 4.0
+          speed_turn: 5.0
+    type2:
+      gains:
+        k1: 0.5
+        k2: 0.5
+        k3: 0.2
+
+# Path Following configurations
+path_following:
+  controller_gains:
+    lapierre:
+      k1: 1.0
+      k2: 0.3
+      k3: 0.3
+      theta: 0.8
+      k_delta: 1.0
+    marcelo:
+      delta: -1.0
+      kx: 0.5
+      ky: 0.5
+      kz: 0.5
+      k_pos: 2.0
+      k_currents: 0.2
+      rd: [0.0, 0.0, 1.0]
+      d: [0.0, 0.0, 0.0]
+    aguiar:
+      delta: -1.0
+      kx: 0.5
+      ky: 0.5
+      kz: 0.5
+      k_pos: 0.5
+      k_currents: 0.5
+    romulo:
+      ke: [0.50, 0.00, 
+           0.00, 0.50]
+      kz: 0.2
+    pramod:
+      kp: 0.01
+      kd: 0.14
+    samson:
+      k1: 1.0
+      k2: 0.3
+      k3: 0.3
+      theta: 0.8
+      k_delta: 1.0
+    relative_heading:
+       kx: 0.05
+       ky: 0.05
+       kz: 0.2
+       yaw_offset: 0.0
+       p_sat: [10.0, 10.0]
