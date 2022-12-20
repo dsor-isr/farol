@@ -1,4 +1,7 @@
 filter:
+    
+    vehicle_ID: 6
+    
     tf:                         # TF publishers
         broadcast: true         # flag to publish TF
         frames: 
