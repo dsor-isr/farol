@@ -50,7 +50,7 @@ void FiltersNode::initializePublishers() {
   ROS_INFO("Initializing Publishers for FiltersNode");
   
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
-  state_acoustic_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_acomms", "state_acomms"), 10);
+  state_acoustic_pub_ = nh_private_.advertise<farol_msgs::stateAcomms>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_acomms", "state_acomms"), 10);
   currents_pub_ = nh_private_.advertise<farol_msgs::Currents>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/currents", "currents"), 10);
 }
 
