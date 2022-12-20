@@ -66,7 +66,7 @@ public:
   RosController(ros::NodeHandle &nh, std::string controller_name,
                 std::string refCallback_topic, double *state,
                 double *force_or_torque, double frequency,
-                bool *turn_limiter_flag, double *surge, RateLimiter *rate_limiter);
+                bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t);
 
   /**
    * @brief  Constructor of a innerloop yaw_rate controller.
@@ -84,7 +84,7 @@ public:
   RosController(ros::NodeHandle &nh, std::string controller_name,
                 std::string refCallback_topic, double *state,
                 double *force_or_torque, double frequency,
-                bool *turn_limiter_flag, double *surge);
+                bool *turn_limiter_flag, double *turn_radius_speed, double *turn_radius_speed_t);
 
   /**
    * @brief  Core function. Computes the PID output
@@ -186,7 +186,9 @@ protected:
   double min_turn_radius_; // maxuimum turning radius to saturate yaw  rate reference
   bool turn_limit_yaw_ref_{false};
   bool turn_limit_yaw_rate_ref_{false};
-  double *surge_;
+  double *turn_radius_speed_;
+  double *turn_radius_speed_t_;
+  double turn_radius_speed_t_max_;
   
   // respective handler to the slew rate limiter class
   RateLimiter *rate_limiter_ptr_;  
