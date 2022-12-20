@@ -131,12 +131,12 @@
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency,</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*surge,<sp/>RateLimiter<sp/>*rate_limiter);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*turn_radius_speed,<sp/>RateLimiter<sp/>*rate_limiter,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*turn_radius_speed_t);</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"></highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="classRosController_1ae27eab505df99d6333095b8936257381" kindref="member">RosController</ref>(ros::NodeHandle<sp/>&amp;nh,<sp/>std::string<sp/>controller_name,</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>refCallback_topic,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*state,</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*force_or_torque,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frequency,</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*surge);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>*turn_limiter_flag,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*turn_radius_speed,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*turn_radius_speed_t);</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classRosController_1a8193292ddc96349fce5e52706462e0c5" kindref="member">computeCommand</ref>();</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"></highlight></codeline>
@@ -185,21 +185,23 @@
 <codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>min_turn_radius_;<sp/></highlight><highlight class="comment">//<sp/>maxuimum<sp/>turning<sp/>radius<sp/>to<sp/>saturate<sp/>yaw<sp/><sp/>rate<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_limit_yaw_ref_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_limit_yaw_rate_ref_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*surge_;</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>respective<sp/>handler<sp/>to<sp/>the<sp/>slew<sp/>rate<sp/>limiter<sp/>class</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/>RateLimiter<sp/>*rate_limiter_ptr_;<sp/><sp/></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>circular_units_;<sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>angles</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>positive_output_;<sp/></highlight><highlight class="comment">//<sp/>positive<sp/>output<sp/>or<sp/>switch<sp/>sign</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="196"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handlers</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><ref refid="classPID__Controller" kindref="compound">PID_Controller</ref><sp/>*pid_c_;</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>ros_sub_;</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>debug_pub_;</highlight></codeline>
-<codeline lineno="201"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ifndef<sp/>__ROS_CONTROLLER__*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*turn_radius_speed_;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*turn_radius_speed_t_;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>turn_radius_speed_t_max_;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>respective<sp/>handler<sp/>to<sp/>the<sp/>slew<sp/>rate<sp/>limiter<sp/>class</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/>RateLimiter<sp/>*rate_limiter_ptr_;<sp/><sp/></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>circular_units_;<sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>angles</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>positive_output_;<sp/></highlight><highlight class="comment">//<sp/>positive<sp/>output<sp/>or<sp/>switch<sp/>sign</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>handlers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><ref refid="classPID__Controller" kindref="compound">PID_Controller</ref><sp/>*pid_c_;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>ros_sub_;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>debug_pub_;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>ifndef<sp/>__ROS_CONTROLLER__*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="include/controllers/ros_controller.h"/>
   </compounddef>

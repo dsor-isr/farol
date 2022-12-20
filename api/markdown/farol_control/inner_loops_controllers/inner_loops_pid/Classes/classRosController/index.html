@@ -7718,8 +7718,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-surge_" class="md-nav__link">
-    variable surge_
+  <a href="#variable-turn_radius_speed_" class="md-nav__link">
+    variable turn_radius_speed_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_radius_speed_t_" class="md-nav__link">
+    variable turn_radius_speed_t_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_radius_speed_t_max_" class="md-nav__link">
+    variable turn_radius_speed_t_max_
   </a>
   
 </li>
@@ -9755,8 +9769,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-surge_" class="md-nav__link">
-    variable surge_
+  <a href="#variable-turn_radius_speed_" class="md-nav__link">
+    variable turn_radius_speed_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_radius_speed_t_" class="md-nav__link">
+    variable turn_radius_speed_t_
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-turn_radius_speed_t_max_" class="md-nav__link">
+    variable turn_radius_speed_t_max_
   </a>
   
 </li>
@@ -9851,11 +9879,11 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * force_or_torque, double frequency, bool * turn_limiter_flag, double * surge, RateLimiter * rate_limiter)<br>Constructor of a innerloop yaw controller.</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * force_or_torque, double frequency, bool * turn_limiter_flag, double * turn_radius_speed, RateLimiter * rate_limiter, double * turn_radius_speed_t)<br>Constructor of a innerloop yaw controller.</td>
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * force_or_torque, double frequency, bool * turn_limiter_flag, double * surge)<br>Constructor of a innerloop yaw_rate controller.</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#function-roscontroller">RosController</a></strong>(ros::NodeHandle &amp; nh, std::string controller_name, std::string refCallback_topic, double * state, double * force_or_torque, double frequency, bool * turn_limiter_flag, double * turn_radius_speed, double * turn_radius_speed_t)<br>Constructor of a innerloop yaw_rate controller.</td>
 </tr>
 <tr>
 <td>virtual double</td>
@@ -9985,7 +10013,15 @@
 </tr>
 <tr>
 <td>double *</td>
-<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-surge-">surge_</a></strong></td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-turn-radius-speed-">turn_radius_speed_</a></strong></td>
+</tr>
+<tr>
+<td>double *</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-turn-radius-speed-t-">turn_radius_speed_t_</a></strong></td>
+</tr>
+<tr>
+<td>double</td>
+<td><strong><a href="/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/#variable-turn-radius-speed-t-max-">turn_radius_speed_t_max_</a></strong></td>
 </tr>
 <tr>
 <td>RateLimiter *</td>
@@ -10065,8 +10101,9 @@
     double * force_or_torque,
     double frequency,
     bool * turn_limiter_flag,
-    double * surge,
-    RateLimiter * rate_limiter
+    double * turn_radius_speed,
+    RateLimiter * rate_limiter,
+    double * turn_radius_speed_t
 )
 </code></pre>
 <p>Constructor of a innerloop yaw controller. </p>
@@ -10091,7 +10128,8 @@
     double * force_or_torque,
     double frequency,
     bool * turn_limiter_flag,
-    double * surge
+    double * turn_radius_speed,
+    double * turn_radius_speed_t
 )
 </code></pre>
 <p>Constructor of a innerloop yaw_rate controller. </p>
@@ -10250,8 +10288,14 @@
 <h3 id="variable-turn_limit_yaw_rate_ref_">variable turn_limit_yaw_rate_ref_</h3>
 <pre><code class="language-cpp">bool turn_limit_yaw_rate_ref_ {false};
 </code></pre>
-<h3 id="variable-surge_">variable surge_</h3>
-<pre><code class="language-cpp">double * surge_;
+<h3 id="variable-turn_radius_speed_">variable turn_radius_speed_</h3>
+<pre><code class="language-cpp">double * turn_radius_speed_;
+</code></pre>
+<h3 id="variable-turn_radius_speed_t_">variable turn_radius_speed_t_</h3>
+<pre><code class="language-cpp">double * turn_radius_speed_t_;
+</code></pre>
+<h3 id="variable-turn_radius_speed_t_max_">variable turn_radius_speed_t_max_</h3>
+<pre><code class="language-cpp">double turn_radius_speed_t_max_;
 </code></pre>
 <h3 id="variable-rate_limiter_ptr_">variable rate_limiter_ptr_</h3>
 <pre><code class="language-cpp">RateLimiter * rate_limiter_ptr_;
@@ -10272,14 +10316,14 @@
 <pre><code class="language-cpp">ros::Publisher debug_pub_;
 </code></pre>
 <hr />
-<p>Updated on 2022-12-15 at 14:58:22 +0000</p>
+<p>Updated on 2022-12-20 at 15:25:07 +0000</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 20, 2022</span>
       
     
   </small>
