@@ -33,5 +33,6 @@
   <depend>message_runtime</depend>  
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>auv_msgs</depend>
 
 </package>

@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs 
   message_generation 
   geometry_msgs
+  auv_msgs
 )
 
 ## Generate messages in the 'msg' folder
@@ -24,6 +25,7 @@ generate_messages(
    DEPENDENCIES
    std_msgs
    geometry_msgs
+   auv_msgs
 )
 
 catkin_package(	CATKIN_DEPENDS message_runtime)
