@@ -84,6 +84,13 @@ private:
   void forceBypassCallback(const auv_msgs::BodyForceRequest &msg);
 
   /**
+   * @brief  Turn radius speed from either surge or airmar measurement (delfim)
+   *
+   * @param msg Float (surge/airmar speed)
+   */
+  void turnRadiusSpeedCallback(const auv_msgs::NavigationStatus &msg);
+
+  /**
    * @brief Service to change feedforward gains
    *
    * @param req client request
@@ -149,11 +156,12 @@ private:
 
   ros::Subscriber st_sub_; // State subscriber
   ros::Subscriber force_bypass_sub_;
+  ros::Subscriber turn_radius_speed_sub_; // Airmar surge speed subscriber (Delfim)
 
   ros::ServiceServer change_ff_gains_srv_;
   ros::ServiceServer change_gains_srv_;
   ros::ServiceServer change_limits_srv_;
-  ros::ServiceServer turning_radius_limiter_;
+  ros::ServiceServer turning_radius_limiter_; // Service for turning radius limiter
 
   ros::Timer timer_; // timer
 
@@ -168,8 +176,10 @@ private:
   // tf2_ros::TransformListener tf_;
 
   // Turning Radius Limiter (2D) Variables
-  bool turn_radius_flag{false};
+  bool turn_radius_flag_{false};
   RateLimiter rate_limiter_;
+  double turn_radius_speed_;
+  double turn_radius_speed_t_;
 };
 
 #endif // MDS_INNERLOOPS_H

@@ -12,10 +12,10 @@ RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
 RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
                              std::string refCallback_topic, double *state,
                              double *force_or_torque, double frequency,
-                             bool *turn_limiter_flag, double *surge, RateLimiter *rate_limiter)
+                             bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t)
     : state_ptr_(state), controller_name_(controller_name),
       force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
-      turn_limiter_flag_ptr_(turn_limiter_flag), surge_(surge), rate_limiter_ptr_(rate_limiter) {
+      turn_limiter_flag_ptr_(turn_limiter_flag), turn_radius_speed_(turn_radius_speed), rate_limiter_ptr_(rate_limiter), turn_radius_speed_t_(turn_radius_speed_t) {
   init(nh, controller_name, refCallback_topic);
 }
 
@@ -23,10 +23,10 @@ RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
 RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
                              std::string refCallback_topic, double *state,
                              double *force_or_torque, double frequency,
-                             bool *turn_limiter_flag, double *surge)
+                             bool *turn_limiter_flag, double *turn_radius_speed, double *turn_radius_speed_t)
     : state_ptr_(state), controller_name_(controller_name),
       force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
-      turn_limiter_flag_ptr_(turn_limiter_flag), surge_(surge) {
+      turn_limiter_flag_ptr_(turn_limiter_flag), turn_radius_speed_(turn_radius_speed), turn_radius_speed_t_(turn_radius_speed_t) {
   init(nh, controller_name, refCallback_topic);
 }
 
@@ -56,6 +56,7 @@ void RosController::init(ros::NodeHandle &nh, std::string controller_name,
   bool enabled = nh.param("controllers/" + controller_name + "/enabled", false);
 
   min_turn_radius_ = nh.param("min_turn_radius", 1.0);
+  turn_radius_speed_t_max_ = nh.param("turn_radius_t_max", 5.0);
 
   // Don't create the controller if no gains were specified
   if ((kp == 0.0 && ki == 0.0 && kd == 0.0 && kff == 0.0 && kff_d == 0.0 && kff_lin_drag == 0.0 && kff_quad_drag == 0.0) || enabled == false) {
@@ -155,9 +156,15 @@ double RosController::computeCommand() {
       return 0.0;
     }
 
+    double no_response_turn_radius_speed = ros::Time::now().toSec() - *turn_radius_speed_t_;
+    if ( no_response_turn_radius_speed >= turn_radius_speed_t_max_ ) {
+      ROS_WARN_STREAM("No measurements received from turn_radius_speed callback for " << no_response_turn_radius_speed << "seconds.\n" + controller_name_ + " controller will not provide output.");
+      return 0.0;
+    }
+
     if (controller_name_ == "yaw") {
       
-      double rate_limit = (*surge_ / min_turn_radius_) * ( 180 / M_PI );
+      double rate_limit = (*turn_radius_speed_ / min_turn_radius_) * ( 180 / M_PI );
 
       rate_limiter_ptr_->setNewRateLimit(rate_limit);
 
@@ -165,7 +172,7 @@ double RosController::computeCommand() {
     }
     else if (controller_name_ == "yaw_rate") {
 
-      double max_yaw_rate = (*surge_ / min_turn_radius_) * ( 180 / M_PI );
+      double max_yaw_rate = (*turn_radius_speed_ / min_turn_radius_) * ( 180 / M_PI );
 
       ref_value_ = DSOR::saturation<double>(ref_value_, -max_yaw_rate, max_yaw_rate);
     }
