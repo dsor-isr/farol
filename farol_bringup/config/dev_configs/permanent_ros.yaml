@@ -103,6 +103,7 @@ nav/filter:
             orientation: "/#vehicle#/measurement/orientation"
         publishers:
             state: "/#vehicle#/nav/filter/state"
+            state_acomms: "/#vehicle#/nav/filter/state_acomms"
             currents: "/#vehicle#/nav/filter/currents"
     topics_dr:
        velocity: "/#vehicle#/measurement/velocity"
