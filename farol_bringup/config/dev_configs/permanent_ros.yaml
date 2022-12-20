@@ -188,6 +188,7 @@ controls/inner_loops_pid:
             depth_safety: "/#vehicle#/ref/depth_safety"
             state: "/#vehicle#/nav/filter/state"
             force_bypass: "/#vehicle#/force_bypass"
+            turn_radius_speed: "/#vehicle#/nav/filter/state"
         publishers:
             thrust_body_request: "/#vehicle#/thrust_body_request"
         services: 
