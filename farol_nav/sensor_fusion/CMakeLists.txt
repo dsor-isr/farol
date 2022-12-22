@@ -15,6 +15,16 @@ find_package(catkin REQUIRED
  cmake_modules
 )
 
+add_service_files(
+  FILES
+  SetVCurrentVelocity.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
 catkin_package(
  CATKIN_DEPENDS
  tf2_geometry_msgs
