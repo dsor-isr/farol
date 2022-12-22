@@ -94,6 +94,7 @@
     <member refid="classFiltersNode_1af4923e8ca1be3c763da7113b1d6b2eb2" kind="variable"><name>sub_reset_</name></member>
     <member refid="classFiltersNode_1a7a8f5d534d43b63b50ff619462ba90b8" kind="variable"><name>state_pub_</name></member>
     <member refid="classFiltersNode_1a3cb327d2d800f8d3184ddc94b8fd8d29" kind="variable"><name>currents_pub_</name></member>
+    <member refid="classFiltersNode_1ab5e09575f4acfb2bdf7ef45a0d099455" kind="variable"><name>state_acoustic_pub_</name></member>
     <member refid="classFiltersNode_1a12a575914e67c3c3cb91439f365cbdb1" kind="variable"><name>timer_</name></member>
     <member refid="classFiltersNode_1ab90a11d742f977e129ca48c52a5a35a0" kind="variable"><name>list_cleaner_timer_</name></member>
     <member refid="classFiltersNode_1ada3e323dc2273f3731c801a5bd7e4a81" kind="variable"><name>tfBuffer_</name></member>
@@ -103,6 +104,7 @@
     <member refid="classFiltersNode_1a853daa04a8620f87840960749a09163a" kind="variable"><name>map_frame_id_</name></member>
     <member refid="classFiltersNode_1acfdada82f0e66ffedde542d1305b4ebf" kind="variable"><name>state_</name></member>
     <member refid="classFiltersNode_1ac0848e521d578f439a6f699573111cc4" kind="variable"><name>zone_</name></member>
+    <member refid="classFiltersNode_1a05297369e70858ba3c6d94aa4d8b086a" kind="variable"><name>vehicle_ID_</name></member>
     <member refid="classFiltersNode_1a196d36afde16e5b3ed0dc4d545263167" kind="variable"><name>northp_</name></member>
     <member refid="classFiltersNode_1a1624eead060339c2d044dadaa77f066e" kind="variable"><name>origin_lat_</name></member>
     <member refid="classFiltersNode_1ab9d11ebb44d5dee603ce988ac0c448ad" kind="variable"><name>origin_lon_</name></member>

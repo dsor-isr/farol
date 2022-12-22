@@ -13,7 +13,7 @@
     <member refid="classGnss2State_1a3124f41b422c47bf782f82ab5ae1dea8" kind="function"><name>initializeSubscribers</name></member>
     <member refid="classGnss2State_1aaa8753c3cf8027017e922c2927644629" kind="function"><name>initializePublishers</name></member>
     <member refid="classGnss2State_1a352cd539e86d4a7fbd60eb642fe660db" kind="function"><name>loadParams</name></member>
-    <member refid="classGnss2State_1acc62a5b2ba8747ed8dbec24872f06420" kind="function"><name>gnssBroadcasterCallback</name></member>
+    <member refid="classGnss2State_1a124cdbf2146070cf08fa6566238ed86a" kind="function"><name>gnssBroadcasterCallback</name></member>
   </compound>
   <compound refid="Gnss2State_8h" kind="file"><name>Gnss2State.h</name>
   </compound>

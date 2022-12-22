@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="43" column="17" bodyfile="include/Gnss2State.h" bodystart="43" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="44" column="17" bodyfile="include/Gnss2State.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGnss2State_1a1c054be9fce421f8fab29345cd811135" prot="private" static="no" mutable="no">
         <type>ros::NodeHandle</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="43" column="21" bodyfile="include/Gnss2State.h" bodystart="43" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="44" column="21" bodyfile="include/Gnss2State.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGnss2State_1a34c65342e6cb6de7ad72822ed92c9552" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="48" column="21" bodyfile="include/Gnss2State.h" bodystart="48" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="49" column="21" bodyfile="include/Gnss2State.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGnss2State_1afd3c668a959f00c8bb5029de5b74b2bf" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="54" column="16" bodyfile="include/Gnss2State.h" bodystart="54" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="55" column="16" bodyfile="include/Gnss2State.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGnss2State_1a56b915101d64a92072b577177267b1c9" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="54" column="26" bodyfile="include/Gnss2State.h" bodystart="54" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="55" column="26" bodyfile="include/Gnss2State.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGnss2State_1ad9ddeca264bc0b793479cb7af4bc4937" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="62" column="6" bodyfile="include/Gnss2State.h" bodystart="62" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="63" column="6" bodyfile="include/Gnss2State.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGnss2State_1a85353c2610746d4468df6425ff3c7f09" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="63" column="12" bodyfile="include/Gnss2State.h" bodystart="63" bodyend="-1"/>
+        <location file="include/Gnss2State.h" line="64" column="12" bodyfile="include/Gnss2State.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="34" column="1" bodyfile="src/Gnss2State.cpp" bodystart="14" bodyend="20"/>
+        <location file="include/Gnss2State.h" line="35" column="1" bodyfile="src/Gnss2State.cpp" bodystart="14" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="classGnss2State_1abe3863dc78934caaefc783b5c6ac5097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="39" column="1" bodyfile="src/Gnss2State.cpp" bodystart="27" bodyend="40"/>
+        <location file="include/Gnss2State.h" line="40" column="1" bodyfile="src/Gnss2State.cpp" bodystart="27" bodyend="40"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="69" column="6" bodyfile="src/Gnss2State.cpp" bodystart="49" bodyend="53"/>
+        <location file="include/Gnss2State.h" line="70" column="6" bodyfile="src/Gnss2State.cpp" bodystart="49" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="classGnss2State_1aaa8753c3cf8027017e922c2927644629" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="70" column="6" bodyfile="src/Gnss2State.cpp" bodystart="60" bodyend="65"/>
+        <location file="include/Gnss2State.h" line="71" column="6" bodyfile="src/Gnss2State.cpp" bodystart="60" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classGnss2State_1a352cd539e86d4a7fbd60eb642fe660db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -169,15 +169,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="71" column="6" bodyfile="src/Gnss2State.cpp" bodystart="78" bodyend="83"/>
+        <location file="include/Gnss2State.h" line="72" column="6" bodyfile="src/Gnss2State.cpp" bodystart="78" bodyend="83"/>
       </memberdef>
-      <memberdef kind="function" id="classGnss2State_1acc62a5b2ba8747ed8dbec24872f06420" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGnss2State_1a124cdbf2146070cf08fa6566238ed86a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Gnss2State::gnssBroadcasterCallback</definition>
-        <argsstring>(const auv_msgs::NavigationStatus &amp;msg)</argsstring>
+        <argsstring>(const farol_msgs::stateAcomms &amp;msg)</argsstring>
         <name>gnssBroadcasterCallback</name>
         <param>
-          <type>const auv_msgs::NavigationStatus &amp;</type>
+          <type>const farol_msgs::stateAcomms &amp;</type>
           <declname>msg</declname>
         </param>
         <briefdescription>
@@ -186,17 +186,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/Gnss2State.h" line="76" column="6" bodyfile="src/Gnss2State.cpp" bodystart="97" bodyend="136"/>
+        <location file="include/Gnss2State.h" line="77" column="6" bodyfile="src/Gnss2State.cpp" bodystart="97" bodyend="140"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/Gnss2State.h" line="28" column="1" bodyfile="include/Gnss2State.h" bodystart="27" bodyend="77"/>
+    <location file="include/Gnss2State.h" line="29" column="1" bodyfile="include/Gnss2State.h" bodystart="28" bodyend="78"/>
     <listofallmembers>
       <member refid="classGnss2State_1a4b8c77dc447cd20537a78411f9125d7c" prot="public" virt="non-virtual"><scope>Gnss2State</scope><name>Gnss2State</name></member>
-      <member refid="classGnss2State_1acc62a5b2ba8747ed8dbec24872f06420" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>gnssBroadcasterCallback</name></member>
+      <member refid="classGnss2State_1a124cdbf2146070cf08fa6566238ed86a" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>gnssBroadcasterCallback</name></member>
       <member refid="classGnss2State_1aaa8753c3cf8027017e922c2927644629" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>initializePublishers</name></member>
       <member refid="classGnss2State_1a3124f41b422c47bf782f82ab5ae1dea8" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>initializeSubscribers</name></member>
       <member refid="classGnss2State_1a352cd539e86d4a7fbd60eb642fe660db" prot="private" virt="non-virtual"><scope>Gnss2State</scope><name>loadParams</name></member>

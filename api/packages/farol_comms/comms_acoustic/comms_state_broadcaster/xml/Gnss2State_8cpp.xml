@@ -22,7 +22,7 @@
       <node id="7">
         <label>exception</label>
       </node>
-      <node id="13">
+      <node id="14">
         <label>GeographicLib/UTMUPS.hpp</label>
       </node>
       <node id="2">
@@ -50,6 +50,8 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>vector</label>
@@ -63,11 +65,14 @@
       <node id="3">
         <label>math.h</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>std_msgs/String.h</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
+      </node>
+      <node id="11">
+        <label>farol_msgs/stateAcomms.h</label>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
@@ -90,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Gnss2State.cpp" line="143" column="5" bodyfile="src/Gnss2State.cpp" bodystart="143" bodyend="158"/>
+        <location file="src/Gnss2State.cpp" line="147" column="5" bodyfile="src/Gnss2State.cpp" bodystart="147" bodyend="162"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -160,7 +165,7 @@
 <codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Gnss2State::initializePublishers()</highlight></codeline>
 <codeline lineno="61"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Initializing<sp/>Publishers<sp/>for<sp/>Gnss2State&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>---&gt;<sp/>add<sp/>publishers<sp/>here</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/>pub_state<sp/>=<sp/>nh_private_.advertise&lt;auv_msgs::NavigationStatus&gt;(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/state&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/acomms/nav/filer/state&quot;</highlight><highlight class="normal">),<sp/>1,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>pub_state<sp/>=<sp/>nh_private_.advertise&lt;farol_msgs::stateAcomms&gt;(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/state&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/acomms/nav/filer/state&quot;</highlight><highlight class="normal">),<sp/>1,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/>pub_zone<sp/>=<sp/>nh_private_.advertise&lt;std_msgs::String&gt;(FarolGimmicks::getParameters&lt;std::string&gt;(nh_private_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/utmzone&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;/state/utmzone&quot;</highlight><highlight class="normal">),<sp/>1,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
@@ -194,10 +199,10 @@
 <codeline lineno="94"><highlight class="comment">#######################################################################################################################</highlight></codeline>
 <codeline lineno="95"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Gnss2State::gnssBroadcasterCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Gnss2State::gnssBroadcasterCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>farol_msgs::stateAcomms<sp/>&amp;msg)</highlight></codeline>
 <codeline lineno="98"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>auv_msgs::NavigationStatus<sp/>state_fix;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix<sp/>=<sp/>msg;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>farol_msgs::stateAcomms<sp/>state_fix;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//state_fix<sp/>=<sp/>msg;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="101"><highlight class="normal"></highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>northp;</highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>zone;</highlight></codeline>
@@ -217,45 +222,49 @@
 <codeline lineno="117"><highlight class="normal"></highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.header<sp/>=<sp/>msg.header;</highlight></codeline>
 <codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.position.north<sp/>=<sp/>northing;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.position.east<sp/><sp/>=<sp/>easting;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.orientation.z<sp/>=<sp/>msg.orientation.z;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.position.depth<sp/>=<sp/>msg.position.depth;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.position.depth<sp/>=<sp/>p_default_depth;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>merging,<sp/>fill<sp/>in<sp/>other<sp/>fields<sp/>too</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.orientation<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>state_merge.orientation;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.body_velocity<sp/><sp/>=<sp/>state_merge.body_velocity;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.seafloor_velocity<sp/>=<sp/>state_merge.seafloor_velocity;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>publish<sp/>vehicle<sp/>state</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_state.publish(state_fix);</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>publish<sp/>utm<sp/>zone</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>std_msgs::String<sp/>msg_zone;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_zone.data<sp/>=<sp/>GeographicLib::UTMUPS::EncodeZone(zone,<sp/>northp);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_zone.publish(msg_zone);</highlight></codeline>
-<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
-<codeline lineno="139"><highlight class="comment">#######################################################################################################################</highlight></codeline>
-<codeline lineno="140"><highlight class="comment"><sp/>@.@<sp/>Main</highlight></codeline>
-<codeline lineno="141"><highlight class="comment"><sp/>#######################################################################################################################</highlight></codeline>
-<codeline lineno="142"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
-<codeline lineno="144"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>ROS<sp/>set-ups:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;acoustic_converters_node&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//node<sp/>name</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>create<sp/>a<sp/>node<sp/>handle;<sp/>need<sp/>to<sp/>pass<sp/>this<sp/>to<sp/>the<sp/>class<sp/>constructor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>nh,<sp/>nh_p(</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;main:<sp/>instantiating<sp/>an<sp/>object<sp/>of<sp/>type<sp/>Gnss2State&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>instantiate<sp/>an<sp/>Gnss2State<sp/>class<sp/>object<sp/>and<sp/>pass<sp/>in<sp/>pointer<sp/>to<sp/>nodehandle<sp/>for<sp/>constructor<sp/>to<sp/>use</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGnss2State" kindref="compound">Gnss2State</ref><sp/><ref refid="classGnss2State" kindref="compound">Gnss2State</ref>(&amp;nh,<sp/>&amp;nh_p);</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Added<sp/>to<sp/>work<sp/>with<sp/>timer<sp/>-&gt;<sp/>going<sp/>into<sp/>spin;<sp/>let<sp/>the<sp/>callbacks<sp/>do<sp/>all<sp/>the<sp/>work</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::spin();</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.source_id<sp/>=<sp/>msg.source_id;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.position.north<sp/>=<sp/>northing;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.position.east<sp/><sp/>=<sp/>easting;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//state_fix.orientation.z<sp/>=<sp/>msg.orientation.z;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.position.depth<sp/>=<sp/>msg.position.depth;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.global_position.latitude<sp/>=<sp/>msg.global_position.latitude;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>state_fix.global_position.longitude<sp/>=<sp/>msg.global_position.longitude;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.position.depth<sp/>=<sp/>p_default_depth;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>merging,<sp/>fill<sp/>in<sp/>other<sp/>fields<sp/>too</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.orientation<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>state_merge.orientation;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.body_velocity<sp/><sp/>=<sp/>state_merge.body_velocity;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>state_fix.seafloor_velocity<sp/>=<sp/>state_merge.seafloor_velocity;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>publish<sp/>vehicle<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_state.publish(state_fix);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>publish<sp/>utm<sp/>zone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>std_msgs::String<sp/>msg_zone;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>msg_zone.data<sp/>=<sp/>GeographicLib::UTMUPS::EncodeZone(zone,<sp/>northp);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>pub_zone.publish(msg_zone);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="143"><highlight class="comment">#######################################################################################################################</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>@.@<sp/>Main</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>#######################################################################################################################</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**argv)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>ROS<sp/>set-ups:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::init(argc,<sp/>argv,<sp/></highlight><highlight class="stringliteral">&quot;acoustic_converters_node&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//node<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>create<sp/>a<sp/>node<sp/>handle;<sp/>need<sp/>to<sp/>pass<sp/>this<sp/>to<sp/>the<sp/>class<sp/>constructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::NodeHandle<sp/>nh,<sp/>nh_p(</highlight><highlight class="stringliteral">&quot;~&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;main:<sp/>instantiating<sp/>an<sp/>object<sp/>of<sp/>type<sp/>Gnss2State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>instantiate<sp/>an<sp/>Gnss2State<sp/>class<sp/>object<sp/>and<sp/>pass<sp/>in<sp/>pointer<sp/>to<sp/>nodehandle<sp/>for<sp/>constructor<sp/>to<sp/>use</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGnss2State" kindref="compound">Gnss2State</ref><sp/><ref refid="classGnss2State" kindref="compound">Gnss2State</ref>(&amp;nh,<sp/>&amp;nh_p);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>+.+<sp/>Added<sp/>to<sp/>work<sp/>with<sp/>timer<sp/>-&gt;<sp/>going<sp/>into<sp/>spin;<sp/>let<sp/>the<sp/>callbacks<sp/>do<sp/>all<sp/>the<sp/>work</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::spin();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/Gnss2State.cpp"/>
   </compounddef>

@@ -90,6 +90,7 @@
     <member refid="classUsblFix2Pos_1a143cff6e194fb0ba1e30281a8bb0d907" kind="variable"><name>state_var</name></member>
     <member refid="classUsblFix2Pos_1ad05e7f02774d5e66f143851050099169" kind="variable"><name>state_lat_lon</name></member>
     <member refid="classUsblFix2Pos_1a292bc04f1ee26ef502c7f3b18d62710e" kind="variable"><name>usblfix_list</name></member>
+    <member refid="classUsblFix2Pos_1aac2ba5743fcc886d456b3cb93b363845" kind="variable"><name>stateAcomms_list</name></member>
     <member refid="classUsblFix2Pos_1a7de8a80b5e749a55e6c7f62d6bcea878" kind="variable"><name>name_vehicle_id_</name></member>
     <member refid="classUsblFix2Pos_1af72e45a4f8e979898f88babb3c83fa48" kind="function"><name>UsblFix2Pos</name></member>
     <member refid="classUsblFix2Pos_1a7cbba2ae2dee65ff603d65f593b4834e" kind="function"><name>~UsblFix2Pos</name></member>
@@ -99,6 +100,7 @@
     <member refid="classUsblFix2Pos_1add93311101d42c2e25e57da649b7713c" kind="function"><name>loadParams</name></member>
     <member refid="classUsblFix2Pos_1a40334b8b35f8d67be041cb6263e36b1e" kind="function"><name>usblFixBroadcasterCallback</name></member>
     <member refid="classUsblFix2Pos_1a450ee20bbc7640fa918456aaa14cc92c" kind="function"><name>stateCallback</name></member>
+    <member refid="classUsblFix2Pos_1a93900def3d759a8d45c4e57c9d07c274" kind="function"><name>stateAcommsCallback</name></member>
     <member refid="classUsblFix2Pos_1ac2e980ebd2d2e5340bd02e60dfe398c7" kind="function"><name>transformPosition</name></member>
     <member refid="classUsblFix2Pos_1a4888e81fdb5240edbc16cb3d3aa2875a" kind="function"><name>getEstLatLon</name></member>
     <member refid="classUsblFix2Pos_1a0da8155368c2243b31805b8862020cfc" kind="function"><name>listTimerCallback</name></member>
