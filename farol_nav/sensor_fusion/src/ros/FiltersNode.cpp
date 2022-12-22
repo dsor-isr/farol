@@ -12,6 +12,7 @@ FiltersNode::FiltersNode(ros::NodeHandle *nh, ros::NodeHandle *nh_private)
     loadParams();
     initializeSubscribers();
     initializePublishers();
+    initializeServices();
     initializeTimer();
   }
 
@@ -51,6 +52,12 @@ void FiltersNode::initializePublishers() {
   
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
   currents_pub_ = nh_private_.advertise<farol_msgs::Currents>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/currents", "currents"), 10);
+  state_sensors_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/State_sensors", "State_sensors",10), 10);
+}
+
+void FiltersNode::initializeServices(){
+  set_vcurrent_velocity_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "services/set_vcurrent_velocity", "set_vcurrent_velocity"), &FiltersNode::setVCurrentVelocityService, this);
+  reset_vcurrent_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "services/reset_vcurrent", "reset_vcurrent"), &FiltersNode::resetVCurrentService, this);
 }
 
 void FiltersNode::initializeTimer() {
@@ -203,8 +210,59 @@ void FiltersNode::loadParams() {
 
 // @.@ Callbacks Section / Methods
 void FiltersNode::measurementCallback(const dsor_msgs::Measurement &msg) {
-  FilterGimmicks::measurement m(msg);
   
+  const dsor_msgs::Measurement * msg_ptr = &msg;
+
+  if(true){
+    std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
+    if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") ) {
+      if (msg.header.stamp.toSec() > xy_time_){
+        sensor_vx_ = (msg.value[0] - sensor_x_)/(msg.header.stamp.toSec() - xy_time_);
+        sensor_vy_ = (msg.value[1] - sensor_y_)/(msg.header.stamp.toSec() - xy_time_);
+        sensor_x_ = msg.value[0];
+        sensor_y_ = msg.value[1];
+        xy_time_ = msg.header.stamp.toSec();
+      }
+    }
+    else if(false){ // t_frame == std::string("bt") ){ // || t_frame  == std::string("wt") ) {
+      if (msg.header.stamp.toSec() > v_time_){
+        sensor_vx_ = msg.value[0];
+        sensor_vy_ = msg.value[1];
+        v_time_ = msg.header.stamp.toSec();
+      }
+    }
+    else if( t_frame == std::string("ahrs") ){ // || t_frame  == std::string("wt") ) {
+      if (msg.header.stamp.toSec() > teta_time_){
+        sensor_teta_ = msg.value[2];
+        teta_time_ = msg.header.stamp.toSec();
+      }
+    }
+    if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") ) {
+      state_sensors_.header.stamp = ros::Time::now();
+      state_sensors_.X = sensor_y_;
+      state_sensors_.Y = sensor_x_;
+      state_sensors_.Yaw = sensor_teta_*360/(2*3.14159265359);
+      state_sensors_.Vx = sensor_vx_;
+      state_sensors_.Vy = sensor_vy_;
+      state_sensors_.u = sensor_vx_ / cos(sensor_teta_);
+      state_sensors_pub_.publish(state_sensors_);
+    }
+  }
+
+
+  // For Virtual Currents Simulation
+  // the flag is True ONLY if the server set_vcurrent_velocity is called
+  if (vc_flag_){
+    std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
+    if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") || t_frame == std::string("bt") ) {
+      virtualCurrents(msg);    
+      msg_ptr = &msg_vc_;
+    }
+  }
+
+  FilterGimmicks::measurement m(*msg_ptr);
+  //FilterGimmicks::measurement m(msg);
+
   // +.+ Disregard input if measurement config does not match the value size
   std::vector<FilterGimmicks::measurement>::iterator it_active_sensor =
     std::find_if(std::begin(active_sensors_), std::end(active_sensors_),
@@ -532,6 +590,116 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
     }
   }
 }
+
+// ------- for virtual curents ------
+ bool FiltersNode::setVCurrentVelocityService(sensor_fusion::SetVCurrentVelocity::Request &req, sensor_fusion::SetVCurrentVelocity::Response &res){
+  
+  // If its the first virtual current
+  if (!vc_flag_){
+    vc_flag_ = true;
+    vc_t_ = ros::Time::now().toSec(); // t = now
+    vc_vx_ = req.velocity_x;          // v = new_v
+    vc_vy_ = req.velocity_y;
+    vc_offx_ = 0;                    // off = new_off = 0
+    vc_offy_ = 0;
+    res.success = true; 
+    res.message = "Started virtual currents velocities";
+    //sprintf(res.message, "Started virtual currents with velocities:\n\tx: %.4f \n\ty: %.4f", req.velocity_x, req.velocity_y);
+  }else{
+    vc_last_t_ = vc_t_;                   // t(-1) = t
+    vc_t_ = ros::Time::now().toSec();     // t = now
+    vc_last_vx_ = vc_vx_;                 // v(-1) = v
+    vc_last_vy_ = vc_vy_;     
+    vc_last_offx_ = vc_offx_;             // off(-1) = off
+    vc_last_offy_ = vc_offy_; 
+
+    vc_vx_ = req.velocity_x;                           // v = new_v
+    vc_vy_ = req.velocity_y;
+    vc_offx_ += ( (vc_t_ - vc_last_t_) * vc_last_vx_); // off = off(-1) + (t - t(-1)) * v(-1) 
+    vc_offy_ += ( (vc_t_ - vc_last_t_) * vc_last_vy_);
+    res.success = true;  
+    res.message = "Changed virtual currents velocities";
+    //sprintf(res.message, "Changed virtual currents velocities to:\n\tx: %.4f \n\ty: %.4f", req.velocity_x, req.velocity_y);
+  }
+
+  return true;
+ }
+
+ bool FiltersNode::resetVCurrentService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res){
+  vc_flag_ = false;
+  
+  vc_t_ = 0;
+  vc_vx_ = 0;
+  vc_vy_ = 0;
+  vc_offx_ = 0;
+  vc_offy_ = 0;
+
+  vc_last_t_ = 0;
+  vc_last_vx_ = 0;
+  vc_last_vy_ = 0;
+  vc_last_offx_ = 0;
+  vc_last_offy_ = 0;
+  res.message = "Virtual Currents have been reset. Call \"SetVCurrentVelocity\" service to set a virtual current velocity";
+  return true;
+ }
+
+ void FiltersNode::virtualCurrents(const dsor_msgs::Measurement &msg){
+  double dt;
+
+  // The message is from before the start of the last virtual current value
+  if(msg.header.stamp.toSec() < vc_t_){
+    // The message is from before there were virtual currents
+    if(vc_last_t_ == 0)
+      return;
+    // The message is from a time when the virtual currents value was diferent
+    dt = msg.header.stamp.toSec() - vc_last_t_;
+    msg_vc_.value.clear();
+    msg_vc_.noise.clear();
+    msg_vc_.header.seq = msg.header.seq;
+    msg_vc_.header.stamp.sec = msg.header.stamp.sec;
+    msg_vc_.header.stamp.nsec = msg.header.stamp.nsec;
+    msg_vc_.header.frame_id = msg.header.frame_id;
+  
+    std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
+    if( t_frame == std::string("gnss") || t_frame == std::string("usbl")){
+        msg_vc_.value.push_back( msg.value[0] + vc_last_offx_ + dt*vc_last_vx_ );
+        msg_vc_.value.push_back( msg.value[1] + vc_last_offy_ + dt*vc_last_vy_ );
+    }else if( t_frame == std::string("bt") ){
+      msg_vc_.value.push_back( msg.value[0] + vc_last_vx_ );
+      msg_vc_.value.push_back( msg.value[1] + vc_last_vy_ );
+    }
+    msg_vc_.noise.push_back(msg.noise[0]); 
+    msg_vc_.noise.push_back(msg.noise[1]);
+    return;
+  }
+
+  //Message is from after the start of the latest requested VC 
+  dt = msg.header.stamp.toSec() - vc_t_;
+  msg_vc_.value.clear();
+  msg_vc_.noise.clear();
+  msg_vc_.header.seq = msg.header.seq;
+  msg_vc_.header.stamp.sec = msg.header.stamp.sec;
+  msg_vc_.header.stamp.nsec = msg.header.stamp.nsec;
+  msg_vc_.header.frame_id = msg.header.frame_id;
+  
+  std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
+
+  if( t_frame == std::string("gnss") || t_frame == std::string("usbl")){
+      msg_vc_.value.push_back( msg.value[0] + vc_offx_ + dt*vc_vx_ );
+      msg_vc_.value.push_back( msg.value[1] + vc_offy_ + dt*vc_vy_ );
+     // ROS_INFO("X: %lf", msg_vc_.value[0]);
+     // ROS_INFO("Y: %lf", msg_vc_.value[1]);
+  }else if( t_frame == std::string("bt") ){
+      msg_vc_.value.push_back( msg.value[0] + vc_vx_ );
+      msg_vc_.value.push_back( msg.value[1] + vc_vy_ );
+     // ROS_INFO("dvlX: %lf", msg_vc_.value[0]);
+     // ROS_INFO("dvlY: %lf", msg_vc_.value[1]);
+  }
+  msg_vc_.noise.push_back(msg.noise[0]); 
+  msg_vc_.noise.push_back(msg.noise[1]);
+  return;
+}
+
 
 // @.@ Main
 int main(int argc, char **argv) {
