@@ -60,7 +60,7 @@ void Gnss2State::initializeSubscribers()
 void Gnss2State::initializePublishers()
 {
 	ROS_INFO("Initializing Publishers for Gnss2State"); // ---> add publishers here
-  pub_state = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "/acomms/nav/filer/state"), 1, true);
+  pub_state = nh_private_.advertise<farol_msgs::stateAcomms>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "/acomms/nav/filer/state"), 1, true);
   pub_zone = nh_private_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/utmzone", "/state/utmzone"), 1, true);
 }
 
@@ -94,10 +94,10 @@ void Gnss2State::loadParams()
 #######################################################################################################################
 */
 
-void Gnss2State::gnssBroadcasterCallback(const auv_msgs::NavigationStatus &msg)
+void Gnss2State::gnssBroadcasterCallback(const farol_msgs::stateAcomms &msg)
 {
-	auv_msgs::NavigationStatus state_fix;
-	state_fix = msg;
+	farol_msgs::stateAcomms state_fix;
+	//state_fix = msg;
 
     bool northp;
     int zone;
@@ -117,10 +117,14 @@ void Gnss2State::gnssBroadcasterCallback(const auv_msgs::NavigationStatus &msg)
 
     state_fix.header = msg.header;
 
+    state_fix.source_id = msg.source_id;
+    
     state_fix.position.north = northing;
     state_fix.position.east  = easting;
-    state_fix.orientation.z = msg.orientation.z;
+    //state_fix.orientation.z = msg.orientation.z;
     state_fix.position.depth = msg.position.depth;
+    state_fix.global_position.latitude = msg.global_position.latitude;
+    state_fix.global_position.longitude = msg.global_position.longitude;
 	// state_fix.position.depth = p_default_depth;
 	// If merging, fill in other fields too
 	// state_fix.orientation 		= state_merge.orientation;

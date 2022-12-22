@@ -16,6 +16,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico
 // ROS messages and stuff
 #include <sensor_msgs/NavSatFix.h>
 #include <auv_msgs/NavigationStatus.h>
+#include <farol_msgs/stateAcomms.h>
 #include <std_msgs/String.h>
 
 // Farol Libraries and msgs
@@ -73,6 +74,6 @@ private:
 	// #######################################################################################
 	// @.@ Callbacks declaration
 	// #######################################################################################
-	void gnssBroadcasterCallback(const auv_msgs::NavigationStatus &msg);
+	void gnssBroadcasterCallback(const farol_msgs::stateAcomms &msg);
 };
 #endif //CATKIN_WS_Gnss2State_H
