@@ -45,7 +45,7 @@ void UsblFix2Pos::initializeSubscribers()
   ROS_INFO("Initializing Subscribers for UsblFix2Pos");
   sub_usbl  = nh_private_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_fix", "usbl_fix"), 1, &UsblFix2Pos::usblFixBroadcasterCallback, this);
   if (p_fix_type){
-    sub_state = nh_private_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/acomms_state", "acomms_state"), 1, &UsblFix2Pos::stateCallback, this);
+    sub_state = nh_private_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/acomms_state", "acomms_state"), 1, &UsblFix2Pos::stateAcommsCallback, this);
   }
   else{
     sub_state = nh_private_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/state", "state"), 1, &UsblFix2Pos::stateCallback, this);
@@ -90,6 +90,14 @@ void UsblFix2Pos::listTimerCallback(const ros::TimerEvent &event) {
   for (it = usblfix_list.end(); it != usblfix_list.begin(); --it) {
     if((ros::Time::now() - (*it).header.stamp).toSec() < p_t_sync) {
       usblfix_list.erase(usblfix_list.begin(), it);
+      break;
+    }
+  }
+  // Clear old measurements from the stateAcomms list
+  std::list<farol_msgs::stateAcomms>::iterator iter;
+  for (iter = stateAcomms_list.end(); iter != stateAcomms_list.begin(); --iter) {
+    if((ros::Time::now() - (*iter).header.stamp).toSec() < p_t_sync) {
+      stateAcomms_list.erase(stateAcomms_list.begin(), iter);
       break;
     }
   }
@@ -175,15 +183,15 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
 
   transformPosition(spherical, cartesian);
 
-  farol_msgs::mState console_state;
-  console_state.header.stamp = usbl.header.stamp;
-  console_state.X = state[1] + cartesian[1];
-  console_state.Y = state[0] + cartesian[0];
-
-  pub_usbl_est_console.publish(console_state);
-
   // Pub if usbl is an anchor
   if (p_fix_type == false){
+
+    farol_msgs::mState console_state;
+    console_state.header.stamp = usbl.header.stamp;
+    console_state.X = state[1] + cartesian[1];
+    console_state.Y = state[0] + cartesian[0];
+    pub_usbl_est_console.publish(console_state);
+    
     getEstLatLon(spherical, latlon);
 
     auv_msgs::NavigationStatus usbl_est;
@@ -198,17 +206,34 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     pub_usbl_est_state.publish(usbl_est);
   }
   else{
+    
+    // Find in buffer for a correspondent state that correspond to the same vehicle of the angles and if are in sync (t_sync seconds)
+    std::list<farol_msgs::stateAcomms>::reverse_iterator iter;
+    for (iter = stateAcomms_list.rbegin(); iter != stateAcomms_list.rend(); ++iter) {
+      if((*iter).source_id == usbl.source_id && fabs((usbl.header.stamp-(*iter).header.stamp).toSec()) < p_t_sync)
+        break;
+    }
+    // Return if no nearby pointer is found
+    if(iter == stateAcomms_list.rend()){
+      return;
+    }
+    
+    farol_msgs::mState console_state;
+    console_state.header.stamp = usbl.header.stamp;
+    console_state.X = (*iter).position.east + cartesian[1];
+    console_state.Y = (*iter).position.north + cartesian[0];
+    pub_usbl_est_console.publish(console_state);
 
     // Publish final pose
     dsor_msgs::Measurement pose_fix;
     pose_fix.header.stamp = usbl.header.stamp;
     pose_fix.header.frame_id = name_vehicle_id_ + '_' + usbl.header.frame_id;
     // set position
-    pose_fix.value.push_back(state[0] + cartesian[0]);
-    pose_fix.value.push_back(state[1] + cartesian[1]);
+    pose_fix.value.push_back((*iter).position.north + cartesian[0]);
+    pose_fix.value.push_back((*iter).position.east + cartesian[1]);
     // set noise covariance
-    pose_fix.noise.push_back(state_var[0] + usbl.position_covariance[0] + p_meas_noise);
-    pose_fix.noise.push_back(state_var[1] + usbl.position_covariance[4] + p_meas_noise);
+    pose_fix.noise.push_back((*iter).position_variance.north + usbl.position_covariance[0] + p_meas_noise);
+    pose_fix.noise.push_back((*iter).position_variance.east + usbl.position_covariance[4] + p_meas_noise);
     pub_pose_fix.publish(pose_fix);
 
   }
@@ -216,6 +241,7 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
 }
 
 void UsblFix2Pos::stateCallback(const auv_msgs::NavigationStatus &msg){
+
   initialized = true;
   state_stamp = msg.header.stamp.toSec();
 
@@ -224,11 +250,20 @@ void UsblFix2Pos::stateCallback(const auv_msgs::NavigationStatus &msg){
   state_var[0] = msg.position_variance.north;
   state_var[1] = msg.position_variance.east;
 
+  //if (p_fix_type == false){
+  state_lat_lon[0] = msg.global_position.latitude;
+  state_lat_lon[1] = msg.global_position.longitude;
+  //}
+}
 
-  if (p_fix_type == false){
-    state_lat_lon[0] = msg.global_position.latitude;
-    state_lat_lon[1] = msg.global_position.longitude;
-  }
+void UsblFix2Pos::stateAcommsCallback(const farol_msgs::stateAcomms &msg){
+
+  initialized = true;
+  state_stamp = msg.header.stamp.toSec();
+  
+  // Add fix to a list
+  stateAcomms_list.push_back(msg);
+
 }
 
 /*

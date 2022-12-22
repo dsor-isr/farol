@@ -35,6 +35,7 @@
 
 // @.@ Farol Messages
 #include <farol_msgs/Currents.h>
+#include <farol_msgs/stateAcomms.h>
 
 // 3rd Parties
 #include <farol_gimmicks_library/FarolGimmicks.h>
@@ -100,6 +101,7 @@ private:
 	// @.@ Publishers
   ros::Publisher state_pub_;                   ///< State publisher
   ros::Publisher currents_pub_;                ///< Currents publisher
+  ros::Publisher state_acoustic_pub_;           ///< State for acustics publisher
 	
   // @.@ Timer
 	ros::Timer timer_;                           ///< Principal timer iterator
@@ -115,6 +117,7 @@ private:
 	// @.@ Handy variables
   auv_msgs::NavigationStatus state_;           ///< State
 	int zone_;                                   ///< GPS zone
+	int vehicle_ID_;                             ///< vehicle id
 	bool  northp_;                               ///< north hemisphere flag
 	double origin_lat_;                          ///< latitude origin for tfs
   double origin_lon_;                          ///< longitude origin for tfs
