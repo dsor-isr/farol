@@ -30,8 +30,9 @@ class Brevik : public PathFollowing {
      * @param surge_pub The ROS surge publisher
      * @param yaw_pub The ROS yaw publisher
      * @param rabbit_pub The ROS rabbit publisher
+     * @param delta_h Gain for the Brevik controller
      */
-    Brevik(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub);
+    Brevik(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub, double delta_h);
 
     /**
      * @brief  Method to update the gains, given a vector of doubles 
@@ -120,5 +121,10 @@ class Brevik : public PathFollowing {
     ros::Publisher surge_pub_;
     ros::Publisher yaw_pub_;
     ros::Publisher rabbit_pub_;
+
+    /**
+     * @brief Brevik controller gains
+     */
+    double delta_h_;
 };
 
