@@ -193,3 +193,5 @@ path_following:
        kz: 0.2
        yaw_offset: 0.0
        p_sat: [10.0, 10.0]
+    brevik:
+      delta_h: 2

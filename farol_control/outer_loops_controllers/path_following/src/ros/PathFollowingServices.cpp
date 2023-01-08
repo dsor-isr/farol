@@ -434,12 +434,16 @@ bool PathFollowingNode::SetBrevikService(path_following::SetPF::Request &req,
       nh_.advertise<std_msgs::Float64>(yaw_topic, 1));
   this->publishers_.push_back(
       nh_.advertise<std_msgs::Float64>(rabbit_topic, 1));
+  
+  /* Read the gains for the controller */
+  double delta_h;
+  nh_p_.getParam("controller_gains/brevik/delta_h", delta_h);
  
   try {
 
     /* Assign the new controller */
     this->pf_algorithm_ = new Brevik(this->publishers_[0], 
-        this->publishers_[1], this->publishers_[2]);
+        this->publishers_[1], this->publishers_[2], delta_h);
     res.success = true;
     pf_algorithm_->setPFollowingDebugPublisher(nh_p_.advertise<farol_msgs::mPFollowingDebug>(pfollowing_debug_topic,1));
 
