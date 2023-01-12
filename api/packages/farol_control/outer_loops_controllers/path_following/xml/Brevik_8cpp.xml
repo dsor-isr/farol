@@ -77,164 +77,165 @@
 <codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;Brevik.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>constructor<sp/>for<sp/>the<sp/>Aguiar<sp/>Path<sp/>Following<sp/>Controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"><ref refid="classBrevik_1ac841624393966798324ad0194cf994d7" kindref="member">Brevik::Brevik</ref>(ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>yaw_pub,<sp/>ros::Publisher<sp/>rabbit_pub)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><ref refid="classBrevik_1a1da557d147030c3b84a502009f2ce3c7" kindref="member">Brevik::Brevik</ref>(ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>yaw_pub,<sp/>ros::Publisher<sp/>rabbit_pub,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delta_h)<sp/>{</highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>publishers,<sp/>to<sp/>latter<sp/>publish<sp/>the<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"><sp/><sp/>this-&gt;surge_pub_<sp/>=<sp/>surge_pub;</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/>this-&gt;yaw_pub_<sp/>=<sp/>yaw_pub;</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/>this-&gt;rabbit_pub_<sp/>=<sp/>rabbit_pub;</highlight></codeline>
-<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>set<sp/>the<sp/>path<sp/>following<sp/>gains<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a13a11e919bbc74abaae3d054dbde6830" kindref="member">Brevik::setPFGains</ref>(std::vector&lt;double&gt;<sp/>gains)<sp/>{</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Breviks<sp/>algorithm<sp/>receives<sp/>no<sp/>gains</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
-<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>implements<sp/>the<sp/>control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43" kindref="member">Brevik::callPFController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>angles<sp/>for<sp/>the<sp/>path<sp/>and<sp/>the<sp/>vehicle<sp/>in<sp/>a<sp/>continuous<sp/>manner<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>this-&gt;smoothVehicleYaw();</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>this-&gt;smoothPathYaw();</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>path<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>path_pd;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>path_pd<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[1];</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_hg<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.tangent_norm;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_vd<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kindref="member">vd</ref>;</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>vehicle<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>veh_p;</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/>veh_p<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[1];</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Delta_h<sp/>=<sp/>2;</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>rotation<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>RI_F;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/>RI_F<sp/>&lt;&lt;<sp/>cos(this-&gt;psi_out_),<sp/>sin(this-&gt;psi_out_),<sp/>-sin(this-&gt;psi_out_),<sp/>cos(this-&gt;psi_out_);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pos_error<sp/>=<sp/>RI_F<sp/>*<sp/>(veh_p<sp/>-<sp/>path_pd);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>s1<sp/>=<sp/>pos_error[0];</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>psie<sp/>=<sp/>this-&gt;yaw_out_<sp/>-<sp/>this-&gt;psi_out_;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ud;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>ud<sp/>=<sp/>path_hg<sp/>*<sp/>(path_vd<sp/>+<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kindref="member">vc</ref>);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>control<sp/>law<sp/>to<sp/>be<sp/>published<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>std::min(std::max(ud,<sp/>0.0),<sp/>1.5);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref><sp/>+<sp/>atan(-y1<sp/>/<sp/>Delta_h);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Convert<sp/>the<sp/>yaw<sp/>from<sp/>rad<sp/>to<sp/>deg<sp/>(used<sp/>by<sp/>the<sp/>inner-loop<sp/>controller)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>this-&gt;desired_yaw_<sp/>*<sp/>180.0<sp/>/<sp/>M_PI;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>evolution<sp/>of<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k3<sp/>=<sp/>1.0;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>uP<sp/>=<sp/>ud<sp/>*<sp/>cos(psie)<sp/>+<sp/>k3<sp/>*<sp/>s1;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>v_gamma<sp/>=<sp/>uP<sp/>/<sp/>path_hg;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>v_gamma;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>std::min(std::max(this-&gt;gamma_dot_,<sp/>-0.5),<sp/>0.5);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>values<sp/>of<sp/>gamma<sp/>to<sp/>guarantee<sp/>that<sp/>if<sp/>we<sp/>start<sp/>the<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;gamma_<sp/>&lt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref><sp/>&amp;&amp;<sp/>this-&gt;gamma_dot_<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>position<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Brevik&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/>yaw_out_;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/>psi_out_;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Auxiliar<sp/>method<sp/>to<sp/>smooth<sp/>the<sp/>vehicle<sp/>angle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Brevik::smoothVehicleYaw()<sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isnan(this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2]))<sp/>{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;yaw_out_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kindref="member">algConvert</ref>(this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2],<sp/>this-&gt;yaw_old_,<sp/>this-&gt;yaw_out_old_);<sp/><sp/></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;yaw_old_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;yaw_out_old_<sp/>=<sp/>this-&gt;yaw_out_;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Auxiliar<sp/>method<sp/>to<sp/>smooth<sp/>the<sp/>path<sp/>angle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Brevik::smoothPathYaw()<sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isnan(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>))<sp/>{</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;psi_out_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kindref="member">algConvert</ref>(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>,<sp/>this-&gt;psi_old_,<sp/>this-&gt;psi_out_old_);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;psi_old_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;psi_out_old_<sp/>=<sp/>this-&gt;psi_out_;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish<sp/>the<sp/>data<sp/>computed<sp/>from<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca" kindref="member">Brevik::publish_private</ref>(){</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_pub_,<sp/>this-&gt;desired_yaw_);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
-<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a351c87315b5ed60c9ce57ccdf16633e7" kindref="member">Brevik::start</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>initial<sp/>virtual<sp/>target<sp/>value<sp/>to<sp/>get<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
-<codeline lineno="120"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1aa707b7da34dab13fc0bdb4241091289b" kindref="member">Brevik::stop</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a42009e150fee33a5bbbf22c761c8d70f" kindref="member">Brevik::reset</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>auxiliar<sp/>variables<sp/>for<sp/>the<sp/>angles*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/>this-&gt;yaw_out_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/>this-&gt;yaw_out_old_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/>this-&gt;yaw_old_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/>this-&gt;psi_out_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/>this-&gt;psi_out_old_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/>this-&gt;psi_old_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Brevik::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>Brevik<sp/>gains<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>this-&gt;delta_h_<sp/>=<sp/>delta_h;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>set<sp/>the<sp/>path<sp/>following<sp/>gains<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a13a11e919bbc74abaae3d054dbde6830" kindref="member">Brevik::setPFGains</ref>(std::vector&lt;double&gt;<sp/>gains)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Breviks<sp/>algorithm<sp/>receives<sp/>no<sp/>gains</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>implements<sp/>the<sp/>control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43" kindref="member">Brevik::callPFController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>the<sp/>angles<sp/>for<sp/>the<sp/>path<sp/>and<sp/>the<sp/>vehicle<sp/>in<sp/>a<sp/>continuous<sp/>manner<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>this-&gt;smoothVehicleYaw();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>this-&gt;smoothPathYaw();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>path<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>path_pd;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>path_pd<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[1];</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_hg<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.tangent_norm;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_vd<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kindref="member">vd</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>vehicle<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>veh_p;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>veh_p<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[1];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>rotation<sp/>matrix<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>RI_F;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>RI_F<sp/>&lt;&lt;<sp/>cos(this-&gt;psi_out_),<sp/>sin(this-&gt;psi_out_),<sp/>-sin(this-&gt;psi_out_),<sp/>cos(this-&gt;psi_out_);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pos_error<sp/>=<sp/>RI_F<sp/>*<sp/>(veh_p<sp/>-<sp/>path_pd);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>s1<sp/>=<sp/>pos_error[0];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>psie<sp/>=<sp/>this-&gt;yaw_out_<sp/>-<sp/>this-&gt;psi_out_;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>control<sp/>law<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ud;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>ud<sp/>=<sp/>path_hg<sp/>*<sp/>(path_vd<sp/>+<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kindref="member">vc</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Save<sp/>the<sp/>control<sp/>law<sp/>to<sp/>be<sp/>published<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>std::min(std::max(ud,<sp/>0.0),<sp/>1.5);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref><sp/>+<sp/>atan(-y1<sp/>/<sp/>this-&gt;delta_h_);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Convert<sp/>the<sp/>yaw<sp/>from<sp/>rad<sp/>to<sp/>deg<sp/>(used<sp/>by<sp/>the<sp/>inner-loop<sp/>controller)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>this-&gt;desired_yaw_<sp/>*<sp/>180.0<sp/>/<sp/>M_PI;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>evolution<sp/>of<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k3<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>uP<sp/>=<sp/>ud<sp/>*<sp/>cos(psie)<sp/>+<sp/>k3<sp/>*<sp/>s1;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>v_gamma<sp/>=<sp/>uP<sp/>/<sp/>path_hg;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>v_gamma;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>std::min(std::max(this-&gt;gamma_dot_,<sp/>-0.5),<sp/>0.5);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>values<sp/>of<sp/>gamma<sp/>to<sp/>guarantee<sp/>that<sp/>if<sp/>we<sp/>start<sp/>the<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;gamma_<sp/>&lt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref><sp/>&amp;&amp;<sp/>this-&gt;gamma_dot_<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>position<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Brevik&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/>yaw_out_;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/>psi_out_;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Auxiliar<sp/>method<sp/>to<sp/>smooth<sp/>the<sp/>vehicle<sp/>angle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Brevik::smoothVehicleYaw()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isnan(this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2]))<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;yaw_out_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kindref="member">algConvert</ref>(this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2],<sp/>this-&gt;yaw_old_,<sp/>this-&gt;yaw_out_old_);<sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;yaw_old_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;yaw_out_old_<sp/>=<sp/>this-&gt;yaw_out_;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Auxiliar<sp/>method<sp/>to<sp/>smooth<sp/>the<sp/>path<sp/>angle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Brevik::smoothPathYaw()<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isnan(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;psi_out_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kindref="member">algConvert</ref>(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>,<sp/>this-&gt;psi_old_,<sp/>this-&gt;psi_out_old_);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;psi_old_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;psi_out_old_<sp/>=<sp/>this-&gt;psi_out_;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish<sp/>the<sp/>data<sp/>computed<sp/>from<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca" kindref="member">Brevik::publish_private</ref>(){</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_pub_,<sp/>this-&gt;desired_yaw_);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a351c87315b5ed60c9ce57ccdf16633e7" kindref="member">Brevik::start</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>initial<sp/>virtual<sp/>target<sp/>value<sp/>to<sp/>get<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1aa707b7da34dab13fc0bdb4241091289b" kindref="member">Brevik::stop</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classBrevik_1a42009e150fee33a5bbbf22c761c8d70f" kindref="member">Brevik::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>auxiliar<sp/>variables<sp/>for<sp/>the<sp/>angles*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>this-&gt;yaw_out_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>this-&gt;yaw_out_old_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>this-&gt;yaw_old_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>this-&gt;psi_out_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>this-&gt;psi_out_old_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>this-&gt;psi_old_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Brevik::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/algorithms/Brevik.cpp"/>
   </compounddef>

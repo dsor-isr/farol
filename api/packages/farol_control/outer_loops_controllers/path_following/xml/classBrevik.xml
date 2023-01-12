@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="93" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="93" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="94" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a1e41954cbc02c79772a3284e7882f705" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="94" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="94" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="95" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a6ef2a04b61cc4f068bdbbd7b69eae113" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="100" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="100" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="101" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a5d61d6ff225fb7a8316160e4fd43b118" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="101" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="101" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="102" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a92f7aa1290ee095cacfcbd232b588cad" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="102" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="102" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="103" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a4901f8854df1158101a9379e4e56bcca" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="104" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="104" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="105" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a1058a2d5ed0f7251087faf7af2117ce0" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="105" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="105" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="106" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a266c654cb3cd94fda1d67fff13c6a6d3" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -117,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="106" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="106" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="107" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a7324ae7ef9e4888232a807a5bc3fb52e" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="114" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="114" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="115" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1ab445f2388b68bfd5761a3987a6c3ee7b" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="115" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="115" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="116" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1ac7064617a7b2c528977d70db23b0b83c" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -160,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="120" column="20" bodyfile="include/algorithms/Brevik.h" bodystart="120" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="121" column="20" bodyfile="include/algorithms/Brevik.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a088e644b5595f70a6a3768c64305dfee" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -173,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="121" column="20" bodyfile="include/algorithms/Brevik.h" bodystart="121" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="122" column="20" bodyfile="include/algorithms/Brevik.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classBrevik_1a4ef3752b9c88e189dc718ec0d26ae1ff" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -186,14 +186,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="122" column="20" bodyfile="include/algorithms/Brevik.h" bodystart="122" bodyend="-1"/>
+        <location file="include/algorithms/Brevik.h" line="123" column="20" bodyfile="include/algorithms/Brevik.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBrevik_1a7c3d438cc0dfcf546be1fdcbd218c592" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Brevik::delta_h_</definition>
+        <argsstring></argsstring>
+        <name>delta_h_</name>
+        <briefdescription>
+<para><ref refid="classBrevik" kindref="compound">Brevik</ref> controller gains. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Brevik.h" line="128" column="12" bodyfile="include/algorithms/Brevik.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classBrevik_1ac841624393966798324ad0194cf994d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classBrevik_1a1da557d147030c3b84a502009f2ce3c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>Brevik::Brevik</definition>
-        <argsstring>(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub)</argsstring>
+        <argsstring>(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub, double delta_h)</argsstring>
         <name>Brevik</name>
         <param>
           <type>ros::Publisher</type>
@@ -206,6 +220,10 @@
         <param>
           <type>ros::Publisher</type>
           <declname>rabbit_pub</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>delta_h</declname>
         </param>
         <briefdescription>
 <para>Constructor method for the Path Following class. </para>
@@ -235,12 +253,20 @@
 <para>The ROS rabbit publisher </para>
 </parameterdescription>
 </parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>delta_h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Gain for the <ref refid="classBrevik" kindref="compound">Brevik</ref> controller </para>
+</parameterdescription>
+</parameteritem>
 </parameterlist>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="34" column="5" bodyfile="src/algorithms/Brevik.cpp" bodystart="4" bodyend="10"/>
+        <location file="include/algorithms/Brevik.h" line="35" column="5" bodyfile="src/algorithms/Brevik.cpp" bodystart="4" bodyend="13"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a13a11e919bbc74abaae3d054dbde6830" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -272,7 +298,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="46" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="13" bodyend="16"/>
+        <location file="include/algorithms/Brevik.h" line="47" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -301,7 +327,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="53" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="19" bodyend="82"/>
+        <location file="include/algorithms/Brevik.h" line="54" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="22" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -316,7 +342,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="58" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="105" bodyend="113"/>
+        <location file="include/algorithms/Brevik.h" line="59" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="106" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a351c87315b5ed60c9ce57ccdf16633e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -331,7 +357,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="63" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="116" bodyend="120"/>
+        <location file="include/algorithms/Brevik.h" line="64" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="117" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1aa707b7da34dab13fc0bdb4241091289b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -350,7 +376,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="70" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="123" bodyend="132"/>
+        <location file="include/algorithms/Brevik.h" line="71" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="124" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a42009e150fee33a5bbbf22c761c8d70f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -368,7 +394,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="78" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="135" bodyend="155"/>
+        <location file="include/algorithms/Brevik.h" line="79" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="136" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1aea01199e76dcacc2be914896b0600100" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -390,7 +416,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="86" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="158" bodyend="165"/>
+        <location file="include/algorithms/Brevik.h" line="87" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="159" bodyend="166"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -405,7 +431,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="108" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="85" bodyend="92"/>
+        <location file="include/algorithms/Brevik.h" line="109" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="86" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a900ff60cdda9546585cf6f34727d2328" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -418,7 +444,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="109" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="95" bodyend="102"/>
+        <location file="include/algorithms/Brevik.h" line="110" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="96" bodyend="103"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -492,11 +518,12 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/algorithms/Brevik.h" line="23" column="34" bodyfile="include/algorithms/Brevik.h" bodystart="23" bodyend="123"/>
+    <location file="include/algorithms/Brevik.h" line="23" column="34" bodyfile="include/algorithms/Brevik.h" bodystart="23" bodyend="129"/>
     <listofallmembers>
       <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Brevik</scope><name>algConvert</name></member>
-      <member refid="classBrevik_1ac841624393966798324ad0194cf994d7" prot="public" virt="non-virtual"><scope>Brevik</scope><name>Brevik</name></member>
+      <member refid="classBrevik_1a1da557d147030c3b84a502009f2ce3c7" prot="public" virt="non-virtual"><scope>Brevik</scope><name>Brevik</name></member>
       <member refid="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43" prot="public" virt="virtual"><scope>Brevik</scope><name>callPFController</name></member>
+      <member refid="classBrevik_1a7c3d438cc0dfcf546be1fdcbd218c592" prot="private" virt="non-virtual"><scope>Brevik</scope><name>delta_h_</name></member>
       <member refid="classBrevik_1aff0c3ed2db9059e10398bf89064a1853" prot="private" virt="non-virtual"><scope>Brevik</scope><name>desired_surge_</name></member>
       <member refid="classBrevik_1a1e41954cbc02c79772a3284e7882f705" prot="private" virt="non-virtual"><scope>Brevik</scope><name>desired_yaw_</name></member>
       <member refid="classBrevik_1ab445f2388b68bfd5761a3987a6c3ee7b" prot="private" virt="non-virtual"><scope>Brevik</scope><name>gamma_</name></member>

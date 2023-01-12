@@ -9390,7 +9390,7 @@ summary: Path following using Brevik's algorithm for path following Method4: bas
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classBrevik/#function-brevik">Brevik</a></strong>(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub)<br>Constructor method for the Path Following class.</td>
+<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classBrevik/#function-brevik">Brevik</a></strong>(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub, double delta_h)<br>Constructor method for the Path Following class.</td>
 </tr>
 <tr>
 <td>virtual bool</td>
@@ -9520,7 +9520,8 @@ summary: Path following using Brevik's algorithm for path following Method4: bas
 <pre><code class="language-cpp">Brevik(
     ros::Publisher surge_pub,
     ros::Publisher yaw_pub,
-    ros::Publisher rabbit_pub
+    ros::Publisher rabbit_pub,
+    double delta_h
 )
 </code></pre>
 <p>Constructor method for the Path Following class. </p>
@@ -9529,6 +9530,7 @@ summary: Path following using Brevik's algorithm for path following Method4: bas
 <li><strong>surge_pub</strong> The ROS surge publisher </li>
 <li><strong>yaw_pub</strong> The ROS yaw publisher </li>
 <li><strong>rabbit_pub</strong> The ROS rabbit publisher </li>
+<li><strong>delta_h</strong> Gain for the <a href="/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classBrevik/">Brevik</a> controller </li>
 </ul>
 <h3 id="function-setpfgains">function setPFGains</h3>
 <pre><code class="language-cpp">virtual bool setPFGains(
@@ -9586,14 +9588,14 @@ summary: Path following using Brevik's algorithm for path following Method4: bas
 <p><strong>Return</strong>: Whether the reset was made successfully or not </p>
 <p><strong>Reimplements</strong>: <a href="/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classPathFollowing/#function-resetvirtualtarget">PathFollowing::resetVirtualTarget</a></p>
 <hr />
-<p>Updated on 2022-12-22 at 14:22:37 +0000</p>
+<p>Updated on 2023-01-12 at 17:14:37 +0000</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 22, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 12, 2023</span>
       
     
   </small>

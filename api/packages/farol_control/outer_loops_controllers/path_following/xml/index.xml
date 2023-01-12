@@ -42,7 +42,8 @@
     <member refid="classBrevik_1ac7064617a7b2c528977d70db23b0b83c" kind="variable"><name>surge_pub_</name></member>
     <member refid="classBrevik_1a088e644b5595f70a6a3768c64305dfee" kind="variable"><name>yaw_pub_</name></member>
     <member refid="classBrevik_1a4ef3752b9c88e189dc718ec0d26ae1ff" kind="variable"><name>rabbit_pub_</name></member>
-    <member refid="classBrevik_1ac841624393966798324ad0194cf994d7" kind="function"><name>Brevik</name></member>
+    <member refid="classBrevik_1a7c3d438cc0dfcf546be1fdcbd218c592" kind="variable"><name>delta_h_</name></member>
+    <member refid="classBrevik_1a1da557d147030c3b84a502009f2ce3c7" kind="function"><name>Brevik</name></member>
     <member refid="classBrevik_1a13a11e919bbc74abaae3d054dbde6830" kind="function"><name>setPFGains</name></member>
     <member refid="classBrevik_1ade9cf2ff8e0fd66de96e9092b7efff43" kind="function"><name>callPFController</name></member>
     <member refid="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca" kind="function"><name>publish_private</name></member>
