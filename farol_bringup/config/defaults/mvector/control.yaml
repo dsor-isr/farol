@@ -168,3 +168,5 @@ path_following:
       kz: 0.2
       yaw_offset: 0.785
       p_sat: [1.0, 1.0] #x, y
+    brevik:
+      delta_h: 2
