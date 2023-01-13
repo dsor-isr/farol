@@ -155,12 +155,12 @@ private:
   double vc_last_offx_{0.0};
   double vc_last_offy_{0.0};
 
-  // @.@ Variables for "state" obtained from sensors [x,y,teta]
+  // @.@ Variables for "state" obtained from sensors [x,y,yaw]
   double sensor_x_{0};
   double sensor_y_{0};
   double xy_time_{-1};
-  double sensor_teta_{0};
-  double teta_time_{-1};
+  double sensor_yaw_{0};
+  double yaw_time_{-1};
   double sensor_vx_{0};
   double sensor_vy_{0};
   double v_time_{-1};

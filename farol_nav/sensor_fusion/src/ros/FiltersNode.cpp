@@ -627,9 +627,9 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   }
   // Save most recent orientation measurement
   else if( t_frame == std::string("ahrs") ){ 
-    if (msg.header.stamp.toSec() > teta_time_){
-      sensor_teta_ = msg.value[2];
-      teta_time_ = msg.header.stamp.toSec();
+    if (msg.header.stamp.toSec() > yaw_time_){
+      sensor_yaw_ = msg.value[2];
+      yaw_time_ = msg.header.stamp.toSec();
     }
   }
   // Publish state for the console /#vehicle#/nav/filter/State_sensors
@@ -638,10 +638,10 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
     state_sensors_.header.stamp = ros::Time::now();
     state_sensors_.X = sensor_y_;
     state_sensors_.Y = sensor_x_;
-    state_sensors_.Yaw = sensor_teta_*180/3.14159265359;
+    state_sensors_.Yaw = sensor_yaw_*180/M_PI;
     state_sensors_.Vx = sensor_vx_;
     state_sensors_.Vy = sensor_vy_;
-    state_sensors_.u = sensor_vx_ / cos(sensor_teta_);
+    state_sensors_.u = sensor_vx_ / cos(sensor_yaw_);
     state_sensors_pub_.publish(state_sensors_);
   }
  }
