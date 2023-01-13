@@ -13,6 +13,7 @@ find_package(catkin REQUIRED
  tf2_ros
  farol_gimmicks_library
  cmake_modules
+ message_generation
 )
 
 add_service_files(
