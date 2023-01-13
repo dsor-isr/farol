@@ -192,6 +192,7 @@ controls/inner_loops_pid:
             turn_radius_speed: "/#vehicle#/nav/filter/state"
         publishers:
             thrust_body_request: "/#vehicle#/thrust_body_request"
+            turn_radius_flag: "/#vehicle#/turn_radius_flag"
         services: 
             change_ff_gains: "/#vehicle#/inner_forces/change_ff_gains"
             change_inner_gains: "/#vehicle#/inner_forces/change_inner_gains"
@@ -210,6 +211,7 @@ controls/waypoint:
         subscribers:
             flag: "/#vehicle#/Flag"
             state: "/#vehicle#/nav/filter/state"
+            turn_radius_flag: "/#vehicle#/turn_radius_flag"
         services:
             wp_standard: "/#vehicle#/controls/send_wp_standard"
             wp_loose: "/#vehicle#/controls/send_wp_loose"
