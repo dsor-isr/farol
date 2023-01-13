@@ -30,6 +30,9 @@ catkin_package(
  CATKIN_DEPENDS
  tf2_geometry_msgs
  tf2_ros
+ roscpp
+ farol_gimmicks_library
+ dsor_msgs
 # GeographicLib
 )
 
@@ -42,7 +45,7 @@ include_directories(
  include/ros
  include/algorithms
  ${catkin_INCLUDE_DIRS}
- ${Eigen3_INCLUDE_DIRS}
+ #${Eigen3_INCLUDE_DIRS}
 )
 
 find_package(Eigen3 REQUIRED)
