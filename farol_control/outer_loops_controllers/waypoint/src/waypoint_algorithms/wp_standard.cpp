@@ -3,7 +3,7 @@
 WpStandard::WpStandard(ros::Publisher surge_pub, ros::Publisher yaw_pub)
       : surge_pub_(surge_pub), yaw_pub_(yaw_pub) {}
 
- void WpStandard::calculateRef(Vehicle_t state, WPref_t wp_ref) {
+ void WpStandard::calculateRef(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag) {
     // parameters from config
     double cdist = gains_[0];
     double ku = gains_[1];
@@ -44,10 +44,9 @@ WpStandard::WpStandard(ros::Publisher surge_pub, ros::Publisher yaw_pub)
         yaw_err += 360;
 
       double err_0_gain = 60.0;
-      double gain = tanh(-fabs(yaw_err) * 2 * FarolGimmicks::PI / err_0_gain +
-                         FarolGimmicks::PI) *
-                        0.5 +
-                    0.5; // normal
+      double gain = turn_radius_flag ? 0.5 : 0.5 + 
+                                              tanh(-fabs(yaw_err) * 2 * FarolGimmicks::PI / err_0_gain + 
+                                                   FarolGimmicks::PI) * 0.5;
 
       u_ref *= gain; 
     } else // waypoint was reached, holding position

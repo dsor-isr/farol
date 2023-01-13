@@ -4,7 +4,7 @@ WpHeading::WpHeading(ros::Publisher surge_pub, ros::Publisher sway_pub,
           ros::Publisher yaw_rate_pub)
     : surge_pub_(surge_pub), sway_pub_(sway_pub), yaw_rate_pub_(yaw_rate_pub) {}
 
-void WpHeading::calculateRef(Vehicle_t state, WPref_t wp_ref) {
+void WpHeading::calculateRef(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag) {
   // parameters from config
   double cdist{gains_[0]};
   double k1{gains_[1]};

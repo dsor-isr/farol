@@ -13,7 +13,7 @@ private:
   ros::Publisher surge_pub_;
   ros::Publisher yaw_pub_;
 
-  void calculateRef(Vehicle_t state, WPref_t wp_ref);
+  void calculateRef(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag);
 
   void publish();
 

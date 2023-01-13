@@ -64,6 +64,8 @@ void WaypointNode::loadParams() {
       nh_p_, "topics/publishers/flag", "Flag");
   state_topic_ = FarolGimmicks::getParameters<std::string>(
       nh_p_, "topics/subscribers/state", "State");
+  turn_radius_flag_topic_ = FarolGimmicks::getParameters<std::string>(
+      nh_p_, "topics/subscribers/turn_radius_flag", "turn_radius_flag");
   wp_standard_topic_ = FarolGimmicks::getParameters<std::string>(
       nh_p_, "topics/services/wp_standard", "/controls/send_wp_standard");
   wp_loose_topic_ = FarolGimmicks::getParameters<std::string>(
@@ -78,6 +80,8 @@ void WaypointNode::initializeSubscribers() {
       nh_.subscribe(flag_topic_, 10, &WaypointNode::flagCallback, this);
   state_sub_ =
       nh_.subscribe(state_topic_, 10, &WaypointNode::updateCallback, this);
+  turn_radius_flag_sub_ =
+      nh_.subscribe(turn_radius_flag_topic_, 10, &WaypointNode::turnRadiusFlagCallback, this);
 }
 
 void WaypointNode::initializePublishers() {
@@ -114,7 +118,7 @@ double WaypointNode::nodeFrequency() {
 
 void WaypointNode::timerCallback(const ros::TimerEvent &event) {
   // compute waypoint controller and publish
-  wp_controller_->compute(veh_state_, wp_ref_);
+  wp_controller_->compute(veh_state_, wp_ref_, turn_radius_flag_);
 }
 
 void WaypointNode::updateCallback(const auv_msgs::NavigationStatus &msg) {
@@ -139,6 +143,10 @@ void WaypointNode::flagCallback(const std_msgs::Int8 &msg) {
     timer_.stop();
     ROS_INFO("Some Process changed the flag to %d", msg.data);
   }
+}
+
+void WaypointNode::turnRadiusFlagCallback(const std_msgs::Bool &msg) {
+  turn_radius_flag_ = msg.data;
 }
 
 void WaypointNode::createWaypoint(WaypointController *new_wp) {
@@ -271,6 +279,5 @@ bool WaypointNode::sendWpHeadingService(
       timer_.start();
     }
   }
-  return true;
   return true;
 }

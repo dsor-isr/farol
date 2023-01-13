@@ -12,6 +12,7 @@
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/Bool.h>
 #include <std_srvs/SetBool.h>
 
 /**
@@ -172,6 +173,9 @@ private:
 
   // Forces and Torques publisher
   ros::Publisher ft_pub_;
+
+  // Turn Radius Flag Publisher
+  ros::Publisher turn_radius_flag_pub_;
   // tf2_ros::Buffer tf_buffer_;
   // tf2_ros::TransformListener tf_;
 
