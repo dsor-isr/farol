@@ -104,6 +104,10 @@ nav/filter:
         publishers:
             state: "/#vehicle#/nav/filter/state"
             currents: "/#vehicle#/nav/filter/currents"
+            state_sensors: "/#vehicle#/nav/filter/State_sensors"
+            vc_meas_velocity: "/#vehicle#/nav/filter/vc_meas_velocity"
+            vc_meas_position: "/#vehicle#/nav/filter/vc_meas_position"
+
     topics_dr:
        velocity: "/#vehicle#/measurement/velocity"
        orientation: "/#vehicle#/measurement/orientation"
@@ -113,6 +117,11 @@ nav/filter:
        dead_reckoning_console: "/#vehicle#/State_dr"
     services_dr:
        reset_filter_dr: "/#vehicle#/nav/reset_filter_dr"
+    services:
+       set_vcurrent_velocity: "/#vehicle#/nav/set_vcurrent_velocity"
+       reset_vcurrent: "/#vehicle#/nav/reset_vcurrent"
+
+
 
 nav/gnss2utm:
     node_frequency: 10

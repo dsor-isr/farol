@@ -52,7 +52,9 @@ void FiltersNode::initializePublishers() {
   
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
   currents_pub_ = nh_private_.advertise<farol_msgs::Currents>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/currents", "currents"), 10);
-  state_sensors_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/State_sensors", "State_sensors",10), 10);
+  state_sensors_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_sensors", "State_sensors",10), 10);
+  vc_meas_velocity_pub_ = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/vc_meas_velocity", "vc_meas_velocity",10), 10);
+  vc_meas_position_pub_ = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/vc_meas_position", "vc_meas_position",10), 10);
 }
 
 void FiltersNode::initializeServices(){
@@ -61,7 +63,7 @@ void FiltersNode::initializeServices(){
 }
 
 void FiltersNode::initializeTimer() {
-  list_cleaner_timer_ = nh_.createTimer(ros::Duration(10.0), &FiltersNode::listTimerCallback, this);
+  serviceslist_cleaner_timer_ = nh_.createTimer(ros::Duration(10.0), &FiltersNode::listTimerCallback, this);
   timer_ = nh_.createTimer(ros::Duration(1.0 / FiltersNode::nodeFrequency()), &FiltersNode::stateTimerCallback, this);
 }
 
@@ -211,50 +213,17 @@ void FiltersNode::loadParams() {
 // @.@ Callbacks Section / Methods
 void FiltersNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   
-  const dsor_msgs::Measurement * msg_ptr = &msg;
-
-  if(true){
-    std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
-    if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") ) {
-      if (msg.header.stamp.toSec() > xy_time_){
-        sensor_vx_ = (msg.value[0] - sensor_x_)/(msg.header.stamp.toSec() - xy_time_);
-        sensor_vy_ = (msg.value[1] - sensor_y_)/(msg.header.stamp.toSec() - xy_time_);
-        sensor_x_ = msg.value[0];
-        sensor_y_ = msg.value[1];
-        xy_time_ = msg.header.stamp.toSec();
-      }
-    }
-    else if(false){ // t_frame == std::string("bt") ){ // || t_frame  == std::string("wt") ) {
-      if (msg.header.stamp.toSec() > v_time_){
-        sensor_vx_ = msg.value[0];
-        sensor_vy_ = msg.value[1];
-        v_time_ = msg.header.stamp.toSec();
-      }
-    }
-    else if( t_frame == std::string("ahrs") ){ // || t_frame  == std::string("wt") ) {
-      if (msg.header.stamp.toSec() > teta_time_){
-        sensor_teta_ = msg.value[2];
-        teta_time_ = msg.header.stamp.toSec();
-      }
-    }
-    if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") ) {
-      state_sensors_.header.stamp = ros::Time::now();
-      state_sensors_.X = sensor_y_;
-      state_sensors_.Y = sensor_x_;
-      state_sensors_.Yaw = sensor_teta_*360/(2*3.14159265359);
-      state_sensors_.Vx = sensor_vx_;
-      state_sensors_.Vy = sensor_vy_;
-      state_sensors_.u = sensor_vx_ / cos(sensor_teta_);
-      state_sensors_pub_.publish(state_sensors_);
-    }
-  }
-
+  const dsor_msgs::Measurement * msg_ptr = &msg; // Used to make possible changing the measurement received
 
   // For Virtual Currents Simulation
-  // the flag is True ONLY if the server set_vcurrent_velocity is called
+  // the flag is True ONLY if the service set_vcurrent_velocity is called
   if (vc_flag_){
+    // publish a state msg for the console with the last measurements for 
+    // reference on the real state of the vehicle, AKA, not affected by virtual currents
+    sensorsState(msg);
     std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
     if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") || t_frame == std::string("bt") ) {
+      // change measurement to simulate the effect of sea currents
       virtualCurrents(msg);    
       msg_ptr = &msg_vc_;
     }
@@ -429,7 +398,7 @@ FiltersNode::extractVectorDouble(XmlRpc::XmlRpcValue valueXml) {
         break;
       // Do nothing in the case the type is invalid (cases that we do not handle)
       default:
-        break;
+        break;                              
     }
   }
   return vector;
@@ -603,7 +572,7 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
     vc_offx_ = 0;                    // off = new_off = 0
     vc_offy_ = 0;
     res.success = true; 
-    res.message = "Started virtual currents velocities";
+    res.message = "Started virtual currents\n";
     //sprintf(res.message, "Started virtual currents with velocities:\n\tx: %.4f \n\ty: %.4f", req.velocity_x, req.velocity_y);
   }else{
     vc_last_t_ = vc_t_;                   // t(-1) = t
@@ -618,7 +587,7 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
     vc_offx_ += ( (vc_t_ - vc_last_t_) * vc_last_vx_); // off = off(-1) + (t - t(-1)) * v(-1) 
     vc_offy_ += ( (vc_t_ - vc_last_t_) * vc_last_vy_);
     res.success = true;  
-    res.message = "Changed virtual currents velocities";
+    res.message = "Changed virtual currents velocities\n";
     //sprintf(res.message, "Changed virtual currents velocities to:\n\tx: %.4f \n\ty: %.4f", req.velocity_x, req.velocity_y);
   }
 
@@ -639,8 +608,42 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   vc_last_vy_ = 0;
   vc_last_offx_ = 0;
   vc_last_offy_ = 0;
-  res.message = "Virtual Currents have been reset. Call \"SetVCurrentVelocity\" service to set a virtual current velocity";
+  res.message = "Virtual currents simulation stoped\n";
   return true;
+ }
+
+ void FiltersNode::sensorsState(const dsor_msgs::Measurement &msg){
+  std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
+
+  // Save most recent postion measurement
+  if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") ) {
+    if (msg.header.stamp.toSec() > xy_time_){
+      sensor_vx_ = (msg.value[0] - sensor_x_)/(msg.header.stamp.toSec() - xy_time_); // last 2 measurements derivative 
+      sensor_vy_ = (msg.value[1] - sensor_y_)/(msg.header.stamp.toSec() - xy_time_);
+      sensor_x_ = msg.value[0];
+      sensor_y_ = msg.value[1];
+      xy_time_ = msg.header.stamp.toSec();
+    }
+  }
+  // Save most recent orientation measurement
+  else if( t_frame == std::string("ahrs") ){ 
+    if (msg.header.stamp.toSec() > teta_time_){
+      sensor_teta_ = msg.value[2];
+      teta_time_ = msg.header.stamp.toSec();
+    }
+  }
+  // Publish state for the console /#vehicle#/nav/filter/State_sensors
+  // velocity is computed using the derivative of the position measurement
+  if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") || t_frame == std::string("ahrs") ) {
+    state_sensors_.header.stamp = ros::Time::now();
+    state_sensors_.X = sensor_y_;
+    state_sensors_.Y = sensor_x_;
+    state_sensors_.Yaw = sensor_teta_*180/3.14159265359;
+    state_sensors_.Vx = sensor_vx_;
+    state_sensors_.Vy = sensor_vy_;
+    state_sensors_.u = sensor_vx_ / cos(sensor_teta_);
+    state_sensors_pub_.publish(state_sensors_);
+  }
  }
 
  void FiltersNode::virtualCurrents(const dsor_msgs::Measurement &msg){
@@ -662,18 +665,27 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   
     std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
     if( t_frame == std::string("gnss") || t_frame == std::string("usbl")){
-        msg_vc_.value.push_back( msg.value[0] + vc_last_offx_ + dt*vc_last_vx_ );
-        msg_vc_.value.push_back( msg.value[1] + vc_last_offy_ + dt*vc_last_vy_ );
+    // add an offset to the original message cooresponding to the effect of the virtual currents at this time
+      msg_vc_.value.push_back( msg.value[0] + vc_last_offx_ + dt*vc_last_vx_ );
+      msg_vc_.value.push_back( msg.value[1] + vc_last_offy_ + dt*vc_last_vy_ );
+      msg_vc_.noise.push_back(msg.noise[0]); 
+      msg_vc_.noise.push_back(msg.noise[1]);
+    // publish the changed measurement to a topic "/#vehicle#/nav/filter/vc_meas_position"
+      vc_meas_position_pub_.publish(msg_vc_);
     }else if( t_frame == std::string("bt") ){
-      msg_vc_.value.push_back( msg.value[0] + vc_last_vx_ );
-      msg_vc_.value.push_back( msg.value[1] + vc_last_vy_ );
+    // add an offset to the original message cooresponding to the effect of the virtual currents at this time
+    // convert velocities from inertial to body frame
+      msg_vc_.value.push_back( msg.value[0] + vc_last_vx_ *  cos(DEG2RAD(state_.orientation.z)) + vc_last_vy_ * sin(DEG2RAD(state_.orientation.z)) );
+      msg_vc_.value.push_back( msg.value[1] + vc_last_vx_ * -sin(DEG2RAD(state_.orientation.z)) + vc_last_vy_ * cos(DEG2RAD(state_.orientation.z)) );
+      msg_vc_.noise.push_back(msg.noise[0]); 
+      msg_vc_.noise.push_back(msg.noise[1]);
+    // publish the changed measurement to a topic "/#vehicle#/nav/filter/vc_meas_velocity"
+      vc_meas_velocity_pub_.publish(msg_vc_);
     }
-    msg_vc_.noise.push_back(msg.noise[0]); 
-    msg_vc_.noise.push_back(msg.noise[1]);
     return;
   }
 
-  //Message is from after the start of the latest requested VC 
+  //Message is from after the start of the latest requested virtual current
   dt = msg.header.stamp.toSec() - vc_t_;
   msg_vc_.value.clear();
   msg_vc_.noise.clear();
@@ -685,18 +697,23 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
 
   if( t_frame == std::string("gnss") || t_frame == std::string("usbl")){
+    // add an offset to the original message cooresponding to the effect of the virtual currents at this time
       msg_vc_.value.push_back( msg.value[0] + vc_offx_ + dt*vc_vx_ );
       msg_vc_.value.push_back( msg.value[1] + vc_offy_ + dt*vc_vy_ );
-     // ROS_INFO("X: %lf", msg_vc_.value[0]);
-     // ROS_INFO("Y: %lf", msg_vc_.value[1]);
+      msg_vc_.noise.push_back(msg.noise[0]); 
+      msg_vc_.noise.push_back(msg.noise[1]);
+    // publish the changed measurement to a topic "/#vehicle#/nav/filter/vc_meas_position"
+      vc_meas_position_pub_.publish(msg_vc_);
   }else if( t_frame == std::string("bt") ){
-      msg_vc_.value.push_back( msg.value[0] + vc_vx_ );
-      msg_vc_.value.push_back( msg.value[1] + vc_vy_ );
-     // ROS_INFO("dvlX: %lf", msg_vc_.value[0]);
-     // ROS_INFO("dvlY: %lf", msg_vc_.value[1]);
+    // add an offset to the original message cooresponding to the effect of the virtual currents at this time
+    // convert velocities from inertial to body frame
+      msg_vc_.value.push_back( msg.value[0] + vc_vx_ *  cos(DEG2RAD(state_.orientation.z)) + vc_vy_ * sin(DEG2RAD(state_.orientation.z)) );
+      msg_vc_.value.push_back( msg.value[1] + vc_vx_ * -sin(DEG2RAD(state_.orientation.z)) + vc_vy_ * cos(DEG2RAD(state_.orientation.z)) );
+      msg_vc_.noise.push_back(msg.noise[0]); 
+      msg_vc_.noise.push_back(msg.noise[1]);
+    // publish the changed measurement to a topic "/#vehicle#/nav/filter/vc_meas_velocity"
+      vc_meas_velocity_pub_.publish(msg_vc_);
   }
-  msg_vc_.noise.push_back(msg.noise[0]); 
-  msg_vc_.noise.push_back(msg.noise[1]);
   return;
 }
 

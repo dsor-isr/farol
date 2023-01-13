@@ -104,7 +104,9 @@ private:
   ros::Publisher state_pub_;                   ///< State publisher
   ros::Publisher currents_pub_;                ///< Currents publisher
   ros::Publisher state_sensors_pub_;           ///< "State" with only information from the most recent sensors publisher
-	
+	ros::Publisher vc_meas_velocity_pub_;
+  ros::Publisher vc_meas_position_pub_;
+
   // @.@ Services
   ros::ServiceServer set_vcurrent_velocity_srv_;
   ros::ServiceServer reset_vcurrent_srv_;
@@ -112,7 +114,8 @@ private:
   // @.@ Timer
 	ros::Timer timer_;                           ///< Principal timer iterator
   ros::Timer list_cleaner_timer_;              ///< Clear measurement list 
-	tf2_ros::Buffer tfBuffer_;                   ///< Tf Buffer
+  ros::Timer serviceslist_cleaner_timer_;      ///< ???
+  tf2_ros::Buffer tfBuffer_;                   ///< Tf Buffer
   tf2_ros::TransformListener *tfListener_;     ///< tf listener
 
   // @.@ Frames tfs
@@ -308,7 +311,8 @@ private:
 
   /* -------------------------------------------------------------------------*/
   /**
-   * @brief Function to handle set_vcurrent_velocity service. Sets some relevant class variable 
+   * @brief Function to handle set_vcurrent_velocity service. Sets the virtual currents
+   *        velocity to the value requested by the service
    *
    * @param req service Request
    * @param res service Response
@@ -318,7 +322,8 @@ private:
 
   /* -------------------------------------------------------------------------*/
   /**
-   * @brief Function to handle reset_vcurrent service. Sets to 0 some relevant class variable 
+   * @brief Function to handle reset_vcurrent service. Sets to the default values all
+   *        variables used for simulating the virtual currents 
    *
    * @param req service Request
    * @param res service Response
@@ -328,13 +333,25 @@ private:
 
   /* -------------------------------------------------------------------------*/
   /**
-   * @brief This function simulates the effect of currents in the measurements from the sensors. It takes in a dsor_msgs Measurement message and changes it or not depending on the effect of the virtual currents active 
+   * @brief This function simulates the effect of currents in the measurements from the sensors.
+   *        It takes in a dsor_msgs Measurement message and changes it or not depending on the 
+   *        effect of the set virtual current velocity
    *
    * @param msg the measurement to be changed
    */
   /* -------------------------------------------------------------------------*/
-  void  virtualCurrents(const dsor_msgs::Measurement &msg);
+  void virtualCurrents(const dsor_msgs::Measurement &msg);
 
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief This function publishes a State message for the console with the last measurements
+   *        from the sensors. Its not filtered so its quite noisy, just used for reference on 
+   *        the real position of the vehicle when the filter is being changed with virtual currents
+   *
+   * @param msg the most recent measurement
+   */
+  /* -------------------------------------------------------------------------*/
+  void sensorsState(const dsor_msgs::Measurement &msg);
 
 };
 #endif //CATKIN_WS_FILTERSNODE_H
