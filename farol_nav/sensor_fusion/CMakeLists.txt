@@ -52,5 +52,5 @@ find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 add_executable(${PROJECT_NAME} src/ros/FiltersNode.cpp src/algorithms/HorizontalFilter.cpp src/algorithms/VerticalFilter.cpp src/algorithms/RotationalFilter.cpp src/algorithms/DeadReckoning.cpp)
-add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GeographicLib_LIBRARIES})
