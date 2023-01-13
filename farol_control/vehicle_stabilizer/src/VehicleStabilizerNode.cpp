@@ -39,10 +39,10 @@ void VehicleStabilizerNode::initializeParameters() {
             std::string key = p->first;
 
             /* Get the value of the dictionary */
-            double value = p->second;
+            // double value = p->second;
 
             /* Create the dictionary of references to apply */
-            this->references_[key] = value;
+            this->references_[key] = (p->second == "null") ? default_null_ : p->second;
         }
     }
 }
@@ -58,6 +58,11 @@ void VehicleStabilizerNode::initializeROSPublishers() {
     for(std::map<std::string, double>::iterator it=this->references_.begin(); it!=this->references_.end(); ++it) {
         
         try {
+            /* Do not publish references if the value is an empty string */
+            if (this->references_[it->first] == (double)default_null_) {
+                continue;
+            }
+
             /* Attempt at getting the topic name for the publishers for each of the pre-defined reference */
             this->publishers_[it->first] = this->nh_.advertise<std_msgs::Float64>(
                 FarolGimmicks::getParameters<std::string>(

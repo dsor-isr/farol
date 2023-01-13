@@ -38,6 +38,7 @@
 
 // @.@ Farol Messages
 #include <farol_msgs/Currents.h>
+#include <farol_msgs/stateAcomms.h>
 
 // 3rd Parties
 #include <farol_gimmicks_library/FarolGimmicks.h>
@@ -103,14 +104,16 @@ private:
 	// @.@ Publishers
   ros::Publisher state_pub_;                   ///< State publisher
   ros::Publisher currents_pub_;                ///< Currents publisher
+  ros::Publisher state_acoustic_pub_;          ///< State for acustics publisher
   ros::Publisher state_sensors_pub_;           ///< "State" with only information from the most recent sensors publisher
-	ros::Publisher vc_meas_velocity_pub_;
-  ros::Publisher vc_meas_position_pub_;
+	ros::Publisher vc_meas_velocity_pub_;        ///< measurement msg with changed values for virtual currents 
+  ros::Publisher vc_meas_position_pub_;        ///< measurement msg with changed values for virtual currents
 
   // @.@ Services
-  ros::ServiceServer set_vcurrent_velocity_srv_;
-  ros::ServiceServer reset_vcurrent_srv_;
+  ros::ServiceServer set_vcurrent_velocity_srv_;  ///< Service to set a virtual current velocity 
+  ros::ServiceServer reset_vcurrent_srv_;         ///< Service to stop a virtual current simulation 
 
+	
   // @.@ Timer
 	ros::Timer timer_;                           ///< Principal timer iterator
   ros::Timer list_cleaner_timer_;              ///< Clear measurement list 
@@ -126,6 +129,7 @@ private:
 	// @.@ Handy variables
   auv_msgs::NavigationStatus state_;           ///< State
 	int zone_;                                   ///< GPS zone
+	int vehicle_ID_;                             ///< vehicle id
 	bool  northp_;                               ///< north hemisphere flag
 	double origin_lat_;                          ///< latitude origin for tfs
   double origin_lon_;                          ///< longitude origin for tfs

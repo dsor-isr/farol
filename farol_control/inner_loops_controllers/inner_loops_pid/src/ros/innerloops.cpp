@@ -25,7 +25,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw", 
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/yaw", "yaw_ref"),
-          &yaw_, &torque_request_[2], Innerloops::nodeFrequency()));
+          &yaw_, &torque_request_[2], Innerloops::nodeFrequency(),
+          &turn_radius_flag_, &turn_radius_speed_, &rate_limiter_, &turn_radius_speed_t_));
 
   controllers_.back()->setCircularUnits(true);
 
@@ -53,7 +54,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw_rate",
           FarolGimmicks::getParameters<std::string>(
             nh_, "topics/subscribers/yaw_rate", "yaw_rate_ref"),
-            &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency()));
+            &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency(),
+            &turn_radius_flag_, &turn_radius_speed_, &turn_radius_speed_t_));
 
   // Pitch rate
   controllers_.push_back(
@@ -116,12 +118,17 @@ void Innerloops::initializeSubscribers() {
   force_bypass_sub_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(
                         nh_, "topics/subscribers/force_bypass", "/force_bypass"),
                         10, &Innerloops::forceBypassCallback, this);
+
+  turn_radius_speed_sub_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(
+              nh_, "topics/subscribers/turn_radius_speed", "/turn_radius_speed"),
+              10, &Innerloops::turnRadiusSpeedCallback, this);
 }
 
 void Innerloops::initializeServices() {
   change_ff_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_ff_gains", "/inner_forces/change_ff_gains"), &Innerloops::changeFFGainsService, this);
   change_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_inner_gains", "/inner_forces/change_inner_gains"), &Innerloops::changeGainsService, this);
   change_limits_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/change_inner_limits", "/inner_forces/change_inner_limits"), &Innerloops::changeLimitsService, this);
+  turning_radius_limiter_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "topics/services/turning_radius_limiter", "/inner_forces/turning_radius_limiter"), &Innerloops::turningRadiusLimiterService, this);
 }
 
 void Innerloops::initializePublishers() {
@@ -228,6 +235,11 @@ void Innerloops::StateCallback(const auv_msgs::NavigationStatus &msg) {
   valtitude_ = -msg.seafloor_velocity.z;
 }
 
+void Innerloops::turnRadiusSpeedCallback(const auv_msgs::NavigationStatus &msg){
+  turn_radius_speed_t_ = ros::Time::now().toSec();
+  turn_radius_speed_ = msg.body_velocity.x;
+}
+
 bool Innerloops::changeFFGainsService(
     inner_loops_pid::ChangeFFGains::Request &req,
     inner_loops_pid::ChangeFFGains::Response &res) {
@@ -322,6 +334,22 @@ bool Innerloops::changeLimitsService(
     res.message += "New " + req.inner_type + " limits are" +
                    " max_out: " + std::to_string(req.max_out) +
                    " min_out: " + std::to_string(req.min_out);
+  }
+
+  return true;
+}
+
+bool Innerloops::turningRadiusLimiterService(
+    std_srvs::SetBool::Request &req,
+    std_srvs::SetBool::Response &res) {
+  if (turn_radius_flag_ == req.data){
+    res.success = false;
+    res.message = "Turning Radius Limiter already " + std::to_string(turn_radius_flag_);
+  }else{
+    turn_radius_flag_ = req.data;
+    rate_limiter_ = RateLimiter(yaw_, true);
+    res.success = true;
+    res.message = "Turning Radius Limiter set to " + std::to_string(turn_radius_flag_);
   }
 
   return true;

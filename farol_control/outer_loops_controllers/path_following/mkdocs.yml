@@ -4,4 +4,10 @@ nav:
   - Reference: "README.md"
   - Nodes:
     - path_following: "path_following.md"
-  
+  - Services:
+    - ResetVT: "ResetVT.md"
+    - SetPF: "SetPF.md"
+    - StartPF: "StartPF.md"
+    - StopPF: "StopPF.md"
+    - UpdateGainsPF: "UpdateGainsPF.md"
+  - Implementation: "implementation.md" 

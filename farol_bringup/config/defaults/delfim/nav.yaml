@@ -1,0 +1,61 @@
+filter:
+    
+    vehicle_ID: 4   
+    
+    originLat: 38.765852
+    originLon: -9.09281873
+    
+    tf:                                             # TF publishers
+        broadcast: true                             # flag to publish TF
+        frames: 
+            base_link: "base_link"
+            odom: "null"
+            map: "map"
+            world: "map"
+    
+    kalman_filter:
+        # reset filter if no measurement is received for a certain period (any measurement). 0 for no reset
+        reset_period: 0 
+        
+        # predict period
+        predict_period: 0.1
+
+        # Buffer for saving measurements while usbl fix is not received.
+        save_measurement_interval: 5
+
+        # process noise for position, velocity, angles, angle rate, acceleration, altitude
+        process_covariance: [0.4, 0.1, 0.1, 0.1, 0.1, 0.1]   
+
+        # ahrs an input(true) or measurement (false)
+        bypass_ahrs: true 
+
+        # If no frame_id ("" or "null"), the filter is initialized with the values defined here.
+        # If a frame_id is given ("gnss") the initial position of the filter comes from the sensor.
+        # Filter won't work without a initial position
+        manually_initialization:
+                frame_id: ""
+                value: [4290822.198309483, 491906.60293571133, 0.0,    # Position - x, y, z
+                        0.000000000000000, 0.0000000000000000, 0.0,    # Velocity - dx, dy, dz
+                        0.000000000000000, 0.0000000000000000, 0.0,    # Orientation - r, p, ya
+                        0.000000000000000, 0.0000000000000000, 0.0,    # Orientation Rate - dr, dp, dya
+                        0.000000000000000, 0.0000000000000000, 0.0]    # Acceleration & Altitude - ax, ay, A
+                noise: [1.000, 1.000, 0.01,                            # Set the intial state covariance here
+                        0.001, 0.001, 0.01,
+                        0.020, 0.030, 0.04,
+                        0.010, 0.010, 0.01,
+                        0.000, 0.000, 0.01]
+        
+        # NOTE: The real dvl give us 3 velocities (vx,vy, vz), but we are just using only the 2D velocities. To use the vz 
+        # is necessary to change the sensorSplit method in FilterNode (in the next iterations of the code :) ). 
+        sensors:
+            -   frame_id:   "gnss"
+                config:     "Hposition"            # [x, y]
+                noise:      [0.001, 0.001]         # if you want to use the noise directly from the sensor, fill the noise with zeros
+                outlier_tolerance: 0.2
+                reject_counter: 8
+            -   frame_id:   "ahrs"  
+                config:     "orientation"          
+                noise:      [0.001, 0.001, 0.001,  # [roll, pitch, yaw]
+                            1.0, 1.0, 1.0]         # roll_rate, picth_rate, yaw_rate]
+                outlier_tolerance: 0.5
+                reject_counter: 12

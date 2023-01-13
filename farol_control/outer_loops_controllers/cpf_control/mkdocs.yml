@@ -4,3 +4,7 @@ nav:
   - Reference: "README.md"
   - Nodes:
     - cpf_control: "cpf_control.md"
+  - Services:
+    - ChangeTopology: "ChangeTopology.md"
+    - StartStop: "StartStop.md"
+  - Implementation: "implementation.md"

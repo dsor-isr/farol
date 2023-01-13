@@ -1,14 +1,14 @@
 cpf_wifi_client:      
   broadcast_address: "127.255.255.255"
-  ID: 3
+  ID: 7
 
 cpf_wifi_server:
   broadcast_address: "127.255.255.255"
-  ID: 3
+  ID: 7
 
 # Configuration for the cooperative controller
 cpf_control:
-  ID: 3
+  ID: 7
   # Network topology and algorithm gains and thresholds   
   adjency_matrix: [0, 1, 1, 1,
                    1, 0, 1, 1,

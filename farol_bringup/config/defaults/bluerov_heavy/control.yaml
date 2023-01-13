@@ -38,9 +38,14 @@ inner_loops_pid:
     # NOTE: set this to false during identification tests (not in normal missions otherwise it might provoke unwanted behaviour)
     forces_hard_bypass: true
 
+    # turning radius limiter minimum radius and maximum timeout
+    min_turn_radius: 5.0
+    turn_radius_speed_t_max: 10.0
+
     # Yaw Params
     controllers:
         roll:
+            enabled: true
             kp: 100
             ki: 1.0
             kd: 5.0
@@ -49,6 +54,7 @@ inner_loops_pid:
             max_out:  7.0  # N.m
             min_out: -7.0
         pitch:
+            enabled: true
             kp: 26
             ki: 1.0
             kd: 5.0
@@ -57,6 +63,7 @@ inner_loops_pid:
             max_out:  7.0  # N.m
             min_out: -7.0
         yaw:
+            enabled: true
             kp: 0.16
             ki: 0.0005
             kd: 0.133
@@ -66,6 +73,7 @@ inner_loops_pid:
             min_out: -10.0
         # Yaw Rate Params
         yaw_rate:
+            enabled: true
             kp: 0.16
             ki: 0.04444
             max_err:  3.0 # deg
@@ -74,6 +82,7 @@ inner_loops_pid:
             min_out: -10.0
         # Surge Params
         surge:
+            enabled: true
             kp: 26.0
             ki: 1.0
             max_ref:  0.7  # m/s
@@ -84,6 +93,7 @@ inner_loops_pid:
             min_out: -25.0
         # Sway Params
         sway:
+            enabled: true
             kp: 26.0
             ki: 1.0 
             max_ref:  0.5  # m/s
@@ -94,6 +104,7 @@ inner_loops_pid:
             min_out: -25.0
         # Heave params
         heave:
+            enabled: true
             kp: 26.0
             ki: 1.0
             max_ref:  0.7  # m/s
@@ -104,6 +115,7 @@ inner_loops_pid:
             min_out: -15.0
         # Depth Params
         depth:
+            enabled: true
             kp: 16.0 # 5.0
             ki: 1.6  # 0.2
             kd: 60.0 # 4.8
@@ -114,6 +126,7 @@ inner_loops_pid:
             min_alt: 0.1 # m
         # Altitude Params
         altitude:
+            enabled: true
             kp: 16.0 
             ki: 1.6
             kd: 60.0
@@ -182,3 +195,5 @@ path_following:
        kz: 0.2
        yaw_offset: 0.0
        p_sat: [10.0, 10.0]
+    brevik:
+      delta_h: 10

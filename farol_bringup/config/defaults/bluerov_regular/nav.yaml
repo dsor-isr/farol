@@ -1,4 +1,7 @@
 filter:
+    
+    vehicle_ID: 6
+    
     tf:                         # TF publishers
         broadcast: true         # flag to publish TF
         frames: 
@@ -17,14 +20,8 @@ filter:
         # Buffer for saving measurements while usbl fix is not received.
         save_measurement_interval: 5
 
-        # outlier rejection threshold
-        outlier_rejection_threshold: 15
-
         # process noise for position, velocity, angles, angle rate, acceleration, altitude
-        process_covariance: [1.0, 0.1, 0.1, 0.1, 0.1, 0.1]   
-
-        # outlier reject counters for position, velocity, angle, angle rate, acceleration, altitude  
-        reject_counter:     [8, 200, 12, 4, 7, 6]              
+        process_covariance: [1.0, 0.1, 0.1, 0.1, 0.1, 0.1]
 
         # ahrs an input(true) or measurement (false)
         bypass_ahrs: true 
@@ -33,7 +30,7 @@ filter:
         # If a frame_id is given ("gnss") the initial position of the filter comes from the sensor.
         # Filter won't work without a initial position
         manually_initialization:
-            frame_id: "gnss"
+            frame_id: ""
             value: [4290794.432828665, 491936.5610790758, -0.1,    # Position - x, y, z
                     0.0, 0, 0,      # Velocity - dx, dy, dz
                     0, 0, 0,        # Orientation - r, p, ya

@@ -234,7 +234,7 @@ nav:
         - Classes:
           - api/markdown/farol_control/outer_loops_controllers/path_following/Classes
     - Inner Loops Controllers:
-      - Inner Loops Pid:
+      - Inner Loops PID:
         - Documentation: '!include ./farol_control/inner_loops_controllers/inner_loops_pid/mkdocs.yml'
         - Classes:
           - api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes

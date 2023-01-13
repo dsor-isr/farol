@@ -100,10 +100,14 @@ PathFollowing *PathFollowingNode::getDefaultControllerBrevik() {
       nh_.advertise<std_msgs::Float64>(yaw_topic, 1));
   this->publishers_.push_back(
       nh_.advertise<std_msgs::Float64>(rabbit_topic, 1));
+
+  /* Read the gains for the controller */
+  double delta_h;
+  nh_p_.getParam("controller_gains/brevik/delta_h", delta_h);
  
   /* Assign the new controller */
   return new Brevik(this->publishers_[0], 
-        this->publishers_[1], this->publishers_[2]);
+        this->publishers_[1], this->publishers_[2], delta_h);
 }
 
 PathFollowing *PathFollowingNode::getDefaultControllerAguiar() {
@@ -211,7 +215,7 @@ void PathFollowingNode::initializePublishers() {
 }
 
 /**
- * @brief  Vc callback used to update the correction velocity for cooperative
+ * @brief  Vc callback used to update the velocity correction for cooperative
  * path following
  *
  * @param msg  A pointer to an std_msgs::Float64 with the synchronization speed

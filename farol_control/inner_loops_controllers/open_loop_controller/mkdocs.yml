@@ -1,4 +1,7 @@
 site_name: Open Loop Control
 
 nav:
-  - Reference: "README.md"
+  - Documentation: "README.md"
+  - Nodes:
+    - OpenLoop: "openloop.md"
+  - Theory: "theory.md"

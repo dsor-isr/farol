@@ -51,6 +51,7 @@ void FiltersNode::initializePublishers() {
   ROS_INFO("Initializing Publishers for FiltersNode");
   
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
+  state_acoustic_pub_ = nh_private_.advertise<farol_msgs::stateAcomms>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_acomms", "state_acomms"), 10);
   currents_pub_ = nh_private_.advertise<farol_msgs::Currents>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/currents", "currents"), 10);
   state_sensors_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_sensors", "State_sensors",10), 10);
   vc_meas_velocity_pub_ = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/vc_meas_velocity", "vc_meas_velocity",10), 10);
@@ -86,6 +87,8 @@ void FiltersNode::loadParams() {
   
   ROS_INFO("Loading the name of the vehicle with correspondent ID");
   name_vehicle_id_ = FarolGimmicks::getParameters<std::string>(nh_private_, "name_vehicle_id");
+  
+  vehicle_ID_ = FarolGimmicks::getParameters<int>(nh_private_, "vehicle_ID");
   
   p_hconfig.name_vehicle_id = name_vehicle_id_;
   p_vconfig.name_vehicle_id = name_vehicle_id_;
@@ -329,7 +332,7 @@ void FiltersNode::stateTimerCallback(const ros::TimerEvent &event) {
           state_.global_position.longitude, gamma, k);
     } catch (...) {
       ROS_ERROR_DELAYED_THROTTLE(
-          2.0, "FitlersNode: Could not convert from UTM to Lan/Lon");
+          2.0, "FiltersNode: Could not convert from UTM to Lan/Lon");
     }
   }
 
@@ -344,6 +347,23 @@ void FiltersNode::stateTimerCallback(const ros::TimerEvent &event) {
   currents_msg.Header.stamp = ros::Time::now();
   // +.+ publish the corrents velocities
   currents_pub_.publish(currents_msg);
+
+  // +-+ create state_acomms msg
+  farol_msgs::stateAcomms state_acomms_msg;
+
+  state_acomms_msg.header.stamp = ros::Time::now();
+  state_acomms_msg.source_id = vehicle_ID_;
+  state_acomms_msg.position.north = state_.position.north;
+  state_acomms_msg.position.east = state_.position.east;
+  state_acomms_msg.position.depth = state_.position.depth;
+  state_acomms_msg.position_variance.north = state_.position_variance.north;
+  state_acomms_msg.position_variance.east = state_.position_variance.east;
+  state_acomms_msg.position_variance.depth = state_.position_variance.depth;
+  state_acomms_msg.global_position.latitude = state_.global_position.latitude;
+  state_acomms_msg.global_position.longitude = state_.global_position.longitude;
+  state_acomms_msg.global_position.altitude = state_.global_position.altitude;
+
+  state_acoustic_pub_.publish(state_acomms_msg);
 
 }
 

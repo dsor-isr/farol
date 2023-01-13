@@ -42,9 +42,14 @@ inner_loops_pid:
     # bypass forces (hard - ignores inner-loop / soft - sums inner-loop and manual forces value)
     forces_hard_bypass: false
 
+    # turning radius limiter minimum radius and maximum timeout
+    min_turn_radius: 5.0
+    turn_radius_speed_t_max: 10.0
+
     # Yaw Params
     controllers:
         yaw:
+            enabled: true
             kp: 0.16
             ki: 0.0005
             kd: 0.133
@@ -54,6 +59,7 @@ inner_loops_pid:
             min_out: -7.0
         # Yaw Rate Params
         yaw_rate:
+            enabled: true
             kp: 0.16
             ki: 0.04444
             max_err:  3.0 # deg
@@ -62,6 +68,7 @@ inner_loops_pid:
             min_out: -7.0
         # Surge Params
         surge:
+            enabled: true
             kp: 26.0
             ki: 3.0
             max_ref:  0.7  # m/s
@@ -72,6 +79,7 @@ inner_loops_pid:
             min_out: -15.0
         # Sway Params
         sway:
+            enabled: true
             kp: 26.0
             ki: 50.0 
             max_ref:  0.5  # m/s
@@ -82,6 +90,7 @@ inner_loops_pid:
             min_out: -25.0
         # Depth Params
         depth:
+            enabled: true
             kp: 16
             ki: 1.6
             kd: 3.37
@@ -92,6 +101,7 @@ inner_loops_pid:
             min_alt: 1.0 # m
         # Altitude Params
         altitude:
+            enabled: true
             kp: 16
             ki: 1.6
             kd: 3.37
@@ -158,3 +168,5 @@ path_following:
       kz: 0.2
       yaw_offset: 0.785
       p_sat: [1.0, 1.0] #x, y
+    brevik:
+      delta_h: 2
