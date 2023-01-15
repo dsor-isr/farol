@@ -32,6 +32,9 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <std_msgs/String.h>
 #include <std_msgs/Empty.h>
+#include <std_srvs/Empty.h>
+#include <std_srvs/SetBool.h>
+#include "sensor_fusion/SetVCurrentVelocity.h"
 
 // @.@ Farol Messages
 #include <farol_msgs/Currents.h>
@@ -101,12 +104,21 @@ private:
 	// @.@ Publishers
   ros::Publisher state_pub_;                   ///< State publisher
   ros::Publisher currents_pub_;                ///< Currents publisher
-  ros::Publisher state_acoustic_pub_;           ///< State for acustics publisher
+  ros::Publisher state_acoustic_pub_;          ///< State for acustics publisher
+  ros::Publisher state_sensors_pub_;           ///< "State" with only information from the most recent sensors publisher
+	ros::Publisher vc_meas_velocity_pub_;        ///< measurement msg with changed values for virtual currents 
+  ros::Publisher vc_meas_position_pub_;        ///< measurement msg with changed values for virtual currents
+
+  // @.@ Services
+  ros::ServiceServer set_vcurrent_velocity_srv_;  ///< Service to set a virtual current velocity 
+  ros::ServiceServer reset_vcurrent_srv_;         ///< Service to stop a virtual current simulation 
+
 	
   // @.@ Timer
 	ros::Timer timer_;                           ///< Principal timer iterator
   ros::Timer list_cleaner_timer_;              ///< Clear measurement list 
-	tf2_ros::Buffer tfBuffer_;                   ///< Tf Buffer
+  ros::Timer serviceslist_cleaner_timer_;      ///< ???
+  tf2_ros::Buffer tfBuffer_;                   ///< Tf Buffer
   tf2_ros::TransformListener *tfListener_;     ///< tf listener
 
   // @.@ Frames tfs
@@ -132,6 +144,32 @@ private:
 	VerticalFilter vFilter_;                     ///< Vertical filter instantiation
 	RotationalFilter rFilter_;                   ///< Rotational filter instantiation
 
+  // @.@ Virtual Currents Variables
+  dsor_msgs::Measurement msg_vc_;
+  bool vc_flag_{false};
+  double vc_t_{0.0};
+  double vc_vx_{0.0};
+  double vc_vy_{0.0};
+  double vc_offx_{0.0};
+  double vc_offy_{0.0};
+  
+  double vc_last_t_{0.0};
+  double vc_last_vx_{0.0};
+  double vc_last_vy_{0.0};
+  double vc_last_offx_{0.0};
+  double vc_last_offy_{0.0};
+
+  // @.@ Variables for "state" obtained from sensors [x,y,yaw]
+  double sensor_x_{0};
+  double sensor_y_{0};
+  double xy_time_{-1};
+  double sensor_yaw_{0};
+  double yaw_time_{-1};
+  double sensor_vx_{0};
+  double sensor_vy_{0};
+  double v_time_{-1};
+  farol_msgs::mState state_sensors_;
+
 	// @.@ Encapsulation the gory details of initializing subscribers, publishers and services
 	
   /* -------------------------------------------------------------------------*/
@@ -148,6 +186,13 @@ private:
   /* -------------------------------------------------------------------------*/
   void initializePublishers();
 	
+    /* -------------------------------------------------------------------------*/
+  /**
+   * @brief Initialize Services
+   */
+  /* -------------------------------------------------------------------------*/
+  void initializeServices();
+
   /* -------------------------------------------------------------------------*/
   /**
    * @brief Initialize Timers 
@@ -267,5 +312,50 @@ private:
    */
   /* -------------------------------------------------------------------------*/
   void sensorSplit(const FilterGimmicks::measurement &m_in, FilterGimmicks::measurement &m_horizontal, FilterGimmicks::measurement &m_vertical, FilterGimmicks::measurement &m_rotation);
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief Function to handle set_vcurrent_velocity service. Sets the virtual currents
+   *        velocity to the value requested by the service
+   *
+   * @param req service Request
+   * @param res service Response
+   */
+  /* -------------------------------------------------------------------------*/
+  bool setVCurrentVelocityService(sensor_fusion::SetVCurrentVelocity::Request &req, sensor_fusion::SetVCurrentVelocity::Response &res);
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief Function to handle reset_vcurrent service. Sets to the default values all
+   *        variables used for simulating the virtual currents 
+   *
+   * @param req service Request
+   * @param res service Response
+   */
+  /* -------------------------------------------------------------------------*/
+  bool resetVCurrentService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief This function simulates the effect of currents in the measurements from the sensors.
+   *        It takes in a dsor_msgs Measurement message and changes it or not depending on the 
+   *        effect of the set virtual current velocity
+   *
+   * @param msg the measurement to be changed
+   */
+  /* -------------------------------------------------------------------------*/
+  void virtualCurrents(const dsor_msgs::Measurement &msg);
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief This function publishes a State message for the console with the last measurements
+   *        from the sensors. Its not filtered so its quite noisy, just used for reference on 
+   *        the real position of the vehicle when the filter is being changed with virtual currents
+   *
+   * @param msg the most recent measurement
+   */
+  /* -------------------------------------------------------------------------*/
+  void sensorsState(const dsor_msgs::Measurement &msg);
+
 };
 #endif //CATKIN_WS_FILTERSNODE_H

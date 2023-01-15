@@ -13,12 +13,26 @@ find_package(catkin REQUIRED
  tf2_ros
  farol_gimmicks_library
  cmake_modules
+ message_generation
+)
+
+add_service_files(
+  FILES
+  SetVCurrentVelocity.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
 )
 
 catkin_package(
  CATKIN_DEPENDS
  tf2_geometry_msgs
  tf2_ros
+ roscpp
+ farol_gimmicks_library
+ dsor_msgs
 # GeographicLib
 )
 
@@ -31,12 +45,12 @@ include_directories(
  include/ros
  include/algorithms
  ${catkin_INCLUDE_DIRS}
- ${Eigen3_INCLUDE_DIRS}
+ #${Eigen3_INCLUDE_DIRS}
 )
 
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 add_executable(${PROJECT_NAME} src/ros/FiltersNode.cpp src/algorithms/HorizontalFilter.cpp src/algorithms/VerticalFilter.cpp src/algorithms/RotationalFilter.cpp src/algorithms/DeadReckoning.cpp)
-add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GeographicLib_LIBRARIES})
