@@ -95,8 +95,14 @@
     <member refid="classFiltersNode_1a7a8f5d534d43b63b50ff619462ba90b8" kind="variable"><name>state_pub_</name></member>
     <member refid="classFiltersNode_1a3cb327d2d800f8d3184ddc94b8fd8d29" kind="variable"><name>currents_pub_</name></member>
     <member refid="classFiltersNode_1ab5e09575f4acfb2bdf7ef45a0d099455" kind="variable"><name>state_acoustic_pub_</name></member>
+    <member refid="classFiltersNode_1a4c63557bb8bfefcc7a73bc7612b134b9" kind="variable"><name>state_sensors_pub_</name></member>
+    <member refid="classFiltersNode_1a5f7862a9125006be59979a0b951d3506" kind="variable"><name>vc_meas_velocity_pub_</name></member>
+    <member refid="classFiltersNode_1a875e32c34d6b8ff4f114ae29d71797cb" kind="variable"><name>vc_meas_position_pub_</name></member>
+    <member refid="classFiltersNode_1a84b92f3069f0bc8d1be9d4059b5b5044" kind="variable"><name>set_vcurrent_velocity_srv_</name></member>
+    <member refid="classFiltersNode_1a23bbde5088c0724068114aced5ff8787" kind="variable"><name>reset_vcurrent_srv_</name></member>
     <member refid="classFiltersNode_1a12a575914e67c3c3cb91439f365cbdb1" kind="variable"><name>timer_</name></member>
     <member refid="classFiltersNode_1ab90a11d742f977e129ca48c52a5a35a0" kind="variable"><name>list_cleaner_timer_</name></member>
+    <member refid="classFiltersNode_1afcd23f0000326766bd06c343f2fa3a72" kind="variable"><name>serviceslist_cleaner_timer_</name></member>
     <member refid="classFiltersNode_1ada3e323dc2273f3731c801a5bd7e4a81" kind="variable"><name>tfBuffer_</name></member>
     <member refid="classFiltersNode_1a40de20d162b2917d53251900c134e2a6" kind="variable"><name>tfListener_</name></member>
     <member refid="classFiltersNode_1ae2141b2b86238b1fe567d6d49148622b" kind="variable"><name>world_frame_id_</name></member>
@@ -115,11 +121,33 @@
     <member refid="classFiltersNode_1ac91ef7aad1aae34900e08f19c2583e1d" kind="variable"><name>hFilter_</name></member>
     <member refid="classFiltersNode_1a63a380385088558b3b2401dbeed28fef" kind="variable"><name>vFilter_</name></member>
     <member refid="classFiltersNode_1ad1e269fdf079e914206ba09193c1c7fc" kind="variable"><name>rFilter_</name></member>
+    <member refid="classFiltersNode_1a7aa031a297ceb7f9a44e5c2caaaeca53" kind="variable"><name>msg_vc_</name></member>
+    <member refid="classFiltersNode_1a419e2f41e7c048d8b303acdf9f04a154" kind="variable"><name>vc_flag_</name></member>
+    <member refid="classFiltersNode_1a78e340f37b7bebe6475e3fa4670b33a6" kind="variable"><name>vc_t_</name></member>
+    <member refid="classFiltersNode_1afa79d44502df878fb836c2319e2d258c" kind="variable"><name>vc_vx_</name></member>
+    <member refid="classFiltersNode_1a42c711b9598e12f62398d7fcf68aba90" kind="variable"><name>vc_vy_</name></member>
+    <member refid="classFiltersNode_1aa66519e7048f4fc9280369bd870039fe" kind="variable"><name>vc_offx_</name></member>
+    <member refid="classFiltersNode_1abb8c8f006e1c1370472eaf300315727f" kind="variable"><name>vc_offy_</name></member>
+    <member refid="classFiltersNode_1afe6f1ecfbb764d5807290b2a1ae0ec70" kind="variable"><name>vc_last_t_</name></member>
+    <member refid="classFiltersNode_1a0c7248fc65c3c3cadc506b47e914e494" kind="variable"><name>vc_last_vx_</name></member>
+    <member refid="classFiltersNode_1a0e6bb3fba87f48249b9b91ec223a4f7f" kind="variable"><name>vc_last_vy_</name></member>
+    <member refid="classFiltersNode_1ab5e6c4443225f7398bf5231fb3d5920e" kind="variable"><name>vc_last_offx_</name></member>
+    <member refid="classFiltersNode_1aadfc95e75c9f433c0cfe09735700af9c" kind="variable"><name>vc_last_offy_</name></member>
+    <member refid="classFiltersNode_1a12c12499c0517f9b2cd6c282c5ab2f2a" kind="variable"><name>sensor_x_</name></member>
+    <member refid="classFiltersNode_1a7d876058be4472bf67e980e429e0a7c6" kind="variable"><name>sensor_y_</name></member>
+    <member refid="classFiltersNode_1ae6490b6bf84e345b502f0e22350df9cd" kind="variable"><name>xy_time_</name></member>
+    <member refid="classFiltersNode_1a1610305530df716a343d6f40a2022376" kind="variable"><name>sensor_yaw_</name></member>
+    <member refid="classFiltersNode_1ac9c3b519fc80a2a8249e6c7aa0c4d721" kind="variable"><name>yaw_time_</name></member>
+    <member refid="classFiltersNode_1abdb740621065508dd9d07b372f1a85e0" kind="variable"><name>sensor_vx_</name></member>
+    <member refid="classFiltersNode_1a3e8f5c6502a403370eb15be3d54917e3" kind="variable"><name>sensor_vy_</name></member>
+    <member refid="classFiltersNode_1a660f3bcdf1ef2c90f8683f8cac7d1e06" kind="variable"><name>v_time_</name></member>
+    <member refid="classFiltersNode_1a3e94d3f0961e41e1852968ac67bf861a" kind="variable"><name>state_sensors_</name></member>
     <member refid="classFiltersNode_1a49d2e8adb13b49affd01f99dce525be3" kind="function"><name>FiltersNode</name></member>
     <member refid="classFiltersNode_1a0b77b79828d37ade676078d8e3f16c1a" kind="function"><name>~FiltersNode</name></member>
     <member refid="classFiltersNode_1ab8595e87f3b9e51348f7885a88468d5f" kind="function"><name>nodeFrequency</name></member>
     <member refid="classFiltersNode_1a1d6ea0ca641fd0d0a2c8cb6f94bd96fc" kind="function"><name>initializeSubscribers</name></member>
     <member refid="classFiltersNode_1a4ef9fe4389a617e856a98a65c9963f2a" kind="function"><name>initializePublishers</name></member>
+    <member refid="classFiltersNode_1a77efee705bbde5ed7dedfcfcbf076319" kind="function"><name>initializeServices</name></member>
     <member refid="classFiltersNode_1a3b6221e3025fad5abb499c5767735cfd" kind="function"><name>initializeTimer</name></member>
     <member refid="classFiltersNode_1a589a0ea2eb0281c4b68e6b45e85cb046" kind="function"><name>loadParams</name></member>
     <member refid="classFiltersNode_1a2f5b442d75d4ed7d84fc5d0769f6f6b3" kind="function"><name>stateTimerCallback</name></member>
@@ -131,6 +159,10 @@
     <member refid="classFiltersNode_1a3b64e38f56e01ede1a68e5aa664f9da0" kind="function"><name>extractVectorDouble</name></member>
     <member refid="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" kind="function"><name>extractArrayDouble</name></member>
     <member refid="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" kind="function"><name>sensorSplit</name></member>
+    <member refid="classFiltersNode_1a7b8612736ea28cf10b3c4d2f984bfd21" kind="function"><name>setVCurrentVelocityService</name></member>
+    <member refid="classFiltersNode_1ac1fccbf77148622076b41c03cec51303" kind="function"><name>resetVCurrentService</name></member>
+    <member refid="classFiltersNode_1a68d1308a58b95fd91339f9bd42740261" kind="function"><name>virtualCurrents</name></member>
+    <member refid="classFiltersNode_1a9a733c45e31717365c37d1a053694df0" kind="function"><name>sensorsState</name></member>
   </compound>
   <compound refid="classHorizontalFilter" kind="class"><name>HorizontalFilter</name>
     <member refid="classHorizontalFilter_1a89aa392b71d0f74e3814f939dab908e8" kind="variable"><name>MEAS_LEN</name></member>
