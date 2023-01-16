@@ -133,10 +133,10 @@
         </inbodydescription>
         <location file="include/waypoint_algorithms/wp_controller.h" line="65" column="8" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="65" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classWaypointController_1a233a3c284ac94057c895e81e2c5e724c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void WaypointController::compute</definition>
-        <argsstring>(Vehicle_t state, WPref_t wp_ref)</argsstring>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag)</argsstring>
         <name>compute</name>
         <param>
           <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
@@ -145,6 +145,10 @@
         <param>
           <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
           <declname>wp_ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>turn_radius_flag</declname>
         </param>
         <briefdescription>
 <para>Computes and publishes the output of the controller. </para>
@@ -192,14 +196,14 @@
         </inbodydescription>
         <location file="include/waypoint_algorithms/wp_controller.h" line="85" column="16"/>
       </memberdef>
-      <memberdef kind="function" id="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="classWaypointController_1aff9214ceba4e7d320b62d98c94637952" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
         <definition>virtual void WaypointController::calculateRef</definition>
-        <argsstring>(Vehicle_t state, WPref_t wp_ref)=0</argsstring>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref, bool turn_radius_bool)=0</argsstring>
         <name>calculateRef</name>
-        <reimplementedby refid="classWpLoose_1a7096b938c7bf378082d2a0e37c5d0003">calculateRef</reimplementedby>
-        <reimplementedby refid="classWpHeading_1a69706eee842009312c061e2c962be64a">calculateRef</reimplementedby>
-        <reimplementedby refid="classWpStandard_1afa553e861a88f9adfd349c0dff125db1">calculateRef</reimplementedby>
+        <reimplementedby refid="classWpLoose_1ab6720351c32afa90f3766fe9d25cfd0c">calculateRef</reimplementedby>
+        <reimplementedby refid="classWpHeading_1a7c88c5b325ea1ebfbf7dd69057063571">calculateRef</reimplementedby>
+        <reimplementedby refid="classWpStandard_1ab9a245f44493ad8a6c1b3f73e41ec86c">calculateRef</reimplementedby>
         <param>
           <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
           <declname>state</declname>
@@ -207,6 +211,10 @@
         <param>
           <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
           <declname>wp_ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>turn_radius_bool</declname>
         </param>
         <briefdescription>
 <para>Virtual function to compute the waypoint controller. </para>
@@ -447,8 +455,8 @@
     </inheritancegraph>
     <location file="include/waypoint_algorithms/wp_controller.h" line="47" column="25" bodyfile="include/waypoint_algorithms/wp_controller.h" bodystart="47" bodyend="153"/>
     <listofallmembers>
-      <member refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" prot="protected" virt="pure-virtual"><scope>WaypointController</scope><name>calculateRef</name></member>
-      <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" virt="non-virtual"><scope>WaypointController</scope><name>compute</name></member>
+      <member refid="classWaypointController_1aff9214ceba4e7d320b62d98c94637952" prot="protected" virt="pure-virtual"><scope>WaypointController</scope><name>calculateRef</name></member>
+      <member refid="classWaypointController_1a233a3c284ac94057c895e81e2c5e724c" prot="public" virt="non-virtual"><scope>WaypointController</scope><name>compute</name></member>
       <member refid="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>gains_</name></member>
       <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>getSurgeOut</name></member>
       <member refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" prot="protected" virt="non-virtual"><scope>WaypointController</scope><name>getSwayOut</name></member>

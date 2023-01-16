@@ -7,25 +7,28 @@
       <node id="10">
         <label>geometry_msgs/PointStamped.h</label>
       </node>
-      <node id="17">
-        <label>wp_loose.h</label>
-        <link refid="wp__loose_8h_source"/>
-        <childnode refid="15" relation="include">
-        </childnode>
+      <node id="14">
+        <label>std_msgs/Bool.h</label>
       </node>
       <node id="18">
+        <label>wp_loose.h</label>
+        <link refid="wp__loose_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
         <label>wp_standard.h</label>
         <link refid="wp__standard_8h_source"/>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="4">
         <label>stdlib.h</label>
       </node>
-      <node id="15">
+      <node id="16">
         <label>wp_controller.h</label>
         <link refid="wp__controller_8h_source"/>
-        <childnode refid="16" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
@@ -66,9 +69,11 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -80,10 +85,10 @@
       <node id="12">
         <label>std_msgs/Float64.h</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>wp_heading.h</label>
         <link refid="wp__heading_8h_source"/>
-        <childnode refid="15" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -98,7 +103,7 @@
       <node id="11">
         <label>farol_gimmicks_library/FarolGimmicks.h</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>iostream</label>
       </node>
       <node id="13">

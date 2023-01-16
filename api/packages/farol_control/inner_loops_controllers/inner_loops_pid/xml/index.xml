@@ -31,6 +31,7 @@
     <member refid="classInnerloops_1ad36a951a2685bcd88f1d87a1a9ae6597" kind="variable"><name>force_bypass_</name></member>
     <member refid="classInnerloops_1a28b10b0553bde30d36f470b291fb6375" kind="variable"><name>ref_force_bypass_</name></member>
     <member refid="classInnerloops_1aff8e5ba1b1f1aa866a4c1db82c3b4b19" kind="variable"><name>ft_pub_</name></member>
+    <member refid="classInnerloops_1ad72adfca8e78dda877184c05535a87ae" kind="variable"><name>turn_radius_flag_pub_</name></member>
     <member refid="classInnerloops_1ab6b323177d85dfb749be667babe4cef1" kind="variable"><name>turn_radius_flag_</name></member>
     <member refid="classInnerloops_1a66b813bd14d9c9b9a6095c9870e22832" kind="variable"><name>rate_limiter_</name></member>
     <member refid="classInnerloops_1a6dad2559270a7aba30cc02660ce98fad" kind="variable"><name>turn_radius_speed_</name></member>

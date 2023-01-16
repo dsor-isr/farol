@@ -34,11 +34,16 @@
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
       </node>
       <node id="15">
         <label>dsor_utils/rotations.hpp</label>
       </node>
-      <node id="24">
+      <node id="23">
+        <label>std_msgs/Bool.h</label>
+      </node>
+      <node id="25">
         <label>safeties.h</label>
         <link refid="safeties_8h_source"/>
         <childnode refid="22" relation="include">
@@ -84,7 +89,7 @@
       <node id="19">
         <label>inner_loops_pid/ChangeInnerGains.h</label>
       </node>
-      <node id="23">
+      <node id="24">
         <label>std_srvs/SetBool.h</label>
       </node>
       <node id="8">
@@ -144,7 +149,7 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
     </incdepgraph>

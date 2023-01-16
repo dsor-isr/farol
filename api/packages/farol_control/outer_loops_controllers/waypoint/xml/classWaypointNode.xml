@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="38" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="38" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="39" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1ae8bc0d6bc97c3bb3d52daa1967bb10fa" prot="private" static="no" mutable="no">
         <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="39" column="11" bodyfile="include/waypoint_ros/waypoint.h" bodystart="39" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="40" column="11" bodyfile="include/waypoint_ros/waypoint.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a74f3e8191ee016497d669780c0d2c1ad" prot="private" static="no" mutable="no">
         <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="40" column="13" bodyfile="include/waypoint_ros/waypoint.h" bodystart="40" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="41" column="13" bodyfile="include/waypoint_ros/waypoint.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1ae802ff254d2012447b1fdb000ec7d4a8" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="41" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="41" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="42" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a6b6cf8a6753c8545e1bbd9548bcbd4cd" prot="private" static="no" mutable="no">
         <type>ros::NodeHandle</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="44" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="44" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="45" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1acee0cec3245d3c4e1c9c908128925b94" prot="private" static="no" mutable="no">
         <type>ros::NodeHandle</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="45" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="45" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="46" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a0ace5a6097665768ee011f994bc92e83" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="48" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="48" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="49" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a4e650a7521a9ece79ed5e8d6406c83d8" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -114,7 +114,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="49" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="49" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="50" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a679778007c88b12a41199da45bd7e20d" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber WaypointNode::turn_radius_flag_sub_</definition>
+        <argsstring></argsstring>
+        <name>turn_radius_flag_sub_</name>
+        <briefdescription>
+<para>turn radius limiter flag subscriber </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="51" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a4644e068e69f3d9a80de768c7fceec38" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -128,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="52" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="52" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="54" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1aee38619f88d931adb80f0843b75c1fb8" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -142,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="53" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="53" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="55" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a6c86b1627e5a9c3e9590eaa2d66ada55" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -156,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="54" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="54" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="56" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1acb3a21a816466d0d53bf970ba26fb5e4" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -170,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="55" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="55" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="57" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1afe53cbcd63c47939e0497f10c77d8544" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -184,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="56" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="56" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="58" column="18" bodyfile="include/waypoint_ros/waypoint.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1af01668fd19a2723be3f88ab762463f29" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -198,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="59" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="59" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="61" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a090091a4b99fa99c81f1db201b2f3264" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -212,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="60" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="60" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="62" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a7265e443dbaced587a84c4fa8df95923" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -226,7 +240,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="61" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="61" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="63" column="22" bodyfile="include/waypoint_ros/waypoint.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a99bbf591da97af6ff2c8cf91355e2915" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
@@ -240,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="64" column="14" bodyfile="include/waypoint_ros/waypoint.h" bodystart="64" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="66" column="14" bodyfile="include/waypoint_ros/waypoint.h" bodystart="66" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1aa8e2912038dea7b384be7fe259ebd515" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -253,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="67" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="67" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="69" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a76d996813803ae3cae783ccad67f6902" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -266,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="70" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="70" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="72" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a44396d07097d310526f7a35061467814" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -279,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="71" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="71" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="73" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1ad94139a4923c0a83fb1abeff72c61768" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -292,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="72" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="72" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="74" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a74507016e83f8ccc707576b131037c5e" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -305,7 +319,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="73" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="73" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="75" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1ad97ec44e3e78f93b31a21ad93fd8617a" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -318,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="76" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="76" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="78" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a3d7e848f4bfaee6cf8b582179fb961b0" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -331,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="77" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="77" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="79" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a301ef83646b34dd3d7d619ac4641bc7c" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -344,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="78" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="78" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="80" column="10" bodyfile="include/waypoint_ros/waypoint.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a8ce53862e39e439d68c7ca04120438e9" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -357,7 +371,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="81" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="81" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="83" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1abd8c9f13fbae4f9b658e3fea5929d271" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -370,7 +384,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="82" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="82" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="84" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a1c6ab2a92734f082af44386bab4ec7f0" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string WaypointNode::turn_radius_flag_topic_</definition>
+        <argsstring></argsstring>
+        <name>turn_radius_flag_topic_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="85" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1adcf0a026215d708e3388e3afc3ea53de" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -383,7 +410,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="83" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="83" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="86" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a1fe262481bec1ac84944eeceae10963e" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -396,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="84" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="84" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="87" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a4fafc9bcd6e1f06c7174ae4c23fe18f7" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -409,7 +436,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="85" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="85" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="88" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1ac7632c9d8ebff125ebdbf0c8a2892f74" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -422,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="86" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="86" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="89" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1aaeba389334245a256db99ee9c7b1003d" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -435,7 +462,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="87" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="87" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="90" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1ad1f725d866d90158ed3291449b389994" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -448,7 +475,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="88" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="88" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="91" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1aeac44f9205307b5071fa89598a4f2b0f" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -461,7 +488,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="89" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="89" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="92" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classWaypointNode_1a6d57a9f1be0f23c804bb94fb1675da94" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -474,7 +501,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="90" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="90" bodyend="-1"/>
+        <location file="include/waypoint_ros/waypoint.h" line="93" column="15" bodyfile="include/waypoint_ros/waypoint.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classWaypointNode_1a1d06adb53f316cb6c9ddb8f4e14519f0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WaypointNode::turn_radius_flag_</definition>
+        <argsstring></argsstring>
+        <name>turn_radius_flag_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="96" column="8" bodyfile="include/waypoint_ros/waypoint.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -497,7 +538,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="32" column="3" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="8" bodyend="17"/>
+        <location file="include/waypoint_ros/waypoint.h" line="33" column="3" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="8" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1ae80f950dc594a4314d314b12d2482da0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -510,7 +551,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="35" column="3" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="19" bodyend="36"/>
+        <location file="include/waypoint_ros/waypoint.h" line="36" column="3" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="19" bodyend="36"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -526,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="95" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="75" bodyend="81"/>
+        <location file="include/waypoint_ros/waypoint.h" line="101" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="77" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1ace54335fdebf5e8fccd9756c645540f8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -540,7 +581,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="100" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="83" bodyend="90"/>
+        <location file="include/waypoint_ros/waypoint.h" line="106" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="87" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a72f6dd13019328eb7bd21ad998307db6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -554,7 +595,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="105" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="92" bodyend="100"/>
+        <location file="include/waypoint_ros/waypoint.h" line="111" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="96" bodyend="104"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1ac697c7c6efff700c45c50e98608a1a1a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -568,7 +609,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="110" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="102" bodyend="106"/>
+        <location file="include/waypoint_ros/waypoint.h" line="116" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="106" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1ac1bd4ca805817bf789cc573274a68090" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -582,7 +623,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="115" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="38" bodyend="73"/>
+        <location file="include/waypoint_ros/waypoint.h" line="121" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="38" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1aca9ca6b432249537d44667d06628161d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -599,7 +640,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="122" column="10" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="108" bodyend="113"/>
+        <location file="include/waypoint_ros/waypoint.h" line="128" column="10" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="112" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a7c1128d42de735167ef033a2baa3d612" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -627,7 +668,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="131" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="120" bodyend="133"/>
+        <location file="include/waypoint_ros/waypoint.h" line="137" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="124" bodyend="137"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1aaed5f7ee74dc0434e9cde401fde8c286" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -655,7 +696,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="139" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="135" bodyend="142"/>
+        <location file="include/waypoint_ros/waypoint.h" line="145" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="139" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classWaypointNode_1a7b170b30b7c3414751a318b008936245" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaypointNode::turnRadiusFlagCallback</definition>
+        <argsstring>(const std_msgs::Bool &amp;msg)</argsstring>
+        <name>turnRadiusFlagCallback</name>
+        <param>
+          <type>const std_msgs::Bool &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Callback function of the turn radius flag topic. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains the flag info </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/waypoint_ros/waypoint.h" line="152" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="148" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a0fdaf6b4845cbc9c6476e35fb593fbf5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -683,7 +752,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="147" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="115" bodyend="118"/>
+        <location file="include/waypoint_ros/waypoint.h" line="160" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="119" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a6770ca3284e81a9d044f606c41929d94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -725,7 +794,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="157" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="178" bodyend="208"/>
+        <location file="include/waypoint_ros/waypoint.h" line="170" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="186" bodyend="216"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a50c5e02f7d2e255f866ab11fe025b608" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -767,7 +836,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="167" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="210" bodyend="240"/>
+        <location file="include/waypoint_ros/waypoint.h" line="180" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="218" bodyend="248"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a7f9c92860981f2808046089f4946e5d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -809,7 +878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="179" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="242" bodyend="276"/>
+        <location file="include/waypoint_ros/waypoint.h" line="192" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="250" bodyend="283"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a9d23c787edfd629de112646c80a8da19" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -837,7 +906,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="187" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="144" bodyend="150"/>
+        <location file="include/waypoint_ros/waypoint.h" line="200" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="152" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="classWaypointNode_1a0f61eab0790a9add760625d7c4d0d41f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -858,7 +927,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_ros/waypoint.h" line="189" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="152" bodyend="176"/>
+        <location file="include/waypoint_ros/waypoint.h" line="202" column="8" bodyfile="src/waypoint_ros/waypoint.cpp" bodystart="160" bodyend="184"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -866,7 +935,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/waypoint_ros/waypoint.h" line="30" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="30" bodyend="190"/>
+    <location file="include/waypoint_ros/waypoint.h" line="31" column="19" bodyfile="include/waypoint_ros/waypoint.h" bodystart="31" bodyend="203"/>
     <listofallmembers>
       <member refid="classWaypointNode_1aa8e2912038dea7b384be7fe259ebd515" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>cdist_</name></member>
       <member refid="classWaypointNode_1a9d23c787edfd629de112646c80a8da19" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>createWaypoint</name></member>
@@ -898,6 +967,10 @@
       <member refid="classWaypointNode_1a8ce53862e39e439d68c7ca04120438e9" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>state_topic_</name></member>
       <member refid="classWaypointNode_1a99bbf591da97af6ff2c8cf91355e2915" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>timer_</name></member>
       <member refid="classWaypointNode_1a0fdaf6b4845cbc9c6476e35fb593fbf5" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>timerCallback</name></member>
+      <member refid="classWaypointNode_1a1d06adb53f316cb6c9ddb8f4e14519f0" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>turn_radius_flag_</name></member>
+      <member refid="classWaypointNode_1a679778007c88b12a41199da45bd7e20d" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>turn_radius_flag_sub_</name></member>
+      <member refid="classWaypointNode_1a1c6ab2a92734f082af44386bab4ec7f0" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>turn_radius_flag_topic_</name></member>
+      <member refid="classWaypointNode_1a7b170b30b7c3414751a318b008936245" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>turnRadiusFlagCallback</name></member>
       <member refid="classWaypointNode_1a4644e068e69f3d9a80de768c7fceec38" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>u_ref_pub_</name></member>
       <member refid="classWaypointNode_1a1fe262481bec1ac84944eeceae10963e" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>u_ref_topic_</name></member>
       <member refid="classWaypointNode_1a7c1128d42de735167ef033a2baa3d612" prot="private" virt="non-virtual"><scope>WaypointNode</scope><name>updateCallback</name></member>

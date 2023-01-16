@@ -19,9 +19,9 @@
     <member refid="classWaypointController_1ab2de838f1c139ef237c25f935a55941b" kind="function"><name>~WaypointController</name></member>
     <member refid="classWaypointController_1a1ae265657274a4c2e1bd49b3ba5a5d9c" kind="function"><name>setFrequency</name></member>
     <member refid="classWaypointController_1a0eb110f9001223cf7388f0f42a56a826" kind="function"><name>setGains</name></member>
-    <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" kind="function"><name>compute</name></member>
+    <member refid="classWaypointController_1a233a3c284ac94057c895e81e2c5e724c" kind="function"><name>compute</name></member>
     <member refid="classWaypointController_1ad6164e090fe8091c002c7a29fc15e087" kind="function"><name>publish</name></member>
-    <member refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84" kind="function"><name>calculateRef</name></member>
+    <member refid="classWaypointController_1aff9214ceba4e7d320b62d98c94637952" kind="function"><name>calculateRef</name></member>
     <member refid="classWaypointController_1a42c7c95caa0ed5594fae37fb4a56104c" kind="function"><name>getYawOut</name></member>
     <member refid="classWaypointController_1a613404d31c34f56649669c7d95b5361a" kind="function"><name>getYawrateOut</name></member>
     <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" kind="function"><name>getSurgeOut</name></member>
@@ -40,6 +40,7 @@
     <member refid="classWaypointNode_1acee0cec3245d3c4e1c9c908128925b94" kind="variable"><name>nh_p_</name></member>
     <member refid="classWaypointNode_1a0ace5a6097665768ee011f994bc92e83" kind="variable"><name>flag_sub_</name></member>
     <member refid="classWaypointNode_1a4e650a7521a9ece79ed5e8d6406c83d8" kind="variable"><name>state_sub_</name></member>
+    <member refid="classWaypointNode_1a679778007c88b12a41199da45bd7e20d" kind="variable"><name>turn_radius_flag_sub_</name></member>
     <member refid="classWaypointNode_1a4644e068e69f3d9a80de768c7fceec38" kind="variable"><name>u_ref_pub_</name></member>
     <member refid="classWaypointNode_1aee38619f88d931adb80f0843b75c1fb8" kind="variable"><name>yaw_ref_pub_</name></member>
     <member refid="classWaypointNode_1a6c86b1627e5a9c3e9590eaa2d66ada55" kind="variable"><name>flag_pub_</name></member>
@@ -59,6 +60,7 @@
     <member refid="classWaypointNode_1a301ef83646b34dd3d7d619ac4641bc7c" kind="variable"><name>k3_</name></member>
     <member refid="classWaypointNode_1a8ce53862e39e439d68c7ca04120438e9" kind="variable"><name>state_topic_</name></member>
     <member refid="classWaypointNode_1abd8c9f13fbae4f9b658e3fea5929d271" kind="variable"><name>flag_topic_</name></member>
+    <member refid="classWaypointNode_1a1c6ab2a92734f082af44386bab4ec7f0" kind="variable"><name>turn_radius_flag_topic_</name></member>
     <member refid="classWaypointNode_1adcf0a026215d708e3388e3afc3ea53de" kind="variable"><name>wp_ref_topic_</name></member>
     <member refid="classWaypointNode_1a1fe262481bec1ac84944eeceae10963e" kind="variable"><name>u_ref_topic_</name></member>
     <member refid="classWaypointNode_1a4fafc9bcd6e1f06c7174ae4c23fe18f7" kind="variable"><name>v_ref_topic_</name></member>
@@ -67,6 +69,7 @@
     <member refid="classWaypointNode_1ad1f725d866d90158ed3291449b389994" kind="variable"><name>wp_standard_topic_</name></member>
     <member refid="classWaypointNode_1aeac44f9205307b5071fa89598a4f2b0f" kind="variable"><name>wp_loose_topic_</name></member>
     <member refid="classWaypointNode_1a6d57a9f1be0f23c804bb94fb1675da94" kind="variable"><name>wp_heading_topic_</name></member>
+    <member refid="classWaypointNode_1a1d06adb53f316cb6c9ddb8f4e14519f0" kind="variable"><name>turn_radius_flag_</name></member>
     <member refid="classWaypointNode_1a3e102d1f73b1bfab52e8bc5328318b86" kind="function"><name>WaypointNode</name></member>
     <member refid="classWaypointNode_1ae80f950dc594a4314d314b12d2482da0" kind="function"><name>~WaypointNode</name></member>
     <member refid="classWaypointNode_1a6308fbf7ade97e911d3e6d5c25ce61bf" kind="function"><name>initializeSubscribers</name></member>
@@ -77,6 +80,7 @@
     <member refid="classWaypointNode_1aca9ca6b432249537d44667d06628161d" kind="function"><name>nodeFrequency</name></member>
     <member refid="classWaypointNode_1a7c1128d42de735167ef033a2baa3d612" kind="function"><name>updateCallback</name></member>
     <member refid="classWaypointNode_1aaed5f7ee74dc0434e9cde401fde8c286" kind="function"><name>flagCallback</name></member>
+    <member refid="classWaypointNode_1a7b170b30b7c3414751a318b008936245" kind="function"><name>turnRadiusFlagCallback</name></member>
     <member refid="classWaypointNode_1a0fdaf6b4845cbc9c6476e35fb593fbf5" kind="function"><name>timerCallback</name></member>
     <member refid="classWaypointNode_1a6770ca3284e81a9d044f606c41929d94" kind="function"><name>sendWpStandardService</name></member>
     <member refid="classWaypointNode_1a50c5e02f7d2e255f866ab11fe025b608" kind="function"><name>sendWpLooseService</name></member>
@@ -88,7 +92,7 @@
     <member refid="classWpHeading_1aa92b6b5b4db4015eb5a849410f0a994e" kind="variable"><name>surge_pub_</name></member>
     <member refid="classWpHeading_1abfb24e3e0546119bf08e839517d6f3c3" kind="variable"><name>sway_pub_</name></member>
     <member refid="classWpHeading_1ada49f14a9cfe6375c966fcdbd58e7e66" kind="variable"><name>yaw_rate_pub_</name></member>
-    <member refid="classWpHeading_1a69706eee842009312c061e2c962be64a" kind="function"><name>calculateRef</name></member>
+    <member refid="classWpHeading_1a7c88c5b325ea1ebfbf7dd69057063571" kind="function"><name>calculateRef</name></member>
     <member refid="classWpHeading_1a55a81e1218559e5945b00d69c31b1c95" kind="function"><name>publish</name></member>
     <member refid="classWpHeading_1a0db316dcd4039e008f910067203d5c80" kind="function"><name>WpHeading</name></member>
     <member refid="classWpHeading_1ac2c5b9bef2007c98727d6882013a0a91" kind="function"><name>~WpHeading</name></member>
@@ -96,7 +100,7 @@
   <compound refid="classWpLoose" kind="class"><name>WpLoose</name>
     <member refid="classWpLoose_1ad13bcaab0c502810fefe406e1861d5ee" kind="variable"><name>surge_pub_</name></member>
     <member refid="classWpLoose_1ab958eb7c9f0c76d834b66b6366eb7719" kind="variable"><name>yaw_pub_</name></member>
-    <member refid="classWpLoose_1a7096b938c7bf378082d2a0e37c5d0003" kind="function"><name>calculateRef</name></member>
+    <member refid="classWpLoose_1ab6720351c32afa90f3766fe9d25cfd0c" kind="function"><name>calculateRef</name></member>
     <member refid="classWpLoose_1af7cb703f535ef51ac45b838d5f577aa0" kind="function"><name>publish</name></member>
     <member refid="classWpLoose_1a723953780ff3fb9bb6e73c055f15b75f" kind="function"><name>WpLoose</name></member>
     <member refid="classWpLoose_1a4aef6898c96e54ddde61b33ad1625c46" kind="function"><name>~WpLoose</name></member>
@@ -108,7 +112,7 @@
   <compound refid="classWpStandard" kind="class"><name>WpStandard</name>
     <member refid="classWpStandard_1a2a0bbb7c92b8f4d30f51b36e670fb180" kind="variable"><name>surge_pub_</name></member>
     <member refid="classWpStandard_1ae9895dc537809636555bb35a5a9e6dc7" kind="variable"><name>yaw_pub_</name></member>
-    <member refid="classWpStandard_1afa553e861a88f9adfd349c0dff125db1" kind="function"><name>calculateRef</name></member>
+    <member refid="classWpStandard_1ab9a245f44493ad8a6c1b3f73e41ec86c" kind="function"><name>calculateRef</name></member>
     <member refid="classWpStandard_1a0e182161bf809d5ea2c50ce0fe20f88b" kind="function"><name>publish</name></member>
     <member refid="classWpStandard_1aaa40f20af7e4635a2188a25f2ab19579" kind="function"><name>WpStandard</name></member>
     <member refid="classWpStandard_1ae717317319eb3dcb5f205fda89f2f2f7" kind="function"><name>~WpStandard</name></member>

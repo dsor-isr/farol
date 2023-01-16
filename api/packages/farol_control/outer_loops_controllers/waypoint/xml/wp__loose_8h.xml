@@ -70,7 +70,7 @@
 <codeline lineno="13"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>surge_pub_;</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>yaw_pub_;</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>calculateRef(<ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>state,<sp/><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>wp_ref);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>calculateRef(<ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref><sp/>state,<sp/><ref refid="structWPref__t" kindref="compound">WPref_t</ref><sp/>wp_ref,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_radius_flag);</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>publish();</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>

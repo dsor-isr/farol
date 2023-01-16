@@ -9580,7 +9580,7 @@
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWaypointController/#function-compute">compute</a></strong>(<a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structVehicle__t/">Vehicle_t</a> state, <a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structWPref__t/">WPref_t</a> wp_ref)<br>Computes and publishes the output of the controller.</td>
+<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWaypointController/#function-compute">compute</a></strong>(<a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structVehicle__t/">Vehicle_t</a> state, <a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structWPref__t/">WPref_t</a> wp_ref, bool turn_radius_flag)<br>Computes and publishes the output of the controller.</td>
 </tr>
 </tbody>
 </table>
@@ -9599,7 +9599,7 @@
 </tr>
 <tr>
 <td>virtual void</td>
-<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWaypointController/#function-calculateref">calculateRef</a></strong>(<a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structVehicle__t/">Vehicle_t</a> state, <a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structWPref__t/">WPref_t</a> wp_ref) =0<br>Virtual function to compute the waypoint controller.</td>
+<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWaypointController/#function-calculateref">calculateRef</a></strong>(<a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structVehicle__t/">Vehicle_t</a> state, <a href="/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structWPref__t/">WPref_t</a> wp_ref, bool turn_radius_bool) =0<br>Virtual function to compute the waypoint controller.</td>
 </tr>
 <tr>
 <td>double</td>
@@ -9684,7 +9684,8 @@
 <h3 id="function-compute">function compute</h3>
 <pre><code class="language-cpp">inline void compute(
     Vehicle_t state,
-    WPref_t wp_ref
+    WPref_t wp_ref,
+    bool turn_radius_flag
 )
 </code></pre>
 <p>Computes and publishes the output of the controller. </p>
@@ -9702,7 +9703,8 @@
 <h3 id="function-calculateref">function calculateRef</h3>
 <pre><code class="language-cpp">virtual void calculateRef(
     Vehicle_t state,
-    WPref_t wp_ref
+    WPref_t wp_ref,
+    bool turn_radius_bool
 ) =0
 </code></pre>
 <p>Virtual function to compute the waypoint controller. </p>
@@ -9780,14 +9782,14 @@
 <pre><code class="language-cpp">std::vector&lt; double &gt; gains_;
 </code></pre>
 <hr />
-<p>Updated on 2023-01-15 at 00:46:29 +0000</p>
+<p>Updated on 2023-01-16 at 11:55:37 +0000</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 15, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 16, 2023</span>
       
     
   </small>

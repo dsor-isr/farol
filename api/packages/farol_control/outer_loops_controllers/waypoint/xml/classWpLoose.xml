@@ -33,12 +33,12 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classWpLoose_1a7096b938c7bf378082d2a0e37c5d0003" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classWpLoose_1ab6720351c32afa90f3766fe9d25cfd0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void WpLoose::calculateRef</definition>
-        <argsstring>(Vehicle_t state, WPref_t wp_ref)</argsstring>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag)</argsstring>
         <name>calculateRef</name>
-        <reimplements refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84">calculateRef</reimplements>
+        <reimplements refid="classWaypointController_1aff9214ceba4e7d320b62d98c94637952">calculateRef</reimplements>
         <param>
           <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
           <declname>state</declname>
@@ -46,6 +46,10 @@
         <param>
           <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
           <declname>wp_ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>turn_radius_bool</declname>
         </param>
         <briefdescription>
 <para>Virtual function to compute the waypoint controller. </para>
@@ -157,8 +161,8 @@
     </collaborationgraph>
     <location file="include/waypoint_algorithms/wp_loose.h" line="11" column="40" bodyfile="include/waypoint_algorithms/wp_loose.h" bodystart="11" bodyend="23"/>
     <listofallmembers>
-      <member refid="classWpLoose_1a7096b938c7bf378082d2a0e37c5d0003" prot="private" virt="virtual"><scope>WpLoose</scope><name>calculateRef</name></member>
-      <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" virt="non-virtual"><scope>WpLoose</scope><name>compute</name></member>
+      <member refid="classWpLoose_1ab6720351c32afa90f3766fe9d25cfd0c" prot="private" virt="virtual"><scope>WpLoose</scope><name>calculateRef</name></member>
+      <member refid="classWaypointController_1a233a3c284ac94057c895e81e2c5e724c" prot="public" virt="non-virtual"><scope>WpLoose</scope><name>compute</name></member>
       <member refid="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" prot="protected" virt="non-virtual"><scope>WpLoose</scope><name>gains_</name></member>
       <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" prot="protected" virt="non-virtual"><scope>WpLoose</scope><name>getSurgeOut</name></member>
       <member refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" prot="protected" virt="non-virtual"><scope>WpLoose</scope><name>getSwayOut</name></member>

@@ -33,12 +33,12 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classWpStandard_1afa553e861a88f9adfd349c0dff125db1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="classWpStandard_1ab9a245f44493ad8a6c1b3f73e41ec86c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void WpStandard::calculateRef</definition>
-        <argsstring>(Vehicle_t state, WPref_t wp_ref) override</argsstring>
+        <argsstring>(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag) override</argsstring>
         <name>calculateRef</name>
-        <reimplements refid="classWaypointController_1a31c51589b0b0a2c20fe6f188c4783c84">calculateRef</reimplements>
+        <reimplements refid="classWaypointController_1aff9214ceba4e7d320b62d98c94637952">calculateRef</reimplements>
         <param>
           <type><ref refid="structVehicle__t" kindref="compound">Vehicle_t</ref></type>
           <declname>state</declname>
@@ -46,6 +46,10 @@
         <param>
           <type><ref refid="structWPref__t" kindref="compound">WPref_t</ref></type>
           <declname>wp_ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>turn_radius_bool</declname>
         </param>
         <briefdescription>
 <para>Virtual function to compute the waypoint controller. </para>
@@ -72,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_algorithms/wp_standard.h" line="15" column="8" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="6" bodyend="61"/>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="15" column="8" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="6" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="classWpStandard_1a0e182161bf809d5ea2c50ce0fe20f88b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -87,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/waypoint_algorithms/wp_standard.h" line="17" column="8" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="63" bodyend="68"/>
+        <location file="include/waypoint_algorithms/wp_standard.h" line="17" column="8" bodyfile="src/waypoint_algorithms/wp_standard.cpp" bodystart="62" bodyend="67"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -157,8 +161,8 @@
     </collaborationgraph>
     <location file="include/waypoint_algorithms/wp_standard.h" line="10" column="43" bodyfile="include/waypoint_algorithms/wp_standard.h" bodystart="10" bodyend="22"/>
     <listofallmembers>
-      <member refid="classWpStandard_1afa553e861a88f9adfd349c0dff125db1" prot="private" virt="virtual"><scope>WpStandard</scope><name>calculateRef</name></member>
-      <member refid="classWaypointController_1a9c186c62531a8cdf524de44097fcb9fe" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>compute</name></member>
+      <member refid="classWpStandard_1ab9a245f44493ad8a6c1b3f73e41ec86c" prot="private" virt="virtual"><scope>WpStandard</scope><name>calculateRef</name></member>
+      <member refid="classWaypointController_1a233a3c284ac94057c895e81e2c5e724c" prot="public" virt="non-virtual"><scope>WpStandard</scope><name>compute</name></member>
       <member refid="classWaypointController_1aa5e782def2fab441de260354c4d2b9e7" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>gains_</name></member>
       <member refid="classWaypointController_1a804318ec9dc20dbba8162df541cfdee3" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>getSurgeOut</name></member>
       <member refid="classWaypointController_1afd458cea48161264b69ef956cd7991b5" prot="protected" virt="non-virtual"><scope>WpStandard</scope><name>getSwayOut</name></member>

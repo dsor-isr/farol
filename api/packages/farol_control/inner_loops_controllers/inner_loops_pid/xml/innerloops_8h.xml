@@ -12,6 +12,7 @@
     <includes local="no">auv_msgs/NavigationStatus.h</includes>
     <includes local="no">farol_gimmicks_library/FarolGimmicks.h</includes>
     <includes local="no">std_msgs/Float64.h</includes>
+    <includes local="no">std_msgs/Bool.h</includes>
     <includes local="no">std_srvs/SetBool.h</includes>
     <includedby refid="innerloops_8cpp" local="yes">src/ros/innerloops.cpp</includedby>
     <includedby refid="innerloops__node_8cpp" local="yes">src/ros/innerloops_node.cpp</includedby>
@@ -44,9 +45,14 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
       </node>
       <node id="14">
         <label>dsor_utils/rotations.hpp</label>
+      </node>
+      <node id="22">
+        <label>std_msgs/Bool.h</label>
       </node>
       <node id="3">
         <label>pid_controller.h</label>
@@ -82,7 +88,7 @@
       <node id="18">
         <label>inner_loops_pid/ChangeInnerGains.h</label>
       </node>
-      <node id="22">
+      <node id="23">
         <label>std_srvs/SetBool.h</label>
       </node>
       <node id="6">
@@ -156,93 +162,97 @@
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;auv_msgs/NavigationStatus.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;farol_gimmicks_library/FarolGimmicks.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_msgs/Float64.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_srvs/SetBool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21" refid="classInnerloops" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classInnerloops" kindref="compound">Innerloops</ref><sp/>{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="classInnerloops_1afaf92ad344b0ad1fdaaade563a86b7eb" kindref="member">Innerloops</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="classInnerloops_1a6f8ea21a911360a55247c994156a5638" kindref="member">~Innerloops</ref>();</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializeSubscribers();</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializeServices();</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializePublishers();</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializeTimer();</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nodeFrequency();</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>timerCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ros::TimerEvent<sp/>&amp;event);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>StateCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg);</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>forceBypassCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::BodyForceRequest<sp/>&amp;msg);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>turnRadiusSpeedCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changeFFGainsService(inner_loops_pid::ChangeFFGains::Request<sp/>&amp;req,</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_loops_pid::ChangeFFGains::Response<sp/>&amp;res);</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changeGainsService(inner_loops_pid::ChangeInnerGains::Request<sp/>&amp;req,</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_loops_pid::ChangeInnerGains::Response<sp/>&amp;res);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>changeLimitsService(inner_loops_pid::ChangeInnerLimits::Request<sp/>&amp;req,</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_loops_pid::ChangeInnerLimits::Response<sp/>&amp;res);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/>turningRadiusLimiterService(std_srvs::SetBool::Request<sp/>&amp;req,</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std_srvs::SetBool::Response<sp/>&amp;res);</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Handlers</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/>ros::NodeHandle<sp/>nh_;</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/>std::vector&lt;RosController<sp/>*&gt;<sp/>controllers_;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>State<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_,<sp/>pitch_,<sp/>roll_,<sp/>yaw_rate_,<sp/>pitch_rate_,<sp/>roll_rate_;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>surge_,<sp/>sway_,<sp/>heave_;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>depth_,<sp/>altitude_,<sp/>vdepth_,<sp/>valtitude_;</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>force_request_[3]{};<sp/></highlight><highlight class="comment">//<sp/>Forces,<sp/>x,y,z<sp/>(body)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>torque_request_[3]{};<sp/></highlight><highlight class="comment">//<sp/>Torques,<sp/>x,y,z<sp/>(body)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Boolean<sp/>to<sp/>store<sp/>whether<sp/>we<sp/>use<sp/>soft<sp/>by-pass<sp/>of<sp/>body<sp/>forces<sp/>or<sp/>hard<sp/>by-pass</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Soft<sp/>-<sp/>sums<sp/>the<sp/>output<sp/>of<sp/>the<sp/>forces<sp/>given<sp/>by<sp/>the<sp/>PIDs<sp/>and<sp/>the<sp/>ones<sp/>received<sp/>from<sp/>external<sp/>topics</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Hard<sp/>-<sp/>discards<sp/>the<sp/>values<sp/>from<sp/>the<sp/>PIDs<sp/>and<sp/>only<sp/>uses<sp/>the<sp/>ones<sp/>received<sp/>from<sp/>external<sp/>topics</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>forces_hard_bypass_;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>timeout_ref_;</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>st_sub_;<sp/></highlight><highlight class="comment">//<sp/>State<sp/>subscriber</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>force_bypass_sub_;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>turn_radius_speed_sub_;<sp/></highlight><highlight class="comment">//<sp/>Airmar<sp/>surge<sp/>speed<sp/>subscriber<sp/>(Delfim)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>change_ff_gains_srv_;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>change_gains_srv_;</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>change_limits_srv_;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>turning_radius_limiter_;<sp/></highlight><highlight class="comment">//<sp/>Service<sp/>for<sp/>turning<sp/>radius<sp/>limiter</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/>ros::Timer<sp/>timer_;<sp/></highlight><highlight class="comment">//<sp/>timer</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>variable<sp/>to<sp/>bypass<sp/>innerloops<sp/>and<sp/>publish<sp/>a<sp/>direct<sp/>force<sp/>on<sp/>the<sp/>vehicle</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/>auv_msgs::BodyForceRequest<sp/>force_bypass_;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>force<sp/>bypass<sp/>receiving<sp/>time</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/>ros::Time<sp/>ref_force_bypass_;</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Forces<sp/>and<sp/>Torques<sp/>publisher</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>ft_pub_;</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>tf2_ros::Buffer<sp/>tf_buffer_;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>tf2_ros::TransformListener<sp/>tf_;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Turning<sp/>Radius<sp/>Limiter<sp/>(2D)<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_radius_flag_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/>RateLimiter<sp/>rate_limiter_;</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>turn_radius_speed_;</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>turn_radius_speed_t_;</highlight></codeline>
-<codeline lineno="183"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>MDS_INNERLOOPS_H</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_msgs/Bool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;std_srvs/SetBool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classInnerloops" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classInnerloops" kindref="compound">Innerloops</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="classInnerloops_1afaf92ad344b0ad1fdaaade563a86b7eb" kindref="member">Innerloops</ref>(ros::NodeHandle<sp/>&amp;nh);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="classInnerloops_1a6f8ea21a911360a55247c994156a5638" kindref="member">~Innerloops</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializeSubscribers();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializeServices();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializePublishers();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initializeTimer();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>nodeFrequency();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>timerCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ros::TimerEvent<sp/>&amp;event);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>StateCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>forceBypassCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::BodyForceRequest<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>turnRadiusSpeedCallback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>auv_msgs::NavigationStatus<sp/>&amp;msg);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changeFFGainsService(inner_loops_pid::ChangeFFGains::Request<sp/>&amp;req,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_loops_pid::ChangeFFGains::Response<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>changeGainsService(inner_loops_pid::ChangeInnerGains::Request<sp/>&amp;req,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_loops_pid::ChangeInnerGains::Response<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>changeLimitsService(inner_loops_pid::ChangeInnerLimits::Request<sp/>&amp;req,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inner_loops_pid::ChangeInnerLimits::Response<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>turningRadiusLimiterService(std_srvs::SetBool::Request<sp/>&amp;req,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std_srvs::SetBool::Response<sp/>&amp;res);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Handlers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>ros::NodeHandle<sp/>nh_;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>std::vector&lt;RosController<sp/>*&gt;<sp/>controllers_;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>State<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_,<sp/>pitch_,<sp/>roll_,<sp/>yaw_rate_,<sp/>pitch_rate_,<sp/>roll_rate_;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>surge_,<sp/>sway_,<sp/>heave_;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>depth_,<sp/>altitude_,<sp/>vdepth_,<sp/>valtitude_;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>force_request_[3]{};<sp/></highlight><highlight class="comment">//<sp/>Forces,<sp/>x,y,z<sp/>(body)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>torque_request_[3]{};<sp/></highlight><highlight class="comment">//<sp/>Torques,<sp/>x,y,z<sp/>(body)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Boolean<sp/>to<sp/>store<sp/>whether<sp/>we<sp/>use<sp/>soft<sp/>by-pass<sp/>of<sp/>body<sp/>forces<sp/>or<sp/>hard<sp/>by-pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Soft<sp/>-<sp/>sums<sp/>the<sp/>output<sp/>of<sp/>the<sp/>forces<sp/>given<sp/>by<sp/>the<sp/>PIDs<sp/>and<sp/>the<sp/>ones<sp/>received<sp/>from<sp/>external<sp/>topics</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Hard<sp/>-<sp/>discards<sp/>the<sp/>values<sp/>from<sp/>the<sp/>PIDs<sp/>and<sp/>only<sp/>uses<sp/>the<sp/>ones<sp/>received<sp/>from<sp/>external<sp/>topics</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>forces_hard_bypass_;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>timeout_ref_;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>st_sub_;<sp/></highlight><highlight class="comment">//<sp/>State<sp/>subscriber</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>force_bypass_sub_;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>ros::Subscriber<sp/>turn_radius_speed_sub_;<sp/></highlight><highlight class="comment">//<sp/>Airmar<sp/>surge<sp/>speed<sp/>subscriber<sp/>(Delfim)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>change_ff_gains_srv_;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>change_gains_srv_;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>change_limits_srv_;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>ros::ServiceServer<sp/>turning_radius_limiter_;<sp/></highlight><highlight class="comment">//<sp/>Service<sp/>for<sp/>turning<sp/>radius<sp/>limiter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>ros::Timer<sp/>timer_;<sp/></highlight><highlight class="comment">//<sp/>timer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>variable<sp/>to<sp/>bypass<sp/>innerloops<sp/>and<sp/>publish<sp/>a<sp/>direct<sp/>force<sp/>on<sp/>the<sp/>vehicle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>auv_msgs::BodyForceRequest<sp/>force_bypass_;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>force<sp/>bypass<sp/>receiving<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>ros::Time<sp/>ref_force_bypass_;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Forces<sp/>and<sp/>Torques<sp/>publisher</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>ft_pub_;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Turn<sp/>Radius<sp/>Flag<sp/>Publisher</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>ros::Publisher<sp/>turn_radius_flag_pub_;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>tf2_ros::Buffer<sp/>tf_buffer_;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>tf2_ros::TransformListener<sp/>tf_;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Turning<sp/>Radius<sp/>Limiter<sp/>(2D)<sp/>Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>turn_radius_flag_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>RateLimiter<sp/>rate_limiter_;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>turn_radius_speed_;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>turn_radius_speed_t_;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>MDS_INNERLOOPS_H</highlight></codeline>
     </programlisting>
     <location file="include/ros/innerloops.h"/>
   </compounddef>
