@@ -19,6 +19,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/Int8.h>
+#include <std_msgs/Bool.h>
 
 #include <wp_heading.h>
 #include <wp_loose.h>
@@ -47,6 +48,7 @@ private:
   // Subscribers
   ros::Subscriber flag_sub_;  ///< flag subscriber
   ros::Subscriber state_sub_; ///< state subscriber
+  ros::Subscriber turn_radius_flag_sub_; ///< turn radius limiter flag subscriber
 
   // Publishers
   ros::Publisher u_ref_pub_;        ///< surge publisher
@@ -80,6 +82,7 @@ private:
   // Topic names
   std::string state_topic_;
   std::string flag_topic_;
+  std::string turn_radius_flag_topic_;
   std::string wp_ref_topic_;
   std::string u_ref_topic_;
   std::string v_ref_topic_;
@@ -88,6 +91,9 @@ private:
   std::string wp_standard_topic_;
   std::string wp_loose_topic_;
   std::string wp_heading_topic_;
+
+  // Turn Radius Flag Boolean
+  bool turn_radius_flag_{false};
 
   /**
    * @brief  Function to initialize subscribers
@@ -137,6 +143,13 @@ private:
    * @param msg contains the flag info
    */
   void flagCallback(const std_msgs::Int8 &msg);
+
+  /**
+   * @brief  Callback function of the turn radius flag topic.
+   *
+   * @param msg contains the flag info
+   */
+  void turnRadiusFlagCallback(const std_msgs::Bool &msg);
 
   /**
    * @brief  Main loop of the node. Executes the waypoint controller and

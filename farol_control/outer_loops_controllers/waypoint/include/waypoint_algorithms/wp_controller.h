@@ -70,8 +70,8 @@ public:
    * @param state
    * @param wp_ref
    */
-  void compute(Vehicle_t state, WPref_t wp_ref) {
-    calculateRef(state, wp_ref);
+  void compute(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag) {
+    calculateRef(state, wp_ref, turn_radius_flag);
     publish();
   }
 
@@ -90,7 +90,7 @@ protected:
    * @param state
    * @param wp_ref
    */
-  virtual void calculateRef(Vehicle_t state, WPref_t wp_ref) = 0;
+  virtual void calculateRef(Vehicle_t state, WPref_t wp_ref, bool turn_radius_bool) = 0;
 
   /**
    * @brief  Getter of the yaw reference (output of controller)

@@ -136,6 +136,11 @@ void Innerloops::initializePublishers() {
   ft_pub_ = nh_.advertise<auv_msgs::BodyForceRequest>(
       FarolGimmicks::getParameters<std::string>(
           nh_, "topics/publishers/thrust_body_request", "/thrust_body_request"), 1);
+
+  // turn radius flag
+  turn_radius_flag_pub_ = nh_.advertise<std_msgs::Bool>(
+      FarolGimmicks::getParameters<std::string>(
+          nh_, "topics/publishers/turn_radius_flag", "/turn_radius_flag"), false);
 }
 
 void Innerloops::initializeTimer() {
@@ -201,6 +206,11 @@ void Innerloops::timerCallback(const ros::TimerEvent &event) {
   }
 
   ft_pub_.publish(output_msg);
+
+  // publish turn radius limiter flag
+  std_msgs::Bool turn_radius_bool;
+  turn_radius_bool.data = turn_radius_flag_;
+  turn_radius_flag_pub_.publish(turn_radius_bool);
 }
 
 void Innerloops::forceBypassCallback(const auv_msgs::BodyForceRequest &msg) {
