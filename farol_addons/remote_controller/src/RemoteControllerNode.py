@@ -40,6 +40,7 @@ class RemoteControllerNode:
 
         # --- Save relevant state variables from the AUV vehicle
         self.yaw_state_ = 0.0 # in (deg)
+        self.depth_state_ = 0.0
 
         # ---Start the ROS NODE callback---
         self.initializeTimer()
@@ -77,7 +78,11 @@ class RemoteControllerNode:
         if desired_inputs["heave"] != 0.0:
             self.heave_pub.publish(desired_inputs["heave"])
 
-        if desired_inputs["heave"] == 0.0:
+            # Override the current desired depth to the most recent depth received from the state of the AUV
+            # when controlling with heave
+            self.control_assignment.set_desired_state("depth", self.depth_state_)
+
+        if desired_inputs["heave"] > -0.1 or desired_inputs["heave"] < 0.1:
             self.depth_pub.publish(desired_inputs["depth"])
 
     def initializeTimer(self):
@@ -149,6 +154,7 @@ class RemoteControllerNode:
         :param msg: NavigationStatus message
         """
         self.yaw_state_ = float(msg.orientation.z)
+        self.depth_state_ = float(msg.position.depth)
 
 def main():
     """
