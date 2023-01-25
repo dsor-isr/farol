@@ -144,6 +144,11 @@ class PathFollowing {
      * following algorithms 
      */
     double algConvert(double alg_new, double alg_old, double alg_out_old);
+
+    /**
+     * @brief Prevent gamma from going back to a previous section 
+     */
+    double preventPathSectionSwitching(double gamma, double gamma_dot, double dt);
 };
 
 
