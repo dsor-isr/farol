@@ -444,7 +444,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="57" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="36" bodyend="114"/>
+        <location file="include/algorithms/Lapierre.h" line="57" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="36" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="classLapierre_1a89363272413509c51652a49083551334" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -459,7 +459,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="62" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="137" bodyend="146"/>
+        <location file="include/algorithms/Lapierre.h" line="62" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="141" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="classLapierre_1afd59b79eabff995106f7b9060e717c11" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -474,7 +474,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="67" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="149" bodyend="153"/>
+        <location file="include/algorithms/Lapierre.h" line="67" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="153" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classLapierre_1aa32c65b3e912fcd41ce6a37c4d96cb75" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -493,7 +493,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="74" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="156" bodyend="165"/>
+        <location file="include/algorithms/Lapierre.h" line="74" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="160" bodyend="169"/>
       </memberdef>
       <memberdef kind="function" id="classLapierre_1ad1b2b208e7c4086be10f3d245baff029" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -511,7 +511,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="82" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="168" bodyend="188"/>
+        <location file="include/algorithms/Lapierre.h" line="82" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="172" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="classLapierre_1acb005748cfa8f9ced5c0275f432148e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -533,7 +533,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="90" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="191" bodyend="198"/>
+        <location file="include/algorithms/Lapierre.h" line="90" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="195" bodyend="202"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -548,7 +548,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="117" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="117" bodyend="124"/>
+        <location file="include/algorithms/Lapierre.h" line="117" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="121" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="classLapierre_1aeff7041576864bd0fe0c8953ec900abc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -561,7 +561,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Lapierre.h" line="118" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="127" bodyend="134"/>
+        <location file="include/algorithms/Lapierre.h" line="118" column="10" bodyfile="src/algorithms/Lapierre.cpp" bodystart="131" bodyend="138"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -652,6 +652,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Lapierre</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classLapierre_1a6521621fec78066e8e15d994e7b7c756" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>psi_old_</name></member>
       <member refid="classLapierre_1a11de0a8da11104fca77310b5fffcc948" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>psi_out_</name></member>
       <member refid="classLapierre_1a419ca7d71b726b16525ab960472a9c89" prot="private" virt="non-virtual"><scope>Lapierre</scope><name>psi_out_old_</name></member>

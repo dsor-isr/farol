@@ -279,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Romulo.h" line="53" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="31" bodyend="81"/>
+        <location file="include/algorithms/Romulo.h" line="53" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="31" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -294,7 +294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Romulo.h" line="58" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="84" bodyend="92"/>
+        <location file="include/algorithms/Romulo.h" line="58" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="90" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -309,7 +309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Romulo.h" line="63" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="95" bodyend="99"/>
+        <location file="include/algorithms/Romulo.h" line="63" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="101" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -328,7 +328,7 @@
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/Romulo.h" line="70" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="102" bodyend="111"/>
+        <location file="include/algorithms/Romulo.h" line="70" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="108" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -346,7 +346,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Romulo.h" line="78" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="114" bodyend="126"/>
+        <location file="include/algorithms/Romulo.h" line="78" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="120" bodyend="132"/>
       </memberdef>
       <memberdef kind="function" id="classRomulo_1ae625695768ca1f9d0845e18dda2a1512" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -368,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Romulo.h" line="86" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="129" bodyend="137"/>
+        <location file="include/algorithms/Romulo.h" line="86" column="10" bodyfile="src/algorithms/Romulo.cpp" bodystart="135" bodyend="143"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -457,6 +457,7 @@
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Romulo</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Romulo</scope><name>publish</name></member>
       <member refid="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" prot="public" virt="virtual"><scope>Romulo</scope><name>publish_private</name></member>
       <member refid="classRomulo_1ac8ba779bfd48fd913d132cee8e850d06" prot="private" virt="non-virtual"><scope>Romulo</scope><name>rabbit_pub_</name></member>

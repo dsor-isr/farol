@@ -226,81 +226,87 @@
 <codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>;</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>velocity</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="154"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>+=<sp/>this-&gt;gamma_ddot_<sp/>*<sp/>dt;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Marcelo&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish_private<sp/>the<sp/>data<sp/>computed<sp/>from<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" kindref="member">Marcelo::publish_private</ref>(){</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_rate_pub_,<sp/>this-&gt;desired_yaw_rate_);</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>values<sp/>of<sp/>the<sp/>current<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;currents_estimation_x_pub_,<sp/>this-&gt;currents_hat_[0]);</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;currents_estimation_y_pub_,<sp/>this-&gt;currents_hat_[1]);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="182"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1abc33f038979fa05a92c6b8df05127778" kindref="member">Marcelo::start</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>initial<sp/>virtual<sp/>target<sp/>value<sp/>to<sp/>get<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" kindref="member">Marcelo::stop</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Make<sp/>sure<sp/>gamma<sp/>does<sp/>not<sp/>return<sp/>to<sp/>a<sp/>previous<sp/>path<sp/>section,<sp/>given<sp/>that</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/>each<sp/>path<sp/>section<sp/>is<sp/>paramaterised<sp/>from<sp/>0<sp/>to<sp/>1<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" kindref="member">preventPathSectionSwitching</ref>(this-&gt;gamma_,<sp/>this-&gt;gamma_dot_,<sp/>dt);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Marcelo&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish_private<sp/>the<sp/>data<sp/>computed<sp/>from<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" kindref="member">Marcelo::publish_private</ref>(){</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_rate_pub_,<sp/>this-&gt;desired_yaw_rate_);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>values<sp/>of<sp/>the<sp/>current<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;currents_estimation_x_pub_,<sp/>this-&gt;currents_hat_[0]);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;currents_estimation_y_pub_,<sp/>this-&gt;currents_hat_[1]);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1abc33f038979fa05a92c6b8df05127778" kindref="member">Marcelo::start</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>initial<sp/>virtual<sp/>target<sp/>value<sp/>to<sp/>get<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" kindref="member">Marcelo::stop</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1a5835e08725f01af3fb719423d523fe25" kindref="member">Marcelo::reset</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_rate_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"></highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>value<sp/>that<sp/>holds<sp/>the<sp/>estimated<sp/>position<sp/>(used<sp/>for<sp/>currents<sp/>estimation)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/>this-&gt;pos_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/>this-&gt;pos_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/>this-&gt;currents_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/>this-&gt;currents_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/>this-&gt;first_iteration_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"></highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="223"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Marcelo::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"></highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMarcelo_1a5835e08725f01af3fb719423d523fe25" kindref="member">Marcelo::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_rate_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>value<sp/>that<sp/>holds<sp/>the<sp/>estimated<sp/>position<sp/>(used<sp/>for<sp/>currents<sp/>estimation)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>this-&gt;pos_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/>this-&gt;pos_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>this-&gt;currents_hat_[0]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>this-&gt;currents_hat_[1]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>this-&gt;first_iteration_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Marcelo::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/algorithms/Marcelo.cpp"/>
   </compounddef>

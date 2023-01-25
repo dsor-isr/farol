@@ -7196,6 +7196,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-preventpathsectionswitching" class="md-nav__link">
+    function preventPathSectionSwitching
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9510,6 +9517,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-preventpathsectionswitching" class="md-nav__link">
+    function preventPathSectionSwitching
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -9657,6 +9671,10 @@
 <td>double</td>
 <td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classPathFollowing/#function-algconvert">algConvert</a></strong>(double alg_new, double alg_old, double alg_out_old)<br>Auxiliar method to smooth out the angle to be used by path following algorithms.</td>
 </tr>
+<tr>
+<td>double</td>
+<td><strong><a href="/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classPathFollowing/#function-preventpathsectionswitching">preventPathSectionSwitching</a></strong>(double gamma, double gamma_dot, double dt)<br>Prevent gamma from going back to a previous section.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="protected-attributes">Protected Attributes</h2>
@@ -9802,6 +9820,14 @@
 )
 </code></pre>
 <p>Auxiliar method to smooth out the angle to be used by path following algorithms. </p>
+<h3 id="function-preventpathsectionswitching">function preventPathSectionSwitching</h3>
+<pre><code class="language-cpp">double preventPathSectionSwitching(
+    double gamma,
+    double gamma_dot,
+    double dt
+)
+</code></pre>
+<p>Prevent gamma from going back to a previous section. </p>
 <h2 id="protected-attributes-documentation">Protected Attributes Documentation</h2>
 <h3 id="variable-vehicle_state_">variable vehicle_state_</h3>
 <pre><code class="language-cpp">VehicleState vehicle_state_;
@@ -9819,14 +9845,14 @@
 <pre><code class="language-cpp">ros::Publisher pfollowing_debug_pub_;
 </code></pre>
 <hr />
-<p>Updated on 2023-01-16 at 11:55:38 +0000</p>
+<p>Updated on 2023-01-25 at 18:33:34 +0000</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 25, 2023</span>
       
     
   </small>

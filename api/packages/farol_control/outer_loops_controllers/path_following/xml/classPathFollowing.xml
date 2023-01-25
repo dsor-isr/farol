@@ -257,7 +257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/PathFollowing.h" line="81" column="18" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="48" bodyend="52"/>
+        <location file="include/algorithms/PathFollowing.h" line="81" column="18" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="60" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/PathFollowing.h" line="90" column="10" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="55" bodyend="57"/>
+        <location file="include/algorithms/PathFollowing.h" line="90" column="10" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="67" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="classPathFollowing_1a7b7d88fa30828c55bd0818da689b01e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>bool</type>
@@ -416,6 +416,32 @@
         </inbodydescription>
         <location file="include/algorithms/PathFollowing.h" line="146" column="12" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="34" bodyend="45"/>
       </memberdef>
+      <memberdef kind="function" id="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double PathFollowing::preventPathSectionSwitching</definition>
+        <argsstring>(double gamma, double gamma_dot, double dt)</argsstring>
+        <name>preventPathSectionSwitching</name>
+        <param>
+          <type>double</type>
+          <declname>gamma</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>gamma_dot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Prevent gamma from going back to a previous section. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/PathFollowing.h" line="151" column="12" bodyfile="src/algorithms/PathFollowing.cpp" bodystart="47" bodyend="57"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
 <para>A Base class to update the path following law. </para>
@@ -524,13 +550,14 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/algorithms/PathFollowing.h" line="29" column="20" bodyfile="include/algorithms/PathFollowing.h" bodystart="29" bodyend="147"/>
+    <location file="include/algorithms/PathFollowing.h" line="29" column="20" bodyfile="include/algorithms/PathFollowing.h" bodystart="29" bodyend="152"/>
     <listofallmembers>
       <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>algConvert</name></member>
       <member refid="classPathFollowing_1a86a30b18ed168ea903dfd0264fe4b5d1" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>callPFController</name></member>
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>PathFollowing</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>PathFollowing</scope><name>publish</name></member>
       <member refid="classPathFollowing_1aeecd5c2d6985b204f27321784d99c292" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>publish_private</name></member>
       <member refid="classPathFollowing_1a05b2c36ff066b2eec99cbdd0c10a0dfe" prot="public" virt="pure-virtual"><scope>PathFollowing</scope><name>reset</name></member>

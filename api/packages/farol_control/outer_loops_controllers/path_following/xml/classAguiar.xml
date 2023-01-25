@@ -426,7 +426,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Aguiar.h" line="57" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="48" bodyend="135"/>
+        <location file="include/algorithms/Aguiar.h" line="57" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="48" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="classAguiar_1a52bf1c7b6bd3944258ae6ad9cb3fae71" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -441,7 +441,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Aguiar.h" line="62" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="138" bodyend="146"/>
+        <location file="include/algorithms/Aguiar.h" line="62" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="144" bodyend="152"/>
       </memberdef>
       <memberdef kind="function" id="classAguiar_1a6fc468667620e8499c9e50033f3bca65" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -456,7 +456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Aguiar.h" line="67" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="149" bodyend="153"/>
+        <location file="include/algorithms/Aguiar.h" line="67" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="155" bodyend="159"/>
       </memberdef>
       <memberdef kind="function" id="classAguiar_1a58fd931b33569f377e4c2ddf82072075" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -475,7 +475,7 @@
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/Aguiar.h" line="74" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="156" bodyend="165"/>
+        <location file="include/algorithms/Aguiar.h" line="74" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="162" bodyend="171"/>
       </memberdef>
       <memberdef kind="function" id="classAguiar_1af26d4f03ef2d8c3b91226c2f450868a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -493,7 +493,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Aguiar.h" line="82" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="168" bodyend="187"/>
+        <location file="include/algorithms/Aguiar.h" line="82" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="174" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="classAguiar_1a21955e6ba34dc1cdc69d2df5fcc579ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -515,7 +515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Aguiar.h" line="90" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="190" bodyend="198"/>
+        <location file="include/algorithms/Aguiar.h" line="90" column="10" bodyfile="src/algorithms/Aguiar.cpp" bodystart="196" bodyend="204"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -613,6 +613,7 @@
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>pfollowing_debug_pub_</name></member>
       <member refid="classAguiar_1a402955e977f963a7c1807d8c4d2e3a6a" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>pos_hat_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Aguiar</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Aguiar</scope><name>publish</name></member>
       <member refid="classAguiar_1a52bf1c7b6bd3944258ae6ad9cb3fae71" prot="public" virt="virtual"><scope>Aguiar</scope><name>publish_private</name></member>
       <member refid="classAguiar_1a29573093448fff4879ec54d80b4468b3" prot="private" virt="non-virtual"><scope>Aguiar</scope><name>rabbit_pub_</name></member>

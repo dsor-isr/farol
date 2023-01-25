@@ -327,7 +327,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="54" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="22" bodyend="83"/>
+        <location file="include/algorithms/Brevik.h" line="54" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="22" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a71f6d807a88c73bd1158f7beea8b79ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -342,7 +342,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="59" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="106" bodyend="114"/>
+        <location file="include/algorithms/Brevik.h" line="59" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="110" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a351c87315b5ed60c9ce57ccdf16633e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -357,7 +357,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="64" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="117" bodyend="121"/>
+        <location file="include/algorithms/Brevik.h" line="64" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="121" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1aa707b7da34dab13fc0bdb4241091289b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -376,7 +376,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="71" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="124" bodyend="133"/>
+        <location file="include/algorithms/Brevik.h" line="71" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="128" bodyend="137"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a42009e150fee33a5bbbf22c761c8d70f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -394,7 +394,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="79" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="136" bodyend="156"/>
+        <location file="include/algorithms/Brevik.h" line="79" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="140" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1aea01199e76dcacc2be914896b0600100" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -416,7 +416,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="87" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="159" bodyend="166"/>
+        <location file="include/algorithms/Brevik.h" line="87" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="163" bodyend="170"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -431,7 +431,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="109" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="86" bodyend="93"/>
+        <location file="include/algorithms/Brevik.h" line="109" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="90" bodyend="97"/>
       </memberdef>
       <memberdef kind="function" id="classBrevik_1a900ff60cdda9546585cf6f34727d2328" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -444,7 +444,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Brevik.h" line="110" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="96" bodyend="103"/>
+        <location file="include/algorithms/Brevik.h" line="110" column="10" bodyfile="src/algorithms/Brevik.cpp" bodystart="100" bodyend="107"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -531,6 +531,7 @@ NOTE: In this class the setPFGains method does nothing to the controller as all 
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Brevik</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Brevik</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Brevik</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Brevik</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classBrevik_1a266c654cb3cd94fda1d67fff13c6a6d3" prot="private" virt="non-virtual"><scope>Brevik</scope><name>psi_old_</name></member>
       <member refid="classBrevik_1a4901f8854df1158101a9379e4e56bcca" prot="private" virt="non-virtual"><scope>Brevik</scope><name>psi_out_</name></member>
       <member refid="classBrevik_1a1058a2d5ed0f7251087faf7af2117ce0" prot="private" virt="non-virtual"><scope>Brevik</scope><name>psi_out_old_</name></member>

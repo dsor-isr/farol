@@ -499,7 +499,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Marcelo.h" line="54" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="54" bodyend="164"/>
+        <location file="include/algorithms/Marcelo.h" line="54" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="54" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -514,7 +514,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Marcelo.h" line="59" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="167" bodyend="179"/>
+        <location file="include/algorithms/Marcelo.h" line="59" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="173" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="classMarcelo_1abc33f038979fa05a92c6b8df05127778" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -529,7 +529,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Marcelo.h" line="64" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="182" bodyend="186"/>
+        <location file="include/algorithms/Marcelo.h" line="64" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="188" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="classMarcelo_1aaf33b6ce700e9ce225842046442b7515" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -548,7 +548,7 @@
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/Marcelo.h" line="71" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="189" bodyend="198"/>
+        <location file="include/algorithms/Marcelo.h" line="71" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="195" bodyend="204"/>
       </memberdef>
       <memberdef kind="function" id="classMarcelo_1a5835e08725f01af3fb719423d523fe25" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -566,7 +566,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Marcelo.h" line="79" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="201" bodyend="220"/>
+        <location file="include/algorithms/Marcelo.h" line="79" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="207" bodyend="226"/>
       </memberdef>
       <memberdef kind="function" id="classMarcelo_1a4bf70b72554f4a87b0b8bf478631d753" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -588,7 +588,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Marcelo.h" line="87" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="223" bodyend="231"/>
+        <location file="include/algorithms/Marcelo.h" line="87" column="10" bodyfile="src/algorithms/Marcelo.cpp" bodystart="229" bodyend="237"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -683,6 +683,7 @@
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>pfollowing_debug_pub_</name></member>
       <member refid="classMarcelo_1a43bcaefc4d204ba35894978d2924a45c" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>pos_hat_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Marcelo</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Marcelo</scope><name>publish</name></member>
       <member refid="classMarcelo_1acc69031cdb4aced85b855facdaba8f63" prot="public" virt="virtual"><scope>Marcelo</scope><name>publish_private</name></member>
       <member refid="classMarcelo_1a121bfe86f6f8fe572b5f39732c488306" prot="private" virt="non-virtual"><scope>Marcelo</scope><name>rabbit_pub_</name></member>

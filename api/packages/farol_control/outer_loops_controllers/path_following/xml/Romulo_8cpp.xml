@@ -140,74 +140,80 @@
 <codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>aux<sp/>=<sp/>pos_error.transpose()<sp/>*<sp/>rot_body<sp/>*<sp/>path_pd_dot;</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.d_vd<sp/>-<sp/>(aux<sp/>/<sp/>path_hg)<sp/>+<sp/>kz<sp/>*<sp/>z;</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Integrate<sp/>to<sp/>recover<sp/>the<sp/>gamma<sp/>parameter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>velocity</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>+=<sp/>this-&gt;gamma_ddot_<sp/>*<sp/>dt;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>values<sp/>of<sp/>gamma<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;gamma_<sp/>&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>)<sp/>this-&gt;gamma_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Make<sp/>sure<sp/>gamma<sp/>does<sp/>not<sp/>return<sp/>to<sp/>a<sp/>previous<sp/>path<sp/>section,<sp/>given<sp/>that</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/>each<sp/>path<sp/>section<sp/>is<sp/>paramaterised<sp/>from<sp/>0<sp/>to<sp/>1<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" kindref="member">preventPathSectionSwitching</ref>(this-&gt;gamma_,<sp/>this-&gt;gamma_dot_,<sp/>dt);</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Romulo&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>following<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" kindref="member">Romulo::publish_private</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;sway_pub_,<sp/>this-&gt;desired_sway_);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a" kindref="member">Romulo::start</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>in<sp/>initial<sp/>virtual<sp/>target<sp/>to<sp/>get<sp/>the<sp/>values<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640" kindref="member">Romulo::stop</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Integrate<sp/>to<sp/>get<sp/>the<sp/>virtual<sp/>target<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>+=<sp/>this-&gt;gamma_dot_<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Saturate<sp/>the<sp/>values<sp/>of<sp/>gamma<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;gamma_<sp/>&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>)<sp/>this-&gt;gamma_<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1af6702806427eaa044dc11a90bcc3869c" kindref="member">gamma_min</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Romulo&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/>gamma_;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish<sp/>the<sp/>data<sp/>from<sp/>the<sp/>path<sp/>following<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1a1c15ccf5a529b7b8bf279e71d7bd6eb0" kindref="member">Romulo::publish_private</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;sway_pub_,<sp/>this-&gt;desired_sway_);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>virtual<sp/>targets<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1a373e4e323299aff96afda2cfc7ae8d3a" kindref="member">Romulo::start</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>in<sp/>initial<sp/>virtual<sp/>target<sp/>to<sp/>get<sp/>the<sp/>values<sp/>from<sp/>the<sp/>path<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;rabbit_pub_,<sp/>this-&gt;gamma_);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1a0ada3435f17112aa0bca3c75eb66e640" kindref="member">Romulo::stop</ref>()<sp/>{</highlight></codeline>
 <codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5" kindref="member">Romulo::reset</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>this-&gt;desired_sway_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Romulo::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;gamma_<sp/>&gt;=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.gamma_max)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRomulo_1ada2d8618e5e4b39aadf37c0d9fc4b8e5" kindref="member">Romulo::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>velocity<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>this-&gt;desired_sway_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">Romulo::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>virtual<sp/>target<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>this-&gt;gamma_ddot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>this-&gt;gamma_dot_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>this-&gt;gamma_<sp/>=<sp/>value;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/algorithms/Romulo.cpp"/>
   </compounddef>

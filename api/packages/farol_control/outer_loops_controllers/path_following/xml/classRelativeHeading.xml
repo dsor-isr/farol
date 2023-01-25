@@ -354,7 +354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/RelativeHeading.h" line="51" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="40" bodyend="121"/>
+        <location file="include/algorithms/RelativeHeading.h" line="51" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="40" bodyend="127"/>
       </memberdef>
       <memberdef kind="function" id="classRelativeHeading_1a63aadbf95202501372dd69bd085d78b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -369,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/RelativeHeading.h" line="56" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="124" bodyend="133"/>
+        <location file="include/algorithms/RelativeHeading.h" line="56" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="130" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="classRelativeHeading_1a56cead9c8d63a7eb98cdc05cc2cede02" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -384,7 +384,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/RelativeHeading.h" line="61" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="136" bodyend="140"/>
+        <location file="include/algorithms/RelativeHeading.h" line="61" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="142" bodyend="146"/>
       </memberdef>
       <memberdef kind="function" id="classRelativeHeading_1a344c8b1a1561d1b99669d9e061c0b140" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -403,7 +403,7 @@
         <inbodydescription>
 <para>Check if the gamma is greater then the gamma max of the path If so, we have reached the end</para>
         </inbodydescription>
-        <location file="include/algorithms/RelativeHeading.h" line="68" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="143" bodyend="152"/>
+        <location file="include/algorithms/RelativeHeading.h" line="68" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="149" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="classRelativeHeading_1af1115046fbdcf8ba032a6e170ed746ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -421,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/RelativeHeading.h" line="76" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="155" bodyend="168"/>
+        <location file="include/algorithms/RelativeHeading.h" line="76" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="161" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="classRelativeHeading_1a6b17687f0a164ad340235f8604e05b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -443,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/RelativeHeading.h" line="84" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="171" bodyend="179"/>
+        <location file="include/algorithms/RelativeHeading.h" line="84" column="10" bodyfile="src/algorithms/RelativeHeading.cpp" bodystart="177" bodyend="185"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -532,6 +532,7 @@
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>RelativeHeading</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>RelativeHeading</scope><name>publish</name></member>
       <member refid="classRelativeHeading_1a63aadbf95202501372dd69bd085d78b8" prot="public" virt="virtual"><scope>RelativeHeading</scope><name>publish_private</name></member>
       <member refid="classRelativeHeading_1a2e17a8c46d330e392fcb445816f85898" prot="private" virt="non-virtual"><scope>RelativeHeading</scope><name>rabbit_pub_</name></member>

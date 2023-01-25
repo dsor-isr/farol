@@ -152,6 +152,7 @@
     <member refid="classPathFollowing_1aaa12dbafa972045c2c2c1fc9d871d2f7" kind="function"><name>UpdatePathState</name></member>
     <member refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" kind="function"><name>setPFollowingDebugPublisher</name></member>
     <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kind="function"><name>algConvert</name></member>
+    <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" kind="function"><name>preventPathSectionSwitching</name></member>
   </compound>
   <compound refid="classPathFollowingNode" kind="class"><name>PathFollowingNode</name>
     <member refid="classPathFollowingNode_1a5cefbf81fdac17bcc1b163e3ddedd64b" kind="variable"><name>pf_algorithm_</name></member>

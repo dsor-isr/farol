@@ -114,17 +114,29 @@
 <codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>alg_out;</highlight></codeline>
 <codeline lineno="45"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>to<sp/>a<sp/>pre-specified<sp/>value.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">PathFollowing::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>By<sp/>default<sp/>do<sp/>nothing,<sp/>unless<sp/>the<sp/>controller<sp/>implements<sp/>this<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>to<sp/>zero<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">PathFollowing::resetVirtualTarget</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">resetVirtualTarget</ref>(0.0);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" kindref="member">PathFollowing::preventPathSectionSwitching</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_dot,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>gamma_dot<sp/>is<sp/>positive,<sp/>then<sp/>gamma<sp/>will<sp/>not<sp/>go<sp/>back<sp/>to<sp/>a<sp/>previous<sp/>section</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gamma_dot<sp/>&gt;=<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gamma_dot;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>check<sp/>if<sp/>new<sp/>gamma<sp/>goes<sp/>back</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>new_gamma<sp/>=<sp/>gamma<sp/>+<sp/>gamma_dot<sp/>*<sp/>dt;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(floor(new_gamma)<sp/>!=<sp/>floor(gamma))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0.0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>else,<sp/>return<sp/>original<sp/>gamma_dot</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gamma_dot;</highlight></codeline>
 <codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>to<sp/>a<sp/>pre-specified<sp/>value.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">PathFollowing::resetVirtualTarget</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>By<sp/>default<sp/>do<sp/>nothing,<sp/>unless<sp/>the<sp/>controller<sp/>implements<sp/>this<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>the<sp/>virtual<sp/>target<sp/>of<sp/>the<sp/>vehicle<sp/>(gamma)<sp/>to<sp/>zero<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">PathFollowing::resetVirtualTarget</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="classPathFollowing_1a4993180700d33d7002a0f3b55ec61a01" kindref="member">resetVirtualTarget</ref>(0.0);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/algorithms/PathFollowing.cpp"/>
   </compounddef>

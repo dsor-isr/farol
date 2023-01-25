@@ -588,6 +588,7 @@ NOTE: The default order of the gains is k1, k2, k3, theta, k_delta</para>
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Samson</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Samson</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Samson</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Samson</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classSamson_1a975fbd7f5e619c836689863c5a424880" prot="private" virt="non-virtual"><scope>Samson</scope><name>psi_old_</name></member>
       <member refid="classSamson_1ade6f94a9d70648793bbd45e2ba494a39" prot="private" virt="non-virtual"><scope>Samson</scope><name>psi_out_</name></member>
       <member refid="classSamson_1a3c62a05a59807c92585db4936c2953e4" prot="private" virt="non-virtual"><scope>Samson</scope><name>psi_out_old_</name></member>

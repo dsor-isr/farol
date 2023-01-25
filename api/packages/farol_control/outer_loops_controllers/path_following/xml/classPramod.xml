@@ -364,6 +364,7 @@
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>pfollowing_debug_pub_</name></member>
       <member refid="classPramod_1a861fb9927e005dec09dc5054e69a9a29" prot="public" virt="non-virtual"><scope>Pramod</scope><name>Pramod</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Pramod</scope><name>publish</name></member>
       <member refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" prot="public" virt="virtual"><scope>Pramod</scope><name>publish_private</name></member>
       <member refid="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" prot="public" virt="virtual"><scope>Pramod</scope><name>reset</name></member>

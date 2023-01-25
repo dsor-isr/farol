@@ -224,9 +224,11 @@
 <codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>pfollowing_debug_pub_;<sp/></highlight></codeline>
 <codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" kindref="member">algConvert</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_new,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_old,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alg_out_old);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" kindref="member">preventPathSectionSwitching</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>gamma_dot,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="include/algorithms/PathFollowing.h"/>
   </compounddef>

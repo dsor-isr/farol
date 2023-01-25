@@ -380,6 +380,7 @@ NOTE: In this controller this method does nothing, as there are no gains to twea
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>pfollowing_debug_pub_</name></member>
+      <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Fossen</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Fossen</scope><name>publish</name></member>
       <member refid="classFossen_1a41c9bef0f7e5134697c16ad4a04f5f58" prot="public" virt="virtual"><scope>Fossen</scope><name>publish_private</name></member>
       <member refid="classFossen_1a7e629ef79f95d4d4c0e9dde0fdf3ae73" prot="public" virt="virtual"><scope>Fossen</scope><name>reset</name></member>
