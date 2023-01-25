@@ -44,6 +44,18 @@ double PathFollowing::algConvert(double alg_new, double alg_old, double alg_out_
   return alg_out;
 }
 
+double PathFollowing::preventPathSectionSwitching(double gamma, double gamma_dot, double dt) {
+  // if gamma_dot is positive, then gamma will not go back to a previous section
+  if (gamma_dot >= 0) return gamma_dot;
+
+  // check if new gamma goes back
+  double new_gamma = gamma + gamma_dot * dt;
+  if (floor(new_gamma) != floor(gamma)) return 0.0;
+  
+  // else, return original gamma_dot
+  return gamma_dot;
+}
+
 /* Method to reset the virtual target of the vehicle (gamma) to a pre-specified value. */
 bool PathFollowing::resetVirtualTarget(float value) {
 

@@ -69,6 +69,10 @@ void Brevik::callPFController(double dt) {
     this->gamma_dot_ = 0.0;
     this->gamma_ = this->path_state_.gamma_min;
   }
+
+  /* Make sure gamma does not return to a previous path section, given that
+  each path section is paramaterised from 0 to 1 */
+  this->gamma_dot_ = this->preventPathSectionSwitching(this->gamma_, this->gamma_dot_, dt);
   
   /* Integrate to get the virtual target position */
   this->gamma_ += this->gamma_dot_ * dt;
