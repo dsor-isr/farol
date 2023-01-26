@@ -86,8 +86,8 @@ This node manages the PF properties discussed in the [implementation](implementa
 ### Pramod Algorithm
 | Parameters | type | Default |
 | --- | --- | --- |
-| kp | float | 0.01 |
-| kd | float | 0.14 |
+| kp | float | 0.02 |
+| ki | float | 0.0005 |
 
 ### Samson Algorithm
 | Parameters | type | Default |

@@ -155,7 +155,7 @@ path_following:
       kz: 0.2
     pramod:
       kp: 0.02
-      kd: 0.0005
+      ki: 0.0005
     samson:
       k1: 1.0
       k2: 0.3

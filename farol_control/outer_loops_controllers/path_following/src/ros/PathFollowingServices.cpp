@@ -646,16 +646,16 @@ bool PathFollowingNode::SetPramodService(path_following::SetPF::Request &req,
   this->publishers_.push_back(nh_.advertise<std_msgs::Float64>(yaw_topic, 1));
 
   /* Variables to store the gains of the controller */
-  double kp, kd;
+  double kp, ki;
   std::vector<double> controller_gains;
 
   try {
 
     /* Read the gains for the controller */
     nh_p_.getParam("controller_gains/pramod/kp", kp);
-    nh_p_.getParam("controller_gains/pramod/kd", kd);
+    nh_p_.getParam("controller_gains/pramod/ki", ki);
     controller_gains.push_back(kp);
-    controller_gains.push_back(kd);
+    controller_gains.push_back(ki);
 
     /* Assign the new controller */
     this->pf_algorithm_ = new Pramod(controller_gains, this->publishers_[0],
