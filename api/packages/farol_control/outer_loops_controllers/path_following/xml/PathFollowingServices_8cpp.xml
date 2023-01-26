@@ -872,16 +872,16 @@
 <codeline lineno="646"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(yaw_topic,<sp/>1));</highlight></codeline>
 <codeline lineno="647"><highlight class="normal"></highlight></codeline>
 <codeline lineno="648"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Variables<sp/>to<sp/>store<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="649"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kp,<sp/>kd;</highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kp,<sp/>ki;</highlight></codeline>
 <codeline lineno="650"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>controller_gains;</highlight></codeline>
 <codeline lineno="651"><highlight class="normal"></highlight></codeline>
 <codeline lineno="652"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
 <codeline lineno="653"><highlight class="normal"></highlight></codeline>
 <codeline lineno="654"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>the<sp/>gains<sp/>for<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/kp&quot;</highlight><highlight class="normal">,<sp/>kp);</highlight></codeline>
-<codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/kd&quot;</highlight><highlight class="normal">,<sp/>kd);</highlight></codeline>
+<codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/ki&quot;</highlight><highlight class="normal">,<sp/>ki);</highlight></codeline>
 <codeline lineno="657"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(kp);</highlight></codeline>
-<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(kd);</highlight></codeline>
+<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(ki);</highlight></codeline>
 <codeline lineno="659"><highlight class="normal"></highlight></codeline>
 <codeline lineno="660"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Assign<sp/>the<sp/>new<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="661"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pf_algorithm_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classPramod" kindref="compound">Pramod</ref>(controller_gains,<sp/>this-&gt;publishers_[0],</highlight></codeline>
