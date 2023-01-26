@@ -106,6 +106,9 @@ waypoint:
         k3: 0.2
 
 # Path Following configurations
+# Be careful while changing values here, due to the way the PF code is implemented,
+# the order of the following gains must be respected. This means you can't switch
+# the lines k1 and k2 in lapierre, for example.
 path_following:
   controller_gains:
     lapierre:
