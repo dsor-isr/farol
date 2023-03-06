@@ -49,7 +49,6 @@ class RemoteControllerNode:
         Callback used to publish to the inner-loops the desired control inputs
         :param event: A timer event - unused but required by the ROS API
         """
-
         # Check for the desired inputs for the inner-loops
         desired_inputs = self.control_assignment.check_events()
 
@@ -93,7 +92,7 @@ class RemoteControllerNode:
         rospy.loginfo('Initializing Subscribers for RemoteControllerNode')
 
         # Define the state subscriber
-        self.state_sub = rospy.Subscriber(rospy.get_param('~topics/subscribers/state'), NavigationStatus, self.state_callback, queue_size=1)
+        self.state_sub = rospy.Subscriber(rospy.get_param('~vehicle/')+rospy.get_param('~topics/subscribers/state'), NavigationStatus, self.state_callback, queue_size=1)
 
     def initializePublishers(self):
         """
@@ -102,18 +101,19 @@ class RemoteControllerNode:
         rospy.loginfo('Initializing Publishers for RemoteControllerNode')
 
         # Defining the publishers for linear speed references
-        self.surge_pub = rospy.Publisher(rospy.get_param('~topics/publishers/surge'), Float64, queue_size=1)
-        self.sway_pub = rospy.Publisher(rospy.get_param('~topics/publishers/sway'), Float64, queue_size=1)
-        self.heave_pub = rospy.Publisher(rospy.get_param('~topics/publishers/heave'), Float64, queue_size=1)
+        self.surge_pub = rospy.Publisher(rospy.get_param('~vehicle/')+rospy.get_param('~topics/publishers/surge'), Float64, queue_size=1)
+        self.sway_pub = rospy.Publisher(rospy.get_param('~vehicle/')+rospy.get_param('~topics/publishers/sway'), Float64, queue_size=1)
+        self.heave_pub = rospy.Publisher(rospy.get_param('~vehicle/')+rospy.get_param('~topics/publishers/heave'), Float64, queue_size=1)
 
         # Publish the angular speed references
-        self.yaw_rate_pub = rospy.Publisher(rospy.get_param('~topics/publishers/yaw_rate'), Float64, queue_size=1)
+        self.yaw_rate_pub = rospy.Publisher(rospy.get_param('~vehicle/')+rospy.get_param('~topics/publishers/yaw_rate'), Float64, queue_size=1)
 
         # Publish the orientation references
-        self.yaw_pub = rospy.Publisher(rospy.get_param('~topics/publishers/yaw'), Float64, queue_size=1)
+        self.yaw_pub = rospy.Publisher(rospy.get_param('~vehicle/')+rospy.get_param('~topics/publishers/yaw'), Float64, queue_size=1)
 
         # Publish the depth references
-        self.depth_pub = rospy.Publisher(rospy.get_param('~topics/publishers/depth'), Float64, queue_size=1)
+        self.depth_pub = rospy.Publisher(rospy.get_param('~vehicle/')+rospy.get_param('~topics/publishers/depth'), Float64, queue_size=1)
+
 
     def initializeJoystick(self):
         """
@@ -128,7 +128,8 @@ class RemoteControllerNode:
                                          "heave": rospy.get_param('~button_assignment/heave'),
                                          "yaw_rate": rospy.get_param('~button_assignment/yaw_rate'),
                                          "yaw": rospy.get_param('~button_assignment/yaw'),
-                                         "depth": rospy.get_param('~button_assignment/depth')}
+                                         "depth": rospy.get_param('~button_assignment/depth'),
+                                         "mode": rospy.get_param('~button_assignment/mode')}
 
             # Initialize the main joystick and bind key assignments according to configuration in ros parameter server
             self.control_assignment = ControlAssignment(controller_configurations)

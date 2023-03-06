@@ -50,3 +50,10 @@ button_assignment:
           "integrate": true,
           "lower_limit": -1,
           "upper_limit": 2.5}
+
+  # Mode switching
+  mode: {"inputs":[
+              {"type": "button", "id": 0, "gain": 100.0, "offset": 0.0}],                
+        "integrate": true,
+        "upper_limit": 1.0}
+

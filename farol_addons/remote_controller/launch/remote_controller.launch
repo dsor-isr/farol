@@ -2,7 +2,7 @@
 <launch>
 
     <arg name="joystick"    default="gamesir"/>   <!-- Name of the joystick being used -->
-    <arg name="mode"        default="bluetooth"/> <!-- Configurations for both usb and bluetooth -->
+    <arg name="mode"        default="usb"/> <!-- Configurations for both usb and bluetooth -->
 
     <group ns="remote_controller">
      

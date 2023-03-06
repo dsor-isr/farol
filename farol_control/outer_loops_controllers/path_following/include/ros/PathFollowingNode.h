@@ -9,6 +9,7 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/Int8.h>
+#include <path_following/RefBypass.h> 
 
 /* Messages used to receive data from the vehicle and from the path */
 #include <auv_msgs/NavigationStatus.h>
@@ -91,6 +92,7 @@ class PathFollowingNode {
      */
     VehicleState vehicle_state_;
     PathState path_state_;
+    bool flag_mode_ = false;
 
     /**
      * @brief Auxiliary variables to check whether we have received the first information
@@ -152,6 +154,7 @@ class PathFollowingNode {
     ros::Subscriber path_sub_;
     ros::Subscriber vc_sub_;
     ros::Subscriber flag_sub_;
+    ros::Subscriber flag_mode_sub_;
 
     /**
      * @brief ROS Timer attributes 
@@ -198,6 +201,7 @@ class PathFollowingNode {
     void pathStateCallback(const dsor_paths::PathData &msg);
     void vehicleStateCallback(const auv_msgs::NavigationStatus &msg);
     void flagCallback(const std_msgs::Int8 &msg);
+    void modeCallback(const std_msgs::Bool &msg);
 
     /**
      * @brief Services callbacks 

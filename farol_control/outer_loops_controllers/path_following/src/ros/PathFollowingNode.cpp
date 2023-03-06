@@ -1,5 +1,6 @@
 #include "PathFollowingNode.h"
 
+
 /**
  * @brief  The Path Following Node constructor
  *
@@ -34,6 +35,7 @@ PathFollowingNode::~PathFollowingNode() {
   this->state_sub_.shutdown();
   this->path_sub_.shutdown();
   this->vc_sub_.shutdown();
+  this->flag_mode_sub_.shutdown();
 
   /* Shutdown the publishers common to all controllers */
   this->flag_pub_.shutdown();
@@ -106,8 +108,7 @@ PathFollowing *PathFollowingNode::getDefaultControllerBrevik() {
   nh_p_.getParam("controller_gains/brevik/delta_h", delta_h);
  
   /* Assign the new controller */
-  return new Brevik(this->publishers_[0], 
-        this->publishers_[1], this->publishers_[2], delta_h);
+  return new Brevik(this->publishers_[0], this->publishers_[1], this->publishers_[2], delta_h);
 }
 
 PathFollowing *PathFollowingNode::getDefaultControllerAguiar() {
@@ -188,6 +189,8 @@ void PathFollowingNode::initializeSubscribers() {
       this->nh_p_, "topics/subscribers/vc");
   std::string flag_topic =
       FarolGimmicks::getParameters<std::string>(this->nh_p_, "flag");
+  std::string flag_mode_topic = FarolGimmicks::getParameters<std::string>(
+      this->nh_p_, "topics/subscribers/mode");
 
   /* Initialize the subscribers */
   this->state_sub_ = nh_.subscribe(
@@ -198,6 +201,7 @@ void PathFollowingNode::initializeSubscribers() {
       nh_.subscribe(vc_topic, 10, &PathFollowingNode::vcCallback, this);
   this->flag_sub_ =
       nh_.subscribe(flag_topic, 10, &PathFollowingNode::flagCallback, this);
+  this->flag_mode_sub_ = nh_.subscribe(flag_mode_topic, 10, &PathFollowingNode::modeCallback, this);
 }
 
 /**
@@ -222,9 +226,12 @@ void PathFollowingNode::initializePublishers() {
  * for the virtual target gamma
  */
 void PathFollowingNode::vcCallback(const std_msgs::Float64 &msg) {
-
   /* Update the desired synchronization correction term */
   this->path_state_.vc = msg.data;
+}
+
+void PathFollowingNode::modeCallback(const std_msgs::Bool &msg) {
+  this->flag_mode_ = msg.data;
 }
 
 /**
@@ -343,6 +350,8 @@ void PathFollowingNode::timerIterCallback(const ros::TimerEvent &event) {
   ros::Duration dt = curr_time - this->prev_time_;
   this->prev_time_ = curr_time;
 
+  if (!this->flag_mode_){
+
   /* Compute the control law */
   this->pf_algorithm_->callPFController(double(dt.toSec()));
 
@@ -355,7 +364,7 @@ void PathFollowingNode::timerIterCallback(const ros::TimerEvent &event) {
     this->sendWaypoint(WP_FINISH);
     /* Reset the DR postion to the 2d state filter position */
     this->sendResetDeadReckoning();
-
+    }
   }
 }
 

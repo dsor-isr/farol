@@ -17,3 +17,6 @@ topics:
 
   subscribers:
     state: "/nav/filter/state"
+
+#Name of the vehicle
+vehicle: "/bluerov_heavy0"

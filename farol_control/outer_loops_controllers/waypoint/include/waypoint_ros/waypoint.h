@@ -40,6 +40,7 @@ private:
   WPref_t wp_ref_;                    ///< Desired waypoint
   Vehicle_t veh_state_;               ///< Vehicle state
   double node_frequency_;             ///< node main loop frequency
+  bool flag_mode_ = false;            ///< Flag of the current mode
 
   // Nodehandles
   ros::NodeHandle nh_;   ///< Public ros nodehandle
@@ -49,6 +50,7 @@ private:
   ros::Subscriber flag_sub_;  ///< flag subscriber
   ros::Subscriber state_sub_; ///< state subscriber
   ros::Subscriber turn_radius_flag_sub_; ///< turn radius limiter flag subscriber
+  ros::Subscriber flag_mode_sub_; //<flag of current operational mode
 
   // Publishers
   ros::Publisher u_ref_pub_;        ///< surge publisher
@@ -91,6 +93,7 @@ private:
   std::string wp_standard_topic_;
   std::string wp_loose_topic_;
   std::string wp_heading_topic_;
+  std::string flag_mode_topic_;
 
   // Turn Radius Flag Boolean
   bool turn_radius_flag_{false};
@@ -150,6 +153,13 @@ private:
    * @param msg contains the flag info
    */
   void turnRadiusFlagCallback(const std_msgs::Bool &msg);
+
+  /**
+   * @brief  Callback function of the flag mode topic.
+   *
+   * @param msg contains the flag mode info
+   */
+  void flagModeCallback(const std_msgs::Bool &msg);
 
   /**
    * @brief  Main loop of the node. Executes the waypoint controller and

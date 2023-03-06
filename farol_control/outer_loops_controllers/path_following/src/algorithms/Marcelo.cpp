@@ -187,7 +187,6 @@ void Marcelo::start() {
 
 /* Method used to check whether we reached the end of the algorithm or not */
 bool Marcelo::stop() {
-
   /**
    * Check if the gamma is greater then the gamma max of the path 
    * If so, we have reached the end

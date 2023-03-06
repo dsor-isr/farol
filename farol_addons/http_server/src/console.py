@@ -644,6 +644,7 @@ def cmd_set_topic(args):
             pub_args.append(yaml.load(args))
         except Exception as e:
             print("Argument error: %s"% str(e))
+            print(args)
             return 0
         
         # print("Publishing topic: %s type: %s value: %s"%(topic_name, topic_type, pub_args))

@@ -221,6 +221,7 @@ controls/waypoint:
             flag: "/#vehicle#/Flag"
             state: "/#vehicle#/nav/filter/state"
             turn_radius_flag: "/#vehicle#/turn_radius_flag"
+            flag_mode: "/flag_mode"
         services:
             wp_standard: "/#vehicle#/controls/send_wp_standard"
             wp_loose: "/#vehicle#/controls/send_wp_loose"
@@ -234,6 +235,8 @@ controls/path_following:
             state: "/#vehicle#/nav/filter/state"
             path: "/#vehicle#/PathData"
             vc: "/#vehicle#/PF/vc"
+            mode: "/flag_mode"
+
         publishers:
             surge: "/#vehicle#/ref/surge"
             sway: "/#vehicle#/ref/sway"
@@ -255,7 +258,7 @@ controls/path_following:
 
             # Publish info for plots
             pfollowing_debug: "/#vehicle#/pfollowing/debug"
-        
+
         services:
             # Service names to start and stop the path following algorithm
             start_pf: "/#vehicle#/PFStart"
