@@ -26,6 +26,13 @@ PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kf
         max_error_(max_error), max_out_(max_out), min_error_(min_error), min_out_(min_out) {
   reset();
   disable = true;
+
+  yaw_rate_prev = 0;
+  yaw_prev = 0;
+  g_filter_prev = 0;
+  u_prev = 0;
+  u_sat_prev = 0;
+  first_it = true;
 }
 
 PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kff_d, float Kff_lin_drag, float Kff_quad_drag,  
@@ -36,6 +43,92 @@ PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kf
   disable = true;
   has_lpf_ = true;
   lpf_ = std::make_unique<LowPassFilter>(lpf_dt, 2*M_PI*lpf_fc);
+}
+
+float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency) {
+  // Initialisation parameters (must be moved to an init function of this node or ros_controller node (preferred))
+  N_r = -0.5;
+  I_z = 0.24;
+  u_max = 5.0; // N.m
+  u_min = -5.0; // N.m
+  a = 10.0; // rad/s
+
+  alpha = 1.0 / I_z;
+  beta = -N_r / I_z;
+
+  w_n = 0.5; // rad/s
+  qsi = 0.7;
+  pole = -4;
+
+  // delta = duration;
+  delta = 1.0 / frequency;
+
+  K_r = (2*qsi*w_n - pole - beta) / alpha;
+  K_p = w_n * (w_n - 2*pole*qsi) / alpha;
+  K_i = (- pow(w_n, 2) * pole) / alpha;
+  k_a = 1.0 / delta;
+
+  A = std::exp(-a*delta);
+  B = 1 - A;
+
+  // change from degrees to radians
+  yaw = yaw / 360 * 2*M_PI;
+  yaw_rate = yaw_rate / 360 * 2*M_PI;
+  yaw_ref = yaw_ref / 360 * 2*M_PI;
+
+  // Compute control input
+  error = yaw_ref - yaw;
+
+  if (error > M_PI) {
+    error = error - 2*M_PI;
+  } else if (error < - M_PI) {
+    error = error + 2*M_PI;
+  }
+
+  if (first_it) {
+    yaw_rate_dot = 0;
+    yaw_dot = 0;
+  } else {
+    yaw_rate_dot = (yaw_rate - yaw_rate_prev) / delta;
+    yaw_dot = (yaw - yaw_prev); // still needs to be divided by delta
+
+    if (yaw_dot > M_PI) {
+      yaw_dot = yaw_dot - 2*M_PI;
+    } else if (yaw_dot < - M_PI) {
+      yaw_dot = yaw_dot + 2*M_PI;
+    }
+
+    yaw_dot = yaw_dot / delta;
+  }
+
+  g = K_r * yaw_rate_dot + K_p * yaw_dot;
+
+  g_filter = A*g_filter_prev + g*B;
+  // g_filter = g;
+
+  u_d = K_i * error - g_filter;
+  u_dot = u_d - k_a * (u_prev - u_sat_prev);
+  u = u_prev + u_dot * delta;
+  
+  if (u < u_min) {
+    u_sat = u_min;
+  } else if (u > u_max) {
+    u_sat = u_max;
+  } else {
+    u_sat = u;
+  }
+
+  // Update new prev values
+  yaw_rate_prev = yaw_rate;
+  yaw_prev = yaw;
+  g_filter_prev = g_filter;
+  u_prev = u;
+  u_sat_prev = u_sat;
+
+  first_it = false;
+
+  // return output
+  return u_sat;
 }
 
 float PID_Controller::computeCommand(float error_p, float ref_value, float duration, bool debug) {

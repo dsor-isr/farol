@@ -10,10 +10,10 @@ RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
 
 // Yaw controller
 RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
-                             std::string refCallback_topic, double *state,
+                             std::string refCallback_topic, double *state, double *yaw_rate,
                              double *force_or_torque, double frequency,
                              bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t)
-    : state_ptr_(state), controller_name_(controller_name),
+    : state_ptr_(state), yaw_rate_ptr_(yaw_rate), controller_name_(controller_name),
       force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
       turn_limiter_flag_ptr_(turn_limiter_flag), turn_radius_speed_(turn_radius_speed), rate_limiter_ptr_(rate_limiter), turn_radius_speed_t_(turn_radius_speed_t) {
   init(nh, controller_name, refCallback_topic);
@@ -196,8 +196,12 @@ double RosController::computeCommand() {
   ros::Time tnow = ros::Time::now();  
   
   // Call the controller
-  *force_or_torque_ptr_ += (positive_output_ ? 1 : -1) * pid_c_->computeCommand(error, ref_value_, (tnow - last_cmd_).toSec(), debug_);
-  last_cmd_ = tnow;
+  if (controller_name_ == "yaw") {
+    *force_or_torque_ptr_ += pid_c_->computeCommandYaw(*state_ptr_, *yaw_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
+  } else {
+    *force_or_torque_ptr_ += (positive_output_ ? 1 : -1) * pid_c_->computeCommand(error, ref_value_, (tnow - last_cmd_).toSec(), debug_);
+  }
+    last_cmd_ = tnow;
 
   // If debugging info, publish the internal controller variables for analysis
   if (debug_) {

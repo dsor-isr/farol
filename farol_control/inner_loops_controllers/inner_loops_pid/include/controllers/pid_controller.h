@@ -94,6 +94,42 @@ public:
    */
   float computeCommand(float error_p, float ref_value, float duration, bool debug);
 
+  float computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency);
+
+  bool first_it;
+  double N_r;
+  double I_z;
+  double u_max;
+  double u_min;
+  double a;
+  double alpha;
+  double beta;
+  double w_n;
+  double qsi;
+  double pole;
+  double delta;
+  double K_r;
+  double K_p;
+  double K_i;
+  double k_a;
+  double A;
+  double B;
+  double yaw_rate_dot;
+  double yaw_rate_prev;
+  double yaw_dot;
+  double yaw_prev;
+  double g;
+  double g_filter;
+  double error;
+  double u_d;
+  double u_dot;
+  double u;
+  double u_sat;
+  double g_prev;
+  double g_filter_prev;
+  double u_prev;
+  double u_sat_prev;
+
   /**
    * @brief  Reset function. Sets the integral error term to 0.
    */

@@ -64,7 +64,7 @@ public:
    * @param rate_limiter Rate Limiter object from dsor_utils
    */
   RosController(ros::NodeHandle &nh, std::string controller_name,
-                std::string refCallback_topic, double *state,
+                std::string refCallback_topic, double *state, double *yaw_rate,
                 double *force_or_torque, double frequency,
                 bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t);
 
@@ -200,6 +200,8 @@ protected:
   PID_Controller *pid_c_;
   ros::Subscriber ros_sub_;
   ros::Publisher debug_pub_;
+
+  double *yaw_rate_ptr_;
 };
 
 #endif /* ifndef __ROS_CONTROLLER__*/

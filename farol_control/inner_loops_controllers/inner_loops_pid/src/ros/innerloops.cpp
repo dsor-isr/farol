@@ -25,7 +25,7 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "yaw", 
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/yaw", "yaw_ref"),
-          &yaw_, &torque_request_[2], Innerloops::nodeFrequency(),
+          &yaw_, &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency(),
           &turn_radius_flag_, &turn_radius_speed_, &rate_limiter_, &turn_radius_speed_t_));
 
   controllers_.back()->setCircularUnits(true);
