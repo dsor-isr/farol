@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="45" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="45" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="36" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a86dc15a6e531bb2631a1330612321a01" prot="private" static="no" mutable="no">
         <type></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="46" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="46" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="37" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a29af643ce1ef22c7246b56de6561c687" prot="private" static="no" mutable="no">
         <type></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="47" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="47" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="38" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a74487502b3fa4abc0efd26ea3ccd8352" prot="private" static="no" mutable="no">
         <type></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="58" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="58" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="62" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1ad8f519aa1ee61925202681bbb5b0bb50" prot="private" static="no" mutable="no">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="68" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="68" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="72" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1aea6f11f36436fec1edfcf46899cfe180" prot="private" static="no" mutable="no">
         <type></type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="71" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="71" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="75" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a515666f72c1095078fc4c63cc3e5aef5" prot="private" static="no" mutable="no">
         <type></type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="83" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="83" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="87" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a10fea8b65c8a50d4aa3edcf660463e66" prot="private" static="no" mutable="no">
         <type></type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="92" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="92" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="96" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a8096b8383dc9de02e1448cc6f45a8906" prot="private" static="no" mutable="no">
         <type></type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="101" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="101" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="105" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1aca6de752f0118e735ef31be37ba766f6" prot="private" static="no" mutable="no">
         <type></type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="102" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="102" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="106" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a4e24b4cc9a7686dc5c47d05dc14afcd9" prot="private" static="no" mutable="no">
         <type></type>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="104" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="104" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="108" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a0d049a57950fd06ec34d7e60b19beea8" prot="private" static="no" mutable="no">
         <type></type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="105" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="105" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="109" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="109" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1aed3e031c210a486ec4893f5887db9d9a" prot="private" static="no" mutable="no">
         <type></type>
@@ -170,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="106" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="106" bodyend="-1"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="110" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="110" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="16" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="16" bodyend="48"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="16" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="16" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1af8f41aee7793ea7a421c9d4295bc3fe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -211,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="55" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="55" bodyend="73"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="59" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="59" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a1cea44d171c694f76cd8f073a735da1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -228,7 +228,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="79" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="79" bodyend="94"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="83" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="83" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a22d857e9a1b64145a5034fc22ce03831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -245,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="100" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="100" bodyend="107"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="104" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="104" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1ac9b9e6e2479239f45b0fa27607be9c37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -270,7 +270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="119" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="119" bodyend="138"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="123" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="123" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1ac745e5f605c21c51cb6e491c928f017d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="144" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="144" bodyend="186"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="148" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="148" bodyend="190"/>
       </memberdef>
       <memberdef kind="function" id="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a014162c98cee7c35a2eef44875b68ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -312,14 +312,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_ros/DataSerializerNode.py" line="192" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="192" bodyend="216"/>
+        <location file="src/data_serializer_ros/DataSerializerNode.py" line="196" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="196" bodyend="220"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/data_serializer_ros/DataSerializerNode.py" line="15" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="15" bodyend="217"/>
+    <location file="src/data_serializer_ros/DataSerializerNode.py" line="15" column="1" bodyfile="src/data_serializer_ros/DataSerializerNode.py" bodystart="15" bodyend="221"/>
     <listofallmembers>
       <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a83824900ba1544ee0b48b97f686ff0ee" prot="public" virt="non-virtual"><scope>data_serializer_ros::DataSerializerNode::DataSerializerNode</scope><name>__init__</name></member>
       <member refid="classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode_1a86dc15a6e531bb2631a1330612321a01" prot="private" virt="non-virtual"><scope>data_serializer_ros::DataSerializerNode::DataSerializerNode</scope><name>_channel_flags</name></member>
