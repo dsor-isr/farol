@@ -31,6 +31,13 @@ class DataSerializerNode():
 		###########################################################################################
 		"""
 		self.loadParams()
+
+		# +.+ create empty lists to accumulate serialized data and channel flag indicators
+		self._serial_data = ['']*len(self._data_channels)
+		self._channel_flags = [0]*len(self._data_channels)
+		self._latch_count = [0]*len(self._data_channels)
+
+		# Subscribers and Publishers use previous variables, so this is a failsafe
 		self.initializeSubscribers()
 		self.initializePublishers()
 
@@ -41,10 +48,7 @@ class DataSerializerNode():
 		# Declare here some variables you might think usefull -> example: self.fiic = true
 
 		"""
-        # +.+ create empty lists to accumulate serialized data and channel flag indicators
-		self._serial_data = ['']*len(self._data_channels)
-		self._channel_flags = [0]*len(self._data_channels)
-		self._latch_count = [0]*len(self._data_channels)
+        
 
 	"""
 	###########################################################################################
@@ -59,10 +63,10 @@ class DataSerializerNode():
 
 		for ind, val in enumerate(self._data_channels):
 			if self._vehicle_id in val['from']:
-                            msg_class=roslib.message.get_message_class(val['msg'])
-                            topic_name=val['topic_in']
-                            latch_qty=val['latch']
-                            self._subs[ind]=rospy.Subscriber(topic_name, msg_class, self.generic_callback, [ind,latch_qty])
+				msg_class=roslib.message.get_message_class(val['msg'])
+				topic_name=val['topic_in']
+				latch_qty=val['latch']
+				self._subs[ind]=rospy.Subscriber(topic_name, msg_class, self.generic_callback, [ind,latch_qty])
 		
 		# +.+ create subscriber for from_modem topic
 		self._from_modem_sub=rospy.Subscriber(self._from_modem_topic, std_msgs.msg.String, self.from_modem_callback)
@@ -124,12 +128,12 @@ class DataSerializerNode():
 		s = []
 		fields = self._data_channels[channel_ind]['fields']
 		for f in fields:
-		        data_from_field = SerializerAlgorithms.extract_field(msg_data,f['field_name'].split('.'))
-		        if sys.version_info[0] == 2: 
-                                is_int = isinstance(data_from_field, (int, long))
-		        elif sys.version_info[0] == 3: 
-                                is_int = isinstance(data_from_field, int)
-		        s.append(SerializerAlgorithms.dec_to_bin(data_from_field, f['min'], f['max'], f['bits'], is_int)) 
+			data_from_field = SerializerAlgorithms.extract_field(msg_data,f['field_name'].split('.'))
+			if sys.version_info[0] == 2: 
+				is_int = isinstance(data_from_field, (int, long))
+			elif sys.version_info[0] == 3: 
+				is_int = isinstance(data_from_field, int)
+			s.append(SerializerAlgorithms.dec_to_bin(data_from_field, f['min'], f['max'], f['bits'], is_int)) 
 
         # +.+ set this channel as active and concatenate serial strings from all fields in the channel
 		self._serial_data[channel_ind] = ''.join(s)
@@ -172,13 +176,13 @@ class DataSerializerNode():
                 # +.+ create dict with field values in a format accepted by fill_message_args()
 				field_dict = {}
 				for field in val['fields']:
-                                        if sys.version_info[0] == 2:
-                                                is_int = isinstance(SerializerAlgorithms.extract_field(msg,field['field_name'].split('.')), (int, long))
-                                        elif sys.version_info[0] == 3:
-                                                is_int = isinstance(SerializerAlgorithms.extract_field(msg,field['field_name'].split('.')), int)
-                                        value_to_assign = SerializerAlgorithms.bin_to_dec(s[c:c+field['bits']], field['min'], field['max'], field['bits'], is_int) 
-                                        SerializerAlgorithms.add_field_to_dict(field_dict,field['field_name'].split('.'),value_to_assign) 
-                                        c+=field['bits'] 
+					if sys.version_info[0] == 2:
+						is_int = isinstance(SerializerAlgorithms.extract_field(msg,field['field_name'].split('.')), (int, long))
+					elif sys.version_info[0] == 3:
+						is_int = isinstance(SerializerAlgorithms.extract_field(msg,field['field_name'].split('.')), int)
+					value_to_assign = SerializerAlgorithms.bin_to_dec(s[c:c+field['bits']], field['min'], field['max'], field['bits'], is_int) 
+					SerializerAlgorithms.add_field_to_dict(field_dict,field['field_name'].split('.'),value_to_assign) 
+					c+=field['bits'] 
                 
                 # populate and publish
 				roslib.message.fill_message_args(msg,[field_dict])
@@ -195,23 +199,23 @@ class DataSerializerNode():
 		s = ''.join(self._serial_data)
 		self._to_modem_pub.publish(std_msgs.msg.String(SerializerAlgorithms.payload_to_bytes(f+s)))
 		
-                # +.+ clear serial data and channel flag indicators if latching is over
+		# +.+ clear serial data and channel flag indicators if latching is over
 		if sys.version_info[0] == 2: 
-                        for i in xrange(len(self._data_channels)):
-                                if(self._latch_count[i]==0):
-                                        self._serial_data[i] = ''
-                                        self._channel_flags[i] = 0
-                                        continue
-                                if(self._latch_count[i] != -1):
-                                        self._latch_count[i] -= 1
+			for i in xrange(len(self._data_channels)):
+				if(self._latch_count[i]==0):
+					self._serial_data[i] = ''
+					self._channel_flags[i] = 0
+					continue
+				if(self._latch_count[i] != -1):
+					self._latch_count[i] -= 1
 		elif sys.version_info[0] == 3: 
-                        for i in range(len(self._data_channels)):
-                                if(self._latch_count[i]==0):
-                                        self._serial_data[i] = ''
-                                        self._channel_flags[i] = 0
-                                        continue
-                                if(self._latch_count[i] != -1):
-                                        self._latch_count[i] -= 1
+			for i in range(len(self._data_channels)):
+				if(self._latch_count[i]==0):
+					self._serial_data[i] = ''
+					self._channel_flags[i] = 0
+					continue
+				if(self._latch_count[i] != -1):
+					self._latch_count[i] -= 1
 
 
 def main():
