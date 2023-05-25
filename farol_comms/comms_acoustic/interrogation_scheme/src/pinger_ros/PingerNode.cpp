@@ -211,6 +211,7 @@ void AcousticPinger::triggerSerialization()
 
   void AcousticPinger::pingNextNode()
   {
+    ROS_INFO_STREAM("Pinger node started");
     if(!ENABLE_)
       return;
 
@@ -222,16 +223,19 @@ void AcousticPinger::triggerSerialization()
 
     // request the serializer to serialize the data to be sent
     triggerSerialization();
+    ROS_INFO_STREAM("Trigger OK");
 
     // Send Message to Modem after a slack time
     unsigned long int tping = tlastRECVIMS + round(tslack*1000000);
 
     // update next maximum range because it depends on the timeout
     range_max = (timeouts.front() - tslack)/2.0*SOUND_SPEED;
+    ROS_INFO("Timeout front: %.3f", timeouts.front());
 
     // Set the next timeout
     // include gap to next ping on the timeout
     double time_gap_to_ping = (tping-getModemClockNow())/1000000.0;
+    ROS_INFO("Time gap to ping: %.3f", time_gap_to_ping);
     if(time_gap_to_ping>0 && time_gap_to_ping<2.0){
       timer.setPeriod(ros::Duration(timeouts.front()+time_gap_to_ping),true);
     }else{
@@ -244,8 +248,9 @@ void AcousticPinger::triggerSerialization()
 
 
   void AcousticPinger::Timer(const ros::TimerEvent& e){
+    ROS_INFO("OK");
     if(waiting_for_serializer)
-      ROS_WARN("Ro reply from serializer in %.3fs", timeouts.front());
+      ROS_WARN("No reply from serializer in %.3fs", timeouts.front());
     else
       ROS_WARN("No reply from destination modem [%d] in %.3fs", modems.front(), timeouts.front());
     waiting_for_serializer = false;
