@@ -397,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/pinger_ros/PingerNode.h" line="71" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="212" bodyend="243"/>
+        <location file="include/pinger_ros/PingerNode.h" line="71" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="212" bodyend="247"/>
       </memberdef>
       <memberdef kind="function" id="classAcousticPinger_1a3a869e1bd24786cb09b957ab2b95af06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -477,7 +477,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/pinger_ros/PingerNode.h" line="104" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="246" bodyend="255"/>
+        <location file="include/pinger_ros/PingerNode.h" line="104" column="8" bodyfile="src/pinger_ros/PingerNode.cpp" bodystart="250" bodyend="260"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">

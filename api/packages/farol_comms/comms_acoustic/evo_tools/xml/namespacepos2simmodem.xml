@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="88" column="1" bodyfile="src/pos2simmodem.py" bodystart="88" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="112" column="1" bodyfile="src/pos2simmodem.py" bodystart="112" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

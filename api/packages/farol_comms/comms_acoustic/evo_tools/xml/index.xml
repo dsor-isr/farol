@@ -25,10 +25,12 @@
     <member refid="classDmacToFarolNode_1a2a5ce4691cafcddde68ce21fdd0789eb" kind="function"><name>stateCallback</name></member>
   </compound>
   <compound refid="classpos2simmodem_1_1Pos2SimModem" kind="class"><name>pos2simmodem::Pos2SimModem</name>
+    <member refid="classpos2simmodem_1_1Pos2SimModem_1a8ed90531f7e7b9ed054f198fd392378b" kind="variable"><name>vehicle_name</name></member>
     <member refid="classpos2simmodem_1_1Pos2SimModem_1a1d5befa69745c59865e804bececb3bc7" kind="variable"><name>address</name></member>
-    <member refid="classpos2simmodem_1_1Pos2SimModem_1a8d750bd1d9c6af72ebd1a48f0aa9e648" kind="variable"><name>sock</name></member>
     <member refid="classpos2simmodem_1_1Pos2SimModem_1acd752515f9145ab8f72fe1770a2d4d78" kind="variable"><name>time</name></member>
-    <member refid="classpos2simmodem_1_1Pos2SimModem_1a6ed5eccaf44997c21a6f9123f9053200" kind="variable"><name>sub_odom</name></member>
+    <member refid="classpos2simmodem_1_1Pos2SimModem_1a8429625e2f36e4ece5713c87cccf8269" kind="variable"><name>sub_sim</name></member>
+    <member refid="classpos2simmodem_1_1Pos2SimModem_1ae041b5536eec9612a329c82eea890496" kind="variable"><name>sub_gazebo</name></member>
+    <member refid="classpos2simmodem_1_1Pos2SimModem_1a8d750bd1d9c6af72ebd1a48f0aa9e648" kind="variable"><name>sock</name></member>
     <member refid="classpos2simmodem_1_1Pos2SimModem_1a005b7b5eb579e8d2bc1f7d3af5058ba4" kind="function"><name>__init__</name></member>
     <member refid="classpos2simmodem_1_1Pos2SimModem_1a755084ccbb48c3b8b87552ba5da44d41" kind="function"><name>position_callback</name></member>
   </compound>
