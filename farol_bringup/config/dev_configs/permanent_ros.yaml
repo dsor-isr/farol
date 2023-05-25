@@ -410,4 +410,4 @@ acomms/pos2sim_modem:
     topics:
         subscribers:
             position_sim: "/#vehicle#/sim/dynamics/position"
-            position_gazebo: "/#vehicle#/nav/filter/state"
+            position_gazebo: "/gazebo/model_states"
