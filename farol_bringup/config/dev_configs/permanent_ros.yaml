@@ -407,4 +407,7 @@ acomms/gnss2state:
             utmzone: "/#vehicle#/state/utmzone"
 
 acomms/pos2sim_modem:
-    topics/subscribers/position: "/#vehicle#/sim/dynamics/position"
+    topics:
+        subscribers:
+            position_sim: "/#vehicle#/sim/dynamics/position"
+            position_gazebo: "/#vehicle#/nav/filter/state"
