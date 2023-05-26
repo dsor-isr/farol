@@ -1,6 +1,6 @@
 [submodule "farol_addons/dsor_utils"]
 	path = farol_addons/dsor_utils
-	url = https://github.com/dsor-isr/dsor_utils.git
+	url = git@github.com:dsor-isr/dsor_utils.git
 [submodule "3rd_party/dmac"]
 	path = 3rd_party/dmac
 	url = https://github.com/EvoLogics/dmac.git
