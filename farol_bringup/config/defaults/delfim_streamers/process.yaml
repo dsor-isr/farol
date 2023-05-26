@@ -118,7 +118,7 @@ processes:
             - data_serializer:= true
             - pinger:= false
             - replier:= true
-            - pos2simmodem:= false
+            - pos2sim_modem:= false
             - dmac2medusa:= true
             - gnss2state:= true
       dependencies:
