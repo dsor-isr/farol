@@ -9,9 +9,6 @@
       <node id="4">
         <label>cmath</label>
       </node>
-      <node id="3">
-        <label>Eigen/Core</label>
-      </node>
       <node id="5">
         <label>Eigen/Dense</label>
       </node>
@@ -35,6 +32,9 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>eigen3/Eigen/Core</label>
       </node>
     </incdepgraph>
       <sectiondef kind="define">

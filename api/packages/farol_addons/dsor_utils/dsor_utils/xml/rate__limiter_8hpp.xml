@@ -8,9 +8,6 @@
       <node id="5">
         <label>cmath</label>
       </node>
-      <node id="4">
-        <label>Eigen/Core</label>
-      </node>
       <node id="2">
         <label>ros/ros.h</label>
       </node>
@@ -21,6 +18,9 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+      </node>
+      <node id="4">
+        <label>eigen3/Eigen/Core</label>
       </node>
       <node id="1">
         <label>include/dsor_utils/filters/rate_limiter.hpp</label>

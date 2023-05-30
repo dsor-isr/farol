@@ -41,9 +41,6 @@
       <node id="13">
         <label>stdexcept</label>
       </node>
-      <node id="5">
-        <label>Eigen/Core</label>
-      </node>
       <node id="2">
         <label>dsor_utils/math.hpp</label>
         <link refid="math_8hpp_source"/>
@@ -123,6 +120,9 @@
       <node id="9">
         <label>dsor_utils/control/vehicle_saturations.hpp</label>
         <link refid="vehicle__saturations_8hpp_source"/>
+      </node>
+      <node id="5">
+        <label>eigen3/Eigen/Core</label>
       </node>
       <node id="16">
         <label>dsor_utils/filters/highpass_filter.hpp</label>

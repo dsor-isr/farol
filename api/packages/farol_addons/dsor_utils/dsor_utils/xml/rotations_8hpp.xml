@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="rotations_8hpp" kind="file" language="C++">
     <compoundname>rotations.hpp</compoundname>
-    <includes local="no">Eigen/Core</includes>
+    <includes local="no">eigen3/Eigen/Core</includes>
     <includes local="no">cmath</includes>
     <includedby refid="rate__limiter_8hpp" local="no">include/dsor_utils/filters/rate_limiter.hpp</includedby>
     <includedby refid="frames_8hpp" local="yes">include/dsor_utils/frames.hpp</includedby>
@@ -12,9 +12,6 @@
       <node id="3">
         <label>cmath</label>
       </node>
-      <node id="2">
-        <label>Eigen/Core</label>
-      </node>
       <node id="1">
         <label>include/dsor_utils/rotations.hpp</label>
         <link refid="rotations_8hpp"/>
@@ -22,6 +19,9 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>eigen3/Eigen/Core</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
@@ -567,7 +567,7 @@
 <codeline lineno="1"></codeline>
 <codeline lineno="12"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eigen3/Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceDSOR" kindref="compound">DSOR</ref><sp/>{</highlight></codeline>
