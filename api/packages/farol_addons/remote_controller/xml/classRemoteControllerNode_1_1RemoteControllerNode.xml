@@ -42,6 +42,19 @@
         </inbodydescription>
         <location file="src/RemoteControllerNode.py" line="42" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="42" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a762dcffd19df0f00a59d87bade067b60" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>RemoteControllerNode.RemoteControllerNode::depth_state_</definition>
+        <argsstring></argsstring>
+        <name>depth_state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/RemoteControllerNode.py" line="43" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="43" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1ac7f3b905d930caa8e10757453b8b0dbc" prot="public" static="no" mutable="no">
         <type></type>
         <definition>RemoteControllerNode.RemoteControllerNode::timer</definition>
@@ -53,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="87" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="87" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="92" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1af197934b1b60f3f8488c300f80f5c7f9" prot="public" static="no" mutable="no">
         <type></type>
@@ -66,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="96" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="96" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="101" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a380d9a06fd053c136a1f228dcd0b1850" prot="public" static="no" mutable="no">
         <type></type>
@@ -79,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="105" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="105" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="110" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1aeefea3f566c2955268aa7c4412b5f3ea" prot="public" static="no" mutable="no">
         <type></type>
@@ -92,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="106" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="106" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="111" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a0050e1fbd682601494dd1a4218ee597b" prot="public" static="no" mutable="no">
         <type></type>
@@ -105,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="107" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="107" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="112" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a5dc89abec60920600ef542de6528ff7e" prot="public" static="no" mutable="no">
         <type></type>
@@ -118,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="110" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="110" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="115" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a7428188970c0b511f524692d7157fed9" prot="public" static="no" mutable="no">
         <type></type>
@@ -131,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="113" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="113" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="118" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a827a72dc5e81a0d1cc4fcc660e26e05b" prot="public" static="no" mutable="no">
         <type></type>
@@ -144,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="116" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="116" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="121" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classRemoteControllerNode_1_1RemoteControllerNode_1a8525d439e083e7a9326ac728c02252d9" prot="public" static="no" mutable="no">
         <type></type>
@@ -157,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="134" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="134" bodyend="-1"/>
+        <location file="src/RemoteControllerNode.py" line="139" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="139" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -179,7 +192,7 @@ publishers and initializes the timer that publishes the desired inputs to the in
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="23" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="23" bodyend="46"/>
+        <location file="src/RemoteControllerNode.py" line="23" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="23" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a97a8d157fc2ce08882d1a17db09113e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -203,7 +216,7 @@ publishers and initializes the timer that publishes the desired inputs to the in
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="47" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="47" bodyend="82"/>
+        <location file="src/RemoteControllerNode.py" line="48" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="48" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a77ba697f59289ec045a3982d428d9c24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -222,7 +235,7 @@ publishers and initializes the timer that publishes the desired inputs to the in
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="83" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="83" bodyend="88"/>
+        <location file="src/RemoteControllerNode.py" line="88" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="88" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a6c2afa6c42b9eeaeca71c9ad64e4dfee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -241,7 +254,7 @@ publishers and initializes the timer that publishes the desired inputs to the in
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="89" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="89" bodyend="97"/>
+        <location file="src/RemoteControllerNode.py" line="94" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="94" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a35a490ed4109843c19137a7dcb975adf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -260,7 +273,7 @@ publishers and initializes the timer that publishes the desired inputs to the in
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="98" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="98" bodyend="117"/>
+        <location file="src/RemoteControllerNode.py" line="103" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="103" bodyend="122"/>
       </memberdef>
       <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a3c9a80cc4375b776d4c06cde1d2d3d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -279,7 +292,7 @@ publishers and initializes the timer that publishes the desired inputs to the in
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="118" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="118" bodyend="144"/>
+        <location file="src/RemoteControllerNode.py" line="123" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="123" bodyend="149"/>
       </memberdef>
       <memberdef kind="function" id="classRemoteControllerNode_1_1RemoteControllerNode_1a8b6d19745e138e19a32daadcd9dd1203" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -304,7 +317,7 @@ Currently only the yaw orientation is saved (used to switch between yaw and yaw-
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/RemoteControllerNode.py" line="145" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="145" bodyend="152"/>
+        <location file="src/RemoteControllerNode.py" line="150" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="150" bodyend="158"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -315,11 +328,12 @@ the inner-loops and publishes these periodically (at a pre-defined frequency) to
 vehicle
 </verbatim> </para>
     </detaileddescription>
-    <location file="src/RemoteControllerNode.py" line="16" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="16" bodyend="153"/>
+    <location file="src/RemoteControllerNode.py" line="16" column="1" bodyfile="src/RemoteControllerNode.py" bodystart="16" bodyend="159"/>
     <listofallmembers>
       <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a03fd621ce5445227fd39b2bd2de890a7" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>__init__</name></member>
       <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a8525d439e083e7a9326ac728c02252d9" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>control_assignment</name></member>
       <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a827a72dc5e81a0d1cc4fcc660e26e05b" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>depth_pub</name></member>
+      <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a762dcffd19df0f00a59d87bade067b60" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>depth_state_</name></member>
       <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a9e638ef209ef2b252f733816a906a7a4" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>h_timerActivate</name></member>
       <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a0050e1fbd682601494dd1a4218ee597b" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>heave_pub</name></member>
       <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a3c9a80cc4375b776d4c06cde1d2d3d7b" prot="public" virt="non-virtual"><scope>RemoteControllerNode::RemoteControllerNode</scope><name>initializeJoystick</name></member>

@@ -4,6 +4,7 @@
     <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1af0ad60aa3576158743522f75843e614d" kind="variable"><name>node_frequency</name></member>
     <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a9e638ef209ef2b252f733816a906a7a4" kind="variable"><name>h_timerActivate</name></member>
     <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1ae6f6dc52c82cb81ad87a2f07f6520366" kind="variable"><name>yaw_state_</name></member>
+    <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a762dcffd19df0f00a59d87bade067b60" kind="variable"><name>depth_state_</name></member>
     <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1ac7f3b905d930caa8e10757453b8b0dbc" kind="variable"><name>timer</name></member>
     <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1af197934b1b60f3f8488c300f80f5c7f9" kind="variable"><name>state_sub</name></member>
     <member refid="classRemoteControllerNode_1_1RemoteControllerNode_1a380d9a06fd053c136a1f228dcd0b1850" kind="variable"><name>surge_pub</name></member>
