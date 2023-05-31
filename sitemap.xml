@@ -2,1657 +2,1657 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dsor-isr.github.io/farol/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/Waypoint/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/Waypoint/sendWpType1/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/Waypoint/waypoint/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/acoustic-vehicle-state-broadcaster/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/acoustic-vehicle-state-broadcaster/gnss2state/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Classes/classConsolePathParserNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Classes/classFormation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Classes/classSection/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/console_path_parser/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classCircularDelay/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classCircularDelay_1_1const__iterator/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classCircularDelay_1_1const__reverse__iterator/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classCircularDelay_1_1iterator/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classCircularDelay_1_1reverse__iterator/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classDifferentiator/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classDigitalFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classHighPassFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classHighPassFilter3/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classLowPassFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classLowPassFilter2/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classLowPassFilter3/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classLowPassFilter3DiffApprox/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classLowPassFilter3MatchedZ/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classMovingAvarageFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/classRateLimiter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Classes/structDSOR_1_1VehicleState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespaceDSOR/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/dsor_utils/dsor_utils/Namespaces/namespacetps/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1CallbackEcho/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1ERROR__Struct/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1HTTP__Handler/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1ROSTopicException/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1ROSTopicIOException/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1ThreadedHTTPServer/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1Topic__Struct/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Classes/classconsole_1_1subscriber__Thread/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Namespaces/namespaceconsole/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Namespaces/namespacesetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/http_server/Namespaces/namespacewaypoint_1_1srv/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/libraries/farol_gimmicks_library/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/libraries/farol_gimmicks_library/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/libraries/farol_gimmicks_library/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/libraries/farol_gimmicks_library/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/libraries/farol_gimmicks_library/Namespaces/namespaceFarolGimmicks/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/remote_controller/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/remote_controller/Classes/classRemoteControllerNode_1_1RemoteControllerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/remote_controller/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/remote_controller/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/remote_controller/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_addons/remote_controller/Namespaces/namespaceRemoteControllerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Classes/classfarol__bringup__algorithms_1_1FarolSetup_1_1FarolSetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Classes/classfarol__bringup__algorithms_1_1FarolSetup_1_1Process/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Classes/classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessActionType/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Classes/classfarol__bringup__algorithms_1_1FarolSetup_1_1ProcessNotFound/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Classes/classfarol__bringup__ros_1_1FarolBringupVxNode_1_1FarolBringupVxNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Namespaces/namespacefarol__bringup__algorithms/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Namespaces/namespacefarol__bringup__algorithms_1_1FarolSetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Namespaces/namespacefarol__bringup__ros/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Namespaces/namespacefarol__bringup__ros_1_1FarolBringupVxNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_bringup/Namespaces/namespacesetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Classes/classGnss2State/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/comms_state_broadcaster/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Classes/classdata__serializer__ros_1_1DataSerializerNode_1_1DataSerializerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces/namespacedata__serializer__algorithms/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces/namespacedata__serializer__algorithms_1_1DataSerializerAlgorithm/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces/namespacedata__serializer__ros/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces/namespacedata__serializer__ros_1_1DataSerializerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/data_serializer/Namespaces/namespacesetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Classes/classDmacToFarolNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Classes/classpos2simmodem_1_1Pos2SimModem/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/evo_tools/Namespaces/namespacepos2simmodem/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Classes/classAcousticPinger/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Classes/classReplierNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_acoustic/interrogation_scheme/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Classes/classcpf__gamma__ros_1_1CpfGammaClientNode_1_1CpfGammaClientNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Classes/classcpf__gamma__ros_1_1CpfGammaServerNode_1_1CpfGammaServerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces/namespacecpf__gamma__ros/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces/namespacecpf__gamma__ros_1_1CpfGammaClientNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces/namespacecpf__gamma__ros_1_1CpfGammaServerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_comms/comms_radio/cpf_gamma/Namespaces/namespacesetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classInnerloops/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classPID__Controller/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classRosController/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Classes/classSafeties/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/inner_loops_pid/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Classes/classsrc_1_1open__loop__controller_1_1OpenLoopNode_1_1OpenLoopNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Namespaces/namespacesetup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Namespaces/namespacesrc/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Namespaces/namespacesrc_1_1open__loop__controller/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/inner_loops_controllers/open_loop_controller/Namespaces/namespacesrc_1_1open__loop__controller_1_1OpenLoopNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Classes/classCPFControl/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Classes/classCpfNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Classes/classEventTriggered/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Classes/structVehicleInfo/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/cpf_control/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classAguiar/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classBrevik/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classFossen/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classLapierre/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classMarcelo/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classPathFollowing/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classPathFollowingNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classPramod/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classRelativeHeading/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classRomulo/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/classSamson/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/structPFollowingDebug/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/structPathState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Classes/structVehicleState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/path_following/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWaypointController/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWaypointNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWpHeading/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWpLoose/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/classWpStandard/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structOutput__t/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structVehicle__t/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Classes/structWPref__t/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/outer_loops_controllers/waypoint/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/static_thruster_allocation/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/static_thruster_allocation/Classes/classThrustAllocation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/static_thruster_allocation/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/static_thruster_allocation/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/static_thruster_allocation/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/vehicle_stabilizer/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/vehicle_stabilizer/Classes/classVehicleStabilizerNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/vehicle_stabilizer/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/vehicle_stabilizer/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_control/vehicle_stabilizer/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Classes/classAuvState2mState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Classes/classGnss2Utm/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Classes/classGnss2UtmOutlier/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Classes/classUsblFix2Pos/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/nav_tools/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/classDeadReckoning/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/classFiltersNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/classHorizontalFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/classRotationalFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/classVerticalFilter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/structFilterGimmicks_1_1measurement/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/structFilterGimmicks_1_1predicate__frame__id/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/structHorizontalFilter_1_1config/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/structRotationalFilter_1_1config/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Classes/structVerticalFilter_1_1config/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_nav/sensor_fusion/Namespaces/namespaceFilterGimmicks/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classArc2D/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classBernoulli/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classCircle2D/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classConstRabbitSpeed/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classConstVehicleSpeed/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classLine/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classPath/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classPathNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classPathSection/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classPolinomial5/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classPolynomial5/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classSinusoid2D/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Classes/classSpeed/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_planning/dsor_paths/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Classes/classAUV/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Classes/classSimulationNode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Classes/structState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/auv_sim/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/sensor_sim/Classes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/sensor_sim/Classes/classSensorSim/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/sensor_sim/Classes/structSensorSim_1_1Sensor/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/sensor_sim/Examples/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/sensor_sim/Modules/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/api/markdown/farol_sim/sensor_sim/Namespaces/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/auv-simulation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/bringup-system/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/bringup-system/farol_bringup/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/console-path-parser/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/console-path-parser/console_path_parser/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/cooperative-path-following/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/cooperative-path-following/cpf_control/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/cooperative-path-following/implementation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/cpf-gamma/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/cpf-gamma/cpf_wifi_client/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/cpf-gamma/cpf_wifi_server/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/data-serializer/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/data-serializer/data_serializer/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/PathData/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/ResetPath/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/SetConstSpeed/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/SetMode/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/SpawnArc2D/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/SpawnBernoulli/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/SpawnCircle2D/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/SpawnLine/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/dsor_paths/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-paths/implementation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-ros-messages/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/dsor-utility-functions/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/evo-tools/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/evo-tools/dmac2farol/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/evo-tools/pos2sim_modem/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-docker-metapackage/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-gimmicks-library/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/CPFGamma/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/CpfFeedback/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/Currents/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/Formation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/ManageProcess/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/MultiSection/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/MultiTrackingSection/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/ProcessState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/Section/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/TrackingSection/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/mPFollowingDebug/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/mPidDebug/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/mState/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-ros-messages/mUSBLFix/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-scripts/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-scripts/bash_scripts/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-scripts/bringup_scripts/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-scripts/farol_alias/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/farol-scripts/packages_scripts/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/http-server/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/http-server/console_server/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/interrogation-scheme/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/interrogation-scheme/pinger/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/interrogation-scheme/replier/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/nav-tools/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/nav-tools/auvstate2mstate/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/nav-tools/gnss2utm/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/nav-tools/gnss2utmoutlier/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/nav-tools/usblfix2pos/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/open-loop-control/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/open-loop-control/openloop/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/open-loop-control/theory/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/Acknowledgments/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/CHANGELOG/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/CODE_OF_CONDUCT/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/CONTRIBUTING/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/LICENSE/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/Build-the-Code/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/CPF/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/Detailed_Overview/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/General_Overview/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/Install-Guide/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/PF/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pages/get_started/WP/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/ResetVT/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/SetPF/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/StartPF/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/StopPF/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/UpdateGainsPF/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/implementation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/path-following/path_following/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pid-inner-loops/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pid-inner-loops/inner_loops_pid/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/pid-inner-loops/theory/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/remote-controller/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/remote-controller/remote_controller/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/developer_notes/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/filter/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/sensor-fusion-kalman-filter/theory/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/sensors-simulation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/static-thruster-allocation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/static-thruster-allocation/static_thruster_allocation/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/static-thruster-allocation/theory/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/vehicle-stabilizer/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://dsor-isr.github.io/farol/vehicle-stabilizer/vehicle_stabilizer/</loc>
-         <lastmod>2023-05-30</lastmod>
+         <lastmod>2023-05-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
