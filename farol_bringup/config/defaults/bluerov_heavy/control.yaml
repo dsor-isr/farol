@@ -42,31 +42,35 @@ inner_loops_pid:
     min_turn_radius: 5.0
     turn_radius_speed_t_max: 10.0
 
+
     # Yaw Params
     controllers:
         roll:
             enabled: true
-            kp: 100
-            ki: 1.0
-            kd: 5.0
+            kp: 0.012
+            ki: 0.031
+            kd: 0.0215
             max_err:  60.0 # deg
             min_err: -60.0 # deg  
             max_out:  7.0  # N.m
             min_out: -7.0
         pitch:
             enabled: true
-            kp: 26
-            ki: 1.0
-            kd: 5.0
+            # kp: 26
+            # ki: 1.0
+            # kd: 5.0
+            kp: 0.02
+            ki: 0.0045
+            kd: 0.04
             max_err:  60.0 # deg
             min_err: -60.0 # deg  
             max_out:  7.0  # N.m
             min_out: -7.0
         yaw:
             enabled: true
-            kp: 0.16
-            ki: 0.0005
-            kd: 0.133
+            kp: 0.0035
+            ki: 0.00001
+            kd: 0.006
             max_err:  60.0 # deg
             min_err: -60.0 # deg  
             max_out:  10.0  # N.m
@@ -83,8 +87,10 @@ inner_loops_pid:
         # Surge Params
         surge:
             enabled: true
-            kp: 26.0
-            ki: 1.0
+            # kp: 26.0
+            # ki: 1.0
+            kp: 18.0
+            ki: 0.2
             max_ref:  0.7  # m/s
             min_ref: -0.7  # m/s
             max_err:  0.2  # m/s
@@ -94,8 +100,10 @@ inner_loops_pid:
         # Sway Params
         sway:
             enabled: true
-            kp: 26.0
-            ki: 1.0 
+            # kp: 26.0
+            # ki: 1.0
+            kp: 15.0
+            ki: 0.5 
             max_ref:  0.5  # m/s
             min_ref: -0.5  # m/s
             max_err:  0.2  # m/s
@@ -106,7 +114,7 @@ inner_loops_pid:
         heave:
             enabled: true
             kp: 26.0
-            ki: 1.0
+            ki: 5.0
             max_ref:  0.7  # m/s
             min_ref: -0.7  # m/s
             max_err:  0.2  # m/s
@@ -193,10 +201,10 @@ path_following:
       theta: 0.8
       k_delta: 1.0
     relative_heading:
-       kx: 0.05
-       ky: 0.05
-       kz: 0.2
-       yaw_offset: 0.0
-       p_sat: [10.0, 10.0]
+      kx: 0.05
+      ky: 0.05
+      kz: 0.2
+      yaw_offset: 0.0
+      p_sat: [10.0, 10.0]
     brevik:
       delta_h: 10
