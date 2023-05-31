@@ -3,7 +3,7 @@
 WpLoose::WpLoose(ros::Publisher surge_pub, ros::Publisher yaw_pub)
       : surge_pub_(surge_pub), yaw_pub_(yaw_pub) {}
 
-void WpLoose::calculateRef(Vehicle_t state, WPref_t wp_ref) {
+void WpLoose::calculateRef(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag) {
     // parameters from config
     double cdist = gains_[0];
     double ku = gains_[1];

@@ -45,12 +45,18 @@ alias clean_ros_logs='rosclean purge -y'
 #####################
 
 # build all the code
-alias farol_cb='roscd; catkin build; cd $OLDPWD' # build the entire catkinworkspace (you need to be somewhere inside your catkin workspace)
+function farol_cb {
+	roscd
+	catkin build $1
+	cd $OLDPWD
+}
 
-# build only one package
-alias farol_cbt='catkin build --this' # build one pkg (you need to be somewhere inside your ros pkg)
+# build only one package (you need to be somewhere inside your ros pkg)
+function farol_cbt {
+	catkin build --this $1
+}
 
-# compile all the farol stack
+# compile all the farol stack (old catkin_make command)
 alias farol_cm='roscd; catkin_make; cd $OLDPWD'
 
 alias farol_cb_vim='roscd; bash ${FAROL_SCRIPTS}/farol_scripts_for_bash/farol_build_vim.bash'
@@ -163,4 +169,8 @@ alias dsor_add_vehicle_bringup="source ${FAROL_SCRIPTS}/farol_create_bringup_scr
 ######################################################################
 if [ -f "${ROS_WORKSPACE}/src/medusa_addons/medusa_scripts/system_configurations/medusa_personal_alias/${HOSTNAME}_alias.sh" ]; then
 	source ${ROS_WORKSPACE}/src/medusa_addons/medusa_scripts/system_configurations/medusa_personal_alias/${HOSTNAME}_alias.sh
+fi
+
+if [ -f "${ROS_WORKSPACE}/src/delfim_addons/delfim_scripts/system_configurations/delfim_personal_alias/${HOSTNAME}_alias.sh" ]; then
+	source ${ROS_WORKSPACE}/src/delfim_addons/delfim_scripts/system_configurations/delfim_personal_alias/${HOSTNAME}_alias.sh
 fi

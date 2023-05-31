@@ -16,6 +16,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <farol_msgs/mState.h>
+#include <farol_msgs/stateAcomms.h>
 #include <dsor_msgs/Measurement.h>
 
 // Farol Libraries and msgs
@@ -68,6 +69,7 @@ private:
 	bool initialized;
 	double state_stamp, state[2], state_var[2], state_lat_lon[2];
 	std::list<farol_msgs::mUSBLFix> usblfix_list;
+	std::list<farol_msgs::stateAcomms> stateAcomms_list;
   std::string name_vehicle_id_;
 
     // #######################################################################################
@@ -95,6 +97,14 @@ private:
 	* Outputs: ...
 	*/	
 	void stateCallback(const auv_msgs::NavigationStatus &msg);
+
+  /* 
+	* Function Name: stateAcommsCallback
+	* Inputs : State of the anchor
+	* Effects:
+	* Outputs: ...
+	*/	
+  void stateAcommsCallback(const farol_msgs::stateAcomms &msg);
 
 	// #######################################################################################
 	// @.@ Supplimentary declarations

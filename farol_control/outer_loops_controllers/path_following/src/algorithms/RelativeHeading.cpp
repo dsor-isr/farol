@@ -99,8 +99,14 @@ void RelativeHeading::callPFController(double dt) {
     double aux = (ep.transpose()*Rbi*d_pd);
     this->gamma_ddot_ = - kz_*z+this->gamma_dot_ * d_vd+aux/(this->path_state_.tangent_norm);
 
-    // Integrate to get the virtual target position
+    // Integrate to get the virtual target velocity
     this->gamma_dot_ += this->gamma_ddot_*dt;
+
+    /* Make sure gamma does not return to a previous path section, given that
+    each path section is paramaterised from 0 to 1 */
+    this->gamma_dot_ = this->preventPathSectionSwitching(this->gamma_, this->gamma_dot_, dt);
+
+    // Integrate to get the virtual target position
     this->gamma_ += this->gamma_dot_*dt;
 
     /* Saturate the values of gamma */

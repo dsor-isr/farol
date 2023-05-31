@@ -1,5 +1,5 @@
 data_serializer:
-    vehicle_id: 2
+    vehicle_id: 7
 
 dmac2farol:
     # false, vehicle acts as an achor, estimates other vehicles position 

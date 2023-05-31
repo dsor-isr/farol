@@ -23,9 +23,14 @@ inner_loops_pid:
     # bypass forces (hard - ignores inner-loop / soft - sums inner-loop and manual forces value)
     forces_hard_bypass: false
 
+    # turning radius limiter minimum radius and maximum timeout
+    min_turn_radius: 5.0
+    turn_radius_speed_t_max: 10.0
+
     # Yaw Params
     controllers:
         yaw:
+            enabled: true
             kp: 0.2
             ki: 0.0005
             kd: 0.133
@@ -35,6 +40,7 @@ inner_loops_pid:
             min_out: -4.0
         # Yaw Rate Params
         yaw_rate:
+            enabled: true
             kp: 0.16
             ki: 0.04444
             max_err:  3.0 # deg
@@ -43,6 +49,7 @@ inner_loops_pid:
             min_out: -4.0
         # Surge Params
         surge:
+            enabled: true
             kp: 26.0
             ki: 3.0
             max_ref:  0.7  # m/s
@@ -53,6 +60,7 @@ inner_loops_pid:
             min_out: -14.0
         # Sway Params
         sway:
+            enabled: true
             kp: 180
             ki: 20 
             max_ref:  0.7  # m/s
@@ -63,6 +71,7 @@ inner_loops_pid:
             min_out: -60.0
         # Depth Params
         depth:
+            enabled: true
             kp: 15
             ki: 0.7
             kd: 20.0
@@ -73,6 +82,7 @@ inner_loops_pid:
             min_alt: 1.0 # m
         # Altitude Params
         altitude:
+            enabled: true
             kp: 10.0
             ki: 0.3
             kd: 30.0
@@ -97,6 +107,9 @@ waypoint:
         k3: 0.1
 
 # Path Following configurations
+# Be careful while changing values here, due to the way the PF code is implemented,
+# the order of the following gains must be respected. This means you can't switch
+# the lines k1 and k2 in lapierre, for example.
 path_following:
   controller_gains:
     lapierre:
@@ -125,8 +138,8 @@ path_following:
       ke: [0.05, 0.0, 0.0, 0.05]
       kz: 0.2
     pramod:
-      kp: 0.01
-      kd: 0.14
+      kp: 0.02
+      ki: 0.0005
     samson:
       k1: 1.0
       k2: 0.3
@@ -139,3 +152,5 @@ path_following:
       kz: 0.2
       yaw_offset: 0.0
       p_sat: [10.0, 10.0] #x, y
+    brevik:
+      delta_h: 2

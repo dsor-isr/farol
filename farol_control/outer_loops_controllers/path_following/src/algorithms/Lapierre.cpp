@@ -98,6 +98,10 @@ void Lapierre::callPFController(double dt) {
    */
   this->gamma_dot_ = v_gamma;
 
+  /* Make sure gamma does not return to a previous path section, given that
+  each path section is paramaterised from 0 to 1 */
+  this->gamma_dot_ = this->preventPathSectionSwitching(this->gamma_, this->gamma_dot_, dt);
+
   /* Integrate to get the current velocity of the virtual target */
   this->gamma_ += this->gamma_dot_ * dt;
 

@@ -2,16 +2,16 @@
 cpf_wifi_client:      
     broadcast_port: 2808
     broadcast_address: "192.168.255.255"
-    ID: 2
+    ID: 4
 
 cpf_wifi_server:
     broadcast_port: 2808
     broadcast_address: "192.168.255.255"
-    ID: 2
+    ID: 4
 
 # Configuration for the cooperative controller
 cpf_control:
-  ID: 2
+  ID: 4
   # Network topology and algorithm gains and thresholds   
   adjency_matrix: [0, 1, 1, 
                    1, 0, 1,

@@ -129,6 +129,10 @@ class FarolSetup:
         self.config_specific_path = config_package_path.replace('(find ', '')
         self.config_specific_path = self.config_specific_path.replace(')', '')
 
+        # check if the folder .ros_tmp existe, otherwise create it
+        if not (os.path.exists(self.rospack.get_path(self.config_specific_path) + '/config/dev_configs/.ros_tmp')):
+            os.mkdir(self.rospack.get_path(self.config_specific_path) + '/config/dev_configs/.ros_tmp')
+
         # +.+ copy the permanent_ros.yaml from farol and replace the keyword #vehicle# with the vehicle_name_id
         shutil.copy2(self.rospack.get_path('farol_bringup')+'/config/dev_configs/permanent_ros.yaml', self.rospack.get_path(self.config_specific_path) + '/config/dev_configs/.ros_tmp/permanent_ros_' + self.vehicle_name_id + '.yaml')
         self.find_replace(self.rospack.get_path(self.config_specific_path) + '/config/dev_configs/.ros_tmp/', 'permanent_ros_' + self.vehicle_name_id + '.yaml' , '#vehicle#' , self.vehicle_name_id)

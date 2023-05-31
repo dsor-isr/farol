@@ -1,12 +1,15 @@
 #include "Brevik.h"
 
 /* The constructor for the Aguiar Path Following Controller */
-Brevik::Brevik(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub) {
+Brevik::Brevik(ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher rabbit_pub, double delta_h) {
 
   /* Save the publishers, to latter publish the data */
   this->surge_pub_ = surge_pub;
   this->yaw_pub_ = yaw_pub;
   this->rabbit_pub_ = rabbit_pub;
+
+  /* Save the Brevik gains */
+  this->delta_h_ = delta_h;
 }
 
 /* Method used to set the path following gains */
@@ -32,8 +35,6 @@ void Brevik::callPFController(double dt) {
   Eigen::Vector2d veh_p;
   veh_p << this->vehicle_state_.eta1[0], this->vehicle_state_.eta1[1];
 
-  double Delta_h = 2;
-
   /* Compute the rotation matrix */
   Eigen::Matrix2d RI_F;
   RI_F << cos(this->psi_out_), sin(this->psi_out_), -sin(this->psi_out_), cos(this->psi_out_);
@@ -50,7 +51,7 @@ void Brevik::callPFController(double dt) {
 
   /* Save the control law to be published */
   this->desired_surge_ = std::min(std::max(ud, 0.0), 1.5);
-  this->desired_yaw_ = this->path_state_.psi + atan(-y1 / Delta_h);
+  this->desired_yaw_ = this->path_state_.psi + atan(-y1 / this->delta_h_);
 
   /* Convert the yaw from rad to deg (used by the inner-loop controller) */
   this->desired_yaw_ = this->desired_yaw_ * 180.0 / M_PI;
@@ -68,6 +69,10 @@ void Brevik::callPFController(double dt) {
     this->gamma_dot_ = 0.0;
     this->gamma_ = this->path_state_.gamma_min;
   }
+
+  /* Make sure gamma does not return to a previous path section, given that
+  each path section is paramaterised from 0 to 1 */
+  this->gamma_dot_ = this->preventPathSectionSwitching(this->gamma_, this->gamma_dot_, dt);
   
   /* Integrate to get the virtual target position */
   this->gamma_ += this->gamma_dot_ * dt;

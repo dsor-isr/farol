@@ -103,7 +103,12 @@ nav/filter:
             orientation: "/#vehicle#/measurement/orientation"
         publishers:
             state: "/#vehicle#/nav/filter/state"
+            state_acomms: "/#vehicle#/nav/filter/state_acomms"
             currents: "/#vehicle#/nav/filter/currents"
+            state_sensors: "/#vehicle#/nav/filter/State_sensors"
+            vc_meas_velocity: "/#vehicle#/nav/filter/vc_meas_velocity"
+            vc_meas_position: "/#vehicle#/nav/filter/vc_meas_position"
+
     topics_dr:
        velocity: "/#vehicle#/measurement/velocity"
        orientation: "/#vehicle#/measurement/orientation"
@@ -113,6 +118,11 @@ nav/filter:
        dead_reckoning_console: "/#vehicle#/State_dr"
     services_dr:
        reset_filter_dr: "/#vehicle#/nav/reset_filter_dr"
+    services:
+       set_vcurrent_velocity: "/#vehicle#/nav/set_vcurrent_velocity"
+       reset_vcurrent: "/#vehicle#/nav/reset_vcurrent"
+
+
 
 nav/gnss2utm:
     node_frequency: 10
@@ -188,12 +198,15 @@ controls/inner_loops_pid:
             depth_safety: "/#vehicle#/ref/depth_safety"
             state: "/#vehicle#/nav/filter/state"
             force_bypass: "/#vehicle#/force_bypass"
+            turn_radius_speed: "/#vehicle#/nav/filter/state"
         publishers:
             thrust_body_request: "/#vehicle#/thrust_body_request"
+            turn_radius_flag: "/#vehicle#/turn_radius_flag"
         services: 
             change_ff_gains: "/#vehicle#/inner_forces/change_ff_gains"
             change_inner_gains: "/#vehicle#/inner_forces/change_inner_gains"
             change_inner_limits: "/#vehicle#/inner_forces/change_inner_limits"
+            turning_radius_limiter: "/#vehicle#/inner_forces/turning_radius_limiter"
 
 controls/waypoint:
     node_frequency: 10.0
@@ -207,6 +220,7 @@ controls/waypoint:
         subscribers:
             flag: "/#vehicle#/Flag"
             state: "/#vehicle#/nav/filter/state"
+            turn_radius_flag: "/#vehicle#/turn_radius_flag"
         services:
             wp_standard: "/#vehicle#/controls/send_wp_standard"
             wp_loose: "/#vehicle#/controls/send_wp_loose"
@@ -269,7 +283,7 @@ controls/vehicle_stabilizer:
   topics:
     publishers:
       surge: "/#vehicle#/ref/surge"
-      sway: "/#vehicle#/ref/heave"
+      sway: "/#vehicle#/ref/sway"
       heave: "/#vehicle#/ref/heave"
 
       roll_rate: "/#vehicle#/ref/roll_rate"
@@ -393,4 +407,7 @@ acomms/gnss2state:
             utmzone: "/#vehicle#/state/utmzone"
 
 acomms/pos2sim_modem:
-    topics/subscribers/position: "/#vehicle#/sim/dynamics/position"
+    topics:
+        subscribers:
+            position_sim: "/#vehicle#/sim/dynamics/position"
+            position_gazebo: "/gazebo/model_states"
