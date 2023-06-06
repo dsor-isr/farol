@@ -73,13 +73,17 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
  	// +.+ Parameters from Yaml
 	int p_modem_id_;
 	double p_tslack_;
+  std::vector<double> timeout_list;
  	
  	// +.+ Problem variables
  	double timeout_, range_;
+  std::queue<double> timeouts;
 	std::map<int, unsigned long int> t_last_recv_ims_;
 	unsigned long int t_last_send_ims_;
 	int modem_id_last_send_ims_;
 	dmac::DMACPayload reply_ims_;
+  bool pinger_ack;
+  double range_max;
 
   /* -------------------------------------------------------------------------*/
   /**

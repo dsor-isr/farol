@@ -272,7 +272,7 @@ void UsblFix2Pos::stateAcommsCallback(const farol_msgs::stateAcomms &msg){
 int main(int argc, char **argv)
 {
   // +.+ ROS set-ups:
-  ros::init(argc, argv, "UsblFix2Pos"); //node name
+  ros::init(argc, argv, "acoustic_converters_node"); //node name
   // +.+ create a node handle; need to pass this to the class constructor
   ros::NodeHandle nh, nh_p("~");
 
