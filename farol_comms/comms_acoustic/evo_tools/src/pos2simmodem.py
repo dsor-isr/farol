@@ -35,8 +35,11 @@ class Pos2SimModem(object):
         '''
         # Parameters
         ip = rospy.get_param('~ip', '10.42.10.9')
+        rospy.loginfo(ip)
         port = rospy.get_param('~port', 11000)
+        rospy.loginfo(port)
         self.vehicle_name = rospy.get_param('~vehicle_name')
+        rospy.loginfo(self.vehicle_name)
         self.address = (ip, port)
 
 
@@ -48,9 +51,11 @@ class Pos2SimModem(object):
         # Time
         self.time = rospy.Time.now()
 
-        # ubscriber
+        # Subscriber
+        # For farol simulation
         self.sub_sim = rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/position_sim"),
                                          Odometry, self.position_callback)
+        # For gazebo
         self.sub_gazebo = rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/position_gazebo"),
                                          ModelStates, self.position_callback)
 
@@ -62,35 +67,23 @@ class Pos2SimModem(object):
         '''
         Reads Odometry and sends position.
         '''
-        # Check time
-        #rospy.loginfo("stamp %.2f time %.2f diff %.2f" % (msg.header.stamp.to_sec(),
-        #                                        self.time.to_sec(),
-        #                                        (msg.header.stamp -
-        #                                        self.time).to_sec()))
+
         if (rospy.Time.now() - self.time).to_sec() < 0.5:
             return
 
         # Update time
         self.time = rospy.Time.now()
-
-        # Prepare message
-        # data = "%.2f %.2f %.2f\n" % (msg.pose.pose.position.x - 4288741,
-        #                              msg.pose.pose.position.y - 492665,
-        #                             -msg.pose.pose.position.z)
         
-
+        # Fetch postions depending on the type of message used
         if(input_message_type == 'nav_msgs/Odometry'):
             data = "%.2f %.2f %.2f\n" % (msg.pose.pose.position.x, msg.pose.pose.position.y, -msg.pose.pose.position.z); 
         elif(input_message_type == 'gazebo_msgs/ModelStates'):
             if self.vehicle_name in msg.name:
                 index = msg.name.index(self.vehicle_name)
-                data = "%.2f %.2f %.2f\n" % (msg.pose[index].position.x, msg.pose[index].position.y, msg.pose[index].position.z); 
-                print(data)
+                data = "%.2f %.2f %.2f\n" % (msg.pose[index].position.y, msg.pose[index].position.x, msg.pose[index].position.z);
+                #print(self.vehicle_name,":",position)
+        
 
-
-            #data = "%.2f %.2f %.2f\n" % (msg.position.north, msg.position.east, -msg.position.depth); 
-
-        # rospy.loginfo("Pos to modem ["+data+"]")
         # Send
         try:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -101,7 +94,7 @@ class Pos2SimModem(object):
             rospy.logwarn('%s : %s : error sending position to modem', rospy.get_name(), e)
             self.sock.close()
 
-
+# THERE IS AN ERROR WITH THE MESSAGE FORMAT !!!
 
 #===============================================================================
 if __name__ == '__main__':
