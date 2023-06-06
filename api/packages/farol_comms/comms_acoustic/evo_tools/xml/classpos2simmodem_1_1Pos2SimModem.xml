@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="39" column="1" bodyfile="src/pos2simmodem.py" bodystart="39" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="41" column="1" bodyfile="src/pos2simmodem.py" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1a1d5befa69745c59865e804bececb3bc7" prot="public" static="no" mutable="no">
         <type></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="40" column="1" bodyfile="src/pos2simmodem.py" bodystart="40" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="43" column="1" bodyfile="src/pos2simmodem.py" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1acd752515f9145ab8f72fe1770a2d4d78" prot="public" static="no" mutable="no">
         <type></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="49" column="1" bodyfile="src/pos2simmodem.py" bodystart="49" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="52" column="1" bodyfile="src/pos2simmodem.py" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1a8429625e2f36e4ece5713c87cccf8269" prot="public" static="no" mutable="no">
         <type></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="52" column="1" bodyfile="src/pos2simmodem.py" bodystart="52" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="56" column="1" bodyfile="src/pos2simmodem.py" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1ae041b5536eec9612a329c82eea890496" prot="public" static="no" mutable="no">
         <type></type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="54" column="1" bodyfile="src/pos2simmodem.py" bodystart="54" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="59" column="1" bodyfile="src/pos2simmodem.py" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classpos2simmodem_1_1Pos2SimModem_1a8d750bd1d9c6af72ebd1a48f0aa9e648" prot="public" static="no" mutable="no">
         <type></type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="96" column="1" bodyfile="src/pos2simmodem.py" bodystart="96" bodyend="-1"/>
+        <location file="src/pos2simmodem.py" line="89" column="1" bodyfile="src/pos2simmodem.py" bodystart="89" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="32" column="1" bodyfile="src/pos2simmodem.py" bodystart="32" bodyend="56"/>
+        <location file="src/pos2simmodem.py" line="32" column="1" bodyfile="src/pos2simmodem.py" bodystart="32" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="classpos2simmodem_1_1Pos2SimModem_1a755084ccbb48c3b8b87552ba5da44d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -122,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/pos2simmodem.py" line="58" column="1" bodyfile="src/pos2simmodem.py" bodystart="58" bodyend="106"/>
+        <location file="src/pos2simmodem.py" line="63" column="1" bodyfile="src/pos2simmodem.py" bodystart="63" bodyend="99"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -154,7 +154,7 @@ simulated modem.
         <label>object</label>
       </node>
     </collaborationgraph>
-    <location file="src/pos2simmodem.py" line="25" column="1" bodyfile="src/pos2simmodem.py" bodystart="25" bodyend="107"/>
+    <location file="src/pos2simmodem.py" line="25" column="1" bodyfile="src/pos2simmodem.py" bodystart="25" bodyend="100"/>
     <listofallmembers>
       <member refid="classpos2simmodem_1_1Pos2SimModem_1a005b7b5eb579e8d2bc1f7d3af5058ba4" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>__init__</name></member>
       <member refid="classpos2simmodem_1_1Pos2SimModem_1a1d5befa69745c59865e804bececb3bc7" prot="public" virt="non-virtual"><scope>pos2simmodem::Pos2SimModem</scope><name>address</name></member>

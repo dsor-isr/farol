@@ -21,6 +21,7 @@
     <member refid="classAcousticPinger_1ae1af293337b7a27f38655b8fb05dd7ca" kind="variable"><name>range_max</name></member>
     <member refid="classAcousticPinger_1ae313559d5a89b6d77f7b69d021401d30" kind="variable"><name>waiting_for_serializer</name></member>
     <member refid="classAcousticPinger_1a457382ca134cbac3bfaafb01c9b50827" kind="variable"><name>ENABLE_</name></member>
+    <member refid="classAcousticPinger_1ac6d03b28628c0db16f3642ff70212d28" kind="variable"><name>replier_ack</name></member>
     <member refid="classAcousticPinger_1a402a0bd324058a43e13a34463aaa5420" kind="variable"><name>lastRECVTime_modem</name></member>
     <member refid="classAcousticPinger_1a27a3397392863af62bc14b0d616a53ec" kind="variable"><name>lastRECVTime_ros</name></member>
     <member refid="classAcousticPinger_1a3a598504243a3cfb9393589562da70eb" kind="function"><name>AcousticPinger</name></member>
@@ -50,12 +51,16 @@
     <member refid="classReplierNode_1ac0ad5ae2d48be12f8472f3d30dc21260" kind="variable"><name>timer_</name></member>
     <member refid="classReplierNode_1a86b7e66f4fddb0b0e634290b43619aa6" kind="variable"><name>p_modem_id_</name></member>
     <member refid="classReplierNode_1a2b3e9ef4208cdda941dd19fd5ff63399" kind="variable"><name>p_tslack_</name></member>
+    <member refid="classReplierNode_1a72ce7e6d92f85f60fc3b476370be8c95" kind="variable"><name>timeout_list</name></member>
     <member refid="classReplierNode_1a48fdf6d3b9f56e362eb0af26ba24831e" kind="variable"><name>timeout_</name></member>
     <member refid="classReplierNode_1a19949db201c7c443e781cb51c4c25aba" kind="variable"><name>range_</name></member>
+    <member refid="classReplierNode_1a9b74720339ad11d1150fed6b4e1f392c" kind="variable"><name>timeouts</name></member>
     <member refid="classReplierNode_1acfd060c2230da0d0e87b396147291110" kind="variable"><name>t_last_recv_ims_</name></member>
     <member refid="classReplierNode_1a3c52570abc7c4080c7e89197bec7b582" kind="variable"><name>t_last_send_ims_</name></member>
     <member refid="classReplierNode_1a45f086a90f3bf86d1e00233fbba4ef1f" kind="variable"><name>modem_id_last_send_ims_</name></member>
     <member refid="classReplierNode_1ab3400d9cf7673150eb6c116b13745b3f" kind="variable"><name>reply_ims_</name></member>
+    <member refid="classReplierNode_1a5caae1d82fbd3c991dfff7a93e7f9616" kind="variable"><name>pinger_ack</name></member>
+    <member refid="classReplierNode_1a5975adc43d6c5b0e4056120d8177805b" kind="variable"><name>range_max</name></member>
     <member refid="classReplierNode_1a588a06448e7703b40d025c62922af338" kind="function"><name>ReplierNode</name></member>
     <member refid="classReplierNode_1a0cbc05de54f05c07056201c6e9eb4ae9" kind="function"><name>~ReplierNode</name></member>
     <member refid="classReplierNode_1a6b59edb2dbda20b1c15d73e9f0a4d9fd" kind="function"><name>initializeSubscribers</name></member>
