@@ -108,6 +108,8 @@ nav/filter:
             state_sensors: "/#vehicle#/nav/filter/State_sensors"
             vc_meas_velocity: "/#vehicle#/nav/filter/vc_meas_velocity"
             vc_meas_position: "/#vehicle#/nav/filter/vc_meas_position"
+            biased_heading: "/#vehicle#/nav/filter/biased_heading"
+            
 
     topics_dr:
        velocity: "/#vehicle#/measurement/velocity"
@@ -121,6 +123,8 @@ nav/filter:
     services:
        set_vcurrent_velocity: "/#vehicle#/nav/set_vcurrent_velocity"
        reset_vcurrent: "/#vehicle#/nav/reset_vcurrent"
+       set_bias_heading: "/#vehicle#/nav/set_bias_heading"
+       reset_bias_heading: "/#vehicle#/nav/reset_bias_heading"
 
 
 
