@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="94" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="94" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="95" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a88d649661d1b8c8cc4ce63d503b0e805" prot="private" static="no" mutable="no">
         <type>ros::NodeHandle</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="94" column="21" bodyfile="include/ros/FiltersNode.h" bodystart="94" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="95" column="21" bodyfile="include/ros/FiltersNode.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ad6502a88c0cd2fee63655bb00b2edc11" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="97" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="97" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="98" column="17" bodyfile="include/ros/FiltersNode.h" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a27974a9d2ebe9a22ff0185f8fc44bea3" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="98" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="98" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="99" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1afee97fdb6c43aaa3363ed93eab33d4c1" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="99" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="99" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="100" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1af4923e8ca1be3c763da7113b1d6b2eb2" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="102" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="102" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="103" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a7a8f5d534d43b63b50ff619462ba90b8" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="105" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="105" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="106" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a3cb327d2d800f8d3184ddc94b8fd8d29" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="106" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="106" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="107" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ab5e09575f4acfb2bdf7ef45a0d099455" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="107" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="107" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="108" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a4c63557bb8bfefcc7a73bc7612b134b9" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="108" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="108" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="109" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="109" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a5f7862a9125006be59979a0b951d3506" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="109" column="16" bodyfile="include/ros/FiltersNode.h" bodystart="109" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="110" column="16" bodyfile="include/ros/FiltersNode.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a875e32c34d6b8ff4f114ae29d71797cb" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -169,7 +169,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="110" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="110" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="111" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a030d2d125b7199ec3bca1a09a5557559" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher FiltersNode::biased_orientation_pub_</definition>
+        <argsstring></argsstring>
+        <name>biased_orientation_pub_</name>
+        <briefdescription>
+<para>measurement msg with changed values for heading bias </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="112" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a84b92f3069f0bc8d1be9d4059b5b5044" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -183,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="113" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="113" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="115" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a23bbde5088c0724068114aced5ff8787" prot="private" static="no" mutable="no">
         <type>ros::ServiceServer</type>
@@ -197,7 +211,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="114" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="114" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="116" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a472bff7271fc2ed175f4f3ee7cdc0884" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer FiltersNode::set_bias_heading_srv_</definition>
+        <argsstring></argsstring>
+        <name>set_bias_heading_srv_</name>
+        <briefdescription>
+<para>Service to set up a bias in the heading measurements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="117" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a5d67582567a87a153cfca6ceda6502e5" prot="private" static="no" mutable="no">
+        <type>ros::ServiceServer</type>
+        <definition>ros::ServiceServer FiltersNode::reset_bias_heading_srv_</definition>
+        <argsstring></argsstring>
+        <name>reset_bias_heading_srv_</name>
+        <briefdescription>
+<para>Service to stop said bias. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="118" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a12a575914e67c3c3cb91439f365cbdb1" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
@@ -211,7 +253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="118" column="12" bodyfile="include/ros/FiltersNode.h" bodystart="118" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="121" column="12" bodyfile="include/ros/FiltersNode.h" bodystart="121" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ab90a11d742f977e129ca48c52a5a35a0" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
@@ -225,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="119" column="14" bodyfile="include/ros/FiltersNode.h" bodystart="119" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="122" column="14" bodyfile="include/ros/FiltersNode.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1afcd23f0000326766bd06c343f2fa3a72" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
@@ -239,7 +281,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="120" column="14" bodyfile="include/ros/FiltersNode.h" bodystart="120" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="123" column="14" bodyfile="include/ros/FiltersNode.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ada3e323dc2273f3731c801a5bd7e4a81" prot="private" static="no" mutable="no">
         <type>tf2_ros::Buffer</type>
@@ -253,7 +295,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="121" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="121" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="124" column="19" bodyfile="include/ros/FiltersNode.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a40de20d162b2917d53251900c134e2a6" prot="private" static="no" mutable="no">
         <type>tf2_ros::TransformListener *</type>
@@ -267,7 +309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="122" column="30" bodyfile="include/ros/FiltersNode.h" bodystart="122" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="125" column="30" bodyfile="include/ros/FiltersNode.h" bodystart="125" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ae2141b2b86238b1fe567d6d49148622b" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -281,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="125" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="128" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a17ebbf60f4446ba3eb988fdc679dc4a9" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -295,7 +337,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="126" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="126" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="129" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a853daa04a8620f87840960749a09163a" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -309,7 +351,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="127" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="127" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="130" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="130" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1acfdada82f0e66ffedde542d1305b4ebf" prot="private" static="no" mutable="no">
         <type>auv_msgs::NavigationStatus</type>
@@ -323,7 +365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="130" column="30" bodyfile="include/ros/FiltersNode.h" bodystart="130" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="133" column="30" bodyfile="include/ros/FiltersNode.h" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ac0848e521d578f439a6f699573111cc4" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -337,7 +379,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="131" column="5" bodyfile="include/ros/FiltersNode.h" bodystart="131" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="134" column="5" bodyfile="include/ros/FiltersNode.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a05297369e70858ba3c6d94aa4d8b086a" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -351,7 +393,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="132" column="5" bodyfile="include/ros/FiltersNode.h" bodystart="132" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="135" column="5" bodyfile="include/ros/FiltersNode.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a196d36afde16e5b3ed0dc4d545263167" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -365,7 +407,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="133" column="7" bodyfile="include/ros/FiltersNode.h" bodystart="133" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="136" column="7" bodyfile="include/ros/FiltersNode.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a1624eead060339c2d044dadaa77f066e" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -379,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="134" column="8" bodyfile="include/ros/FiltersNode.h" bodystart="134" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="137" column="8" bodyfile="include/ros/FiltersNode.h" bodystart="137" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ab9d11ebb44d5dee603ce988ac0c448ad" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -393,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="135" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="135" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="138" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1aca31230a8c6f47f0a9022e9d16d11d19" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -407,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="136" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="136" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="139" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a64f755f3c0f9cbdddf1ce320f83db1d1" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
@@ -421,7 +463,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="137" column="13" bodyfile="include/ros/FiltersNode.h" bodystart="137" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="140" column="13" bodyfile="include/ros/FiltersNode.h" bodystart="140" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ae8d5595026d01e6da4fe10c5aa0063c4" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -435,7 +477,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="138" column="7" bodyfile="include/ros/FiltersNode.h" bodystart="138" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="141" column="7" bodyfile="include/ros/FiltersNode.h" bodystart="141" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a1cb32f61ab762ac8113899f241796208" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -449,7 +491,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="140" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="140" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="143" column="15" bodyfile="include/ros/FiltersNode.h" bodystart="143" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ac91ef7aad1aae34900e08f19c2583e1d" prot="private" static="no" mutable="no">
         <type><ref refid="classHorizontalFilter" kindref="compound">HorizontalFilter</ref></type>
@@ -463,7 +505,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="143" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="143" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="146" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a63a380385088558b3b2401dbeed28fef" prot="private" static="no" mutable="no">
         <type><ref refid="classVerticalFilter" kindref="compound">VerticalFilter</ref></type>
@@ -477,7 +519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="144" column="16" bodyfile="include/ros/FiltersNode.h" bodystart="144" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="147" column="16" bodyfile="include/ros/FiltersNode.h" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ad1e269fdf079e914206ba09193c1c7fc" prot="private" static="no" mutable="no">
         <type><ref refid="classRotationalFilter" kindref="compound">RotationalFilter</ref></type>
@@ -491,7 +533,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="145" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="145" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="148" column="18" bodyfile="include/ros/FiltersNode.h" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a7aa031a297ceb7f9a44e5c2caaaeca53" prot="private" static="no" mutable="no">
         <type>dsor_msgs::Measurement</type>
@@ -504,7 +546,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="148" column="26" bodyfile="include/ros/FiltersNode.h" bodystart="148" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="151" column="26" bodyfile="include/ros/FiltersNode.h" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a419e2f41e7c048d8b303acdf9f04a154" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -518,7 +560,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="149" column="8" bodyfile="include/ros/FiltersNode.h" bodystart="149" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="152" column="8" bodyfile="include/ros/FiltersNode.h" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a78e340f37b7bebe6475e3fa4670b33a6" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -532,7 +574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="150" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="150" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="153" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1afa79d44502df878fb836c2319e2d258c" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -546,7 +588,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="151" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="151" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="154" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a42c711b9598e12f62398d7fcf68aba90" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -560,7 +602,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="152" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="152" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="155" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1aa66519e7048f4fc9280369bd870039fe" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -574,7 +616,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="153" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="153" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="156" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="156" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1abb8c8f006e1c1370472eaf300315727f" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -588,7 +630,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="154" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="154" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="157" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1afe6f1ecfbb764d5807290b2a1ae0ec70" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -602,7 +644,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="156" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="156" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="159" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a0c7248fc65c3c3cadc506b47e914e494" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -616,7 +658,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="157" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="157" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="160" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a0e6bb3fba87f48249b9b91ec223a4f7f" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -630,7 +672,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="158" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="158" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="161" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ab5e6c4443225f7398bf5231fb3d5920e" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -644,7 +686,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="159" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="159" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="162" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="162" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1aadfc95e75c9f433c0cfe09735700af9c" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -658,7 +700,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="160" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="160" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="163" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a12c12499c0517f9b2cd6c282c5ab2f2a" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -672,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="163" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="163" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="166" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a7d876058be4472bf67e980e429e0a7c6" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -686,7 +728,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="164" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="164" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="167" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ae6490b6bf84e345b502f0e22350df9cd" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -700,7 +742,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="165" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="165" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="168" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="168" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a1610305530df716a343d6f40a2022376" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -714,7 +756,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="166" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="166" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="169" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="169" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1ac9c3b519fc80a2a8249e6c7aa0c4d721" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -728,7 +770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="167" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="167" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="170" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="170" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1abdb740621065508dd9d07b372f1a85e0" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -742,7 +784,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="168" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="168" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="171" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a3e8f5c6502a403370eb15be3d54917e3" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -756,7 +798,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="169" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="169" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="172" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a660f3bcdf1ef2c90f8683f8cac7d1e06" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -770,7 +812,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="170" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="170" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="173" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classFiltersNode_1a3e94d3f0961e41e1852968ac67bf861a" prot="private" static="no" mutable="no">
         <type>farol_msgs::mState</type>
@@ -783,7 +825,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="171" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="171" bodyend="-1"/>
+        <location file="include/ros/FiltersNode.h" line="174" column="22" bodyfile="include/ros/FiltersNode.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1ac710ab7663f2d417d10e384bc3f2bfe9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FiltersNode::bias_flag_</definition>
+        <argsstring></argsstring>
+        <name>bias_flag_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="177" column="8" bodyfile="include/ros/FiltersNode.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classFiltersNode_1a62a5851e184bb5d4a6db7be5e990a16c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double FiltersNode::bias_val_</definition>
+        <argsstring></argsstring>
+        <name>bias_val_</name>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="178" column="10" bodyfile="include/ros/FiltersNode.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -825,7 +895,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="72" column="1" bodyfile="src/ros/FiltersNode.cpp" bodystart="7" bodyend="17"/>
+        <location file="include/ros/FiltersNode.h" line="73" column="1" bodyfile="src/ros/FiltersNode.cpp" bodystart="7" bodyend="17"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a0b77b79828d37ade676078d8e3f16c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -839,7 +909,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="80" column="3" bodyfile="src/ros/FiltersNode.cpp" bodystart="19" bodyend="39"/>
+        <location file="include/ros/FiltersNode.h" line="81" column="3" bodyfile="src/ros/FiltersNode.cpp" bodystart="19" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1ab8595e87f3b9e51348f7885a88468d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -857,7 +927,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="91" column="10" bodyfile="src/ros/FiltersNode.cpp" bodystart="71" bodyend="77"/>
+        <location file="include/ros/FiltersNode.h" line="92" column="10" bodyfile="src/ros/FiltersNode.cpp" bodystart="75" bodyend="81"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -873,7 +943,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="180" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="41" bodyend="48"/>
+        <location file="include/ros/FiltersNode.h" line="187" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="41" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a4ef9fe4389a617e856a98a65c9963f2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -887,7 +957,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="187" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="50" bodyend="59"/>
+        <location file="include/ros/FiltersNode.h" line="194" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="50" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a77efee705bbde5ed7dedfcfcbf076319" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -901,7 +971,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="194" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="61" bodyend="64"/>
+        <location file="include/ros/FiltersNode.h" line="201" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="62" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a3b6221e3025fad5abb499c5767735cfd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -915,7 +985,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="201" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="66" bodyend="69"/>
+        <location file="include/ros/FiltersNode.h" line="208" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="70" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a589a0ea2eb0281c4b68e6b45e85cb046" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -929,7 +999,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="208" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="79" bodyend="214"/>
+        <location file="include/ros/FiltersNode.h" line="215" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="83" bodyend="218"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a2f5b442d75d4ed7d84fc5d0769f6f6b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -958,7 +1028,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="220" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="291" bodyend="368"/>
+        <location file="include/ros/FiltersNode.h" line="227" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="319" bodyend="396"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a4a316413990259742354122439f5a019" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -986,7 +1056,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="230" column="6" bodyfile="src/ros/FiltersNode.cpp" bodystart="370" bodyend="372"/>
+        <location file="include/ros/FiltersNode.h" line="237" column="6" bodyfile="src/ros/FiltersNode.cpp" bodystart="398" bodyend="400"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1abf3d38a0a6baf43c5af1b2390e048107" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1014,7 +1084,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="243" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="217" bodyend="282"/>
+        <location file="include/ros/FiltersNode.h" line="250" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="221" bodyend="310"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1ac72db49ce831e16acde43ffb0191d6b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1042,7 +1112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="252" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="284" bodyend="288"/>
+        <location file="include/ros/FiltersNode.h" line="259" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="312" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a30b549d32831bb054d6d8820e4f48fdb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref> &gt;</type>
@@ -1073,7 +1143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="267" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="376" bodyend="394"/>
+        <location file="include/ros/FiltersNode.h" line="274" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="404" bodyend="422"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a1bb6da7d22e2bb1cbce9df2316af26dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structFilterGimmicks_1_1measurement" kindref="compound">FilterGimmicks::measurement</ref></type>
@@ -1104,7 +1174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="280" column="31" bodyfile="src/ros/FiltersNode.cpp" bodystart="398" bodyend="405"/>
+        <location file="include/ros/FiltersNode.h" line="287" column="31" bodyfile="src/ros/FiltersNode.cpp" bodystart="426" bodyend="433"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a3b64e38f56e01ede1a68e5aa664f9da0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; double &gt;</type>
@@ -1134,7 +1204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="292" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="409" bodyend="425"/>
+        <location file="include/ros/FiltersNode.h" line="299" column="15" bodyfile="src/ros/FiltersNode.cpp" bodystart="437" bodyend="453"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1174,7 +1244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="302" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="428" bodyend="436"/>
+        <location file="include/ros/FiltersNode.h" line="309" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="456" bodyend="464"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1239,7 +1309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="314" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="439" bodyend="581"/>
+        <location file="include/ros/FiltersNode.h" line="321" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="467" bodyend="609"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a7b8612736ea28cf10b3c4d2f984bfd21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1279,19 +1349,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="325" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="584" bodyend="615"/>
+        <location file="include/ros/FiltersNode.h" line="332" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="612" bodyend="643"/>
       </memberdef>
-      <memberdef kind="function" id="classFiltersNode_1ac1fccbf77148622076b41c03cec51303" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classFiltersNode_1a6bae071e1f41dccf8d82bffd3859a3fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool FiltersNode::resetVCurrentService</definition>
-        <argsstring>(std_srvs::SetBool::Request &amp;req, std_srvs::SetBool::Response &amp;res)</argsstring>
+        <argsstring>(std_srvs::Empty::Request &amp;req, std_srvs::Empty::Response &amp;res)</argsstring>
         <name>resetVCurrentService</name>
         <param>
-          <type>std_srvs::SetBool::Request &amp;</type>
+          <type>std_srvs::Empty::Request &amp;</type>
           <declname>req</declname>
         </param>
         <param>
-          <type>std_srvs::SetBool::Response &amp;</type>
+          <type>std_srvs::Empty::Response &amp;</type>
           <declname>res</declname>
         </param>
         <briefdescription>
@@ -1319,7 +1389,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="336" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="617" bodyend="633"/>
+        <location file="include/ros/FiltersNode.h" line="343" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="645" bodyend="660"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a68d1308a58b95fd91339f9bd42740261" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1347,7 +1417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="347" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="669" bodyend="738"/>
+        <location file="include/ros/FiltersNode.h" line="354" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="697" bodyend="766"/>
       </memberdef>
       <memberdef kind="function" id="classFiltersNode_1a9a733c45e31717365c37d1a053694df0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1375,7 +1445,87 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/FiltersNode.h" line="358" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="635" bodyend="667"/>
+        <location file="include/ros/FiltersNode.h" line="365" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="663" bodyend="695"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1aea7334ba03aa7d819a421b1e510440dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FiltersNode::setHeadingBiasService</definition>
+        <argsstring>(dsor_msgs::DoubleValue::Request &amp;req, dsor_msgs::DoubleValue::Response &amp;res)</argsstring>
+        <name>setHeadingBiasService</name>
+        <param>
+          <type>dsor_msgs::DoubleValue::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>dsor_msgs::DoubleValue::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Function to handle set_vcurrent_velocity service. Sets the virtual currents velocity to the value requested by the service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>service Request </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>service Response </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="376" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="769" bodyend="778"/>
+      </memberdef>
+      <memberdef kind="function" id="classFiltersNode_1aafe36ca9dbccb88d3c30facd0c25217b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FiltersNode::resetHeadingBiasService</definition>
+        <argsstring>(std_srvs::Empty::Request &amp;req, std_srvs::Empty::Response &amp;res)</argsstring>
+        <name>resetHeadingBiasService</name>
+        <param>
+          <type>std_srvs::Empty::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>std_srvs::Empty::Response &amp;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+<para>Function to handle reset_vcurrent service. Sets to the default values all variables used for simulating the virtual currents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>req</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>service Request </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>res</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>service Response </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/FiltersNode.h" line="387" column="8" bodyfile="src/ros/FiltersNode.cpp" bodystart="780" bodyend="784"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1386,10 +1536,13 @@
 </simplesect>
 </para>
     </detaileddescription>
-    <location file="include/ros/FiltersNode.h" line="62" column="1" bodyfile="include/ros/FiltersNode.h" bodystart="61" bodyend="360"/>
+    <location file="include/ros/FiltersNode.h" line="63" column="1" bodyfile="include/ros/FiltersNode.h" bodystart="62" bodyend="389"/>
     <listofallmembers>
       <member refid="classFiltersNode_1a64f755f3c0f9cbdddf1ce320f83db1d1" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>active_sensors_</name></member>
       <member refid="classFiltersNode_1a17ebbf60f4446ba3eb988fdc679dc4a9" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>base_frame_id_</name></member>
+      <member refid="classFiltersNode_1ac710ab7663f2d417d10e384bc3f2bfe9" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>bias_flag_</name></member>
+      <member refid="classFiltersNode_1a62a5851e184bb5d4a6db7be5e990a16c" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>bias_val_</name></member>
+      <member refid="classFiltersNode_1a030d2d125b7199ec3bca1a09a5557559" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>biased_orientation_pub_</name></member>
       <member refid="classFiltersNode_1a3cb327d2d800f8d3184ddc94b8fd8d29" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>currents_pub_</name></member>
       <member refid="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>extractArrayDouble</name></member>
       <member refid="classFiltersNode_1a3b64e38f56e01ede1a68e5aa664f9da0" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>extractVectorDouble</name></member>
@@ -1416,9 +1569,11 @@
       <member refid="classFiltersNode_1ae8d5595026d01e6da4fe10c5aa0063c4" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>p_dvl_body_frame_</name></member>
       <member refid="classFiltersNode_1a1bb6da7d22e2bb1cbce9df2316af26dc" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>readManuallyInitialization</name></member>
       <member refid="classFiltersNode_1a30b549d32831bb054d6d8820e4f48fdb" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>readSensors</name></member>
+      <member refid="classFiltersNode_1a5d67582567a87a153cfca6ceda6502e5" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>reset_bias_heading_srv_</name></member>
       <member refid="classFiltersNode_1a23bbde5088c0724068114aced5ff8787" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>reset_vcurrent_srv_</name></member>
       <member refid="classFiltersNode_1ac72db49ce831e16acde43ffb0191d6b8" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>resetCallback</name></member>
-      <member refid="classFiltersNode_1ac1fccbf77148622076b41c03cec51303" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>resetVCurrentService</name></member>
+      <member refid="classFiltersNode_1aafe36ca9dbccb88d3c30facd0c25217b" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>resetHeadingBiasService</name></member>
+      <member refid="classFiltersNode_1a6bae071e1f41dccf8d82bffd3859a3fa" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>resetVCurrentService</name></member>
       <member refid="classFiltersNode_1ad1e269fdf079e914206ba09193c1c7fc" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>rFilter_</name></member>
       <member refid="classFiltersNode_1abdb740621065508dd9d07b372f1a85e0" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sensor_vx_</name></member>
       <member refid="classFiltersNode_1a3e8f5c6502a403370eb15be3d54917e3" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sensor_vy_</name></member>
@@ -1428,7 +1583,9 @@
       <member refid="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sensorSplit</name></member>
       <member refid="classFiltersNode_1a9a733c45e31717365c37d1a053694df0" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>sensorsState</name></member>
       <member refid="classFiltersNode_1afcd23f0000326766bd06c343f2fa3a72" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>serviceslist_cleaner_timer_</name></member>
+      <member refid="classFiltersNode_1a472bff7271fc2ed175f4f3ee7cdc0884" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>set_bias_heading_srv_</name></member>
       <member refid="classFiltersNode_1a84b92f3069f0bc8d1be9d4059b5b5044" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>set_vcurrent_velocity_srv_</name></member>
+      <member refid="classFiltersNode_1aea7334ba03aa7d819a421b1e510440dd" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>setHeadingBiasService</name></member>
       <member refid="classFiltersNode_1a7b8612736ea28cf10b3c4d2f984bfd21" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>setVCurrentVelocityService</name></member>
       <member refid="classFiltersNode_1acfdada82f0e66ffedde542d1305b4ebf" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>state_</name></member>
       <member refid="classFiltersNode_1ab5e09575f4acfb2bdf7ef45a0d099455" prot="private" virt="non-virtual"><scope>FiltersNode</scope><name>state_acoustic_pub_</name></member>

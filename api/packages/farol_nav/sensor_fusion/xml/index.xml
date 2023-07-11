@@ -98,8 +98,11 @@
     <member refid="classFiltersNode_1a4c63557bb8bfefcc7a73bc7612b134b9" kind="variable"><name>state_sensors_pub_</name></member>
     <member refid="classFiltersNode_1a5f7862a9125006be59979a0b951d3506" kind="variable"><name>vc_meas_velocity_pub_</name></member>
     <member refid="classFiltersNode_1a875e32c34d6b8ff4f114ae29d71797cb" kind="variable"><name>vc_meas_position_pub_</name></member>
+    <member refid="classFiltersNode_1a030d2d125b7199ec3bca1a09a5557559" kind="variable"><name>biased_orientation_pub_</name></member>
     <member refid="classFiltersNode_1a84b92f3069f0bc8d1be9d4059b5b5044" kind="variable"><name>set_vcurrent_velocity_srv_</name></member>
     <member refid="classFiltersNode_1a23bbde5088c0724068114aced5ff8787" kind="variable"><name>reset_vcurrent_srv_</name></member>
+    <member refid="classFiltersNode_1a472bff7271fc2ed175f4f3ee7cdc0884" kind="variable"><name>set_bias_heading_srv_</name></member>
+    <member refid="classFiltersNode_1a5d67582567a87a153cfca6ceda6502e5" kind="variable"><name>reset_bias_heading_srv_</name></member>
     <member refid="classFiltersNode_1a12a575914e67c3c3cb91439f365cbdb1" kind="variable"><name>timer_</name></member>
     <member refid="classFiltersNode_1ab90a11d742f977e129ca48c52a5a35a0" kind="variable"><name>list_cleaner_timer_</name></member>
     <member refid="classFiltersNode_1afcd23f0000326766bd06c343f2fa3a72" kind="variable"><name>serviceslist_cleaner_timer_</name></member>
@@ -142,6 +145,8 @@
     <member refid="classFiltersNode_1a3e8f5c6502a403370eb15be3d54917e3" kind="variable"><name>sensor_vy_</name></member>
     <member refid="classFiltersNode_1a660f3bcdf1ef2c90f8683f8cac7d1e06" kind="variable"><name>v_time_</name></member>
     <member refid="classFiltersNode_1a3e94d3f0961e41e1852968ac67bf861a" kind="variable"><name>state_sensors_</name></member>
+    <member refid="classFiltersNode_1ac710ab7663f2d417d10e384bc3f2bfe9" kind="variable"><name>bias_flag_</name></member>
+    <member refid="classFiltersNode_1a62a5851e184bb5d4a6db7be5e990a16c" kind="variable"><name>bias_val_</name></member>
     <member refid="classFiltersNode_1a49d2e8adb13b49affd01f99dce525be3" kind="function"><name>FiltersNode</name></member>
     <member refid="classFiltersNode_1a0b77b79828d37ade676078d8e3f16c1a" kind="function"><name>~FiltersNode</name></member>
     <member refid="classFiltersNode_1ab8595e87f3b9e51348f7885a88468d5f" kind="function"><name>nodeFrequency</name></member>
@@ -160,9 +165,11 @@
     <member refid="classFiltersNode_1af89efe3340c07a342b29a2dcdfeabd60" kind="function"><name>extractArrayDouble</name></member>
     <member refid="classFiltersNode_1a61420ac372d99f87197f3daf38ddf2c3" kind="function"><name>sensorSplit</name></member>
     <member refid="classFiltersNode_1a7b8612736ea28cf10b3c4d2f984bfd21" kind="function"><name>setVCurrentVelocityService</name></member>
-    <member refid="classFiltersNode_1ac1fccbf77148622076b41c03cec51303" kind="function"><name>resetVCurrentService</name></member>
+    <member refid="classFiltersNode_1a6bae071e1f41dccf8d82bffd3859a3fa" kind="function"><name>resetVCurrentService</name></member>
     <member refid="classFiltersNode_1a68d1308a58b95fd91339f9bd42740261" kind="function"><name>virtualCurrents</name></member>
     <member refid="classFiltersNode_1a9a733c45e31717365c37d1a053694df0" kind="function"><name>sensorsState</name></member>
+    <member refid="classFiltersNode_1aea7334ba03aa7d819a421b1e510440dd" kind="function"><name>setHeadingBiasService</name></member>
+    <member refid="classFiltersNode_1aafe36ca9dbccb88d3c30facd0c25217b" kind="function"><name>resetHeadingBiasService</name></member>
   </compound>
   <compound refid="classHorizontalFilter" kind="class"><name>HorizontalFilter</name>
     <member refid="classHorizontalFilter_1a89aa392b71d0f74e3814f939dab908e8" kind="variable"><name>MEAS_LEN</name></member>

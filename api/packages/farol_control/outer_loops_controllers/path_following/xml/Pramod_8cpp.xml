@@ -69,6 +69,25 @@
         </childnode>
       </node>
     </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Pramod_8cpp_1a40c0392d33f5e2090f132df37126fd78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double sigma_e</definition>
+        <argsstring>(double input)</argsstring>
+        <name>sigma_e</name>
+        <param>
+          <type>double</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/algorithms/Pramod.cpp" line="22" column="8" bodyfile="src/algorithms/Pramod.cpp" bodystart="22" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -94,89 +113,116 @@
 <codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a44f11799b766cf7246925810bb7891c3" kindref="member">Pramod::callPFController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>path<sp/>paramerters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>path_pd;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>path_pd<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[1];</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_psi<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_vd<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kindref="member">vd</ref>;</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_hg<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.tangent_norm;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>saturation<sp/>as<sp/>described<sp/>in<sp/>paper*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sigma_e(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>input){</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(input<sp/>&gt;<sp/>1)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(input<sp/>&lt;<sp/>-1)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>input;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>vehicle<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>veh_p;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/>veh_p<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[1];</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>veh_surge<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1ac9730df9dd6e068de2e031d5da4a2c9b" kindref="member">v1</ref>[0];</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>rotation<sp/>matrix<sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>RI_F;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/>RI_F<sp/>&lt;&lt;<sp/>cos(path_psi),<sp/>sin(path_psi),<sp/>-sin(path_psi),<sp/>cos(path_psi);</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>position<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pos_error<sp/>=<sp/>RI_F<sp/>*<sp/>(veh_p<sp/>-<sp/>path_pd);</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cross_track<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>int_cross_track<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>cross_track<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/>int_cross_track<sp/>+=<sp/>cross_track;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_correction<sp/>=<sp/>-this-&gt;gains_[0]<sp/>/<sp/>veh_surge<sp/>*<sp/>cross_track<sp/>-<sp/>this-&gt;gains_[1]<sp/>/<sp/>veh_surge<sp/>*<sp/>int_cross_track;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(yaw_correction<sp/>&gt;<sp/>1)</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>yaw_correction<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(yaw_correction<sp/>&lt;<sp/>-1)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>yaw_correction<sp/>=<sp/>-1;</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>desired_yaw_rad<sp/>=<sp/>path_psi<sp/>+<sp/>asin(yaw_correction);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>desired_yaw_rad<sp/>*<sp/>180<sp/>/<sp/>M_PI;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>(path_vd<sp/>+<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kindref="member">vc</ref>)<sp/>*<sp/>path_hg;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Pramod&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" kindref="member">gamma</ref>;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish<sp/>the<sp/>control<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" kindref="member">Pramod::publish_private</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_pub_,<sp/>this-&gt;desired_yaw_);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a126d336bd731481ba1949e076830d261" kindref="member">Pramod::start</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pramod<sp/>does<sp/>not<sp/>used<sp/>this<sp/>start<sp/>needs<sp/>to<sp/>use<sp/>the<sp/>closest<sp/>point<sp/>to<sp/>the<sp/>path</highlight></codeline>
-<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/>*<sp/>and<sp/>NOT<sp/>the<sp/>default<sp/>gamma<sp/>&lt;-&gt;<sp/>data<sp/>communication,<sp/>therefore<sp/>we<sp/>should</highlight></codeline>
-<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/>*<sp/>inform<sp/>the<sp/>path<sp/>to<sp/>be<sp/>used<sp/>in<sp/>closest<sp/>point<sp/>mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>dsor_paths::SetMode<sp/>srv;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>srv.request.closest_point_mode<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>this-&gt;mode_client_.call(srv);<sp/></highlight></codeline>
-<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a44f11799b766cf7246925810bb7891c3" kindref="member">Pramod::callPFController</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>path<sp/>paramerters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>path_pd;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>path_pd<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1adcfbbc5c2c5ce15fe7a0c55fe0d2017a" kindref="member">pd</ref>[1];</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_psi<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_vd<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a89cb893328d1d2efb4fd10e308f053e8" kindref="member">vd</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>path_hg<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.tangent_norm;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>vehicle<sp/>parameters<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>veh_p;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>veh_p<sp/>&lt;&lt;<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[0],<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1a860f94c45b775dbd8cbf90e274489cb4" kindref="member">eta1</ref>[1];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>veh_surge<sp/>=<sp/>this-&gt;<ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.<ref refid="structVehicleState_1ac9730df9dd6e068de2e031d5da4a2c9b" kindref="member">v1</ref>[0];</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>rotation<sp/>matrix<sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>Eigen::Matrix2d<sp/>RI_F;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>RI_F<sp/>&lt;&lt;<sp/>cos(path_psi),<sp/>sin(path_psi),<sp/>-sin(path_psi),<sp/>cos(path_psi);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Compute<sp/>the<sp/>position<sp/>error<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>Eigen::Vector2d<sp/>pos_error<sp/>=<sp/>RI_F<sp/>*<sp/>(veh_p<sp/>-<sp/>path_pd);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>cross_track<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Notation<sp/>used<sp/>is<sp/>the<sp/>described<sp/>in<sp/>&quot;A<sp/>Path-Following<sp/>Controller<sp/>for<sp/>Marine<sp/>Vehicles<sp/>Using<sp/>a<sp/>Two-Scale<sp/>Inner-Outer<sp/>Loop<sp/>Approach&quot;<sp/>by<sp/>Pramod<sp/>Maurya<sp/>(https://www.mdpi.com/1424-8220/22/11/4293)<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>&quot;cross_track&quot;<sp/>is<sp/>the<sp/>cross<sp/>track<sp/>error,<sp/>represented<sp/>by<sp/>&quot;e&quot;<sp/>in<sp/>the<sp/>paper</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>&quot;zeta&quot;<sp/>is<sp/>the<sp/>integral<sp/>of<sp/>the<sp/>cross<sp/>track<sp/>error<sp/>which<sp/>has<sp/>a<sp/>dynamic<sp/>of<sp/>its<sp/>own<sp/>which<sp/>is<sp/>described<sp/>id<sp/>the<sp/>paper<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>&quot;sigma_e&quot;<sp/>is<sp/>the<sp/>saturation<sp/>function<sp/>described<sp/>in<sp/>the<sp/>paper</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>finally,<sp/>each<sp/>important<sp/>line<sp/>of<sp/>code<sp/>has<sp/>above<sp/>it<sp/>the<sp/>cooresponent<sp/>equation<sp/>from<sp/>the<sp/>paper</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>cross_track<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta<sp/>=<sp/>cross_track*dt;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*Anti<sp/>windup<sp/>gain*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ka<sp/>=<sp/>1/dt;<sp/></highlight><highlight class="comment">/*<sp/>=<sp/>1/Ts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>zeta<sp/>dynamics<sp/>with<sp/>anti-windup<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>zeta_dot<sp/>=<sp/>cross_track<sp/>+<sp/>Ka<sp/>*(<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>-this-&gt;gains_[0]<sp/>/<sp/>veh_surge<sp/>*<sp/>cross_track<sp/>-<sp/>this-&gt;gains_[1]<sp/>/<sp/>veh_surge<sp/>*<sp/>zeta<sp/>-<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>sigma_e(<sp/>-this-&gt;gains_[0]<sp/>/<sp/>veh_surge<sp/>*<sp/>cross_track<sp/>-<sp/>this-&gt;gains_[1]<sp/>/<sp/>veh_surge<sp/>*<sp/>zeta)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>integrate<sp/>to<sp/>obtain<sp/>zeta<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>zeta<sp/>+=<sp/>zeta_dot*dt;<sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>u<sp/>=<sp/>-K1/U*e<sp/>-<sp/>K2/U*sigma<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yaw_correction<sp/>=<sp/>-this-&gt;gains_[0]<sp/>/<sp/>veh_surge<sp/>*<sp/>cross_track<sp/>-<sp/>this-&gt;gains_[1]<sp/>/<sp/>veh_surge<sp/>*<sp/>zeta;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>psi_d<sp/>=<sp/>path_psi<sp/>+<sp/>asin(sat(u))<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>desired_yaw_rad<sp/>=<sp/>path_psi<sp/>+<sp/>asin(sigma_e(yaw_correction));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>this-&gt;desired_yaw_<sp/>=<sp/>desired_yaw_rad<sp/>*<sp/>180<sp/>/<sp/>M_PI;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>this-&gt;desired_surge_<sp/>=<sp/>(path_vd<sp/>+<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a7d34e9ff771e38007ba6670023b7a07b" kindref="member">vc</ref>)<sp/>*<sp/>path_hg;</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a72242417c3edc99e4afefeca99996067" kindref="member">Pramod::stop</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>we<sp/>have<sp/>made<sp/>all<sp/>the<sp/>path,<sp/>then<sp/>stop!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" kindref="member">gamma</ref><sp/>&gt;=<sp/>this-&gt;path_state_.gamma_max)<sp/>{</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" kindref="member">Pramod::reset</ref>()<sp/>{</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>desired<sp/>speed<sp/>and<sp/>yaw<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/>desired_yaw_<sp/>=<sp/>0.0;</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Path<sp/>following<sp/>values<sp/>for<sp/>debug<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.algorithm<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Pramod&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.cross_track_error<sp/>=<sp/>pos_error[1];</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.along_track_error<sp/>=<sp/>pos_error[0];</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.yaw<sp/>=<sp/><ref refid="classPathFollowing_1ae375fe2c8098e68e7f3a90de60d6978e" kindref="member">vehicle_state_</ref>.eta2[2];</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.psi<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a99dec562a5ae212941c0854b5f9d65cd" kindref="member">psi</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" kindref="member">pfollowing_debug_</ref>.gamma<sp/>=<sp/><ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" kindref="member">gamma</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>publish<sp/>the<sp/>control<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" kindref="member">Pramod::publish_private</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Publish<sp/>the<sp/>control<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;surge_pub_,<sp/>this-&gt;desired_surge_);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>FarolGimmicks::publishValue&lt;std_msgs::Float64,<sp/>const<sp/>double&gt;(this-&gt;yaw_pub_,<sp/>this-&gt;desired_yaw_);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>that<sp/>will<sp/>run<sp/>in<sp/>the<sp/>first<sp/>iteration<sp/>of<sp/>the<sp/>algorithm<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a126d336bd731481ba1949e076830d261" kindref="member">Pramod::start</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pramod<sp/>does<sp/>not<sp/>used<sp/>this<sp/>start<sp/>needs<sp/>to<sp/>use<sp/>the<sp/>closest<sp/>point<sp/>to<sp/>the<sp/>path</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/>*<sp/>and<sp/>NOT<sp/>the<sp/>default<sp/>gamma<sp/>&lt;-&gt;<sp/>data<sp/>communication,<sp/>therefore<sp/>we<sp/>should</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/>*<sp/>inform<sp/>the<sp/>path<sp/>to<sp/>be<sp/>used<sp/>in<sp/>closest<sp/>point<sp/>mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>dsor_paths::SetMode<sp/>srv;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>srv.request.closest_point_mode<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>this-&gt;mode_client_.call(srv);<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>used<sp/>to<sp/>check<sp/>whether<sp/>we<sp/>reached<sp/>the<sp/>end<sp/>of<sp/>the<sp/>algorithm<sp/>or<sp/>not<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a72242417c3edc99e4afefeca99996067" kindref="member">Pramod::stop</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>we<sp/>have<sp/>made<sp/>all<sp/>the<sp/>path,<sp/>then<sp/>stop!<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(this-&gt;<ref refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" kindref="member">path_state_</ref>.<ref refid="structPathState_1a1e992cf1c999aed758c00ec35a9fe64d" kindref="member">gamma</ref><sp/>&gt;=<sp/>this-&gt;path_state_.gamma_max)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Method<sp/>to<sp/>reset<sp/>all<sp/>the<sp/>algorithm<sp/>data<sp/>when<sp/>the<sp/>path<sp/>following<sp/>restarts<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" kindref="member">Pramod::reset</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reset<sp/>the<sp/>desired<sp/>speed<sp/>and<sp/>yaw<sp/>references<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>desired_surge_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>desired_yaw_<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/algorithms/Pramod.cpp"/>
   </compounddef>

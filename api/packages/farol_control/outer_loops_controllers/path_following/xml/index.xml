@@ -379,6 +379,7 @@
   <compound refid="PathFollowing_8cpp" kind="file"><name>PathFollowing.cpp</name>
   </compound>
   <compound refid="Pramod_8cpp" kind="file"><name>Pramod.cpp</name>
+    <member refid="Pramod_8cpp_1a40c0392d33f5e2090f132df37126fd78" kind="function"><name>sigma_e</name></member>
   </compound>
   <compound refid="RelativeHeading_8cpp" kind="file"><name>RelativeHeading.cpp</name>
   </compound>
