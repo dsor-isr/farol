@@ -18,6 +18,15 @@ bool Pramod::setPFGains(std::vector<double> gains) {
   return true;
 }
 
+/* saturation as described in paper*/
+double sigma_e(double input){
+   if (input > 1)
+    return 1;
+  else if (input < -1)
+    return -1;
+  return input;
+}
+
 void Pramod::callPFController(double dt) {
  
   /* Get the path paramerters */
@@ -39,17 +48,35 @@ void Pramod::callPFController(double dt) {
   /* Compute the position error */
   Eigen::Vector2d pos_error = RI_F * (veh_p - path_pd);
   static double cross_track = pos_error[1];
-  static double int_cross_track = 0;
+ 
+  /* Notation used is the described in "A Path-Following Controller for Marine Vehicles Using a Two-Scale Inner-Outer Loop Approach" by Pramod Maurya (https://www.mdpi.com/1424-8220/22/11/4293) 
+     "cross_track" is the cross track error, represented by "e" in the paper
+     "zeta" is the integral of the cross track error which has a dynamic of its own which is described id the paper 
+     "sigma_e" is the saturation function described in the paper
+     finally, each important line of code has above it the cooresponent equation from the paper
+  */
+  
   cross_track = pos_error[1];
-  int_cross_track += cross_track;
+  static double zeta = cross_track*dt;
 
-  double yaw_correction = -this->gains_[0] / veh_surge * cross_track - this->gains_[1] / veh_surge * int_cross_track;
-  if (yaw_correction > 1)
-    yaw_correction = 1;
-  else if (yaw_correction < -1)
-    yaw_correction = -1;
+  /*Anti windup gain*/
+  double Ka = 1/dt; /* = 1/Ts */
+  
+  /* zeta dynamics with anti-windup */
+  double zeta_dot = cross_track + Ka *( 
+    -this->gains_[0] / veh_surge * cross_track - this->gains_[1] / veh_surge * zeta - 
+    sigma_e( -this->gains_[0] / veh_surge * cross_track - this->gains_[1] / veh_surge * zeta)
+    );
 
-  double desired_yaw_rad = path_psi + asin(yaw_correction);
+  /* integrate to obtain zeta */
+  zeta += zeta_dot*dt; 
+
+  /* u = -K1/U*e - K2/U*sigma */
+  double yaw_correction = -this->gains_[0] / veh_surge * cross_track - this->gains_[1] / veh_surge * zeta;
+  
+  /* psi_d = path_psi + asin(sat(u)) */
+  double desired_yaw_rad = path_psi + asin(sigma_e(yaw_correction));
+  
   this->desired_yaw_ = desired_yaw_rad * 180 / M_PI;
   this->desired_surge_ = (path_vd + path_state_.vc) * path_hg;
 
