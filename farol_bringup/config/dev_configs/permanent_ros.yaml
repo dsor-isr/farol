@@ -382,6 +382,21 @@ acomms/replier:
             modem_recv: "/#vehicle#/acomms/modem/recv"
             payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
 
+acomms/silent:
+    topics:
+        publishers:
+            tinit: "/#vehicle#/acomms/scheme/tinit"
+            modem_send: "/#vehicle#/acomms/modem/send"
+            meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
+            trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
+            deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
+        subscribers:
+            send_time: "/#vehicle#/acomms/scheme/send_time"
+            tinit: "/#vehicle#/acomms/scheme/tinit"
+            enable: "/#vehicle#/acomms/scheme/enable"
+            modem_recv: "/#vehicle#/acomms/modem/recv"
+            payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
+
 acomms/data_serializer:
     topics:
         publishers:
