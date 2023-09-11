@@ -162,7 +162,7 @@ void SilentPinger::startCallback(const interrogation_scheme::StartSilent& msg){
     tmsg.data = tinit;
     pub_tinit.publish(tmsg);
 
-    ROS_INFO("Set time %lu", tmsg.data);
+    ROS_INFO("Set time %lu", (unsigned long)(tmsg.data));
 
     double time_before_start = getTimeBeforeStart();
 
@@ -297,7 +297,7 @@ void SilentPinger::RECVIMSCallback(const dmac::DMACPayload& msg){
     // Check if the ID corresponds to the modem we are expecting
     std::string str;
     str = "Serialization " + msg.payload;
-    ROS_INFO("%s", str);
+    ROS_INFO("%s", const_cast<char*>(str.c_str()));
     // deserialize data
     std_msgs::String payload_data;
     payload_data.data = msg.payload + ":vehicle" + std::to_string(msg.source_address);
@@ -374,7 +374,7 @@ void SilentPinger::serializerCallback(const std_msgs::String& msg){
     im.destination_address = 3;  // TODO NEEDS TO BE CHANGED TO SEND BROADCAST
   im.type = im.DMAC_IMS;
   im.timestamp = tping;
-  ROS_INFO("destination address %d, tping = %lu", im.destination_address, im.timestamp);
+  ROS_INFO("destination address %d, tping = %lu", im.destination_address, (unsigned long)(im.timestamp));
   
   while(ros::Time::now().toSec() < tping);
 

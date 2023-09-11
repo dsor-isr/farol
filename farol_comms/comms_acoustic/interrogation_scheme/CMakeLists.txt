@@ -48,5 +48,5 @@ add_dependencies(replier_sync_node ${catkin_EXPORTED_TARGETS})
 target_link_libraries(replier_sync_node ${catkin_LIBRARIES})
 
 add_executable(silent_sync_node src/silent_ros/SilentNode.cpp)
-add_dependencies(silent_sync_node ${catkin_EXPORTED_TARGETS})
+add_dependencies(silent_sync_node ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(silent_sync_node ${catkin_LIBRARIES})
