@@ -12,7 +12,8 @@ find_package(catkin REQUIRED
 )
 
 add_message_files(
-   DIRECTORY msg
+   FILES
+   StartSilent.msg
 )
 
 generate_messages(
