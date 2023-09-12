@@ -368,10 +368,8 @@ void SilentPinger::serializerCallback(const std_msgs::String& msg){
   dmac::DMACPayload im;
   im.header.stamp = ros::Time::now();
   
-  if(modem_id == 3)
-    im.destination_address = 2;  // TODO NEEDS TO BE CHANGED TO SEND BROADCAST
-  else
-    im.destination_address = 3;  // TODO NEEDS TO BE CHANGED TO SEND BROADCAST
+  im.destination_address = 255;   // Broadcast address
+
   im.type = im.DMAC_IMS;
   im.timestamp = tping;
   ROS_INFO("destination address %d, tping = %lu", im.destination_address, (unsigned long)(im.timestamp));
