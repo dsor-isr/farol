@@ -110,6 +110,18 @@ inner_loops_pid:
             max_out:  20.0 # N
             min_out: -20.0 # N
             max_depth: 30.0 # m
+        # Heave Params
+        heave:
+            enabled: true
+            kp: 50.0
+            ki: 4.0
+            kd: 20.0
+            max_ref:  0.7  # m/s
+            min_ref: -0.7 # m/s
+            max_err:  0.2 # m/s
+            min_err: -0.2 # m/s  
+            max_out:  20.0 # N
+            min_out: -20.0 # N
 
 waypoint:
     cdist: 1.5
