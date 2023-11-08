@@ -1,3 +1,3 @@
-//TODO: Algorithm declarations Here
-
+#include <vector>
+#include <Eigen/Core>
 

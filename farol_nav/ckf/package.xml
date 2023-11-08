@@ -16,5 +16,7 @@
  <!-- Add here ROS dependencies -->
  <depend>roscpp</depend>
  <depend>farol_msgs</depend>
+ <depend>dsor_msgs</depend>
+ <depend>auv_msgs</depend>
 
 </package>

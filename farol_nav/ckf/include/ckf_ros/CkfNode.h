@@ -10,6 +10,9 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  #include <ros/ros.h> 
 
  #include <farol_gimmicks_library/FarolGimmicks.h>
+ #include <dsor_msgs/Measurement.h>
+ #include <auv_msgs/NavigationStatus.h>
+ #include <Eigen/Core>
 
 /* -------------------------------------------------------------------------*/
 /**
@@ -18,6 +21,15 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 /* -------------------------------------------------------------------------*/
  class CkfNode {
  public:
+
+
+  struct sensor_config{
+    std::string name;
+    std::vector<int> config;    // this field let's us know what totake from the measurement message
+    Eigen::MatrixXd noise;
+    double outlier_tolerance, outlier_increase;
+    int reject_counter;
+  };
    
    /* -------------------------------------------------------------------------*/
    /**
@@ -47,23 +59,46 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  	ros::NodeHandle nh_private_;  ///< ROS private nodehandler
 
  	// @.@ Subscribers
-  ros::subscriber sub_reset_;
-  ros::subscriber sub_position_;
-  ros::subscriber sub_velocity_;
-  ros::subscriber sub_orientation_;
+  ros::Subscriber sub_reset_;
+  ros::Subscriber sub_position_;
+  ros::Subscriber sub_velocity_;
+  ros::Subscriber sub_orientation_;
 
  	// @.@ Publishers
-  ros::publisher state_pub_;
+  ros::Publisher state_pub_;
 
  	// @.@ Timer
  	ros::Timer timer_;           ///< ROS Timer
 
   // @.@ Parameters from Yaml
-  double p_node_frequency_;   ///< node frequency
+  double node_frequency_;   ///< node frequency
+  
+  // std::vector<std::string> sensor_list_;
+  // std::vector<struct sensor_config> sensor_configurations;
 
  	// @.@ Problem variables
-  bool initialized;
- 	
+  Eigen::VectorXd init_value_;
+
+  Eigen::MatrixXd predict_cov_;
+  Eigen::MatrixXd update_cov_;
+
+  Eigen::VectorXd state_;
+  Eigen::MatrixXd process_;
+  Eigen::MatrixXd input_;
+                    
+  Eigen::MatrixXd process_cov_;
+  Eigen::MatrixXd complementary_cov_;
+
+  Eigen::_cov_;
+
+  double originLat_{38.765852};
+  double originLon_{-9.09281873};
+
+  // sensors
+  std::vector<std::string> sensor_list_{"gps","usbl","dvl_bt","ahrs"};
+ 	std::vector<struct sensor_config> sensors_;
+
+  std::vector<Eigen::VectorXd> measurements_;
 
   // @.@ Encapsulation the gory details of initializing subscribers, publishers and services
  	
@@ -111,8 +146,9 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
  	
   // @.@ Callbacks declaration
- 
+  void measurementCallback(const dsor_msgs::Measurement &msg);
   
+  void resetCallback(const std_msgs::Empty &msg);
 
   /* -------------------------------------------------------------------------*/
   /**
@@ -130,7 +166,8 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
 
   // @.@ Member helper functions
-
+  void predict();
+  void update();
 
 };
 #endif //CATKIN_WS_CONTROLNODE_H

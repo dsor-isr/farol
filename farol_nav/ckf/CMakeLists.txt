@@ -7,10 +7,14 @@ find_package(catkin
  std_msgs 
  farol_msgs
  roscpp
+ dsor_msgs
+ auv_msgs
 
  # farol_gimmicks_library
  farol_gimmicks_library
 )
+
+find_package(Eigen3 REQUIRED)
 
 catkin_package(
  CATKIN_DEPENDS
@@ -21,6 +25,8 @@ add_compile_options(-std=c++17 -Wall -O3)
 include_directories(
  include/ckf_ros
  include/ckf_algorithms
+ include/ros
+ ${EIGEN3_INCLUDE_DIR}
  ${catkin_INCLUDE_DIRS}
 )
 
