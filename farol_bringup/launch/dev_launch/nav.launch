@@ -28,6 +28,13 @@
           </node>
         </group>
 
+        <!-- Complementary Filter: ckf -->
+        <group if="$(arg ckf)">
+          <node pkg="ckf" type="ckf" name="ckf" respawn="false" output="screen">
+            <param name="name_vehicle_id" value="$(arg name)$(arg vehicle_id)"/>
+          </node>
+        </group>
+
         <!-- nav_tools: convert Lat/Lon to UTM -->
         <group if="$(arg gnss2utm)">
             <node pkg="nav_tools" type="gnss_to_utm" name="gnss2utm" respawn="false" output="screen" />

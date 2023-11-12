@@ -80,6 +80,7 @@ processes:
       cmd: 'roslaunch farol_bringup nav.launch'
       args:
             - filter:= true
+            - ckf:= true
             - gnss2utm:= true
             - gnss2utmoutlier:= false
             - auvstate2mstate:= true

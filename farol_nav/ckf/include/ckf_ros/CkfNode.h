@@ -30,6 +30,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
     double outlier_tolerance, outlier_increase;
     int reject_counter;
   };
+
    
    /* -------------------------------------------------------------------------*/
    /**
@@ -77,28 +78,30 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   // std::vector<struct sensor_config> sensor_configurations;
 
  	// @.@ Problem variables
-  Eigen::VectorXd init_value_;
-
   Eigen::MatrixXd predict_cov_;
   Eigen::MatrixXd update_cov_;
 
   Eigen::VectorXd state_;
   Eigen::MatrixXd process_;
+  Eigen::MatrixXd process_v;
   Eigen::MatrixXd input_;
                     
   Eigen::MatrixXd process_cov_;
   Eigen::MatrixXd complementary_cov_;
 
-  Eigen::_cov_;
+  // Eigen::_cov_;
 
   double originLat_{38.765852};
   double originLon_{-9.09281873};
 
   // sensors
-  std::vector<std::string> sensor_list_{"gps","usbl","dvl_bt","ahrs"};
+  std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt","ahrs"};
  	std::vector<struct sensor_config> sensors_;
 
-  std::vector<Eigen::VectorXd> measurements_;
+  std::vector<dsor_msgs::Measurement> measurements_;
+
+  ros::Time kf_time;
+  // ros::Time delta_t;
 
   // @.@ Encapsulation the gory details of initializing subscribers, publishers and services
  	
@@ -166,7 +169,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
 
   // @.@ Member helper functions
-  void predict();
+  void predict(double delta_t);
   void update();
 
 };
