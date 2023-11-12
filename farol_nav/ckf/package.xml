@@ -18,5 +18,6 @@
  <depend>farol_msgs</depend>
  <depend>dsor_msgs</depend>
  <depend>auv_msgs</depend>
+ <depend>farol_gimmicks_library</depend>
 
 </package>

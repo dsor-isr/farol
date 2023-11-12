@@ -126,7 +126,15 @@ nav/filter:
        set_bias_heading: "/#vehicle#/nav/set_bias_heading"
        reset_bias_heading: "/#vehicle#/nav/reset_bias_heading"
 
-
+nav/ckf:
+    node_frequency: 10
+    topics:
+        subscribers:
+            reset: "/#vehicle#/nav/filter/reset"
+            position: "/#vehicle#/measurement/position"
+            velocity: "/#vehicle#/measurement/velocity"
+        publishers:
+            state: "/#vehicle#/nav/filter/state"
 
 nav/gnss2utm:
     node_frequency: 10

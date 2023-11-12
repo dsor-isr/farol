@@ -18,6 +18,9 @@ find_package(Eigen3 REQUIRED)
 
 catkin_package(
  CATKIN_DEPENDS
+ roscpp
+ farol_gimmicks_library
+ dsor_msgs
 )
 
 add_compile_options(-std=c++17 -Wall -O3) 
@@ -28,6 +31,7 @@ include_directories(
  include/ros
  ${EIGEN3_INCLUDE_DIR}
  ${catkin_INCLUDE_DIRS}
+ ${farol_gimmicks_library_INCLUDE_DIR}
 )
 
 add_executable(${PROJECT_NAME}_node src/ckf_ros/CkfNode.cpp src/ckf_algorithms/CkfAlgorithm.cpp)
