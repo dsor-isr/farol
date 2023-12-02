@@ -56,7 +56,9 @@
 
         <!-- Position Simulator for Modem -->
         <group if="$(arg pos2sim_modem)">
-            <node pkg="evo_tools" type="pos2simmodem.py" name="pos2sim_modem" respawn="false" output="screen"    />
+            <node pkg="evo_tools" type="pos2simmodem.py" name="pos2sim_modem" respawn="false" output="screen">
+                <param name="name_vehicle_id"   value="$(arg name)$(arg vehicle_id)"/>
+            </node>
         </group>
     </group> 
 </launch>

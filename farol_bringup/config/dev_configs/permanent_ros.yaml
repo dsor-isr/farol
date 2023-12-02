@@ -130,11 +130,12 @@ nav/ckf:
     node_frequency: 10
     topics:
         subscribers:
-            reset: "/#vehicle#/nav/filter/reset"
+            reset: "/#vehicle#/nav/ckf/reset"
             position: "/#vehicle#/measurement/position"
             velocity: "/#vehicle#/measurement/velocity"
+            orientation: "/#vehicle#/measurement/orientation"
         publishers:
-            state: "/#vehicle#/nav/filter/state"
+            state: "/#vehicle#/nav/ckf/state"
 
 nav/gnss2utm:
     node_frequency: 10

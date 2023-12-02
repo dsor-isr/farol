@@ -11,6 +11,7 @@
     <arg name="vehicle_id"          default="0" />
 
     <arg name="filter"              default="false" />  
+    <arg name="ckf"                 default="false" />
     <arg name="gnss2utm"            default="false" />  
     <arg name="gnss2utmoutlier"     default="false" />  
     <arg name="usbl2pos"            default="false" />
