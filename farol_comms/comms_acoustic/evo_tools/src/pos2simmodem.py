@@ -38,7 +38,7 @@ class Pos2SimModem(object):
         rospy.loginfo(ip)
         port = rospy.get_param('~port', 11000)
         rospy.loginfo(port)
-        self.vehicle_name = rospy.get_param('~vehicle_name')
+        self.vehicle_name = rospy.get_param('~name_vehicle_id')
         rospy.loginfo(self.vehicle_name)
         self.address = (ip, port)
 
