@@ -9,9 +9,8 @@ find_package(catkin
  roscpp
  dsor_msgs
  auv_msgs
-
- # farol_gimmicks_library
  farol_gimmicks_library
+ cmake_modules
 )
 
 find_package(Eigen3 REQUIRED)
@@ -34,6 +33,6 @@ include_directories(
  ${farol_gimmicks_library_INCLUDE_DIR}
 )
 
-add_executable(${PROJECT_NAME}_node src/ckf_ros/CkfNode.cpp src/ckf_algorithms/CkfAlgorithm.cpp)
-add_dependencies(${PROJECT_NAME}_node ${catkin_EXPORTED_TARGETS})
-target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
+add_executable(${PROJECT_NAME} src/ckf_ros/CkfNode.cpp src/ckf_algorithms/CkfAlgorithm.cpp)
+add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})

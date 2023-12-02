@@ -78,16 +78,17 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   // std::vector<struct sensor_config> sensor_configurations;
 
  	// @.@ Problem variables
-  Eigen::MatrixXd predict_cov_;
-  Eigen::MatrixXd update_cov_;
+  Eigen::Matrix4d predict_cov_;
+  Eigen::Matrix4d update_cov_;
 
-  Eigen::VectorXd state_;
-  Eigen::MatrixXd process_;
-  Eigen::MatrixXd process_v;
+  Eigen::Vector4d state_;
+  Eigen::Matrix4d process_;
+  Eigen::Matrix4d process_v_;
   Eigen::MatrixXd input_;
+  Eigen::Vector2d velocity_;
                     
-  Eigen::MatrixXd process_cov_;
-  Eigen::MatrixXd complementary_cov_;
+  Eigen::Matrix4d process_cov_;
+  Eigen::Matrix4d complementary_cov_;
 
   // Eigen::_cov_;
 
@@ -95,12 +96,17 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   double originLon_{-9.09281873};
 
   // sensors
-  std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt","ahrs"};
+  std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt"};
  	std::vector<struct sensor_config> sensors_;
 
   std::vector<dsor_msgs::Measurement> measurements_;
 
-  ros::Time kf_time;
+  ros::Time kf_time_;
+
+  Eigen::Vector2d last_dvl_, last_gnss_, last_usbl_;
+  double outlier_dvl_{10}, outlier_gnss_{10}, outlier_usbl_{10};
+
+  auv_msgs::NavigationStatus state_msg_;
   // ros::Time delta_t;
 
   // @.@ Encapsulation the gory details of initializing subscribers, publishers and services
@@ -150,7 +156,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  	
   // @.@ Callbacks declaration
   void measurementCallback(const dsor_msgs::Measurement &msg);
-  
+  void stateCallback(const auv_msgs::NavigationStatus &msg);
   void resetCallback(const std_msgs::Empty &msg);
 
   /* -------------------------------------------------------------------------*/
@@ -170,7 +176,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
   // @.@ Member helper functions
   void predict(double delta_t);
-  void update();
+  void update(double delta_t);
 
 };
 #endif //CATKIN_WS_CONTROLNODE_H
