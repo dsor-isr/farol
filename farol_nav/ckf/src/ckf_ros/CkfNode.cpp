@@ -277,7 +277,7 @@ void CkfNode::predict(double delta_t){
     velocity_ << dvl_msg.value[0] * cos(ahrs_msg.value[2]) - dvl_msg.value[1] * sin(ahrs_msg.value[2]),
                 dvl_msg.value[0] * sin(ahrs_msg.value[2]) + dvl_msg.value[1] * cos(ahrs_msg.value[2]);
 
-    ROS_WARN("DVL Measurement: %lf, %lf", velocity_[0], velocity_[1]);
+    // ROS_WARN("DVL Measurement: %lf, %lf", velocity_[0], velocity_[1]);
     // ROS_WARN("AHRS Measurement: %lf", ahrs_msg.value[2]);
 
     // get dvl sensor PROBLEM IS HERE
@@ -424,6 +424,10 @@ void CkfNode::update(double delta_t){
 
       invert_K.resize(4,4);
       K_k.resize(4,4);
+      K_k << 75.396, 0.0, 75.396, 0.0,
+           0.0, 75.396, 0.0, 75.396,
+           3947.6089, 0.0, 3947.6089, 0.0,
+           0.0, 3947.6089, 0.0, 3947.6089;
     }else if(gnss_msg.header.stamp.sec != 0){
       R.resize(2,2);
       R << gnss_sensor.noise;
@@ -438,6 +442,14 @@ void CkfNode::update(double delta_t){
 
       invert_K.resize(2,2);
       K_k.resize(4,2);
+      // K_k << 75.396, 0.0,
+      //      0.0, 75.396,
+      //      3947.6089, 0.0,
+      //      0.0, 3947.6089;
+      K_k << 10.0, 0.0,
+           0.0, 10.0,
+           10.0, 0.0,
+           0.0, 10.0;
     }else if(usbl_msg.header.stamp.sec != 0){
       R.resize(2,2);
       R << usbl_sensor.noise;
@@ -452,18 +464,19 @@ void CkfNode::update(double delta_t){
 
       invert_K.resize(2,2);
       K_k.resize(4,2);
+      K_k << 75.396, 0.0,
+             0.0, 75.396,
+           3947.6089, 0.0,
+           0.0, 3947.6089;
     }
     
     // calculate kalman gains
     invert_K = C * predict_cov_ * C.transpose() + R * delta_t;
     // K_k = predict_cov_ * C.transpose() * invert_K.inverse();
-    K_k << 75.396, 0.0,
-           0.0, 75.396,
-           3947.6089, 0.0,
-           0.0, 3947.6089;
+    ROS_WARN("K_k gain = %lf", K_k.coeff(0,0));
 
     // calculate state correction and covariance matrix
-    state_ = state_ + K_k * (measures - C * state_);
+    state_ = state_ + K_k * delta_t * (measures - C * state_);
     update_cov_ = (identity - K_k * C) * predict_cov_;
   }else{
     // No measurements, no Update necessary
