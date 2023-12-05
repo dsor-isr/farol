@@ -9,6 +9,7 @@ find_package(catkin
  roscpp
  dsor_msgs
  auv_msgs
+ farol_msgs
  farol_gimmicks_library
  cmake_modules
 )
@@ -20,6 +21,7 @@ catkin_package(
  roscpp
  farol_gimmicks_library
  dsor_msgs
+ farol_msgs
 )
 
 add_compile_options(-std=c++17 -Wall -O3) 

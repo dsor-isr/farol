@@ -12,6 +12,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  #include <farol_gimmicks_library/FarolGimmicks.h>
  #include <dsor_msgs/Measurement.h>
  #include <auv_msgs/NavigationStatus.h>
+ #include <farol_msgs/mState.h>
  #include <Eigen/Core>
 
 /* -------------------------------------------------------------------------*/
@@ -67,6 +68,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
  	// @.@ Publishers
   ros::Publisher state_pub_;
+  ros::Publisher State_pub_;
 
  	// @.@ Timer
  	ros::Timer timer_;           ///< ROS Timer
@@ -81,11 +83,14 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   Eigen::Matrix4d predict_cov_;
   Eigen::Matrix4d update_cov_;
 
+  Eigen::Matrix4d identity4_;   // Auxiliary matrices
+  Eigen::Matrix2d identity2_;
+
   Eigen::Vector4d state_;
-  Eigen::Matrix4d process_;
   Eigen::Matrix4d process_v_;
   Eigen::MatrixXd input_;
   Eigen::Vector2d velocity_;
+  double yaw_;
                     
   Eigen::Matrix4d process_cov_;
   Eigen::Matrix4d complementary_cov_;
@@ -104,9 +109,9 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   ros::Time kf_time_;
 
   Eigen::Vector2d last_dvl_, last_gnss_, last_usbl_;
-  double outlier_dvl_{10}, outlier_gnss_{10}, outlier_usbl_{10};
+  double last_ahrs_;
+  double outlier_dvl_{10}, outlier_gnss_{10}, outlier_usbl_{10}, outlier_ahrs_{20};
 
-  auv_msgs::NavigationStatus state_msg_;
   // ros::Time delta_t;
 
   // @.@ Encapsulation the gory details of initializing subscribers, publishers and services

@@ -136,6 +136,7 @@ nav/ckf:
             orientation: "/#vehicle#/measurement/orientation"
         publishers:
             state: "/#vehicle#/nav/ckf/state"
+            state_ckf: "/#vehicle#/nav/ckf/State_ckf"
 
 nav/gnss2utm:
     node_frequency: 10
