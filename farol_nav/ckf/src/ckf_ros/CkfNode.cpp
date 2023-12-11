@@ -57,6 +57,7 @@ void CkfNode::initializePublishers() {
 
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
   State_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_ckf", "State_ckf"), 10);
+  usbl_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/usbl", "usbl"), 10);
 }
 
 
@@ -124,6 +125,8 @@ void CkfNode::loadParams() {
   //                0.0, 0.0, 1.0, 0.0,
   //                0.0, 0.0, 0.0, 1.0;
 
+  estimator_ = false;
+
   identity4_ = Eigen::Matrix4d::Identity();
                 
   identity2_ = Eigen::Matrix2d::Identity();
@@ -174,9 +177,14 @@ void CkfNode::resetCallback(const std_msgs::Empty &msg){
             491936.56,//491906.60293571133,     //                    y
             0.0000000000000000,     // Current velocity - vcx
             0.0000000000000000;     //                    vcy
+  
+  last_state_ = state_;
 
   yaw_ = 0.0;
   velocity_ << 0.0, 0.0;
+
+  error_ << 0.0, 0.0;
+  measure_est_ << state_(0), state_(1);
 
   update_cov_ << 1.0, 0.0, 0.0, 0.0,   // Set the intial update covariance here
                  0.0, 1.0, 0.0, 0.0,
@@ -188,11 +196,17 @@ void CkfNode::resetCallback(const std_msgs::Empty &msg){
   last_gnss_ << 0.0, 0.0;
 
   last_usbl_ << 0.0, 0.0;
+
+  last_ahrs_ = 0.0;
+
+  last_K_time_ = 0.0;
 }
 
 void CkfNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   // check the type of measurement, then save it
-  measurements_.push_back(msg);
+  for(int i = 0; i < (int) sensor_list_.size(); i++){
+    if(msg.header.frame_id.find(sensor_list_[i]) != std::string::npos) measurements_.push_back(msg);
+  }
 }
 
 void CkfNode::predict(double delta_t){
@@ -231,7 +245,7 @@ void CkfNode::predict(double delta_t){
 
   if(received_dvl){
     double outlier_error;
-    outlier_error = abs(sqrt(pow(dvl_msg.value[0], 2) + pow(dvl_msg.value[1], 2)) - sqrt(pow(last_dvl_.coeff(0), 2) + pow(last_dvl_.coeff(1), 2)));
+    outlier_error = sqrt(pow(dvl_msg.value[0] - last_dvl_.coeff(0), 2) + pow(dvl_msg.value[1] - last_dvl_.coeff(1), 2));
     if(outlier_error > outlier_dvl_){
       received_dvl = false;
       ROS_WARN("DVL Outlier detected on CKF: %lf %lf %lf", dvl_msg.value[0], dvl_msg.value[0], outlier_error);
@@ -268,7 +282,7 @@ void CkfNode::predict(double delta_t){
     velocity_ << dvl_msg.value[0] * cos(yaw_) - dvl_msg.value[1] * sin(yaw_),
                 dvl_msg.value[0] * sin(yaw_) + dvl_msg.value[1] * cos(yaw_);
 
-    ROS_WARN("DVL Measurement: %lf, %lf", velocity_[0], velocity_[1]);
+    // ROS_WARN("DVL Measurement: %lf, %lf", velocity_[0], velocity_[1]);
     // ROS_WARN("AHRS Measurement: %lf", ahrs_msg.value[2]);
 
     // get dvl sensor PROBLEM IS HERE
@@ -296,9 +310,12 @@ void CkfNode::predict(double delta_t){
   //              0.0, 0.0, 0.0, 0.0;
   // }
 
+  total_velocity_ << state_(2), state_(3);
+  total_velocity_ += velocity_;
+
   // calculate new state and covariance matrix
   state_ = process_matrix * state_ + input_matrix * velocity_;
-  predict_cov_ = process_matrix * update_cov_ * process_matrix.transpose() + process_cov_ + dvl_cov * delta_t;
+  // predict_cov_ = process_matrix * update_cov_ * process_matrix.transpose() + process_cov_ + dvl_cov * delta_t;
 }
 
 void CkfNode::update(double delta_t){
@@ -309,13 +326,13 @@ void CkfNode::update(double delta_t){
   usbl_msg.header.stamp.sec = 0;
 
   std::string aux;
-  bool received = false;
+  bool received_gnss = false, received_usbl = false;
   for(int i = 0; i < (int) measurements_.size(); i++){
     aux = measurements_[i].header.frame_id;
     // Verify if gnss or usbl message and if measure is within range of the CKF cycle time interval
     if(measurements_[i].header.stamp <= kf_time_){
       if(aux.find("gnss") != std::string::npos){
-        received = true;
+        received_gnss = true;
         // Save measurement if newest or discard it
         if(measurements_[i].header.stamp > gnss_msg.header.stamp){
           gnss_msg = measurements_[i];
@@ -324,7 +341,7 @@ void CkfNode::update(double delta_t){
           measurements_.erase(measurements_.begin() + i);
         }
       }else if(aux.find("usbl") != std::string::npos){
-        received = true;
+        received_usbl = true;
         // Save measurement if newest or discard it
         if(measurements_[i].header.stamp > usbl_msg.header.stamp){
           usbl_msg = measurements_[i];
@@ -333,50 +350,89 @@ void CkfNode::update(double delta_t){
           measurements_.erase(measurements_.begin() + i);
         }
       }
+    }else{
+      ROS_WARN("Received measurement ahead of time");
     }
   }
 
-  if(received){
+  if(received_gnss && received_usbl){
     // calculate outlier error for gps and usbl
     double outlier_error;
     if(gnss_msg.header.stamp.sec != 0 && usbl_msg.header.stamp.sec != 0){
-      outlier_error = abs(sqrt(pow(gnss_msg.value[0], 2) + pow(gnss_msg.value[1], 2)) - sqrt(pow(last_gnss_.coeff(0), 2) + pow(last_gnss_.coeff(1), 2)));
+      outlier_error = sqrt(pow(gnss_msg.value[0] - last_state_(0), 2) + pow(gnss_msg.value[1] - last_state_(1), 2));
       if(outlier_error > outlier_gnss_){
+        received_gnss = false;
         gnss_msg.header.stamp.sec = 0;
         ROS_WARN("GNSS Outlier detected on CKF");
       }
       last_gnss_ << gnss_msg.value[0], gnss_msg.value[1];
 
-      outlier_error = abs(sqrt(pow(usbl_msg.value[0], 2) + pow(usbl_msg.value[1], 2)) - sqrt(pow(last_usbl_.coeff(0), 2) + pow(last_usbl_.coeff(1), 2)));
+      outlier_error = sqrt(pow(usbl_msg.value[0] - last_state_(0), 2) + pow(usbl_msg.value[1] - last_state_(1), 2));
       if(outlier_error > outlier_usbl_){
+        received_usbl = false;
         usbl_msg.header.stamp.sec = 0;
         ROS_WARN("USBL Outlier detected on CKF");
       }
       last_usbl_ << usbl_msg.value[0], usbl_msg.value[1];
-
-      if(gnss_msg.header.stamp.sec == 0 && usbl_msg.header.stamp.sec == 0) received = false;
+    }
+  }
+      // if(gnss_msg.header.stamp.sec == 0 && usbl_msg.header.stamp.sec == 0) received = false;
+  if(received_gnss){
+    double outlier_error;
     // calculate outlier error for gps
-    }else if(gnss_msg.header.stamp.sec != 0){
-      outlier_error = abs(sqrt(pow(gnss_msg.value[0], 2) + pow(gnss_msg.value[1], 2)) - sqrt(pow(last_gnss_.coeff(0), 2) + pow(last_gnss_.coeff(1), 2)));
+    if(gnss_msg.header.stamp.sec != 0){
+      outlier_error = sqrt(pow(gnss_msg.value[0] - last_state_(0), 2) + pow(gnss_msg.value[1] - last_state_(1), 2));
       if(outlier_error > outlier_gnss_){
-        received = false;
+        received_gnss = false;
         ROS_WARN("GNSS Outlier detected on CKF");
       }
       last_gnss_ << gnss_msg.value[0], gnss_msg.value[1];
+    }
+  }
+
+  if(received_usbl){
+    double outlier_error;
     // calculate outlier error for usbl
-    }else if(usbl_msg.header.stamp.sec != 0){
-      outlier_error = abs(sqrt(pow(usbl_msg.value[0], 2) + pow(usbl_msg.value[1], 2)) - sqrt(pow(last_usbl_.coeff(0), 2) + pow(last_usbl_.coeff(1), 2)));
+    if(usbl_msg.header.stamp.sec != 0){
+      outlier_error = sqrt(pow(usbl_msg.value[0] - last_state_(0), 2) + pow(usbl_msg.value[1] - last_state_(1), 2));
       if(outlier_error > outlier_usbl_){
-        received = false;
+        received_usbl = false;
         ROS_WARN("USBL Outlier detected on CKF");
       }
       last_usbl_ << usbl_msg.value[0], usbl_msg.value[1];
     }
-    
-    
   }
 
-  if(received){
+  if(estimator_){
+    // Update USBL Estimator
+    if(received_usbl) measure_est_ << usbl_msg.value[0], usbl_msg.value[1];
+    // Run USBL Estimator
+    measure_est_ = measure_est_ + velocity_ * delta_t;
+  }
+
+  double K_delta_t;
+  Eigen::MatrixXd time_constant, K_k;
+  time_constant.resize(4,4);
+
+  float wn = 0.002; // 0.02 - estimator 0.002 - normal 0.04 - old
+  float csi = 0.7;
+  float k1 = 2 * csi * wn;
+  float k2 = wn * wn;
+
+  if(received_gnss || received_usbl || estimator_){
+    ros::Time new_K_time = ros::Time::now();
+    if(estimator_){
+      K_delta_t = delta_t;
+    }else{
+      if(last_K_time_ == 0){
+        received_gnss = false;
+        received_usbl = false;
+        K_delta_t = 0;
+      }
+      else K_delta_t = new_K_time.toSec() - last_K_time_;
+      last_K_time_ = new_K_time.toSec();
+    }
+
     // get gnss and usbl sensor
     struct sensor_config gnss_sensor, usbl_sensor;
     for(int i = 0; i < (int) sensors_.size(); i++){
@@ -390,19 +446,7 @@ void CkfNode::update(double delta_t){
     // check if gnss, usbl or both
     Eigen::MatrixXd R, C;
     Eigen::VectorXd measures;
-    Eigen::MatrixXd K_k, invert_K;
-
-    // identity.resize(4,4);
-    // identity << 1.0, 0.0, 0.0, 0.0,
-    //             0.0, 1.0, 0.0, 0.0,
-    //             0.0, 0.0, 1.0, 0.0,
-    //             0.0, 0.0, 0.0, 1.0;
-
-    float wn = 0.4;
-    float csi = 0.6;
-    float k1 = 2 * csi * wn;
-    float k2 = wn * wn;
-    // ROS_WARN("gain = %lf", k2);
+    Eigen::MatrixXd invert_K;
     
     if(gnss_msg.header.stamp.sec != 0 && usbl_msg.header.stamp.sec != 0){
       Eigen::Matrix2d zero_matrix = Eigen::Matrix2d::Zero();
@@ -457,7 +501,7 @@ void CkfNode::update(double delta_t){
              0.0, k1,
              k2, 0.0,
              0.0, k2;
-    }else if(usbl_msg.header.stamp.sec != 0){
+    }else if(usbl_msg.header.stamp.sec != 0 || estimator_){
       R.resize(2,2);
       R << usbl_sensor.noise;
 
@@ -466,8 +510,12 @@ void CkfNode::update(double delta_t){
           0.0, 1.0, 0.0, 0.0;
 
       measures.resize(2);
-      measures << usbl_msg.value[0],
-                  usbl_msg.value[1];
+      if(estimator_){
+        measures = measure_est_;
+      }else{
+        measures << usbl_msg.value[0],
+                    usbl_msg.value[1];
+      }
 
       invert_K.resize(2,2);
       K_k.resize(4,2);
@@ -480,20 +528,59 @@ void CkfNode::update(double delta_t){
              k2, 0.0,
              0.0, k2;
     }
+
+    // Calculate (add) all velocities to output total velocity inertial vector
+    Eigen::MatrixXd aux_matrix;
+    aux_matrix.resize(2,4);
+    aux_matrix << 1.0, 0.0, 0.0, 0.0,
+                  0.0, 1.0, 0.0, 0.0;
+    total_velocity_ += aux_matrix * K_k * error_;
     
     // calculate kalman gains
-    invert_K = C * predict_cov_ * C.transpose() + R * delta_t;
+    // invert_K = C * predict_cov_ * C.transpose() + R * delta_t;
     // K_k = predict_cov_ * C.transpose() * invert_K.inverse();
-    K_k = K_k * delta_t;
-
+    time_constant << delta_t, 0.0, 0.0, 0.0,
+                   0.0, delta_t, 0.0, 0.0,
+                   0.0, 0.0, K_delta_t, 0.0,
+                   0.0, 0.0, 0.0, K_delta_t;
+    K_k = time_constant * K_k;
+    error_ = measures - C * state_;
     // calculate state correction and covariance matrix
-    state_ = state_ + K_k * (measures - C * state_);
-    update_cov_ = (identity4_ - K_k * C) * predict_cov_;
+    // state_ = state_ + K_k * error_;
+    // update_cov_ = (identity4_ - K_k * C) * predict_cov_;
   }else{
-    // No measurements, no Update necessary
-    ROS_WARN("No Update");
-    update_cov_ = predict_cov_;
+    // No measurements
+    
+    K_k.resize(4,2);
+    K_k << k1, 0.0,
+           0.0, k1,
+           0.0, 0.0,
+           0.0, 0.0;
+
+    // Calculate (add) all velocities to output total velocity inertial vector
+    Eigen::MatrixXd aux_matrix;
+    aux_matrix.resize(2,4);
+    aux_matrix << 1.0, 0.0, 0.0, 0.0,
+                  0.0, 1.0, 0.0, 0.0;
+    total_velocity_ += aux_matrix * K_k * error_;
+
+    time_constant << delta_t, 0.0, 0.0, 0.0,
+                   0.0, delta_t, 0.0, 0.0,
+                   0.0, 0.0, 0.0, 0.0,
+                   0.0, 0.0, 0.0, 0.0;
+
+    K_k = time_constant * K_k;
+    // ROS_WARN("No Update");
+    // update_cov_ = predict_cov_;
   }
+
+  auv_msgs::NavigationStatus usbl_pub_msg;
+  usbl_pub_msg.header.stamp = ros::Time::now();
+  usbl_pub_msg.position.east = measure_est_(1);
+  usbl_pub_msg.position.north = measure_est_(0);
+  usbl_pub_.publish(usbl_pub_msg);
+  
+  state_ = state_ + K_k * error_;
 }
 
 
@@ -507,13 +594,21 @@ void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
   predict(delta_t);
   update(delta_t);
 
+  last_state_ = state_;
+
   // publish state
   auv_msgs::NavigationStatus state_msg;
-  state_msg.position.east = state_(1);
-  state_msg.position.north = state_(0);
-  state_msg.body_velocity.x = state_(3);
-  state_msg.body_velocity.y = state_(2);
+  state_msg.position.east = state_(1);    // Vehicle position in East
+  state_msg.position.north = state_(0);   // Vehicle position in North
+  state_msg.body_velocity.x = state_(3);    // Vehicle velocity bias relative to East
+  state_msg.body_velocity.y = state_(2);    // Vehicle velocity bias relative to North
+  state_msg.orientation.z = yaw_;
+  state_msg.seafloor_velocity.x = total_velocity_(1);
+  state_msg.seafloor_velocity.y = total_velocity_(0);
+  state_msg.position_variance.east = error_(1);
+  state_msg.position_variance.north = error_(0);
   state_msg.status = 59;
+  state_msg.header.stamp = kf_time_;
   state_pub_.publish(state_msg);
 
   // publish state to console
@@ -523,6 +618,7 @@ void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
   State_msg.Vx = state_(3);   // bias in east
   State_msg.Vy = state_(2);   // bias in north
   State_msg.Yaw = yaw_;
+  State_msg.header.stamp = kf_time_;
   State_pub_.publish(State_msg);
 
   // outlier rejection mahalanobys distance NOT HERE BUT SOMEWHERE

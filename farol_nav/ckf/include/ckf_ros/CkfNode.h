@@ -69,6 +69,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  	// @.@ Publishers
   ros::Publisher state_pub_;
   ros::Publisher State_pub_;
+  ros::Publisher usbl_pub_;
 
  	// @.@ Timer
  	ros::Timer timer_;           ///< ROS Timer
@@ -91,6 +92,8 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   Eigen::MatrixXd input_;
   Eigen::Vector2d velocity_;
   double yaw_;
+
+  Eigen::Vector2d total_velocity_;
                     
   Eigen::Matrix4d process_cov_;
   Eigen::Matrix4d complementary_cov_;
@@ -101,16 +104,25 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   double originLon_{-9.09281873};
 
   // sensors
-  std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt"};
+  std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt","ahrs"};
  	std::vector<struct sensor_config> sensors_;
 
   std::vector<dsor_msgs::Measurement> measurements_;
 
   ros::Time kf_time_;
 
+  double last_K_time_;
+
+  Eigen::Vector2d error_;
+  Eigen::Vector2d measure_est_;
+
+  bool estimator_;
+
+  Eigen::Vector4d last_state_;
+
   Eigen::Vector2d last_dvl_, last_gnss_, last_usbl_;
   double last_ahrs_;
-  double outlier_dvl_{10}, outlier_gnss_{10}, outlier_usbl_{10}, outlier_ahrs_{20};
+  double outlier_dvl_{10}, outlier_gnss_{10}, outlier_usbl_{5}, outlier_ahrs_{20};
 
   // ros::Time delta_t;
 
