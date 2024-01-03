@@ -12,9 +12,21 @@ find_package(catkin
  farol_msgs
  farol_gimmicks_library
  cmake_modules
+ message_generation
 )
 
 find_package(Eigen3 REQUIRED)
+
+## Generate messages in the 'msg' folder
+add_message_files(
+	DIRECTORY msg
+)
+
+## Generate added messages and services with any dependencies listed here
+generate_messages(
+   DEPENDENCIES
+   std_msgs
+)
 
 catkin_package(
  CATKIN_DEPENDS
@@ -23,6 +35,8 @@ catkin_package(
  dsor_msgs
  farol_msgs
 )
+
+catkin_package(	CATKIN_DEPENDS message_runtime)
 
 add_compile_options(-std=c++17 -Wall -O3) 
 

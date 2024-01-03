@@ -43,7 +43,10 @@ CkfNode::~CkfNode() {
 // @.@ Member helper function to set up subscribers
 void CkfNode::initializeSubscribers() {
   ROS_INFO("Initializing Subscribers for CkfNode");
-  sub_reset_ = nh_private_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &CkfNode::resetCallback, this);
+  sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &CkfNode::resetCallback, this);
+  sub_tuning_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/tuning", "tuning"), 10, &CkfNode::tuningCallback, this);
+  sub_estimator_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/estimator", "estimator"), 10, &CkfNode::estimatorCallback, this);
+  sub_no_measures_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/no_measures", "no_measures"), 10, &CkfNode::nomeasuresCallback, this);
 
   sub_position_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/position", "position"), 10, &CkfNode::measurementCallback, this);
   sub_velocity_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/velocity", "velocity"), 10, &CkfNode::measurementCallback, this);
@@ -57,7 +60,7 @@ void CkfNode::initializePublishers() {
 
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
   State_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_ckf", "State_ckf"), 10);
-  usbl_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/usbl", "usbl"), 10);
+  meas_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/measure", "measure"), 10);
 }
 
 
@@ -79,53 +82,12 @@ void CkfNode::loadParams() {
 
   node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 5);
 
-  // sensor configuration 
-  // HARD CODED SENSORS!!!! BEWARE
-  for(int i = 0; i < (int) sensor_list_.size(); i++){
-    struct sensor_config sc;
-    sc.name = sensor_list_[i];
-    if(sc.name == "gnss"){
-      sc.config.push_back(0);       // position in x
-      sc.config.push_back(1);       // position in y
-      sc.noise.resize(2, 2);
-      sc.noise << 0.001, 0.0,       // noise
-                  0.0, 0.001;
-      sc.outlier_tolerance = 0.2;
-      sc.reject_counter = 8;
-    }else if(sc.name == "usbl"){
-      sc.config.push_back(0);       // position in x
-      sc.config.push_back(1);       // position in y
-      sc.noise.resize(2, 2);
-      sc.noise << 1.0, 0.0,         // noise
-                  0.0, 1.0;
-      sc.outlier_tolerance = 1.0;
-      sc.reject_counter = 10;
-      sc.outlier_increase = 0.3;
-    }else if(sc.name == "dvl_bt"){
-      sc.config.push_back(0);         // velocity in x
-      sc.config.push_back(1);         // velocity in y
-      sc.noise.resize(2, 2);
-      sc.noise << 0.0225, 0.0,
-                  0.0, 0.0225;        // noise
-      sc.outlier_tolerance = 0.2;
-      sc.reject_counter = 200;
-    }/*else if(sc.name == "ahrs"){
-      sc.config.push_back(2);     // yaw
-      sc.config.push_back(5);     // yaw_rate
-      sc.noise.push_back(0.001);  // noise in yaw
-      sc.noise.push_back(1.0);    // noise in yaw_rate
-      sc.outlier_tolerance = 0.5;
-      sc.reject_counter = 12;
-    }*/
-    sensors_.push_back(sc);
-  }
-  
-  // indentity4_ << 1.0, 0.0, 0.0, 0.0,    // Identity auxiliary matrix
-  //                0.0, 1.0, 0.0, 0.0,
-  //                0.0, 0.0, 1.0, 0.0,
-  //                0.0, 0.0, 0.0, 1.0;
-
+  // Be careful, estimator and no_measures are supposed to work better with pnly GNSS or only USBL measures
   estimator_ = false;
+  no_measures_ = false;
+
+  wn_ = 0.002; // 0.02 - estimator 0.002 - normal 0.04 - old
+  csi_ = 0.7;
 
   identity4_ = Eigen::Matrix4d::Identity();
                 
@@ -141,40 +103,12 @@ void CkfNode::loadParams() {
             0.0, 1.0,
             0.0, 0.0,
             0.0, 0.0;
-  
-  process_cov_ << 0.1, 0.0, 0.0, 0.0,    // process covariance
-                  0.0, 0.1, 0.0, 0.0,
-                  0.0, 0.0, 0.1, 0.0,
-                  0.0, 0.0, 0.0, 0.1;
-
-  Eigen::Matrix4d input_noise;
-  struct sensor_config aux;
-
-  for(int i = 0; i < (int) sensors_.size(); i++){
-    if(sensors_[i].name == "dvl_bt"){
-      aux = sensors_[i];
-      break;
-    }
-  }
-
-  Eigen::Matrix2d zero_matrix;
-  zero_matrix << 0.0, 0.0,
-                0.0, 0.0;
-
-  input_noise << aux.noise, zero_matrix,
-                 zero_matrix, zero_matrix;
-
-  complementary_cov_ = process_cov_ + input_noise;
 }
 
 void CkfNode::resetCallback(const std_msgs::Empty &msg){
-  predict_cov_ << 1.0, 0.0, 0.0, 0.0,   // Set the intial predict covariance here
-                  0.0, 1.0, 0.0, 0.0,
-                  0.0, 0.0, 0.1, 0.0,
-                  0.0, 0.0, 0.0, 0.1;
 
-  state_ << 4290794.43,//4290822.1983094830,     // Position -         x
-            491936.56,//491906.60293571133,     //                    y
+  state_ << 4290794.4300000000,     // Position - x old value = 4290822.1983094830
+            491936.56000000000,     //            y old value = 491906.60293571133
             0.0000000000000000,     // Current velocity - vcx
             0.0000000000000000;     //                    vcy
   
@@ -185,11 +119,6 @@ void CkfNode::resetCallback(const std_msgs::Empty &msg){
 
   error_ << 0.0, 0.0;
   measure_est_ << state_(0), state_(1);
-
-  update_cov_ << 1.0, 0.0, 0.0, 0.0,   // Set the intial update covariance here
-                 0.0, 1.0, 0.0, 0.0,
-                 0.0, 0.0, 0.1, 0.0,
-                 0.0, 0.0, 0.0, 0.1;
 
   last_dvl_ << 0.0, 0.0;
 
@@ -202,6 +131,31 @@ void CkfNode::resetCallback(const std_msgs::Empty &msg){
   last_K_time_ = 0.0;
 }
 
+void CkfNode::tuningCallback(const ckf::Tuning &msg){
+  if(msg.wn > 0.0 && msg.csi > 0.0){
+    wn_ = msg.wn;
+    csi_ = msg.csi;
+  }else{
+    ROS_WARN("Invalid wn and csi values");
+  }
+}
+
+void CkfNode::estimatorCallback(const std_msgs::Empty &msg){
+  if(estimator_){
+    estimator_ = false;
+  }else{
+    estimator_ = true;
+  }
+}
+
+void CkfNode::nomeasuresCallback(const std_msgs::Empty &msg){
+  if(no_measures_){
+    no_measures_ = false;
+  }else{
+    no_measures_ = true;
+  }
+}
+
 void CkfNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   // check the type of measurement, then save it
   for(int i = 0; i < (int) sensor_list_.size(); i++){
@@ -209,7 +163,7 @@ void CkfNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   }
 }
 
-void CkfNode::predict(double delta_t){
+void CkfNode::estimation(double delta_t){
   // get newest dvl  measurement
   dsor_msgs::Measurement dvl_msg, ahrs_msg;
   dvl_msg.header.stamp.sec = 0;
@@ -264,61 +218,40 @@ void CkfNode::predict(double delta_t){
   }
 
   // prepare dvl input and process matrices
-
-  Eigen::Matrix4d process_matrix, dvl_cov;
+  Eigen::Matrix4d process_matrix;
   process_matrix = identity4_ + process_v_ * delta_t;
 
   Eigen::MatrixXd input_matrix;
   input_matrix.resize(input_.rows(), input_.cols());
   input_matrix = input_ * delta_t;
   
+  // Update yaw angle if new measure
   if(received_ahrs){
     yaw_ = ahrs_msg.value[2];
   }
   
-  struct sensor_config dvl_sensor;
+  // Update dvl if new measure
   if(received_dvl){
     // Convert from body to inertial frame
     velocity_ << dvl_msg.value[0] * cos(yaw_) - dvl_msg.value[1] * sin(yaw_),
                 dvl_msg.value[0] * sin(yaw_) + dvl_msg.value[1] * cos(yaw_);
-
-    // ROS_WARN("DVL Measurement: %lf, %lf", velocity_[0], velocity_[1]);
-    // ROS_WARN("AHRS Measurement: %lf", ahrs_msg.value[2]);
-
-    // get dvl sensor PROBLEM IS HERE
-    for(int i = 0; i < (int) sensors_.size(); i++){
-      if(sensors_[i].name.find("dvl_bt") != std::string::npos){
-        dvl_sensor = sensors_[i];
-      }
-    }
-
-    Eigen::Matrix2d zero_matrix;
-    zero_matrix << 0.0, 0.0,
-                   0.0, 0.0;
-
-    dvl_cov << dvl_sensor.noise, zero_matrix,
-               zero_matrix, zero_matrix;
   }
-  // }else{
-  //   // ROS_WARN("No DVL measurement");
-  //   // velocity << last_dvl,
-  //   //             last_dvl;
 
-  //   dvl_cov << 0.0, 0.0, 0.0, 0.0,
-  //              0.0, 0.0, 0.0, 0.0,
-  //              0.0, 0.0, 0.0, 0.0,
-  //              0.0, 0.0, 0.0, 0.0;
-  // }
-
+  // Add all velocity components (here add only bias and dvl input)
   total_velocity_ << state_(2), state_(3);
   total_velocity_ += velocity_;
 
-  // calculate new state and covariance matrix
+  // calculate new state (inertial frame)
+  /****************************************************
+   * [x     ] = [1 0 dt 0] [x     ] + [dt 0] [dvl_x]
+   * [y     ]   [0 1 0 dt] [y     ]   [0 dt] [dvl_y]
+   * [bias_x]   [0 0 1  0] [bias_x]   [0  0]
+   * [bias_y]   [0 0 0  1] [bias_y]   [0  0]
+  *****************************************************/
   state_ = process_matrix * state_ + input_matrix * velocity_;
-  // predict_cov_ = process_matrix * update_cov_ * process_matrix.transpose() + process_cov_ + dvl_cov * delta_t;
 }
 
-void CkfNode::update(double delta_t){
+void CkfNode::correction(double delta_t){
   
   // get measurements
   dsor_msgs::Measurement gnss_msg, usbl_msg;
@@ -403,23 +336,25 @@ void CkfNode::update(double delta_t){
     }
   }
 
+  // Update USBL or GNSS Estimator whether it's on or off
+  if(received_usbl && !no_measures_) measure_est_ << usbl_msg.value[0], usbl_msg.value[1];
+  if(received_gnss && !no_measures_) measure_est_ << gnss_msg.value[0], gnss_msg.value[1];
   if(estimator_){
-    // Update USBL Estimator
-    if(received_usbl) measure_est_ << usbl_msg.value[0], usbl_msg.value[1];
-    // Run USBL Estimator
+    // Run Estimator
     measure_est_ = measure_est_ + velocity_ * delta_t;
   }
 
+  // Calculate gains from wn and csi
   double K_delta_t;
   Eigen::MatrixXd time_constant, K_k;
   time_constant.resize(4,4);
 
-  float wn = 0.002; // 0.02 - estimator 0.002 - normal 0.04 - old
-  float csi = 0.7;
-  float k1 = 2 * csi * wn;
-  float k2 = wn * wn;
+  float k1 = 2 * csi_ * wn_;
+  float k2 = wn_ * wn_;
 
   if(received_gnss || received_usbl || estimator_){
+    // If estimator is on, the filter runs all the same frequency
+    // If estimator is off, calculate the time between GNSS or USBL measures
     ros::Time new_K_time = ros::Time::now();
     if(estimator_){
       K_delta_t = delta_t;
@@ -433,34 +368,16 @@ void CkfNode::update(double delta_t){
       last_K_time_ = new_K_time.toSec();
     }
 
-    // get gnss and usbl sensor
-    struct sensor_config gnss_sensor, usbl_sensor;
-    for(int i = 0; i < (int) sensors_.size(); i++){
-      if(sensors_[i].name.find("usbl") != std::string::npos){
-        usbl_sensor = sensors_[i];
-      }else if(sensors_[i].name.find("gnss") != std::string::npos){
-        gnss_sensor = sensors_[i];
-      }
-    }
-
-    // check if gnss, usbl or both
-    Eigen::MatrixXd R, C;
+    // check if gnss, usbl or both and build C and gain K matrices
+    Eigen::MatrixXd C;
     Eigen::VectorXd measures;
-    Eigen::MatrixXd invert_K;
     
     if(gnss_msg.header.stamp.sec != 0 && usbl_msg.header.stamp.sec != 0){
       Eigen::Matrix2d zero_matrix = Eigen::Matrix2d::Zero();
-      // zero_matrix << 0.0, 0.0,
-      //               0.0, 0.0;
-      R.resize(4,4);
-      R << gnss_sensor.noise, zero_matrix,
-           zero_matrix, usbl_sensor.noise;
 
       C.resize(4,4);
-      C << 1.0, 0.0, 0.0, 0.0,
-          0.0, 1.0, 0.0, 0.0,
-          1.0, 0.0, 0.0, 0.0,
-          0.0, 1.0, 0.0, 0.0;
+      C << identity2_, zero_matrix,
+           identity2_, zero_matrix;
 
       measures.resize(4);
       measures << gnss_msg.value[0],
@@ -468,43 +385,31 @@ void CkfNode::update(double delta_t){
                   usbl_msg.value[0],
                   usbl_msg.value[1];
 
-      invert_K.resize(4,4);
       K_k.resize(4,4);
-      // K_k << 75.396, 0.0, 75.396, 0.0,
-      //      0.0, 75.396, 0.0, 75.396,
-      //      3947.6089, 0.0, 3947.6089, 0.0,
-      //      0.0, 3947.6089, 0.0, 3947.6089;
       K_k << k1, 0.0, k1, 0.0,
              0.0, k1, 0.0, k1,
              k2, 0.0, k2, 0.0,
              0.0, k2, 0.0, k2;
-    }else if(gnss_msg.header.stamp.sec != 0){
-      R.resize(2,2);
-      R << gnss_sensor.noise;
-
+    // Gives priority to gnss estimation
+    }else if(gnss_msg.header.stamp.sec != 0 || estimator_){
       C.resize(2,4);
       C << 1.0, 0.0, 0.0, 0.0,
           0.0, 1.0, 0.0, 0.0;
 
       measures.resize(2);
-      measures << gnss_msg.value[0],
-                  gnss_msg.value[1];
+      if(estimator_){
+        measures = measure_est_;
+      }else{
+        measures << gnss_msg.value[0],
+                    gnss_msg.value[1];
+      }
 
-      invert_K.resize(2,2);
       K_k.resize(4,2);
-      // K_k << 75.396, 0.0,
-      //      0.0, 75.396,
-      //      3947.6089, 0.0,
-      //      0.0, 3947.6089;
-      
       K_k << k1, 0.0,
              0.0, k1,
              k2, 0.0,
              0.0, k2;
     }else if(usbl_msg.header.stamp.sec != 0 || estimator_){
-      R.resize(2,2);
-      R << usbl_sensor.noise;
-
       C.resize(2,4);
       C << 1.0, 0.0, 0.0, 0.0,
           0.0, 1.0, 0.0, 0.0;
@@ -517,12 +422,7 @@ void CkfNode::update(double delta_t){
                     usbl_msg.value[1];
       }
 
-      invert_K.resize(2,2);
       K_k.resize(4,2);
-      // K_k << 75.396, 0.0,
-      //        0.0, 75.396,
-      //      3947.6089, 0.0,
-      //      0.0, 3947.6089;
       K_k << k1, 0.0,
              0.0, k1,
              k2, 0.0,
@@ -536,20 +436,15 @@ void CkfNode::update(double delta_t){
                   0.0, 1.0, 0.0, 0.0;
     total_velocity_ += aux_matrix * K_k * error_;
     
-    // calculate kalman gains
-    // invert_K = C * predict_cov_ * C.transpose() + R * delta_t;
-    // K_k = predict_cov_ * C.transpose() * invert_K.inverse();
+    // calculate gains
     time_constant << delta_t, 0.0, 0.0, 0.0,
                    0.0, delta_t, 0.0, 0.0,
                    0.0, 0.0, K_delta_t, 0.0,
                    0.0, 0.0, 0.0, K_delta_t;
     K_k = time_constant * K_k;
     error_ = measures - C * state_;
-    // calculate state correction and covariance matrix
-    // state_ = state_ + K_k * error_;
-    // update_cov_ = (identity4_ - K_k * C) * predict_cov_;
   }else{
-    // No measurements
+    // No measurements and no estimator
     
     K_k.resize(4,2);
     K_k << k1, 0.0,
@@ -570,16 +465,16 @@ void CkfNode::update(double delta_t){
                    0.0, 0.0, 0.0, 0.0;
 
     K_k = time_constant * K_k;
-    // ROS_WARN("No Update");
-    // update_cov_ = predict_cov_;
   }
 
-  auv_msgs::NavigationStatus usbl_pub_msg;
-  usbl_pub_msg.header.stamp = ros::Time::now();
-  usbl_pub_msg.position.east = measure_est_(1);
-  usbl_pub_msg.position.north = measure_est_(0);
-  usbl_pub_.publish(usbl_pub_msg);
+  // Publish GNSS or USBL Measure or estimation
+  auv_msgs::NavigationStatus meas_pub_msg;
+  meas_pub_msg.header.stamp = ros::Time::now();
+  meas_pub_msg.position.east = measure_est_(1);
+  meas_pub_msg.position.north = measure_est_(0);
+  meas_pub_.publish(meas_pub_msg);
   
+  // calculate state correction
   state_ = state_ + K_k * error_;
 }
 
@@ -591,8 +486,10 @@ void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
   // ROS_WARN("delta_t = %lf",delta_t);
 
   kf_time_ = new_time;
-  predict(delta_t);
-  update(delta_t);
+
+  // Main calculations
+  estimation(delta_t);
+  correction(delta_t);
 
   last_state_ = state_;
 
@@ -600,13 +497,20 @@ void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
   auv_msgs::NavigationStatus state_msg;
   state_msg.position.east = state_(1);    // Vehicle position in East
   state_msg.position.north = state_(0);   // Vehicle position in North
-  state_msg.body_velocity.x = state_(3);    // Vehicle velocity bias relative to East
-  state_msg.body_velocity.y = state_(2);    // Vehicle velocity bias relative to North
-  state_msg.orientation.z = yaw_;
+  // Vehicle velocity expressed in body frame
+  state_msg.body_velocity.x = total_velocity_(0) * cos(yaw_) + total_velocity_(1) * sin(yaw_);
+  state_msg.body_velocity.y = - total_velocity_(0) * sin(yaw_) + total_velocity_(1) * cos(yaw_);
+  // Vehicle yaw
+  double yaw = yaw_ / (2.0 * M_PI) * 360.0;
+  if(yaw < 0.0) yaw = yaw + 360.0;
+  state_msg.orientation.z = yaw;
+  // Vehicle velocity expressed in inertial frame (sum of dvl velocities, biases and corrections)
   state_msg.seafloor_velocity.x = total_velocity_(1);
   state_msg.seafloor_velocity.y = total_velocity_(0);
-  state_msg.position_variance.east = error_(1);
-  state_msg.position_variance.north = error_(0);
+  state_msg.position_variance.east = error_(1);   // Error between measured and filtered position in East
+  state_msg.position_variance.north = error_(0);  // Error between measured and filtered position in North
+  state_msg.orientation_variance.x = state_(3);   // Vehicle velocity bias relative to East
+  state_msg.orientation_variance.y = state_(2);   // Vehicle velocity bias relative to North
   state_msg.status = 59;
   state_msg.header.stamp = kf_time_;
   state_pub_.publish(state_msg);
@@ -615,12 +519,7 @@ void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
   farol_msgs::mState State_msg;
   State_msg.X = state_(1);    // East
   State_msg.Y = state_(0);    // North
-  State_msg.Vx = state_(3);   // bias in east
-  State_msg.Vy = state_(2);   // bias in north
-  State_msg.Yaw = yaw_;
-  State_msg.header.stamp = kf_time_;
-  State_pub_.publish(State_msg);
-
+  State_msg.Vx = state_(3);   // bias in eastt
   // outlier rejection mahalanobys distance NOT HERE BUT SOMEWHERE
 }
 

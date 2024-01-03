@@ -14,6 +14,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  #include <auv_msgs/NavigationStatus.h>
  #include <farol_msgs/mState.h>
  #include <Eigen/Core>
+ #include <ckf/Tuning.h>
 
 /* -------------------------------------------------------------------------*/
 /**
@@ -22,16 +23,6 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 /* -------------------------------------------------------------------------*/
  class CkfNode {
  public:
-
-
-  struct sensor_config{
-    std::string name;
-    std::vector<int> config;    // this field let's us know what totake from the measurement message
-    Eigen::MatrixXd noise;
-    double outlier_tolerance, outlier_increase;
-    int reject_counter;
-  };
-
    
    /* -------------------------------------------------------------------------*/
    /**
@@ -62,6 +53,10 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
  	// @.@ Subscribers
   ros::Subscriber sub_reset_;
+  ros::Subscriber sub_tuning_;
+  ros::Subscriber sub_estimator_;
+  ros::Subscriber sub_no_measures_;
+
   ros::Subscriber sub_position_;
   ros::Subscriber sub_velocity_;
   ros::Subscriber sub_orientation_;
@@ -69,20 +64,15 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  	// @.@ Publishers
   ros::Publisher state_pub_;
   ros::Publisher State_pub_;
-  ros::Publisher usbl_pub_;
+  ros::Publisher meas_pub_;
 
  	// @.@ Timer
  	ros::Timer timer_;           ///< ROS Timer
 
   // @.@ Parameters from Yaml
   double node_frequency_;   ///< node frequency
-  
-  // std::vector<std::string> sensor_list_;
-  // std::vector<struct sensor_config> sensor_configurations;
 
  	// @.@ Problem variables
-  Eigen::Matrix4d predict_cov_;
-  Eigen::Matrix4d update_cov_;
 
   Eigen::Matrix4d identity4_;   // Auxiliary matrices
   Eigen::Matrix2d identity2_;
@@ -94,18 +84,9 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   double yaw_;
 
   Eigen::Vector2d total_velocity_;
-                    
-  Eigen::Matrix4d process_cov_;
-  Eigen::Matrix4d complementary_cov_;
-
-  // Eigen::_cov_;
-
-  double originLat_{38.765852};
-  double originLon_{-9.09281873};
 
   // sensors
   std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt","ahrs"};
- 	std::vector<struct sensor_config> sensors_;
 
   std::vector<dsor_msgs::Measurement> measurements_;
 
@@ -113,8 +94,10 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
   double last_K_time_;
 
+  double wn_, csi_;
   Eigen::Vector2d error_;
   Eigen::Vector2d measure_est_;
+  bool no_measures_;
 
   bool estimator_;
 
@@ -122,7 +105,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
   Eigen::Vector2d last_dvl_, last_gnss_, last_usbl_;
   double last_ahrs_;
-  double outlier_dvl_{10}, outlier_gnss_{10}, outlier_usbl_{5}, outlier_ahrs_{20};
+  double outlier_dvl_{10}, outlier_gnss_{5}, outlier_usbl_{5}, outlier_ahrs_{20};
 
   // ros::Time delta_t;
 
@@ -173,6 +156,9 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  	
   // @.@ Callbacks declaration
   void measurementCallback(const dsor_msgs::Measurement &msg);
+  void tuningCallback(const ckf::Tuning &msg);
+  void estimatorCallback(const std_msgs::Empty &msg);
+  void nomeasuresCallback(const std_msgs::Empty &msg);
   void stateCallback(const auv_msgs::NavigationStatus &msg);
   void resetCallback(const std_msgs::Empty &msg);
 
@@ -192,8 +178,8 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
 
   // @.@ Member helper functions
-  void predict(double delta_t);
-  void update(double delta_t);
+  void estimation(double delta_t);
+  void correction(double delta_t);
 
 };
 #endif //CATKIN_WS_CONTROLNODE_H
