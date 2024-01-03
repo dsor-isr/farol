@@ -95,7 +95,7 @@ usbl2pos:
     fix_type: true
     meas_noise: 0.001
 
-ckf:
+cf:
     originLat: 38.765852
     originLon: -9.09281873
 

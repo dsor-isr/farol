@@ -1,11 +1,11 @@
 /* 
  * Developers: DSOR Team -> @tecnico.ulisboa.pt Instituto Superior Tecnico 
  */
-#include "CkfNode.h"
-#include "CkfAlgorithm.h"
+#include "CfNode.h"
+#include "CfAlgorithm.h"
 
 // @.@ Constructor
-CkfNode::CkfNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
+CfNode::CfNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
 
   loadParams();
   initializeSubscribers();
@@ -20,7 +20,7 @@ CkfNode::CkfNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_privat
 }
 
 // @.@ Destructor
-CkfNode::~CkfNode() {
+CfNode::~CfNode() {
 
   // +.+ shutdown publishers
   state_pub_.shutdown();
@@ -41,44 +41,44 @@ CkfNode::~CkfNode() {
 
 
 // @.@ Member helper function to set up subscribers
-void CkfNode::initializeSubscribers() {
-  ROS_INFO("Initializing Subscribers for CkfNode");
-  sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &CkfNode::resetCallback, this);
-  sub_tuning_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/tuning", "tuning"), 10, &CkfNode::tuningCallback, this);
-  sub_estimator_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/estimator", "estimator"), 10, &CkfNode::estimatorCallback, this);
-  sub_no_measures_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/no_measures", "no_measures"), 10, &CkfNode::nomeasuresCallback, this);
+void CfNode::initializeSubscribers() {
+  ROS_INFO("Initializing Subscribers for CfNode");
+  sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &CfNode::resetCallback, this);
+  sub_tuning_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/tuning", "tuning"), 10, &CfNode::tuningCallback, this);
+  sub_estimator_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/estimator", "estimator"), 10, &CfNode::estimatorCallback, this);
+  sub_no_measures_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/no_measures", "no_measures"), 10, &CfNode::nomeasuresCallback, this);
 
-  sub_position_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/position", "position"), 10, &CkfNode::measurementCallback, this);
-  sub_velocity_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/velocity", "velocity"), 10, &CkfNode::measurementCallback, this);
-  sub_orientation_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/orientation", "orientation"), 10, &CkfNode::measurementCallback, this);
+  sub_position_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/position", "position"), 10, &CfNode::measurementCallback, this);
+  sub_velocity_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/velocity", "velocity"), 10, &CfNode::measurementCallback, this);
+  sub_orientation_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/orientation", "orientation"), 10, &CfNode::measurementCallback, this);
 }
 
 
 // @.@ Member helper function to set up publishers
-void CkfNode::initializePublishers() {
-  ROS_INFO("Initializing Publishers for CkfNode");
+void CfNode::initializePublishers() {
+  ROS_INFO("Initializing Publishers for CfNode");
 
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "state"), 10);
-  State_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_ckf", "State_ckf"), 10);
+  State_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_cf", "State_cf"), 10);
   meas_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/measure", "measure"), 10);
 }
 
 
 // @.@ Member helper function to set up services
-void CkfNode::initializeServices() {
-  ROS_INFO("Initializing Services for CkfNode");
+void CfNode::initializeServices() {
+  ROS_INFO("Initializing Services for CfNode");
 
 }
 
 
 // @.@ Member helper function to set up the timer
-void CkfNode::initializeTimer() {
-  timer_ = nh_.createTimer(ros::Duration(1.0 / node_frequency_), &CkfNode::timerIterCallback, this);
+void CfNode::initializeTimer() {
+  timer_ = nh_.createTimer(ros::Duration(1.0 / node_frequency_), &CfNode::timerIterCallback, this);
 }
 
 // @.@ Member helper to load parameters from parameter server
-void CkfNode::loadParams() {
-  ROS_INFO("Load the CkfNode parameters");
+void CfNode::loadParams() {
+  ROS_INFO("Load the CfNode parameters");
 
   node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 5);
 
@@ -105,7 +105,7 @@ void CkfNode::loadParams() {
             0.0, 0.0;
 }
 
-void CkfNode::resetCallback(const std_msgs::Empty &msg){
+void CfNode::resetCallback(const std_msgs::Empty &msg){
 
   state_ << 4290794.4300000000,     // Position - x old value = 4290822.1983094830
             491936.56000000000,     //            y old value = 491906.60293571133
@@ -131,7 +131,7 @@ void CkfNode::resetCallback(const std_msgs::Empty &msg){
   last_K_time_ = 0.0;
 }
 
-void CkfNode::tuningCallback(const ckf::Tuning &msg){
+void CfNode::tuningCallback(const cf::Tuning &msg){
   if(msg.wn > 0.0 && msg.csi > 0.0){
     wn_ = msg.wn;
     csi_ = msg.csi;
@@ -140,7 +140,7 @@ void CkfNode::tuningCallback(const ckf::Tuning &msg){
   }
 }
 
-void CkfNode::estimatorCallback(const std_msgs::Empty &msg){
+void CfNode::estimatorCallback(const std_msgs::Empty &msg){
   if(estimator_){
     estimator_ = false;
   }else{
@@ -148,7 +148,7 @@ void CkfNode::estimatorCallback(const std_msgs::Empty &msg){
   }
 }
 
-void CkfNode::nomeasuresCallback(const std_msgs::Empty &msg){
+void CfNode::nomeasuresCallback(const std_msgs::Empty &msg){
   if(no_measures_){
     no_measures_ = false;
   }else{
@@ -156,14 +156,14 @@ void CkfNode::nomeasuresCallback(const std_msgs::Empty &msg){
   }
 }
 
-void CkfNode::measurementCallback(const dsor_msgs::Measurement &msg) {
+void CfNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   // check the type of measurement, then save it
   for(int i = 0; i < (int) sensor_list_.size(); i++){
     if(msg.header.frame_id.find(sensor_list_[i]) != std::string::npos) measurements_.push_back(msg);
   }
 }
 
-void CkfNode::estimation(double delta_t){
+void CfNode::estimation(double delta_t){
   // get newest dvl  measurement
   dsor_msgs::Measurement dvl_msg, ahrs_msg;
   dvl_msg.header.stamp.sec = 0;
@@ -173,7 +173,7 @@ void CkfNode::estimation(double delta_t){
   bool received_dvl = false, received_ahrs = false;
   for(int i = 0; i < (int) measurements_.size(); i++){
     aux = measurements_[i].header.frame_id;
-    // Verify if dvl message and if measure is within range of the CKF cycle time interval
+    // Verify if dvl message and if measure is within range of the CF cycle time interval
     if(measurements_[i].header.stamp <= kf_time_){
       if(aux.find("dvl_bt") != std::string::npos){
         received_dvl = true;
@@ -202,7 +202,7 @@ void CkfNode::estimation(double delta_t){
     outlier_error = sqrt(pow(dvl_msg.value[0] - last_dvl_.coeff(0), 2) + pow(dvl_msg.value[1] - last_dvl_.coeff(1), 2));
     if(outlier_error > outlier_dvl_){
       received_dvl = false;
-      ROS_WARN("DVL Outlier detected on CKF: %lf %lf %lf", dvl_msg.value[0], dvl_msg.value[0], outlier_error);
+      ROS_WARN("DVL Outlier detected on CF: %lf %lf %lf", dvl_msg.value[0], dvl_msg.value[0], outlier_error);
     }
     last_dvl_ << dvl_msg.value[0], dvl_msg.value[2];
   }
@@ -212,7 +212,7 @@ void CkfNode::estimation(double delta_t){
     outlier_error = abs(ahrs_msg.value[2] - yaw_);
     if(outlier_error > outlier_ahrs_){
       received_ahrs = false;
-      ROS_WARN("AHRS Outlier detected on CKF: %lf %lf", ahrs_msg.value[2], outlier_error);
+      ROS_WARN("AHRS Outlier detected on CF: %lf %lf", ahrs_msg.value[2], outlier_error);
     }
     last_ahrs_ = ahrs_msg.value[2];
   }
@@ -251,7 +251,7 @@ void CkfNode::estimation(double delta_t){
   state_ = process_matrix * state_ + input_matrix * velocity_;
 }
 
-void CkfNode::correction(double delta_t){
+void CfNode::correction(double delta_t){
   
   // get measurements
   dsor_msgs::Measurement gnss_msg, usbl_msg;
@@ -262,7 +262,7 @@ void CkfNode::correction(double delta_t){
   bool received_gnss = false, received_usbl = false;
   for(int i = 0; i < (int) measurements_.size(); i++){
     aux = measurements_[i].header.frame_id;
-    // Verify if gnss or usbl message and if measure is within range of the CKF cycle time interval
+    // Verify if gnss or usbl message and if measure is within range of the CF cycle time interval
     if(measurements_[i].header.stamp <= kf_time_){
       if(aux.find("gnss") != std::string::npos){
         received_gnss = true;
@@ -296,7 +296,7 @@ void CkfNode::correction(double delta_t){
       if(outlier_error > outlier_gnss_){
         received_gnss = false;
         gnss_msg.header.stamp.sec = 0;
-        ROS_WARN("GNSS Outlier detected on CKF");
+        ROS_WARN("GNSS Outlier detected on CF");
       }
       last_gnss_ << gnss_msg.value[0], gnss_msg.value[1];
 
@@ -304,7 +304,7 @@ void CkfNode::correction(double delta_t){
       if(outlier_error > outlier_usbl_){
         received_usbl = false;
         usbl_msg.header.stamp.sec = 0;
-        ROS_WARN("USBL Outlier detected on CKF");
+        ROS_WARN("USBL Outlier detected on CF");
       }
       last_usbl_ << usbl_msg.value[0], usbl_msg.value[1];
     }
@@ -317,7 +317,7 @@ void CkfNode::correction(double delta_t){
       outlier_error = sqrt(pow(gnss_msg.value[0] - last_state_(0), 2) + pow(gnss_msg.value[1] - last_state_(1), 2));
       if(outlier_error > outlier_gnss_){
         received_gnss = false;
-        ROS_WARN("GNSS Outlier detected on CKF");
+        ROS_WARN("GNSS Outlier detected on CF");
       }
       last_gnss_ << gnss_msg.value[0], gnss_msg.value[1];
     }
@@ -330,7 +330,7 @@ void CkfNode::correction(double delta_t){
       outlier_error = sqrt(pow(usbl_msg.value[0] - last_state_(0), 2) + pow(usbl_msg.value[1] - last_state_(1), 2));
       if(outlier_error > outlier_usbl_){
         received_usbl = false;
-        ROS_WARN("USBL Outlier detected on CKF");
+        ROS_WARN("USBL Outlier detected on CF");
       }
       last_usbl_ << usbl_msg.value[0], usbl_msg.value[1];
     }
@@ -480,7 +480,7 @@ void CkfNode::correction(double delta_t){
 
 
 // @.@ Where the magic should happen.
-void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
+void CfNode::timerIterCallback(const ros::TimerEvent &event) {
   ros::Time new_time = ros::Time::now();
   double delta_t = (new_time - kf_time_).toSec();
   // ROS_WARN("delta_t = %lf",delta_t);
@@ -530,7 +530,7 @@ void CkfNode::timerIterCallback(const ros::TimerEvent &event) {
 int main(int argc, char** argv)
 {
   // +.+ ROS set-ups:
-  ros::init(argc, argv, "ckf_node"); //node name
+  ros::init(argc, argv, "cf_node"); //node name
   
   // +.+ node handle
   ros::NodeHandle nh;
@@ -538,10 +538,10 @@ int main(int argc, char** argv)
   // +.+ private node handle
   ros::NodeHandle nh_private("~");
 
-  ROS_INFO("main: instantiating an object of type CkfNode");
+  ROS_INFO("main: instantiating an object of type CfNode");
 
-  // +.+ instantiate an CkfNode class object and pass in pointers to nodehandle public and private for constructor to use
-  CkfNode ckf(&nh,&nh_private);
+  // +.+ instantiate an CfNode class object and pass in pointers to nodehandle public and private for constructor to use
+  CfNode cf(&nh,&nh_private);
 
   // +.+  Going into spin; let the callbacks do all the magic
   ros::spin();

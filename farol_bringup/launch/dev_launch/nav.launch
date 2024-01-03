@@ -11,7 +11,7 @@
     <arg name="vehicle_id"          default="0" />
 
     <arg name="filter"              default="false" />  
-    <arg name="ckf"                 default="false" />
+    <arg name="cf"                 default="false" />
     <arg name="gnss2utm"            default="false" />  
     <arg name="gnss2utmoutlier"     default="false" />  
     <arg name="usbl2pos"            default="false" />
@@ -29,9 +29,9 @@
           </node>
         </group>
 
-        <!-- Complementary Filter: ckf -->
-        <group if="$(arg ckf)">
-          <node pkg="ckf" type="ckf" name="ckf" respawn="false" output="screen">
+        <!-- Complementary Filter: cf -->
+        <group if="$(arg cf)">
+          <node pkg="cf" type="cf" name="cf" respawn="false" output="screen">
             <param name="name_vehicle_id" value="$(arg name)$(arg vehicle_id)"/>
           </node>
         </group>

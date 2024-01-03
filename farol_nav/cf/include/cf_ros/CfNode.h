@@ -1,8 +1,8 @@
 /*
 Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico 
 */
- #ifndef CATKIN_WS_CKFNODE_H
- #define CATKIN_WS_CKFNODE_H
+ #ifndef CATKIN_WS_CFNODE_H
+ #define CATKIN_WS_CFNODE_H
 
  //some generically useful stuff to include...
  #include <std_msgs/String.h>
@@ -14,14 +14,14 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  #include <auv_msgs/NavigationStatus.h>
  #include <farol_msgs/mState.h>
  #include <Eigen/Core>
- #include <ckf/Tuning.h>
+ #include <cf/Tuning.h>
 
 /* -------------------------------------------------------------------------*/
 /**
  * @brief  ADD HERE A SMALL DESCRIPTION OF THE NODE'S OBJECTIVE
  */
 /* -------------------------------------------------------------------------*/
- class CkfNode {
+ class CfNode {
  public:
    
    /* -------------------------------------------------------------------------*/
@@ -32,14 +32,14 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
     * @Param nodehandle_private
     */
    /* -------------------------------------------------------------------------*/
- 	CkfNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
+ 	CfNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
 
   /* -------------------------------------------------------------------------*/
   /**
    * @brief  Destructor
    */
   /* -------------------------------------------------------------------------*/
- 	~CkfNode();
+ 	~CfNode();
 
   
 
@@ -156,7 +156,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
  	
   // @.@ Callbacks declaration
   void measurementCallback(const dsor_msgs::Measurement &msg);
-  void tuningCallback(const ckf::Tuning &msg);
+  void tuningCallback(const cf::Tuning &msg);
   void estimatorCallback(const std_msgs::Empty &msg);
   void nomeasuresCallback(const std_msgs::Empty &msg);
   void stateCallback(const auv_msgs::NavigationStatus &msg);

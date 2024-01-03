@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1.0)
-project(ckf)
+project(cf)
 
 find_package(catkin
  # ROS components
@@ -41,14 +41,14 @@ catkin_package(	CATKIN_DEPENDS message_runtime)
 add_compile_options(-std=c++17 -Wall -O3) 
 
 include_directories(
- include/ckf_ros
- include/ckf_algorithms
+ include/cf_ros
+ include/cf_algorithms
  include/ros
  ${EIGEN3_INCLUDE_DIR}
  ${catkin_INCLUDE_DIRS}
  ${farol_gimmicks_library_INCLUDE_DIR}
 )
 
-add_executable(${PROJECT_NAME} src/ckf_ros/CkfNode.cpp src/ckf_algorithms/CkfAlgorithm.cpp)
+add_executable(${PROJECT_NAME} src/cf_ros/CfNode.cpp src/cf_algorithms/CfAlgorithm.cpp)
 add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})

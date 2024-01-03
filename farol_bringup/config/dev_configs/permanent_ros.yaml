@@ -126,21 +126,21 @@ nav/filter:
        set_bias_heading: "/#vehicle#/nav/set_bias_heading"
        reset_bias_heading: "/#vehicle#/nav/reset_bias_heading"
 
-nav/ckf:
+nav/cf:
     node_frequency: 10
     topics:
         subscribers:
-            reset: "/#vehicle#/nav/ckf/reset"
-            tuning: "/#vehicle#/nav/ckf/tuning"
-            estimator: "/#vehicle#/nav/ckf/estimator"
-            no_measures: "/#vehicle#/nav/ckf/no_measures"
+            reset: "/#vehicle#/nav/cf/reset"
+            tuning: "/#vehicle#/nav/cf/tuning"
+            estimator: "/#vehicle#/nav/cf/estimator"
+            no_measures: "/#vehicle#/nav/cf/no_measures"
             position: "/#vehicle#/measurement/position"
             velocity: "/#vehicle#/measurement/velocity"
             orientation: "/#vehicle#/measurement/orientation"
         publishers:
-            state: "/#vehicle#/nav/ckf/state"
-            state_ckf: "/#vehicle#/nav/ckf/State_ckf"
-            measure: "/#vehicle#/nav/ckf/measure"
+            state: "/#vehicle#/nav/cf/state"
+            state_cf: "/#vehicle#/nav/cf/State_cf"
+            measure: "/#vehicle#/nav/cf/measure"
 
 nav/gnss2utm:
     node_frequency: 10
@@ -214,7 +214,7 @@ controls/inner_loops_pid:
             altitude: "/#vehicle#/ref/altitude"
             altitude_safety: "/#vehicle#/ref/altitude_safety"
             depth_safety: "/#vehicle#/ref/depth_safety"
-            state: "/#vehicle#/nav/ckf/state" #"/#vehicle#/nav/filter/state"
+            state: "/#vehicle#/nav/cf/state" #"/#vehicle#/nav/filter/state"
             force_bypass: "/#vehicle#/force_bypass"
             turn_radius_speed: "/#vehicle#/nav/filter/state"
         publishers:
@@ -237,7 +237,7 @@ controls/waypoint:
             flag: "/#vehicle#/Flag"
         subscribers:
             flag: "/#vehicle#/Flag"
-            state: "/#vehicle#/nav/ckf/state" #"/#vehicle#/nav/filter/state"
+            state: "/#vehicle#/nav/cf/state" #"/#vehicle#/nav/filter/state"
             turn_radius_flag: "/#vehicle#/turn_radius_flag"
         services:
             wp_standard: "/#vehicle#/controls/send_wp_standard"
@@ -249,7 +249,7 @@ controls/path_following:
     flag: "/#vehicle#/Flag"
     topics:
         subscribers:
-            state: "/#vehicle#/nav/ckf/state" #"/#vehicle#/nav/filter/state"
+            state: "/#vehicle#/nav/cf/state" #"/#vehicle#/nav/filter/state"
             path: "/#vehicle#/PathData"
             vc: "/#vehicle#/PF/vc"
         publishers:
@@ -358,7 +358,7 @@ planning/dsor_paths:
     topics:
         subscribers:
             gamma: "/#vehicle#/Gamma"
-            vehicle_state: "/#vehicle#/nav/ckf/state" #"/#vehicle#/nav/filter/state"
+            vehicle_state: "/#vehicle#/nav/cf/state" #"/#vehicle#/nav/filter/state"
         publishers:
             path_data: "/#vehicle#/PathData"
             virtual_target_state: "/#vehicle#/Virtual/State"
