@@ -120,6 +120,7 @@ processes:
             - data_serializer:= true
             - pinger:= false
             - replier:= false
+            - silent:= true
             - pos2sim_modem:= false
             - dmac2farol:= true
             - gnss2state:= true
