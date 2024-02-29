@@ -31,7 +31,7 @@ class Pramod : public PathFollowing {
      * @param yaw_pub The ROS yaw publisher
      * @param mode_client The ROS service client to change the mode of operation of the path (to the closest point)
      */
-    Pramod(std::vector<double> gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::ServiceClient mode_client);
+    Pramod(std::vector<double> gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher gamma_pub, ros::ServiceClient mode_client);
     
     /**
      * @brief  Method that given an array of doubles, updates the gains of the controller
@@ -93,6 +93,7 @@ class Pramod : public PathFollowing {
      */
     ros::Publisher surge_pub_;
     ros::Publisher yaw_pub_;
+    ros::Publisher gamma_pub_;
     
     /**
      * @brief ROS service to use the closest point to the path 
