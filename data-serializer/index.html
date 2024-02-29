@@ -9141,6 +9141,26 @@
     Description
   </a>
   
+    <nav class="md-nav" aria-label="Description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialization" class="md-nav__link">
+    Serialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserialization" class="md-nav__link">
+    Deserialization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -9173,6 +9193,14 @@
 
 <h1 id="data-serializer-package">Data Serializer Package</h1>
 <h2 id="description">Description</h2>
+<p>This package handles the serialization/deserialization of data to/from the acoustic modems.</p>
+<p>The <em>acoustic_data.yaml</em> configuration file is essential for this package, since it specifies from which ROS topics the data meant to be sent and received should be obtained. It is important that this file is the same in all vehicles that participate in the acoustic communications, so that the acoustic data channels defined are the same.</p>
+<h3 id="serialization">Serialization</h3>
+<p>The <em>data_serializer</em> node automatically subscribes to the ROS topics specified in the <em>acoustic_data.yaml</em> file as <em>topic_in</em>, keeping the most updated data from each of them.</p>
+<p>When the <em>/#vehicle#/acomms/scheme/trigger_serialization</em> topic is published on, the data stored is serialized and published on the <em>/#vehicle#/acomms/serializer/payload_to_transmit</em>, which will be sent by the acoustic modem afterwards.</p>
+<h3 id="deserialization">Deserialization</h3>
+<p>The <em>data_serializer</em> is subscribed to the <em>/#vehicle#/acomms/scheme/payload_to_deserialize</em>, from where it gets the data to deserialize.</p>
+<p>Afterwards, it automatically publishes the deserialized data to the ROS topics specified in the <em>acoustic_data.yaml</em> file as <em>topic_out</em>.</p>
 <h2 id="nodes">Nodes</h2>
 <ul>
 <li><a href="data_serializer/">data_serializer</a></li>
@@ -9183,7 +9211,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 29, 2024</span>
       
     
   </small>
