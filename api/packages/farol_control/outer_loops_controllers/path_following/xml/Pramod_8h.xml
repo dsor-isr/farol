@@ -90,7 +90,7 @@
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPramod_1a861fb9927e005dec09dc5054e69a9a29" kindref="member">Pramod</ref>(std::vector&lt;double&gt;<sp/>gains,<sp/>ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>yaw_pub,<sp/>ros::ServiceClient<sp/>mode_client);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPramod_1a5b29120bbc0575994122ae4f53cd5001" kindref="member">Pramod</ref>(std::vector&lt;double&gt;<sp/>gains,<sp/>ros::Publisher<sp/>surge_pub,<sp/>ros::Publisher<sp/>yaw_pub,<sp/>ros::Publisher<sp/>gamma_pub,<sp/>ros::ServiceClient<sp/>mode_client);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classPramod_1a3fd67677577d64b1af2c556b787aa00f" kindref="member">setPFGains</ref>(std::vector&lt;double&gt;<sp/>gains)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
@@ -114,10 +114,11 @@
 <codeline lineno="90"><highlight class="normal"></highlight></codeline>
 <codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>surge_pub_;</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>yaw_pub_;</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::ServiceClient<sp/>mode_client_;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::Publisher<sp/>gamma_pub_;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>ros::ServiceClient<sp/>mode_client_;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="include/algorithms/Pramod.h"/>
   </compounddef>

@@ -75,6 +75,19 @@
         </inbodydescription>
         <location file="include/algorithms/Pramod.h" line="95" column="20" bodyfile="include/algorithms/Pramod.h" bodystart="95" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classPramod_1a2327ad0d40b34f696cb9ea7f3bd5f172" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher Pramod::gamma_pub_</definition>
+        <argsstring></argsstring>
+        <name>gamma_pub_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/algorithms/Pramod.h" line="96" column="20" bodyfile="include/algorithms/Pramod.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="classPramod_1a37f2d24688004d65425f7edd3125902a" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
         <definition>ros::ServiceClient Pramod::mode_client_</definition>
@@ -87,14 +100,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="100" column="24" bodyfile="include/algorithms/Pramod.h" bodystart="100" bodyend="-1"/>
+        <location file="include/algorithms/Pramod.h" line="101" column="24" bodyfile="include/algorithms/Pramod.h" bodystart="101" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classPramod_1a861fb9927e005dec09dc5054e69a9a29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classPramod_1a5b29120bbc0575994122ae4f53cd5001" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>Pramod::Pramod</definition>
-        <argsstring>(std::vector&lt; double &gt; gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::ServiceClient mode_client)</argsstring>
+        <argsstring>(std::vector&lt; double &gt; gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher gamma_pub, ros::ServiceClient mode_client)</argsstring>
         <name>Pramod</name>
         <param>
           <type>std::vector&lt; double &gt;</type>
@@ -107,6 +120,10 @@
         <param>
           <type>ros::Publisher</type>
           <declname>yaw_pub</declname>
+        </param>
+        <param>
+          <type>ros::Publisher</type>
+          <declname>gamma_pub</declname>
         </param>
         <param>
           <type>ros::ServiceClient</type>
@@ -153,7 +170,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="34" column="5" bodyfile="src/algorithms/Pramod.cpp" bodystart="3" bodyend="9"/>
+        <location file="include/algorithms/Pramod.h" line="34" column="5" bodyfile="src/algorithms/Pramod.cpp" bodystart="3" bodyend="10"/>
       </memberdef>
       <memberdef kind="function" id="classPramod_1a3fd67677577d64b1af2c556b787aa00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -184,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="43" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="12" bodyend="19"/>
+        <location file="include/algorithms/Pramod.h" line="43" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="13" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="classPramod_1a44f11799b766cf7246925810bb7891c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -213,7 +230,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="50" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="30" bodyend="90"/>
+        <location file="include/algorithms/Pramod.h" line="50" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="31" bodyend="91"/>
       </memberdef>
       <memberdef kind="function" id="classPramod_1a208ad35f152c1e352155edc01c73bf6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -228,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="55" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="93" bodyend="98"/>
+        <location file="include/algorithms/Pramod.h" line="55" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="94" bodyend="102"/>
       </memberdef>
       <memberdef kind="function" id="classPramod_1a126d336bd731481ba1949e076830d261" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -243,7 +260,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="60" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="101" bodyend="108"/>
+        <location file="include/algorithms/Pramod.h" line="60" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="105" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="classPramod_1a72242417c3edc99e4afefeca99996067" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -261,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="67" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="111" bodyend="119"/>
+        <location file="include/algorithms/Pramod.h" line="67" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="115" bodyend="123"/>
       </memberdef>
       <memberdef kind="function" id="classPramod_1abad8e08fc2bb8cb400b45bd7c68f820c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -279,7 +296,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/algorithms/Pramod.h" line="75" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="122" bodyend="129"/>
+        <location file="include/algorithms/Pramod.h" line="75" column="10" bodyfile="src/algorithms/Pramod.cpp" bodystart="126" bodyend="133"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -352,18 +369,19 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="include/algorithms/Pramod.h" line="22" column="34" bodyfile="include/algorithms/Pramod.h" bodystart="22" bodyend="102"/>
+    <location file="include/algorithms/Pramod.h" line="22" column="34" bodyfile="include/algorithms/Pramod.h" bodystart="22" bodyend="103"/>
     <listofallmembers>
       <member refid="classPathFollowing_1ad51234c36158b9124cfe4110df0e80d9" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>algConvert</name></member>
       <member refid="classPramod_1a44f11799b766cf7246925810bb7891c3" prot="public" virt="virtual"><scope>Pramod</scope><name>callPFController</name></member>
       <member refid="classPramod_1ac6f9a9b0620cba76085d766a5c76e38b" prot="private" virt="non-virtual"><scope>Pramod</scope><name>desired_surge_</name></member>
       <member refid="classPramod_1a9110783a4d574bc9edfd140180b0ab30" prot="private" virt="non-virtual"><scope>Pramod</scope><name>desired_yaw_</name></member>
       <member refid="classPramod_1af385d41d0767d7a1a0b903dcf53e7fa2" prot="private" virt="non-virtual"><scope>Pramod</scope><name>gains_</name></member>
+      <member refid="classPramod_1a2327ad0d40b34f696cb9ea7f3bd5f172" prot="private" virt="non-virtual"><scope>Pramod</scope><name>gamma_pub_</name></member>
       <member refid="classPramod_1a37f2d24688004d65425f7edd3125902a" prot="private" virt="non-virtual"><scope>Pramod</scope><name>mode_client_</name></member>
       <member refid="classPathFollowing_1a3c97955c38b4dc1394438776bfe08ef0" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>path_state_</name></member>
       <member refid="classPathFollowing_1a9a8fc2330c7b512a3dac2fd6d6158aee" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>pfollowing_debug_</name></member>
       <member refid="classPathFollowing_1ad93c0aaf0ae878d8eac2b018cd0f87d9" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>pfollowing_debug_pub_</name></member>
-      <member refid="classPramod_1a861fb9927e005dec09dc5054e69a9a29" prot="public" virt="non-virtual"><scope>Pramod</scope><name>Pramod</name></member>
+      <member refid="classPramod_1a5b29120bbc0575994122ae4f53cd5001" prot="public" virt="non-virtual"><scope>Pramod</scope><name>Pramod</name></member>
       <member refid="classPathFollowing_1af380b1a47c3341ad72a729442ff208a3" prot="protected" virt="non-virtual"><scope>Pramod</scope><name>preventPathSectionSwitching</name></member>
       <member refid="classPathFollowing_1a5a23d424af178c88cd97fb3e68f45841" prot="public" virt="non-virtual"><scope>Pramod</scope><name>publish</name></member>
       <member refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" prot="public" virt="virtual"><scope>Pramod</scope><name>publish_private</name></member>

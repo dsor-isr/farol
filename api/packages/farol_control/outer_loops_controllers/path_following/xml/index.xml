@@ -250,8 +250,9 @@
     <member refid="classPramod_1a9110783a4d574bc9edfd140180b0ab30" kind="variable"><name>desired_yaw_</name></member>
     <member refid="classPramod_1a40419bc17660abdfda1d30d6a8c6cb7e" kind="variable"><name>surge_pub_</name></member>
     <member refid="classPramod_1ae125698f9d7708fd86abe5ad95688b4c" kind="variable"><name>yaw_pub_</name></member>
+    <member refid="classPramod_1a2327ad0d40b34f696cb9ea7f3bd5f172" kind="variable"><name>gamma_pub_</name></member>
     <member refid="classPramod_1a37f2d24688004d65425f7edd3125902a" kind="variable"><name>mode_client_</name></member>
-    <member refid="classPramod_1a861fb9927e005dec09dc5054e69a9a29" kind="function"><name>Pramod</name></member>
+    <member refid="classPramod_1a5b29120bbc0575994122ae4f53cd5001" kind="function"><name>Pramod</name></member>
     <member refid="classPramod_1a3fd67677577d64b1af2c556b787aa00f" kind="function"><name>setPFGains</name></member>
     <member refid="classPramod_1a44f11799b766cf7246925810bb7891c3" kind="function"><name>callPFController</name></member>
     <member refid="classPramod_1a208ad35f152c1e352155edc01c73bf6e" kind="function"><name>publish_private</name></member>

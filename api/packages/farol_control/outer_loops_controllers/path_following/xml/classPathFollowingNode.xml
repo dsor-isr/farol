@@ -1026,7 +1026,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/PathFollowingNode.h" line="226" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="624" bodyend="675"/>
+        <location file="include/ros/PathFollowingNode.h" line="226" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="624" bodyend="678"/>
       </memberdef>
       <memberdef kind="function" id="classPathFollowingNode_1a0e5a3a377054c9d52510b98dd9388e93" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1047,7 +1047,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/PathFollowingNode.h" line="228" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="678" bodyend="728"/>
+        <location file="include/ros/PathFollowingNode.h" line="228" column="10" bodyfile="src/ros/PathFollowingServices.cpp" bodystart="681" bodyend="731"/>
       </memberdef>
       <memberdef kind="function" id="classPathFollowingNode_1ad0485e612c2418ee4a5459a9c092ae8f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>

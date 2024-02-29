@@ -864,95 +864,98 @@
 <codeline lineno="638"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/surge&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="639"><highlight class="normal"><sp/><sp/>std::string<sp/>yaw_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
 <codeline lineno="640"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/yaw&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="641"><highlight class="normal"><sp/><sp/>std::string<sp/>pfollowing_debug_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
-<codeline lineno="642"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/pfollowing_debug&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="643"><highlight class="normal"></highlight></codeline>
-<codeline lineno="644"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>the<sp/>publishers<sp/>for<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="645"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(surge_topic,<sp/>1));</highlight></codeline>
-<codeline lineno="646"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(yaw_topic,<sp/>1));</highlight></codeline>
-<codeline lineno="647"><highlight class="normal"></highlight></codeline>
-<codeline lineno="648"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Variables<sp/>to<sp/>store<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="649"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kp,<sp/>ki;</highlight></codeline>
-<codeline lineno="650"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>controller_gains;</highlight></codeline>
-<codeline lineno="651"><highlight class="normal"></highlight></codeline>
-<codeline lineno="652"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="653"><highlight class="normal"></highlight></codeline>
-<codeline lineno="654"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>the<sp/>gains<sp/>for<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/kp&quot;</highlight><highlight class="normal">,<sp/>kp);</highlight></codeline>
-<codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/ki&quot;</highlight><highlight class="normal">,<sp/>ki);</highlight></codeline>
-<codeline lineno="657"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(kp);</highlight></codeline>
-<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(ki);</highlight></codeline>
-<codeline lineno="659"><highlight class="normal"></highlight></codeline>
-<codeline lineno="660"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Assign<sp/>the<sp/>new<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="661"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pf_algorithm_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classPramod" kindref="compound">Pramod</ref>(controller_gains,<sp/>this-&gt;publishers_[0],</highlight></codeline>
-<codeline lineno="662"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;publishers_[1],<sp/>this-&gt;set_path_mode_client_);</highlight></codeline>
-<codeline lineno="663"><highlight class="normal"><sp/><sp/><sp/><sp/>pf_algorithm_-&gt;<ref refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" kindref="member">setPFollowingDebugPublisher</ref>(nh_p_.advertise&lt;farol_msgs::mPFollowingDebug&gt;(pfollowing_debug_topic,1));</highlight></codeline>
-<codeline lineno="664"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="665"><highlight class="normal"></highlight></codeline>
-<codeline lineno="666"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(...)<sp/>{</highlight></codeline>
-<codeline lineno="667"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Some<sp/>error<sp/>occured.<sp/>Please<sp/>reset<sp/>the<sp/>PF<sp/>node<sp/>for<sp/>safety&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="668"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="669"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="670"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="671"><highlight class="normal"></highlight></codeline>
-<codeline lineno="672"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>success<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="673"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;PF<sp/>controller<sp/>switched<sp/>to<sp/>Pramod.<sp/>This<sp/>algorithm<sp/>uses<sp/>the<sp/>path<sp/>closest<sp/>point<sp/>to<sp/>make<sp/>the<sp/>computations&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="674"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="675"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="676"><highlight class="normal"></highlight></codeline>
-<codeline lineno="677"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Service<sp/>to<sp/>switch<sp/>to<sp/>the<sp/>Samson<sp/>Path<sp/>Following<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="678"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PathFollowingNode::SetSamsonService(path_following::SetPF::Request<sp/>&amp;req,</highlight></codeline>
-<codeline lineno="679"><highlight class="normal"><sp/><sp/><sp/><sp/>path_following::SetPF::Response<sp/>&amp;res)<sp/>{</highlight></codeline>
-<codeline lineno="680"><highlight class="normal"></highlight></codeline>
-<codeline lineno="681"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Don&apos;t<sp/>change<sp/>if<sp/>the<sp/>algorithm<sp/>is<sp/>running<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="682"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;timer_.hasStarted())<sp/>{</highlight></codeline>
-<codeline lineno="683"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>change<sp/>algorithm<sp/>when<sp/>PF<sp/>is<sp/>running.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="684"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="685"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="686"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="687"><highlight class="normal"></highlight></codeline>
-<codeline lineno="688"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Clear<sp/>the<sp/>memory<sp/>used<sp/>by<sp/>the<sp/>previous<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="689"><highlight class="normal"><sp/><sp/>this-&gt;deleteCurrentController();</highlight></codeline>
+<codeline lineno="641"><highlight class="normal"><sp/><sp/>std::string<sp/>gamma_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="642"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/rabbit&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="643"><highlight class="normal"><sp/><sp/>std::string<sp/>pfollowing_debug_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="644"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/pfollowing_debug&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="645"><highlight class="normal"></highlight></codeline>
+<codeline lineno="646"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>the<sp/>publishers<sp/>for<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="647"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(surge_topic,<sp/>1));</highlight></codeline>
+<codeline lineno="648"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(yaw_topic,<sp/>1));</highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(gamma_topic,<sp/>1));</highlight></codeline>
+<codeline lineno="650"><highlight class="normal"></highlight></codeline>
+<codeline lineno="651"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Variables<sp/>to<sp/>store<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="652"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>kp,<sp/>ki;</highlight></codeline>
+<codeline lineno="653"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/>controller_gains;</highlight></codeline>
+<codeline lineno="654"><highlight class="normal"></highlight></codeline>
+<codeline lineno="655"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="656"><highlight class="normal"></highlight></codeline>
+<codeline lineno="657"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>the<sp/>gains<sp/>for<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="658"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/kp&quot;</highlight><highlight class="normal">,<sp/>kp);</highlight></codeline>
+<codeline lineno="659"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/pramod/ki&quot;</highlight><highlight class="normal">,<sp/>ki);</highlight></codeline>
+<codeline lineno="660"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(kp);</highlight></codeline>
+<codeline lineno="661"><highlight class="normal"><sp/><sp/><sp/><sp/>controller_gains.push_back(ki);</highlight></codeline>
+<codeline lineno="662"><highlight class="normal"></highlight></codeline>
+<codeline lineno="663"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Assign<sp/>the<sp/>new<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="664"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pf_algorithm_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classPramod" kindref="compound">Pramod</ref>(controller_gains,<sp/>this-&gt;publishers_[0],</highlight></codeline>
+<codeline lineno="665"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;publishers_[1],<sp/>this-&gt;publishers_[2],<sp/>this-&gt;set_path_mode_client_);</highlight></codeline>
+<codeline lineno="666"><highlight class="normal"><sp/><sp/><sp/><sp/>pf_algorithm_-&gt;<ref refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" kindref="member">setPFollowingDebugPublisher</ref>(nh_p_.advertise&lt;farol_msgs::mPFollowingDebug&gt;(pfollowing_debug_topic,1));</highlight></codeline>
+<codeline lineno="667"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="668"><highlight class="normal"></highlight></codeline>
+<codeline lineno="669"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(...)<sp/>{</highlight></codeline>
+<codeline lineno="670"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Some<sp/>error<sp/>occured.<sp/>Please<sp/>reset<sp/>the<sp/>PF<sp/>node<sp/>for<sp/>safety&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="671"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="672"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="673"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="674"><highlight class="normal"></highlight></codeline>
+<codeline lineno="675"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>success<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="676"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;PF<sp/>controller<sp/>switched<sp/>to<sp/>Pramod.<sp/>This<sp/>algorithm<sp/>uses<sp/>the<sp/>path<sp/>closest<sp/>point<sp/>to<sp/>make<sp/>the<sp/>computations&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="677"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="678"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="679"><highlight class="normal"></highlight></codeline>
+<codeline lineno="680"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Service<sp/>to<sp/>switch<sp/>to<sp/>the<sp/>Samson<sp/>Path<sp/>Following<sp/>method<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="681"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PathFollowingNode::SetSamsonService(path_following::SetPF::Request<sp/>&amp;req,</highlight></codeline>
+<codeline lineno="682"><highlight class="normal"><sp/><sp/><sp/><sp/>path_following::SetPF::Response<sp/>&amp;res)<sp/>{</highlight></codeline>
+<codeline lineno="683"><highlight class="normal"></highlight></codeline>
+<codeline lineno="684"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Don&apos;t<sp/>change<sp/>if<sp/>the<sp/>algorithm<sp/>is<sp/>running<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="685"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(this-&gt;timer_.hasStarted())<sp/>{</highlight></codeline>
+<codeline lineno="686"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;Can&apos;t<sp/>change<sp/>algorithm<sp/>when<sp/>PF<sp/>is<sp/>running.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="687"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="688"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="689"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
 <codeline lineno="690"><highlight class="normal"></highlight></codeline>
-<codeline lineno="691"><highlight class="normal"><sp/><sp/>std::string<sp/>surge_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
-<codeline lineno="692"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/surge&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="693"><highlight class="normal"><sp/><sp/>std::string<sp/>yaw_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
-<codeline lineno="694"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/yaw_rate&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="695"><highlight class="normal"><sp/><sp/>std::string<sp/>pfollowing_debug_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
-<codeline lineno="696"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/pfollowing_debug&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="697"><highlight class="normal"></highlight></codeline>
-<codeline lineno="698"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>the<sp/>publishers<sp/>for<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="699"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(surge_topic,<sp/>1));</highlight></codeline>
-<codeline lineno="700"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(yaw_topic,<sp/>1));</highlight></codeline>
-<codeline lineno="701"><highlight class="normal"></highlight></codeline>
-<codeline lineno="702"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Variables<sp/>to<sp/>store<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="703"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k1,<sp/>k2,<sp/>k3,<sp/>theta,<sp/>k_delta;</highlight></codeline>
+<codeline lineno="691"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Clear<sp/>the<sp/>memory<sp/>used<sp/>by<sp/>the<sp/>previous<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="692"><highlight class="normal"><sp/><sp/>this-&gt;deleteCurrentController();</highlight></codeline>
+<codeline lineno="693"><highlight class="normal"></highlight></codeline>
+<codeline lineno="694"><highlight class="normal"><sp/><sp/>std::string<sp/>surge_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="695"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/surge&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="696"><highlight class="normal"><sp/><sp/>std::string<sp/>yaw_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="697"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/yaw_rate&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="698"><highlight class="normal"><sp/><sp/>std::string<sp/>pfollowing_debug_topic<sp/>=<sp/>FarolGimmicks::getParameters&lt;std::string&gt;(</highlight></codeline>
+<codeline lineno="699"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;nh_p_,<sp/></highlight><highlight class="stringliteral">&quot;topics/publishers/pfollowing_debug&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="700"><highlight class="normal"></highlight></codeline>
+<codeline lineno="701"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>the<sp/>publishers<sp/>for<sp/>the<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="702"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(surge_topic,<sp/>1));</highlight></codeline>
+<codeline lineno="703"><highlight class="normal"><sp/><sp/>this-&gt;publishers_.push_back(nh_.advertise&lt;std_msgs::Float64&gt;(yaw_topic,<sp/>1));</highlight></codeline>
 <codeline lineno="704"><highlight class="normal"></highlight></codeline>
-<codeline lineno="705"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="706"><highlight class="normal"></highlight></codeline>
-<codeline lineno="707"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>the<sp/>gains<sp/>for<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="708"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k1&quot;</highlight><highlight class="normal">,<sp/>k1);</highlight></codeline>
-<codeline lineno="709"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k2&quot;</highlight><highlight class="normal">,<sp/>k2);</highlight></codeline>
-<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k3&quot;</highlight><highlight class="normal">,<sp/>k3);</highlight></codeline>
-<codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/theta&quot;</highlight><highlight class="normal">,<sp/>theta);</highlight></codeline>
-<codeline lineno="712"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k_delta&quot;</highlight><highlight class="normal">,<sp/>k_delta);</highlight></codeline>
-<codeline lineno="713"><highlight class="normal"></highlight></codeline>
-<codeline lineno="714"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Assign<sp/>the<sp/>new<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="715"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pf_algorithm_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classSamson" kindref="compound">Samson</ref>(k1,<sp/>k2,<sp/>k3,<sp/>theta,<sp/>k_delta,<sp/>this-&gt;publishers_[0],<sp/>this-&gt;publishers_[1],<sp/>this-&gt;set_path_mode_client_);</highlight></codeline>
-<codeline lineno="716"><highlight class="normal"><sp/><sp/><sp/><sp/>pf_algorithm_-&gt;<ref refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" kindref="member">setPFollowingDebugPublisher</ref>(nh_p_.advertise&lt;farol_msgs::mPFollowingDebug&gt;(pfollowing_debug_topic,1));</highlight></codeline>
-<codeline lineno="717"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="718"><highlight class="normal"></highlight></codeline>
-<codeline lineno="719"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(...)<sp/>{</highlight></codeline>
-<codeline lineno="720"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Some<sp/>error<sp/>occured.<sp/>Please<sp/>reset<sp/>the<sp/>PF<sp/>node<sp/>for<sp/>safety&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="721"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="722"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="723"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="724"><highlight class="normal"></highlight></codeline>
-<codeline lineno="725"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>success<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="726"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;PF<sp/>controller<sp/>switched<sp/>to<sp/>Samson.<sp/>This<sp/>algorithm<sp/>uses<sp/>the<sp/>path<sp/>closest<sp/>point<sp/>to<sp/>make<sp/>the<sp/>computations&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="727"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="728"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="729"><highlight class="normal"></highlight></codeline>
+<codeline lineno="705"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Variables<sp/>to<sp/>store<sp/>the<sp/>gains<sp/>of<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="706"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>k1,<sp/>k2,<sp/>k3,<sp/>theta,<sp/>k_delta;</highlight></codeline>
+<codeline lineno="707"><highlight class="normal"></highlight></codeline>
+<codeline lineno="708"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="709"><highlight class="normal"></highlight></codeline>
+<codeline lineno="710"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Read<sp/>the<sp/>gains<sp/>for<sp/>the<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="711"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k1&quot;</highlight><highlight class="normal">,<sp/>k1);</highlight></codeline>
+<codeline lineno="712"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k2&quot;</highlight><highlight class="normal">,<sp/>k2);</highlight></codeline>
+<codeline lineno="713"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k3&quot;</highlight><highlight class="normal">,<sp/>k3);</highlight></codeline>
+<codeline lineno="714"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/theta&quot;</highlight><highlight class="normal">,<sp/>theta);</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"><sp/><sp/><sp/><sp/>nh_p_.getParam(</highlight><highlight class="stringliteral">&quot;controller_gains/samson/k_delta&quot;</highlight><highlight class="normal">,<sp/>k_delta);</highlight></codeline>
+<codeline lineno="716"><highlight class="normal"></highlight></codeline>
+<codeline lineno="717"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Assign<sp/>the<sp/>new<sp/>controller<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="718"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;pf_algorithm_<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classSamson" kindref="compound">Samson</ref>(k1,<sp/>k2,<sp/>k3,<sp/>theta,<sp/>k_delta,<sp/>this-&gt;publishers_[0],<sp/>this-&gt;publishers_[1],<sp/>this-&gt;set_path_mode_client_);</highlight></codeline>
+<codeline lineno="719"><highlight class="normal"><sp/><sp/><sp/><sp/>pf_algorithm_-&gt;<ref refid="classPathFollowing_1a6ee4ab94a9a42b81eacd550bc89954a8" kindref="member">setPFollowingDebugPublisher</ref>(nh_p_.advertise&lt;farol_msgs::mPFollowingDebug&gt;(pfollowing_debug_topic,1));</highlight></codeline>
+<codeline lineno="720"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="721"><highlight class="normal"></highlight></codeline>
+<codeline lineno="722"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(...)<sp/>{</highlight></codeline>
+<codeline lineno="723"><highlight class="normal"><sp/><sp/><sp/><sp/>ROS_WARN(</highlight><highlight class="stringliteral">&quot;Some<sp/>error<sp/>occured.<sp/>Please<sp/>reset<sp/>the<sp/>PF<sp/>node<sp/>for<sp/>safety&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="724"><highlight class="normal"><sp/><sp/><sp/><sp/>res.success<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="725"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="726"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="727"><highlight class="normal"></highlight></codeline>
+<codeline lineno="728"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Return<sp/>success<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="729"><highlight class="normal"><sp/><sp/>ROS_INFO(</highlight><highlight class="stringliteral">&quot;PF<sp/>controller<sp/>switched<sp/>to<sp/>Samson.<sp/>This<sp/>algorithm<sp/>uses<sp/>the<sp/>path<sp/>closest<sp/>point<sp/>to<sp/>make<sp/>the<sp/>computations&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="730"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="731"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="732"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/ros/PathFollowingServices.cpp"/>
   </compounddef>
