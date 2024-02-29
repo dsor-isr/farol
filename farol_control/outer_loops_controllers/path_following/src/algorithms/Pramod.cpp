@@ -1,8 +1,9 @@
 #include "Pramod.h"
 
-Pramod::Pramod(std::vector<double> gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::ServiceClient mode_client) :
+Pramod::Pramod(std::vector<double> gains, ros::Publisher surge_pub, ros::Publisher yaw_pub, ros::Publisher gamma_pub, ros::ServiceClient mode_client) :
   surge_pub_(surge_pub),
   yaw_pub_(yaw_pub), 
+  gamma_pub_(gamma_pub),
   mode_client_(mode_client) {
   /* NOTE: no gain checkup is performed here */
   this->setPFGains(gains);
@@ -95,6 +96,9 @@ void Pramod::publish_private() {
   /* Publish the control references */
   FarolGimmicks::publishValue<std_msgs::Float64, const double>(this->surge_pub_, this->desired_surge_);
   FarolGimmicks::publishValue<std_msgs::Float64, const double>(this->yaw_pub_, this->desired_yaw_);
+
+  // Publish path gamma
+  FarolGimmicks::publishValue<std_msgs::Float64, const double>(this->gamma_pub_, this->path_state_.gamma);
 }
 
 /* Method that will run in the first iteration of the algorithm */
