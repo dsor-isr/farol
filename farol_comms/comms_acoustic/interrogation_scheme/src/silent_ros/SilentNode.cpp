@@ -76,7 +76,7 @@ SilentPinger::~SilentPinger(){
  * @.@ Member Helper function to set up subscribers;
  */
 void SilentPinger::initializeSubscribers(){
-  ROS_INFO("Initializing Subscribers for PingerNode");
+  ROS_INFO("Initializing Subscribers for SilentPinger");
 
   sub_enable = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/enable", "enable"), 1, &SilentPinger::EnableCallback, this);
   sub_in_modem = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/modem_recv", "modem/recv"), 1, &SilentPinger::RECVIMSCallback, this);
