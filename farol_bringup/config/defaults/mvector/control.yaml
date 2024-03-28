@@ -110,6 +110,18 @@ inner_loops_pid:
             max_out:  20.0 # N
             min_out: -20.0 # N
             max_depth: 30.0 # m
+        # Heave Params
+        heave:
+            enabled: true
+            kp: 50.0
+            ki: 4.0
+            kd: 20.0
+            max_ref:  0.7  # m/s
+            min_ref: -0.7 # m/s
+            max_err:  0.2 # m/s
+            min_err: -0.2 # m/s  
+            max_out:  20.0 # N
+            min_out: -20.0 # N
 
 waypoint:
     cdist: 1.5
@@ -157,8 +169,8 @@ path_following:
       ke: [0.05, 0.0, 0.0, 0.05]
       kz: 0.2
     pramod:
-      kp: 0.02
-      ki: 0.0005
+      kp: 0.14
+      ki: 0.01
     samson:
       k1: 1.0
       k2: 0.3

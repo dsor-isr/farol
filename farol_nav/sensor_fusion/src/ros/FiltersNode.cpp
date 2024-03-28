@@ -56,11 +56,15 @@ void FiltersNode::initializePublishers() {
   state_sensors_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_sensors", "State_sensors",10), 10);
   vc_meas_velocity_pub_ = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/vc_meas_velocity", "vc_meas_velocity",10), 10);
   vc_meas_position_pub_ = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/vc_meas_position", "vc_meas_position",10), 10);
+  biased_orientation_pub_ = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/biased_heading", "biased_heading",10), 10);
 }
 
 void FiltersNode::initializeServices(){
   set_vcurrent_velocity_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "services/set_vcurrent_velocity", "set_vcurrent_velocity"), &FiltersNode::setVCurrentVelocityService, this);
   reset_vcurrent_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "services/reset_vcurrent", "reset_vcurrent"), &FiltersNode::resetVCurrentService, this);
+  set_bias_heading_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "services/set_bias_heading", "set_bias_heading"), &FiltersNode::setHeadingBiasService, this);
+  reset_bias_heading_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "services/reset_bias_heading", "reset_bias_heading"), &FiltersNode::resetHeadingBiasService, this);
+  
 }
 
 void FiltersNode::initializeTimer() {
@@ -220,10 +224,33 @@ void FiltersNode::measurementCallback(const dsor_msgs::Measurement &msg) {
 
   // For Virtual Currents Simulation
   // the flag is True ONLY if the service set_vcurrent_velocity is called
+  if(bias_flag_){
+    std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
+    if( t_frame == std::string("ahrs") ) {
+      msg_vc_.value.clear();
+      msg_vc_.noise.clear();
+      msg_vc_.header.seq = msg.header.seq;
+      msg_vc_.header.stamp.sec = msg.header.stamp.sec;
+      msg_vc_.header.stamp.nsec = msg.header.stamp.nsec;
+      msg_vc_.header.frame_id = msg.header.frame_id;
+      msg_vc_.value.push_back(msg.value[0]);
+      msg_vc_.value.push_back(msg.value[1]);
+      msg_vc_.value.push_back(msg.value[2] + bias_val_*M_PI/180);
+      msg_vc_.value.push_back(msg.value[3]);
+      msg_vc_.value.push_back(msg.value[4]);
+      msg_vc_.value.push_back(msg.value[5]);
+      msg_vc_.noise.push_back(msg.noise[0]);
+      msg_vc_.noise.push_back(msg.noise[1]);
+      msg_vc_.noise.push_back(msg.noise[2]);
+      msg_vc_.noise.push_back(msg.noise[3]);
+      msg_vc_.noise.push_back(msg.noise[4]);
+      msg_vc_.noise.push_back(msg.noise[5]);
+      msg_ptr = &msg_vc_;
+    }
+  }
   if (vc_flag_){
     // publish a state msg for the console with the last measurements for 
     // reference on the real state of the vehicle, AKA, not affected by virtual currents
-    sensorsState(msg);
     std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
     if( t_frame == std::string("gnss") || t_frame  == std::string("usbl") || t_frame == std::string("bt") ) {
       // change measurement to simulate the effect of sea currents
@@ -231,9 +258,10 @@ void FiltersNode::measurementCallback(const dsor_msgs::Measurement &msg) {
       msg_ptr = &msg_vc_;
     }
   }
+  sensorsState(msg);
+
 
   FilterGimmicks::measurement m(*msg_ptr);
-  //FilterGimmicks::measurement m(msg);
 
   // +.+ Disregard input if measurement config does not match the value size
   std::vector<FilterGimmicks::measurement>::iterator it_active_sensor =
@@ -580,7 +608,7 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   }
 }
 
-// ------- for virtual curents ------
+ // ------- for virtual curents ------
  bool FiltersNode::setVCurrentVelocityService(sensor_fusion::SetVCurrentVelocity::Request &req, sensor_fusion::SetVCurrentVelocity::Response &res){
   
   // If its the first virtual current
@@ -614,7 +642,7 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   return true;
  }
 
- bool FiltersNode::resetVCurrentService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res){
+ bool FiltersNode::resetVCurrentService(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res){
   vc_flag_ = false;
   
   vc_t_ = 0;
@@ -628,10 +656,10 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
   vc_last_vy_ = 0;
   vc_last_offx_ = 0;
   vc_last_offy_ = 0;
-  res.message = "Virtual currents simulation stoped\n";
   return true;
  }
 
+ // Publish a "State" message for information on the real vehicle, using last sensor measurements
  void FiltersNode::sensorsState(const dsor_msgs::Measurement &msg){
   std::string t_frame = msg.header.frame_id.substr(msg.header.frame_id.find_last_of('_')+1);
 
@@ -735,7 +763,25 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
       vc_meas_velocity_pub_.publish(msg_vc_);
   }
   return;
-}
+ }
+
+  // ------- for virtual heading sensor bias ------
+ bool FiltersNode::setHeadingBiasService(dsor_msgs::DoubleValue::Request &req, dsor_msgs::DoubleValue::Response &res){
+  if(req.value<-45 || req.value>45){
+   res.res = false; 
+   return true;
+  }
+  bias_flag_ = true;
+  bias_val_ = req.value;
+  res.res = true;
+  return true;
+ }
+
+ bool FiltersNode::resetHeadingBiasService(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res){
+  bias_flag_ = false;
+  bias_val_ = 0.0;
+  return true;
+ }
 
 
 // @.@ Main

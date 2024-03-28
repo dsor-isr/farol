@@ -638,12 +638,15 @@ bool PathFollowingNode::SetPramodService(path_following::SetPF::Request &req,
       this->nh_p_, "topics/publishers/surge");
   std::string yaw_topic = FarolGimmicks::getParameters<std::string>(
       this->nh_p_, "topics/publishers/yaw");
+  std::string gamma_topic = FarolGimmicks::getParameters<std::string>(
+      this->nh_p_, "topics/publishers/rabbit");
   std::string pfollowing_debug_topic = FarolGimmicks::getParameters<std::string>(
       this->nh_p_, "topics/publishers/pfollowing_debug");
 
   /* Create the publishers for the node */
   this->publishers_.push_back(nh_.advertise<std_msgs::Float64>(surge_topic, 1));
   this->publishers_.push_back(nh_.advertise<std_msgs::Float64>(yaw_topic, 1));
+  this->publishers_.push_back(nh_.advertise<std_msgs::Float64>(gamma_topic, 1));
 
   /* Variables to store the gains of the controller */
   double kp, ki;
@@ -659,7 +662,7 @@ bool PathFollowingNode::SetPramodService(path_following::SetPF::Request &req,
 
     /* Assign the new controller */
     this->pf_algorithm_ = new Pramod(controller_gains, this->publishers_[0],
-        this->publishers_[1], this->set_path_mode_client_);
+        this->publishers_[1], this->publishers_[2], this->set_path_mode_client_);
     pf_algorithm_->setPFollowingDebugPublisher(nh_p_.advertise<farol_msgs::mPFollowingDebug>(pfollowing_debug_topic,1));
     res.success = true;
 
