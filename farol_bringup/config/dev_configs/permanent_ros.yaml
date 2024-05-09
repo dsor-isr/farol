@@ -400,6 +400,7 @@ acomms/silent:
             enable: "/#vehicle#/acomms/scheme/enable"
             modem_recv: "/#vehicle#/acomms/modem/recv"
             payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
+            modem_clock: "/#vehicle#/acomms/modem/clock"
 
 acomms/data_serializer:
     topics:

@@ -11,6 +11,7 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/UInt32.h>
 #include <dmac/DMACPayload.h>
+#include <dmac/DMACClock.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <interrogation_scheme/StartSilent.h>
@@ -18,6 +19,7 @@
 //#include <comms_srv/KeyValueSrv.h>
 
 #define SOUND_SPEED 1500.0
+#define UNSIGNED_INT_MAX 4294967295
 
 // using dmac::mUSBLFix;
 
@@ -131,6 +133,16 @@ public:
    */
   /* -------------------------------------------------------------------------*/
   void Timer(const ros::TimerEvent& e);
+
+  void SysClockOverflowHandler(const ros::TimerEvent& e);
+
+  void modemClockCallback(const dmac::DMACClock& msg);
+
+  void computeModemTimeOffset(unsigned int system_clock, unsigned int utc_time_sec, unsigned int utc_time_nsec);
+
+  void computeModemSysClockOverflowTime(unsigned int system_clock, unsigned long int modem_time_offset);
+
+  void triggerECLKmessage();
   
 private:
 
@@ -142,7 +154,7 @@ private:
 
   //-----------------------------------------------------------
   // ROS Subscribers
-  ros::Subscriber sub_in_modem, sub_serializer, sub_enable, sub_tinit;
+  ros::Subscriber sub_in_modem, sub_serializer, sub_enable, sub_tinit, sub_modem_clock;
 
   //-----------------------------------------------------------
   // ROS Publishers
@@ -151,6 +163,7 @@ private:
   //-----------------------------------------------------------
   // ROS Timer
   ros::Timer timer;
+  ros::Timer timer_sys_clock_overflow;
 
   //-----------------------------------------------------------
   // Parameters
@@ -180,6 +193,8 @@ private:
   // Time variables
   unsigned long int lastRECVTime_modem;
   ros::Time lastRECVTime_ros;
+  unsigned long int modem_time_offset = 0;
+  double sys_clock_overflow_instant = -1;
 
   void loadParams();
   void initializeSubscribers();
