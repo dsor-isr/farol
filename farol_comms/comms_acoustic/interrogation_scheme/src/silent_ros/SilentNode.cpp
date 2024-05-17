@@ -125,7 +125,7 @@ void SilentPinger::initializeTimer(){
   timer = nh_.createTimer(ros::Duration(slots.front()), &SilentPinger::Timer, this, true);
   timer.stop();
 
-  timer_sys_clock_overflow = nh_.createTimer(ros::Duration(0.5), &SilentPinger::SysClockOverflowHandler, this, true);
+  timer_sys_clock_overflow = nh_.createTimer(ros::Duration(0.5), &SilentPinger::SysClockOverflowHandler, this);
 }
 
 void SilentPinger::triggerECLKmessage() {
@@ -186,12 +186,15 @@ void SilentPinger::computeModemTimeOffset(unsigned int system_clock, unsigned in
 
 void SilentPinger::computeModemSysClockOverflowTime(unsigned int system_clock, unsigned long int modem_time_offset) {
   // compute how many microseconds until overflow
-  unsigned int time_until_overflow = UNSIGNED_INT_MAX - system_clock;
-
+  // unsigned int time_until_overflow = UNSIGNED_INT_MAX - system_clock;
+  
   // utc time corresponding to sys clock overflow instant (seconds)
-  sys_clock_overflow_instant = (boost::lexical_cast<double>(boost::lexical_cast<unsigned long int>(system_clock) 
-                                                            + modem_time_offset
-                                                            + boost::lexical_cast<unsigned long int>(time_until_overflow)))/1000000;
+  // sys_clock_overflow_instant = (boost::lexical_cast<double>(boost::lexical_cast<unsigned long int>(system_clock) 
+  //                                                           + modem_time_offset
+  //                                                           + boost::lexical_cast<unsigned long int>(time_until_overflow)))/1000000;
+
+  sys_clock_overflow_instant = (boost::lexical_cast<double>(boost::lexical_cast<unsigned long int>(UNSIGNED_INT_MAX)
+                                                            + modem_time_offset))/1000000;
 
   ROS_INFO("Next Sys Clock Overflow: %f seconds.", sys_clock_overflow_instant);
 }
@@ -217,7 +220,7 @@ void SilentPinger::SysClockOverflowHandler(const ros::TimerEvent& e) {
     // properly update it using the ECLK message from the modem (which might be slower
     // due to communication issues), but the new values for the offset and overflow instant
     // will be 100% correct
-    triggerECLKmessage();
+    //triggerECLKmessage();
   
   }
 }
@@ -386,6 +389,10 @@ void SilentPinger::RECVIMSCallback(const dmac::DMACPayload& msg){
     unsigned long int travel_time = (boost::lexical_cast<unsigned long int>(msg.timestamp) + modem_time_offset) 
                                     - (tslot_start + tslack)*1000000; // microseconds
     double range = boost::lexical_cast<double>(travel_time) / 1000000 * SOUND_SPEED;
+
+    ROS_INFO("UTC: Message timestamp: %lu us, t_slot_start: %lu s", boost::lexical_cast<unsigned long int>(msg.timestamp) + modem_time_offset, 
+                                                              tslot_start);
+    ROS_INFO("Travel Time: %lu, Range: %f", travel_time, range);
     
     slot_ack = true;
 
@@ -450,16 +457,27 @@ void SilentPinger::serializerCallback(const std_msgs::String& msg){
   im.destination_address = 255;   // Broadcast address
 
   im.type = im.DMAC_IMS;
-  im.timestamp = boost::lexical_cast<unsigned int>(tping*1000000 - modem_time_offset); // timestamp in Modem System Clock (microseconds)
+
+  try {
+    im.timestamp = boost::lexical_cast<unsigned int>(tping*1000000 - modem_time_offset); // timestamp in Modem System Clock (microseconds)
+  } catch (boost::bad_lexical_cast &e){
+    ROS_WARN("ERROR: %s", e.what());
+    ROS_WARN("tping: %lu", tping);
+    ROS_WARN("modem_time_offset: %lu", modem_time_offset);
+    ROS_WARN("timestamp: %lu", tping*1000000 - modem_time_offset);
+  }
+
+  // im.timestamp = boost::lexical_cast<unsigned int>(tping*1000000 - modem_time_offset); // timestamp in Modem System Clock (microseconds)
   ROS_INFO("destination address %d, utc timestamp %lu, sys clock timestamp = %lu", 
             im.destination_address, (unsigned long)(tping), (unsigned long)(im.timestamp));
   
-  while(ros::Time::now().toSec() < tping);
+  // while(ros::Time::now().toSec() < tping);
 
   // Force undefined time
-  tping = 0;
-  if(tping==0) im.timestamp_undefined =true;
-  else im.timestamp_undefined = false;
+  // tping = 0;
+  // if(tping==0) im.timestamp_undefined =true;
+  // else im.timestamp_undefined = false;
+  im.timestamp_undefined = false;
   
   // im.ack  = replier_ack;
   im.payload =  msg.data;
