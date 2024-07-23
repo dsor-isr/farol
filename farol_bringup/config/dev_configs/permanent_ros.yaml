@@ -1,283 +1,282 @@
-## --------------------------- ## 
+## --------------------------- ##
 #  farol_addons                #
-## --------------------------- ## 
+## --------------------------- ##
 addons/console_path_parser:
-    node_frequency: 5
-    topics:
-        subscribers: 
-            Mission_String: "/#vehicle#/addons/Mission_String"
-            state: "/#vehicle#/nav/filter/state"
-            flag: "/#vehicle#/Flag"
-        publishers:
-            Path_Section: "/#vehicle#/addons/path_section"
-            Formation: "/#vehicle#/addons/formation"
-            biased_formation: "/#vehicle#/addons/biased_formation"
-            WPRef: "/#vehicle#/addons/WPRef"
-            DepthRef: "/#vehicle#/ref/depth"
-            AltRef: "/#vehicle#/ref/altitude"
-            FullMission: "/#vehicle#/addons/full_mission"
-        services:
-            reset_path: "/#vehicle#/ResetPath"
-            arc2d_path: "/#vehicle#/SpawnArc2DPath"
-            line_path: "/#vehicle#/SpawnLinePath"
-            pf_start: "/#vehicle#/PFStart"
-            pf_stop: "/#vehicle#/PFStop"
-            set_speed: "/#vehicle#/SetConstVdVehicle"
+  node_frequency: 5
+  topics:
+    subscribers:
+      Mission_String: "/#vehicle#/addons/Mission_String"
+      state: "/#vehicle#/nav/filter/state"
+      flag: "/#vehicle#/Flag"
+    publishers:
+      Path_Section: "/#vehicle#/addons/path_section"
+      Formation: "/#vehicle#/addons/formation"
+      biased_formation: "/#vehicle#/addons/biased_formation"
+      WPRef: "/#vehicle#/addons/WPRef"
+      DepthRef: "/#vehicle#/ref/depth"
+      AltRef: "/#vehicle#/ref/altitude"
+      FullMission: "/#vehicle#/addons/full_mission"
+    services:
+      reset_path: "/#vehicle#/ResetPath"
+      arc2d_path: "/#vehicle#/SpawnArc2DPath"
+      line_path: "/#vehicle#/SpawnLinePath"
+      pf_start: "/#vehicle#/PFStart"
+      pf_stop: "/#vehicle#/PFStop"
+      set_speed: "/#vehicle#/SetConstVdVehicle"
 
 addons/console_server:
-    PORT: 7080
-    topics:
-      services:
-          wp_standard: "/#vehicle#/controls/send_wp_standard"
-          wp_loose: "/#vehicle#/controls/send_wp_loose"
-          wp_heading: "/#vehicle#/controls/send_wp_heading"
-      console:
-          waypoint: "wp_standard"
-    
+  PORT: 7080
+  topics:
+    services:
+      wp_standard: "/#vehicle#/controls/send_wp_standard"
+      wp_loose: "/#vehicle#/controls/send_wp_loose"
+      wp_heading: "/#vehicle#/controls/send_wp_heading"
+    console:
+      waypoint: "wp_standard"
+
 addons/aggregator:
-    pub_rate: 2.0
+  pub_rate: 2.0
 
 addons/remote_controller:
-    node_frequency: 10 #Hz
-    topics:
-        publishers:
-            # Linear velocity inner-loops
-            surge: "/#vehicle#/ref/surge"
-            sway: "/#vehicle#/ref/sway"
-            heave: "/#vehicle#/ref/heave"
+  node_frequency: 10 #Hz
+  topics:
+    publishers:
+      # Linear velocity inner-loops
+      surge: "/#vehicle#/ref/surge"
+      sway: "/#vehicle#/ref/sway"
+      heave: "/#vehicle#/ref/heave"
 
-            # Angular speed references
-            yaw_rate: "/#vehicle#/ref/yaw_rate"
+      # Angular speed references
+      yaw_rate: "/#vehicle#/ref/yaw_rate"
 
-            # Orientation references
-            yaw: "/#vehicle#/ref/yaw"
+      # Orientation references
+      yaw: "/#vehicle#/ref/yaw"
 
-            # Depth references
-            depth: "/#vehicle#/ref/depth"
+      # Depth references
+      depth: "/#vehicle#/ref/depth"
 
-        subscribers:
-            state: "/#vehicle#/nav/filter/state"
+    subscribers:
+      state: "/#vehicle#/nav/filter/state"
 
-## --------------------------- ## 
+## --------------------------- ##
 #  farol_sim                   #
-## --------------------------- ## 
+## --------------------------- ##
 ## dynamic model
 sim/auv_sim:
-    frame_id: "#vehicle#"
-    node_frequency: 100 # (Hz)
-    topics:
-        subscribers:
-            thrusters: "/#vehicle#/thrusters/rpm_command"
-        publishers:
-            odometry: "/#vehicle#/sim/dynamics/position"
-        services:
-            start_pause: "/#vehicle#/sim/pause_start"
+  frame_id: "#vehicle#"
+  node_frequency: 100 # (Hz)
+  topics:
+    subscribers:
+      thrusters: "/#vehicle#/thrusters/rpm_command"
+    publishers:
+      odometry: "/#vehicle#/sim/dynamics/position"
+    services:
+      start_pause: "/#vehicle#/sim/pause_start"
 
 ## sensor simulator
 sim/sensors:
-    node_frequency: 10
-    topics:
-        subscribers: 
-            position: "/#vehicle#/sim/dynamics/position"
-        publishers: 
-            position: "/#vehicle#/measurement/position"
-            velocity: "/#vehicle#/measurement/velocity"
-            orientation: "/#vehicle#/measurement/orientation"
-            gnss: "/#vehicle#/sensors/gnss"
-            range: "/#vehicle#/sensors/range"
-            state: "/#vehicle#/sim/model/state"
-    services:
-      enable_dvl: "/#vehicle#/sim/enable_dvl"
-      enable_altimeter: "/#vehicle#/sim/enable_altimeter"
+  node_frequency: 10
+  topics:
+    subscribers:
+      position: "/#vehicle#/sim/dynamics/position"
+    publishers:
+      position: "/#vehicle#/measurement/position"
+      velocity: "/#vehicle#/measurement/velocity"
+      orientation: "/#vehicle#/measurement/orientation"
+      gnss: "/#vehicle#/sensors/gnss"
+      range: "/#vehicle#/sensors/range"
+      state: "/#vehicle#/sim/model/state"
+  services:
+    enable_dvl: "/#vehicle#/sim/enable_dvl"
+    enable_altimeter: "/#vehicle#/sim/enable_altimeter"
 
-## --------------------------- ## 
+## --------------------------- ##
 #  farol_nav                   #
-## --------------------------- ## 
+## --------------------------- ##
 nav/filter:
-    node_frequency: 10      # ROS node rate
-    topics:
-        subscribers:
-            reset: "/#vehicle#/nav/filter/reset"
-            position: "/#vehicle#/measurement/position"
-            velocity: "/#vehicle#/measurement/velocity"
-            orientation: "/#vehicle#/measurement/orientation"
-        publishers:
-            state: "/#vehicle#/nav/filter/state"
-            state_acomms: "/#vehicle#/nav/filter/state_acomms"
-            currents: "/#vehicle#/nav/filter/currents"
-            state_sensors: "/#vehicle#/nav/filter/State_sensors"
-            vc_meas_velocity: "/#vehicle#/nav/filter/vc_meas_velocity"
-            vc_meas_position: "/#vehicle#/nav/filter/vc_meas_position"
+  node_frequency: 10 # ROS node rate
+  topics:
+    subscribers:
+      reset: "/#vehicle#/nav/filter/reset"
+      position: "/#vehicle#/measurement/position"
+      velocity: "/#vehicle#/measurement/velocity"
+      orientation: "/#vehicle#/measurement/orientation"
+    publishers:
+      state: "/#vehicle#/nav/filter/state"
+      state_acomms: "/#vehicle#/nav/filter/state_acomms"
+      currents: "/#vehicle#/nav/filter/currents"
+      state_sensors: "/#vehicle#/nav/filter/State_sensors"
+      vc_meas_velocity: "/#vehicle#/nav/filter/vc_meas_velocity"
+      vc_meas_position: "/#vehicle#/nav/filter/vc_meas_position"
 
-    topics_dr:
-       velocity: "/#vehicle#/measurement/velocity"
-       orientation: "/#vehicle#/measurement/orientation"
-       true_state: "/#vehicle#/nav/filter/state"
-       flag: "/#vehicle#/Flag"
-       dead_reckoning: "/#vehicle#/nav/filter/state_dr"
-       dead_reckoning_console: "/#vehicle#/State_dr"
-    services_dr:
-       reset_filter_dr: "/#vehicle#/nav/reset_filter_dr"
-    services:
-       set_vcurrent_velocity: "/#vehicle#/nav/set_vcurrent_velocity"
-       reset_vcurrent: "/#vehicle#/nav/reset_vcurrent"
-
-
+  topics_dr:
+    velocity: "/#vehicle#/measurement/velocity"
+    orientation: "/#vehicle#/measurement/orientation"
+    true_state: "/#vehicle#/nav/filter/state"
+    flag: "/#vehicle#/Flag"
+    dead_reckoning: "/#vehicle#/nav/filter/state_dr"
+    dead_reckoning_console: "/#vehicle#/State_dr"
+  services_dr:
+    reset_filter_dr: "/#vehicle#/nav/reset_filter_dr"
+  services:
+    set_vcurrent_velocity: "/#vehicle#/nav/set_vcurrent_velocity"
+    reset_vcurrent: "/#vehicle#/nav/reset_vcurrent"
 
 nav/gnss2utm:
-    node_frequency: 10
-    topics:
-        subscribers:
-            gnss: "/#vehicle#/sensors/gnss" 
-        publishers: 
-            position: "/#vehicle#/measurement/position"
-            ground_truth: "/#vehicle#/State_gt"
-    services:
-        enable_gps: "/#vehicle#/sensor/enable_gps"
+  node_frequency: 10
+  topics:
+    subscribers:
+      gnss: "/#vehicle#/sensors/gnss"
+    publishers:
+      position: "/#vehicle#/measurement/position"
+      ground_truth: "/#vehicle#/State_gt"
+  services:
+    enable_gps: "/#vehicle#/sensor/enable_gps"
 
 nav/gnss2utmoutlier:
-    node_frequency: 10
-    topics:
-        subscribers:
-            gnss: "/#vehicle#/sensors/gnss" 
-        publishers: 
-            position: "/#vehicle#/measurement/position"
-    services:
-        enable_gps_outlier: "/#vehicle#/sensor/fake/enable_gps_outlier"
-        enable_usbl_delay: "/#vehicle#/sensor/fake/enable_usbl_delay"
+  node_frequency: 10
+  topics:
+    subscribers:
+      gnss: "/#vehicle#/sensors/gnss"
+    publishers:
+      position: "/#vehicle#/measurement/position"
+  services:
+    enable_gps_outlier: "/#vehicle#/sensor/fake/enable_gps_outlier"
+    enable_usbl_delay: "/#vehicle#/sensor/fake/enable_usbl_delay"
 
 nav/usbl2pos:
-    node_frequency: 10
-    topics:
-        subscribers:
-            usbl_fix: "/#vehicle#/sensors/usbl_fix"
-            acomms_state: "/#vehicle#/acomms/nav/filter/state"
-            state: "/#vehicle#/nav/filter/state"
-        publishers:
-            position: "/#vehicle#/measurement/position"
-            console_state_usbl_estimation: "/#vehicle#/State_usbl_est"
-            state_usbl_estimation: "/#vehicle#/nav/filter/usbl_est"
+  node_frequency: 10
+  topics:
+    subscribers:
+      usbl_fix: "/#vehicle#/sensors/usbl_fix"
+      acomms_state: "/#vehicle#/acomms/nav/filter/state"
+      state: "/#vehicle#/nav/filter/state"
+    publishers:
+      position: "/#vehicle#/measurement/position"
+      console_state_usbl_estimation: "/#vehicle#/State_usbl_est"
+      state_usbl_estimation: "/#vehicle#/nav/filter/usbl_est"
 
 nav/auvstate2mstate:
-    node_frequency: 10
-    topics:
-        subscribers:
-            state: "/#vehicle#/nav/filter/state"
-            gnss: "/#vehicle#/sensors/gnss"
-            inside_pressure_filter: "/#vehicle#/drivers/inside_pressure_filter/data"
-            inside_pressure_rate: "/#vehicle#/drivers/inside_pressure_filter/data_dot"
-        publishers:  
-            console_state: "/#vehicle#/State"
+  node_frequency: 10
+  topics:
+    subscribers:
+      state: "/#vehicle#/nav/filter/state"
+      gnss: "/#vehicle#/sensors/gnss"
+      inside_pressure_filter: "/#vehicle#/drivers/inside_pressure_filter/data"
+      inside_pressure_rate: "/#vehicle#/drivers/inside_pressure_filter/data_dot"
+    publishers:
+      console_state: "/#vehicle#/State"
 
-## --------------------------- ## 
+## --------------------------- ##
 #  farol_control               #
-## --------------------------- ## 
+## --------------------------- ##
 controls/static_thruster_allocation:
-    topics:
-        subscribers:
-            thrust_body_request: "/#vehicle#/thrust_body_request"
-        publishers:
-            thrusters: "/#vehicle#/thrusters/rpm_command"
+  topics:
+    subscribers:
+      thrust_body_request: "/#vehicle#/thrust_body_request"
+    publishers:
+      thrusters: "/#vehicle#/thrusters/rpm_command"
 
 controls/inner_loops_pid:
-    node_frequency: 10.0 
-    topics:
-        subscribers:
-            yaw: "/#vehicle#/ref/yaw"
-            pitch: "/#vehicle#/ref/pitch"
-            roll: "/#vehicle#/ref/roll"
-            yaw_rate: "/#vehicle#/ref/yaw_rate"
-            pich_rate: "/#vehicle#/ref/pitch_rate"
-            roll_rate: "/#vehicle#/ref/roll_rate"
-            surge: "/#vehicle#/ref/surge"
-            sway: "/#vehicle#/ref/sway"
-            heave: "/#vehicle#/ref/heave"
-            depth: "/#vehicle#/ref/depth"
-            altitude: "/#vehicle#/ref/altitude"
-            altitude_safety: "/#vehicle#/ref/altitude_safety"
-            depth_safety: "/#vehicle#/ref/depth_safety"
-            state: "/#vehicle#/nav/filter/state"
-            force_bypass: "/#vehicle#/force_bypass"
-            turn_radius_speed: "/#vehicle#/nav/filter/state"
-        publishers:
-            thrust_body_request: "/#vehicle#/thrust_body_request"
-            turn_radius_flag: "/#vehicle#/turn_radius_flag"
-        services: 
-            change_ff_gains: "/#vehicle#/inner_forces/change_ff_gains"
-            change_inner_gains: "/#vehicle#/inner_forces/change_inner_gains"
-            change_inner_limits: "/#vehicle#/inner_forces/change_inner_limits"
-            turning_radius_limiter: "/#vehicle#/inner_forces/turning_radius_limiter"
+  node_frequency: 10.0
+  topics:
+    subscribers:
+      yaw: "/#vehicle#/ref/yaw"
+      pitch: "/#vehicle#/ref/pitch"
+      roll: "/#vehicle#/ref/roll"
+      yaw_rate: "/#vehicle#/ref/yaw_rate"
+      pich_rate: "/#vehicle#/ref/pitch_rate"
+      roll_rate: "/#vehicle#/ref/roll_rate"
+      surge: "/#vehicle#/ref/surge"
+      sway: "/#vehicle#/ref/sway"
+      heave: "/#vehicle#/ref/heave"
+      depth: "/#vehicle#/ref/depth"
+      altitude: "/#vehicle#/ref/altitude"
+      altitude_safety: "/#vehicle#/ref/altitude_safety"
+      depth_safety: "/#vehicle#/ref/depth_safety"
+      state: "/#vehicle#/nav/filter/state"
+      force_bypass: "/#vehicle#/force_bypass"
+      turn_radius_speed: "/#vehicle#/nav/filter/state"
+    publishers:
+      thrust_body_request: "/#vehicle#/thrust_body_request"
+      turn_radius_flag: "/#vehicle#/turn_radius_flag"
+      delta_debug: "/#vehicle#/debug/delta"
+    services:
+      change_ff_gains: "/#vehicle#/inner_forces/change_ff_gains"
+      change_inner_gains: "/#vehicle#/inner_forces/change_inner_gains"
+      change_inner_limits: "/#vehicle#/inner_forces/change_inner_limits"
+      turning_radius_limiter: "/#vehicle#/inner_forces/turning_radius_limiter"
 
 controls/waypoint:
-    node_frequency: 10.0
-    topics:
-        publishers:
-            yaw_ref: "/#vehicle#/ref/yaw"
-            yaw_rate_ref: "/#vehicle#/ref/yaw_rate"
-            u_ref: "/#vehicle#/ref/surge"
-            v_ref: "/#vehicle#/ref/sway"
-            flag: "/#vehicle#/Flag"
-        subscribers:
-            flag: "/#vehicle#/Flag"
-            state: "/#vehicle#/nav/filter/state"
-            turn_radius_flag: "/#vehicle#/turn_radius_flag"
-        services:
-            wp_standard: "/#vehicle#/controls/send_wp_standard"
-            wp_loose: "/#vehicle#/controls/send_wp_loose"
-            wp_heading: "/#vehicle#/controls/send_wp_heading"
+  node_frequency: 10.0
+  topics:
+    publishers:
+      yaw_ref: "/#vehicle#/ref/yaw"
+      yaw_rate_ref: "/#vehicle#/ref/yaw_rate"
+      u_ref: "/#vehicle#/ref/surge"
+      v_ref: "/#vehicle#/ref/sway"
+      flag: "/#vehicle#/Flag"
+    subscribers:
+      flag: "/#vehicle#/Flag"
+      state: "/#vehicle#/nav/filter/state"
+      turn_radius_flag: "/#vehicle#/turn_radius_flag"
+    services:
+      wp_standard: "/#vehicle#/controls/send_wp_standard"
+      wp_loose: "/#vehicle#/controls/send_wp_loose"
+      wp_heading: "/#vehicle#/controls/send_wp_heading"
 
 controls/path_following:
-    node_frequency: 10.0
-    flag: "/#vehicle#/Flag"
-    topics:
-        subscribers:
-            state: "/#vehicle#/nav/filter/state"
-            path: "/#vehicle#/PathData"
-            vc: "/#vehicle#/PF/vc"
-        publishers:
-            surge: "/#vehicle#/ref/surge"
-            sway: "/#vehicle#/ref/sway"
-            heave: "/#vehicle#/ref/heave"
-            roll: "/#vehicle#/ref/roll"
-            roll_rate: "/#vehicle#/ref/roll_rate"
-            pitch: "/#vehicle#/ref/pitch"
-            pitch_rate: "/#vehicle#/ref/pitch_rate"
-            yaw: "/#vehicle#/ref/yaw"
-            yaw_rate: "/#vehicle#/ref/yaw_rate"
-    
-            # Publishers for the virtual target
-            rabbit: "/#vehicle#/Gamma"
-            
-            # Observer for the currents
-            observer:
-                x: "/#vehicle#/current/x"
-                y: "/#vehicle#/current/y"
+  node_frequency: 10.0
+  flag: "/#vehicle#/Flag"
+  topics:
+    subscribers:
+      state: "/#vehicle#/nav/filter/state"
+      path: "/#vehicle#/PathData"
+      vc: "/#vehicle#/PF/vc"
+    publishers:
+      surge: "/#vehicle#/ref/surge"
+      sway: "/#vehicle#/ref/sway"
+      heave: "/#vehicle#/ref/heave"
+      roll: "/#vehicle#/ref/roll"
+      roll_rate: "/#vehicle#/ref/roll_rate"
+      pitch: "/#vehicle#/ref/pitch"
+      pitch_rate: "/#vehicle#/ref/pitch_rate"
+      yaw: "/#vehicle#/ref/yaw"
+      yaw_rate: "/#vehicle#/ref/yaw_rate"
 
-            # Publish info for plots
-            pfollowing_debug: "/#vehicle#/pfollowing/debug"
-        
-        services:
-            # Service names to start and stop the path following algorithm
-            start_pf: "/#vehicle#/PFStart"
-            stop_pf: "/#vehicle#/PFStop"
-            updates_gains_pf: "/#vehicle#/PFUpdateGains"
-            reset_vt_pf: "/#vehicle#/ResetVT"
-    
-            # Service names to switch the path following algorithm
-            relative_heading_pf: "/#vehicle#/PFSetRelativeHeading"
-            marcelo_pf: "/#vehicle#/PFSetMarcelo"
-            aguiar_pf: "/#vehicle#/PFSetAguiar"
-            brevik_pf: "/#vehicle#/PFSetBrevik"
-            fossen_pf: "/#vehicle#/PFSetFossen"
-            romulo_pf: "/#vehicle#/PFSetRomulo"
-            lapierre_pf: "/#vehicle#/PFSetLapierre"
-            pramod_pf: "/#vehicle#/PFSetPramod"
-            samson_pf: "/#vehicle#/PFSetSamson"
-            # Service names related to the path
-            reset_path: "/#vehicle#/ResetPath"
-            set_path_mode: "/#vehicle#/SetMode"
-            # Service names related to the waypoint
-            wp_standard: "/#vehicle#/controls/send_wp_standard"
+      # Publishers for the virtual target
+      rabbit: "/#vehicle#/Gamma"
+
+      # Observer for the currents
+      observer:
+        x: "/#vehicle#/current/x"
+        y: "/#vehicle#/current/y"
+
+      # Publish info for plots
+      pfollowing_debug: "/#vehicle#/pfollowing/debug"
+
+    services:
+      # Service names to start and stop the path following algorithm
+      start_pf: "/#vehicle#/PFStart"
+      stop_pf: "/#vehicle#/PFStop"
+      updates_gains_pf: "/#vehicle#/PFUpdateGains"
+      reset_vt_pf: "/#vehicle#/ResetVT"
+
+      # Service names to switch the path following algorithm
+      relative_heading_pf: "/#vehicle#/PFSetRelativeHeading"
+      marcelo_pf: "/#vehicle#/PFSetMarcelo"
+      aguiar_pf: "/#vehicle#/PFSetAguiar"
+      brevik_pf: "/#vehicle#/PFSetBrevik"
+      fossen_pf: "/#vehicle#/PFSetFossen"
+      romulo_pf: "/#vehicle#/PFSetRomulo"
+      lapierre_pf: "/#vehicle#/PFSetLapierre"
+      pramod_pf: "/#vehicle#/PFSetPramod"
+      samson_pf: "/#vehicle#/PFSetSamson"
+      # Service names related to the path
+      reset_path: "/#vehicle#/ResetPath"
+      set_path_mode: "/#vehicle#/SetMode"
+      # Service names related to the waypoint
+      wp_standard: "/#vehicle#/controls/send_wp_standard"
 
 controls/vehicle_stabilizer:
   topics:
@@ -296,118 +295,118 @@ controls/vehicle_stabilizer:
 
       depth: "/#vehicle#/ref/depth"
       altitude: "/#vehicle#/ref/altitude"
-   
+
 ### Cooperative control law
 cooperative/cpf_control:
-    node_frequency: 10
-    topics:
-        publishers: 
-            vc: "/#vehicle#/PF/vc"
-            cpf_server_input: "/#vehicle#/Internal/Gamma"
-        subscribers:
-            internal_gamma: "/#vehicle#/PathData"
-            external_gamma: "/#vehicle#/External/Gamma"
-        services:
-        # Service names to start and stop the path following algorithm
-            start_cpf: "/#vehicle#/CPFStart"
-            stop_cpf: "/#vehicle#/CPFStop"
-            change_topology: "/#vehicle#/CPFChangeTopology"
+  node_frequency: 10
+  topics:
+    publishers:
+      vc: "/#vehicle#/PF/vc"
+      cpf_server_input: "/#vehicle#/Internal/Gamma"
+    subscribers:
+      internal_gamma: "/#vehicle#/PathData"
+      external_gamma: "/#vehicle#/External/Gamma"
+    services:
+      # Service names to start and stop the path following algorithm
+      start_cpf: "/#vehicle#/CPFStart"
+      stop_cpf: "/#vehicle#/CPFStop"
+      change_topology: "/#vehicle#/CPFChangeTopology"
 
 cooperative/cpf_wifi_server:
-    broadcast_port: 2808
-    node_frequency: 10
-    topics:
-      subscribers:
-        internal_gamma: "/#vehicle#/Internal/Gamma"
-      publishers:
-        cpf_gamma: "/#vehicle#/External/Gamma"
-        
-cooperative/cpf_wifi_client:
-    broadcast_port: 2808
-    node_frequency: 10
-    topics:
-      subscribers:
-        internal_gamma: "/#vehicle#/Internal/Gamma"
-      publishers:
-        cpf_gamma: "/#vehicle#/External/Gamma"
+  broadcast_port: 2808
+  node_frequency: 10
+  topics:
+    subscribers:
+      internal_gamma: "/#vehicle#/Internal/Gamma"
+    publishers:
+      cpf_gamma: "/#vehicle#/External/Gamma"
 
-## --------------------------- ## 
+cooperative/cpf_wifi_client:
+  broadcast_port: 2808
+  node_frequency: 10
+  topics:
+    subscribers:
+      internal_gamma: "/#vehicle#/Internal/Gamma"
+    publishers:
+      cpf_gamma: "/#vehicle#/External/Gamma"
+
+## --------------------------- ##
 #  farol_planning              #
 ## --------------------------- ##
 planning/dsor_paths:
-    node_frequency: 10.0
-    frame_id: "Path_frame"
-    topics:
-        subscribers:
-            gamma: "/#vehicle#/Gamma"
-            vehicle_state: "/#vehicle#/nav/filter/state"
-        publishers:
-            path_data: "/#vehicle#/PathData"
-            virtual_target_state: "/#vehicle#/Virtual/State"
-        # Services for constructing a path
-        services:
-            reset_path: "/#vehicle#/ResetPath"
-            set_mode: "/#vehicle#/SetMode"
-            arc2d_path: "/#vehicle#/SpawnArc2DPath"
-            bernoulli_path: "/#vehicle#/SpawnBernoulliPath"
-            circle2d_path: "/#vehicle#/SpawnCircle2DPath"
-            line_path: "/#vehicle#/SpawnLinePath"
-            speed:
-                const_rabbit_speed: "/#vehicle#/SetConstVdRabbit"
-                const_vehicle_speed: "/#vehicle#/SetConstVdVehicle"
+  node_frequency: 10.0
+  frame_id: "Path_frame"
+  topics:
+    subscribers:
+      gamma: "/#vehicle#/Gamma"
+      vehicle_state: "/#vehicle#/nav/filter/state"
+    publishers:
+      path_data: "/#vehicle#/PathData"
+      virtual_target_state: "/#vehicle#/Virtual/State"
+    # Services for constructing a path
+    services:
+      reset_path: "/#vehicle#/ResetPath"
+      set_mode: "/#vehicle#/SetMode"
+      arc2d_path: "/#vehicle#/SpawnArc2DPath"
+      bernoulli_path: "/#vehicle#/SpawnBernoulliPath"
+      circle2d_path: "/#vehicle#/SpawnCircle2DPath"
+      line_path: "/#vehicle#/SpawnLinePath"
+      speed:
+        const_rabbit_speed: "/#vehicle#/SetConstVdRabbit"
+        const_vehicle_speed: "/#vehicle#/SetConstVdVehicle"
 
-## --------------------------- ## 
+## --------------------------- ##
 #  farol_comms                #
-## --------------------------- ## 
+## --------------------------- ##
 acomms/pinger:
-    topics:
-        publishers:
-            modem_send: "/#vehicle#/acomms/modem/send"
-            meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
-            trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
-            deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
-        subscribers:
-            enable: "/#vehicle#/acomms/scheme/enable"
-            modem_recv: "/#vehicle#/acomms/modem/recv"
-            payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
+  topics:
+    publishers:
+      modem_send: "/#vehicle#/acomms/modem/send"
+      meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
+      trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
+      deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
+    subscribers:
+      enable: "/#vehicle#/acomms/scheme/enable"
+      modem_recv: "/#vehicle#/acomms/modem/recv"
+      payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
 
 acomms/replier:
-    topics:
-        publishers:
-            modem_send: "/#vehicle#/acomms/modem/send"
-            meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
-            trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
-            deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
-        subscribers:
-            modem_recv: "/#vehicle#/acomms/modem/recv"
-            payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
+  topics:
+    publishers:
+      modem_send: "/#vehicle#/acomms/modem/send"
+      meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
+      trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
+      deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
+    subscribers:
+      modem_recv: "/#vehicle#/acomms/modem/recv"
+      payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
 
 acomms/data_serializer:
-    topics:
-        publishers:
-            to_modem: "/#vehicle#/acomms/serializer/payload_to_transmit"
-        subscribers:
-            from_modem: "/#vehicle#/acomms/scheme/payload_to_deserialize"
-            trigger: "/#vehicle#/acomms/scheme/trigger_serialization"
-        
+  topics:
+    publishers:
+      to_modem: "/#vehicle#/acomms/serializer/payload_to_transmit"
+    subscribers:
+      from_modem: "/#vehicle#/acomms/scheme/payload_to_deserialize"
+      trigger: "/#vehicle#/acomms/scheme/trigger_serialization"
+
 acomms/dmac2farol:
-    topics:
-        publishers:
-            farol_fix: "/#vehicle#/sensors/usbl_fix"
-        subscribers:
-            dmac_fix: "/#vehicle#/acomms/modem/measurement/usbl_fix"
-            state: "/#vehicle#/nav/filter/state"
+  topics:
+    publishers:
+      farol_fix: "/#vehicle#/sensors/usbl_fix"
+    subscribers:
+      dmac_fix: "/#vehicle#/acomms/modem/measurement/usbl_fix"
+      state: "/#vehicle#/nav/filter/state"
 
 acomms/gnss2state:
-    topics:
-        subscribers:
-            gnss: "/#vehicle#/acomms/nav/filter/gnss"
-        publishers:
-            state: "/#vehicle#/acomms/nav/filter/state"
-            utmzone: "/#vehicle#/state/utmzone"
+  topics:
+    subscribers:
+      gnss: "/#vehicle#/acomms/nav/filter/gnss"
+    publishers:
+      state: "/#vehicle#/acomms/nav/filter/state"
+      utmzone: "/#vehicle#/state/utmzone"
 
 acomms/pos2sim_modem:
-    topics:
-        subscribers:
-            position_sim: "/#vehicle#/sim/dynamics/position"
-            position_gazebo: "/gazebo/model_states"
+  topics:
+    subscribers:
+      position_sim: "/#vehicle#/sim/dynamics/position"
+      position_gazebo: "/gazebo/model_states"

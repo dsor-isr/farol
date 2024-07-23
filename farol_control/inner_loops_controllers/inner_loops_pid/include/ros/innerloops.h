@@ -166,6 +166,8 @@ private:
 
   ros::Timer timer_; // timer
 
+  double zero = 0.0;
+
   // variable to bypass innerloops and publish a direct force on the vehicle
   auv_msgs::BodyForceRequest force_bypass_;
   // force bypass receiving time

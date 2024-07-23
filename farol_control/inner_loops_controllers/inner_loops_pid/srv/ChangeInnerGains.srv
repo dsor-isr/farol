@@ -1,7 +1,7 @@
 string inner_type
 float64 kp
 float64 ki
-float64 kd
+float64 kr
 ---
 bool success
 string message

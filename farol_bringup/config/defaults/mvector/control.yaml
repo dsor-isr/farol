@@ -3,7 +3,7 @@ vehicle_stabilizer:
   # By default we have configured ros.yaml for: surge, sway, heave, roll, pitch, yaw, roll_rate, pitch_rate, yaw_rate, depth, altitude
   # But more can be provided, as long as the corresponding topic name is provided in the ros.yaml
   # If you want to publish no reference, this dictionary should be left empty!
-  references: {'roll': 0.0, 'pitch': 0.0}
+  references: { "roll": 0.0, "pitch": 0.0 }
 
 open_loop_controller:
   gain_Fx: 10.0 # surge speed to -> Force Fx N
@@ -11,119 +11,172 @@ open_loop_controller:
   gain_Fz: 10.0 # heave speed to -> Force Fz N
   gain_Tz: 0.10 # yaw-rate speed to -> Torque Tz Nm
 
-
 static_thruster_allocation:
   thrusters:
     # Allocation matrix
     # For each thruster [ Fx, Fy, Fz, lx, ly, lz ] where F = forces and l = moments arms
-    allocation_matrix: [0.707, -0.707,  0.0, -0.306, -0.062,  0.0,     
-                        0.707,  0.707,  0.0, -0.306,  0.062,  0.0,     
-                        0.000,  0.000, -1.0, -0.087, -0.120,  0.0,   
-                        0.000,  0.000, -1.0, -0.087,  0.120,  0.0,        
-                        0.707,  0.707,  0.0,  0.300, -0.197, -0.0,        
-                        0.707, -0.707,  0.0,  0.300,  0.197, -0.0]  
+    allocation_matrix:
+      [
+        0.707,
+        -0.707,
+        0.0,
+        -0.306,
+        -0.062,
+        0.0,
+        0.707,
+        0.707,
+        0.0,
+        -0.306,
+        0.062,
+        0.0,
+        0.000,
+        0.000,
+        -1.0,
+        -0.087,
+        -0.120,
+        0.0,
+        0.000,
+        0.000,
+        -1.0,
+        -0.087,
+        0.120,
+        0.0,
+        0.707,
+        0.707,
+        0.0,
+        0.300,
+        -0.197,
+        -0.0,
+        0.707,
+        -0.707,
+        0.0,
+        0.300,
+        0.197,
+        -0.0,
+      ]
 
     #Forces (N) = ct[0]*RPM^2 + c[1]*RPM + c[2]
-    ctf: [0.00000177778, 0.0, 0.0]     # parameters for farol seabotix, eqn -> Thrust = f(rpm)
-    ctb: [-0.00000177778, 0.0, 0.0]     # parameters for farol seabotix, eqn -> Thrust = f(rpm)
+    ctf: [0.00000177778, 0.0, 0.0] # parameters for farol seabotix, eqn -> Thrust = f(rpm)
+    ctb: [-0.00000177778, 0.0, 0.0] # parameters for farol seabotix, eqn -> Thrust = f(rpm)
     #Maximum thrust each thruster is capable of outputting (N)
-    max_thrust_norm:  36.0
+    max_thrust_norm: 36.0
     min_thrust_norm: -36.0
     # RPM max value /100
-    actuators_gain: [45.0, 45.0, 45.0, 45.0, 45.0, 45.0]            # Inputs to actuators will be scaled to actuators_gain
+    actuators_gain: [45.0, 45.0, 45.0, 45.0, 45.0, 45.0] # Inputs to actuators will be scaled to actuators_gain
 
 inner_loops_pid:
-    # minimum altitude safety
-    min_alt: 2.0
+  # minimum altitude safety
+  min_alt: 2.0
 
-    #timout for references [s]
-    timout_ref: 0.5
+  #timout for references [s]
+  timout_ref: 0.5
 
-    # bypass forces (hard - ignores inner-loop / soft - sums inner-loop and manual forces value)
-    forces_hard_bypass: false
+  # bypass forces (hard - ignores inner-loop / soft - sums inner-loop and manual forces value)
+  forces_hard_bypass: false
 
-    # turning radius limiter minimum radius and maximum timeout
-    min_turn_radius: 5.0
-    turn_radius_speed_t_max: 10.0
+  # turning radius limiter minimum radius and maximum timeout
+  min_turn_radius: 5.0
+  turn_radius_speed_t_max: 10.0
 
-    # Yaw Params
-    controllers:
-        yaw:
-            enabled: true
-            kp: 0.16
-            ki: 0.0005
-            kd: 0.133
-            max_err:  60.0 # deg
-            min_err: -60.0 # deg  
-            max_out:  7.0 # N.m
-            min_out: -7.0
-        # Yaw Rate Params
-        yaw_rate:
-            enabled: true
-            kp: 0.16
-            ki: 0.04444
-            max_err:  3.0 # deg
-            min_err: -3.0 # deg  
-            max_out:  7.0 # N.m
-            min_out: -7.0
-        # Surge Params
-        surge:
-            enabled: true
-            kp: 26.0
-            ki: 3.0
-            max_ref:  0.7  # m/s
-            min_ref: -0.7 # m/s
-            max_err:  0.2 # m/s
-            min_err: -0.2 # m/s  
-            max_out:  15.0 # N
-            min_out: -15.0
-        # Sway Params
-        sway:
-            enabled: true
-            kp: 26.0
-            ki: 50.0 
-            max_ref:  0.5  # m/s
-            min_ref: -0.5 # m/s
-            max_err:  0.2 # m/s
-            min_err: -0.2 # m/s  
-            max_out:  25.0 # N
-            min_out: -25.0
-        # Depth Params
-        depth:
-            enabled: true
-            kp: 16
-            ki: 1.6
-            kd: 3.37
-            max_err:  3.0 # m
-            min_err: -3.0 # m  
-            max_out:  20.0 # N
-            min_out: -20.0
-            min_alt: 1.0 # m
-        # Altitude Params
-        altitude:
-            enabled: true
-            kp: 16
-            ki: 1.6
-            kd: 3.37
-            max_err:  3.0 # m
-            min_err: -3.0 # m  
-            max_out:  20.0 # N
-            min_out: -20.0 # N
-            max_depth: 30.0 # m
+  used_controllers:
+    yaw: "delta"
+    surge: "pid"
+    yaw_rate: "pid"
+    sway: "pid"
+    #depth: "pid"
+    altitude: "pid"
+
+  debug: true # geral
+
+  controllers:
+    pid:
+      yaw:
+        kp: 0.16
+        ki: 0.0005
+        kd: 0.133
+        lpf_fc: 4
+        max_err: 60.0 # deg
+        min_err: -60.0 # deg
+        max_out: 30.0 # N.m
+        min_out: -30.0
+      surge:
+        kp: 26.0
+        ki: 3.0
+        lpf_fc: 2
+        max_err: 0.2 # m/s
+        min_err: -0.2 # m/s
+        max_out: 30.0 # N
+        min_out: -30.0
+      yaw_rate:
+        kp: 0.16
+        ki: 0.04444
+        max_err: 3.0 # deg
+        min_err: -3.0 # deg
+        max_out: 7.0 # N.m
+        min_out: -7.0
+      sway:
+        kp: 26.0
+        ki: 50.0
+        max_ref: 0.5 # m/s
+        min_ref: -0.5 # m/s
+        max_err: 0.2 # m/s
+        min_err: -0.2 # m/s
+        max_out: 25.0 # N
+        min_out: -25.0
+      depth:
+        kp: 16
+        ki: 1.6
+        kd: 3.37
+        max_err: 3.0 # m
+        min_err: -3.0 # m
+        max_out: 20.0 # N
+        min_out: -20.0
+        min_alt: 1.0 # m
+      altitude:
+        kp: 16
+        ki: 1.6
+        kd: 3.37
+        max_err: 3.0 # m
+        min_err: -3.0 # m
+        max_out: 20.0 # N
+        min_out: -20.0 # N
+        max_depth: 30.0 # m
+
+    delta:
+      yaw:
+        kp: 167.1 #0.4183
+        ki: 67.0 #0.23
+        kr: 90.5 #0.21
+        ka: 10
+        lpf_fc: 4 # rad/s
+        max_err: 60.0 # deg
+        min_err: -60.0 # deg
+        max_out: 60.0 # N.m
+        min_out: -60.0
+      surge:
+        kp: 35
+        ki: 18 # teorico 12.5
+        kr: 0
+        ka: 10
+        lpf_fc: 2
+        max_err: 0.2 # m/s
+        min_err: -0.2 # m/s
+        max_out: 30.0 # N
+        min_out: -30.0
 
 waypoint:
-    cdist: 1.5
-    delta_t: 5.0
-    type1:
-      gains:
-          ku: 1.0
-          ks: 4.0
-          speed_turn: 5.0
-    type2:
-      gains:
-        k1: 0.05
-        k2: 0.1
-        k3: 0.1
+  cdist: 1.5
+  delta_t: 5.0
+  type1:
+    gains:
+      ku: 1.0
+      ks: 4.0
+      speed_turn: 5.0
+  type2:
+    gains:
+      k1: 0.05
+      k2: 0.1
+      k3: 0.1
 
 # Path Following configurations
 # Be careful while changing values here, due to the way the PF code is implemented,

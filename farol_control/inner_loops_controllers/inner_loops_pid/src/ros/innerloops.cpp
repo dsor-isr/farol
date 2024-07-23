@@ -18,15 +18,33 @@ Innerloops::Innerloops(ros::NodeHandle &nh) : nh_(nh) {
 
 Innerloops::~Innerloops() { ros::shutdown(); }
 
+
 void Innerloops::initializeSubscribers() {
   // Angular controllers
   // Yaw
-  controllers_.push_back(
+  
+/*   controllers_.push_back(
       new RosController(nh_, "yaw", 
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/yaw", "yaw_ref"),
           &yaw_, &torque_request_[2], Innerloops::nodeFrequency(),
           &turn_radius_flag_, &turn_radius_speed_, &rate_limiter_, &turn_radius_speed_t_));
+
+  controllers_.back()->setCircularUnits(true);  */
+
+  // New controller
+  controllers_.push_back(
+      new RosController(nh_, "yaw", 
+        FarolGimmicks::getParameters<std::string>(
+          nh_, "topics/subscribers/yaw", "yaw_ref"), 
+          &yaw_, &yaw_rate_, &torque_request_[2], Innerloops::nodeFrequency(),
+          &turn_radius_flag_, &turn_radius_speed_, &rate_limiter_, &turn_radius_speed_t_));
+
+  controllers_.push_back(
+      new RosController(nh_, "surge",
+        FarolGimmicks::getParameters<std::string>(
+          nh_, "topics/subscribers/surge", "surge_ref"),
+          &surge_, &zero, &force_request_[0], Innerloops::nodeFrequency()));
 
   controllers_.back()->setCircularUnits(true);
 
@@ -73,11 +91,11 @@ void Innerloops::initializeSubscribers() {
 
   // Speed controllers
   // Surge
-  controllers_.push_back(
-      new RosController(nh_, "surge",
-        FarolGimmicks::getParameters<std::string>(
-          nh_, "topics/subscribers/surge", "surge_ref"),
-          &surge_, &force_request_[0], Innerloops::nodeFrequency()));
+  // controllers_.push_back(
+  //     new RosController(nh_, "surge",
+  //       FarolGimmicks::getParameters<std::string>(
+  //         nh_, "topics/subscribers/surge", "surge_ref"),
+  //         &surge_, &force_request_[0], Innerloops::nodeFrequency()));
 
   // Sway
   controllers_.push_back(
@@ -297,7 +315,7 @@ bool Innerloops::changeGainsService(
                    [](char &c1, char &c2) {
                      return (c1 == c2 || std::toupper(c1) == std::toupper(c2));
                    })) {
-      controller->setGainsPID(req.kp, req.ki, req.kd);
+      controller->setGainsPID(req.kp, req.ki, req.kr);
       control_changed = true;
       break;
     }
@@ -311,7 +329,7 @@ bool Innerloops::changeGainsService(
     res.message += "New " + req.inner_type + " gains are" +
                    " kp: " + std::to_string(req.kp) +
                    " ki: " + std::to_string(req.ki) +
-                   " kd: " + std::to_string(req.kd);
+                   " ka: " + std::to_string(req.kr);
   }
 
   return true;

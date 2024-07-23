@@ -6,7 +6,8 @@
 #include <vector>
 #include <memory>
 #include <dsor_utils/filters/lowpass_filter.hpp>
-#include <farol_msgs/mPidDebug.h>
+#include <farol_msgs/mDebug.h>
+#include <ros/ros.h>
 
 /**
  * @brief  Implementation of a PID with anti windup
@@ -92,7 +93,34 @@ public:
    *
    * @return
    */
-  float computeCommand(float error_p, float ref_value, float duration, bool debug);
+
+  // new controller
+  PID_Controller(float Kp, float Kr, float Ki, float Ka, float max_error, float max_out, 
+                 float min_error, float min_out, double lpf_dt, double lpf_fc);
+
+  // PID_Controller(float Kp, float Kr, float Ki, float Ka, float max_ref, float min_ref,
+  //               float max_error, float min_error, float max_out, float min_out, double lpf_dt, double lpf_fc);
+
+  /**
+   * @brief Core function. Computes the output of the PID.
+   *
+   * @param error_p Error between the reference and the estimated variable
+   * @param ref_value Reference value to compute the feedforward term
+   * @param duration Sample time
+   * @param debug Check if we want to generate a debugging message to later publish
+   *
+   * @return
+   */
+
+  /**********************************************************************************
+  *                                   CONTROLLERS                               *
+  * ********************************************************************************/
+  
+  // Initial PID Controller
+  float computeCommandPid(float error_p, float ref_value, float duration, bool debug);
+
+  // Delta Pid Controller
+  float computeCommandDelta(float ref_value_, double &state_, double &state_rate_, float duration, std::string dof, bool debug);
 
   /**
    * @brief  Reset function. Sets the integral error term to 0.
@@ -145,26 +173,34 @@ public:
    *
    * @return std::vector<float> const
    */
-  farol_msgs::mPidDebug getDebugInfo() const;
+  farol_msgs::mDebug getDebugInfo() const;
 
 protected:
   // Controller PID Gains
-  float p_gain_, i_gain_, d_gain_;
+  float p_gain_, i_gain_, d_gain_, a_gain_, r_gain_;
   // Controller feedforwad gains
   float ff_gain_, ff_d_gain_, ff_lin_drag_gain_, ff_quad_drag_gain_;
   // Max and Min output/error values
   float max_error_, max_out_, min_error_, min_out_;
   // Integral error
   float integral_;
+
+  float tau_{0};
+
+  bool changed = false; // when the gains are changed with the service
+
+  // last time the state_prev was updated
+  ros::Time lastUpdated {0}; 
+
   // Previous error and reference value
-  float pre_error_, prev_ref_value_;
+  float pre_error_{0}, prev_ref_value_{0}, prev_tau_sat_{0}, prev_tau_{0}, state_rate_prev{0}, state_prev{0}, prev_strd{0};
   
   // Low pass filter object
   bool has_lpf_{false};
   std::unique_ptr<LowPassFilter> lpf_; 
 
   // Debug message
-  farol_msgs::mPidDebug msg_debug_;
+  farol_msgs::mDebug msg_debug_;
 
 private:
 

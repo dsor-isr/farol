@@ -1,10 +1,13 @@
-# PID debug message
+# This is a general debug message for the inner loops controllers
 
 # Header information
 Header header
 
 # Controller in use
 string controller
+
+# PID specific parameters
+
 # Reference
 float64 ref
 # Reference derivative
@@ -33,3 +36,11 @@ float64 iTerm
 float64 dTerm
 # Actual value
 float64 output
+
+# Delta Controller
+
+# Tau
+float64 tau
+# Tau saturated
+float64 tauSat
+

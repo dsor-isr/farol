@@ -5,7 +5,7 @@
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <ros/ros.h>
 #include <std_msgs/Float64.h>
-#include <farol_msgs/mPidDebug.h>
+#include <farol_msgs/mDebug.h>
 #include <dsor_utils/filters/rate_limiter.hpp>
 #include <dsor_utils/rotations.hpp>
 #include <dsor_utils/math.hpp>
@@ -45,8 +45,10 @@ public:
    * @param force_or_torque  Pointer to force or torque output
    * @param frequency Frequency of controller sampling rate
    */
+
+  //surge manda no state rate um zerinho
   RosController(ros::NodeHandle &nh, std::string controller_name,
-                std::string refCallback_topic, double *state, double *state_dot,
+                std::string refCallback_topic, double *state, double *state_r,
                 double *force_or_torque, double frequency);
 
 /**
@@ -63,6 +65,15 @@ public:
    * @param surge Surge speed of vehicle
    * @param rate_limiter Rate Limiter object from dsor_utils
    */
+
+  /**********************************************************************************
+  *                                   NEW CONTROLLER                               *
+  * ********************************************************************************/
+  RosController(ros::NodeHandle &nh, std::string controller_name,
+                std::string refCallback_topic, double *state, double *state_r,
+                double *force_or_torque, double frequency,
+                bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t);
+
   RosController(ros::NodeHandle &nh, std::string controller_name,
                 std::string refCallback_topic, double *state,
                 double *force_or_torque, double frequency,
@@ -121,7 +132,9 @@ public:
    * @param kff_lin_drag Feedforward linear drag gain 
    * @param kff_quad_drag Feedforwad quadratic drag gain
    */
-  void setFFGainsPID(const float &kff, const float &kff_d, const float &kff_lin_drag, const float kff_quad_drag) {pid_c_->setFFGains(kff, kff_d, kff_lin_drag, kff_quad_drag);}
+  void setFFGainsPID(const float &kff, const float &kff_d, const float &kff_lin_drag, const float kff_quad_drag) {
+    pid_c_->setFFGains(kff, kff_d, kff_lin_drag, kff_quad_drag);
+  }
 
   /**
    * @brief Set the Gains P I D object
@@ -130,9 +143,13 @@ public:
    * @param ki Integral gain
    * @param kd Derivative gain
    */
-  void setGainsPID(const float &kp, const float &ki, const float &kd) {pid_c_->setGains(kp, ki, kd);}
+  void setGainsPID(const float &kp, const float &ki, const float &kd) {
+    pid_c_->setGains(kp, ki, kd);
+  }
 
-  void setLimitBoundsPID(const float &max_out, const float &min_out) { pid_c_->setLimitBounds(max_out, min_out);}
+  void setLimitBoundsPID(const float &max_out, const float &min_out) { 
+    pid_c_->setLimitBounds(max_out, min_out);
+  }
 
 protected:
   /**
@@ -163,16 +180,20 @@ protected:
   ros::Duration timeout_ref_;   // inverval of time where a reference is valid
   std::string controller_name_; // string of the variable being controlled (for
                                 // reading parameters purpose)
+  std::string controller_used; // type of controller, delta or pid 
+  
   double ref_value_;     // reference value of the variable being controlled
   double max_ref_value_; // maximum value of the reference being controlled
   double min_ref_value_; // minimum value of the reference being controlled
   ros::Time ref_time_;   // timestamp of the reference
   ros::Time last_cmd_;   // last controller call
   bool debug_;           // flag to check wheter to output or not pid internal information 
-  farol_msgs::mPidDebug debug_msg_; // msg to publish debug information
+  farol_msgs::mDebug debug_msg_; // msg to publish debug information
 
   // pointers to state values
   double *state_ptr_;
+
+  double *state_r_ptr_;
 
   // pointer to correspondig force or torque
   double *force_or_torque_ptr_;
