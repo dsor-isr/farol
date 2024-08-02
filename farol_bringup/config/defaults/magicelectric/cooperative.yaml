@@ -1,0 +1,28 @@
+# THESE ARE COOPERATIVE CONFIGURATIONS FOR THE GLIDER
+# THEY SHALL MIMIC THE MVECTOR CONFIGURATIONS UNTIL THERE IS A BETTER SOLUTION
+# Only used for cooperative path Following
+cpf_wifi_client:      
+    broadcast_address: "127.255.255.255"
+    ID: 2
+
+cpf_wifi_server:
+    broadcast_address: "127.255.255.255"
+    ID: 2
+
+# Configuration for the cooperative controller
+cpf_control:
+    ID: 2
+    # Network topology and algorithm gains and thresholds   
+    adjency_matrix: [0, 1, 1, 1,
+                     1, 0, 1, 1,
+                     1, 1, 0, 1,
+                     1, 1, 1, 0]
+    
+    gains:
+      event_triggered: # Time dependent threshold=co+c1*exp(-alpha*t)
+        # The threshold for publishing the current gamma to the vehicle network
+        c0: 0.001
+        c1: 5.0
+        alpha: 1.0
+        # The gain for the synchronization control law
+        k_epsilon: 1.0 
