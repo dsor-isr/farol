@@ -32,6 +32,11 @@ SilentPinger::SilentPinger(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehan
   // Timer
   initializeTimer();
 
+  // waiting for non-zero time now values (else it won't be possible to publish in the constructor)
+  ros::Duration(5.0).sleep();
+
+  // trigger ECLK message for computation of time offset between Modem's System Clock and UTC Time
+  triggerECLKmessage();
 
   // Start cycle
   lastRECVTime_modem = 0;
@@ -76,13 +81,14 @@ SilentPinger::~SilentPinger(){
  * @.@ Member Helper function to set up subscribers;
  */
 void SilentPinger::initializeSubscribers(){
-  ROS_INFO("Initializing Subscribers for PingerNode");
+  ROS_INFO("Initializing Subscribers for SilentPinger");
 
   sub_enable = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/enable", "enable"), 1, &SilentPinger::EnableCallback, this);
   sub_in_modem = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/modem_recv", "modem/recv"), 1, &SilentPinger::RECVIMSCallback, this);
   sub_serializer = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/payload", "payload_to_transmit"), 1, &SilentPinger::serializerCallback, this);
   if(modem_id != anchor) sub_tinit = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/tinit", "tinit_sub"), 1, &SilentPinger::timeFromAnchorCallback, this);
   else sub_tinit = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/send_time", "send_time"), 1, &SilentPinger::startCallback, this);
+  sub_modem_clock = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/modem_clock", "clock"), 1, &SilentPinger::modemClockCallback, this);
 }
 
 
@@ -118,8 +124,24 @@ void SilentPinger::loadParams(){
 void SilentPinger::initializeTimer(){
   timer = nh_.createTimer(ros::Duration(slots.front()), &SilentPinger::Timer, this, true);
   timer.stop();
+
+  timer_sys_clock_overflow = nh_.createTimer(ros::Duration(0.5), &SilentPinger::SysClockOverflowHandler, this);
 }
 
+void SilentPinger::triggerECLKmessage() {
+  dmac::DMACPayload im;
+  im.header.stamp = ros::Time::now(); // message time stamp
+  im.destination_address = 255;   // Broadcast address
+  im.type = im.DMAC_ECLK; // media access type: BURST/IM/IMS/PBM/ECLK
+
+  // Force undefined time since the message should be sent to the modem asap
+  im.timestamp_undefined = true;
+  
+  // message to ask for External Clock from modem
+  im.payload = "AT?ECLK";
+  pub_im.publish(im);
+  ROS_INFO("Message was sent!");
+}
 
 void SilentPinger::EnableCallback(const std_msgs::Bool& msg){
   if(ENABLE_ == false && msg.data == true)
@@ -146,6 +168,62 @@ void SilentPinger::EnableCallback(const std_msgs::Bool& msg){
   // tinit = 0;
 }
 
+void SilentPinger::modemClockCallback(const dmac::DMACClock& msg) {
+  // compute offset between physical clock and utc time
+  computeModemTimeOffset(msg.phy_clock, msg.utc_time.sec, msg.utc_time.nsec);
+
+  // compute when modem system clock will overflow
+  computeModemSysClockOverflowTime(msg.phy_clock, modem_time_offset);
+}
+
+void SilentPinger::computeModemTimeOffset(unsigned int system_clock, unsigned int utc_time_sec, unsigned int utc_time_nsec) {
+  // offset in microseconds (UTC Time - Modem System Clock)
+  modem_time_offset = (boost::lexical_cast<unsigned long int>(utc_time_sec) * 1000000 + 
+                       boost::lexical_cast<unsigned long int>(utc_time_nsec) / 1000) 
+                       - boost::lexical_cast<unsigned long int>(system_clock);
+  ROS_INFO("Modem Offset (UTC - SysClock): %lu microseconds.", modem_time_offset);
+}
+
+void SilentPinger::computeModemSysClockOverflowTime(unsigned int system_clock, unsigned long int modem_time_offset) {
+  // compute how many microseconds until overflow
+  // unsigned int time_until_overflow = UNSIGNED_INT_MAX - system_clock;
+  
+  // utc time corresponding to sys clock overflow instant (seconds)
+  // sys_clock_overflow_instant = (boost::lexical_cast<double>(boost::lexical_cast<unsigned long int>(system_clock) 
+  //                                                           + modem_time_offset
+  //                                                           + boost::lexical_cast<unsigned long int>(time_until_overflow)))/1000000;
+
+  sys_clock_overflow_instant = (boost::lexical_cast<double>(boost::lexical_cast<unsigned long int>(UNSIGNED_INT_MAX)
+                                                            + modem_time_offset))/1000000;
+
+  ROS_INFO("Next Sys Clock Overflow: %f seconds.", sys_clock_overflow_instant);
+}
+
+void SilentPinger::SysClockOverflowHandler(const ros::TimerEvent& e) {
+  // system clock overflow instant hasn't been set yet
+  if (sys_clock_overflow_instant == -1) {
+    return;
+  }
+
+  // if the overflow instant has passed, we need to update the modem_time_offset
+  if (ros::Time::now().toSec() > sys_clock_overflow_instant) {
+    modem_time_offset += UNSIGNED_INT_MAX;
+
+    ROS_INFO("NEW: Modem Offset (UTC - SysClock): %lu microseconds.", modem_time_offset);
+
+    // the new overflow instant should be calculated as well
+    sys_clock_overflow_instant += boost::lexical_cast<double>(UNSIGNED_INT_MAX/1000000);
+    
+    ROS_INFO("NEW: Next Sys Clock Overflow: %f seconds.", sys_clock_overflow_instant);
+
+    // now that the modem_time_offset has been updated as soon as possible, we should
+    // properly update it using the ECLK message from the modem (which might be slower
+    // due to communication issues), but the new values for the offset and overflow instant
+    // will be 100% correct
+    //triggerECLKmessage();
+  
+  }
+}
 
 void SilentPinger::startCallback(const interrogation_scheme::StartSilent& msg){
   if(!ENABLE_){
@@ -250,12 +328,14 @@ double SilentPinger::getTimeBeforeStart(){
 
 
 void SilentPinger::RECVIMSCallback(const dmac::DMACPayload& msg){
+  ROS_INFO("Received message!!!");
+  
   // If the scheme is not enabled, do nothing
   if(!ENABLE_)
     return;
 
   // Update Clock with the last known instant
-  updateClock(msg.timestamp+msg.duration, msg.header.stamp);
+  updateClock(msg.timestamp+msg.duration, msg.header.stamp); // deprecated?
 
   ROS_INFO("Received message. source = %d, modems front = %d", msg.source_address, modems.front());
   
@@ -306,7 +386,13 @@ void SilentPinger::RECVIMSCallback(const dmac::DMACPayload& msg){
     // compute range
     tlastRECVIMS = msg.timestamp;
     // double range = ((tlastRECVIMS-tlastSENDIMS)-tslack*1000000)/2000000.0*SOUND_SPEED;
-    double range = (msg.header.stamp.toSec() - (tslot_start + tslack))*SOUND_SPEED;
+    unsigned long int travel_time = (boost::lexical_cast<unsigned long int>(msg.timestamp) + modem_time_offset) 
+                                    - (tslot_start + tslack)*1000000; // microseconds
+    double range = boost::lexical_cast<double>(travel_time) / 1000000 * SOUND_SPEED;
+
+    ROS_INFO("UTC: Message timestamp: %lu us, t_slot_start: %lu s", boost::lexical_cast<unsigned long int>(msg.timestamp) + modem_time_offset, 
+                                                              tslot_start);
+    ROS_INFO("Travel Time: %lu, Range: %f", travel_time, range);
     
     slot_ack = true;
 
@@ -363,7 +449,7 @@ void SilentPinger::serializerCallback(const std_msgs::String& msg){
 
   // Send Message to Modem after a slack time
   // unsigned long int tping = round((tslot_start + tslack)*1000000);
-  unsigned long int tping = tslot_start + tslack;
+  unsigned long int tping = tslot_start + tslack; // this is in UTC time, in seconds
 
   dmac::DMACPayload im;
   im.header.stamp = ros::Time::now();
@@ -371,15 +457,27 @@ void SilentPinger::serializerCallback(const std_msgs::String& msg){
   im.destination_address = 255;   // Broadcast address
 
   im.type = im.DMAC_IMS;
-  im.timestamp = tping;
-  ROS_INFO("destination address %d, tping = %lu", im.destination_address, (unsigned long)(im.timestamp));
+
+  try {
+    im.timestamp = boost::lexical_cast<unsigned int>(tping*1000000 - modem_time_offset); // timestamp in Modem System Clock (microseconds)
+  } catch (boost::bad_lexical_cast &e){
+    ROS_WARN("ERROR: %s", e.what());
+    ROS_WARN("tping: %lu", tping);
+    ROS_WARN("modem_time_offset: %lu", modem_time_offset);
+    ROS_WARN("timestamp: %lu", tping*1000000 - modem_time_offset);
+  }
+
+  // im.timestamp = boost::lexical_cast<unsigned int>(tping*1000000 - modem_time_offset); // timestamp in Modem System Clock (microseconds)
+  ROS_INFO("destination address %d, utc timestamp %lu, sys clock timestamp = %lu", 
+            im.destination_address, (unsigned long)(tping), (unsigned long)(im.timestamp));
   
-  while(ros::Time::now().toSec() < tping);
+  // while(ros::Time::now().toSec() < tping);
 
   // Force undefined time
-  tping = 0;
-  if(tping==0) im.timestamp_undefined =true;
-  else im.timestamp_undefined = false;
+  // tping = 0;
+  // if(tping==0) im.timestamp_undefined =true;
+  // else im.timestamp_undefined = false;
+  im.timestamp_undefined = false;
   
   // im.ack  = replier_ack;
   im.payload =  msg.data;
