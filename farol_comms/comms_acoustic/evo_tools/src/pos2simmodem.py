@@ -16,6 +16,7 @@ import rospy
 from nav_msgs.msg import Odometry
 from auv_msgs.msg import NavigationStatus
 from gazebo_msgs.msg import ModelStates
+from tf.transformations import euler_from_quaternion 
 import time
 
 # Internet communications
@@ -80,7 +81,10 @@ class Pos2SimModem(object):
         elif(input_message_type == 'gazebo_msgs/ModelStates'):
             if self.vehicle_name in msg.name:
                 index = msg.name.index(self.vehicle_name)
-                data = "%.2f %.2f %.2f\n" % (msg.pose[index].position.y, msg.pose[index].position.x, msg.pose[index].position.z);
+                # data = "%.2f %.2f %.2f\n" % (msg.pose[index].position.y, msg.pose[index].position.x, msg.pose[index].position.z)
+                (roll, pitch, yaw) = euler_from_quaternion([msg.pose[index].orientation.x, msg.pose[index].orientation.y, msg.pose[index].orientation.z, msg.pose[index].orientation.w])
+                print(roll, -pitch, -yaw+1.570796327)
+                data = "%.2f %.2f %.2f %.2f %.2f %.2f \n" % (msg.pose[index].position.y, msg.pose[index].position.x, msg.pose[index].position.z, roll, -pitch, -yaw+1.570796327)
                 #print(self.vehicle_name,":",position)
         
 
