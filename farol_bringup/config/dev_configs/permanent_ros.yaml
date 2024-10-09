@@ -126,7 +126,21 @@ nav/filter:
        set_bias_heading: "/#vehicle#/nav/set_bias_heading"
        reset_bias_heading: "/#vehicle#/nav/reset_bias_heading"
 
-
+nav/cf:
+    node_frequency: 10
+    topics:
+        subscribers:
+            reset: "/#vehicle#/nav/cf/reset"
+            tuning: "/#vehicle#/nav/cf/tuning"
+            estimator: "/#vehicle#/nav/cf/estimator"
+            no_measures: "/#vehicle#/nav/cf/no_measures"
+            position: "/#vehicle#/measurement/position"
+            velocity: "/#vehicle#/measurement/velocity"
+            orientation: "/#vehicle#/measurement/orientation"
+        publishers:
+            state: "/#vehicle#/nav/filter/state"
+            state_cf: "/#vehicle#/nav/cf/State_cf"
+            measure: "/#vehicle#/nav/cf/measure"
 
 nav/gnss2utm:
     node_frequency: 10
