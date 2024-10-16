@@ -86,7 +86,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   Eigen::Vector2d total_velocity_;
 
   // sensors
-  std::vector<std::string> sensor_list_{"gnss","usbl","usbl_top","dvl_bt","ahrs"};
+  std::vector<std::string> sensor_list_{"gnss","usbl","usbl_top","dvl_bt","ahrs","depth"};
 
   std::vector<dsor_msgs::Measurement> measurements_;
 
@@ -102,6 +102,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   bool estimator_;
 
   Eigen::Vector4d last_state_;
+  double state_depth_{0};
 
   Eigen::Vector2d last_dvl_, last_gnss_, last_usbl_;
   double last_ahrs_;
@@ -182,6 +183,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 
 
   // @.@ Member helper functions
+  void updateDepth();
   void estimation(double delta_t);
   void correction(double delta_t);
   void initialReset(double easting, double northing);

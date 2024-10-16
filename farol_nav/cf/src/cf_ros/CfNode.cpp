@@ -313,6 +313,8 @@ void CfNode::correction(double delta_t){
         }else{
           measurements_.erase(measurements_.begin() + i);
         }
+      }else if(aux.find("usbl") != std::string::npos){
+        measurements_.erase(measurements_.begin() + i);
       }
     }else{
       ROS_WARN("Received measurement ahead of time");
@@ -518,6 +520,19 @@ void CfNode::correction(double delta_t){
   state_ += K_k * error_;
 }
 
+void CfNode::updateDepth(){
+  std::string aux;
+
+  // check through all measurements
+  for(int i = 0; i < (int) measurements_.size(); i++){
+    aux = measurements_[i].header.frame_id;
+    // Verify if depth measurement
+    if(aux.find("depth") != std::string::npos){
+      state_depth_ = measurements_[i].value[0];
+      measurements_.erase(measurements_.begin() + i);
+    }
+  }
+}
 
 // @.@ Where the magic should happen.
 void CfNode::timerIterCallback(const ros::TimerEvent &event) {
@@ -526,6 +541,8 @@ void CfNode::timerIterCallback(const ros::TimerEvent &event) {
   // ROS_WARN("delta_t = %lf",delta_t);
 
   kf_time_ = new_time;
+
+  updateDepth();
 
   // Main calculations
   estimation(delta_t);
@@ -537,6 +554,7 @@ void CfNode::timerIterCallback(const ros::TimerEvent &event) {
   auv_msgs::NavigationStatus state_msg;
   state_msg.position.east = state_(1);    // Vehicle position in East
   state_msg.position.north = state_(0);   // Vehicle position in North
+  state_msg.position.depth = state_depth_;
   // Vehicle velocity expressed in body frame
   state_msg.body_velocity.x = total_velocity_(0) * cos(yaw_) + total_velocity_(1) * sin(yaw_);
   state_msg.body_velocity.y = - total_velocity_(0) * sin(yaw_) + total_velocity_(1) * cos(yaw_);
