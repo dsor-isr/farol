@@ -86,7 +86,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   Eigen::Vector2d total_velocity_;
 
   // sensors
-  std::vector<std::string> sensor_list_{"gnss","usbl","dvl_bt","ahrs"};
+  std::vector<std::string> sensor_list_{"gnss","usbl","usbl_top","dvl_bt","ahrs"};
 
   std::vector<dsor_msgs::Measurement> measurements_;
 
@@ -106,6 +106,10 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   Eigen::Vector2d last_dvl_, last_gnss_, last_usbl_;
   double last_ahrs_;
   double outlier_dvl_{10}, outlier_gnss_{5}, outlier_usbl_{5}, outlier_ahrs_{20};
+
+  double outlier_tolerance_usbl_top_;
+  int reject_counter_usbl_top_{0}, reject_counter_max_usbl_top_;
+  bool wait_first_pos_meas_{true};
 
   // ros::Time delta_t;
 
@@ -180,6 +184,7 @@ Developers: #DSORTeam -> @tecnico.ulisboa.pt Instituto Superior Tecnico
   // @.@ Member helper functions
   void estimation(double delta_t);
   void correction(double delta_t);
+  void initialReset(double easting, double northing);
 
 };
 #endif //CATKIN_WS_CONTROLNODE_H

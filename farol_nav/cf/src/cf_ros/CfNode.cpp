@@ -86,8 +86,8 @@ void CfNode::loadParams() {
   estimator_ = false;
   no_measures_ = false;
 
-  wn_ = 0.002; // 0.02 - estimator 0.002 - normal 0.04 - old
-  csi_ = 0.7;
+  wn_ = FarolGimmicks::getParameters<double>(nh_private_, "wn", 0.04);
+  csi_ = FarolGimmicks::getParameters<double>(nh_private_, "csi", 0.7);
 
   identity4_ = Eigen::Matrix4d::Identity();
                 
@@ -103,6 +103,9 @@ void CfNode::loadParams() {
             0.0, 1.0,
             0.0, 0.0,
             0.0, 0.0;
+
+  reject_counter_max_usbl_top_ = FarolGimmicks::getParameters<int>(nh_private_, "sensors/usbl_top/reject_counter", 5);
+  outlier_tolerance_usbl_top_ = FarolGimmicks::getParameters<double>(nh_private_, "sensors/usbl_top/outlier_tolerance", 5.0);
 }
 
 void CfNode::resetCallback(const std_msgs::Empty &msg){
@@ -128,6 +131,26 @@ void CfNode::resetCallback(const std_msgs::Empty &msg){
 
   last_ahrs_ = 0.0;
 
+  last_K_time_ = 0.0;
+}
+
+void CfNode::initialReset(double easting, double northing){
+  state_ << easting,                // Position - x
+            northing,               //            y
+            0.0000000000000000,     // Current velocity - vcx
+            0.0000000000000000;     //                    vcy
+  
+  last_state_ = state_;
+
+  yaw_ = 0.0;
+  velocity_ << 0.0, 0.0;
+  error_ << 0.0, 0.0;
+  measure_est_ << state_(0), state_(1);
+
+  last_dvl_ << 0.0, 0.0;
+  last_gnss_ << 0.0, 0.0;
+  last_usbl_ << 0.0, 0.0;
+  last_ahrs_ = 0.0;
   last_K_time_ = 0.0;
 }
 
@@ -160,6 +183,13 @@ void CfNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   // check the type of measurement, then save it
   for(int i = 0; i < (int) sensor_list_.size(); i++){
     if(msg.header.frame_id.find(sensor_list_[i]) != std::string::npos) measurements_.push_back(msg);
+  }
+
+  // reset filter to first measurement
+  if (wait_first_pos_meas_ && msg.header.frame_id.find("usbl_top") != std::string::npos) {
+    wait_first_pos_meas_ = false;
+
+    initialReset(msg.value[0], msg.value[1]);
   }
 }
 
@@ -248,7 +278,8 @@ void CfNode::estimation(double delta_t){
    * [bias_x]   [0 0 1  0] [bias_x]   [0  0]
    * [bias_y]   [0 0 0  1] [bias_y]   [0  0]
   *****************************************************/
-  state_ = process_matrix * state_ + input_matrix * velocity_;
+  // state_ = process_matrix * state_ + input_matrix * velocity_;
+  state_ = process_matrix * last_state_ + input_matrix * velocity_;
 }
 
 void CfNode::correction(double delta_t){
@@ -273,7 +304,7 @@ void CfNode::correction(double delta_t){
         }else{
           measurements_.erase(measurements_.begin() + i);
         }
-      }else if(aux.find("usbl") != std::string::npos){
+      }else if(aux.find("usbl_top") != std::string::npos){
         received_usbl = true;
         // Save measurement if newest or discard it
         if(measurements_[i].header.stamp > usbl_msg.header.stamp){
@@ -328,9 +359,16 @@ void CfNode::correction(double delta_t){
     // calculate outlier error for usbl
     if(usbl_msg.header.stamp.sec != 0){
       outlier_error = sqrt(pow(usbl_msg.value[0] - last_state_(0), 2) + pow(usbl_msg.value[1] - last_state_(1), 2));
-      if(outlier_error > outlier_usbl_){
-        received_usbl = false;
-        ROS_WARN("USBL Outlier detected on CF");
+      if(outlier_error > outlier_tolerance_usbl_top_){
+        if (reject_counter_usbl_top_ < reject_counter_max_usbl_top_) {
+          reject_counter_usbl_top_ += 1;
+          received_usbl = false;
+          ROS_WARN("USBL Outlier detected on CF");
+        } else {
+          reject_counter_usbl_top_ = 0;
+          received_usbl = true;
+          ROS_WARN("USBL Outlier accepted on CF");
+        }
       }
       last_usbl_ << usbl_msg.value[0], usbl_msg.value[1];
     }
@@ -434,6 +472,9 @@ void CfNode::correction(double delta_t){
     aux_matrix.resize(2,4);
     aux_matrix << 1.0, 0.0, 0.0, 0.0,
                   0.0, 1.0, 0.0, 0.0;
+    
+    // error_ = measures - C * state_;
+    error_ = measures - C * last_state_;
     total_velocity_ += aux_matrix * K_k * error_;
     
     // calculate gains
@@ -442,7 +483,6 @@ void CfNode::correction(double delta_t){
                    0.0, 0.0, K_delta_t, 0.0,
                    0.0, 0.0, 0.0, K_delta_t;
     K_k = time_constant * K_k;
-    error_ = measures - C * state_;
   }else{
     // No measurements and no estimator
     
@@ -475,7 +515,7 @@ void CfNode::correction(double delta_t){
   meas_pub_.publish(meas_pub_msg);
   
   // calculate state correction
-  state_ = state_ + K_k * error_;
+  state_ += K_k * error_;
 }
 
 
