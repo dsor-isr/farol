@@ -26,6 +26,8 @@ UsblFix2Pos::~UsblFix2Pos()
   if (p_fix_type == false){
     pub_usbl_est_state.shutdown();
     pub_usbl_est_console.shutdown();
+    pub_usbl_est_console_auv0_.shutdown();
+    pub_usbl_est_console_auv1_.shutdown();
   }
 
   // +.+ shutdown subscribers
@@ -60,6 +62,8 @@ void UsblFix2Pos::initializePublishers()
   ROS_INFO("Initializing Publishers for UsblFix2Pos"); 
   pub_pose_fix = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/position", "position"), 1, true);
   pub_usbl_est_console = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/console_state_usbl_estimation", "state_usbl_est"), 1, true);
+  pub_usbl_est_console_auv0_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/console_state_usbl_estimation_auv0", "state_usbl_est_auv0"), 1, true);
+  pub_usbl_est_console_auv1_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/console_state_usbl_estimation_auv1", "state_usbl_est_auv1"), 1, true);
 
   if (p_fix_type == false) {
     pub_usbl_est_state = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_usbl_estimation", "usbl_est"), 1, true);
@@ -82,6 +86,9 @@ void UsblFix2Pos::loadParams() {
   p_fix_type = FarolGimmicks::getParameters<bool>(nh_private_, "fix_type", true);
   p_meas_noise = FarolGimmicks::getParameters<double>(nh_private_, "meas_noise", true);
   name_vehicle_id_ = FarolGimmicks::getParameters<std::string>(nh_private_, "name_vehicle_id");
+
+  auv0_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv0_source_id");
+  auv1_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv1_source_id");
 }
 
 void UsblFix2Pos::listTimerCallback(const ros::TimerEvent &event) {
@@ -190,7 +197,14 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     console_state.header.stamp = usbl.header.stamp;
     console_state.X = state[1] + cartesian[1];
     console_state.Y = state[0] + cartesian[0];
-    pub_usbl_est_console.publish(console_state);
+
+    if (usbl.source_id == auv0_source_id_) { // if measured state is from auv0's source id
+      pub_usbl_est_console_auv0_.publish(console_state);
+    } else if (usbl.source_id == auv1_source_id_) { // if measured state is from auv1's source id
+      pub_usbl_est_console_auv1_.publish(console_state);
+    } else { // default
+      pub_usbl_est_console.publish(console_state);
+    }
     
     getEstLatLon(spherical, latlon);
 

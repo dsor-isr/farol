@@ -51,7 +51,7 @@ private:
 	// #####################
 	// @.@ Publishers
 	// #####################
-	ros::Publisher pub_pose_fix, pub_usbl_est_state, pub_usbl_est_console;
+	ros::Publisher pub_pose_fix, pub_usbl_est_state, pub_usbl_est_console, pub_usbl_est_console_auv0_, pub_usbl_est_console_auv1_;
 
 	// timers
 	ros::Timer list_cleaner_timer;
@@ -65,6 +65,8 @@ private:
 	bool p_fix_type;
 	int p_t_sync;
 	double p_meas_noise;
+	int auv0_source_id_;
+	int auv1_source_id_;
 	// +.+ Problem variables
 	bool initialized;
 	double state_stamp, state[2], state_var[2], state_lat_lon[2];
