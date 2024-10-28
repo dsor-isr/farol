@@ -87,8 +87,8 @@ void UsblFix2Pos::loadParams() {
   p_meas_noise = FarolGimmicks::getParameters<double>(nh_private_, "meas_noise", true);
   name_vehicle_id_ = FarolGimmicks::getParameters<std::string>(nh_private_, "name_vehicle_id");
 
-  auv0_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv0_source_id");
-  auv1_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv1_source_id");
+  auv0_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv0_source_id", "7");
+  auv1_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv1_source_id", "2");
 }
 
 void UsblFix2Pos::listTimerCallback(const ros::TimerEvent &event) {
