@@ -69,7 +69,7 @@ class Pos2SimModem(object):
         Reads Odometry and sends position.
         '''
 
-        if (rospy.Time.now() - self.time).to_sec() < 0.5:
+        if (rospy.Time.now() - self.time).to_sec() < 0.08:
             return
 
         # Update time
