@@ -143,7 +143,7 @@ void AcousticPinger::initializeTimer() {
         range_msg.source_name = msg.source_name;
         pub_range.publish(range_msg);
         replier_ack = true;
-        ROS_WARN("Range to node %d is %.3f of max value %.3f with frame %s", msg.source_address, range, range_max, msg.header.frame_id.c_str());
+        // ROS_WARN("Range to node %d is %.3f of max value %.3f with frame %s", msg.source_address, range, range_max, msg.header.frame_id.c_str());
       }
       // Schedule next ping
       pingNextNode();

@@ -176,7 +176,7 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
 
 			// +.+ publish dmac::mUSBLFix message, range only measurement in this case
 			range_pub_.publish(range_msg);
-        	ROS_WARN("From modem %d to %d the range is %.1fm",p_modem_id_, msg.source_address, range_);
+        	// ROS_WARN("From modem %d to %d the range is %.1fm",p_modem_id_, msg.source_address, range_);
 
 			reply_ims_.header.stamp = ros::Time(0);
 		}
