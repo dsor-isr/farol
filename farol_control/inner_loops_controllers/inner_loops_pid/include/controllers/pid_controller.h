@@ -166,6 +166,10 @@ protected:
   // Debug message
   farol_msgs::mPidDebug msg_debug_;
 
+
+  float deriv_filt_prev_{0.0};
+  float a_{100.0};
+
 private:
 
   /**

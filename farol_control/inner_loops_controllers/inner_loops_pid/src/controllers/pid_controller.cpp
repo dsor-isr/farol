@@ -63,7 +63,15 @@ float PID_Controller::computeCommand(float error_p, float ref_value, float durat
   float ffDragTerm = ( ff_lin_drag_gain_ + ff_quad_drag_gain_ * std::abs(current_value) ) * current_value;
   float pTerm = p_gain_ * error;
   float iTerm = i_gain_ * integral_;
-  float dTerm = d_gain_ * (error - pre_error_) / duration;
+
+  float A = std::exp(-a_ * duration);
+  float B =1-A;
+  float deriv = (error - pre_error_) / duration;
+  float deriv_filt = A*deriv_filt_prev_ + deriv *B;
+  deriv_filt_prev_ = deriv_filt;
+  
+  //g_filt = A * g_filt_prev + g*B
+  float dTerm = d_gain_ * deriv_filt;//(error - pre_error_) / duration;
 
   float out = ffTerm + ffDTerm + ffDragTerm + pTerm + iTerm + dTerm;
 
@@ -73,6 +81,14 @@ float PID_Controller::computeCommand(float error_p, float ref_value, float durat
   } else if (out < min_out_) {
     integral_ -= error * duration;
   }
+
+  // Saturate output
+  if (out > max_out_) {
+    out = max_out_;
+  } else if (out < min_out_) {
+    out = min_out_;
+  }
+
 
   if (debug) {
     msg_debug_.ref = ref_value;
@@ -93,12 +109,6 @@ float PID_Controller::computeCommand(float error_p, float ref_value, float durat
     msg_debug_.output = out;
   }
 
-  // Saturate output
-  if (out > max_out_) {
-    out = max_out_;
-  } else if (out < min_out_) {
-    out = min_out_;
-  }
 
   pre_error_ = error;
   prev_ref_value_ = ref_value;
