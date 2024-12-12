@@ -69,7 +69,7 @@ private:
 	int auv1_source_id_;
 	// +.+ Problem variables
 	bool initialized;
-	double state_stamp, state[2], state_var[2], state_lat_lon[2];
+	double state_stamp, state[3], state_var[2], state_lat_lon[2];
 	std::list<farol_msgs::mUSBLFix> usblfix_list;
 	std::list<farol_msgs::stateAcomms> stateAcomms_list;
   std::string name_vehicle_id_;

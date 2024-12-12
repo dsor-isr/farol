@@ -197,6 +197,7 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     console_state.header.stamp = usbl.header.stamp;
     console_state.X = state[1] + cartesian[1];
     console_state.Y = state[0] + cartesian[0];
+    console_state.Z = state[2] + cartesian[2];
 
     if (usbl.source_id == auv0_source_id_) { // if measured state is from auv0's source id
       pub_usbl_est_console_auv0_.publish(console_state);
@@ -213,6 +214,7 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     usbl_est.header.stamp = usbl.header.stamp;
     usbl_est.position.north = state[0] + cartesian[0];
     usbl_est.position.east = state[1] + cartesian[1];
+    usbl_est.position.depth = state[2] + cartesian[2];
 
     usbl_est.global_position.latitude = latlon[0];
     usbl_est.global_position.longitude = latlon[1];
@@ -261,6 +263,7 @@ void UsblFix2Pos::stateCallback(const auv_msgs::NavigationStatus &msg){
 
   state[0] = msg.position.north;
   state[1] = msg.position.east;
+  state[2] = msg.position.depth;
   state_var[0] = msg.position_variance.north;
   state_var[1] = msg.position_variance.east;
 
