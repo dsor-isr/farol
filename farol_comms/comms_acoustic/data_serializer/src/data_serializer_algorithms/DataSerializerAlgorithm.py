@@ -34,10 +34,13 @@ def dec_to_bin(dec_value,low,high,bits,is_int=False):
     quant=(high-low)/(2**bits-1)
     value_quant=int(round((dec_value-low)/quant))
     if value_quant>2**bits-1:
+        # print("SERIALIZE: " + str(dec_value) + " -> " + bits*'1')
         return bits*'1'
     elif value_quant<0:
+        # print("SERIALIZE: " + str(dec_value) + " -> "  + bits*'0')
         return bits*'0'
     else:
+        # print("SERIALIZE: " + str(dec_value) + " -> " + format(value_quant, '0'+str(bits)+'b') + " -> " + hex(int(format(value_quant, '0'+str(bits)+'b'),2)))
         return format(value_quant, '0'+str(bits)+'b')
 
 def bin_to_dec(bin_value,low,high,bits,is_int=False):
@@ -52,6 +55,7 @@ def bin_to_dec(bin_value,low,high,bits,is_int=False):
     if is_int:
         return int(round(value))
     else:
+        # print("DE-SERIALIZE: " + hex(dec_value) + " -> " + str(bin_value) + " -> " + str(value))
         return value
 
 def extract_field(msg_data,field_address):
