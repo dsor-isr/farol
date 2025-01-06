@@ -21,6 +21,8 @@ ConsolePathParserNode::ConsolePathParserNode(
     initializePublishers();
     initializeServices();
     initializeTimer();
+
+    createPathFolder();
   }
 
 /**
@@ -132,6 +134,11 @@ double ConsolePathParserNode::nodeFrequency() {
   nh_private_.param("node_frequency", node_frequency, 5.0);
   ROS_INFO("Node will run at : %lf [hz]", node_frequency);
   return node_frequency;
+}
+
+void ConsolePathParserNode::createPathFolder() {
+  namespace fs = std::filesystem;
+  fs::create_directories(path_folder);
 }
 
 /* 
