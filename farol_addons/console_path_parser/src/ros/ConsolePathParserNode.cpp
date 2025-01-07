@@ -163,10 +163,15 @@ void ConsolePathParserNode::missionStringCallback(const std_msgs::String &msg) {
   strftime(buffer, BUF_SIZE_TIME, "/%Y-%m-%d_%I-%M-%S.txt", timeinfo);
   ROS_INFO_STREAM("PATH: " << path_folder);
   std::string str(path_folder + buffer);
-  ROS_INFO("Saving mission in: [%s]", str.c_str());
-  std::ofstream out(str.c_str());
-  out << msg.data;
-  out.close();
+  
+  try {
+    ROS_INFO("Saving mission in: [%s]", str.c_str());
+    std::ofstream out(str.c_str());
+    out << msg.data;
+    out.close();
+  } catch (int e) {
+    ROS_ERROR("An exception occurred while saving path from console to file. Exception Nr. %d", e);
+  }
 }
 
 
