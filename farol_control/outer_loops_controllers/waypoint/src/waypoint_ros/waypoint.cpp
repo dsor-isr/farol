@@ -200,6 +200,7 @@ bool WaypointNode::sendWpStandardService(
   // loop
   if (!decodeWaypoint(req.x, req.y)) {
     res.message += "Stop signal sent";
+    ROS_WARN("Flag set to 0: waypoint node couldn't decode waypoint.");
     FarolGimmicks::publishValue<std_msgs::Int8, const int>(flag_pub_, 0);
     timer_.stop();
   } else {
