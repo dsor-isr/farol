@@ -5,22 +5,29 @@ import rospy
 import roslib.message
 import std_msgs.msg
 import sys
+import base64
 
 def payload_to_bytes(bits_string):
-    zero_padded_bits=bits_string+'0'*(8 - len(bits_string) % 8)
-    hex_representation=format(int(zero_padded_bits,2), '0'+str(len(zero_padded_bits)//4)+'X') 
-    if sys.version_info[0] == 2:
-        return hex_representation.decode("hex")
-    elif sys.version_info[0] == 3: 
-        return hex_representation
+    # Ensure the binary string length is a multiple of 8
+    zero_padded_bits = bits_string + '0' * (8 - len(bits_string) % 8)
+    
+    # Convert binary string to bytes
+    byte_length = len(zero_padded_bits) // 8
+    raw_bytes = int(zero_padded_bits, 2).to_bytes(byte_length, byteorder='big')
+    
+    # Encode the bytes to Base85
+    base85_string = base64.a85encode(raw_bytes).decode('ascii')
+    
+    return base85_string
 
-def payload_to_bits(bytes_string):
-    if sys.version_info[0] == 2:
-        hex_representation=bytes_string.encode("hex")
-    elif sys.version_info[0] == 3:
-        hex_representation=bytes_string
-    zero_padded_bits=format(int(hex_representation,16), '0'+str(len(hex_representation)*4)+'b')
-    return zero_padded_bits
+def payload_to_bits(base85_string):
+    # Decode the Base85 string into bytes
+    decoded_bytes = base64.a85decode(base85_string)
+    
+    # Convert the bytes to a binary string
+    bits_string = ''.join(f'{byte:08b}' for byte in decoded_bytes)
+    
+    return bits_string
 
 def dec_to_bin(dec_value,low,high,bits,is_int=False):
     #saturate value
