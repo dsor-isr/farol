@@ -245,8 +245,8 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     pose_fix.header.stamp = usbl.header.stamp;
     pose_fix.header.frame_id = name_vehicle_id_ + '_' + usbl.header.frame_id;
     // set position
-    pose_fix.value.push_back((*iter).position.north + cartesian[0]);
-    pose_fix.value.push_back((*iter).position.east + cartesian[1]);
+    pose_fix.value.push_back((*iter).position.north - cartesian[0]);
+    pose_fix.value.push_back((*iter).position.east - cartesian[1]);
     // set noise covariance
     pose_fix.noise.push_back((*iter).position_variance.north + usbl.position_covariance[0] + p_meas_noise);
     pose_fix.noise.push_back((*iter).position_variance.east + usbl.position_covariance[4] + p_meas_noise);
