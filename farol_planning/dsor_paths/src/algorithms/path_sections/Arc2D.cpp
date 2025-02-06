@@ -30,9 +30,16 @@ Arc2D::Arc2D(Eigen::Vector2d start_point, Eigen::Vector2d end_point, Eigen::Vect
   this->psi0_ = atan2(start_point[1] - center_point[1], 
                       start_point[0] - center_point[0]);
 
+  /* Compute the final angle */
+  this->psif_ = atan2(end_point[1] - center_point[1], 
+                      end_point[0] - center_point[0]);
+
+  double max_gamma = (direction == -1) ? FarolGimmicks::wrapTo2pi(this->psif_ - this->psi0_)/M_PI :           // if turning right (-1)
+                                         (2*M_PI - FarolGimmicks::wrapTo2pi(this->psif_ - this->psi0_))/M_PI; // if turning left  (+1)
+
   /* Set the gamma max for this path to be between 0 and 1 */
   this->setMinGammaValue(0.0);
-  this->setMaxGammaValue(1.0);
+  this->setMaxGammaValue(max_gamma);
 }
 
 /**

@@ -128,5 +128,11 @@ class Arc2D : public PathSection {
      * The initial angle
      */
     double psi0_;
+
+    /**
+     * @brief Auxiliar parameters for the computations
+     * The final angle
+     */
+    double psif_;
 };
 
