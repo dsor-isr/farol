@@ -114,6 +114,11 @@ void Innerloops::initializeSubscribers() {
               nh_, "topics/subscribers/state", "/nav/filter/state"),
               10, &Innerloops::StateCallback, this);
 
+  // estiamtor subscrition to get altitude rate from bottom following controller
+  bottom_profiler_sub_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(
+              nh_, "topics/subscribers/bottom_profiler", "/nav/filter/state"),
+              10, &Innerloops::BottomProfilerCallback, this);
+
   // state subscription
   force_bypass_sub_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(
                         nh_, "topics/subscribers/force_bypass", "/force_bypass"),
@@ -244,6 +249,12 @@ void Innerloops::StateCallback(const auv_msgs::NavigationStatus &msg) {
   vdepth_ = msg.seafloor_velocity.z;
   valtitude_ = -msg.seafloor_velocity.z;
 }
+
+void Innerloops::BottomProfilerCallback(const std_msgs::Float64MultiArray &msg) {
+  altitude_ = msg.data[0];
+  altitude_rate_ = msg.data[1];
+}
+
 
 void Innerloops::turnRadiusSpeedCallback(const auv_msgs::NavigationStatus &msg){
   turn_radius_speed_t_ = ros::Time::now().toSec();

@@ -131,6 +131,76 @@ float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref
   return u_sat;
 }
 
+float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency) {
+
+  // PID Controller Gains
+  // double Zw = -4.1879;
+  // double Zww = -40.9649;  
+  double mw = 29.9081;
+  double dw = -1.1130;
+  double ksi = 0.7;
+  double w0 = 0.1;
+  double p = 10 * ksi * w0;
+
+  double a = 10;
+  double A = std::exp(-a * duration);
+  double B = 1 - A;
+
+  K_p = mw * (2 * ksi * w0 * p + w0 * w0);
+  K_i = mw * w0 * w0 * p;
+  K_d = mw * (2 * ksi * w0 + p) - dw;
+  K_a = 1 / duration;
+
+  u_max = 40.0; // N.m
+  u_min = -40.0; // N.-m
+
+  Dt = duration;
+  // Dt = 1.0 / frequency;
+  
+  ROS_INFO_STREAM("ALtitude: "<<altitude<<"| Altitude_rate: "<< altitude_rate);
+  // Compute control input
+  error = altitude_ref - altitude;
+
+  // compute derivative of altitude_rate  
+  if (first_it)
+    h_dot_dot = 0;
+  else 
+    h_dot_dot = (altitude_rate - altitude_rate_prev) / Dt;
+  
+  h_dot_dot_filter = A*h_dot_dot_filter_prev + h_dot_dot*B;
+  
+  // add all terms
+  g = K_d * h_dot_dot_filter + K_p * altitude_rate;
+  u_d = K_i * error - g;
+  ROS_INFO_STREAM("u_d: "<<u_d);
+
+  // integrate with anti wind-up
+  u_dot = u_d - K_a * (u_prev - u_sat_prev);
+  u = u_prev + u_dot * duration;
+  ROS_INFO_STREAM("u: "<<u);
+
+  if (u < u_min) {
+    u_sat = u_min;
+  } else if (u > u_max) {
+    u_sat = u_max;
+  } else {
+    u_sat = u;
+  }
+  ROS_INFO_STREAM("u_sat: "<<u_sat);
+
+  // Update new prev values
+  altitude_rate_prev = altitude_rate;
+  h_dot_dot_filter_prev = h_dot_dot_filter;
+  g_filter_prev = g_filter;
+  u_prev = u;
+  u_sat_prev = u_sat;
+  
+  first_it = false;
+
+  // return output
+  return -u_sat;
+}
+
 float PID_Controller::computeCommand(float error_p, float ref_value, float duration, bool debug) {
   float ref_d_value;
 

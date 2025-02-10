@@ -30,6 +30,15 @@ RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
   init(nh, controller_name, refCallback_topic);
 }
 
+// Altitude controller
+RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
+                             std::string refCallback_topic, double *state, double *altitude_rate,
+                             double *force_or_torque, double frequency)
+    : state_ptr_(state), altitude_rate_ptr_(altitude_rate), controller_name_(controller_name),
+      force_or_torque_ptr_(force_or_torque),  frequency_(frequency) {
+  init(nh, controller_name, refCallback_topic);
+}
+
 void RosController::init(ros::NodeHandle &nh, std::string controller_name,
                          std::string refCallback_topic) {
   // default state not angle units
@@ -198,10 +207,13 @@ double RosController::computeCommand() {
   // Call the controller
   if (controller_name_ == "yaw") {
     *force_or_torque_ptr_ += pid_c_->computeCommandYaw(*state_ptr_, *yaw_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
+  } else if (controller_name_ == "altitude") {
+    *force_or_torque_ptr_ += pid_c_->computeCommandAltitude(*state_ptr_, *altitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
   } else {
     *force_or_torque_ptr_ += (positive_output_ ? 1 : -1) * pid_c_->computeCommand(error, ref_value_, (tnow - last_cmd_).toSec(), debug_);
   }
-    last_cmd_ = tnow;
+  
+  last_cmd_ = tnow;
 
   // If debugging info, publish the internal controller variables for analysis
   if (debug_) {

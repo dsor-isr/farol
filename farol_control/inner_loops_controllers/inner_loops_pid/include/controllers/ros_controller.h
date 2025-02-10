@@ -202,6 +202,7 @@ protected:
   ros::Publisher debug_pub_;
 
   double *yaw_rate_ptr_;
+  double *altitude_rate_ptr_;
 };
 
 #endif /* ifndef __ROS_CONTROLLER__*/

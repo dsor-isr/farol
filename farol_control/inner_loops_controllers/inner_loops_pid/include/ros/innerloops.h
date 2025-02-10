@@ -12,6 +12,7 @@
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/Float64MultiArray.h>
 #include <std_msgs/Bool.h>
 #include <std_srvs/SetBool.h>
 
@@ -75,6 +76,7 @@ private:
    * @param msg  State message
    */
   void StateCallback(const auv_msgs::NavigationStatus &msg);
+  void BottomProfilerCallback(const std_msgs::Float64MultiArray &msg); 
 
   /**
    * @brief  Receives a desired force to be applied to the vehicle that should
@@ -143,7 +145,8 @@ private:
   // State Variables
   double yaw_, pitch_, roll_, yaw_rate_, pitch_rate_, roll_rate_;
   double surge_, sway_, heave_;
-  double depth_, altitude_, vdepth_, valtitude_;
+  double depth_, altitude_, vdepth_, valtitude_; altitude_rate_;
+
 
   double force_request_[3]{}; // Forces, x,y,z (body)
 
@@ -158,6 +161,7 @@ private:
   ros::Subscriber st_sub_; // State subscriber
   ros::Subscriber force_bypass_sub_;
   ros::Subscriber turn_radius_speed_sub_; // Airmar surge speed subscriber (Delfim)
+  ros::Subscriber bottom_profiler_sub_;
 
   ros::ServiceServer change_ff_gains_srv_;
   ros::ServiceServer change_gains_srv_;

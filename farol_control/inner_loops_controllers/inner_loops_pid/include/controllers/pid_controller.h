@@ -1,6 +1,7 @@
 #ifndef PID_CONTROLLER_H
 #define PID_CONTROLLER_H
 
+#include <ros/ros.h>
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -95,6 +96,7 @@ public:
   float computeCommand(float error_p, float ref_value, float duration, bool debug);
 
   float computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency);
+  float computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency);
 
   bool first_it;
   double N_r;
@@ -108,10 +110,13 @@ public:
   double qsi;
   double pole;
   double delta;
+  double Dt;
   double K_r;
+  double K_d;
   double K_p;
   double K_i;
   double k_a;
+  double K_a;
   double A;
   double B;
   double yaw_rate_dot;
@@ -129,6 +134,10 @@ public:
   double g_filter_prev;
   double u_prev;
   double u_sat_prev;
+  double altitude_rate_prev;
+  double h_dot_dot;
+  double h_dot_dot_filter;
+  double h_dot_dot_filter_prev;
 
   /**
    * @brief  Reset function. Sets the integral error term to 0.
