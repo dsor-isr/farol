@@ -120,6 +120,9 @@ void RosController::refCallback(const std_msgs::Float64 &msg) {
   else
     // saturate references
     ref_value_ = fmin(fmax(msg.data, min_ref_value_), max_ref_value_);
+
+
+
 }
 
 double RosController::computeCommand() {
@@ -187,6 +190,8 @@ double RosController::computeCommand() {
     }
   }
 
+
+
   double error = ref_value_ - *state_ptr_;
   if (isnan(ref_value_)) {
     ROS_ERROR("getting NaN in %s controller", controller_name_.c_str());
@@ -203,6 +208,9 @@ double RosController::computeCommand() {
   }
 
   ros::Time tnow = ros::Time::now();  
+
+
+
   
   // Call the controller
   if (controller_name_ == "yaw") {

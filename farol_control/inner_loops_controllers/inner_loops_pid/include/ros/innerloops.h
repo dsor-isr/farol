@@ -145,7 +145,7 @@ private:
   // State Variables
   double yaw_, pitch_, roll_, yaw_rate_, pitch_rate_, roll_rate_;
   double surge_, sway_, heave_;
-  double depth_, altitude_, vdepth_, valtitude_; altitude_rate_;
+  double depth_, altitude_, vdepth_, valtitude_, altitude_rate_;
 
 
   double force_request_[3]{}; // Forces, x,y,z (body)

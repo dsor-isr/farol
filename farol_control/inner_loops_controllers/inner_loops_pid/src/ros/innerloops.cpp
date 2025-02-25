@@ -106,7 +106,7 @@ void Innerloops::initializeSubscribers() {
     new RosController(nh_, "altitude",
       FarolGimmicks::getParameters<std::string>(
         nh_, "topics/subscribers/altitude_safety", "altitude_ref"),
-        &altitude_, &force_request_[2], Innerloops::nodeFrequency()));
+        &altitude_, &altitude_rate_, &force_request_[2], Innerloops::nodeFrequency()));
   controllers_.back()->setPositiveOutput(false);
 
   // state subscription
@@ -240,7 +240,7 @@ void Innerloops::StateCallback(const auv_msgs::NavigationStatus &msg) {
   yaw_rate_ = msg.orientation_rate.z;
 
   depth_ = msg.position.depth;
-  altitude_ = msg.altitude;
+  //altitude_ = msg.altitude;
 
   surge_ = msg.body_velocity.x;
   sway_ = msg.body_velocity.y;

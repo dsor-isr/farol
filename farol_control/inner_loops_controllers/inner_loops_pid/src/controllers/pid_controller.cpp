@@ -51,11 +51,9 @@ float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref
   I_z = 0.24;
   u_max = 5.0; // N.m
   u_min = -5.0; // N.m
-  a = 10.0; // rad/s
-
+  a = 10.0; // rad/s  
   alpha = 1.0 / I_z;
   beta = -N_r / I_z;
-
   w_n = 0.5; // rad/s
   qsi = 0.7;
   pole = -4;
@@ -136,10 +134,12 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   // PID Controller Gains
   // double Zw = -4.1879;
   // double Zww = -40.9649;  
+  ROS_WARN_STREAM("Low pass filter cutoff frequency must be higher than 0.");
+  
   double mw = 29.9081;
   double dw = -1.1130;
   double ksi = 0.7;
-  double w0 = 0.1;
+  double w0 = 0.5;
   double p = 10 * ksi * w0;
 
   double a = 10;

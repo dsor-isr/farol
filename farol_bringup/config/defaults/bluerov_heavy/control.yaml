@@ -106,7 +106,7 @@ inner_loops_pid:
         heave:
             enabled: true
             kp: 26.0
-            ki: 1.0
+            ki: 1.6
             max_ref:  0.7  # m/s
             min_ref: -0.7  # m/s
             max_err:  0.2  # m/s
