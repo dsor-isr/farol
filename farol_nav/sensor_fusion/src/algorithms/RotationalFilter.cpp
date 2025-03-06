@@ -314,7 +314,7 @@ void RotationalFilter::update(Vec &state_vec, Mat &state_cov, const FilterGimmic
       }
       else{
         //ROS_WARN("Rotacional: Measurement of frame %s rejected as outlier. x: %1f, y: %1f with normalized_error %1f and threshold %1f", m.header.frame_id.c_str(), if_vec(0), if_vec(1), normalized_error(0), outlier_rejection_threshold_);
-        ROS_WARN("Rotacional: Measurement of frame %s rejected as outlier", m.header.frame_id.c_str());
+        //ROS_WARN("Rotacional: Measurement of frame %s rejected as outlier", m.header.frame_id.c_str());
         return;
       }
     
