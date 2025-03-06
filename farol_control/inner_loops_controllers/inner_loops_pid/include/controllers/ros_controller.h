@@ -50,7 +50,7 @@ public:
                 double *force_or_torque, double frequency);
 
 /**
-   * @brief  Constructor of a innerloop yaw controller.
+   * @brief  Constructor of a innerloop attitude controller.
    *
    * @param nh  ROS nodehandle to read parameters and subscribe to relevant
    * topics
@@ -64,7 +64,7 @@ public:
    * @param rate_limiter Rate Limiter object from dsor_utils
    */
   RosController(ros::NodeHandle &nh, std::string controller_name,
-                std::string refCallback_topic, double *state, double *yaw_rate,
+                std::string refCallback_topic, double *state, double *attitude_rate,
                 double *force_or_torque, double frequency,
                 bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t);
 
@@ -201,7 +201,7 @@ protected:
   ros::Subscriber ros_sub_;
   ros::Publisher debug_pub_;
 
-  double *yaw_rate_ptr_;
+  double *attitude_rate_ptr_;
   double *altitude_rate_ptr_;
 };
 

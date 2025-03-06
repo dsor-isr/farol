@@ -45,6 +45,7 @@ PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kf
   lpf_ = std::make_unique<LowPassFilter>(lpf_dt, 2*M_PI*lpf_fc);
 }
 
+// Edu
 float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency) {
   // Initialisation parameters (must be moved to an init function of this node or ros_controller node (preferred))
   N_r = -0.5;
@@ -106,6 +107,7 @@ float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref
 
   u_d = K_i * error - g_filter;
   u_dot = u_d - k_a * (u_prev - u_sat_prev);
+  double u;
   u = u_prev + u_dot * delta;
   
   if (u < u_min) {
@@ -129,6 +131,7 @@ float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref
   return u_sat;
 }
 
+// Ravi bad -> convert to vertical
 float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency) {
 
   // PID Controller Gains
@@ -176,6 +179,7 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
 
   // integrate with anti wind-up
   u_dot = u_d - K_a * (u_prev - u_sat_prev);
+  double u;
   u = u_prev + u_dot * duration;
   ROS_INFO_STREAM("u: "<<u);
 
@@ -201,6 +205,204 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   return -u_sat;
 }
 
+// Ravi good
+float PID_Controller::computeCommandSpeed(float speed, float speed_ref, float Dt, bool debug) {
+
+  // Don't return nothing if controller is disabled
+  if (disable || Dt < 0.05 || Dt > 0.2)
+    return 0.0;
+
+  // // filter reference signal through low pass if it exists
+  // if (has_lpf_) {
+  //   ref_d_value = lpf_->update((ref_value - ref_prev_) / Dt);
+  // }
+  // else {
+  //   ref_d_value = (ref_value - ref_prev_) / Dt;
+  // }
+  float error = speed_ref- speed;
+  float error_sat = sat(speed_ref - speed , min_error_, max_error_);
+
+  // compute derivative of speed by 1st order aproximation  
+  float speed_dot;
+  //ROS_INFO_STREAM("ff_gain_:" << ff_gain_);
+  if (first_it){
+    speed_dot = 0;
+    u_prev_ = ff_gain_;
+    u_sat_prev_ = u_prev_;
+  } // actually ff_gain_ is gw, starting the integrator at gw is good
+  else {
+    speed_dot = (speed-speed_prev_)/Dt;//(speed-speed_prev_)>0.05 ? (speed-speed_prev_)/Dt : 0;
+  }
+  //ROS_INFO_STREAM("speed_dot:" << speed_dot);
+
+  // aply a low pass filter because previous computation amplifies noise
+  double speed_dot_filter;
+  double a = 31.4;                      // pole of the low pass filter
+  double lpf_A = std::exp(-a * Dt);   // descretization of the filter
+  double lpf_B = 1 - A;               // descretization of the filter
+  speed_dot_filter = lpf_A*speed_dot_filter_prev_ + speed_dot*lpf_B;
+  //ROS_INFO_STREAM("speed_dot_filter:" << speed_dot_filter);
+
+  // // LPF from chatgpt
+  // double speed_dot_filter;
+  // double a = 10;                      // pole of the low pass filter
+  // double alpha = (2 * a) / (Dt + a);
+  // double beta  = (Dt - a) / (Dt + a);
+  // speed_dot_filter = alpha*(speed - speed_prev_) - beta*speed_dot_filter_prev_;
+  // ROS_INFO_STREAM("speed_dot_filter:" << speed_dot_filter);
+
+  // value of the ouput before integration with anti-windup
+  
+  double tau_d;
+  tau_d =  i_gain_ * error - p_gain_ * speed_dot;
+  //ROS_INFO_STREAM("tau_d:" << tau_d);
+
+  // integration with anti windup
+  double K_a = 1/Dt;
+  u_dot = tau_d - K_a * (u_prev_ - u_sat_prev_);
+  //ROS_INFO_STREAM("u_dot:" << u_dot);
+  double u;
+  u = u_prev_ + u_dot * Dt;
+  //ROS_INFO_STREAM("u:" << u);
+  // aply the saturation
+  if (u < min_out_) {
+    u_sat = min_out_;
+  } else if (u > max_out_) {
+    u_sat = max_out_;
+  } else {
+    u_sat = u;
+  }
+  //ROS_INFO_STREAM("u_sat:" << u_sat);
+
+
+  if (true) {
+    msg_debug_.ref = speed_ref;
+    msg_debug_.ref_d = (speed_ref - ref_prev_) / Dt;
+    if (has_lpf_) {
+      msg_debug_.ref_d_filtered = 0;
+    } else {
+      msg_debug_.ref_d_filtered = (speed_ref - ref_prev_) / Dt;
+    }
+    msg_debug_.error = error;
+    msg_debug_.error_saturated = error_sat;
+
+    msg_debug_.ffTerm = speed_dot;
+    msg_debug_.ffDTerm = speed_dot_filter;
+    msg_debug_.ffDragTerm = tau_d;
+    msg_debug_.pTerm = u_dot;
+    msg_debug_.iTerm = 0;
+    msg_debug_.dTerm = 0;
+    msg_debug_.output = 0;
+  }
+
+  // update previous values
+  speed_prev_ = speed;
+  speed_dot_prev_ = speed_dot;
+  speed_dot_filter_prev_ = speed_dot_filter;
+  
+  u_prev_ = u;
+  u_sat_prev_ = u_sat;
+  ref_prev_ = speed_ref;
+  first_it=false;
+  
+  return u_sat;
+}
+
+//Ravi good
+float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug) {
+  
+  if (disable || Dt < 0.05 || Dt > 0.2)
+    return 0.0;
+  
+  // // filter reference signal through low pass if it exists
+  // if (has_lpf_) {
+  //   ref_d_value = lpf_->update((ref_value - prev_ref_value_) / Dt);
+  // }
+  // else {
+  //   ref_d_value = (ref_value - prev_ref_value_) / Dt;
+  // }
+  
+  // convert degrees to radians
+  attitude = attitude / 180*M_PI;
+  attitude_rate = attitude_rate / 180*M_PI;
+  attitude_ref = attitude_ref / 180*M_PI;
+
+  // Compute control input
+  float error = wrapToPi(attitude_ref- attitude);
+  float error_sat = attitude_ref- attitude;//sat(error, min_error_, max_error_);
+  
+  // if first iteration dont copmute derivative
+  float attitude_rate_dot, attitude_dot, attitude_rate_dot_filter;
+  if (first_it) {
+    attitude_rate_dot = 0;
+    attitude_dot = 0;
+  } else {
+    attitude_rate_dot = (attitude_rate - attitude_rate_prev_) / Dt;
+    // aply a low pass filter because previous computation amplifies noise
+    double a = 31.4;                      // pole of the low pass filter
+    double lpf_A = std::exp(-a * Dt);   // descretization of the filter
+    double lpf_B = 1 - A;               // descretization of the filter
+    attitude_rate_dot_filter = lpf_A*attitude_rate_dot_filter_prev_ + attitude_rate_dot*lpf_B;
+
+    //attitude_dot = wrapToPi(attitude - attitude_prev)/Dt;
+    attitude_dot = attitude_rate;
+  }
+
+  // adding up all PID terms
+  double tau_d;
+  tau_d =  i_gain_ * error - p_gain_ * attitude_dot - d_gain_*attitude_rate_dot_filter;
+
+  // integration with anti windup
+  double K_a = 1/Dt;
+  u_dot = tau_d - K_a * (u_prev_ - u_sat_prev_);
+  double u;
+  u = u_prev_ + u_dot * Dt;
+
+  // aply the saturation
+  double u_sat;
+  if (u < min_out_) {
+    u_sat = min_out_;
+  } else if (u > max_out_) {
+    u_sat = max_out_;
+  } else {
+    u_sat = u;
+  }
+
+  if (true) {
+    msg_debug_.ref = attitude_ref;
+    msg_debug_.ref_d = (attitude_ref - ref_prev_) / Dt;
+    if (has_lpf_) {
+      msg_debug_.ref_d_filtered = 0;
+    } else {
+      msg_debug_.ref_d_filtered = (attitude_ref - ref_prev_) / Dt;
+    }
+    msg_debug_.error = error;
+    msg_debug_.error_saturated = error_sat;
+
+    msg_debug_.ffTerm = attitude_dot;
+    msg_debug_.ffDTerm = attitude_rate_dot_filter;
+    msg_debug_.ffDragTerm = tau_d;
+    msg_debug_.pTerm = p_gain_;
+    msg_debug_.iTerm = i_gain_;
+    msg_debug_.dTerm = d_gain_;
+    msg_debug_.output = 0;
+  }
+
+  // Update prev values
+  attitude_rate_prev_ = attitude_rate;
+  attitude_prev_ = attitude;
+  attitude_rate_dot_filter_prev_ = attitude_rate_dot_filter;
+
+  u_prev_ = u;
+  u_sat_prev_ = u_sat;
+  ref_prev_ = attitude_ref;
+  first_it=false;
+
+  // return output
+  return u_sat;
+}
+
+// Default controller
 float PID_Controller::computeCommand(float error_p, float ref_value, float duration, bool debug) {
   float ref_d_value;
 
@@ -271,9 +473,13 @@ float PID_Controller::computeCommand(float error_p, float ref_value, float durat
 
 
 void PID_Controller::reset() {
+  // General controllers
   integral_ = 0;
   pre_error_ = 0;
   prev_ref_value_ = 0;
+  // my controllers
+  u_prev_=ff_gain_;
+  u_sat_prev_=ff_gain_;
 }
 
 void PID_Controller::setFFGains(const float &kff, const float &kff_d, const float &kff_lin_drag,
@@ -314,3 +520,10 @@ float PID_Controller::sat(float u, float low, float high) {
   if (u > high) return high;
   return u;
 }
+
+float PID_Controller::wrapToPi(float angle) {
+  while (angle > M_PI) angle -= 2 * M_PI;
+  while (angle < -M_PI) angle += 2 * M_PI;
+  return angle;
+}
+

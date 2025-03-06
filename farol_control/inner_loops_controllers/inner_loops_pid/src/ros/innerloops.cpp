@@ -35,7 +35,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "pitch",
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/pitch", "pitch_ref"),
-          &pitch_, &torque_request_[1], Innerloops::nodeFrequency()));
+          &pitch_, &pitch_rate_, &torque_request_[1], Innerloops::nodeFrequency(),
+          &turn_radius_flag_, &turn_radius_speed_, &rate_limiter_, &turn_radius_speed_t_));
 
   controllers_.back()->setCircularUnits(true);
 
@@ -44,7 +45,8 @@ void Innerloops::initializeSubscribers() {
       new RosController(nh_, "roll",
         FarolGimmicks::getParameters<std::string>(
           nh_, "topics/subscribers/roll", "roll_ref"),
-          &roll_, &torque_request_[0], Innerloops::nodeFrequency()));
+          &roll_, &roll_rate_, &torque_request_[0], Innerloops::nodeFrequency(),
+          &turn_radius_flag_, &turn_radius_speed_, &rate_limiter_, &turn_radius_speed_t_));
 
   controllers_.back()->setCircularUnits(true);
 

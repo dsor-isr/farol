@@ -95,8 +95,14 @@ public:
    */
   float computeCommand(float error_p, float ref_value, float duration, bool debug);
 
+  // these are dumb
   float computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency);
   float computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency);
+  
+  // these not so dumb
+  float computeCommandSpeed(float speed, float speed_ref, float Dt, bool debug); 
+  float computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug);
+  //float computeCommandVertical(float z, float z_rate, float z_ref, float Dt, bool direction, bool debug);
 
   bool first_it;
   double N_r;
@@ -128,7 +134,6 @@ public:
   double error;
   double u_d;
   double u_dot;
-  double u;
   double u_sat;
   double g_prev;
   double g_filter_prev;
@@ -138,6 +143,20 @@ public:
   double h_dot_dot;
   double h_dot_dot_filter;
   double h_dot_dot_filter_prev;
+
+  // Speed controllers variables
+  double speed_prev_{0};
+  double speed_dot_prev_{0};
+  double speed_dot_filter_prev_{0};
+  // Atittude controllers variables
+  double attitude_rate_prev_{0};
+  double attitude_prev_{0};
+  double attitude_rate_dot_filter_prev_{0};
+  // All controllers variables
+  double ref_prev_{0};
+  double u_prev_{0};
+  double u_sat_prev_{0};
+
 
   /**
    * @brief  Reset function. Sets the integral error term to 0.
@@ -194,13 +213,13 @@ public:
 
 protected:
   // Controller PID Gains
-  float p_gain_, i_gain_, d_gain_;
+  float p_gain_{0.0}, i_gain_{0.0}, d_gain_{0.0};
   // Controller feedforwad gains
-  float ff_gain_, ff_d_gain_, ff_lin_drag_gain_, ff_quad_drag_gain_;
+  float ff_gain_{0.0}, ff_d_gain_{0.0}, ff_lin_drag_gain_{0.0}, ff_quad_drag_gain_{0.0};
   // Max and Min output/error values
   float max_error_, max_out_, min_error_, min_out_;
   // Integral error
-  float integral_;
+  float integral_{0.0};
   // Previous error and reference value
   float pre_error_, prev_ref_value_;
   
@@ -224,6 +243,8 @@ private:
    * @return
    */
   float sat(float u, float low, float high);
+
+  float wrapToPi(float angle);
 };
 
 #endif // PID_CONTROLLER_H

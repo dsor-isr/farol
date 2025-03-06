@@ -1,5 +1,6 @@
 #include "ros_controller.h"
 
+// General Controller
 RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
                              std::string refCallback_topic, double *state,
                              double *force_or_torque, double frequency)
@@ -8,15 +9,15 @@ RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
   init(nh, controller_name, refCallback_topic);
 }
 
-// Yaw controller
+// Attitude Controller
 RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
-                             std::string refCallback_topic, double *state, double *yaw_rate,
+                             std::string refCallback_topic, double *state, double *attitude_rate,
                              double *force_or_torque, double frequency,
                              bool *turn_limiter_flag, double *turn_radius_speed, RateLimiter *rate_limiter, double *turn_radius_speed_t)
-    : state_ptr_(state), yaw_rate_ptr_(yaw_rate), controller_name_(controller_name),
-      force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
-      turn_limiter_flag_ptr_(turn_limiter_flag), turn_radius_speed_(turn_radius_speed), rate_limiter_ptr_(rate_limiter), turn_radius_speed_t_(turn_radius_speed_t) {
-  init(nh, controller_name, refCallback_topic);
+: state_ptr_(state), attitude_rate_ptr_(attitude_rate), controller_name_(controller_name),
+force_or_torque_ptr_(force_or_torque),  frequency_(frequency),
+turn_limiter_flag_ptr_(turn_limiter_flag), turn_radius_speed_(turn_radius_speed), rate_limiter_ptr_(rate_limiter), turn_radius_speed_t_(turn_radius_speed_t) {
+init(nh, controller_name, refCallback_topic);
 }
 
 // Yaw_rate controller
@@ -210,14 +211,23 @@ double RosController::computeCommand() {
   ros::Time tnow = ros::Time::now();  
 
 
-
-  
   // Call the controller
-  if (controller_name_ == "yaw") {
-    *force_or_torque_ptr_ += pid_c_->computeCommandYaw(*state_ptr_, *yaw_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
-  } else if (controller_name_ == "altitude") {
+  // if (controller_name_ == "yaw") {
+  //   *force_or_torque_ptr_ += pid_c_->computeCommandYaw(*state_ptr_, *attitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
+  // } 
+  // Attitude Controllers  
+  if (controller_name_ == "pitch" || controller_name_ == "yaw" || controller_name_ == "roll" ) {
+    *force_or_torque_ptr_ += pid_c_->computeCommandAttitude(*state_ptr_, *attitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), debug_);
+  } 
+  // Speed Controllers
+  else if (controller_name_ == "surge" || controller_name_ == "sway" || controller_name_ == "heave") {
+    *force_or_torque_ptr_ += pid_c_->computeCommandSpeed(*state_ptr_, ref_value_, (tnow - last_cmd_).toSec(), debug_);
+  }
+  // TODO: this shoul be for altitude and depth 
+  else if (controller_name_ == "altitude") {
     *force_or_torque_ptr_ += pid_c_->computeCommandAltitude(*state_ptr_, *altitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
-  } else {
+  } 
+  else {
     *force_or_torque_ptr_ += (positive_output_ ? 1 : -1) * pid_c_->computeCommand(error, ref_value_, (tnow - last_cmd_).toSec(), debug_);
   }
   
