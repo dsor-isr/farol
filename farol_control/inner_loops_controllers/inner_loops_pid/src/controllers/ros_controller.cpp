@@ -1,5 +1,9 @@
 #include "ros_controller.h"
 
+// Note:
+//  There was no need to put here a separate for the speed controllers as the default one works fine, 
+//  only attitude needs to be diferent in order to pass the attitude_rate an also the turn radius bulshit
+
 // General Controller
 RosController::RosController(ros::NodeHandle &nh, std::string controller_name,
                              std::string refCallback_topic, double *state,
@@ -217,7 +221,7 @@ double RosController::computeCommand() {
   // } 
   // Attitude Controllers  
   if (controller_name_ == "pitch" || controller_name_ == "yaw" || controller_name_ == "roll" ) {
-    *force_or_torque_ptr_ += pid_c_->computeCommandAttitude(*state_ptr_, *attitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), debug_);
+    *force_or_torque_ptr_ += pid_c_->computeCommandAttitude(*state_ptr_, *attitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), debug_, controller_name_);
   } 
   // Speed Controllers
   else if (controller_name_ == "surge" || controller_name_ == "sway" || controller_name_ == "heave") {

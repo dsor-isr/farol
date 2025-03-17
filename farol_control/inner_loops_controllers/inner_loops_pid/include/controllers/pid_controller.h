@@ -94,17 +94,13 @@ public:
    * @return
    */
   float computeCommand(float error_p, float ref_value, float duration, bool debug);
-
-  // these are dumb
-  float computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency);
   float computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency);
   
-  // these not so dumb
   float computeCommandSpeed(float speed, float speed_ref, float Dt, bool debug); 
-  float computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug);
+  float computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug,  std::string controller_name);
   //float computeCommandVertical(float z, float z_rate, float z_ref, float Dt, bool direction, bool debug);
 
-  bool first_it;
+  
   double N_r;
   double I_z;
   double u_max;
@@ -153,6 +149,7 @@ public:
   double attitude_prev_{0};
   double attitude_rate_dot_filter_prev_{0};
   // All controllers variables
+  bool first_it;
   double ref_prev_{0};
   double u_prev_{0};
   double u_sat_prev_{0};
@@ -226,7 +223,7 @@ protected:
   // Low pass filter object
   bool has_lpf_{false};
   std::unique_ptr<LowPassFilter> lpf_; 
-
+    
   // Debug message
   farol_msgs::mPidDebug msg_debug_;
 

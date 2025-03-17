@@ -45,99 +45,13 @@ PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kf
   lpf_ = std::make_unique<LowPassFilter>(lpf_dt, 2*M_PI*lpf_fc);
 }
 
-// Edu
-float PID_Controller::computeCommandYaw(float yaw, float yaw_rate, float yaw_ref, float duration, float frequency) {
-  // Initialisation parameters (must be moved to an init function of this node or ros_controller node (preferred))
-  N_r = -0.5;
-  I_z = 0.24;
-  u_max = 5.0; // N.m
-  u_min = -5.0; // N.m
-  a = 10.0; // rad/s  
-  alpha = 1.0 / I_z;
-  beta = -N_r / I_z;
-  w_n = 0.5; // rad/s
-  qsi = 0.7;
-  pole = -4;
-
-  // delta = duration;
-  delta = 1.0 / frequency;
-
-  K_r = (2*qsi*w_n - pole - beta) / alpha;
-  K_p = w_n * (w_n - 2*pole*qsi) / alpha;
-  K_i = (- pow(w_n, 2) * pole) / alpha;
-  k_a = 1.0 / delta;
-
-  A = std::exp(-a*delta);
-  B = 1 - A;
-
-  // change from degrees to radians
-  yaw = yaw / 360 * 2*M_PI;
-  yaw_rate = yaw_rate / 360 * 2*M_PI;
-  yaw_ref = yaw_ref / 360 * 2*M_PI;
-
-  // Compute control input
-  error = yaw_ref - yaw;
-
-  if (error > M_PI) {
-    error = error - 2*M_PI;
-  } else if (error < - M_PI) {
-    error = error + 2*M_PI;
-  }
-
-  if (first_it) {
-    yaw_rate_dot = 0;
-    yaw_dot = 0;
-  } else {
-    yaw_rate_dot = (yaw_rate - yaw_rate_prev) / delta;
-    yaw_dot = (yaw - yaw_prev); // still needs to be divided by delta
-
-    if (yaw_dot > M_PI) {
-      yaw_dot = yaw_dot - 2*M_PI;
-    } else if (yaw_dot < - M_PI) {
-      yaw_dot = yaw_dot + 2*M_PI;
-    }
-
-    yaw_dot = yaw_dot / delta;
-  }
-
-  g = K_r * yaw_rate_dot + K_p * yaw_dot;
-
-  g_filter = A*g_filter_prev + g*B;
-  // g_filter = g;
-
-  u_d = K_i * error - g_filter;
-  u_dot = u_d - k_a * (u_prev - u_sat_prev);
-  double u;
-  u = u_prev + u_dot * delta;
-  
-  if (u < u_min) {
-    u_sat = u_min;
-  } else if (u > u_max) {
-    u_sat = u_max;
-  } else {
-    u_sat = u;
-  }
-
-  // Update new prev values
-  yaw_rate_prev = yaw_rate;
-  yaw_prev = yaw;
-  g_filter_prev = g_filter;
-  u_prev = u;
-  u_sat_prev = u_sat;
-
-  first_it = false;
-
-  // return output
-  return u_sat;
-}
-
-// Ravi bad -> convert to vertical
+// TODO: convert to ComputeCommandVertical
 float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency) {
 
   // PID Controller Gains
   // double Zw = -4.1879;
   // double Zww = -40.9649;  
-  ROS_WARN_STREAM("Low pass filter cutoff frequency must be higher than 0.");
+  //ROS_WARN_STREAM("Low pass filter cutoff frequency must be higher than 0.");
   
   double mw = 29.9081;
   double dw = -1.1130;
@@ -160,7 +74,7 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   Dt = duration;
   // Dt = 1.0 / frequency;
   
-  ROS_INFO_STREAM("ALtitude: "<<altitude<<"| Altitude_rate: "<< altitude_rate);
+  //ROS_INFO_STREAM("ALtitude: "<<altitude<<"| Altitude_rate: "<< altitude_rate);
   // Compute control input
   error = altitude_ref - altitude;
 
@@ -190,7 +104,7 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   } else {
     u_sat = u;
   }
-  ROS_INFO_STREAM("u_sat: "<<u_sat);
+  //ROS_INFO_STREAM("u_sat: "<<u_sat);
 
   // Update new prev values
   altitude_rate_prev = altitude_rate;
@@ -205,7 +119,7 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   return -u_sat;
 }
 
-// Ravi good
+// Speed Controllers
 float PID_Controller::computeCommandSpeed(float speed, float speed_ref, float Dt, bool debug) {
 
   // Don't return nothing if controller is disabled
@@ -308,11 +222,11 @@ float PID_Controller::computeCommandSpeed(float speed, float speed_ref, float Dt
   return u_sat;
 }
 
-//Ravi good
-float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug) {
-  
+// Attitude Controllers
+float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug, std::string controller_name) {
   if (disable || Dt < 0.05 || Dt > 0.2)
     return 0.0;
+  
   
   // // filter reference signal through low pass if it exists
   // if (has_lpf_) {
@@ -329,10 +243,10 @@ float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate
 
   // Compute control input
   float error = wrapToPi(attitude_ref- attitude);
-  float error_sat = attitude_ref- attitude;//sat(error, min_error_, max_error_);
+
   
-  // if first iteration dont copmute derivative
-  float attitude_rate_dot, attitude_dot, attitude_rate_dot_filter;
+  // if first iteration dont compute derivative
+  double attitude_rate_dot=0, attitude_dot=0, attitude_rate_dot_filter=0;
   if (first_it) {
     attitude_rate_dot = 0;
     attitude_dot = 0;
@@ -357,6 +271,9 @@ float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate
   u_dot = tau_d - K_a * (u_prev_ - u_sat_prev_);
   double u;
   u = u_prev_ + u_dot * Dt;
+  //if(controller_name == "pitch"){
+  //  ROS_INFO_STREAM("u: " << u);
+  //}
 
   // aply the saturation
   double u_sat;
@@ -377,7 +294,7 @@ float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate
       msg_debug_.ref_d_filtered = (attitude_ref - ref_prev_) / Dt;
     }
     msg_debug_.error = error;
-    msg_debug_.error_saturated = error_sat;
+    msg_debug_.error_saturated = error;
 
     msg_debug_.ffTerm = attitude_dot;
     msg_debug_.ffDTerm = attitude_rate_dot_filter;
@@ -398,6 +315,9 @@ float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate
   ref_prev_ = attitude_ref;
   first_it=false;
 
+  //if(controller_name == "pitch"){
+  //  ROS_INFO_STREAM("u_sat: " << u_sat);
+  //}
   // return output
   return u_sat;
 }
