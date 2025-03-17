@@ -96,7 +96,7 @@ void VerticalFilter::computePredict(auv_msgs::NavigationStatus &state, ros::Time
 
 void VerticalFilter::newMeasurement(const FilterGimmicks::measurement &m)
 {
-		if (FilterGimmicks::isinvalid(m, last_update_.toSec())){
+	if (FilterGimmicks::isinvalid(m, last_update_.toSec())){
         ROS_WARN("Vertical: Measurement %s is invalid in the Vertical Filter", m.header.frame_id.c_str());
         return;
     }
@@ -168,10 +168,13 @@ void VerticalFilter::update(Vec &state_vec, Mat &state_cov, const FilterGimmicks
     // +.+ Return if the filter is not initialized_
     if (!initialized_)
         return;
+    
+    
 
     last_update_ = m.header.stamp;
 
     int INPUT_LEN = m.config.sum();
+
     
     // +.+ Find active sensor and built the STATE OBSERVATION MATRIX
     Mat observation_mat = Eigen::MatrixXd::Zero(INPUT_LEN, MEAS_LEN);{
@@ -185,10 +188,13 @@ void VerticalFilter::update(Vec &state_vec, Mat &state_cov, const FilterGimmicks
     Vec if_vec = Eigen::VectorXd::Zero(INPUT_LEN);
     if_vec = m.value - (observation_mat * state_vec);
 
+
     Mat meas_cov = Eigen::MatrixXd::Zero(INPUT_LEN, INPUT_LEN);
-    meas_cov.diagonal() = m.noise;
+    meas_cov.diagonal()(0) = m.noise(0);
+    
 
     Mat innovation_mat = observation_mat * state_cov * observation_mat.transpose() + meas_cov;
+
     Eigen::FullPivLU<Mat> lu(innovation_mat);
     if (!lu.isInvertible())
     {
@@ -224,6 +230,7 @@ void VerticalFilter::update(Vec &state_vec, Mat &state_cov, const FilterGimmicks
 		Vec aux = (m.config.array()).select(m.config - Eigen::VectorXd::Ones(MEAS_LEN), Eigen::VectorXd::Ones(MEAS_LEN));
 		state_reject_counter_.dot(aux);
 	}
+
 
     // +.+ Calculate Kalman gain matrix and update state vector and state covariance matrix
     Mat kalman_gain = state_cov * observation_mat.transpose() * innovation_mat.inverse();
