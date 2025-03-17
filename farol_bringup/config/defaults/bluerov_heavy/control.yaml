@@ -47,22 +47,24 @@ inner_loops_pid:
         #### Attitude Controllers ####
         roll:
             enabled: true
-            kp: 0.732
-            ki: 0.24 
-            kd: 0.628 
+            kp: 0.6579
+            ki: 0.9137
+            kd: 0.7707
             max_err:  60.0 # deg
             min_err: -60.0 # deg  
             max_out:  10.0  # N.m
             min_out: -10.0
+            debug: true
         pitch:
             enabled: true
-            kp: 0.732
-            ki: 0.24 
-            kd: 0.628 
+            kp: 0.6579
+            ki: 0.9137
+            kd: 0.7707
             max_err:  60.0 # deg
             min_err: -60.0 # deg  
             max_out:  10.0  # N.m
             min_out: -10.0
+            debug: true
         yaw:
             enabled: true
             kp: 0.732
@@ -72,6 +74,7 @@ inner_loops_pid:
             min_err: -60.0 # deg  
             max_out:  10.0  # N.m
             min_out: -10.0
+            debug: true
         
         #### Attitude Rate  Controllers ####
         yaw_rate:
@@ -82,6 +85,7 @@ inner_loops_pid:
             min_err: -3.0 # deg  
             max_out:  10.0 # N.m
             min_out: -10.0
+            debug: true
 
         #### Speed Controllers ####
         surge:
@@ -94,6 +98,7 @@ inner_loops_pid:
             min_err: -0.2  # m/s  
             max_out:  25.0 # N
             min_out: -25.0
+            debug: true
 
         sway:
             enabled: true
@@ -105,6 +110,7 @@ inner_loops_pid:
             min_err: -0.2  # m/s  
             max_out:  25.0 # N
             min_out: -25.0
+            debug: true
 
         heave:
             enabled: true
