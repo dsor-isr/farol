@@ -214,8 +214,8 @@ void VerticalFilter::update(Vec &state_vec, Mat &state_cov, const FilterGimmicks
 			}
 		else{
 				//ROS_WARN("Vertical - Measurement of frame %s rejected as outlier. normalized_error %1f with total rejections: %1f", m.header.frame_id.c_str(), normalized_error, state_reject_counter_.sum());
-        ROS_WARN("\nVertical: Measurement of frame %s rejected as outlier. Value: [%1f] with error of [%1f] and tolerance of %1f", m.header.frame_id.c_str(), m.value(0), if_vec(0), m.outlier_tolerance);
-        ROS_WARN("Vertical Outlier Counter: POSITION: %f , ALTITUDE: %f\n", state_reject_counter_(0), state_reject_counter_(2));
+        // ROS_WARN("\nVertical: Measurement of frame %s rejected as outlier. Value: [%1f] with error of [%1f] and tolerance of %1f", m.header.frame_id.c_str(), m.value(0), if_vec(0), m.outlier_tolerance);
+        // ROS_WARN("Vertical Outlier Counter: POSITION: %f , ALTITUDE: %f\n", state_reject_counter_(0), state_reject_counter_(2));
 				return;
 			}
 		

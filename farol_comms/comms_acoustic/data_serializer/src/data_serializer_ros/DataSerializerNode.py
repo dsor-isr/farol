@@ -149,7 +149,7 @@ class DataSerializerNode():
         
         tnow = rospy.Time().now()
 
-        frame_id = msg_data.data.split(':')
+        frame_id = msg_data.data.rsplit(':',1)
         msg_data.data = frame_id[0]
         frame_id = frame_id[1]
 

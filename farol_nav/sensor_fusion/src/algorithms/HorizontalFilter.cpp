@@ -268,8 +268,8 @@ bool HorizontalFilter::update(Vec &state_vec, Mat &state_cov, std::list<FilterGi
       }
     }else{
       //ROS_WARN("Horizontal: Measurement of frame %s rejected as outlier. x: %1f, y: %1f with normalized_error %1f and threshold %1f", it_measurement->header.frame_id.c_str(), if_vec(0), if_vec(1), normalized_error, outlier_rejection_threshold_);
-      ROS_WARN("\nHorizontal: Measurement of frame %s rejected as outlier. Value: [%1f, %1f] with error of [%1f, %1f] and tolerance of %1f", it_measurement->header.frame_id.c_str(), it_measurement->value(0), it_measurement->value(1), if_vec(0), if_vec(1), it_measurement->outlier_tolerance);
-      ROS_WARN("Horizontal Outlier Counter: POSITION: [x:%f, y:%f] , VELOCITY: [vx:%f, vy:%f]\n", state_reject_counter_(0), state_reject_counter_(1), state_reject_counter_(2), state_reject_counter_(3));
+      // ROS_WARN("\nHorizontal: Measurement of frame %s rejected as outlier. Value: [%1f, %1f] with error of [%1f, %1f] and tolerance of %1f", it_measurement->header.frame_id.c_str(), it_measurement->value(0), it_measurement->value(1), if_vec(0), if_vec(1), it_measurement->outlier_tolerance);
+      // ROS_WARN("Horizontal Outlier Counter: POSITION: [x:%f, y:%f] , VELOCITY: [vx:%f, vy:%f]\n", state_reject_counter_(0), state_reject_counter_(1), state_reject_counter_(2), state_reject_counter_(3));
       return false;
     }
     

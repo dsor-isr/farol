@@ -83,7 +83,6 @@ class Pos2SimModem(object):
                 index = msg.name.index(self.vehicle_name)
                 (roll, pitch, yaw) = euler_from_quaternion([msg.pose[index].orientation.x, msg.pose[index].orientation.y, msg.pose[index].orientation.z, msg.pose[index].orientation.w])
                 data = "%.2f %.2f %.2f %.2f %.2f %.2f \n" % (msg.pose[index].position.y, msg.pose[index].position.x, msg.pose[index].position.z, roll, -pitch, -yaw+1.570796327)
-                #print(self.vehicle_name,":",position)
         
 
         # Send
