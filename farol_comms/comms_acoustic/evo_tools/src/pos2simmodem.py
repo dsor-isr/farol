@@ -17,10 +17,17 @@ from nav_msgs.msg import Odometry
 from auv_msgs.msg import NavigationStatus
 from gazebo_msgs.msg import ModelStates
 from tf.transformations import euler_from_quaternion 
+from math import pi
 import time
 
 # Internet communications
 import socket
+
+import numpy as np
+
+def wrap_to_pi(angle):
+    return (angle + np.pi) % (2 * np.pi) - np.pi
+
 
 #===============================================================================
 class Pos2SimModem(object):
@@ -54,11 +61,11 @@ class Pos2SimModem(object):
 
         # Subscriber
         # For farol simulation
-        self.sub_sim = rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/position_sim"),
-                                         Odometry, self.position_callback)
+        #self.sub_sim = rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/position_sim"),
+                                      #   Odometry, self.position_callback)
         # For gazebo
         self.sub_gazebo = rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/position_gazebo"),
-                                         ModelStates, self.position_callback)
+                                         ModelStates, self.position_callback, queue_size=1)
 
     #===========================================================================
     def position_callback(self, msg):
@@ -81,11 +88,18 @@ class Pos2SimModem(object):
         elif(input_message_type == 'gazebo_msgs/ModelStates'):
             if self.vehicle_name in msg.name:
                 index = msg.name.index(self.vehicle_name)
+                # convert from quaternion to euler angles
                 (roll, pitch, yaw) = euler_from_quaternion([msg.pose[index].orientation.x, msg.pose[index].orientation.y, msg.pose[index].orientation.z, msg.pose[index].orientation.w])
-                data = "%.2f %.2f %.2f %.2f %.2f %.2f \n" % (msg.pose[index].position.y, msg.pose[index].position.x, msg.pose[index].position.z, roll, -pitch, -yaw+1.570796327)
+                # convert position from ENU to NED
+                (x,y,z) = (msg.pose[index].position.y, msg.pose[index].position.x, -msg.pose[index].position.z)
+                # convert orientation from ENU to  NED
+                (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
+                # Pack into the string that will be sent to the Evologics emulator
+                data = "%.2f %.2f %.2f %.2f %.2f %.2f \n" % (x,y,z,roll,pitch,yaw)
+                print(data)
         
 
-        # Send
+        # Send the message over TCP 
         try:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.sock.connect(self.address)
