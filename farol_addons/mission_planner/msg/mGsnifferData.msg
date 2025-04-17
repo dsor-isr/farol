@@ -1,0 +1,3 @@
+int32 measurement_timestamp
+uint32 integral
+int32 event_timestamp
