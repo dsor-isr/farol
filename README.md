@@ -77,14 +77,16 @@ TODO
 https://dsor-isr.github.io/farol/
 
 ### Active Developers
+- Eduardo Cunha <eduardo.m.a.cunha@tecnico.ulisboa.pt>
+- Ravi Regalo <ravi.regalo@tecnico.ulisboa.pt>
+- David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
+
+### Previous Contributors
 - João Quintas <jquintas@gmail.com>
 - David Souto <david.souto@tecnico.ulisboa.pt>
 - Francisco Branco <francisco.branco@tecnico.ulisboa.pt>
 - Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
-- David Cabecinhas <dcabecinhas@isr.tecnico.ulisboa.pt>
 - Francisco Rego <ffcrego@gmail.com>
-
-### Previous Contributors
 - André Potes
 - João Cruz
 - Hung Tuan
