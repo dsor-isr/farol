@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="dollar" value="$" />
+	<arg name="name"/> <!-- Name of the vehicle being launched -->   
+  <arg name="config_package_path"  /> <!-- Name of the package where the configuration files are stored -->
+  <arg name="folder"/>  <!-- Name of the folder for the configuration files --> 
+
+ <!-- small description about your node -->
+ 
+ <node pkg="cf" type="cf_node" name="CfNode" respawn="false" output="screen">
+	<rosparam command="load" file="$(find cf)/config/config_cf.yaml"/>
+	<rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/nav.yaml"/>
+</node>
+
+</launch>

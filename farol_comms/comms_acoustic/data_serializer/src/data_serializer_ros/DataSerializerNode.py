@@ -139,6 +139,10 @@ class DataSerializerNode():
         self._serial_data[channel_ind] = ''.join(s)
         self._channel_flags[channel_ind] = 1
         self._latch_count[channel_ind] = latch_qty-1
+        # print("S STRING: " + str(s))
+        # print("CHANNEL IDX: " + str(channel_ind))
+        # print("TOPIC_IN: " + self._data_channels[channel_ind]["topic_in"])
+        # print("")
     
     """
     ###########################################################################################
@@ -149,7 +153,7 @@ class DataSerializerNode():
         
         tnow = rospy.Time().now()
 
-        frame_id = msg_data.data.split(':')
+        frame_id = msg_data.data.rsplit(':',1)
         msg_data.data = frame_id[0]
         frame_id = frame_id[1]
 
@@ -160,10 +164,15 @@ class DataSerializerNode():
         f = msg_data.data[:len(self._data_channels)]
         s = msg_data.data[len(self._data_channels):]
         c = 0
+        # print("DE-SERIALIZE PAYLOAD: " + f + " " + s)
+        # print("DE-SERIALIZE PAYLOAD w/o flags: " + hex(int(s,2)))
 
         # +.+ go through all active channels, populate messages and publish
         for ind,val in enumerate(self._data_channels):
-            if f[ind]=='1' and (self._vehicle_id in val['to']): #channel is active
+            if f[ind]=='1' and (self._vehicle_id not in val['to']): # channel is active but vehicle is not the destination of the message
+                for field in val['fields']:
+                    c+=field['bits'] # skip fields
+            if f[ind]=='1' and (self._vehicle_id in val['to']): # channel is active and vehicle is the destination of the message
                 # +.+ create message to populate
                 msg_class = roslib.message.get_message_class(val['msg'])
                 msg = msg_class()
@@ -197,6 +206,7 @@ class DataSerializerNode():
         # +.+ put together channel flag indicators and serial data from all active channels and publish it
         f = ''.join(str(x) for x in self._channel_flags)
         s = ''.join(self._serial_data)
+        # print("TRIGGER SERIALIZATION: " + f + " " + s)
         self._to_modem_pub.publish(std_msgs.msg.String(SerializerAlgorithms.payload_to_bytes(f+s)))
         
         # +.+ clear serial data and channel flag indicators if latching is over

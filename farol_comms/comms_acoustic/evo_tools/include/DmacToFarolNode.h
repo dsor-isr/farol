@@ -81,9 +81,9 @@ private:
   std::string p_usbl_fix_dmac_topic_, p_usbl_fix_farol_topic_;
 
 	// +.+ Problem variables
-  Eigen::MatrixXd usbl_rot_matrix_ = Eigen::MatrixXd(3,3);
-  Eigen::MatrixXd body_rot_matrix_ = Eigen::MatrixXd(3,3);
-  double yaw_state_;
+  Eigen::MatrixXd modem_to_body_rot_matrix_ = Eigen::MatrixXd(3,3);
+  Eigen::MatrixXd body_to_inertial_rot_matrix_ = Eigen::MatrixXd(3,3);
+  double yaw_state_, pitch_state_, roll_state_;
     
   	
   /* -------------------------------------------------------------------------*/

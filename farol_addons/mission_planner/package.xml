@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>mission_planner</name>
+ <version>1.0.0</version>
+ <description>
+ ADD HERE A SMALL DESCRIPTION OF THE NODE'S OBJECTIVE
+ </description>
+
+ <license>MIT</license>
+
+ <author email="dsor.isr@gmail.com">#DSORTeam</author>
+ <maintainer email="dsor.isr@gmail.com">#DSORTeam</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+
+ <!-- Add here ROS dependencies -->
+ <depend>roscpp</depend>
+ <depend>std_msgs</depend>
+ <depend>farol_msgs</depend>
+ <depend>auv_msgs</depend>
+ <depend>message_generation</depend>
+ <depend>message_runtime</depend>
+ <depend>farol_gimmicks_library</depend>
+
+</package>

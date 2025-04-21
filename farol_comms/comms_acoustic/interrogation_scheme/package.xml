@@ -10,10 +10,11 @@
  <author email="miguel.silva.ribeiro@tecnico.ulisboa.pt">Miguel Ribeiro</author>
  <author email="henrique.ribeiro@tecnico.ulisboa.pt">Henrique Silva</author>
  
- <maintainer email="david.souto@tecnico.ulisboa.pt">David Souto</maintainer>
- <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+ <maintainer email="dsor@gmail.com">DSOR Team</maintainer>
 
  <buildtool_depend>catkin</buildtool_depend>
+ <depend>message_generation</depend>
+ <depend>message_runtime</depend>
  <depend>std_msgs</depend>
  <depend>roscpp</depend>
  <depend>farol_msgs</depend>
