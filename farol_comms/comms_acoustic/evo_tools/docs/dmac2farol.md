@@ -3,8 +3,7 @@
 This package serves as an interface between the *dmac* driver node (connects via TCP to the EvoLogics' modem's ethernet communication interface and parses its output to ROS topics) and the *usblfix2pos* node (computes a target's inertial position based on the inertial bearing and elevation of the target relative to the USBL, the range to the target and the USBL's inertial position).
 
 <p align="center">
-  <img src="img/dmac2farol_interface.png
-" alt="dmac2farol interface" width=250"/>
+  <img src="img/dmac2farol_interface.png" alt="dmac2farol interface" width=250"/>
 </p>
 The *usblfix2pos* node always expects bearing and elevation angles expressed in the inertial frame, while the former can't guarantee it, since it depends on the inner characteristics of the EvoLogics USBL hardware (in practice, if it has a built-in AHRS or not).
 
