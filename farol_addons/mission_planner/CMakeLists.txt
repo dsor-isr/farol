@@ -50,5 +50,5 @@ include_directories(
 )
 
 add_executable(${PROJECT_NAME}_node src/mission_planner_ros/MissionPlannerNode.cpp src/mission_planner_algorithms/MissionPlannerAlgorithm.cpp)
-add_dependencies(${PROJECT_NAME}_node ${catkin_EXPORTED_TARGETS})
+add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
