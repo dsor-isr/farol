@@ -9,11 +9,11 @@ The *usblfix2pos* node always expects bearing and elevation angles expressed in 
 
 ## <span style="text-decoration:underline">USBL has an AHRS</span>: 
 
-**If the USBL has an AHRS**, it outputs the bearing and elevation angles both in local $\{USBL\}$ frame and in inertial frame $\{I\}$. As such, the *dmac* driver will output these angles in inertial frame, provided that the *hasAHRS* flag is set to **true** in the *comms.yaml* configuration file (see *dmac* documentation for further explanation) - so the *real* parameter should be set to **false**.
+**If the USBL has an AHRS**, it outputs the bearing and elevation angles both in local $\{USBL\}$ frame and in inertial frame $\{I\}$. As such, the *dmac* driver will output these angles in inertial frame, provided that the *hasAHRS* flag is set to **true** in the *comms.yaml* configuration file (see *dmac* documentation for further explanation) - so the *usbl_has_AHRS* parameter should be set to **true**.
 
 ## <span style="text-decoration:underline">USBL **DOES NOT** have an AHRS</span>:
 
-**If the USBL does not have an AHRS**, the bearing and elevation angles are output in the local $\{USBL\}$ frame ($\beta_{USBL}$ and $\epsilon_{USBL}$ respectively), so they need to be rotated to the inertial frame $\{I\}$  - so the *real* parameter should be set to **true**.
+**If the USBL does not have an AHRS**, the bearing and elevation angles are output in the local $\{USBL\}$ frame ($\beta_{USBL}$ and $\epsilon_{USBL}$ respectively), so they need to be rotated to the inertial frame $\{I\}$  - so the *usbl_has_AHRS* parameter should be set to **false**.
 
 In this case, the dmac2farol node starts by calculating a unit vector $\bold{v}_{USBL}$ that is pointing to the target, using $\beta_{USBL}$ and $\epsilon_{USBL}$, expressed in the USBL frame:
 
@@ -122,6 +122,5 @@ As such, the *installation matrix* parameters are $[\pi, 0, \dfrac{\pi}{4}]$.
 
 | Parameters | Type | Default | Purpose |
 | --- | --- | --- | --- |
-| fix_type<br><div style="color:red">[DEPRECATED]</div> | bool | false | **False**: vehicle acts as an anchor, calculates other vehicles' position.<br>**True**: vehicle calculates its own position. |
-| real | bool | false | **False**: Bearing and elevation angles from dmac driver are in inertial frame (since USBL has internal AHRS). This is the case in simulation, when using EvoLogics emulators. <br>**True**: Bearing and elevation angles from dmac driver are in local frame (USBL does not have AHRS), so they need to be rotated from local/usbl frame to inertial frame. |
+| usbl_has_AHRS | bool | false | **True**: Bearing and elevation angles from dmac driver are in inertial frame (since USBL has internal AHRS). This is the case in simulation, when using EvoLogics emulators. <br>**False**: Bearing and elevation angles from dmac driver are in local frame (USBL does not have AHRS), so they need to be rotated from local/usbl frame to inertial frame. |
 | installation\_matrix | float[] | - | Array of 3 angles, [Roll, Pitch, Yaw], in radians. These angles correspond to the rotation from Body to USBL frame (check documentation above). |

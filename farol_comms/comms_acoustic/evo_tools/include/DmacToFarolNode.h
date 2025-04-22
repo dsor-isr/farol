@@ -69,9 +69,8 @@ private:
 	// +.+ package.xml Parameters from Yaml
 	// always p_paraName -> Example: double p_ku;
 	std::string p_vehicle_name_;
-  // +.+ simulation(false) or real(true)
-  bool p_real_{false};
-  bool p_fix_type_{false};
+  // USBL has AHRS or not
+  bool usbl_has_AHRS_{false};
 
   // +.+ installation matrix of the usbl
   std::vector<double> p_installation_matrix_;

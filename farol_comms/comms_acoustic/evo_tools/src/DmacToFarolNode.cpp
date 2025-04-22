@@ -65,11 +65,9 @@ void DmacToFarolNode::loadParams()
 {
     ROS_INFO("Load the DmacToFarolNode parameters");
 
-    p_real_ = FarolGimmicks::getParameters<bool>(nh_private_, "real", false);
-    
-    p_fix_type_ = FarolGimmicks::getParameters<bool>(nh_private_, "fix_type", false);
-
     p_installation_matrix_ = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "installation_matrix");
+
+    usbl_has_AHRS_ = FarolGimmicks::getParameters<bool>(nh_private_, "usbl_has_AHRS", false);
 
 }
 
@@ -77,16 +75,6 @@ void DmacToFarolNode::loadParams()
 @.@ Helper method for rotating message from sensor frame to base_link(emo) or base_pose(real) frames
 */
 void DmacToFarolNode::buildUSBLRotationMatrix(){
-
-// if (p_fix_type_ == false){
-//     usbl_rot_matrix_ << std::sin(p_installation_matrix_[0]), std::cos(p_installation_matrix_[0]), 0,
-//                         std::cos(p_installation_matrix_[0]), -std::sin(p_installation_matrix_[0]), 0,
-//                         0, 0, std::cos(p_installation_matrix_[2]);
-// } else{
-//     usbl_rot_matrix_ << std::sin(p_installation_matrix_[0]), -std::cos(p_installation_matrix_[0]), 0,
-//                         std::cos(p_installation_matrix_[0]), std::sin(p_installation_matrix_[0]), 0,
-//                         0, 0, std::cos(p_installation_matrix_[2]);
-// }
 
 // transducer to body frame rotation
 modem_to_body_rot_matrix_ << cos(p_installation_matrix_[2])*cos(p_installation_matrix_[1]), 
@@ -129,7 +117,7 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
     if (farol_usbl_fix_msg.type == farol_usbl_fix_msg.AZIMUTH_ONLY || farol_usbl_fix_msg.type == farol_usbl_fix_msg.FULL_FIX)
     {   
         
-      if (p_real_){
+      if (!usbl_has_AHRS_){
         ROS_WARN("[MODEM] BEARING, ELEVATION: %f, %f", dmac_usbl_fix_msg.bearing_raw, dmac_usbl_fix_msg.elevation_raw);
 
         // convert local bearing and elevation to a unit vector in 3D space (polar to cartesian coordinates)
