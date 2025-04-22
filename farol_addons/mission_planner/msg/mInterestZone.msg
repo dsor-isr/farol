@@ -1,0 +1,7 @@
+float32 northing_min
+float32 northing_max
+float32 easting_min
+float32 easting_max
+int8 utm_zone
+float32 rotation_angle
+float32 target_depth

@@ -69,9 +69,8 @@ private:
 	// +.+ package.xml Parameters from Yaml
 	// always p_paraName -> Example: double p_ku;
 	std::string p_vehicle_name_;
-  // +.+ simulation(false) or real(true)
-  bool p_real_{false};
-  bool p_fix_type_{false};
+  // USBL has AHRS or not
+  bool usbl_has_AHRS_{false};
 
   // +.+ installation matrix of the usbl
   std::vector<double> p_installation_matrix_;
@@ -81,9 +80,9 @@ private:
   std::string p_usbl_fix_dmac_topic_, p_usbl_fix_farol_topic_;
 
 	// +.+ Problem variables
-  Eigen::MatrixXd usbl_rot_matrix_ = Eigen::MatrixXd(3,3);
-  Eigen::MatrixXd body_rot_matrix_ = Eigen::MatrixXd(3,3);
-  double yaw_state_;
+  Eigen::MatrixXd modem_to_body_rot_matrix_ = Eigen::MatrixXd(3,3);
+  Eigen::MatrixXd body_to_inertial_rot_matrix_ = Eigen::MatrixXd(3,3);
+  double yaw_state_, pitch_state_, roll_state_;
     
   	
   /* -------------------------------------------------------------------------*/

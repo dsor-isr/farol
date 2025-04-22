@@ -1,0 +1,11 @@
+float64 path_post_rotation
+uint8 path_orientation
+string path_type
+float64 min_turning_radius
+float64 path_speed
+float64 resolution
+float64 dist_inter_vehicles
+float64 timeout_ack
+---
+bool success
+string message

@@ -126,7 +126,21 @@ nav/filter:
        set_bias_heading: "/#vehicle#/nav/set_bias_heading"
        reset_bias_heading: "/#vehicle#/nav/reset_bias_heading"
 
-
+nav/cf:
+    node_frequency: 10
+    topics:
+        subscribers:
+            reset: "/#vehicle#/nav/cf/reset"
+            tuning: "/#vehicle#/nav/cf/tuning"
+            estimator: "/#vehicle#/nav/cf/estimator"
+            no_measures: "/#vehicle#/nav/cf/no_measures"
+            position: "/#vehicle#/measurement/position"
+            velocity: "/#vehicle#/measurement/velocity"
+            orientation: "/#vehicle#/measurement/orientation"
+        publishers:
+            state: "/#vehicle#/nav/filter/state"
+            state_cf: "/#vehicle#/nav/cf/State_cf"
+            measure: "/#vehicle#/nav/cf/measure"
 
 nav/gnss2utm:
     node_frequency: 10
@@ -160,6 +174,8 @@ nav/usbl2pos:
         publishers:
             position: "/#vehicle#/measurement/position"
             console_state_usbl_estimation: "/#vehicle#/State_usbl_est"
+            console_state_usbl_estimation_auv0: "/#vehicle#/State_usbl_est_auv0"
+            console_state_usbl_estimation_auv1: "/#vehicle#/State_usbl_est_auv1"
             state_usbl_estimation: "/#vehicle#/nav/filter/usbl_est"
 
 nav/auvstate2mstate:
@@ -385,6 +401,22 @@ acomms/replier:
         subscribers:
             modem_recv: "/#vehicle#/acomms/modem/recv"
             payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
+
+acomms/silent:
+    topics:
+        publishers:
+            tinit: "/#vehicle#/acomms/scheme/tinit"
+            modem_send: "/#vehicle#/acomms/modem/send"
+            meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
+            trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
+            deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
+        subscribers:
+            send_time: "/#vehicle#/acomms/scheme/send_time"
+            tinit: "/#vehicle#/acomms/scheme/tinit"
+            enable: "/#vehicle#/acomms/scheme/enable"
+            modem_recv: "/#vehicle#/acomms/modem/recv"
+            payload: "/#vehicle#/acomms/serializer/payload_to_transmit"
+            modem_clock: "/#vehicle#/acomms/modem/clock"
 
 acomms/data_serializer:
     topics:

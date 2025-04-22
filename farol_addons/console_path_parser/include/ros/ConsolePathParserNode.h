@@ -12,6 +12,7 @@ Don't you miss the danger ...
 #include <fstream>
 #include <iostream>
 #include <list>
+#include <filesystem>
 
 // ROS Fundamentals
 #include <ros/ros.h> 
@@ -256,6 +257,11 @@ private:
 	 * @param msg Pose message
 	 */
 	void missionCallback(const std_msgs::String &msg);
+
+	/**
+	 * @brief Create directory for path mission text files from console
+	 */
+	void createPathFolder();
 	
 };
 

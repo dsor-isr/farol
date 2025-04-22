@@ -65,11 +65,9 @@ void DmacToFarolNode::loadParams()
 {
     ROS_INFO("Load the DmacToFarolNode parameters");
 
-    p_real_ = FarolGimmicks::getParameters<bool>(nh_private_, "real", false);
-    
-    p_fix_type_ = FarolGimmicks::getParameters<bool>(nh_private_, "fix_type", false);
-
     p_installation_matrix_ = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "installation_matrix");
+
+    usbl_has_AHRS_ = FarolGimmicks::getParameters<bool>(nh_private_, "usbl_has_AHRS", false);
 
 }
 
@@ -78,16 +76,17 @@ void DmacToFarolNode::loadParams()
 */
 void DmacToFarolNode::buildUSBLRotationMatrix(){
 
-  if (p_fix_type_ == false){
-  usbl_rot_matrix_ << std::sin(p_installation_matrix_[0]), std::cos(p_installation_matrix_[0]), 0,
-                      std::cos(p_installation_matrix_[0]), -std::sin(p_installation_matrix_[0]), 0,
-                      0, 0, std::cos(p_installation_matrix_[2]);
-}
-else{
-  usbl_rot_matrix_ << std::sin(p_installation_matrix_[0]), -std::cos(p_installation_matrix_[0]), 0,
-                      std::cos(p_installation_matrix_[0]), std::sin(p_installation_matrix_[0]), 0,
-                      0, 0, std::cos(p_installation_matrix_[2]);
-}
+// transducer to body frame rotation
+modem_to_body_rot_matrix_ << cos(p_installation_matrix_[2])*cos(p_installation_matrix_[1]), 
+                                 cos(p_installation_matrix_[2])*sin(p_installation_matrix_[1])*sin((p_installation_matrix_[0])) - sin(p_installation_matrix_[2])*cos((p_installation_matrix_[0])),
+                                     cos(p_installation_matrix_[2])*sin(p_installation_matrix_[1])*cos((p_installation_matrix_[0])) + sin(p_installation_matrix_[2])*sin((p_installation_matrix_[0])),
+                             sin(p_installation_matrix_[2])*cos(p_installation_matrix_[1]), 
+                                 sin(p_installation_matrix_[2])*sin(p_installation_matrix_[1])*sin((p_installation_matrix_[0])) + cos(p_installation_matrix_[2])*cos((p_installation_matrix_[0])), 
+                                     sin(p_installation_matrix_[2])*sin(p_installation_matrix_[1])*cos((p_installation_matrix_[0])) - cos(p_installation_matrix_[2])*sin((p_installation_matrix_[0])),
+                             -sin(p_installation_matrix_[1]), 
+                                 cos(p_installation_matrix_[1])*sin((p_installation_matrix_[0])), 
+                                     cos(p_installation_matrix_[1])*cos((p_installation_matrix_[0]));
+
 }
 
 /*
@@ -118,35 +117,56 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
     if (farol_usbl_fix_msg.type == farol_usbl_fix_msg.AZIMUTH_ONLY || farol_usbl_fix_msg.type == farol_usbl_fix_msg.FULL_FIX)
     {   
         
-      if (p_real_){
-        // sphere to cartesian usbl, assuming a range
-        double x_rel, y_rel, z_rel, range_r=10.0;
-        x_rel = cos(dmac_usbl_fix_msg.bearing_raw)*range_r*cos(dmac_usbl_fix_msg.elevation_raw);
-        y_rel = sin(dmac_usbl_fix_msg.bearing_raw)*range_r*cos(dmac_usbl_fix_msg.elevation_raw);
-        z_rel = range_r*sin(dmac_usbl_fix_msg.elevation_raw);
+      if (!usbl_has_AHRS_){
+        ROS_WARN("[MODEM] BEARING, ELEVATION: %f, %f", dmac_usbl_fix_msg.bearing_raw, dmac_usbl_fix_msg.elevation_raw);
 
-        // Rotate Vector to body
+        // convert local bearing and elevation to a unit vector in 3D space (polar to cartesian coordinates)
+        double x_rel, y_rel, z_rel;
+        x_rel = cos(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
+        y_rel = sin(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
+        z_rel = sin(dmac_usbl_fix_msg.elevation_raw);
+
+        ROS_WARN("[MODEM] POINT: %f %f %f", x_rel, y_rel, z_rel);
+
+        // rotate unit vector to body frame
         Eigen::MatrixXd point(3,1);
         point << x_rel, y_rel, z_rel;
-        Eigen::MatrixXd pt_rot;
-        pt_rot = usbl_rot_matrix_*point;
+        Eigen::MatrixXd pt_body;
+        pt_body = modem_to_body_rot_matrix_*point;
+
+        ROS_WARN("[BODY] POINT: %f %f %f", pt_body(0), pt_body(1), pt_body(2));
       
       
-        // Rotate Vector to interial
-        body_rot_matrix_ << cos(yaw_state_), -sin(yaw_state_), 0,
-                           sin(yaw_state_), cos(yaw_state_), 0,
-                           0,0,1;
-      
-        pt_rot = body_rot_matrix_ * pt_rot;
+        // Rotate unit vector from body to inertial frame
+        // body_rot_matrix_ << cos(yaw_state_), -sin(yaw_state_), 0,
+        //                    sin(yaw_state_), cos(yaw_state_), 0,
+        //                    0,0,1;
+
+        // body to inertial frame rotation
+        body_to_inertial_rot_matrix_ << cos(yaw_state_)*cos(pitch_state_), 
+                                            cos(yaw_state_)*sin(pitch_state_)*sin(roll_state_) - sin(yaw_state_)*cos(roll_state_),
+                                                cos(yaw_state_)*sin(pitch_state_)*cos(roll_state_) + sin(yaw_state_)*sin(roll_state_),
+                                        sin(yaw_state_)*cos(pitch_state_), 
+                                            sin(yaw_state_)*sin(pitch_state_)*sin(roll_state_) + cos(yaw_state_)*cos(roll_state_), 
+                                                sin(yaw_state_)*sin(pitch_state_)*cos(roll_state_) - cos(yaw_state_)*sin(roll_state_),
+                                        -sin(pitch_state_), 
+                                            cos(pitch_state_)*sin(roll_state_), 
+                                                cos(pitch_state_)*cos(roll_state_);
+
+        Eigen::MatrixXd pt_inertial = body_to_inertial_rot_matrix_ * pt_body;
+
+        ROS_WARN("[INERTIAL] POINT: %f %f %f", pt_inertial(0), pt_inertial(1), pt_inertial(2));
 
         // cartesian to sphere
-       farol_usbl_fix_msg.bearing  = std::atan2(pt_rot(1),pt_rot(0));
-       farol_usbl_fix_msg.elevation = std::atan2(pt_rot(2),std::sqrt(std::pow(pt_rot(0),2) + std::pow(pt_rot(1),2)));
+        farol_usbl_fix_msg.bearing  = std::atan2(pt_inertial(1),pt_inertial(0));
+        farol_usbl_fix_msg.elevation = std::atan2(pt_inertial(2),std::sqrt(std::pow(pt_inertial(0),2) + std::pow(pt_inertial(1),2)));
+        
+        ROS_WARN("[INERTIAL] BEARING, ELEVATION: %f, %f", farol_usbl_fix_msg.bearing, farol_usbl_fix_msg.elevation);
 
       }
       else{
-        farol_usbl_fix_msg.bearing = dmac_usbl_fix_msg.bearing_raw;
-        farol_usbl_fix_msg.elevation = dmac_usbl_fix_msg.elevation_raw;
+        farol_usbl_fix_msg.bearing = dmac_usbl_fix_msg.bearing;
+        farol_usbl_fix_msg.elevation = dmac_usbl_fix_msg.elevation;
       }
     }
     // +.+ Publishing the new message farol usbl fix message
@@ -156,6 +176,8 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 
 void DmacToFarolNode::stateCallback(const auv_msgs::NavigationStatus &msg){
     yaw_state_ = (msg.orientation.z/180) * FarolGimmicks::PI;
+    pitch_state_ = (msg.orientation.y/180) * FarolGimmicks::PI;
+    roll_state_ = (msg.orientation.x/180) * FarolGimmicks::PI;
 }
 /*
  @.@ Main

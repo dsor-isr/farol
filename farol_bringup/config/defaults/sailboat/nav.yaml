@@ -84,3 +84,5 @@ usbl2pos:
     # true, vehicle estimates its own position with respect to an anchor    
     fix_type: true
     meas_noise: 0.001
+    auv0_source_id: 6
+    auv1_source_id: 7

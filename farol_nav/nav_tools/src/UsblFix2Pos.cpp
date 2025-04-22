@@ -26,6 +26,8 @@ UsblFix2Pos::~UsblFix2Pos()
   if (p_fix_type == false){
     pub_usbl_est_state.shutdown();
     pub_usbl_est_console.shutdown();
+    pub_usbl_est_console_auv0_.shutdown();
+    pub_usbl_est_console_auv1_.shutdown();
   }
 
   // +.+ shutdown subscribers
@@ -60,6 +62,8 @@ void UsblFix2Pos::initializePublishers()
   ROS_INFO("Initializing Publishers for UsblFix2Pos"); 
   pub_pose_fix = nh_private_.advertise<dsor_msgs::Measurement>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/position", "position"), 1, true);
   pub_usbl_est_console = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/console_state_usbl_estimation", "state_usbl_est"), 1, true);
+  pub_usbl_est_console_auv0_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/console_state_usbl_estimation_auv0", "state_usbl_est_auv0"), 1, true);
+  pub_usbl_est_console_auv1_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/console_state_usbl_estimation_auv1", "state_usbl_est_auv1"), 1, true);
 
   if (p_fix_type == false) {
     pub_usbl_est_state = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_usbl_estimation", "usbl_est"), 1, true);
@@ -82,6 +86,9 @@ void UsblFix2Pos::loadParams() {
   p_fix_type = FarolGimmicks::getParameters<bool>(nh_private_, "fix_type", true);
   p_meas_noise = FarolGimmicks::getParameters<double>(nh_private_, "meas_noise", true);
   name_vehicle_id_ = FarolGimmicks::getParameters<std::string>(nh_private_, "name_vehicle_id");
+
+  auv0_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv0_source_id", 7);
+  auv1_source_id_ = FarolGimmicks::getParameters<int>(nh_private_, "auv1_source_id", 2);
 }
 
 void UsblFix2Pos::listTimerCallback(const ros::TimerEvent &event) {
@@ -190,7 +197,15 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     console_state.header.stamp = usbl.header.stamp;
     console_state.X = state[1] + cartesian[1];
     console_state.Y = state[0] + cartesian[0];
-    pub_usbl_est_console.publish(console_state);
+    console_state.Z = state[2] + cartesian[2];
+
+    if (usbl.source_id == auv0_source_id_) { // if measured state is from auv0's source id
+      pub_usbl_est_console_auv0_.publish(console_state);
+    } else if (usbl.source_id == auv1_source_id_) { // if measured state is from auv1's source id
+      pub_usbl_est_console_auv1_.publish(console_state);
+    } else { // default
+      pub_usbl_est_console.publish(console_state);
+    }
     
     getEstLatLon(spherical, latlon);
 
@@ -199,6 +214,7 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     usbl_est.header.stamp = usbl.header.stamp;
     usbl_est.position.north = state[0] + cartesian[0];
     usbl_est.position.east = state[1] + cartesian[1];
+    usbl_est.position.depth = state[2] + cartesian[2];
 
     usbl_est.global_position.latitude = latlon[0];
     usbl_est.global_position.longitude = latlon[1];
@@ -229,8 +245,8 @@ void UsblFix2Pos::usblFixBroadcasterCallback(const farol_msgs::mUSBLFix &msg) {
     pose_fix.header.stamp = usbl.header.stamp;
     pose_fix.header.frame_id = name_vehicle_id_ + '_' + usbl.header.frame_id;
     // set position
-    pose_fix.value.push_back((*iter).position.north + cartesian[0]);
-    pose_fix.value.push_back((*iter).position.east + cartesian[1]);
+    pose_fix.value.push_back((*iter).position.north - cartesian[0]);
+    pose_fix.value.push_back((*iter).position.east - cartesian[1]);
     // set noise covariance
     pose_fix.noise.push_back((*iter).position_variance.north + usbl.position_covariance[0] + p_meas_noise);
     pose_fix.noise.push_back((*iter).position_variance.east + usbl.position_covariance[4] + p_meas_noise);
@@ -247,6 +263,7 @@ void UsblFix2Pos::stateCallback(const auv_msgs::NavigationStatus &msg){
 
   state[0] = msg.position.north;
   state[1] = msg.position.east;
+  state[2] = msg.position.depth;
   state_var[0] = msg.position_variance.north;
   state_var[1] = msg.position_variance.east;
 

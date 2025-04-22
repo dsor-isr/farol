@@ -138,6 +138,8 @@ bool PathFollowingNode::StopPFService(path_following::StopPF::Request &req,
     /* Publish the code that simbolizes idle mode */
     FarolGimmicks::publishValue<std_msgs::Int8, const int>(this->flag_pub_,
         FLAG_IDLE);
+    ROS_WARN("Flag set to 0: PF stopped by service in PF node.");
+  
   }
 
   /* Return success */
