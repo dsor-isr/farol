@@ -1,0 +1,957 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classSilentPinger" kind="class" language="C++" prot="public">
+    <compoundname>SilentPinger</compoundname>
+    <includes refid="SilentNode_8h" local="no">SilentNode.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSilentPinger_1a4abd4c81a3c6edffcbf8fdea129bbba1" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle SilentPinger::nh_private_</definition>
+        <argsstring></argsstring>
+        <name>nh_private_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="151" column="19" bodyfile="include/silent_ros/SilentNode.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ad8e6400a0a7b629b89bfcb3154766480" prot="private" static="no" mutable="no">
+        <type>ros::NodeHandle</type>
+        <definition>ros::NodeHandle SilentPinger::nh_</definition>
+        <argsstring></argsstring>
+        <name>nh_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="152" column="19" bodyfile="include/silent_ros/SilentNode.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ab4c033456d6ad68bf2ffcb2a83f7f634" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber SilentPinger::sub_in_modem</definition>
+        <argsstring></argsstring>
+        <name>sub_in_modem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="157" column="19" bodyfile="include/silent_ros/SilentNode.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a104e36f5fb1d491c9df5d55dd5362cd7" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber SilentPinger::sub_serializer</definition>
+        <argsstring></argsstring>
+        <name>sub_serializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="157" column="32" bodyfile="include/silent_ros/SilentNode.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a45b28b217dbeb7502c02b7ea793897fd" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber SilentPinger::sub_enable</definition>
+        <argsstring></argsstring>
+        <name>sub_enable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="157" column="47" bodyfile="include/silent_ros/SilentNode.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a97870d4f850c7887fc224a3ea6914f0b" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber SilentPinger::sub_tinit</definition>
+        <argsstring></argsstring>
+        <name>sub_tinit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="157" column="58" bodyfile="include/silent_ros/SilentNode.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a3271587c1c3c1c0e548275b36b170892" prot="private" static="no" mutable="no">
+        <type>ros::Subscriber</type>
+        <definition>ros::Subscriber SilentPinger::sub_modem_clock</definition>
+        <argsstring></argsstring>
+        <name>sub_modem_clock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="157" column="68" bodyfile="include/silent_ros/SilentNode.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a9c5cf11dc0dc24e0f938945fc1d8ced7" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher SilentPinger::pub_im</definition>
+        <argsstring></argsstring>
+        <name>pub_im</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="161" column="18" bodyfile="include/silent_ros/SilentNode.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1abb1c7225a85255bccd8109e06816680b" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher SilentPinger::pub_range</definition>
+        <argsstring></argsstring>
+        <name>pub_range</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="161" column="25" bodyfile="include/silent_ros/SilentNode.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1aa03113dff44b00855867db0ff05ef8c2" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher SilentPinger::pub_triggerserialization</definition>
+        <argsstring></argsstring>
+        <name>pub_triggerserialization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="161" column="35" bodyfile="include/silent_ros/SilentNode.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ab68cc96ac901ce79d16de733064d6be6" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher SilentPinger::pub_deserialization</definition>
+        <argsstring></argsstring>
+        <name>pub_deserialization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="161" column="60" bodyfile="include/silent_ros/SilentNode.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a330f9153470ead41d128375acc4b4ee2" prot="private" static="no" mutable="no">
+        <type>ros::Publisher</type>
+        <definition>ros::Publisher SilentPinger::pub_tinit</definition>
+        <argsstring></argsstring>
+        <name>pub_tinit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="161" column="80" bodyfile="include/silent_ros/SilentNode.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ae7caa2a278d14640b40e22b9ce3d5699" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer SilentPinger::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="165" column="14" bodyfile="include/silent_ros/SilentNode.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a22036fd8ae30048015a0ff5b5d73acfd" prot="private" static="no" mutable="no">
+        <type>ros::Timer</type>
+        <definition>ros::Timer SilentPinger::timer_sys_clock_overflow</definition>
+        <argsstring></argsstring>
+        <name>timer_sys_clock_overflow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="166" column="14" bodyfile="include/silent_ros/SilentNode.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a2fba0906665580a82c89e1d0b411b05e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; SilentPinger::modems_list</definition>
+        <argsstring></argsstring>
+        <name>modems_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="170" column="15" bodyfile="include/silent_ros/SilentNode.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1adabaeb484f44056aaa6e6832de36e7fb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; SilentPinger::slot_list</definition>
+        <argsstring></argsstring>
+        <name>slot_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="171" column="15" bodyfile="include/silent_ros/SilentNode.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a9ef28229bf944104df1f10690e15aa16" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SilentPinger::tslack</definition>
+        <argsstring></argsstring>
+        <name>tslack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="172" column="10" bodyfile="include/silent_ros/SilentNode.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1aac0cfd8d60ae926cc099b32276b1893a" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; int &gt;</type>
+        <definition>std::queue&lt;int&gt; SilentPinger::modems</definition>
+        <argsstring></argsstring>
+        <name>modems</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="176" column="14" bodyfile="include/silent_ros/SilentNode.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ae1754554934648b0bca1b154d2d06762" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; double &gt;</type>
+        <definition>std::queue&lt;double&gt; SilentPinger::slots</definition>
+        <argsstring></argsstring>
+        <name>slots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="177" column="14" bodyfile="include/silent_ros/SilentNode.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a2e8bf9f09e5abab51290b566d2d517d1" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SilentPinger::tlastRECVIMS</definition>
+        <argsstring></argsstring>
+        <name>tlastRECVIMS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="178" column="10" bodyfile="include/silent_ros/SilentNode.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a29ad7fc212c9cd6a1d7b863e6ef1d125" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SilentPinger::tslot_start</definition>
+        <argsstring></argsstring>
+        <name>tslot_start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="179" column="21" bodyfile="include/silent_ros/SilentNode.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a8a0dae2d805cffe6ec411e2022ea3da1" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SilentPinger::tslot_end</definition>
+        <argsstring></argsstring>
+        <name>tslot_end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="180" column="21" bodyfile="include/silent_ros/SilentNode.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a537d0bd90f96931d412f76153b3f2d74" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SilentPinger::range_max</definition>
+        <argsstring></argsstring>
+        <name>range_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="181" column="10" bodyfile="include/silent_ros/SilentNode.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1abbd71e1fed00a5721f9d39a4417ac32a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SilentPinger::waiting_for_serializer</definition>
+        <argsstring></argsstring>
+        <name>waiting_for_serializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="182" column="8" bodyfile="include/silent_ros/SilentNode.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a9d5977717c9a008b8c3a63d305ed505b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SilentPinger::ENABLE_</definition>
+        <argsstring></argsstring>
+        <name>ENABLE_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="183" column="8" bodyfile="include/silent_ros/SilentNode.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1acfc946757e8b57d81ba71979d43c971b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SilentPinger::slot_ack</definition>
+        <argsstring></argsstring>
+        <name>slot_ack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="184" column="8" bodyfile="include/silent_ros/SilentNode.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a1f05a162e6fa9516872fb26e3fc32c53" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SilentPinger::modem_id</definition>
+        <argsstring></argsstring>
+        <name>modem_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="185" column="7" bodyfile="include/silent_ros/SilentNode.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a59d2c8638e3d2246f41ac40787c933ac" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SilentPinger::init</definition>
+        <argsstring></argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="186" column="8" bodyfile="include/silent_ros/SilentNode.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1afba497035e9f7b495b6aa1dad625d255" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SilentPinger::anchor</definition>
+        <argsstring></argsstring>
+        <name>anchor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="187" column="7" bodyfile="include/silent_ros/SilentNode.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ad731354e8680487de89819d55569b81f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SilentPinger::ok_check</definition>
+        <argsstring></argsstring>
+        <name>ok_check</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="188" column="7" bodyfile="include/silent_ros/SilentNode.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1aed8f3c6296cda284f622b02158e71a06" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SilentPinger::tinit</definition>
+        <argsstring></argsstring>
+        <name>tinit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="189" column="21" bodyfile="include/silent_ros/SilentNode.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a92e539238824a3dc3ad6d2eb1faf86b0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SilentPinger::tnew_start</definition>
+        <argsstring></argsstring>
+        <name>tnew_start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="190" column="7" bodyfile="include/silent_ros/SilentNode.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a18465f1ba2ddce678eaee23469166da1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SilentPinger::first_time</definition>
+        <argsstring></argsstring>
+        <name>first_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="191" column="8" bodyfile="include/silent_ros/SilentNode.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1a7454c29b52e4dae6ecabd8a4daa172fa" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SilentPinger::lastRECVTime_modem</definition>
+        <argsstring></argsstring>
+        <name>lastRECVTime_modem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="194" column="21" bodyfile="include/silent_ros/SilentNode.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1af2504b7c10b0412663b2475edcbb038c" prot="private" static="no" mutable="no">
+        <type>ros::Time</type>
+        <definition>ros::Time SilentPinger::lastRECVTime_ros</definition>
+        <argsstring></argsstring>
+        <name>lastRECVTime_ros</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="195" column="13" bodyfile="include/silent_ros/SilentNode.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1acff0509771f4e7f25c465467bda827a7" prot="private" static="no" mutable="no">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SilentPinger::modem_time_offset</definition>
+        <argsstring></argsstring>
+        <name>modem_time_offset</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="196" column="21" bodyfile="include/silent_ros/SilentNode.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classSilentPinger_1ab99f56462fdba345662d8251c067dcf0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double SilentPinger::sys_clock_overflow_instant</definition>
+        <argsstring></argsstring>
+        <name>sys_clock_overflow_instant</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="197" column="10" bodyfile="include/silent_ros/SilentNode.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSilentPinger_1a4a88f60fe381899fae7bd08e7ed37b89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SilentPinger::SilentPinger</definition>
+        <argsstring>(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private)</argsstring>
+        <name>SilentPinger</name>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle</declname>
+        </param>
+        <param>
+          <type>ros::NodeHandle *</type>
+          <declname>nodehandle_private</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param nodehandle @Param nodehandle_private </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="42" column="3" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="8" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a45cefd438e9b1b1ff6d171eaff1bd116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SilentPinger::~SilentPinger</definition>
+        <argsstring>()</argsstring>
+        <name>~SilentPinger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="43" column="3" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="60" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1acd1facb2d6348558d47603cd3a1127d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::updateClock</definition>
+        <argsstring>(unsigned long int tmodem, ros::Time tros)</argsstring>
+        <name>updateClock</name>
+        <param>
+          <type>unsigned long int</type>
+          <declname>tmodem</declname>
+        </param>
+        <param>
+          <type>ros::Time</type>
+          <declname>tros</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param tmodem @Param tros </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="54" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="422" bodyend="426"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a4f16d44013562d36815acbfb3664484b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned long int</type>
+        <definition>unsigned long int SilentPinger::getModemClockNow</definition>
+        <argsstring>()</argsstring>
+        <name>getModemClockNow</name>
+        <briefdescription>
+<para>Get the last modem estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Returns <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="62" column="21" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="430" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1abe24f7009f68bc354267471b62a6f150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double SilentPinger::getTimeBeforeStart</definition>
+        <argsstring>()</argsstring>
+        <name>getTimeBeforeStart</name>
+        <briefdescription>
+<para>Get the last modem estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Returns <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="71" column="10" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="292" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1acc30ff38f93d2b0e164fe7080eab5b50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::startCallback</definition>
+        <argsstring>(const interrogation_scheme::StartSilent &amp;msg)</argsstring>
+        <name>startCallback</name>
+        <param>
+          <type>const interrogation_scheme::StartSilent &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Get the last modem estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Returns <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="80" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="228" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a69eb1bb148122efb8f89298875693cae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::timeFromAnchorCallback</definition>
+        <argsstring>(const std_msgs::UInt32 &amp;msg)</argsstring>
+        <name>timeFromAnchorCallback</name>
+        <param>
+          <type>const std_msgs::UInt32 &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Get the last modem estimate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Returns <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="89" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="264" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a82fc9ea7723062118d12b0d1127bc552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::triggerSerialization</definition>
+        <argsstring>()</argsstring>
+        <name>triggerSerialization</name>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="96" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="435" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a2e24f83f02e7a972595e7946293f89a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::pingNextNode</definition>
+        <argsstring>(double tinit_aux=0)</argsstring>
+        <name>pingNextNode</name>
+        <param>
+          <type>double</type>
+          <declname>tinit_aux</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="102" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="489" bodyend="519"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a7c480cf7d6ca957aecf71b6370e9de39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::serializerCallback</definition>
+        <argsstring>(const std_msgs::String &amp;msg)</argsstring>
+        <name>serializerCallback</name>
+        <param>
+          <type>const std_msgs::String &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="111" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="442" bodyend="486"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a35d3e794e51b81ceb839c553dd3a1b28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::EnableCallback</definition>
+        <argsstring>(const std_msgs::Bool &amp;msg)</argsstring>
+        <name>EnableCallback</name>
+        <param>
+          <type>const std_msgs::Bool &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="119" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="146" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a590274c81c1faae350aa9bc1db7f5937" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::RECVIMSCallback</definition>
+        <argsstring>(const dmac::DMACPayload &amp;msg)</argsstring>
+        <name>RECVIMSCallback</name>
+        <param>
+          <type>const dmac::DMACPayload &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param msg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="127" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="330" bodyend="418"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a9bc3f2b1bbfb5c88955f648aeb1dfba3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::Timer</definition>
+        <argsstring>(const ros::TimerEvent &amp;e)</argsstring>
+        <name>Timer</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para><linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para>@Param e </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="135" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="522" bodyend="582"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a0ac9d2ecae5bcc95b897314ed334ef56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::SysClockOverflowHandler</definition>
+        <argsstring>(const ros::TimerEvent &amp;e)</argsstring>
+        <name>SysClockOverflowHandler</name>
+        <param>
+          <type>const ros::TimerEvent &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="137" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="202" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a4e844fecb60959aca314c9202feaed22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::modemClockCallback</definition>
+        <argsstring>(const dmac::DMACClock &amp;msg)</argsstring>
+        <name>modemClockCallback</name>
+        <param>
+          <type>const dmac::DMACClock &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="139" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="171" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1ae8d93ef12bf5e4141d99b3f7af0a4281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::computeModemTimeOffset</definition>
+        <argsstring>(unsigned int system_clock, unsigned int utc_time_sec, unsigned int utc_time_nsec)</argsstring>
+        <name>computeModemTimeOffset</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>system_clock</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>utc_time_sec</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>utc_time_nsec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="141" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="179" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1aa8fc45962ddfa98c2f0cc360be66c29b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::computeModemSysClockOverflowTime</definition>
+        <argsstring>(unsigned int system_clock, unsigned long int modem_time_offset)</argsstring>
+        <name>computeModemSysClockOverflowTime</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>system_clock</declname>
+        </param>
+        <param>
+          <type>unsigned long int</type>
+          <declname>modem_time_offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="143" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="187" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a86495c9f0f4a47c8cef5f5690d6c64ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::triggerECLKmessage</definition>
+        <argsstring>()</argsstring>
+        <name>triggerECLKmessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="145" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="131" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSilentPinger_1a959a33d440c333d993c0d1c9771eedde" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::loadParams</definition>
+        <argsstring>()</argsstring>
+        <name>loadParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="199" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="109" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a09fe452d35ceb604e5e8612568933380" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::initializeSubscribers</definition>
+        <argsstring>()</argsstring>
+        <name>initializeSubscribers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="200" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="83" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1af3008852edf62004d8c5b8ceb069589a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::initializePublishers</definition>
+        <argsstring>()</argsstring>
+        <name>initializePublishers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="201" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="95" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classSilentPinger_1a258bc837e6de1657e0bcf57082471dab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SilentPinger::initializeTimer</definition>
+        <argsstring>()</argsstring>
+        <name>initializeTimer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/silent_ros/SilentNode.h" line="202" column="8" bodyfile="src/silent_ros/SilentNode.cpp" bodystart="124" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><linebreak/>
+ </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/silent_ros/SilentNode.h" line="32" column="1" bodyfile="include/silent_ros/SilentNode.h" bodystart="31" bodyend="205"/>
+    <listofallmembers>
+      <member refid="classSilentPinger_1afba497035e9f7b495b6aa1dad625d255" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>anchor</name></member>
+      <member refid="classSilentPinger_1aa8fc45962ddfa98c2f0cc360be66c29b" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>computeModemSysClockOverflowTime</name></member>
+      <member refid="classSilentPinger_1ae8d93ef12bf5e4141d99b3f7af0a4281" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>computeModemTimeOffset</name></member>
+      <member refid="classSilentPinger_1a9d5977717c9a008b8c3a63d305ed505b" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>ENABLE_</name></member>
+      <member refid="classSilentPinger_1a35d3e794e51b81ceb839c553dd3a1b28" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>EnableCallback</name></member>
+      <member refid="classSilentPinger_1a18465f1ba2ddce678eaee23469166da1" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>first_time</name></member>
+      <member refid="classSilentPinger_1a4f16d44013562d36815acbfb3664484b" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>getModemClockNow</name></member>
+      <member refid="classSilentPinger_1abe24f7009f68bc354267471b62a6f150" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>getTimeBeforeStart</name></member>
+      <member refid="classSilentPinger_1a59d2c8638e3d2246f41ac40787c933ac" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>init</name></member>
+      <member refid="classSilentPinger_1af3008852edf62004d8c5b8ceb069589a" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>initializePublishers</name></member>
+      <member refid="classSilentPinger_1a09fe452d35ceb604e5e8612568933380" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>initializeSubscribers</name></member>
+      <member refid="classSilentPinger_1a258bc837e6de1657e0bcf57082471dab" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>initializeTimer</name></member>
+      <member refid="classSilentPinger_1a7454c29b52e4dae6ecabd8a4daa172fa" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>lastRECVTime_modem</name></member>
+      <member refid="classSilentPinger_1af2504b7c10b0412663b2475edcbb038c" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>lastRECVTime_ros</name></member>
+      <member refid="classSilentPinger_1a959a33d440c333d993c0d1c9771eedde" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>loadParams</name></member>
+      <member refid="classSilentPinger_1a1f05a162e6fa9516872fb26e3fc32c53" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>modem_id</name></member>
+      <member refid="classSilentPinger_1acff0509771f4e7f25c465467bda827a7" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>modem_time_offset</name></member>
+      <member refid="classSilentPinger_1a4e844fecb60959aca314c9202feaed22" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>modemClockCallback</name></member>
+      <member refid="classSilentPinger_1aac0cfd8d60ae926cc099b32276b1893a" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>modems</name></member>
+      <member refid="classSilentPinger_1a2fba0906665580a82c89e1d0b411b05e" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>modems_list</name></member>
+      <member refid="classSilentPinger_1ad8e6400a0a7b629b89bfcb3154766480" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>nh_</name></member>
+      <member refid="classSilentPinger_1a4abd4c81a3c6edffcbf8fdea129bbba1" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>nh_private_</name></member>
+      <member refid="classSilentPinger_1ad731354e8680487de89819d55569b81f" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>ok_check</name></member>
+      <member refid="classSilentPinger_1a2e24f83f02e7a972595e7946293f89a2" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>pingNextNode</name></member>
+      <member refid="classSilentPinger_1ab68cc96ac901ce79d16de733064d6be6" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>pub_deserialization</name></member>
+      <member refid="classSilentPinger_1a9c5cf11dc0dc24e0f938945fc1d8ced7" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>pub_im</name></member>
+      <member refid="classSilentPinger_1abb1c7225a85255bccd8109e06816680b" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>pub_range</name></member>
+      <member refid="classSilentPinger_1a330f9153470ead41d128375acc4b4ee2" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>pub_tinit</name></member>
+      <member refid="classSilentPinger_1aa03113dff44b00855867db0ff05ef8c2" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>pub_triggerserialization</name></member>
+      <member refid="classSilentPinger_1a537d0bd90f96931d412f76153b3f2d74" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>range_max</name></member>
+      <member refid="classSilentPinger_1a590274c81c1faae350aa9bc1db7f5937" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>RECVIMSCallback</name></member>
+      <member refid="classSilentPinger_1a7c480cf7d6ca957aecf71b6370e9de39" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>serializerCallback</name></member>
+      <member refid="classSilentPinger_1a4a88f60fe381899fae7bd08e7ed37b89" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>SilentPinger</name></member>
+      <member refid="classSilentPinger_1acfc946757e8b57d81ba71979d43c971b" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>slot_ack</name></member>
+      <member refid="classSilentPinger_1adabaeb484f44056aaa6e6832de36e7fb" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>slot_list</name></member>
+      <member refid="classSilentPinger_1ae1754554934648b0bca1b154d2d06762" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>slots</name></member>
+      <member refid="classSilentPinger_1acc30ff38f93d2b0e164fe7080eab5b50" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>startCallback</name></member>
+      <member refid="classSilentPinger_1a45b28b217dbeb7502c02b7ea793897fd" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>sub_enable</name></member>
+      <member refid="classSilentPinger_1ab4c033456d6ad68bf2ffcb2a83f7f634" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>sub_in_modem</name></member>
+      <member refid="classSilentPinger_1a3271587c1c3c1c0e548275b36b170892" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>sub_modem_clock</name></member>
+      <member refid="classSilentPinger_1a104e36f5fb1d491c9df5d55dd5362cd7" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>sub_serializer</name></member>
+      <member refid="classSilentPinger_1a97870d4f850c7887fc224a3ea6914f0b" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>sub_tinit</name></member>
+      <member refid="classSilentPinger_1ab99f56462fdba345662d8251c067dcf0" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>sys_clock_overflow_instant</name></member>
+      <member refid="classSilentPinger_1a0ac9d2ecae5bcc95b897314ed334ef56" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>SysClockOverflowHandler</name></member>
+      <member refid="classSilentPinger_1a69eb1bb148122efb8f89298875693cae" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>timeFromAnchorCallback</name></member>
+      <member refid="classSilentPinger_1ae7caa2a278d14640b40e22b9ce3d5699" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>timer</name></member>
+      <member refid="classSilentPinger_1a9bc3f2b1bbfb5c88955f648aeb1dfba3" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>Timer</name></member>
+      <member refid="classSilentPinger_1a22036fd8ae30048015a0ff5b5d73acfd" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>timer_sys_clock_overflow</name></member>
+      <member refid="classSilentPinger_1aed8f3c6296cda284f622b02158e71a06" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>tinit</name></member>
+      <member refid="classSilentPinger_1a2e8bf9f09e5abab51290b566d2d517d1" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>tlastRECVIMS</name></member>
+      <member refid="classSilentPinger_1a92e539238824a3dc3ad6d2eb1faf86b0" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>tnew_start</name></member>
+      <member refid="classSilentPinger_1a86495c9f0f4a47c8cef5f5690d6c64ac" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>triggerECLKmessage</name></member>
+      <member refid="classSilentPinger_1a82fc9ea7723062118d12b0d1127bc552" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>triggerSerialization</name></member>
+      <member refid="classSilentPinger_1a9ef28229bf944104df1f10690e15aa16" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>tslack</name></member>
+      <member refid="classSilentPinger_1a8a0dae2d805cffe6ec411e2022ea3da1" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>tslot_end</name></member>
+      <member refid="classSilentPinger_1a29ad7fc212c9cd6a1d7b863e6ef1d125" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>tslot_start</name></member>
+      <member refid="classSilentPinger_1acd1facb2d6348558d47603cd3a1127d4" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>updateClock</name></member>
+      <member refid="classSilentPinger_1abbd71e1fed00a5721f9d39a4417ac32a" prot="private" virt="non-virtual"><scope>SilentPinger</scope><name>waiting_for_serializer</name></member>
+      <member refid="classSilentPinger_1a45cefd438e9b1b1ff6d171eaff1bd116" prot="public" virt="non-virtual"><scope>SilentPinger</scope><name>~SilentPinger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

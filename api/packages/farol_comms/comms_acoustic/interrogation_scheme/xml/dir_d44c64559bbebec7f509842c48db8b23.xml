@@ -4,6 +4,7 @@
     <compoundname>include</compoundname>
     <innerdir refid="dir_d40acc30917718f8b39a299b06ff68cb">include/pinger_ros</innerdir>
     <innerdir refid="dir_4040aa51f229a119e5bdb5c42598f7d8">include/replier_ros</innerdir>
+    <innerdir refid="dir_e8d051328f1399bebef3e111f30aff4a">include/silent_ros</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

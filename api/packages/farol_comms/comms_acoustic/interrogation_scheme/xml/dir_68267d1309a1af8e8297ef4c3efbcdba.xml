@@ -4,6 +4,7 @@
     <compoundname>src</compoundname>
     <innerdir refid="dir_3b2130755ba6889a869b465334c68f68">src/pinger_ros</innerdir>
     <innerdir refid="dir_fcf4f7848cdac9bed3444bbefd66fbcf">src/replier_ros</innerdir>
+    <innerdir refid="dir_5d66197c43de99338bfe8c9db948ee95">src/silent_ros</innerdir>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

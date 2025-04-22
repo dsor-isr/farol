@@ -26,7 +26,7 @@
   </compound>
   <compound refid="namespacedata__serializer__algorithms_1_1DataSerializerAlgorithm" kind="namespace"><name>data_serializer_algorithms::DataSerializerAlgorithm</name>
     <member refid="DataSerializerAlgorithm_8py_1a2c619fbe06776e3802d59d0a55a5a697" kind="function"><name>payload_to_bytes</name></member>
-    <member refid="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" kind="function"><name>payload_to_bits</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1ab3c8a74ad7f4c00a960d1b5c9de557a6" kind="function"><name>payload_to_bits</name></member>
     <member refid="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" kind="function"><name>dec_to_bin</name></member>
     <member refid="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" kind="function"><name>bin_to_dec</name></member>
     <member refid="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" kind="function"><name>extract_field</name></member>
@@ -49,7 +49,7 @@
   </compound>
   <compound refid="DataSerializerAlgorithm_8py" kind="file"><name>DataSerializerAlgorithm.py</name>
     <member refid="DataSerializerAlgorithm_8py_1a2c619fbe06776e3802d59d0a55a5a697" kind="function"><name>payload_to_bytes</name></member>
-    <member refid="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" kind="function"><name>payload_to_bits</name></member>
+    <member refid="DataSerializerAlgorithm_8py_1ab3c8a74ad7f4c00a960d1b5c9de557a6" kind="function"><name>payload_to_bits</name></member>
     <member refid="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" kind="function"><name>dec_to_bin</name></member>
     <member refid="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" kind="function"><name>bin_to_dec</name></member>
     <member refid="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" kind="function"><name>extract_field</name></member>

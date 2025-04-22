@@ -7,14 +7,15 @@
     <member refid="classDmacToFarolNode_1aa994099f08b143b04e66de3a63e3265a" kind="variable"><name>state_sub_</name></member>
     <member refid="classDmacToFarolNode_1ad34404a60fcc8df19b92db67dd60f50a" kind="variable"><name>usbl_fix_farol_pub_</name></member>
     <member refid="classDmacToFarolNode_1acb479bf7eb98413aa12a63f3c2e90f47" kind="variable"><name>p_vehicle_name_</name></member>
-    <member refid="classDmacToFarolNode_1a7cc00fad870923a653a12b92efb3d725" kind="variable"><name>p_real_</name></member>
-    <member refid="classDmacToFarolNode_1a2c58c2428f3fa0e3a4044d4917036ee1" kind="variable"><name>p_fix_type_</name></member>
+    <member refid="classDmacToFarolNode_1ac8b6f18252e9edc93359915d2b31d584" kind="variable"><name>usbl_has_AHRS_</name></member>
     <member refid="classDmacToFarolNode_1a8e1fe564d19a3e17654a2b402cbb2602" kind="variable"><name>p_installation_matrix_</name></member>
     <member refid="classDmacToFarolNode_1a675944c1ef5ec30b0c7258547dd0bd51" kind="variable"><name>p_usbl_fix_dmac_topic_</name></member>
     <member refid="classDmacToFarolNode_1a0a35b0594ae6f1473db564f49ccc60bf" kind="variable"><name>p_usbl_fix_farol_topic_</name></member>
-    <member refid="classDmacToFarolNode_1a22f44c7ada20f9653a5ade274dfb779a" kind="variable"><name>usbl_rot_matrix_</name></member>
-    <member refid="classDmacToFarolNode_1a823aec1594ceef66f5a08e73b9797847" kind="variable"><name>body_rot_matrix_</name></member>
+    <member refid="classDmacToFarolNode_1af23e6d89d4376125d86a80f12392902a" kind="variable"><name>modem_to_body_rot_matrix_</name></member>
+    <member refid="classDmacToFarolNode_1a50bdd0ec5a6b796356bfe6e220c14fc1" kind="variable"><name>body_to_inertial_rot_matrix_</name></member>
     <member refid="classDmacToFarolNode_1abd5099bdcd76d07e51912ed3d0b52983" kind="variable"><name>yaw_state_</name></member>
+    <member refid="classDmacToFarolNode_1a2d2e0dbffb2e6924725d044fb06f6582" kind="variable"><name>pitch_state_</name></member>
+    <member refid="classDmacToFarolNode_1a80d9e2bfc725ace9660c28ae96fb6e78" kind="variable"><name>roll_state_</name></member>
     <member refid="classDmacToFarolNode_1ab8bb593b724ff7be9fadeb40b57565bb" kind="function"><name>DmacToFarolNode</name></member>
     <member refid="classDmacToFarolNode_1a559e373f6ce9701f7f53f72ab1f72dbb" kind="function"><name>~DmacToFarolNode</name></member>
     <member refid="classDmacToFarolNode_1ab704c68b6effcaa47c538f28226bb1cc" kind="function"><name>initializeSubscribers</name></member>

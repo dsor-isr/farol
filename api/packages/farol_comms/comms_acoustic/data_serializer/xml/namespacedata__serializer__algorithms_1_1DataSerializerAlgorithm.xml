@@ -18,16 +18,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="9" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="9" bodyend="16"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="10" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="10" bodyend="22"/>
       </memberdef>
-      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1ab3c8a74ad7f4c00a960d1b5c9de557a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
         <definition>def data_serializer_algorithms.DataSerializerAlgorithm.payload_to_bits</definition>
-        <argsstring>(bytes_string)</argsstring>
+        <argsstring>(base85_string)</argsstring>
         <name>payload_to_bits</name>
         <param>
-          <type>bytes_string</type>
-          <defname>bytes_string</defname>
+          <type>base85_string</type>
+          <defname>base85_string</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="17" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="17" bodyend="24"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="23" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="23" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="25" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="25" bodyend="42"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="32" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="32" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="43" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="43" bodyend="56"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="53" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="53" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="57" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="57" bodyend="62"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="68" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="68" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a38230a956058eba27c78904cd51fb2a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -149,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="63" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="63" bodyend="72"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="74" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="74" bodyend="83"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

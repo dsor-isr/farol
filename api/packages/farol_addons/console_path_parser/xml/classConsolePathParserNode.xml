@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="78" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="78" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="79" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a2546646651c0d670237ca593b4721d4f" prot="public" static="no" mutable="no">
         <type>std::list&lt; <ref refid="classFormation" kindref="compound">Formation</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="79" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="79" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="80" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a1c8aa2b8dac68ecf3c9ce3018405441a" prot="public" static="no" mutable="no">
         <type>std::list&lt; <ref refid="classSection" kindref="compound">Section</ref> &gt;::iterator</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="82" column="22" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="82" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="83" column="22" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a47e1ebc15590fcbe8bfcd23fd3a69344" prot="public" static="no" mutable="no">
         <type>farol_msgs::Section</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="85" column="21" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="85" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="86" column="21" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a157103034ddc7e16dc751e0707d89d93" prot="public" static="no" mutable="no">
         <type>ros::Time</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="87" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="87" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="88" column="11" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a6e3e8e0df8abc91ed2995d80406eeb90" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="90" column="5" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="90" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="91" column="5" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a8a8b169907b65afb3206181d04aa7cc6" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="93" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="93" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="94" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ab318bf87a16972cb9c24327c3fc334dd" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="94" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="94" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="95" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ad74e33c273cb50bc1df47ad81a057c55" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="95" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="95" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="96" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a16c9d0236c1163617d5be16174d2b1a7" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="96" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="96" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="97" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a83c3ed9dd2d6abf3ba2e7f0e7be0d4d1" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="97" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="97" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="98" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ae7ab7afcb2524822aa6361485dd6bae5" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="98" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="98" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="99" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a21b7cfb6679c4db1a544e787e733ec69" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -179,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="99" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="99" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="100" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a29be8f965f9f14900ef101c48c00ee75" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="100" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="100" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="101" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ae9570dff8bd0c9ad9d6db7db45b7b675" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -207,7 +207,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="101" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="101" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="102" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ac944df19cdffd15405b1f5defe4d8318" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -221,7 +221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="104" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="104" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="105" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1aac9644e7e021b8244b4e275c978062e4" prot="public" static="no" mutable="no">
         <type>double</type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="105" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="105" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="106" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a0df46b093834e360a8e8a009ed739a69" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="108" column="7" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="108" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="109" column="7" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="109" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a6dca8c080b6a2b31a72c1d4fefecbac6" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="109" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="109" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="110" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a539c0e684e4ce2c2989e28062082c74f" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -276,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="110" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="110" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="111" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a4eacdff7ff8ae8f1d5ad790046b320d8" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -290,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="111" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="111" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="112" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1afd06b7b70a4b0b400bf12ba9150d524a" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -304,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="112" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="112" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="113" column="6" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ab5dda494a4ad7221a89d05945b5f2c2e" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -317,7 +317,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="113" column="7" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="113" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="114" column="7" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a656e29aa9ae7e392c6374cf6f3160c8c" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -330,7 +330,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="114" column="13" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="114" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="115" column="13" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -345,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="118" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="118" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="119" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="119" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1aca5ab278e1aa77559ee3a29ad90eb9f5" prot="private" static="no" mutable="no">
         <type>ros::NodeHandle</type>
@@ -358,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="119" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="119" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="120" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="120" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1abb63bb6c9702f938947a8fe50b155d11" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -371,7 +371,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="122" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="122" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="123" column="17" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1ac4ccafd714f6887cb429ace583bba358" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -384,7 +384,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="122" column="27" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="122" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="123" column="27" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a56b391d7e445bfb0b3613b7d6f216233" prot="private" static="no" mutable="no">
         <type>ros::Subscriber</type>
@@ -397,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="122" column="46" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="122" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="123" column="46" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="123" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a27c578ca7b561a0ac7e0caebc134440d" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -410,7 +410,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="16" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="16" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1abd6b3e603f7e879b0375236881f0b2be" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -423,7 +423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="31" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="31" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a01c0d1bf254db798c6f7560c932ee4de" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -436,7 +436,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="53" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="53" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a1237d136ae58c96ae2c57ff79942d5ed" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -449,7 +449,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="66" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="66" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a29c0c3324b927251ffd780f09708df03" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -462,7 +462,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="77" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="77" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a3a8106d744188da10b465309299a42f3" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -475,7 +475,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="91" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="91" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1aca7b90578cb5e740a418aae434f55d10" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -488,7 +488,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="105" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="105" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a60c6ea2790298d79dad5f85b1f6a675c" prot="private" static="no" mutable="no">
         <type>ros::Publisher</type>
@@ -501,7 +501,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="125" column="116" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="125" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="126" column="116" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="126" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1afdf408549c19ab706ef61eaea7e1cd69" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -515,7 +515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="128" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="128" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="129" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="129" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a748e96fe6788a4523f2260eabbadc9ab" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
@@ -528,7 +528,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="131" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="131" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="132" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="132" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1af5e3206906e635fc6fcc0549ab6112c9" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
@@ -541,7 +541,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="132" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="132" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="133" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="133" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a3b9cf5c956a24a6744313c9d710a4061" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
@@ -554,7 +554,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="133" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="133" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="134" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a660a4e698c3d7d9f731b310b45fe556f" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
@@ -567,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="134" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="134" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="135" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="135" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a945b20a79974676b274115d0b1347471" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
@@ -580,7 +580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="137" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="137" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="138" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="138" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a1efa20a5f867f1677a3f4cf6266bd8d2" prot="private" static="no" mutable="no">
         <type>ros::ServiceClient</type>
@@ -593,7 +593,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="138" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="138" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="139" column="24" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="139" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a1dfde56caca53544e1c64c5977c9d5a1" prot="private" static="no" mutable="no">
         <type>ros::Timer</type>
@@ -606,7 +606,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="141" column="12" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="141" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="142" column="12" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="142" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1af700a6b991533cf392e10e67d7b824e6" prot="private" static="no" mutable="no">
         <type>std_msgs::Float64</type>
@@ -619,7 +619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="144" column="19" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="144" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="145" column="19" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="145" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classConsolePathParserNode_1a6382f89d2b9c3689c742194ae9eb81a4" prot="private" static="no" mutable="no">
         <type>geometry_msgs::PointStamped</type>
@@ -632,7 +632,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="145" column="29" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="145" bodyend="-1"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="146" column="29" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="146" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -691,7 +691,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="62" column="1" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="15" bodyend="24"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="63" column="1" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="15" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1ae65df49ec11817b2c963730ede4cb9db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -706,7 +706,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="68" column="1" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="29" bodyend="59"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="69" column="1" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="31" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a0edc2156d23e7cb359bcfe5cdd240471" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -723,7 +723,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="75" column="8" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="130" bodyend="135"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="76" column="8" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="132" bodyend="137"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -740,7 +740,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="155" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="112" bodyend="117"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="156" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="114" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a7c315bde3487e537fa7f492c7214dd74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -755,7 +755,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="161" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="64" bodyend="69"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="162" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="66" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a3061c5f0829053f7d351cc1fc9331b89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -770,7 +770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="167" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="75" bodyend="85"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="168" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="77" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a7b8b25667ea91148a41815bedee62429" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -785,7 +785,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="173" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="90" bodyend="107"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="174" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="92" bodyend="109"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1ae7abc4eb45dfa5525e038e17581aa700" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -800,7 +800,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="179" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="122" bodyend="125"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="180" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="124" bodyend="127"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a0363281441760ce1ab2517b71c9b8490" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -828,7 +828,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="190" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="263" bodyend="614"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="191" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="275" bodyend="626"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1ad8ddac4ee92540692577e4cc3980d19a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -842,7 +842,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="196" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="617" bodyend="644"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="197" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="629" bodyend="656"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a4296f3cc49315646a18f09dea466165c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -856,7 +856,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="202" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="647" bodyend="755"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="203" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="659" bodyend="767"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a7097a6c706cb1fa18972397c1935755a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -886,7 +886,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="210" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="210" bodyend="213"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="211" column="8" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="211" bodyend="214"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a0337ea7ccc0ed16ed0bec0b3a3df44f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -901,7 +901,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="219" column="10" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="169" bodyend="255"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="220" column="10" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="181" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a9719e9183fd101617437cdd94c570761" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -928,7 +928,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="230" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="765" bodyend="790"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="231" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="777" bodyend="802"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a3b3eed9a77af8fb513f701654dbd4ce3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -956,7 +956,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="237" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="142" bodyend="163"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="238" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="149" bodyend="175"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1af59ffa00bc7de4554b261a7a7d81a62a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -984,7 +984,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="244" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="793" bodyend="812"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="245" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="805" bodyend="824"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a2d59ce4f783f5bbb069fc1eaf7401c23" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1012,7 +1012,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="251" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="815" bodyend="841"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="252" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="827" bodyend="853"/>
       </memberdef>
       <memberdef kind="function" id="classConsolePathParserNode_1a6a075b542aa8cbb90aa0da4bcb38f81d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1040,7 +1040,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/ros/ConsolePathParserNode.h" line="258" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="844" bodyend="846"/>
+        <location file="include/ros/ConsolePathParserNode.h" line="259" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="856" bodyend="858"/>
+      </memberdef>
+      <memberdef kind="function" id="classConsolePathParserNode_1aeec1f24fd05258c7cf090368b66b52dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ConsolePathParserNode::createPathFolder</definition>
+        <argsstring>()</argsstring>
+        <name>createPathFolder</name>
+        <briefdescription>
+<para>Create directory for path mission text files from console. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ros/ConsolePathParserNode.h" line="264" column="6" bodyfile="src/ros/ConsolePathParserNode.cpp" bodystart="139" bodyend="142"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1048,7 +1062,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/ros/ConsolePathParserNode.h" line="54" column="1" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="53" bodyend="260"/>
+    <location file="include/ros/ConsolePathParserNode.h" line="55" column="1" bodyfile="include/ros/ConsolePathParserNode.h" bodystart="54" bodyend="266"/>
     <listofallmembers>
       <member refid="classConsolePathParserNode_1a1c8aa2b8dac68ecf3c9ce3018405441a" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>act_section</name></member>
       <member refid="classConsolePathParserNode_1a3a8106d744188da10b465309299a42f3" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>altitude_pub_</name></member>
@@ -1057,6 +1071,7 @@
       <member refid="classConsolePathParserNode_1afd06b7b70a4b0b400bf12ba9150d524a" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>biased_formation_mode</name></member>
       <member refid="classConsolePathParserNode_1abd6b3e603f7e879b0375236881f0b2be" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>biased_formation_pub_</name></member>
       <member refid="classConsolePathParserNode_1abec4ab1debed931123f1a83b126a64a3" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>ConsolePathParserNode</name></member>
+      <member refid="classConsolePathParserNode_1aeec1f24fd05258c7cf090368b66b52dd" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>createPathFolder</name></member>
       <member refid="classConsolePathParserNode_1a157103034ddc7e16dc751e0707d89d93" prot="public" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>depth_end</name></member>
       <member refid="classConsolePathParserNode_1aca7b90578cb5e740a418aae434f55d10" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>depth_pub_</name></member>
       <member refid="classConsolePathParserNode_1a9719e9183fd101617437cdd94c570761" prot="private" virt="non-virtual"><scope>ConsolePathParserNode</scope><name>depthCallback</name></member>

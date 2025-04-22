@@ -19,16 +19,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="9" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="9" bodyend="16"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="10" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="10" bodyend="22"/>
       </memberdef>
-      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a68b07d7de6db31ef317ec622df0a36d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="DataSerializerAlgorithm_8py_1ab3c8a74ad7f4c00a960d1b5c9de557a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
         <definition>def data_serializer_algorithms.DataSerializerAlgorithm.payload_to_bits</definition>
-        <argsstring>(bytes_string)</argsstring>
+        <argsstring>(base85_string)</argsstring>
         <name>payload_to_bits</name>
         <param>
-          <type>bytes_string</type>
-          <defname>bytes_string</defname>
+          <type>base85_string</type>
+          <defname>base85_string</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="17" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="17" bodyend="24"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="23" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="23" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a13752f085d53d52bd5085c7a400b7ef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="25" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="25" bodyend="42"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="32" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="32" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a3bd4e47b3c1bb34624610bf4ca9821b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="43" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="43" bodyend="56"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="53" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="53" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a67a1d97cf685395ce59c29a977e52365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="57" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="57" bodyend="62"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="68" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="68" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="DataSerializerAlgorithm_8py_1a38230a956058eba27c78904cd51fb2a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="63" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="63" bodyend="72"/>
+        <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py" line="74" column="1" bodyfile="src/data_serializer_algorithms/DataSerializerAlgorithm.py" bodystart="74" bodyend="83"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -165,70 +165,81 @@
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>roslib.message</highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>std_msgs.msg</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>sys</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">payload_to_bytes(bits_string):</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>zero_padded_bits=bits_string+</highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal">*(8<sp/>-<sp/>len(bits_string)<sp/>%<sp/>8)</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>hex_representation=format(int(zero_padded_bits,2),<sp/></highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal">+str(len(zero_padded_bits)//4)+</highlight><highlight class="stringliteral">&apos;X&apos;</highlight><highlight class="normal">)<sp/></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>sys.version_info[0]<sp/>==<sp/>2:</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hex_representation.decode(</highlight><highlight class="stringliteral">&quot;hex&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>sys.version_info[0]<sp/>==<sp/>3:<sp/></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>hex_representation</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">payload_to_bits(bytes_string):</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>sys.version_info[0]<sp/>==<sp/>2:</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hex_representation=bytes_string.encode(</highlight><highlight class="stringliteral">&quot;hex&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>sys.version_info[0]<sp/>==<sp/>3:</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hex_representation=bytes_string</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>zero_padded_bits=format(int(hex_representation,16),<sp/></highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal">+str(len(hex_representation)*4)+</highlight><highlight class="stringliteral">&apos;b&apos;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>zero_padded_bits</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">dec_to_bin(dec_value,low,high,bits,is_int=False):</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#saturate<sp/>value</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>dec_value=min(dec_value,high)</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>dec_value=max(dec_value,low)</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#adjust<sp/>high<sp/>value<sp/>if<sp/>it&apos;s<sp/>an<sp/>integer<sp/>and<sp/>the<sp/>quantization<sp/>is<sp/>too<sp/>small,<sp/>to<sp/>avoid<sp/>rounding<sp/>issues</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>is_int:</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>high=max(high,low+2**bits-1)</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>quant=(high-low)/(2**bits-1)</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>value_quant=int(round((dec_value-low)/quant))</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>value_quant&gt;2**bits-1:</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bits*</highlight><highlight class="stringliteral">&apos;1&apos;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>value_quant&lt;0:</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bits*</highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>format(value_quant,<sp/></highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal">+str(bits)+</highlight><highlight class="stringliteral">&apos;b&apos;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">bin_to_dec(bin_value,low,high,bits,is_int=False):</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>dec_value=int(bin_value,2)</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#adjust<sp/>high<sp/>value<sp/>if<sp/>it&apos;s<sp/>an<sp/>integer<sp/>and<sp/>the<sp/>quantization<sp/>is<sp/>too<sp/>small,<sp/>to<sp/>avoid<sp/>rounding<sp/>issues</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>is_int:</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>high=max(high,low+2**bits-1)</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>quant=(high-low)/(2**bits-1)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>value=low+dec_value*quant</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>is_int:</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(round(value))</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">extract_field(msg_data,field_address):</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>len(field_address)==1:</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getattr(msg_data,<sp/>field_address[0])</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>extract_field(getattr(msg_data,field_address[0]),<sp/>field_address[1:])</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">add_field_to_dict(final_dict,field_address,field_value):</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>aux_dict=final_dict</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>ind,val<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(field_address):</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>ind==len(field_address)-1:</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux_dict[field_address[ind]]=field_value</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>field_address[ind]<sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>aux_dict.keys():</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux_dict[val]={}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux_dict=aux_dict[val]</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>base64</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">payload_to_bytes(bits_string):</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Ensure<sp/>the<sp/>binary<sp/>string<sp/>length<sp/>is<sp/>a<sp/>multiple<sp/>of<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>zero_padded_bits<sp/>=<sp/>bits_string<sp/>+<sp/></highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal"><sp/>*<sp/>(8<sp/>-<sp/>len(bits_string)<sp/>%<sp/>8)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Convert<sp/>binary<sp/>string<sp/>to<sp/>bytes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>byte_length<sp/>=<sp/>len(zero_padded_bits)<sp/>//<sp/>8</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>raw_bytes<sp/>=<sp/>int(zero_padded_bits,<sp/>2).to_bytes(byte_length,<sp/>byteorder=</highlight><highlight class="stringliteral">&apos;big&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Encode<sp/>the<sp/>bytes<sp/>to<sp/>Base85</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>base85_string<sp/>=<sp/>base64.a85encode(raw_bytes).decode(</highlight><highlight class="stringliteral">&apos;ascii&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>base85_string</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">payload_to_bits(base85_string):</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Decode<sp/>the<sp/>Base85<sp/>string<sp/>into<sp/>bytes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>decoded_bytes<sp/>=<sp/>base64.a85decode(base85_string)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>Convert<sp/>the<sp/>bytes<sp/>to<sp/>a<sp/>binary<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>bits_string<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;&apos;</highlight><highlight class="normal">.join(f</highlight><highlight class="stringliteral">&apos;{byte:08b}&apos;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>byte<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>decoded_bytes)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bits_string</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">dec_to_bin(dec_value,low,high,bits,is_int=False):</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#saturate<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>dec_value=min(dec_value,high)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>dec_value=max(dec_value,low)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#adjust<sp/>high<sp/>value<sp/>if<sp/>it&apos;s<sp/>an<sp/>integer<sp/>and<sp/>the<sp/>quantization<sp/>is<sp/>too<sp/>small,<sp/>to<sp/>avoid<sp/>rounding<sp/>issues</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>is_int:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>high=max(high,low+2**bits-1)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>quant=(high-low)/(2**bits-1)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>value_quant=int(round((dec_value-low)/quant))</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>value_quant&gt;2**bits-1:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>print(&quot;SERIALIZE:<sp/>&quot;<sp/>+<sp/>str(dec_value)<sp/>+<sp/>&quot;<sp/>-&gt;<sp/>&quot;<sp/>+<sp/>bits*&apos;1&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bits*</highlight><highlight class="stringliteral">&apos;1&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">elif</highlight><highlight class="normal"><sp/>value_quant&lt;0:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>print(&quot;SERIALIZE:<sp/>&quot;<sp/>+<sp/>str(dec_value)<sp/>+<sp/>&quot;<sp/>-&gt;<sp/>&quot;<sp/><sp/>+<sp/>bits*&apos;0&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>bits*</highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>print(&quot;SERIALIZE:<sp/>&quot;<sp/>+<sp/>str(dec_value)<sp/>+<sp/>&quot;<sp/>-&gt;<sp/>&quot;<sp/>+<sp/>format(value_quant,<sp/>&apos;0&apos;+str(bits)+&apos;b&apos;)<sp/>+<sp/>&quot;<sp/>-&gt;<sp/>&quot;<sp/>+<sp/>hex(int(format(value_quant,<sp/>&apos;0&apos;+str(bits)+&apos;b&apos;),2)))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>format(value_quant,<sp/></highlight><highlight class="stringliteral">&apos;0&apos;</highlight><highlight class="normal">+str(bits)+</highlight><highlight class="stringliteral">&apos;b&apos;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">bin_to_dec(bin_value,low,high,bits,is_int=False):</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>dec_value=int(bin_value,2)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#adjust<sp/>high<sp/>value<sp/>if<sp/>it&apos;s<sp/>an<sp/>integer<sp/>and<sp/>the<sp/>quantization<sp/>is<sp/>too<sp/>small,<sp/>to<sp/>avoid<sp/>rounding<sp/>issues</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>is_int:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>high=max(high,low+2**bits-1)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>quant=(high-low)/(2**bits-1)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>value=low+dec_value*quant</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>is_int:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(round(value))</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">#<sp/>print(&quot;DE-SERIALIZE:<sp/>&quot;<sp/>+<sp/>hex(dec_value)<sp/>+<sp/>&quot;<sp/>-&gt;<sp/>&quot;<sp/>+<sp/>str(bin_value)<sp/>+<sp/>&quot;<sp/>-&gt;<sp/>&quot;<sp/>+<sp/>str(value))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">extract_field(msg_data,field_address):</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>len(field_address)==1:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>getattr(msg_data,<sp/>field_address[0])</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>extract_field(getattr(msg_data,field_address[0]),<sp/>field_address[1:])</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">def<sp/></highlight><highlight class="normal">add_field_to_dict(final_dict,field_address,field_value):</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>aux_dict=final_dict</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>ind,val<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>enumerate(field_address):</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>ind==len(field_address)-1:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux_dict[field_address[ind]]=field_value</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>field_address[ind]<sp/></highlight><highlight class="keywordflow">not</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>aux_dict.keys():</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux_dict[val]={}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>aux_dict=aux_dict[val]</highlight></codeline>
     </programlisting>
     <location file="src/data_serializer_algorithms/DataSerializerAlgorithm.py"/>
   </compounddef>

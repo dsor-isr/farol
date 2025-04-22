@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_5d66197c43de99338bfe8c9db948ee95" kind="dir">
+    <compoundname>src/silent_ros</compoundname>
+    <innerfile refid="SilentNode_8cpp">SilentNode.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/silent_ros/"/>
+  </compounddef>
+</doxygen>

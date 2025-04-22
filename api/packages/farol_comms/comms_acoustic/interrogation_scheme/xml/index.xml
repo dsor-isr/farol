@@ -72,6 +72,67 @@
     <member refid="classReplierNode_1a883998f80c91317b77739512af087249" kind="function"><name>replyCallback</name></member>
     <member refid="classReplierNode_1a868d64ca905d351b9cf976f83c1960df" kind="function"><name>serializerCallback</name></member>
   </compound>
+  <compound refid="classSilentPinger" kind="class"><name>SilentPinger</name>
+    <member refid="classSilentPinger_1a4abd4c81a3c6edffcbf8fdea129bbba1" kind="variable"><name>nh_private_</name></member>
+    <member refid="classSilentPinger_1ad8e6400a0a7b629b89bfcb3154766480" kind="variable"><name>nh_</name></member>
+    <member refid="classSilentPinger_1ab4c033456d6ad68bf2ffcb2a83f7f634" kind="variable"><name>sub_in_modem</name></member>
+    <member refid="classSilentPinger_1a104e36f5fb1d491c9df5d55dd5362cd7" kind="variable"><name>sub_serializer</name></member>
+    <member refid="classSilentPinger_1a45b28b217dbeb7502c02b7ea793897fd" kind="variable"><name>sub_enable</name></member>
+    <member refid="classSilentPinger_1a97870d4f850c7887fc224a3ea6914f0b" kind="variable"><name>sub_tinit</name></member>
+    <member refid="classSilentPinger_1a3271587c1c3c1c0e548275b36b170892" kind="variable"><name>sub_modem_clock</name></member>
+    <member refid="classSilentPinger_1a9c5cf11dc0dc24e0f938945fc1d8ced7" kind="variable"><name>pub_im</name></member>
+    <member refid="classSilentPinger_1abb1c7225a85255bccd8109e06816680b" kind="variable"><name>pub_range</name></member>
+    <member refid="classSilentPinger_1aa03113dff44b00855867db0ff05ef8c2" kind="variable"><name>pub_triggerserialization</name></member>
+    <member refid="classSilentPinger_1ab68cc96ac901ce79d16de733064d6be6" kind="variable"><name>pub_deserialization</name></member>
+    <member refid="classSilentPinger_1a330f9153470ead41d128375acc4b4ee2" kind="variable"><name>pub_tinit</name></member>
+    <member refid="classSilentPinger_1ae7caa2a278d14640b40e22b9ce3d5699" kind="variable"><name>timer</name></member>
+    <member refid="classSilentPinger_1a22036fd8ae30048015a0ff5b5d73acfd" kind="variable"><name>timer_sys_clock_overflow</name></member>
+    <member refid="classSilentPinger_1a2fba0906665580a82c89e1d0b411b05e" kind="variable"><name>modems_list</name></member>
+    <member refid="classSilentPinger_1adabaeb484f44056aaa6e6832de36e7fb" kind="variable"><name>slot_list</name></member>
+    <member refid="classSilentPinger_1a9ef28229bf944104df1f10690e15aa16" kind="variable"><name>tslack</name></member>
+    <member refid="classSilentPinger_1aac0cfd8d60ae926cc099b32276b1893a" kind="variable"><name>modems</name></member>
+    <member refid="classSilentPinger_1ae1754554934648b0bca1b154d2d06762" kind="variable"><name>slots</name></member>
+    <member refid="classSilentPinger_1a2e8bf9f09e5abab51290b566d2d517d1" kind="variable"><name>tlastRECVIMS</name></member>
+    <member refid="classSilentPinger_1a29ad7fc212c9cd6a1d7b863e6ef1d125" kind="variable"><name>tslot_start</name></member>
+    <member refid="classSilentPinger_1a8a0dae2d805cffe6ec411e2022ea3da1" kind="variable"><name>tslot_end</name></member>
+    <member refid="classSilentPinger_1a537d0bd90f96931d412f76153b3f2d74" kind="variable"><name>range_max</name></member>
+    <member refid="classSilentPinger_1abbd71e1fed00a5721f9d39a4417ac32a" kind="variable"><name>waiting_for_serializer</name></member>
+    <member refid="classSilentPinger_1a9d5977717c9a008b8c3a63d305ed505b" kind="variable"><name>ENABLE_</name></member>
+    <member refid="classSilentPinger_1acfc946757e8b57d81ba71979d43c971b" kind="variable"><name>slot_ack</name></member>
+    <member refid="classSilentPinger_1a1f05a162e6fa9516872fb26e3fc32c53" kind="variable"><name>modem_id</name></member>
+    <member refid="classSilentPinger_1a59d2c8638e3d2246f41ac40787c933ac" kind="variable"><name>init</name></member>
+    <member refid="classSilentPinger_1afba497035e9f7b495b6aa1dad625d255" kind="variable"><name>anchor</name></member>
+    <member refid="classSilentPinger_1ad731354e8680487de89819d55569b81f" kind="variable"><name>ok_check</name></member>
+    <member refid="classSilentPinger_1aed8f3c6296cda284f622b02158e71a06" kind="variable"><name>tinit</name></member>
+    <member refid="classSilentPinger_1a92e539238824a3dc3ad6d2eb1faf86b0" kind="variable"><name>tnew_start</name></member>
+    <member refid="classSilentPinger_1a18465f1ba2ddce678eaee23469166da1" kind="variable"><name>first_time</name></member>
+    <member refid="classSilentPinger_1a7454c29b52e4dae6ecabd8a4daa172fa" kind="variable"><name>lastRECVTime_modem</name></member>
+    <member refid="classSilentPinger_1af2504b7c10b0412663b2475edcbb038c" kind="variable"><name>lastRECVTime_ros</name></member>
+    <member refid="classSilentPinger_1acff0509771f4e7f25c465467bda827a7" kind="variable"><name>modem_time_offset</name></member>
+    <member refid="classSilentPinger_1ab99f56462fdba345662d8251c067dcf0" kind="variable"><name>sys_clock_overflow_instant</name></member>
+    <member refid="classSilentPinger_1a4a88f60fe381899fae7bd08e7ed37b89" kind="function"><name>SilentPinger</name></member>
+    <member refid="classSilentPinger_1a45cefd438e9b1b1ff6d171eaff1bd116" kind="function"><name>~SilentPinger</name></member>
+    <member refid="classSilentPinger_1acd1facb2d6348558d47603cd3a1127d4" kind="function"><name>updateClock</name></member>
+    <member refid="classSilentPinger_1a4f16d44013562d36815acbfb3664484b" kind="function"><name>getModemClockNow</name></member>
+    <member refid="classSilentPinger_1abe24f7009f68bc354267471b62a6f150" kind="function"><name>getTimeBeforeStart</name></member>
+    <member refid="classSilentPinger_1acc30ff38f93d2b0e164fe7080eab5b50" kind="function"><name>startCallback</name></member>
+    <member refid="classSilentPinger_1a69eb1bb148122efb8f89298875693cae" kind="function"><name>timeFromAnchorCallback</name></member>
+    <member refid="classSilentPinger_1a82fc9ea7723062118d12b0d1127bc552" kind="function"><name>triggerSerialization</name></member>
+    <member refid="classSilentPinger_1a2e24f83f02e7a972595e7946293f89a2" kind="function"><name>pingNextNode</name></member>
+    <member refid="classSilentPinger_1a7c480cf7d6ca957aecf71b6370e9de39" kind="function"><name>serializerCallback</name></member>
+    <member refid="classSilentPinger_1a35d3e794e51b81ceb839c553dd3a1b28" kind="function"><name>EnableCallback</name></member>
+    <member refid="classSilentPinger_1a590274c81c1faae350aa9bc1db7f5937" kind="function"><name>RECVIMSCallback</name></member>
+    <member refid="classSilentPinger_1a9bc3f2b1bbfb5c88955f648aeb1dfba3" kind="function"><name>Timer</name></member>
+    <member refid="classSilentPinger_1a0ac9d2ecae5bcc95b897314ed334ef56" kind="function"><name>SysClockOverflowHandler</name></member>
+    <member refid="classSilentPinger_1a4e844fecb60959aca314c9202feaed22" kind="function"><name>modemClockCallback</name></member>
+    <member refid="classSilentPinger_1ae8d93ef12bf5e4141d99b3f7af0a4281" kind="function"><name>computeModemTimeOffset</name></member>
+    <member refid="classSilentPinger_1aa8fc45962ddfa98c2f0cc360be66c29b" kind="function"><name>computeModemSysClockOverflowTime</name></member>
+    <member refid="classSilentPinger_1a86495c9f0f4a47c8cef5f5690d6c64ac" kind="function"><name>triggerECLKmessage</name></member>
+    <member refid="classSilentPinger_1a959a33d440c333d993c0d1c9771eedde" kind="function"><name>loadParams</name></member>
+    <member refid="classSilentPinger_1a09fe452d35ceb604e5e8612568933380" kind="function"><name>initializeSubscribers</name></member>
+    <member refid="classSilentPinger_1af3008852edf62004d8c5b8ceb069589a" kind="function"><name>initializePublishers</name></member>
+    <member refid="classSilentPinger_1a258bc837e6de1657e0bcf57082471dab" kind="function"><name>initializeTimer</name></member>
+  </compound>
   <compound refid="PingerNode_8h" kind="file"><name>PingerNode.h</name>
     <member refid="PingerNode_8h_1ae73d78f8ad1955fc7efc65b109987632" kind="define"><name>SOUND_SPEED</name></member>
   </compound>
@@ -79,11 +140,18 @@
     <member refid="ReplierNode_8h_1ae73d78f8ad1955fc7efc65b109987632" kind="define"><name>SOUND_SPEED</name></member>
     <member refid="ReplierNode_8h_1a14522fa37ea8c0da73ec421289b9375b" kind="define"><name>SLACK_TIME</name></member>
   </compound>
+  <compound refid="SilentNode_8h" kind="file"><name>SilentNode.h</name>
+    <member refid="SilentNode_8h_1ae73d78f8ad1955fc7efc65b109987632" kind="define"><name>SOUND_SPEED</name></member>
+    <member refid="SilentNode_8h_1a818202d4cec08b03544d76f4dfe162dd" kind="define"><name>UNSIGNED_INT_MAX</name></member>
+  </compound>
   <compound refid="PingerNode_8cpp" kind="file"><name>PingerNode.cpp</name>
     <member refid="PingerNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
   </compound>
   <compound refid="ReplierNode_8cpp" kind="file"><name>ReplierNode.cpp</name>
     <member refid="ReplierNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="SilentNode_8cpp" kind="file"><name>SilentNode.cpp</name>
+    <member refid="SilentNode_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
   </compound>
   <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
   </compound>
@@ -91,9 +159,13 @@
   </compound>
   <compound refid="dir_3b2130755ba6889a869b465334c68f68" kind="dir"><name>src/pinger_ros</name>
   </compound>
+  <compound refid="dir_4040aa51f229a119e5bdb5c42598f7d8" kind="dir"><name>include/replier_ros</name>
+  </compound>
   <compound refid="dir_fcf4f7848cdac9bed3444bbefd66fbcf" kind="dir"><name>src/replier_ros</name>
   </compound>
-  <compound refid="dir_4040aa51f229a119e5bdb5c42598f7d8" kind="dir"><name>include/replier_ros</name>
+  <compound refid="dir_e8d051328f1399bebef3e111f30aff4a" kind="dir"><name>include/silent_ros</name>
+  </compound>
+  <compound refid="dir_5d66197c43de99338bfe8c9db948ee95" kind="dir"><name>src/silent_ros</name>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
   </compound>

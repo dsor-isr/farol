@@ -80,13 +80,17 @@
     <member refid="classUsblFix2Pos_1a1964cfda7823149c0defd19affb262b9" kind="variable"><name>pub_pose_fix</name></member>
     <member refid="classUsblFix2Pos_1a4dbdf837975e040006ea4c6fe95b92da" kind="variable"><name>pub_usbl_est_state</name></member>
     <member refid="classUsblFix2Pos_1aedea1296f517ec9bd8c29da0a70c07ef" kind="variable"><name>pub_usbl_est_console</name></member>
+    <member refid="classUsblFix2Pos_1a3f59baf3c1c6572b448ce90d9d03a4d2" kind="variable"><name>pub_usbl_est_console_auv0_</name></member>
+    <member refid="classUsblFix2Pos_1a9e3663881efe6af2ed686aed7ce096a5" kind="variable"><name>pub_usbl_est_console_auv1_</name></member>
     <member refid="classUsblFix2Pos_1aed99f2557e0b9c3fe6873932edf8c9fe" kind="variable"><name>list_cleaner_timer</name></member>
     <member refid="classUsblFix2Pos_1ae01721c1be25ab2ab98b0f757f9485cf" kind="variable"><name>p_fix_type</name></member>
     <member refid="classUsblFix2Pos_1ac70df56f5717e2740f3639444f5028c2" kind="variable"><name>p_t_sync</name></member>
     <member refid="classUsblFix2Pos_1a1f2ec81b2325261811bd8072eb54c8a5" kind="variable"><name>p_meas_noise</name></member>
+    <member refid="classUsblFix2Pos_1a9c5adf6ff22396f7b285d3ab16e41853" kind="variable"><name>auv0_source_id_</name></member>
+    <member refid="classUsblFix2Pos_1a1b19faea4a4cd22fb74683d6d29ac7c8" kind="variable"><name>auv1_source_id_</name></member>
     <member refid="classUsblFix2Pos_1a2be0807196c46e6655458397d7324d76" kind="variable"><name>initialized</name></member>
     <member refid="classUsblFix2Pos_1aa7a5cf9731ee061dad2d449eaf668a92" kind="variable"><name>state_stamp</name></member>
-    <member refid="classUsblFix2Pos_1a8ed8ccc4678a60882b583ab3be17a3d7" kind="variable"><name>state</name></member>
+    <member refid="classUsblFix2Pos_1a06eeee72e1614ecff9c6ea2f6104018a" kind="variable"><name>state</name></member>
     <member refid="classUsblFix2Pos_1a143cff6e194fb0ba1e30281a8bb0d907" kind="variable"><name>state_var</name></member>
     <member refid="classUsblFix2Pos_1ad05e7f02774d5e66f143851050099169" kind="variable"><name>state_lat_lon</name></member>
     <member refid="classUsblFix2Pos_1a292bc04f1ee26ef502c7f3b18d62710e" kind="variable"><name>usblfix_list</name></member>

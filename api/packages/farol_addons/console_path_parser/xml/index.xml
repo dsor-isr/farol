@@ -66,6 +66,7 @@
     <member refid="classConsolePathParserNode_1af59ffa00bc7de4554b261a7a7d81a62a" kind="function"><name>flagCallback</name></member>
     <member refid="classConsolePathParserNode_1a2d59ce4f783f5bbb069fc1eaf7401c23" kind="function"><name>updateCallback</name></member>
     <member refid="classConsolePathParserNode_1a6a075b542aa8cbb90aa0da4bcb38f81d" kind="function"><name>missionCallback</name></member>
+    <member refid="classConsolePathParserNode_1aeec1f24fd05258c7cf090368b66b52dd" kind="function"><name>createPathFolder</name></member>
   </compound>
   <compound refid="classFormation" kind="class"><name>Formation</name>
     <member refid="classFormation_1a74b7af08d38b4ff1bb196bfe7309ca78" kind="variable"><name>id</name></member>
