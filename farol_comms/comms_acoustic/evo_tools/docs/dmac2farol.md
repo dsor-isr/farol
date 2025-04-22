@@ -28,16 +28,16 @@ Then, this unit vector is rotated from USBL to body frame and then from body to 
 
 $$ \bold{v}_{I} = {\,} _B^I R(\phi_B, \theta_B, \psi_B) {\,} . {\,} _{USBL}^B R(\phi_{USBL}, \theta_{USBL}, \psi_{USBL}) {\,} . {\,} \bold{v}_{USBL} =
 \begin{bmatrix}
-{v_{I}}_1\\
-{v_{I}}_2\\
-{v_{I}}_3
+v_{I1}\\
+v_{I2}\\
+v_{I3}
 \end{bmatrix}, $$
 
 where $_B^I R(\phi_B, \theta_B, \psi_B)$ is the rotation matrix from body frame to inertial frame, ($\phi_B, \theta_B, \psi_B$) are the roll, pitch and yaw angles of the body with respect to the inertial frame, $_{USBL}^B R(\phi_{USBL}, \theta_{USBL}, \psi_{USBL})$ is the installation matrix, i.e., the rotation matrix from USBL frame to body frame and ($\phi_{USBL}, \theta_{USBL}, \psi_{USBL}$) are the roll, pitch and yaw angles of the USBL with respect to the body frame.
 
 Finally, this unit vector is converted back to bearing ($\beta_I$) and elevation ($\epsilon_I$) angles, in the inertial frame:
 
-$$ \beta_I = \tan^{-1}\left(\dfrac{{v_{I}}_2}{{v_{I}}_1}\right) {\quad} \epsilon_I = \tan^{-1}\left(\dfrac{{v_{I}}_3}{\sqrt{({v_{I}}_1)^2 + ({v_{I}}_2)^2}}\right). $$
+$$ \beta_I = \tan^{-1}\left(\dfrac{v_{I2}}{v_{I1}}\right) \quad \epsilon_I = \tan^{-1}\left(\dfrac{v_{I3}}{\sqrt{(v_{I1})^2 + (v_{I2})^2}}\right). $$
 
 ### **Rotation Matrices, Angles and Frames**
 
