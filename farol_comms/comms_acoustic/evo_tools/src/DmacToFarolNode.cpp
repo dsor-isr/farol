@@ -118,7 +118,7 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
     {   
         
       if (!usbl_has_AHRS_){
-        ROS_WARN("[MODEM] BEARING, ELEVATION: %f, %f", dmac_usbl_fix_msg.bearing_raw, dmac_usbl_fix_msg.elevation_raw);
+        // ROS_WARN("[MODEM] BEARING, ELEVATION: %f, %f", dmac_usbl_fix_msg.bearing_raw, dmac_usbl_fix_msg.elevation_raw);
 
         // convert local bearing and elevation to a unit vector in 3D space (polar to cartesian coordinates)
         double x_rel, y_rel, z_rel;
@@ -126,7 +126,7 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
         y_rel = sin(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
         z_rel = sin(dmac_usbl_fix_msg.elevation_raw);
 
-        ROS_WARN("[MODEM] POINT: %f %f %f", x_rel, y_rel, z_rel);
+        // ROS_WARN("[MODEM] POINT: %f %f %f", x_rel, y_rel, z_rel);
 
         // rotate unit vector to body frame
         Eigen::MatrixXd point(3,1);
@@ -134,7 +134,7 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
         Eigen::MatrixXd pt_body;
         pt_body = modem_to_body_rot_matrix_*point;
 
-        ROS_WARN("[BODY] POINT: %f %f %f", pt_body(0), pt_body(1), pt_body(2));
+        // ROS_WARN("[BODY] POINT: %f %f %f", pt_body(0), pt_body(1), pt_body(2));
       
       
         // Rotate unit vector from body to inertial frame
@@ -155,13 +155,13 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 
         Eigen::MatrixXd pt_inertial = body_to_inertial_rot_matrix_ * pt_body;
 
-        ROS_WARN("[INERTIAL] POINT: %f %f %f", pt_inertial(0), pt_inertial(1), pt_inertial(2));
+        // ROS_WARN("[INERTIAL] POINT: %f %f %f", pt_inertial(0), pt_inertial(1), pt_inertial(2));
 
         // cartesian to sphere
         farol_usbl_fix_msg.bearing  = std::atan2(pt_inertial(1),pt_inertial(0));
         farol_usbl_fix_msg.elevation = std::atan2(pt_inertial(2),std::sqrt(std::pow(pt_inertial(0),2) + std::pow(pt_inertial(1),2)));
         
-        ROS_WARN("[INERTIAL] BEARING, ELEVATION: %f, %f", farol_usbl_fix_msg.bearing, farol_usbl_fix_msg.elevation);
+        // ROS_WARN("[INERTIAL] BEARING, ELEVATION: %f, %f", farol_usbl_fix_msg.bearing, farol_usbl_fix_msg.elevation);
 
       }
       else{
