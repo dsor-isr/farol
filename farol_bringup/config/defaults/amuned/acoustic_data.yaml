@@ -1,6 +1,6 @@
 # 1 - mred replier
 # 2 - mblack replier
-# 3 - myellow/mvector pinger
+# 3 - myellow pinger
 #
 # latch = 0 publishes for ever
 #        >0 publishes for n number of slots even if nothing is received

@@ -1,5 +1,15 @@
+silent:
+    tslack: 1.0     # in seconds
+    # modem_name: 10.42.10.6    ?????????
+    #modems_list: ["1", "2"]
+    modems_list: ["1","3"]
+    slot_list: [5.0, 5.0]   # in seconds
+    modem_id: 3
+    anchor: 1
+    tnew_start: 30      # in seconds
+
 data_serializer:
-    vehicle_id: 8
+    vehicle_id: 3
 
 dmac2farol:
     # false, vehicle acts as an achor, estimates other vehicles position 

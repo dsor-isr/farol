@@ -12,7 +12,7 @@ processes:
             - cooperative:= false
             - comms:= false
             - acoustic_data:= false
-            - planning:= false 
+            - planning:= false
       dependencies:
             []
     
@@ -42,7 +42,7 @@ processes:
             []
     
     - name: 'bags' # Set to true to automatically save all rostopics in rosbags
-      launch_on_startup: false
+      launch_on_startup: true
       delay_before_start: 2.0
       cmd: 'roslaunch farol_bringup bags.launch'
       args:
@@ -60,8 +60,8 @@ processes:
       dependencies:
             []
     
-    - name: 'addons' # Set to true to use several addons like operation console and remote controller
-      launch_on_startup: true 
+    - name: 'addons'
+      launch_on_startup: true # Set to true to use several addons like operation console and remote controller
       delay_before_start: 4.0
       cmd: 'roslaunch farol_bringup addons.launch'
       args:
@@ -80,6 +80,7 @@ processes:
       cmd: 'roslaunch farol_bringup nav.launch'
       args:
             - filter:= true
+            - cf:= true
             - gnss2utm:= true
             - gnss2utmoutlier:= false
             - auvstate2mstate:= true
@@ -120,6 +121,7 @@ processes:
             - data_serializer:= true
             - pinger:= false
             - replier:= false
+            - silent:= true
             - pos2sim_modem:= false
             - dmac2farol:= true
             - gnss2state:= true

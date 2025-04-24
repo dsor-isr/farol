@@ -16,10 +16,12 @@ auv_sim:
     actuators:
       # For each thruster [Fx, Fy, Fz, lx, ly, lz] where F = forces and l = moments arms
       # and each line of the matrix represents a thruster
-      allocation_matrix: [ 1.0, 0.0,  0.0, -0.25, -0.15, 0.0,
-                           1.0, 0.0,  0.0, -0.25,  0.15, 0.0,
-                           0.0, 0.0, -1.0,   0.0,  0.15, 0.0,
-                           0.0, 0.0, -1.0,   0.0, -0.15, 0.0 ]
+      allocation_matrix: [ 0.707, -0.707,  0.0, -0.306, -0.062,  0.0,
+                           0.707,  0.707,  0.0, -0.306,  0.062,  0.0,
+                           0.000,  0.000, -1.0, -0.087, -0.120,  0.0,
+                           0.000,  0.000, -1.0, -0.087,  0.120,  0.0,
+                           0.707,  0.707,  0.0,  0.300, -0.197, -0.0,
+                           0.707, -0.707,  0.0,  0.300,  0.197, -0.0 ]
 
       # Thrusters parameter
       lump_param_positive: [0.00000177778, 0.0, 0.0]  # (a*|x|^{2} + b*|x| + c)
@@ -43,21 +45,24 @@ auv_sim:
     minimum: [0.0, 0.0, 0.0]
     maximum: [0.0, 0.0, 0.0]
 
-world_frame: "myellow_world"
-base_link: "myellow_base_link"
+
+world_frame: "world"
+base_link: "base_link"
 
 sensors:
+    originLat: 38.765852
+    originLon: -9.09281873
     water_column: 100
     sensors:
         - type     : "GNSS"
-          frame_id : "myellow_gnss"
+          frame_id : "gnss"
           frequency: 10.0
           count    : 0        # After n measumerements sensor is discarded
           noise    : 0.00
           variance : 0.03
           debug    : true     # Full gps even when diving
         - type     : "DVL_BT"
-          frame_id : "myellow_dvl_bt"
+          frame_id : "dvl_bt"
           frequency: 5.0
           noise    : 0.10
           variance : 0.05
@@ -65,25 +70,25 @@ sensors:
           debug    : true     # works regardless of depth
           count    : 0
         - type     : "DVL_WT"
-          frame_id : "myellow_dvl_wt"
+          frame_id : "dvl_wt"
           frequency: 5.0
           noise    : 0.01
           variance : 0.0
           altitude : 110.0
           count    : 0        # After n measumerements sensor is discarded
         - type     : "AHRS"
-          frame_id : "myellow_ahrs"
+          frame_id : "ahrs"
           frequency: 5.0
           noise    : [0.051, 0.017]
           variance : 0.001
         - type     : "DEPTH"
-          frame_id : "myellow_depth"
+          frame_id : "depth"
           frequency: 5.0
           noise    : 0.01
           variance : 0.005
           count    : 0        # After n measumerements sensor is discarded
         - type     : "ALTIMETER"
-          frame_id : "myellow_altimeter"
+          frame_id : "altimeter"
           frequency: 5.0
           noise    : 0.1
           variance : 0.01
