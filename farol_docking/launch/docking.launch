@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="filter"  				  default="false" />
+  <arg name="controller"  			default="false" />
+  <arg name="usbl_splitter"     default="false" /> 
+  <arg name="mock_usbl"         default="false" /> 
+
+  <group ns="docking">
+    
+    <rosparam command="load" file="$(find farol_docking)/config/docking_config.yaml"/>
+
+	  <group if="$(arg filter)">
+      <node pkg="farol_docking" type="docking_filter" name="filter" respawn="false" output="screen"/>
+    </group>
+
+    <group if="$(arg controller)">
+      <node pkg="farol_docking" type="docking_controller" name="controller" respawn="false" output="screen"/>
+    </group>
+
+	  <group if="$(arg usbl_splitter)">
+      <node pkg="farol_docking" type="usbl_splitter.py" name="usbl_splitter" respawn="false" output="screen"/>
+    </group>
+
+    <group if="$(arg mock_usbl)">
+      <node pkg="farol_docking" type="mock_usbl.py" name="mock_usbl" respawn="false" output="screen"/>
+    </group>
+
+  </group>
+
+</launch>
