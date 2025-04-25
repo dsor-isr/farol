@@ -8,3 +8,6 @@
 	path = 3rd_party/nmea_msgs
 	url = https://github.com/ros-drivers/nmea_msgs
 
+[submodule "3rd_party/auv_msgs"]
+	path = 3rd_party/auv_msgs
+	url = git@github.com:dsor-isr/auv_msgs.git
