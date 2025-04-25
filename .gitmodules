@@ -4,9 +4,6 @@
 [submodule "3rd_party/dmac"]
 	path = 3rd_party/dmac
 	url = https://github.com/dsor-isr/dmac.git
-[submodule "3rd_party/auv_msgs"]
-	path = 3rd_party/auv_msgs
-	url = https://github.com/oceansystemslab/auv_msgs.git
 [submodule "3rd_party/nmea_msgs"]
 	path = 3rd_party/nmea_msgs
 	url = https://github.com/ros-drivers/nmea_msgs
