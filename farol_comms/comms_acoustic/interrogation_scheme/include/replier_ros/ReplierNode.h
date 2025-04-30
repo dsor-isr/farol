@@ -60,6 +60,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
 
  	// @.@ Publishers
  	ros::Publisher range_pub_;
+ 	ros::Publisher range_pub2_;
 	ros::Publisher im_pub_;
 	ros::Publisher trigger_serialization_pub_;
 	ros::Publisher deserialization_pub_;

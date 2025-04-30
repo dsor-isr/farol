@@ -23,13 +23,13 @@ DmacToFarolNode::DmacToFarolNode(ros::NodeHandle *nodehandle, ros::NodeHandle *n
 DmacToFarolNode::~DmacToFarolNode()
 {
 
-    // +.+ shutdown publishers
+    // shutdown publishers
     usbl_fix_farol_pub_.shutdown();
 
-    // +.+ shutdown subscribers
+    // shutdown subscribers
     usbl_fix_dmac_sub_.shutdown();
 
-    // +.+ shutdown node
+    // shutdown node
     nh_.shutdown();
     nh_private_.shutdown();
 }
@@ -40,7 +40,7 @@ DmacToFarolNode::~DmacToFarolNode()
 void DmacToFarolNode::initializeSubscribers()
 {
     ROS_INFO("Initializing Subscribers for DmacToFarolNode");
-    // +.+ Topic in
+    // Topic in
     p_usbl_fix_dmac_topic_ = FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/dmac_fix");
     usbl_fix_dmac_sub_ = nh_.subscribe(p_usbl_fix_dmac_topic_, 10, &DmacToFarolNode::fixCallback, this);
     state_sub_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/state", "/nav/filter/state"), 1, &DmacToFarolNode::stateCallback, this);
@@ -53,9 +53,11 @@ void DmacToFarolNode::initializePublishers()
 {
     ROS_INFO("Initializing Publishers for DmacToFarolNode"); 
 
-    // +.+ Topic out
+    // Topic out
     p_usbl_fix_farol_topic_ = FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/farol_fix");
     usbl_fix_farol_pub_ = nh_.advertise<farol_msgs::mUSBLFix>(p_usbl_fix_farol_topic_, 1);
+    usbl_range_farol_pub_ = nh_.advertise<farol_msgs::mUSBLFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/farol_range"), 1);
+    usbl_azimuth_farol_pub_ = nh_.advertise<farol_msgs::mUSBLFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/farol_azimuth"), 1);
 }
 
 /*
@@ -94,7 +96,7 @@ modem_to_body_rot_matrix_ << cos(p_installation_matrix_[2])*cos(p_installation_m
 */
 void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 {
-    // +.+ Start building the farol usbl fix message
+    // Start building the farol usbl fix message
     farol_msgs::mUSBLFix farol_usbl_fix_msg;
 
     farol_usbl_fix_msg.header = dmac_usbl_fix_msg.header;
@@ -106,17 +108,18 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 
     farol_usbl_fix_msg.bearing_raw = dmac_usbl_fix_msg.bearing_raw;
     farol_usbl_fix_msg.elevation_raw = dmac_usbl_fix_msg.elevation_raw;
+    
 
-    // +.+ If message is range only or full fix grab the range value from dmac message
+    // If message is range only or full fix grab the range value from dmac message
     if (farol_usbl_fix_msg.type == farol_usbl_fix_msg.RANGE_ONLY || farol_usbl_fix_msg.type == farol_usbl_fix_msg.FULL_FIX)
     {
         farol_usbl_fix_msg.range = dmac_usbl_fix_msg.range;
+        usbl_range_farol_pub_.publish(farol_usbl_fix_msg);
     }
 
     // If message is
     if (farol_usbl_fix_msg.type == farol_usbl_fix_msg.AZIMUTH_ONLY || farol_usbl_fix_msg.type == farol_usbl_fix_msg.FULL_FIX)
     {   
-        
       if (!usbl_has_AHRS_){
         // ROS_WARN("[MODEM] BEARING, ELEVATION: %f, %f", dmac_usbl_fix_msg.bearing_raw, dmac_usbl_fix_msg.elevation_raw);
 
@@ -168,8 +171,9 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
         farol_usbl_fix_msg.bearing = dmac_usbl_fix_msg.bearing;
         farol_usbl_fix_msg.elevation = dmac_usbl_fix_msg.elevation;
       }
+      usbl_azimuth_farol_pub_.publish(farol_usbl_fix_msg);
     }
-    // +.+ Publishing the new message farol usbl fix message
+    // Publishing the new message farol usbl fix message
     usbl_fix_farol_pub_.publish(farol_usbl_fix_msg);
 }
 
@@ -184,17 +188,17 @@ void DmacToFarolNode::stateCallback(const auv_msgs::NavigationStatus &msg){
  */
 int main(int argc, char **argv)
 {
-    // +.+ ROS set-ups:
+    // ROS set-ups:
     ros::init(argc, argv, "acoustic_converters_node"); //node name
-    // +.+ create a node handle; need to pass this to the class constructor
+    // create a node handle; need to pass this to the class constructor
     ros::NodeHandle nh, nh_p("~");
 
     ROS_INFO("main: instantiating an object of type DmacToFarolNode");
 
-    // +.+ instantiate an DmacToFarolNode class object and pass in pointer to nodehandle for constructor to use
+    // instantiate an DmacToFarolNode class object and pass in pointer to nodehandle for constructor to use
     DmacToFarolNode DmacToFarol(&nh, &nh_p);
 
-    // +.+ Added to work with timer -> going into spin; let the callbacks do all the work
+    // Added to work with timer -> going into spin; let the callbacks do all the work
     ros::spin();
 
     return 0;

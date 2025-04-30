@@ -96,7 +96,6 @@ class Pos2SimModem(object):
                 (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
                 # Pack into the string that will be sent to the Evologics emulator
                 data = "%.2f %.2f %.2f %.2f %.2f %.2f \n" % (x,y,z,roll,pitch,yaw)
-                print(data)
         
 
         # Send the message over TCP 

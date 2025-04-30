@@ -33,6 +33,7 @@ Description: Please check the documentation of this package for more info.
 
  	// +.+ shutdown publishers
  	range_pub_.shutdown();
+ 	range_pub2_.shutdown();
 	im_pub_.shutdown();
 	trigger_serialization_pub_.shutdown();
 	deserialization_pub_.shutdown();
@@ -65,6 +66,7 @@ Description: Please check the documentation of this package for more info.
  void ReplierNode::initializePublishers() {
  	ROS_INFO("Initializing Publishers for ReplierNode"); 	// ---> add publishers here
 	range_pub_ = nh_.advertise<farol_msgs::mUSBLFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/meas_usbl_fix", "measurement/usbl_fix"), 1);
+	range_pub2_ = nh_.advertise<farol_msgs::mUSBLFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/meas_usbl_range", "measurement/usbl_range"), 1);
 	im_pub_ = nh_.advertise<dmac::DMACPayload>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/modem_send", "modem/send"), 1);
   	trigger_serialization_pub_ = nh_.advertise<std_msgs::Empty>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/trigger_serialization", "trigger_serialization"), 1);
   	deserialization_pub_ = nh_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/deserialize", "payload_to_deserialize"), 1);
@@ -176,6 +178,7 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
 
 			// +.+ publish dmac::mUSBLFix message, range only measurement in this case
 			range_pub_.publish(range_msg);
+			range_pub2_.publish(range_msg);
         	// ROS_WARN("From modem %d to %d the range is %.1fm",p_modem_id_, msg.source_address, range_);
 
 			reply_ims_.header.stamp = ros::Time(0);

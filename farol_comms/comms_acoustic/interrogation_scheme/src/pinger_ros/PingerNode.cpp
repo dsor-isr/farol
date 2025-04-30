@@ -53,6 +53,7 @@
  	// +.+ shutdown subscribers
 	pub_im.shutdown();
 	pub_range.shutdown();
+	pub_range2.shutdown();
 	pub_triggerserialization.shutdown();
 	pub_deserialization.shutdown();
  	
@@ -79,6 +80,7 @@ void AcousticPinger::initializeSubscribers() {
 
   pub_im = nh_.advertise<dmac::DMACPayload>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/modem_send", "modem/send"), 1);
   pub_range = nh_.advertise<farol_msgs::mUSBLFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/meas_usbl_fix", "measurement/usbl_fix"), 1);
+  pub_range2 = nh_.advertise<farol_msgs::mUSBLFix>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/meas_usbl_range", "measurement/usbl_range"), 1);
   pub_triggerserialization = nh_.advertise<std_msgs::Empty>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/trigger_serialization", "trigger_serialization"), 1);
   pub_deserialization = nh_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/deserialize", "payload_to_deserialize"), 1);
 }  
@@ -142,6 +144,7 @@ void AcousticPinger::initializeTimer() {
         range_msg.source_id = msg.source_address;
         range_msg.source_name = msg.source_name;
         pub_range.publish(range_msg);
+        pub_range2.publish(range_msg);
         replier_ack = true;
         // ROS_WARN("Range to node %d is %.3f of max value %.3f with frame %s", msg.source_address, range, range_max, msg.header.frame_id.c_str());
       }

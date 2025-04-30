@@ -60,6 +60,8 @@ private:
 	// #####################
 	// Example: ros::Publisher uref_pub;
   ros::Publisher usbl_fix_farol_pub_;
+  ros::Publisher usbl_range_farol_pub_;
+  ros::Publisher usbl_azimuth_farol_pub_;
 
 	// ####################################################################################################################
 	// member variable: better than using globals; convenient way to pass data from a subscriber to other member functions

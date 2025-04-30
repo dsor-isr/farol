@@ -117,7 +117,7 @@ private:
 
   //-----------------------------------------------------------
   // ROS Publishers
-  ros::Publisher pub_im, pub_range, pub_triggerserialization, pub_deserialization;
+  ros::Publisher pub_im, pub_range, pub_range2, pub_triggerserialization, pub_deserialization;
 
   //-----------------------------------------------------------
   // ROS Timer

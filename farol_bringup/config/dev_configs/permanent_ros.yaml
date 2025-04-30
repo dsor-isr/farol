@@ -384,6 +384,7 @@ acomms/pinger:
         publishers:
             modem_send: "/#vehicle#/acomms/modem/send"
             meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
+            meas_usbl_range: "/#vehicle#/sensors/usbl_range"
             trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
             deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
         subscribers:
@@ -396,6 +397,7 @@ acomms/replier:
         publishers:
             modem_send: "/#vehicle#/acomms/modem/send"
             meas_usbl_fix: "/#vehicle#/sensors/usbl_fix"
+            meas_usbl_range: "/#vehicle#/sensors/usbl_range"
             trigger_serialization: "/#vehicle#/acomms/scheme/trigger_serialization"
             deserialize: "/#vehicle#/acomms/scheme/payload_to_deserialize"
         subscribers:
@@ -430,6 +432,8 @@ acomms/dmac2farol:
     topics:
         publishers:
             farol_fix: "/#vehicle#/sensors/usbl_fix"
+            farol_range: "/#vehicle#/sensors/usbl_range"
+            farol_azimuth: "/#vehicle#/sensors/usbl_azimuth"
         subscribers:
             dmac_fix: "/#vehicle#/acomms/modem/measurement/usbl_fix"
             state: "/#vehicle#/nav/filter/state"
@@ -447,3 +451,58 @@ acomms/pos2sim_modem:
         subscribers:
             position_sim: "/#vehicle#/sim/dynamics/position"
             position_gazebo: "/gazebo/model_states"
+
+
+## --------------------------- ## 
+#  farol_docking                #
+## --------------------------- ## 
+docking/filter:
+    topics:
+        subscribers:
+            usbl_fix: "/#vehicle#/sensors/usbl_fix"
+            usbl_accoms: "/#vehicle#/acomms/usbl_fix"
+            velocity: "/#vehicle#/measurement/velocity"
+            orientation: "/#vehicle#/measurement/orientation"
+            position: "/#vehicle#/measurement/position"
+            dock_pose: "/#vehicle#/docking/dock_pose"
+            filter_state: "/#vehicle#/nav/filter/state"
+        publishers:
+            state: "/#vehicle#/docking/filter/state"
+            state_console: "/#vehicle#/State_docking"
+            debug: "/#vehicle#/docking/filter/debug"
+            
+
+docking/controller:      
+    topics:
+        subscribers:
+            velocity: "/#vehicle#/measurement/velocity"
+            orientation: "/#vehicle#/measurement/orientation"
+            state: "/#vehicle#/docking/filter/state"
+            enable: "/#vehicle#/docking/enable"
+            flag: "/#vehicle#/Flag"
+            dock_pose: "/#vehicle#/docking/dock_pose"
+        publishers:
+            ref_surge: "/#vehicle#/ref/surge"
+            ref_yaw: "/#vehicle#/ref/yaw"
+            ref_sway: "/#vehicle#/ref/sway"
+            ref_depth: "/#vehicle#/ref/depth"
+            flag: "/#vehicle#/Flag"
+            debug: "/#vehicle#/docking/controller/debug"
+
+docking/usbl_splitter:
+    topics:
+        subscribers: 
+            usbl_fix: "/#vehicle#/sensors/usbl_fix"
+        publishers:
+            usbl_r: "/#vehicle#/sensors/usbl_r"
+            usbl_be: "/#vehicle#/sensors/usbl_be"
+
+docking/mock_usbl:
+    topics:
+        subscribers: 
+            gazebo: "/gazebo/model_states"
+        publishers:
+            usbl_fix: "/#vehicle#/sensors/usbl_fix"
+            usbl_acomms: "/#vehicle#/acomms/usbl_fix"
+            dock_pose: "/#vehicle#/docking/dock_pose"
+            docking_state_gt: "/#vehicle#/docking/docking_state_gt"
