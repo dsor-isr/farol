@@ -37,11 +37,17 @@ float32 elevation
 # Sound speed use for calculation  
 float32 sound_speed  
   
-# Raw angles  
+# Local angles  
 # Bearing to target  
-float32 bearing_raw  
+float32 bearing_local
 # Elevation to target  
-float32 elevation_raw   
+float32 elevation_local  
+
+# Body angles  
+# Bearing to target  
+float32 bearing_body  
+# Elevation to target  
+float32 elevation_body   
   
 # Measurement Noise in relative_position  
 float64 position_covariance  
@@ -63,8 +69,10 @@ float32 range
 float32 bearing  
 float32 elevation  
 float32 sound_speed  
-float32 bearing_raw  
-float32 elevation_raw  
+float32 bearing_local  
+float32 elevation_local  
+float32 bearing_body
+float32 elevation_body  
 float64 position_covariance  
 ```
 ROS Community Messages 

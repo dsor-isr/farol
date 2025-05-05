@@ -6,7 +6,7 @@ Description: Please check the documentation of this package for more info.
 #include "DmacToFarolNode.h"
 
 /*
-@.@ CONSTRUCTOR: put all dirty work of initializations here
+ CONSTRUCTOR: put all dirty work of initializations here
 */
 DmacToFarolNode::DmacToFarolNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private) : nh_(*nodehandle), nh_private_(*nodehandle_private)
 {
@@ -18,7 +18,7 @@ DmacToFarolNode::DmacToFarolNode(ros::NodeHandle *nodehandle, ros::NodeHandle *n
 }
 
 /*
-@.@ Destructor
+ Destructor
 */
 DmacToFarolNode::~DmacToFarolNode()
 {
@@ -35,7 +35,7 @@ DmacToFarolNode::~DmacToFarolNode()
 }
 
 /*
- @.@ Member Helper function to set up subscribers;
+  Member Helper function to set up subscribers;
  */
 void DmacToFarolNode::initializeSubscribers()
 {
@@ -47,7 +47,7 @@ void DmacToFarolNode::initializeSubscribers()
 }
 
 /*
- @.@ Member helper function to set up publishers;
+  Member helper function to set up publishers;
  */
 void DmacToFarolNode::initializePublishers()
 {
@@ -61,7 +61,7 @@ void DmacToFarolNode::initializePublishers()
 }
 
 /*
- @.@ Load the parameters
+  Load the parameters
  */
 void DmacToFarolNode::loadParams()
 {
@@ -74,7 +74,7 @@ void DmacToFarolNode::loadParams()
 }
 
 /*
-@.@ Helper method for rotating message from sensor frame to base_link(emo) or base_pose(real) frames
+ Helper method for rotating message from sensor frame to base_link(emo) or base_pose(real) frames
 */
 void DmacToFarolNode::buildUSBLRotationMatrix(){
 
@@ -92,7 +92,7 @@ modem_to_body_rot_matrix_ << cos(p_installation_matrix_[2])*cos(p_installation_m
 }
 
 /*
-@.@ Callback fix usbl dmac -> convert usbl fix dmac message into usbl fix farol dmac message
+ Callback fix usbl dmac -> convert usbl fix dmac message into usbl fix farol dmac message
 */
 void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 {
@@ -106,14 +106,20 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
     farol_usbl_fix_msg.source_name = dmac_usbl_fix_msg.source_name;
     farol_usbl_fix_msg.source_frame_id = "vehicle" + dmac_usbl_fix_msg.source_name;
 
-    farol_usbl_fix_msg.bearing_raw = dmac_usbl_fix_msg.bearing_raw;
-    farol_usbl_fix_msg.elevation_raw = dmac_usbl_fix_msg.elevation_raw;
+    farol_usbl_fix_msg.bearing_local = dmac_usbl_fix_msg.bearing_raw;
+    farol_usbl_fix_msg.elevation_local = dmac_usbl_fix_msg.elevation_raw;
+
+    farol_usbl_fix_msg.ahrs_roll = dmac_usbl_fix_msg.ahrs_roll;
+    farol_usbl_fix_msg.ahrs_pitch = dmac_usbl_fix_msg.ahrs_pitch;
+    farol_usbl_fix_msg.ahrs_yaw = dmac_usbl_fix_msg.ahrs_yaw;
+
     
 
     // If message is range only or full fix grab the range value from dmac message
     if (farol_usbl_fix_msg.type == farol_usbl_fix_msg.RANGE_ONLY || farol_usbl_fix_msg.type == farol_usbl_fix_msg.FULL_FIX)
     {
         farol_usbl_fix_msg.range = dmac_usbl_fix_msg.range;
+        // publish message with just range to a diferent topic, so that it is not overwritten if sent acoustically
         usbl_range_farol_pub_.publish(farol_usbl_fix_msg);
     }
 
@@ -121,15 +127,11 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
     if (farol_usbl_fix_msg.type == farol_usbl_fix_msg.AZIMUTH_ONLY || farol_usbl_fix_msg.type == farol_usbl_fix_msg.FULL_FIX)
     {   
       if (!usbl_has_AHRS_){
-        // ROS_WARN("[MODEM] BEARING, ELEVATION: %f, %f", dmac_usbl_fix_msg.bearing_raw, dmac_usbl_fix_msg.elevation_raw);
-
         // convert local bearing and elevation to a unit vector in 3D space (polar to cartesian coordinates)
         double x_rel, y_rel, z_rel;
         x_rel = cos(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
         y_rel = sin(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
         z_rel = sin(dmac_usbl_fix_msg.elevation_raw);
-
-        // ROS_WARN("[MODEM] POINT: %f %f %f", x_rel, y_rel, z_rel);
 
         // rotate unit vector to body frame
         Eigen::MatrixXd point(3,1);
@@ -137,14 +139,10 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
         Eigen::MatrixXd pt_body;
         pt_body = modem_to_body_rot_matrix_*point;
 
-        // ROS_WARN("[BODY] POINT: %f %f %f", pt_body(0), pt_body(1), pt_body(2));
+        farol_usbl_fix_msg.bearing_body  = std::atan2(pt_body(1),pt_body(0));
+        farol_usbl_fix_msg.elevation_body = std::atan2(pt_body(2),std::sqrt(std::pow(pt_body(0),2) + std::pow(pt_body(1),2)));
+        
       
-      
-        // Rotate unit vector from body to inertial frame
-        // body_rot_matrix_ << cos(yaw_state_), -sin(yaw_state_), 0,
-        //                    sin(yaw_state_), cos(yaw_state_), 0,
-        //                    0,0,1;
-
         // body to inertial frame rotation
         body_to_inertial_rot_matrix_ << cos(yaw_state_)*cos(pitch_state_), 
                                             cos(yaw_state_)*sin(pitch_state_)*sin(roll_state_) - sin(yaw_state_)*cos(roll_state_),
@@ -158,19 +156,33 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 
         Eigen::MatrixXd pt_inertial = body_to_inertial_rot_matrix_ * pt_body;
 
-        // ROS_WARN("[INERTIAL] POINT: %f %f %f", pt_inertial(0), pt_inertial(1), pt_inertial(2));
-
         // cartesian to sphere
         farol_usbl_fix_msg.bearing  = std::atan2(pt_inertial(1),pt_inertial(0));
         farol_usbl_fix_msg.elevation = std::atan2(pt_inertial(2),std::sqrt(std::pow(pt_inertial(0),2) + std::pow(pt_inertial(1),2)));
         
-        // ROS_WARN("[INERTIAL] BEARING, ELEVATION: %f, %f", farol_usbl_fix_msg.bearing, farol_usbl_fix_msg.elevation);
 
       }
       else{
         farol_usbl_fix_msg.bearing = dmac_usbl_fix_msg.bearing;
         farol_usbl_fix_msg.elevation = dmac_usbl_fix_msg.elevation;
+
+        // rotate raw measurement, aka local bearing, to the vehicle body frame
+        // convert spherical coordinates to unit vector
+        double x_rel, y_rel, z_rel;
+        x_rel = cos(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
+        y_rel = sin(dmac_usbl_fix_msg.bearing_raw)*cos(dmac_usbl_fix_msg.elevation_raw);
+        z_rel = sin(dmac_usbl_fix_msg.elevation_raw);
+        // rotate unit vector to body frame
+        Eigen::MatrixXd point(3,1);
+        point << x_rel, y_rel, z_rel;
+        Eigen::MatrixXd pt_body;
+        pt_body = modem_to_body_rot_matrix_*point;
+        // convert back to spherical coordinates
+        farol_usbl_fix_msg.bearing_body  = std::atan2(pt_body(1),pt_body(0));
+        farol_usbl_fix_msg.elevation_body = std::atan2(pt_body(2),std::sqrt(std::pow(pt_body(0),2) + std::pow(pt_body(1),2)));
+        
       }
+      // publish message with just angles to a diferent topic, so that it is not overwritten if sent acoustically
       usbl_azimuth_farol_pub_.publish(farol_usbl_fix_msg);
     }
     // Publishing the new message farol usbl fix message
@@ -184,7 +196,7 @@ void DmacToFarolNode::stateCallback(const auv_msgs::NavigationStatus &msg){
     roll_state_ = (msg.orientation.x/180) * FarolGimmicks::PI;
 }
 /*
- @.@ Main
+ Main
  */
 int main(int argc, char **argv)
 {

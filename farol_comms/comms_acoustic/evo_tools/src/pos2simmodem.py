@@ -95,7 +95,7 @@ class Pos2SimModem(object):
                 # convert orientation from ENU to  NED
                 (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
                 # Pack into the string that will be sent to the Evologics emulator
-                data = "%.2f %.2f %.2f %.2f %.2f %.2f \n" % (x,y,z,roll,pitch,yaw)
+                data = "%.4f %.4f %.4f %.4f %.4f %.4f \n" % (x,y,z,roll,pitch,yaw)
         
 
         # Send the message over TCP 
