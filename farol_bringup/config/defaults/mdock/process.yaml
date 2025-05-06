@@ -75,7 +75,7 @@ processes:
     
     
     - name: 'acomms' # Set to true to enable acoustic communications
-      launch_on_startup: false
+      launch_on_startup: true
       delay_before_start: 8.0
       cmd: 'roslaunch farol_bringup comms.launch'
       args:

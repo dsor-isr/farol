@@ -488,21 +488,3 @@ docking/controller:
             ref_depth: "/#vehicle#/ref/depth"
             flag: "/#vehicle#/Flag"
             debug: "/#vehicle#/docking/controller/debug"
-
-docking/usbl_splitter:
-    topics:
-        subscribers: 
-            usbl_fix: "/#vehicle#/sensors/usbl_fix"
-        publishers:
-            usbl_r: "/#vehicle#/sensors/usbl_r"
-            usbl_be: "/#vehicle#/sensors/usbl_be"
-
-docking/mock_usbl:
-    topics:
-        subscribers: 
-            gazebo: "/gazebo/model_states"
-        publishers:
-            usbl_fix: "/#vehicle#/sensors/usbl_fix"
-            usbl_acomms: "/#vehicle#/acomms/usbl_fix"
-            dock_pose: "/#vehicle#/docking/dock_pose"
-            docking_state_gt: "/#vehicle#/docking/docking_state_gt"

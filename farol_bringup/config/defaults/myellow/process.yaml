@@ -136,3 +136,13 @@ processes:
             - dsor_paths:= true
       dependencies:
             []
+      
+    - name: 'docking'
+      launch_on_startup: false
+      delay_before_start: 10.0
+      cmd: 'roslaunch farol_docking docking.launch'
+      args:
+            - filter:= true
+            - controller:= true
+      dependencies:
+            []

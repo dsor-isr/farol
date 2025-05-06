@@ -1,3 +1,15 @@
+modem/modem_config:
+    tcp_config/ip: 10.42.10.3
+    local_address: 3 
+    hasAHRS: false
+    initializer: "{'@ZA': '1', '@ZX': '1'}"
+
+pinger:
+    tslack: 1.0
+    modem_name: "10.42.10.3"
+    modems_list: ["4"]
+    timeout_list: [2.0]
+
 silent:
     tslack: 1.0     # in seconds
     # modem_name: 10.42.10.6    ?????????
@@ -11,11 +23,17 @@ silent:
 data_serializer:
     vehicle_id: 3
 
+pos2sim_modem:
+    ip: 10.42.10.3
+    vehicle_name: "myellow0"
+
 dmac2farol:
-    # false, vehicle acts as an achor, estimates other vehicles position 
-    # true, vehicle estimates its own position with respect to an anchor   
-    fix_type: true
-    # true, real vehcile
-    # false, simulation scenarios with evo emulator
-    real: false
+    # [Roll, Pitch, Yaw], in radians - these angles correspond to the 
+    # rotation from Body to USBL frame (check documentation)
     installation_matrix: [0, 0, 0]
+    # true   -  USBL has AHRS: inertial bearing/elevation are available in 
+    #           measurement from DMAC (in simulation, this is true)
+    # false  -  USBL does not have AHRS: bearing/elevation are only available
+    #           in local (USBL) frame
+    usbl_has_AHRS: false
+
