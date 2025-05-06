@@ -1,0 +1,7 @@
+site_name: FAROL Docking
+nav:
+  - Overview: "README.md"
+  - Nodes:
+    - docking_filter: "docking_filter.md"
+    - docking_controller: "docking_controller.md"
+  - Theory: "theory.md"

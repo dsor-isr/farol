@@ -68,9 +68,9 @@ def orientation_to_yaw(orientation):
 
 
 
-class MockUSBLNode():
+class DockingHelperNode():
     def __init__(self):
-        rospy.init_node("usbl_splitter_node")
+        rospy.init_node("docking_helper_node")
         self.state = None
         self.state_dock = None
         self.position_noise = 0.5
@@ -204,10 +204,10 @@ class MockUSBLNode():
 
 if __name__ == '__main__':
     try:
-        mock_usbl_node = MockUSBLNode()
+        docking_helper_node = DockingHelperNode()
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
-            mock_usbl_node.run()
+            docking_helper_node.run()
             r.sleep()
     except rospy.ROSInterruptException:
             pass

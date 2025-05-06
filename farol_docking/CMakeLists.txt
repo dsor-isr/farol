@@ -7,7 +7,6 @@ find_package(catkin REQUIRED
     auv_msgs
     dsor_msgs
     farol_msgs
-    gazebo_msgs
     message_generation
     roscpp
     tf2
@@ -34,13 +33,13 @@ add_message_files(
     
 generate_messages(
   DEPENDENCIES
-  std_msgs
+  std_msgs 
   geometry_msgs
 )
    
 
 catkin_package(
-  INCLUDE_DIRS filter/include controller/include
+  INCLUDE_DIRS include 
   LIBRARIES farol_docking
   CATKIN_DEPENDS
   tf2_geometry_msgs   
@@ -55,27 +54,28 @@ catkin_package(
 add_compile_options(-std=c++17 -Wall -O3) 
     
 include_directories(
-  filter/include 
-  controller/include
-  utils/include
+  include 
   ${catkin_INCLUDE_DIRS}
 )
-     
+
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIR})
+
     
-add_executable(docking_filter filter/src/DockingFilterNode.cpp filter/src/DockingHFilter.cpp filter/src/DockingRFilter.cpp filter/src/DockingVFilter.cpp utils/src/docking_utils.cpp )
+add_executable(docking_filter src/filter/docking_filter_node.cpp src/filter/docking_filter.cpp)
 # add_dependencies(docking_filter ${catkin_EXPORTED_TARGETS})
 add_dependencies(docking_filter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(docking_filter ${catkin_LIBRARIES})
 
-add_executable(docking_controller controller/src/DockingControllerNode.cpp controller/src/DockingController.cpp utils/src/docking_utils.cpp)
+#add_executable(docking_controller src/controller/DockingControllerNode.cpp src/controller/DockingController.cpp)
 # add_dependencies(docking_controller ${catkin_EXPORTED_TARGETS})
-add_dependencies(docking_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(docking_controller ${catkin_LIBRARIES})
+#add_dependencies(docking_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(docking_controller ${catkin_LIBRARIES})
 
 
 
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h"
+  FILES_MATCHING PATTERN "*.hpp"
   PATTERN ".svn" EXCLUDE
 )

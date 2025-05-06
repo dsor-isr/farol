@@ -2,44 +2,38 @@
 
 filter:
   node_frequency: 10
-  usbl_outlier_rejection: true
-  dvl_outlier_rejection: true
   debug: true
+  dock_has_ahrs: true
+  initializer_size: 4
+  outlier_rejection:  ["usbl", "dvl"]
+  #outlier_rejection:  [] # no outlier rejection
 
-  horizontal:
-    initial_cov: [1,0,0,0,
-                  0,1,0,0,
-                  0,0,1,0,
-                  0,0,0,1]
-    process_noise: [0.1, 0, 0,   0,
-                    0, 0.1, 0,   0,
-                    0, 0, 0.01, 0,
-                    0, 0, 0, 0.01]
-    measurement_noise: [1, 0,
-                        0, 1]
+  position:
+    process_noise: [0.1, 0, 0,
+                    0, 0.1, 0,
+                    0, 0, 0.1]
+    measurement_noise: [0.1, 0, 0,
+                        0, 0.1, 0,
+                        0, 0, 0.1]
     outlier_treshold: 4.61
                         
-  rotational:
-    initial_cov: 0.5
-    process_noise: 0.1
-    measurement_noise: 0.1
+  attitude:
+    process_noise: [0.1, 0, 0,
+                    0, 0.1, 0,
+                    0, 0, 0.1]
+    measurement_noise: [0.1, 0, 0,
+                        0, 0.1, 0,
+                        0, 0, 0.1]
     outlier_treshold: 2.71
   
-  vertical:
-    initial_cov: 0.2
-    process_noise: 0.1
-    measurement_noise: 0.01
-    outlier_treshold: 2.71
-
 
 controller:
   node_frequency: 10
-  fully_actuated: true
   debug: true
   params: [0.7, 0.1] # ksi, omega_0
-  # TODO: put here velocity
+  dock_position: [0,0,0,0]
 
-mock_usbl:
+docking_helper:
   sim_usbl: false
   outliers: false
   noise: false
