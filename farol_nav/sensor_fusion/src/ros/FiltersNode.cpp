@@ -512,11 +512,18 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
       m_vertical.value.resize(1);
       // +.+ if the measurements ara expressed in body frame
       if(p_dvl_body_frame_){
+        Eigen::VectorXd inertial_velocity;
+        // Build Rotation matrix
+        Eigen::Matrix3d R;
+        R = Eigen::AngleAxisd(DEG2RAD(state_.orientation.z), Eigen::Vector3d::UnitZ()) *
+            Eigen::AngleAxisd(DEG2RAD(state_.orientation.y), Eigen::Vector3d::UnitY()) *
+            Eigen::AngleAxisd(DEG2RAD(state_.orientation.x), Eigen::Vector3d::UnitX());
+        inertial_velocity = R*m_in.value;
+
         // +.+ Convert velocities form the body to the inercial frame
-        m_horizontal.value(0) = cos(DEG2RAD(state_.orientation.z))*m_in.value(0)  - sin(DEG2RAD(state_.orientation.z))*m_in.value(1);
-        m_horizontal.value(1) = sin(DEG2RAD(state_.orientation.z))*m_in.value(0)  + cos(DEG2RAD(state_.orientation.z))*m_in.value(1);
-        //TODO:rotate this with pitch and roll
-        m_vertical.value(0) = m_in.value(2);
+        m_horizontal.value(0) = inertial_velocity(0);// cos(DEG2RAD(state_.orientation.z))*m_in.value(0)  - sin(DEG2RAD(state_.orientation.z))*m_in.value(1);
+        m_horizontal.value(1) = inertial_velocity(1);//sin(DEG2RAD(state_.orientation.z))*m_in.value(0)  + cos(DEG2RAD(state_.orientation.z))*m_in.value(1);
+        m_vertical.value(0) = inertial_velocity(2);//m_in.value(2);
       }else{
         // +.+ If in Inercial frame
         m_horizontal.value = m_in.value.segment<2>(0);  

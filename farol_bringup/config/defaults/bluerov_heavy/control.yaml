@@ -67,11 +67,11 @@ inner_loops_pid:
             debug: true
         yaw:
             enabled: true
-            kp: 0.732
-            ki: 0.24 
-            kd: 0.628 
-            max_err:  60.0 # deg
-            min_err: -60.0 # deg  
+            kp: 0.63072
+            ki: 0.16352
+            kd: 1.15640
+            max_err:  179.0 # deg
+            min_err: -179.0 # deg  
             max_out:  10.0  # N.m
             min_out: -10.0
             debug: true
@@ -90,8 +90,8 @@ inner_loops_pid:
         #### Speed Controllers ####
         surge:
             enabled: true
-            kp: 26.0
-            ki: 1.0
+            kp: 1.415
+            ki: 7.547
             max_ref:  0.7  # m/s
             min_ref: -0.7  # m/s
             max_err:  0.2  # m/s
@@ -102,8 +102,8 @@ inner_loops_pid:
 
         sway:
             enabled: true
-            kp: 26.0
-            ki: 1.0 
+            kp: -1.078
+            ki: 8.62
             max_ref:  0.5  # m/s
             min_ref: -0.5  # m/s
             max_err:  0.2  # m/s
@@ -114,11 +114,11 @@ inner_loops_pid:
 
         heave:
             enabled: true
-            kp: 10.79
-            ki: 3.81
-            kff: 6.234   # actually gw
-            max_ref:  0.2  # m/s
-            min_ref: -0.2  # m/s
+            kp: 2.866
+            ki: 3.981
+            kff: 1.65   # compensate gw
+            max_ref:  1.0  # m/s
+            min_ref: -1.0  # m/s
             max_err:  2.0  # m/s
             min_err: -2.0  # m/s  
             max_out: 20.0 # N

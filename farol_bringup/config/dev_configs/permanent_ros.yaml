@@ -197,7 +197,7 @@ controls/inner_loops_pid:
             altitude_safety: "/#vehicle#/ref/altitude_safety"
             depth_safety: "/#vehicle#/ref/depth_safety"
             state: "/#vehicle#/nav/filter/state"
-            bottom_profiler: "/#vehicle#/bottom_profiling/altitude_and_altitude_rate"
+            #bottom_profiler: "/#vehicle#/bottom_profiling/altitude_and_altitude_rate"
             force_bypass: "/#vehicle#/force_bypass"
             turn_radius_speed: "/#vehicle#/nav/filter/state"
         publishers:
@@ -236,7 +236,7 @@ controls/path_following:
             path: "/#vehicle#/PathData"
             vc: "/#vehicle#/PF/vc"
         publishers:
-            surge: "/#vehicle#/ref/surge"
+            surge: "/#vehicle#/ref/surge_"
             sway: "/#vehicle#/ref/sway"
             heave: "/#vehicle#/ref/heave"
             roll: "/#vehicle#/ref/roll"
