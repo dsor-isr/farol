@@ -255,7 +255,7 @@ float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate
     // aply a low pass filter because previous computation amplifies noise
     double a = 31.4;                      // pole of the low pass filter
     double lpf_A = std::exp(-a * Dt);   // descretization of the filter
-    double lpf_B = 1 - A;               // descretization of the filter
+    double lpf_B = 1 - lpf_A;               // descretization of the filter
     attitude_rate_dot_filter = lpf_A*attitude_rate_dot_filter_prev_ + attitude_rate_dot*lpf_B;
 
     //attitude_dot = wrapToPi(attitude - attitude_prev)/Dt;
