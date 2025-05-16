@@ -88,7 +88,7 @@ void DockingFilterNode::loadParams() {
   ROS_INFO("Load the DockingFilterNode parameters");
   // ROS related parameters
   node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 10);
-  debug_ = FarolGimmicks::getParameters<bool>(nh_private_, "node_frequency", false);
+  debug_ = FarolGimmicks::getParameters<bool>(nh_private_, "debug", false);
   
   // Algorithm related parameters
   docking_filter_.initializer_size_ = FarolGimmicks::getParameters<int>(nh_private_, "initializer_size", 4);
@@ -139,6 +139,7 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
     else{
       ROS_WARN_STREAM("Dropping AHRS measurements. Oh no, not good :(");
     }
+    ahrs_velocity_ << msg.value[3],msg.value[4],msg.value[5];
   } 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
@@ -154,6 +155,7 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
     else{
       ROS_WARN_STREAM("Dropping DVL measurements. Oh no, not good :(");
     }
+    dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
   } 
 }
 
@@ -216,9 +218,11 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   }
 
   // Predict the state until current time
-  if(!docking_filter_.predict(event.current_real.toSec())){
-  return;
-  }
+  // if(!docking_filter_.predict(event.current_real.toSec())){
+  // return;
+  // }
+  docking_filter_.predict(event.current_real.toSec());
+
 
   Sophus::SE3d state = docking_filter_.get_state();
 
@@ -228,7 +232,8 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   state_msg_.header.frame_id = dock_frame_id_;
   Eigen::Vector3d position = state.translation();
   Eigen::Quaterniond quaternion = state.unit_quaternion();
-  Eigen::Vector3d rpy = state.so3().matrix().eulerAngles(0, 1, 2);
+  Eigen::Vector3d rpy = extractRPY(state.so3());//.matrix().eulerAngles(0, 1, 2);
+  Eigen::Vector3d dframe_velocity = state.so3().matrix().inverse() * dvl_velocity_;
   state_msg_.local_position.x = position[0];
   state_msg_.local_position.y = position[1];
   state_msg_.local_position.z = position[2];
@@ -236,12 +241,19 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   state_msg_.local_orientation.y = quaternion.y();
   state_msg_.local_orientation.z = quaternion.z();
   state_msg_.local_orientation.w = quaternion.w();
-  state_msg_.local_attitude.roll = rpy[0];
-  state_msg_.local_attitude.pitch = rpy[1];
-  state_msg_.local_attitude.yaw = rpy[2];
+  state_msg_.local_attitude.roll = 180/M_PI*rpy[0];
+  state_msg_.local_attitude.pitch = 180/M_PI*rpy[1];
+  state_msg_.local_attitude.yaw = 180/M_PI*rpy[2];
+  state_msg_.body_velocity.x = dvl_velocity_[0];
+  state_msg_.body_velocity.y = dvl_velocity_[1];
+  state_msg_.body_velocity.z = dvl_velocity_[2];
+  state_msg_.seafloor_velocity.x = dframe_velocity[0];
+  state_msg_.seafloor_velocity.y = dframe_velocity[1];
+  state_msg_.seafloor_velocity.z = dframe_velocity[2];
+  state_msg_.orientation_rate.x = 180/M_PI*ahrs_velocity_[0];
+  state_msg_.orientation_rate.y = 180/M_PI*ahrs_velocity_[1];
+  state_msg_.orientation_rate.z = 180/M_PI*ahrs_velocity_[2];
   state_pub_.publish(state_msg_);
-
-  //TODO: add the covariances here as well
 
 
   // publish state in the inertial NED reference frame 

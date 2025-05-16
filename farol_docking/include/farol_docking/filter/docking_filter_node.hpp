@@ -149,6 +149,8 @@ class DockingFilterNode {
   std::bitset<4> usbl_state_;   // keeps track of all the messages that need to be received for an usbl set to be completed
   Sophus::Vector6d usbl_set_;   // holds the set of usbl measurement [auv(range, bearing, elevation), dock(range, bearing, elevation)]
   ros::Time usbl_time_;   // timestamp from the last received usbl message, or a least the time of the latest measured thing
+  Eigen::Vector3d dvl_velocity_, ahrs_velocity_;  // save dvl velocity
+
 
   // buffer to hold some usbl sets in the beginning in order to initalize 
   std::vector<Sophus::Vector6d> initializer_buffer_;

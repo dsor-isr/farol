@@ -56,19 +56,12 @@ struct Reference {
 
 
 
-// inline Eigen::Vector3d extractRPY(const Eigen::Matrix3d& R) {
-//     double pitch = std::asin(-R(2, 0));
-//     double roll  = std::abs(R(2, 0)) < 0.99999 ? std::atan2(R(2, 1), R(2, 2)) : 0.0;
-//     double yaw   = std::abs(R(2, 0)) < 0.99999 ? std::atan2(R(1, 0), R(0, 0))
-//                                               : std::atan2(-R(0, 1), R(1, 1));
-//     auto wrap = [](double a) { return std::atan2(std::sin(a), std::cos(a)); };
-//     return {wrap(roll), wrap(pitch), wrap(yaw)};
-//   }
 
-inline Eigen::Vector3d extractRPY(const Eigen::Matrix3d& R) {
-    auto euler = R.eulerAngles(2, 1, 0); // yaw, pitch, roll
-    return {euler[2], euler[1], euler[0]}; // roll, pitch, yaw
-}
+
+// inline Eigen::Vector3d extractRPY(const Eigen::Matrix3d& R) {
+//     auto euler = R.eulerAngles(2, 1, 0); // yaw, pitch, roll
+//     return {euler[2], euler[1], euler[0]}; // roll, pitch, yaw
+// }
 
   
 
@@ -129,6 +122,27 @@ inline double sigma_e(double input) {
     return input;
 }
 
+
+inline Eigen::Vector3d extractRPY(const Sophus::SO3d& R) {
+    Eigen::Matrix3d rot = R.matrix();
+  double pitch;
+  if (std::abs(rot(2, 0)) < 1.0 - 1e-6) {
+    pitch = std::asin(-rot(2, 0));
+  } else {
+    // Gimbal lock (pitch = ±90º)
+    pitch = (rot(2, 0) > 0) ? -M_PI_2 : M_PI_2;
+  }
+
+  double roll = std::atan2(rot(2, 1), rot(2, 2));
+  double yaw  = std::atan2(rot(1, 0), rot(0, 0));
+
+  // Wrap to [-π, π] for consistency
+  return Eigen::Vector3d(
+    wrapToPi(roll),
+    wrapToPi(pitch),
+    wrapToPi(yaw)
+  );
+  }
 
 // /**
 //  * @brief Brief one-line description of what the function does.

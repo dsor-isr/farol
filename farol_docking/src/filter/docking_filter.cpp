@@ -88,9 +88,10 @@ void DockingFilter::measurement_handler(){
       }else{
       // filter is already initialized -> normally process incoming messages
       if(meas.type=="usbl" && meas.data.value.size() == 6){
-        // check that the measurements are valid -> range is ok
+        // check that the measurements are  valid -> range is ok
         if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.5 && meas.data.value[3] > 0.5){
           // Compute SE(3) object from the two USBL vectors
+
           Sophus::SE3d measurement = extract_se3(meas.data.value);
           // split into R³ and SO(3) and update each filter
           if(!position_filter_.update(measurement.translation()))
@@ -107,12 +108,12 @@ void DockingFilter::measurement_handler(){
         if(!position_filter_.predict(dvl_corrected))
           FAROL_WARN("Predict Failed on Docking Position Filter");
       }
-      else if(meas.type=="ahrs_rates", meas.data.value.size() ==3){
+      else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
         if(!attitude_filter_.predict(meas.data))
           FAROL_WARN("Predict Failed on Docking Attitude Filter");
-      }else if(meas.type=="ahrs_rates", meas.data.value.size() ==3){
+      }else if(meas.type=="ahrs_angles"&& meas.data.value.size() ==3){
         auv_attitude_ = meas.data.value;
-      }else if(meas.type=="dock_attitude", meas.data.value.size() ==3){
+      }else if(meas.type=="dock_attitude"&& meas.data.value.size() ==3){
         dock_attitude_ = meas.data.value;
       }else
         FAROL_WARN("Invalid measurement type in measurement handler");
@@ -122,7 +123,6 @@ void DockingFilter::measurement_handler(){
 }
 
 
-// FIXME: this only 
 Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){ 
   Sophus::SO3d R;
   Eigen::Vector3d t;
@@ -140,19 +140,21 @@ Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){
   // if dock has ahrs compute the rotation matrix based on the diference of rotation matrix
   if(dock_has_ahrs_){
     // represent auv inertial attitude as a rotation matrix from I to B
-    Eigen::AngleAxisd yaw_auv(auv_attitude_[2], Eigen::Vector3d::UnitZ());
-    Eigen::AngleAxisd pitch_auv(auv_attitude_[1], Eigen::Vector3d::UnitY());
-    Eigen::AngleAxisd roll_auv(auv_attitude_[0], Eigen::Vector3d::UnitX());
-    Sophus::SO3d R_auv((yaw_auv * pitch_auv*roll_auv).toRotationMatrix());
-
+    Eigen::Matrix3d R_auv =
+      (Eigen::AngleAxisd(auv_attitude_[2], Eigen::Vector3d::UnitZ()) *
+      Eigen::AngleAxisd(auv_attitude_[1], Eigen::Vector3d::UnitY()) *
+      Eigen::AngleAxisd(auv_attitude_[0], Eigen::Vector3d::UnitX())).toRotationMatrix();
+        
     // represent dock inertial attitude as a rotation matrix from I to D
-    Eigen::AngleAxisd yaw_dock(dock_attitude_[2], Eigen::Vector3d::UnitZ());
-    Eigen::AngleAxisd pitch_dock(dock_attitude_[1], Eigen::Vector3d::UnitY());
-    Eigen::AngleAxisd roll_dock(dock_attitude_[0], Eigen::Vector3d::UnitX());
-    Sophus::SO3d R_dock((yaw_dock * pitch_dock * roll_dock).toRotationMatrix());
-    
+    Eigen::Matrix3d R_dock =
+      (Eigen::AngleAxisd(dock_attitude_[2], Eigen::Vector3d::UnitZ()) *
+      Eigen::AngleAxisd(dock_attitude_[1], Eigen::Vector3d::UnitY()) *
+      Eigen::AngleAxisd(dock_attitude_[0], Eigen::Vector3d::UnitX())).toRotationMatrix();
+
     // compute the rotation matrix from D to B
-    R= (R_dock.inverse() * R_auv);
+    Sophus::SO3d R_auv_so3(R_auv);
+    Sophus::SO3d R_dock_so3(R_dock);
+    R = R_dock_so3.inverse() * R_auv_so3;
   }
   // FIXME: does not work :( 
   // if dock does not have AHRS, compute orientation purely from usbl measurements
@@ -297,14 +299,14 @@ bool PositionFilter::update(Eigen::Vector3d measurement) {
   }
 
   // Outlier rejection based on mahalanobis distance (Lekkas et al)
-  if(output_outlier_rejection_){
-    mahalanobis_distance_ = std::sqrt(innovation_vector_.transpose() * innovation_matrix_.inverse() * innovation_vector_);
-    if (mahalanobis_distance_ > outlier_threshold_) {
-      FAROL_WARN("Docking Position: Measurement rejected as outlier (Mahalanobis distance = " << mahalanobis_distance_ << ")");
-      outlier_rejected_ = 1;
-      return false; // Skip this update
-    }
-  }
+  // if(output_outlier_rejection_){
+  //   mahalanobis_distance_ = std::sqrt(innovation_vector_.transpose() * innovation_matrix_.inverse() * innovation_vector_);
+  //   if (mahalanobis_distance_ > outlier_threshold_) {
+  //     FAROL_WARN("Docking Position: Measurement rejected as outlier (Mahalanobis distance = " << mahalanobis_distance_ << ")");
+  //     outlier_rejected_ = 1;
+  //     return false; // Skip this update
+  //   }
+  // }
 
   K_ = state_cov_ * innovation_matrix_.inverse();
   state_ = state_ + K_ * innovation_vector_;
@@ -325,31 +327,67 @@ AttitudeFilter::AttitudeFilter(){
 
 void AttitudeFilter::initialize(Sophus::SO3d measurement){
   state_ = measurement;
-  // initial covariance is 10% of the initial measurement
-  Eigen::Vector3d variance = 0.1*measurement.log();
-  state_cov_ = variance.asDiagonal();
+  // // initial covariance is 10% of the initial measurement
+  // Eigen::Vector3d variance = 0.1*measurement.log();
+  // state_cov_ = variance.asDiagonal();
 }
 
 
 
-// TODO: make this using the proper integration method with the exponential 
 bool AttitudeFilter::predict(Stamped<Eigen::VectorXd> measurement){
   if (!last_input_measurement_) {
     last_input_measurement_ = measurement;
     return false;
   }
 
+  // compute time that passed since last predict 
+  double Dt = measurement.stamp - last_predict_time_;
+  
+  // simple complementary filter in SO3
+  state_ = state_ * Sophus::SO3d::exp(Dt*last_input_measurement_->value);
 
+  // save the time of last update and the value of last measurement
+  last_input_measurement_ = measurement;
+  last_predict_time_ = measurement.stamp;
   return true;
 }
 bool AttitudeFilter::predict(double time){
   if (!last_input_measurement_) {
     return false;
   }
+
+  // if too much time without measurments just stop updating 
+  if(time -last_input_measurement_->stamp > 20)
+    return false;
+
+  // compute time since last was an update
+  double Dt = time - last_predict_time_;
+
+  // do the standard kalman filter predict for state and covariance
+  state_ = state_ * Sophus::SO3d::exp(Dt*last_input_measurement_->value);
+
+  last_predict_time_=time;
   return true;
 }
 
+
 bool AttitudeFilter::update(Sophus::SO3d measurement) {
+  double K =0.5;
+  Sophus::SO3d R_err = measurement * state_.inverse();
+  Eigen::Vector3d delta_theta = R_err.log();
+  state_ = Sophus::SO3d::exp(K * delta_theta) * state_;
+
+  // FAROL_INFO("____________hello__________");
+  // FAROL_INFO("measurement:"<<measurement.matrix());
+  // Sophus::SO3d error_matrix = (state_.inverse() * measurement);
+  // FAROL_INFO("error_matrix:"<< error_matrix.matrix());
+  // Eigen::Vector3d correction = 0.5 * (error_matrix - error_matrix.transpose()).log();
+  // FAROL_INFO("correction:"<<correction);
+  // double kp = 1;
+  // FAROL_INFO("state pre:"<<extractRPY(state_));//.matrix().eulerAngles(0,1,2));
+  // state_ = state_ * Sophus::SO3d::exp(kp* correction);
+  // FAROL_INFO("matrix correction:"<<Sophus::SO3d::exp(kp* correction).matrix().eulerAngles(0,1,2));
+  // FAROL_INFO("state pos:"<<extractRPY(state_));//state_.matrix().eulerAngles(0,1,2));
   return true;
 }
 

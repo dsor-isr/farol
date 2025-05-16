@@ -18,11 +18,7 @@ find_package(catkin REQUIRED
  
 ## Generate messages in the 'msg' folder
 add_message_files(
-  # DIRECTORY msg
-	FILES
-  ControllerDebug.msg
-  FilterDebug.msg
-  dState.msg
+  DIRECTORY msg
 )
   
   
@@ -63,7 +59,6 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 
     
 add_executable(docking_filter src/filter/docking_filter_node.cpp src/filter/docking_filter.cpp)
-# add_dependencies(docking_filter ${catkin_EXPORTED_TARGETS})
 add_dependencies(docking_filter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(docking_filter ${catkin_LIBRARIES})
 
@@ -72,6 +67,9 @@ target_link_libraries(docking_filter ${catkin_LIBRARIES})
 #add_dependencies(docking_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 #target_link_libraries(docking_controller ${catkin_LIBRARIES})
 
+add_executable(inner_loops src/inner_loops/inner_loops_node.cpp src/inner_loops/smc.cpp src/inner_loops/pid.cpp)
+add_dependencies(inner_loops ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(inner_loops ${catkin_LIBRARIES})
 
 
 install(DIRECTORY include/${PROJECT_NAME}/

@@ -48,6 +48,7 @@ void DockingControllerNode::loadParams() {
   ROS_INFO("Load the DockingControllerNode parameters");
   p_node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 10);
   debug_ = FarolGimmicks::getParameters<bool>(nh_private_, "debug", false);
+  
 }
 
 // Member helper function to set up subscribers

@@ -255,7 +255,6 @@ class DockingFilter{
         double t_last_predict_;     // Time of last predict
         double t_last_update_;      // Time of last update
         
-
         // buffer to store all incoming measurements
         boost::lockfree::spsc_queue<Measurement, boost::lockfree::capacity<16>> measurements_buffer_;
         std::mutex measurements_buffer_mutex_;

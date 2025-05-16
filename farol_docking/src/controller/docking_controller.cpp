@@ -59,7 +59,6 @@ bool DockingController::compute(double Dt)
         output_.data = Eigen::Vector3d(pf_refs[0], pf_refs[1], 0); 
         output_.frame_id = "inertial_frame";
         return true; 
-
     }
     else if(phase_ == "homing1")
     {   
@@ -75,7 +74,6 @@ bool DockingController::compute(double Dt)
         output_.data = output; 
         output_.frame_id = "dock_frame";
         return true;
-
     }
     else if(phase_ == "docking"){
         Eigen::VectorXd output(6);

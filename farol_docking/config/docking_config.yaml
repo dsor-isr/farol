@@ -5,8 +5,8 @@ filter:
   debug: true
   dock_has_ahrs: true
   initializer_size: 4
-  outlier_rejection:  ["usbl", "dvl"]
-  #outlier_rejection:  [] # no outlier rejection
+  # outlier_rejection:  ["usbl", "dvl"]
+  outlier_rejection:  [] # no outlier rejection
 
   position:
     process_noise: [0.1, 0, 0,
@@ -34,6 +34,49 @@ controller:
   dock_position: [0,0,0,0]
 
 docking_helper:
-  sim_usbl: false
+  sim_usbl: true
   outliers: false
   noise: false
+
+inner_loops:
+  reference_frame: "dock"
+  type: "pid"
+  pid:
+    x:
+      kp: 6.4478
+      ki: 0.8358
+      kd: 17.6119
+      max_out:  20.0 
+      min_out: -20.0
+    y:
+      kp: 104.7273
+      ki: 13.5758
+      kd: 334.5455
+      max_out:  20.0 
+      min_out: -20.0
+    z:
+      kp: 30.0000
+      ki: 3.8889
+      kd: 102.7778
+      max_out:  20.0 
+      min_out: -20.0
+    roll:
+      kp: 0.732
+      ki: 0.24 
+      kd: 0.628 
+      max_out:  5.0 
+      min_out: -5.0
+    pitch:
+      kp: 0.732
+      ki: 0.24 
+      kd: 0.628 
+      max_out:  5.0 
+      min_out: -5.0
+    yaw:
+      kp: 17.2500
+      ki: 3.0000
+      kd: 33.7500
+      max_out:  5.0 
+      min_out: -5.0
+    
+    

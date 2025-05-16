@@ -58,7 +58,7 @@ class DockingController{
         // Vehicle States
         Eigen::Vector3d inertial_pos_;
         Eigen::Vector3d docking_pos_;
-        Eigen::Vector3d body_vel;
+        Eigen::Vector3d body_vel_;
         Reference output_;
         Eigen::Vector3d current_estimate{0.0,0.0}; 
     

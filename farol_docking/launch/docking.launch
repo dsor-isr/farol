@@ -3,6 +3,7 @@
 
   <arg name="filter"  				  default="false" />
   <arg name="controller"  			default="false" />
+  <arg name="inner_loops"       default="false" /> 
   <arg name="docking_helper"    default="false" /> 
 
   <group ns="docking">
@@ -15,6 +16,10 @@
 
     <group if="$(arg controller)">
       <node pkg="farol_docking" type="docking_controller" name="controller" respawn="false" output="screen"/>
+    </group>
+
+    <group if="$(arg inner_loops)">
+      <node pkg="farol_docking" type="inner_loops" name="inner_loops" respawn="false" output="screen"/>
     </group>
 
     <group if="$(arg docking_helper)">

@@ -488,3 +488,21 @@ docking/controller:
             ref_depth: "/#vehicle#/ref/depth"
             flag: "/#vehicle#/Flag"
             debug: "/#vehicle#/docking/controller/debug"
+
+docking/inner_loops:
+    topics:
+        subscribers:
+            filter_state: "/#vehicle#/nav/filter/state"
+            docking_state: "/#vehicle#/docking/filter/state"
+            flag: "/#vehicle#/Flag"
+            ref_position: "/#vehicle#/ref/position"
+            ref_attitude: "/#vehicle#/ref/attitude"
+
+        publishers:
+            force: "/#vehicle#/force_bypass"
+            debug: "/#vehicle#/docking/inner_loops/debug"
+    SMC:
+        subscribers:
+            gains:  "/#vehicle#/docking/inner_loops/smc/gains"
+        publishers:
+            debug:  "/#vehicle#/docking/inner_loops/smc/debug"
