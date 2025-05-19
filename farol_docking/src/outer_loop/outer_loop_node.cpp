@@ -118,6 +118,7 @@ void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
 void OuterLoopNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
   got_acomms_ = true;
   time_last_acomms_ = ros::Time::now().toSec();
+  n_fixes_++;
 }
 
 void OuterLoopNode::state_transition(){
