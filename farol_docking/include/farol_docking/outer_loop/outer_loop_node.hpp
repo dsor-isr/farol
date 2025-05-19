@@ -38,13 +38,13 @@
 // farol libraries
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <farol_docking/utils/docking_utils.hpp>  
-#include <farol_docking/controller/docking_controller.hpp>  
+#include <farol_docking/outer_loop/outer_loop.hpp>  
 
 
 /**
  * @brief  Interface between ROS and the docking controller algorithm
  */
- class DockingControllerNode {
+ class OuterLoopNode {
  public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
    /**
@@ -53,12 +53,12 @@
     * @param[in] nodehandle
     * @param[in] nodehandle_private
     */
- 	DockingControllerNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
+ 	OuterLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
 
   /**
    * @brief  Destructor
    */
- 	~DockingControllerNode();
+ 	~OuterLoopNode();
 
  private:
   /**

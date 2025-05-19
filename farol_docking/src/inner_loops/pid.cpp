@@ -78,13 +78,6 @@ bool PID::compute_torque(double Dt) {
 PositionPID::PositionPID() = default;
 
 float PositionPID::compute(float state, float state_rate, float state_ref, float Dt, bool angular) {
-// // filter reference signal through low pass if it exists
-  // if (has_lpf_) {
-  //   ref_d_value = lpf_->update((ref_value - prev_ref_value_) / Dt);
-  // }
-  // else {
-  //   ref_d_value = (ref_value - prev_ref_value_) / Dt;
-  // }
   
   // convert degrees to radians
   if(angular){
@@ -93,11 +86,9 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
     state_ref = state_ref / 180*M_PI;
   }
   
-  FAROL_WARN("kp:"<< p_gain_ << "\nki:"<< i_gain_ << "\nkd:"<< d_gain_);
 
   // Compute control input
   float error = state_ref- state;
-  FAROL_WARN(controller_name_<< ": error: "<< error);
   if(angular)
     error = wrapToPi(error);
 
@@ -122,7 +113,6 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
   // adding up all PID terms
   double tau_d;
   tau_d =  i_gain_ * error - p_gain_ * state_dot - d_gain_*state_rate_dot_filter;
-  FAROL_WARN(controller_name_<< ": tau_d:"<< tau_d);
 
 
   // integration with anti windup
@@ -130,7 +120,6 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
   double u_dot = tau_d - K_a * (u_prev_ - u_sat_prev_);
   double u;
   u = u_prev_ + u_dot * Dt;
-  FAROL_WARN(controller_name_<< ": u: "<< u);
 
 
   // aply the saturation
@@ -143,7 +132,6 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
     u_sat = u;
   }
 
-  FAROL_WARN(controller_name_<< ": u_sat: "<< u_sat);
 
 
   // Update prev values

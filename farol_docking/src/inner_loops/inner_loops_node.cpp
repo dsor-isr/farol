@@ -137,7 +137,7 @@ int main(int argc, char** argv)
   ros::NodeHandle nh, nh_private("~");
 
   // Create the node class which will handle everything through the callbacks
-  InnerLoopNode farol_docking(&nh,&nh_private);
+  InnerLoopNode inner_loops_node(&nh,&nh_private);
   ros::spin();
 
   return 0;

@@ -1,5 +1,5 @@
 /** 
- *  @file   docking_controller.hpp
+ *  @file   outer_loop.hpp
  *  @brief  Docking Controller Algorithm header file
  *  @author Ravi Regalo ravi.regalo@tecnico.ulisboa.pt Instituto Superior Tecnico
  *  @date   

@@ -1,10 +1,10 @@
 /** 
- *  @file   docking_filter.cpp 
- *  @brief  Docking Filter Algorithmic part source file
+ *  @file   outer_loop.cpp 
+ *  @brief  outer_loop algorithm source file
  *  @author Ravi Regalo
  *  @date   
 */
-#include <farol_docking/controller/docking_controller.hpp>  
+#include <farol_docking/outer_loop/outer_loop.hpp>  
 
 
 DockingController::DockingController() {

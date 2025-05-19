@@ -62,10 +62,10 @@ add_executable(docking_filter src/filter/docking_filter_node.cpp src/filter/dock
 add_dependencies(docking_filter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(docking_filter ${catkin_LIBRARIES})
 
-#add_executable(docking_controller src/controller/DockingControllerNode.cpp src/controller/DockingController.cpp)
-# add_dependencies(docking_controller ${catkin_EXPORTED_TARGETS})
-#add_dependencies(docking_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-#target_link_libraries(docking_controller ${catkin_LIBRARIES})
+add_executable(outer_loop src/outer_loop/outer_loop_node.cpp src/outer_loop/outer_loop.cpp)
+add_dependencies(outer_loop ${catkin_EXPORTED_TARGETS})
+add_dependencies(outer_loop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(outer_loop ${catkin_LIBRARIES})
 
 add_executable(inner_loops src/inner_loops/inner_loops_node.cpp src/inner_loops/smc.cpp src/inner_loops/pid.cpp)
 add_dependencies(inner_loops ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
