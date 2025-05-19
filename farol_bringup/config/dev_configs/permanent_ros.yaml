@@ -472,7 +472,7 @@ docking/filter:
             debug: "/#vehicle#/docking/filter/debug"
             
 
-docking/controller:      
+docking/outer_loop:      
     topics:
         subscribers:
             velocity: "/#vehicle#/measurement/velocity"
@@ -481,6 +481,7 @@ docking/controller:
             enable: "/#vehicle#/docking/enable"
             flag: "/#vehicle#/Flag"
             dock_pose: "/#vehicle#/docking/dock_pose"
+            acomms: "/#vehicle#/acomms/usbl_fix"
         publishers:
             ref_surge: "/#vehicle#/ref/surge"
             ref_yaw: "/#vehicle#/ref/yaw"
@@ -488,6 +489,8 @@ docking/controller:
             ref_depth: "/#vehicle#/ref/depth"
             flag: "/#vehicle#/Flag"
             debug: "/#vehicle#/docking/controller/debug"
+        services:
+            waypoint: "/#vehicle#/controls/send_wp_standard"
 
 docking/inner_loops:
     topics:

@@ -113,11 +113,7 @@
   // ROS messages
   std_msgs::Float64 ref_msg_;
   std_msgs::Int8 flag_msg_;
-  // geometry_msgs::Quaternion d_attitude_ref_msg;
-  geometry_msgs::Vector3 d_attitude_ref_msg_;
-  geometry_msgs::Vector3 d_position_ref_msg_;
-  auv_msgs::BodyForceRequest   force_request_msg_;
-  // #farol_docking::ControllerDebug debug_msg_;
+  auv_msgs::BodyForceRequest force_request_msg_;
 
   // Timer
   ros::Timer timer_;
@@ -135,7 +131,6 @@
 
   double last_it_time_;
 
-  Eigen::Vector3d position_ref_, attitude_ref_;
   double t_position_ref_, t_attitude_ref_;
 
   std::array<bool, 6> disable_axis_; 

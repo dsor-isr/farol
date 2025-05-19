@@ -27,11 +27,20 @@ filter:
     outlier_treshold: 2.71
   
 
-controller:
+outer_loop:
   node_frequency: 10
-  debug: true
-  params: [0.7, 0.1] # ksi, omega_0
-  dock_position: [0,0,0,0]
+  # initial estimate of the docking position, at least one of utm/lat_lon and one of depth/altitude must be specified
+  dock_utm: [491936, 4290794]
+  # dock_lat_lon: [38.765824, 9.092815]
+  dock_depth: 2.8
+  # dock_altitude: 1
+  # this is the orientation of the D frame so its the direction oposite to the dock opening 
+  dock_heading: 0 
+
+  homing_dist: 5
+
+  path_following:
+    gains: []
 
 docking_helper:
   sim_usbl: true

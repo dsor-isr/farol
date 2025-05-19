@@ -28,19 +28,19 @@
  *
  * @note cenas
  */
-class DockingController{
+class PathFollowing{
     public:
         EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
         /**
          * @brief  Contructor docking controller
          */
-        DockingController();
+        PathFollowing();
 
         /**
          * @brief  Destructor docking controller
          */
-        virtual ~DockingController() = default;
+        virtual ~PathFollowing() = default;
         
         /**
          * @brief  Configure parameters and shit
