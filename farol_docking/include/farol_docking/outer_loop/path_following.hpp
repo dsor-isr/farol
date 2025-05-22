@@ -60,7 +60,7 @@ class PathFollowing{
         Eigen::Vector3d docking_pos_;
         Eigen::Vector3d body_vel_;
         Reference output_;
-        Eigen::Vector3d current_estimate{0.0,0.0}; 
+        Eigen::Vector3d current_estimate{0.0,0.0, 0.0}; 
     
     private:
 

@@ -95,12 +95,24 @@ void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   double new_time = ros::Time::now().toSec();
   double Dt = new_time - last_it_time_;
   last_it_time_ = new_time;
-  
+  if(first_it_){
+    first_it_=false;  
+    return; 
+  }
+  if(t_attitude_ref_ < 0 || t_position_ref_ < 0)
+    return;
+
   if (new_time - t_position_ref_ < 0.2){
     controller_->compute_force(Dt);
-    force_request_msg_.wrench.force.x = controller_->force_[0];
-    force_request_msg_.wrench.force.y = controller_->force_[1];
-    force_request_msg_.wrench.force.z = controller_->force_[2];
+    // rotate to body_frame
+    Eigen::Matrix3d R = (Eigen::AngleAxisd(controller_->attitude_(2)*M_PI/180, Eigen::Vector3d::UnitZ()) *
+                        Eigen::AngleAxisd(controller_->attitude_(1)*M_PI/180, Eigen::Vector3d::UnitY()) *
+                        Eigen::AngleAxisd(controller_->attitude_(0)*M_PI/180, Eigen::Vector3d::UnitX())).toRotationMatrix();
+    Eigen::Vector3d force_body = R.transpose() * controller_->force_;
+    // build ros message
+    force_request_msg_.wrench.force.x = force_body[0];
+    force_request_msg_.wrench.force.y = force_body[1];
+    force_request_msg_.wrench.force.z = force_body[2];
   }
   else{
     force_request_msg_.wrench.force.x=0;

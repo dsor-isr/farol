@@ -30,17 +30,22 @@ filter:
 outer_loop:
   node_frequency: 10
   # initial estimate of the docking position, at least one of utm/lat_lon and one of depth/altitude must be specified
-  dock_utm: [491936, 4290794]
+  dock_utm: [4290794, 491936]
   # dock_lat_lon: [38.765824, 9.092815]
   dock_depth: 2.8
   # dock_altitude: 1
-  # this is the orientation of the D frame so its the direction oposite to the dock opening 
-  dock_heading: 0 
+  # this is the orientation of dock opening, so its the direction oposite to the D frame 
+  dock_heading: 150 
+  safe_depth_aproach: 1
 
   homing_dist: 5
+  acomms_timeout: 20
+  acomms_n_min_fix: 3
+  acomms_search_radius: 10 
+  max_accl: [0.3, 0.15, 0.1 ]
+  u_terminal: 0.1
 
-  path_following:
-    gains: []
+
 
 docking_helper:
   sim_usbl: true

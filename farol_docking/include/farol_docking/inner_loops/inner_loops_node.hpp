@@ -126,12 +126,12 @@
 
 
  	// Problem variables ˇˇˇˇ
-  bool start_;
   int flag_;
+  bool first_it_{true};
 
   double last_it_time_;
 
-  double t_position_ref_, t_attitude_ref_;
+  double t_position_ref_{-1.0}, t_attitude_ref_{-1.0};
 
   std::array<bool, 6> disable_axis_; 
 

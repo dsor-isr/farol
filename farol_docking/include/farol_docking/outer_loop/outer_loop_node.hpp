@@ -41,7 +41,6 @@
 // farol libraries
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <farol_docking/utils/docking_utils.hpp>  
-#include <farol_docking/outer_loop/path_following.hpp>  
 
 
 /**
@@ -103,9 +102,11 @@
   void dock_pose_callback(const farol_msgs::mState &msg);
   void filter_state_callback(const auv_msgs::NavigationStatus &msg);
   void usbl_callback(const farol_msgs::mUSBLFix &msg);
+  void force_callback(const auv_msgs::BodyForceRequest &msg);
 
 
-  void state_transition();
+  void check_state_transition();
+  void generate_refs(double time_now, double Dt);
 
   /**
    * @brief  Timer iteration callback
@@ -125,17 +126,20 @@
   ros::Subscriber sub_velocity_;
   ros::Subscriber sub_start_;
   ros::Subscriber sub_flag_;
+  ros::Subscriber sub_force_;
 
  	// Publishers
   ros::Publisher surge_ref_pub_;
   ros::Publisher sway_ref_pub_;
-  ros::Publisher i_yaw_ref_pub_;
-  ros::Publisher i_depth_ref_pub_;
+  ros::Publisher yaw_ref_pub_;
+  ros::Publisher depth_ref_pub_;
   ros::Publisher attitude_pub_;
   ros::Publisher position_pub_;
   ros::Publisher force_request_pub_;
   ros::Publisher flag_pub_;
   ros::Publisher debug_pub_;
+  ros::Publisher force_pub_;
+  ros::Publisher docking_state_pub;
 
   // Services
   ros::ServiceClient wp_client;
@@ -146,6 +150,7 @@
   farol_docking::Reference3 ref_3d_msg_;
   auv_msgs::BodyForceRequest   force_request_msg_;
   waypoint::sendWpType1 wp_srv_;
+  std_msgs::String phase_msg_;
 
   // #farol_docking::ControllerDebug debug_msg_;
   
@@ -154,28 +159,42 @@
 
   // ROS Parameters
   double node_frequency_;
-  double homing_dist_;
 
   int flag_{0};
-  int state_{0};
+  std::string state_{"idle"};
   
   // A priori information on the positionof the dock
-  std::optional<Eigen::Vector2d> dock_position_;
-  std::optional<double> dock_depth_, dock_altitude_, dock_heading_;
-
+  Eigen::Vector2d dock_position_;
+  std::optional<double> dock_depth_, dock_altitude_, dock_heading_, safe_depth_approach_;
+  
   double new_time_, last_update_time_, Dt_;
-  bool first_it;
-
+  bool first_it_;
+  
   Eigen::Vector2d filter_state_;
   ros::Time end_time_;
   bool reached_close_{false};
   bool waiting_completion_{false};
-  bool got_acomms_{false};
-  double time_last_acomms_;
+  bool got_docking_state_{false};
+  double time_last_acomms_{-1.0};
+  double acomms_timeout_{20.0}, homing_dist_, acomms_search_radius_;
+  int acomms_n_min_fix_;
+  int n_fixes_;
   
-  Eigen::Vector3d docking_position_, inertial_state_; 
+  // for generating trajectory
+  double y_ref_{0.0}, y_ref_dot_{0.0}, y_ref_ddot_{0.0};
+  double z_ref_{0.0}, z_ref_dot_{0.0}, z_ref_ddot_{0.0};
+  double x_ref_{0.0}, x_ref_dot_{0.0}, x_ref_ddot_{0.0};
+  double yaw_ref_{0.0}, yaw_ref_dot_{0.0}, yaw_ref_ddot_{0.0};
+  double homing_initial_time_;
+  double homing_converging_time_y_, homing_converging_time_z_, homing_converging_time_x_;
+  double homing_initial_y_, homing_initial_z_, homing_initial_x_;
+  double u_terminal_;
+  double prev_yaw_ref_dot_;
 
-  // pf algorithm
-  PathFollowing pf_;
+  Eigen::Vector3d max_accl_;
+  
+  Eigen::Vector3d docking_state_, inertial_state_; 
+  
+  Eigen::Vector2d homing_target_point_;
 
 };

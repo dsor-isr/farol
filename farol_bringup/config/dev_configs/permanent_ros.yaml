@@ -477,18 +477,21 @@ docking/outer_loop:
         subscribers:
             velocity: "/#vehicle#/measurement/velocity"
             orientation: "/#vehicle#/measurement/orientation"
+            filter_state: "/#vehicle#/nav/filter/state"
             state: "/#vehicle#/docking/filter/state"
             enable: "/#vehicle#/docking/enable"
             flag: "/#vehicle#/Flag"
-            dock_pose: "/#vehicle#/docking/dock_pose"
             acomms: "/#vehicle#/acomms/usbl_fix"
         publishers:
             ref_surge: "/#vehicle#/ref/surge"
             ref_yaw: "/#vehicle#/ref/yaw"
             ref_sway: "/#vehicle#/ref/sway"
             ref_depth: "/#vehicle#/ref/depth"
+            ref_position: "/#vehicle#/ref/position"
+            ref_attitude: "/#vehicle#/ref/attitude"
             flag: "/#vehicle#/Flag"
             debug: "/#vehicle#/docking/controller/debug"
+            phase: "/#vehicle#/docking/phase"
         services:
             waypoint: "/#vehicle#/controls/send_wp_standard"
 
