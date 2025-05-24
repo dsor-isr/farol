@@ -32,6 +32,6 @@ Not being used
 | Parameters                                        | type   | Default               | Purpose                                                   |
 | ----------                                        | ----   | -------               | -------                                                   |
 | /#vehicle#/addons/console_path_parser/path_folder | string | ../paths_from_console | Store the path received from http_server                  |
-| /#vehicle#/addons/vehicle_id                      | int    | [1-3]                 | IDs of the medusas: 1 - mred, 2 - mblack, 3 - mvector     |
+| /#vehicle#/addons/vehicle_id                      | int    | [1-3]                 | IDs of the medusas: 1 - mred, 2 - mblack, 3 - myellow     |
 
 
