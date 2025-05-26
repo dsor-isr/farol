@@ -56,7 +56,7 @@ public:
           attitude_ << msg.orientation.x,msg.orientation.y, msg.orientation.z;
         }
         
-        linear_velocity_ << msg.seafloor_velocity.x, msg.seafloor_velocity.y, msg.seafloor_velocity.z; 
+        linear_velocity_ << msg.body_velocity.x, msg.body_velocity.y, msg.body_velocity.z; 
         angular_velocity_ <<  msg.orientation_rate.x,msg.orientation_rate.y,msg.orientation_rate.z; 
       }
     

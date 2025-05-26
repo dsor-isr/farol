@@ -42,7 +42,7 @@ outer_loop:
   acomms_timeout: 20
   acomms_n_min_fix: 3
   acomms_search_radius: 10 
-  max_accl: [0.3, 0.15, 0.1 ]
+  max_accl: [0.1, 0.1, 0.1 ]
   u_terminal: 0.1
 
 

@@ -55,9 +55,17 @@ void PID::configure() {
 }
 
 bool PID::compute_force(double Dt) {
-  force_[0] = x_pid.compute(position_[0],linear_velocity_[0], position_ref_[0], Dt, false);
-  force_[1] = y_pid.compute(position_[1],linear_velocity_[1], position_ref_[1], Dt, false);
-  force_[2] = z_pid.compute(position_[2],linear_velocity_[2], position_ref_[2], Dt, false);
+  Eigen::Matrix3d R = 
+  (Eigen::AngleAxisd(attitude_(2)/180*M_PI, Eigen::Vector3d::UnitZ()) *  // yaw
+   Eigen::AngleAxisd(attitude_(1)/180*M_PI, Eigen::Vector3d::UnitY()) *  // pitch
+   Eigen::AngleAxisd(attitude_(0)/180*M_PI, Eigen::Vector3d::UnitX())    // roll
+  ).toRotationMatrix();
+  Eigen::Vector3d body_pos = R.transpose()* position_;
+  Eigen::Vector3d body_ref = R.transpose() * position_ref_;
+
+  force_[0] = x_pid.compute(body_pos[0],linear_velocity_[0], body_ref[0], Dt, false);
+  force_[1] = y_pid.compute(body_pos[1],linear_velocity_[1], body_ref[1], Dt, false);
+  force_[2] = z_pid.compute(body_pos[2],linear_velocity_[2], body_ref[2], Dt, false);
   return true;
 }
 
@@ -78,7 +86,6 @@ bool PID::compute_torque(double Dt) {
 PositionPID::PositionPID() = default;
 
 float PositionPID::compute(float state, float state_rate, float state_ref, float Dt, bool angular) {
-  
   // convert degrees to radians
   if(angular){
     state = state / 180*M_PI;
@@ -86,9 +93,10 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
     state_ref = state_ref / 180*M_PI;
   }
   
-
+  
   // Compute control input
   float error = state_ref- state;
+  // ROS_INFO_STREAM(controller_name_ << ": "<< state_ref <<" - "<<state <<" and rate: " <<state_rate);
   if(angular)
     error = wrapToPi(error);
 
@@ -141,7 +149,6 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
 
   u_prev_ = u;
   u_sat_prev_ = u_sat;
-  ref_prev_ = state_ref;
   first_it_=false;
 
   return u_sat;

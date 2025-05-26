@@ -105,7 +105,7 @@
   void force_callback(const auv_msgs::BodyForceRequest &msg);
 
 
-  void check_state_transition();
+  void check_state_transition(double time_now);
   void generate_refs(double time_now, double Dt);
 
   /**
@@ -179,6 +179,7 @@
   double acomms_timeout_{20.0}, homing_dist_, acomms_search_radius_;
   int acomms_n_min_fix_;
   int n_fixes_;
+  int n_flag0_{0};
   
   // for generating trajectory
   double y_ref_{0.0}, y_ref_dot_{0.0}, y_ref_ddot_{0.0};

@@ -14,11 +14,11 @@ InnerLoopNode::InnerLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   reference_frame_ = FarolGimmicks::getParameters<std::string>(nh_private_, "reference_frame", "dock");
 
   // Subscribers
-  sub_docking_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 10, &InnerLoopNode::state_callback, this);
-  sub_filter_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/filter_state", "filter/state"), 10, &InnerLoopNode::state_callback, this);
-  sub_position_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_position", "position_ref"), 10, &InnerLoopNode::position_ref_callback, this);
-  sub_attitude_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_attitude", "attitude_ref"), 10, &InnerLoopNode::attitude_ref_callback, this);
-  sub_flag_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/flag", "flag"), 10, &InnerLoopNode::flag_callback, this);
+  sub_docking_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 1, &InnerLoopNode::state_callback, this);
+  //sub_filter_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/filter_state", "filter/state"), 1, &InnerLoopNode::state_callback, this);
+  sub_position_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_position", "position_ref"), 1, &InnerLoopNode::position_ref_callback, this);
+  sub_attitude_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_attitude", "attitude_ref"), 1, &InnerLoopNode::attitude_ref_callback, this);
+  sub_flag_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/flag", "flag"), 2, &InnerLoopNode::flag_callback, this);
 
   // Publishers
   force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/force", "/force_bypass"), 5);
@@ -105,14 +105,14 @@ void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   if (new_time - t_position_ref_ < 0.2){
     controller_->compute_force(Dt);
     // rotate to body_frame
-    Eigen::Matrix3d R = (Eigen::AngleAxisd(controller_->attitude_(2)*M_PI/180, Eigen::Vector3d::UnitZ()) *
-                        Eigen::AngleAxisd(controller_->attitude_(1)*M_PI/180, Eigen::Vector3d::UnitY()) *
-                        Eigen::AngleAxisd(controller_->attitude_(0)*M_PI/180, Eigen::Vector3d::UnitX())).toRotationMatrix();
-    Eigen::Vector3d force_body = R.transpose() * controller_->force_;
+    // Eigen::Matrix3d R = (Eigen::AngleAxisd(controller_->attitude_(2)*M_PI/180, Eigen::Vector3d::UnitZ()) *
+    //                     Eigen::AngleAxisd(controller_->attitude_(1)*M_PI/180, Eigen::Vector3d::UnitY()) *
+    //                     Eigen::AngleAxisd(controller_->attitude_(0)*M_PI/180, Eigen::Vector3d::UnitX())).toRotationMatrix();
+    // Eigen::Vector3d force_body = R * controller_->force_;
     // build ros message
-    force_request_msg_.wrench.force.x = force_body[0];
-    force_request_msg_.wrench.force.y = force_body[1];
-    force_request_msg_.wrench.force.z = force_body[2];
+    force_request_msg_.wrench.force.x = controller_->force_[0];
+    force_request_msg_.wrench.force.y = controller_->force_[1];
+    force_request_msg_.wrench.force.z = controller_->force_[2];
   }
   else{
     force_request_msg_.wrench.force.x=0;

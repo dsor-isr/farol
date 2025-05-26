@@ -17,7 +17,7 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   
   double helper;
   std::vector<double> helper_vec;
-  max_accl_ << 0.1, 0.1, 0.1;
+  max_accl_ << 0.01, 0.01, 0.01;
   if (nh_private_.getParam("max_accl", helper_vec) && helper_vec.size() == 3)
     max_accl_ = Eigen::Vector3d(helper_vec[0], helper_vec[1], helper_vec[2]);
 
@@ -55,13 +55,13 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
 
 
   // Publishers
-  flag_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/flag", "flag"), 5);
-  surge_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_surge", "ref/surge"), 5);
-  depth_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_depth", "ref/depth"), 5);
-  yaw_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_yaw", "ref/yaw"), 5);
-  position_pub_ = nh_private_.advertise<farol_docking::Reference3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_position", "ref/position"), 5);
-  attitude_pub_ = nh_private_.advertise<farol_docking::Reference3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_attitude", "ref/attitude"), 5);
-  force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/thrust_body_request", "/thrust_body_request"), 5);
+  flag_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/flag", "flag"), 1);
+  surge_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_surge", "ref/surge"), 1);
+  depth_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_depth", "ref/depth"), 1);
+  yaw_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_yaw", "ref/yaw"), 1);
+  position_pub_ = nh_private_.advertise<farol_docking::Reference3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_position", "ref/position"), 1);
+  attitude_pub_ = nh_private_.advertise<farol_docking::Reference3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_attitude", "ref/attitude"), 1);
+  force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/thrust_body_request", "/thrust_body_request"), 1);
   docking_state_pub = nh_private_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/phase", "/docking_state"), 1);
 
   // Services
@@ -72,7 +72,6 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
 
 
   phase_msg_.data = state_;
-  ROS_INFO_STREAM("mekieeee");
   docking_state_pub.publish(phase_msg_);
   
   if(dock_heading_)
@@ -150,6 +149,13 @@ void OuterLoopNode::start_callback(const std_msgs::Empty &msg){
 
 void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
   flag_ = msg.data;
+  if(msg.data == 0){
+    n_flag0_++;
+    if(n_flag0_ >3){
+      state_ = "idle";
+      n_flag0_ =0;
+    }
+  } 
   if(state_ == "approaching")
     // reached waypoint
     if(msg.data == 0 && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 1){
@@ -164,7 +170,7 @@ void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
   }
 }     
 
-void OuterLoopNode::check_state_transition(){
+void OuterLoopNode::check_state_transition(double time_now){
   // reached waypoint and got acomms -> go into homing mode
   if(state_ == "idle")
     return;
@@ -174,13 +180,14 @@ void OuterLoopNode::check_state_transition(){
     state_ = "homing";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
-    homing_initial_time_ =ros::Time::now().toSec();
+    homing_initial_time_ =time_now;
     homing_initial_x_ = docking_state_[0];
     homing_initial_y_ = docking_state_[1];
-    homing_initial_x_ = docking_state_[2];
+    homing_initial_z_ = docking_state_[2];
     homing_converging_time_x_ = u_terminal_/(2*max_accl_[0]) - docking_state_[0]/u_terminal_;
-    homing_converging_time_y_ = 6*docking_state_[1]/max_accl_[1];
-    homing_converging_time_z_ = 6*docking_state_[2]/max_accl_[2];
+    homing_converging_time_y_ = std::sqrt(6.0 * std::abs(docking_state_[1]) / max_accl_[1]);
+    homing_converging_time_z_ = std::sqrt(6.0 * std::abs(docking_state_[2]) / max_accl_[2]);
+    ROS_INFO_STREAM("inidist: " << homing_converging_time_y_ << "| " << docking_state_[1] << "| " << max_accl_[1]);
   }
   
   // lost acomms -> got into search acomms mode
@@ -210,14 +217,14 @@ void OuterLoopNode::generate_refs(double time_now, double Dt){
 
   // smooth cubic polinomial trajectory for y
   if (t < homing_converging_time_y_){
-    y_ref_ = std::min(0.0, homing_initial_y_*( 2*std::pow(t/homing_converging_time_y_,3) - 3*std::pow(t/homing_converging_time_y_,2) + 1 ));
+    y_ref_ = homing_initial_y_*( 2*std::pow(t/homing_converging_time_y_,3) - 3*std::pow(t/homing_converging_time_y_,2) + 1 );
     y_ref_dot_ = homing_initial_y_ * ( 6*std::pow(t/homing_converging_time_y_,2) - 6 *(t/homing_converging_time_y_) );
     y_ref_ddot_ = homing_initial_y_*6/std::pow(homing_converging_time_y_,2) * (2 *(t/homing_converging_time_y_) -1);
   }
 
   // smooth cubic polinomial trajectory for z
   if (t < homing_converging_time_z_){
-    z_ref_ = std::min(0.0, homing_initial_z_*( 2*std::pow(t/homing_converging_time_z_,3) - 3*std::pow(t/homing_converging_time_z_,2) + 1 ));
+    z_ref_ = homing_initial_z_*( 2*std::pow(t/homing_converging_time_z_,3) - 3*std::pow(t/homing_converging_time_z_,2) + 1 );
     z_ref_dot_ = homing_initial_z_ * ( 6*std::pow(t/homing_converging_time_z_,2) - 6 *(t/homing_converging_time_z_) );
     z_ref_ddot_ = homing_initial_z_*6/std::pow(homing_converging_time_z_,2) * (2 *(t/homing_converging_time_z_) -1);
   }
@@ -261,7 +268,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
     return;
   }
 
-  check_state_transition();
+  check_state_transition(new_time_);
   
   if(state_ == "idle"){
     return;
@@ -280,7 +287,6 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
       depth_ref_pub_.publish(ref_msg_);
     } 
   }else if(state_=="homing"){
-    ROS_INFO_STREAM("hdkasjhdakdjsh");
     generate_refs(new_time_, Dt_);
     ref_3d_msg_.value.x = x_ref_;
     ref_3d_msg_.value.y = y_ref_;
