@@ -10,7 +10,7 @@
 
 data_serializer:
   acoustic_data_channels:
-    # Send Navigation Data in WGS84 from mred (surface) to mvector (underwater)
+    # Send Navigation Data in WGS84 from mred (surface) to myellow (underwater)
     - from: [1]
       to: [3]
       msg: "auv_msgs/NavigationStatus"

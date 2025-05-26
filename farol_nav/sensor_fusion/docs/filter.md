@@ -37,7 +37,7 @@ A general-purpose kalman filter for vehicle state estimation. For indepth docume
 
 ## Parameters
 
-All the parameters are under the namespace of this node (/#vehicle#/nav/filter/), so we will refrain from repeating it for each parameter. Visit the [`nav.yaml`](https://github.com/dsor-isr/farol/blob/main/farol_bringup/config/defaults/mvector/nav.yaml) config file for each vehicle to check these parameters.
+All the parameters are under the namespace of this node (/#vehicle#/nav/filter/), so we will refrain from repeating it for each parameter. Visit the [`nav.yaml`](https://github.com/dsor-isr/farol/blob/main/farol_bringup/config/defaults/myellow/nav.yaml) config file for each vehicle to check these parameters.
 
 | Parameters                                                              | type   | Default     | Purpose                       |
 | -----------                                                             | ----   | ----------  | ---------                     |

@@ -9,7 +9,7 @@
 # https://docs.google.com/spreadsheets/d/1o_p9rl8eRqVtl4L3G4qtig7R__WBa42d7-IvHyCSmr0/edit#gid=0
 data_serializer:
   acoustic_data_channels:
-    # Send Navigation Data in WGS84 from mblack (surface) to mvector (underwater)
+    # Send Navigation Data in WGS84 from mblack (surface) to myellow (underwater)
     - from: [2]
       to: [3]
       msg: "auv_msgs/NavigationStatus"

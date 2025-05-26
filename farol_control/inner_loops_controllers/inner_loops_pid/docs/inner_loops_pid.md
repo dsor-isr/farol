@@ -40,7 +40,7 @@ where, just like in the diagram, `<controller>` can be one of the following:
 | /#vehicle#/inner\_forces/change\_inner\_limits | [inner\_loops\_pid/ChangeInnerLimits](https://github.com/dsor-isr/farol/blob/main/farol_control/inner_loops_controllers/inner_loops_pid/srv/ChangeInnerLimits.srv) | Change the output limits of one of the PID controllers |
 
 ## Parameters
-All the parameters are under the namespace of this node (/#vehicle#/controls/inner\_loops\_pid/), so we will refrain from repeating it for each parameter. Visit the [`control.yaml`](https://github.com/dsor-isr/farol/blob/main/farol_bringup/config/defaults/mvector/control.yaml) config file for each vehicle to check these parameters.
+All the parameters are under the namespace of this node (/#vehicle#/controls/inner\_loops\_pid/), so we will refrain from repeating it for each parameter. Visit the [`control.yaml`](https://github.com/dsor-isr/farol/blob/main/farol_bringup/config/defaults/myellow/control.yaml) config file for each vehicle to check these parameters.
 
 ### Altitude Controller
 | Parameters | type | Default | Purpose |
