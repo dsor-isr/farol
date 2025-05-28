@@ -35,10 +35,10 @@ outer_loop:
   dock_depth: 2.8
   # dock_altitude: 1
   # this is the orientation of dock opening, so its the direction oposite to the D frame 
-  dock_heading: 150 
+  # dock_heading: 150 
   safe_depth_aproach: 1
 
-  homing_dist: 5
+  homing_dist: 8
   acomms_timeout: 20
   acomms_n_min_fix: 3
   acomms_search_radius: 10 

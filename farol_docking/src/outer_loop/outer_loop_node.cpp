@@ -61,8 +61,9 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   yaw_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_yaw", "ref/yaw"), 1);
   position_pub_ = nh_private_.advertise<farol_docking::Reference3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_position", "ref/position"), 1);
   attitude_pub_ = nh_private_.advertise<farol_docking::Reference3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_attitude", "ref/attitude"), 1);
-  force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/thrust_body_request", "/thrust_body_request"), 1);
+  force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/force", "/force_bypass"), 1);
   docking_state_pub = nh_private_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/phase", "/docking_state"), 1);
+  mission_string_pub = nh_private_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/mission_string", "/mission_string"), 1);
 
   // Services
   wp_client = nh_private_.serviceClient<waypoint::sendWpType1>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/services/waypoint", "/waypoint"));
@@ -110,10 +111,25 @@ OuterLoopNode::~OuterLoopNode() {
 
 void OuterLoopNode::state_callback(const auv_msgs::NavigationStatus &msg){
   if(msg.header.frame_id.find("dock") != std::string::npos){
-    got_docking_state_ = true;
     docking_state_ << msg.local_position.x,msg.local_position.y,msg.local_position.z; 
+    docking_yaw_ = msg.local_attitude.yaw;
+    
+    // update the homing target point based on known dock heading
+    if (!got_docking_state_){
+    homing_target_point_ << dock_position_[0] + homing_dist_*cos((inertial_yaw_-docking_yaw_)/180*M_PI), dock_position_[1] + homing_dist_*sin((inertial_yaw_-docking_yaw_)/180*M_PI);
+      // if state is approaching or search_acomms we go directly to the homing tarteg point in order to start homing
+      if(state_ == "aproaching" || state_=="search_acomms"){
+        wp_srv_.request.x = homing_target_point_[0];
+        wp_srv_.request.y = homing_target_point_[1];
+        wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
+        wp_client.call(wp_srv_);
+      }
+    }
+    got_docking_state_ =true;
+
   }else{
     inertial_state_ << msg.position.north,msg.position.east,msg.position.depth;
+    inertial_yaw_ = msg.orientation.z;
   }
 }
 
@@ -123,8 +139,8 @@ void OuterLoopNode::force_callback(const auv_msgs::BodyForceRequest &msg){
 }
 
 void OuterLoopNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
+  // store accoms timing in order to know if we lost acomms and need to go search for acomms
   time_last_acomms_ = ros::Time::now().toSec();
-  n_fixes_++;
 }
 
 
@@ -132,40 +148,38 @@ void OuterLoopNode::start_callback(const std_msgs::Empty &msg){
   state_ = "approaching";
   phase_msg_.data = state_;
   docking_state_pub.publish(phase_msg_);
+
+  // here we know the dock heading à priori
   if(dock_heading_){
     // send initial waypoint to go to the dock position
     wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + homing_dist_*cos(dock_heading_.value()/180*M_PI);
     wp_srv_.request.y = homing_target_point_[1]; //dock_position_[1] + homing_dist_*sin(dock_heading_.value()/180*M_PI);
     wp_srv_.request.yaw = wrapToPi((dock_heading_.value()+180)/180*M_PI);
     wp_client.call(wp_srv_);
-    waiting_completion_ = false;
-  }else{
+  }// here we know the dock heading based on usbl
+  else if (got_acomms_){
+    wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + homing_dist_*cos(dock_heading_.value()/180*M_PI);
+    wp_srv_.request.y = homing_target_point_[1]; //dock_position_[1] + homing_dist_*sin(dock_heading_.value()/180*M_PI);
+    wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
+    wp_client.call(wp_srv_);
+  } // here we dont know dock heading
+  else{
     wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + homing_dist_;
     wp_srv_.request.y = homing_target_point_[1];
     wp_client.call(wp_srv_);
-    waiting_completion_ = false;
   }
 }
 
 void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
   flag_ = msg.data;
   if(msg.data == 0){
-    n_flag0_++;
-    if(n_flag0_ >3){
-      state_ = "idle";
-      n_flag0_ =0;
-    }
+    state_ = "idle";
+    got_acomms_=false;
+    got_docking_state_=false;
   } 
-  if(state_ == "approaching")
-    // reached waypoint
-    if(msg.data == 0 && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 1){
-      state_ = "search_acomms";
-      phase_msg_.data = state_;
-      docking_state_pub.publish(phase_msg_);
-      // start path_following of circle around the dock
-    }
+  
 
-  if(state_ == "search_acomms" && msg.data == 0 && got_docking_state_ == false){
+  if(state_ == "search_acomms" && msg.data == 4 && !got_docking_state_){
     // restarts start_path following of circle
   }
 }     
@@ -174,9 +188,32 @@ void OuterLoopNode::check_state_transition(double time_now){
   // reached waypoint and got acomms -> go into homing mode
   if(state_ == "idle")
     return;
-  
 
-  if (state_ != "homing" && got_docking_state_ && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 3){
+  // reached initial waypoint
+  if( state_ == "approaching" && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2){
+    state_ = "search_acomms";
+    phase_msg_.data = state_;
+    docking_state_pub.publish(phase_msg_);
+    // start path_following of circle around the dock
+    std::string mission = "3\n";
+    // add mission reference point 
+    mission += std::to_string(dock_position_[1]) + " " + std::to_string(dock_position_[0]) + "\n";
+    // add circle 
+    mission += "ARC 0.00 " + std::to_string(homing_dist_) + " 0.00 0.00 0.00 " + std::to_string(-homing_dist_) + " 0.30 1 " + std::to_string(homing_dist_) + " -1\n" ;
+    mission += "ARC 0.00 " + std::to_string(-homing_dist_) + " 0.00 0.00 0.00 " + std::to_string(homing_dist_) + " 0.30 1 " + std::to_string(homing_dist_) + " -1\n" ;
+    mission += "ARC 0.00 " + std::to_string(homing_dist_) + " 0.00 0.00 0.00 " + std::to_string(-homing_dist_) + " 0.30 1 " + std::to_string(homing_dist_) + " -1\n" ;
+    mission_string_msg_.data = mission;
+    mission_string_pub.publish(mission_string_msg_);
+
+  }
+  
+  // if has acomms and is close to target point
+  if(state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4) )
+  // or has acomms and was searching for acomms
+  if ((state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2) || ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4))) ||
+      (state_ == "search_acomms" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4) )){
+    flag_msg_.data = 10;
+    flag_pub_.publish(flag_msg_);
     state_ = "homing";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
@@ -187,7 +224,6 @@ void OuterLoopNode::check_state_transition(double time_now){
     homing_converging_time_x_ = u_terminal_/(2*max_accl_[0]) - docking_state_[0]/u_terminal_;
     homing_converging_time_y_ = std::sqrt(6.0 * std::abs(docking_state_[1]) / max_accl_[1]);
     homing_converging_time_z_ = std::sqrt(6.0 * std::abs(docking_state_[2]) / max_accl_[2]);
-    ROS_INFO_STREAM("inidist: " << homing_converging_time_y_ << "| " << docking_state_[1] << "| " << max_accl_[1]);
   }
   
   // lost acomms -> got into search acomms mode
@@ -198,8 +234,7 @@ void OuterLoopNode::check_state_transition(double time_now){
   }
 
   // got to close, change to terminal, open loop control
-
-  if(state_ == "homing" && docking_state_.norm() < 0.5){
+  if( state_!="idle" && state_!="terminal" && got_docking_state_ && docking_state_.norm() < 0.5){
     state_ = "terminal";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
@@ -250,9 +285,9 @@ void OuterLoopNode::generate_refs(double time_now, double Dt){
   }
 
   // follows the trajectory for x and y 
-  if (std::abs(y_ref_dot_) > 0.2)
-    yaw_ref_ = std::atan2(x_ref_dot_, y_ref_dot_)*180/M_PI;
-  yaw_ref_dot_ = (x_ref_dot_ * y_ref_ddot_ - y_ref_dot_ * x_ref_ddot_) / (x_ref_dot_ * x_ref_dot_ + y_ref_dot_ * y_ref_dot_);
+  if (std::abs(y_ref_dot_) > 0.05)
+    yaw_ref_ = std::atan2(y_ref_dot_, x_ref_dot_)*180/M_PI;
+  yaw_ref_dot_ = (x_ref_dot_ * y_ref_ddot_ - y_ref_dot_ * x_ref_ddot_) / (x_ref_dot_ * x_ref_dot_ + y_ref_dot_ * y_ref_dot_) *180/M_PI;
   yaw_ref_ddot_ = (yaw_ref_dot_ - prev_yaw_ref_dot_) /Dt;
   prev_yaw_ref_dot_ = yaw_ref_dot_;
 }
@@ -306,15 +341,16 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
     ref_3d_msg_.value_dot.y = 0.0;
     ref_3d_msg_.value_ddot.x = 0.0;
     ref_3d_msg_.value_ddot.y = 0.0;
-    ref_3d_msg_.value.z = 0.0;//yaw_ref_;
-    ref_3d_msg_.value_dot.z = 0.0;//yaw_ref_dot_;
-    ref_3d_msg_.value_ddot.z = 0.0;//yaw_ref_ddot_;
+    ref_3d_msg_.value.z = yaw_ref_;
+    ref_3d_msg_.value_dot.z = yaw_ref_dot_;
+    ref_3d_msg_.value_ddot.z = yaw_ref_ddot_;
     ref_3d_msg_.disable_axis ={true, true, false};
     attitude_pub_.publish(ref_3d_msg_);
     
   }else if(state_ =="terminal"){
     force_request_msg_.disable_axis = {false, false, false, true, true, false};
     force_request_pub_.publish(force_request_msg_);
+    ROS_INFO_STREAM("jhakdj");
   }
   
   

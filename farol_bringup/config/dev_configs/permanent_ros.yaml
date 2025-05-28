@@ -58,6 +58,32 @@ addons/remote_controller:
         subscribers:
             state: "/#vehicle#/nav/filter/state"
 
+# FIXME: namespaces / make mission planner be launched under the correct namepace 
+# addons/MissionPlannerNode:
+#     topics:
+#         subscribers:
+#             state: "/#vehicle#/nav/filter/state"
+#             interest_zone: "/#vehicle#/mission_planner/interest_zone"
+#             new_iz_mission_acomms: "/#vehicle#/acomms/new_iz_mission"
+#             being_scanned_acomms: "/#vehicle#/acomms/being_scanned"
+#             vehicle_ready_acomms: "/#vehicle#/acomms/vehicle_ready"
+#             mission_started_ack_acomms: "/#vehicle#/acomms/mission_started_ack"
+#             stop_pf: "/#vehicle#/acomms/stop_pf"
+#             # glider0_state_usbl_meas: "/#vehicle#/State_usbl_est_auv0"
+#             # glider1_state_usbl_meas: "/#vehicle#/State_usbl_est_auv1"
+#         publishers:
+#             Mission_String: "/#vehicle#/addons/Mission_String"
+#             mission_started_ack: "/#vehicle#/mission_planner/mission_started_ack"
+#             new_iz_mission: "/#vehicle#/mission_planner/new_iz_mission"
+#             ready_for_mission: "/#vehicle#/mission_planner/ready_for_mission"
+#             stop_all_pf: "/#vehicle#/mission_planner/stop_all_pf"
+#             status_flag: "/#vehicle#/Flag"
+#             # waypoints: "/#vehicle#/mission_planner/asv_waypoints"
+#             depth_ref: "/#vehicle#/ref/depth"
+#         services:
+#             interest_zone: "/#vehicle#/mission_planner/interest_zone"
+#             change_configs: "/#vehicle#/mission_planner/change_configurations"
+
 ## --------------------------- ## 
 #  farol_sim                   #
 ## --------------------------- ## 
@@ -482,6 +508,7 @@ docking/outer_loop:
             enable: "/#vehicle#/docking/enable"
             flag: "/#vehicle#/Flag"
             acomms: "/#vehicle#/acomms/usbl_fix"
+            force: "/#vehicle#/force_bypass"
         publishers:
             ref_surge: "/#vehicle#/ref/surge"
             ref_yaw: "/#vehicle#/ref/yaw"
@@ -492,8 +519,11 @@ docking/outer_loop:
             flag: "/#vehicle#/Flag"
             debug: "/#vehicle#/docking/controller/debug"
             phase: "/#vehicle#/docking/phase"
+            mission_string: "/#vehicle#/addons/Mission_String"
+            force: "/#vehicle#/force_bypass"
         services:
             waypoint: "/#vehicle#/controls/send_wp_standard"
+            
 
 docking/inner_loops:
     topics:

@@ -262,11 +262,12 @@ class DockingHelperNode():
                     msg2.elevation = msg2.elevation  + np.random.normal(0, self.elevation_noise_stddev)
                     msg3.bearing = msg3.bearing  + np.random.normal(0, self.bearing_noise_stddev)
                     msg3.elevation = msg3.elevation  + np.random.normal(0, self.elevation_noise_stddev)
-                    
-                self.pub_usbl_fix.publish(msg1)
-                self.pub_usbl_fix.publish(msg2)
-                self.pub_usbl_acomms.publish(msg3)
-                self.pub_usbl_acomms.publish(msg4)
+
+                if(msg3.bearing_body > 1.745333333 or msg3.bearing_body < -1.745333333):
+                    self.pub_usbl_fix.publish(msg1)
+                    self.pub_usbl_fix.publish(msg2)
+                    self.pub_usbl_acomms.publish(msg3)
+                    self.pub_usbl_acomms.publish(msg4)
         
         msg = mState()
         msg.X = self.state_dock[1] + ORIGIN[1]

@@ -140,6 +140,8 @@
   ros::Publisher debug_pub_;
   ros::Publisher force_pub_;
   ros::Publisher docking_state_pub;
+  ros::Publisher mission_string_pub;
+  
 
   // Services
   ros::ServiceClient wp_client;
@@ -151,6 +153,7 @@
   auv_msgs::BodyForceRequest   force_request_msg_;
   waypoint::sendWpType1 wp_srv_;
   std_msgs::String phase_msg_;
+  std_msgs::String mission_string_msg_;
 
   // #farol_docking::ControllerDebug debug_msg_;
   
@@ -173,13 +176,12 @@
   Eigen::Vector2d filter_state_;
   ros::Time end_time_;
   bool reached_close_{false};
-  bool waiting_completion_{false};
   bool got_docking_state_{false};
+  bool got_acomms_{false};
   double time_last_acomms_{-1.0};
   double acomms_timeout_{20.0}, homing_dist_, acomms_search_radius_;
   int acomms_n_min_fix_;
   int n_fixes_;
-  int n_flag0_{0};
   
   // for generating trajectory
   double y_ref_{0.0}, y_ref_dot_{0.0}, y_ref_ddot_{0.0};
@@ -195,6 +197,7 @@
   Eigen::Vector3d max_accl_;
   
   Eigen::Vector3d docking_state_, inertial_state_; 
+  double inertial_yaw_, docking_yaw_;
   
   Eigen::Vector2d homing_target_point_;
 
