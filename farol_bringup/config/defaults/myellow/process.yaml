@@ -143,6 +143,7 @@ processes:
       cmd: 'roslaunch farol_docking docking.launch'
       args:
             - filter:= true
-            - controller:= true
+            - outer_loop:= true
+            - inner_loops:= true
       dependencies:
             []
