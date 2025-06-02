@@ -1,45 +1,60 @@
 #include "Bezier.h"
 #include <math.h>
 #include <stdexcept>
+#include <cstdio>
+#include <iostream>
+#include <ros/ros.h>
 
-Bezier::Bezier(Eigen::Matrix2Xd &Control_points, double z) : PathSection(true) {
-    /* Assign the parameters */
-    this->Control_points_ = Control_points;
+Bezier::Bezier(const Eigen::VectorXd &px, const Eigen::VectorXd &py, int bez_deg, double z, double Tf) : PathSection(false)
+{
+
+    // Resize Control_points_ to 2 rows and px.size() columns
+    this->Control_points_.resize(2, px.size());
+
+    for (size_t i = 0; i < px.size(); ++i)
+    {
+        this->Control_points_(0, i) = px[i]; // First row: x-coordinates
+        this->Control_points_(1, i) = py[i]; // Second row: y-coordinates
+    }
     this->z_axis_ = z;
     /* Set the gamma max for this path to be between 0 and 1 */
     this->setMinGammaValue(0.0);
     this->setMaxGammaValue(1.0);
+    
+    this->Tf_ = Tf;
 }
 
 /* Compute the path section equation */
-Eigen::Vector3d Bezier::eq_pd(double t){
-  
-    Eigen::Vector3d pd_t;
+Eigen::Vector3d Bezier::eq_pd(double t)
+{
 
+    Eigen::Vector3d pd_t;
+    //ROS_INFO("Gamma value: %f", t);
     /* Make sure the path parameter is betwen 0 and 1*/
     t = this->limitGamma(t);
-
-    int numCPoints = Control_points_.cols(); 
+    
+    int numCPoints = Control_points_.cols();
     Eigen::Vector2d Pos = deCasteljau(t, Control_points_, numCPoints, numCPoints);
 
     /* Store position */
     pd_t[0] = Pos.x();
     pd_t[1] = Pos.y();
     pd_t[2] = this->z_axis_;
-
+    
     return pd_t;
 }
 
 /* Compute the derivative of the path section */
-Eigen::Vector3d Bezier::eq_d_pd(double t) {
-  
+Eigen::Vector3d Bezier::eq_d_pd(double t)
+{
+
     Eigen::Vector3d d_pd_t;
 
     /* Make sure the path parameter is betwen 0 and 1*/
     t = this->limitGamma(t);
-    
+
     Eigen::Matrix2Xd Der_P = bezier_derivative(Control_points_);
-    int numCPoints = Der_P.cols(); 
+    int numCPoints = Der_P.cols();
     Eigen::Vector2d Der = deCasteljau(t, Der_P, numCPoints, numCPoints);
 
     /* Store Derivative */
@@ -51,7 +66,8 @@ Eigen::Vector3d Bezier::eq_d_pd(double t) {
 }
 
 /* Compute the second derivative of the path section */
-Eigen::Vector3d Bezier::eq_dd_pd(double t) {
+Eigen::Vector3d Bezier::eq_dd_pd(double t)
+{
 
     Eigen::Vector3d dd_pd_t;
 
@@ -60,7 +76,7 @@ Eigen::Vector3d Bezier::eq_dd_pd(double t) {
 
     Eigen::Matrix2Xd Der_P = bezier_derivative(Control_points_);
     Eigen::Matrix2Xd Sec_der_P = bezier_derivative(Der_P);
-    int numCPoints = Sec_der_P.cols(); 
+    int numCPoints = Sec_der_P.cols();
     Eigen::Vector2d Der = deCasteljau(t, Sec_der_P, numCPoints, numCPoints);
 
     /* Store Derivative */
@@ -72,21 +88,26 @@ Eigen::Vector3d Bezier::eq_dd_pd(double t) {
 }
 
 /**
- * Method to return the closest point to the path 
- * By default just calls the Gradient Descent algorithm 
- * 
+ * Method to return the closest point to the path
+ * By default just calls the Gradient Descent algorithm
+ *
  * TODO: Implement GJK algorithm...
  */
 
- double Bezier::getClosestPointGamma(Eigen::Vector3d &coordinate) {
+double Bezier::getClosestPointGamma(Eigen::Vector3d &coordinate)
+{
 
-    Eigen::Vector2d P = coordinate.head<2>();  // Extracts [x, y]
-    
+    Eigen::Vector2d P = coordinate.head<2>(); // Extracts [x, y]
+
     Eigen::Matrix2Xd sum = Control_points_.colwise() - P;
 
-    Eigen::Matrix2Xd square = multiply_Bezier(sum,sum);
+    Eigen::Matrix2Xd square = multiply_Bezier(sum, sum);
 
     auto result = GJK(square, 1e10, 1e-6, 0, 1);
+
+    auto sq_dist= deCasteljau(result.second, square, square.cols(), square.cols());
+    ROS_INFO("gOT INTO gjk");
+    ROS_INFO("Squared distance to closest: %lf", sq_dist);
 
     return result.second;
 }
@@ -112,20 +133,24 @@ std::pair<double, double> Bezier::GJK(const Eigen::Matrix2Xd &P, double alpha, d
     Eigen::VectorXd sq_Dist = P.row(0) + P.row(1);
 
     // Find the lower and upper bounds of the distance
-    double lower = sq_Dist.minCoeff();  // Minimum of the summed rows
-    double upper = std::min(sq_Dist(0),sq_Dist(sq_Dist.cols()-1));
+    double lower = sq_Dist.minCoeff(); // Minimum of the summed rows
+    double upper = std::min(sq_Dist(0), sq_Dist(sq_Dist.cols() - 1));
 
     // Update alpha if the upper bound is smaller than the current alpha
-    if (upper < alpha) {
+    if (upper < alpha)
+    {
         alpha = upper;
     }
 
     // Check if the difference between the bounds is smaller than the tolerance
-    if (upper - lower < epsilon) {
+    if (upper - lower < epsilon)
+    {
         // Return the midpoint of the current segment as the u-value
         double u_val = (u_start + u_end) / 2;
         return {alpha, u_val};
-    } else {
+    }
+    else
+    {
         // Subdivide the Bézier curve at u = 0.5
         Eigen::Matrix2Xd A(2, P.cols()), B(2, P.cols());
         auto Parts = divide_bezier(P, 0.5);
@@ -143,10 +168,13 @@ std::pair<double, double> Bezier::GJK(const Eigen::Matrix2Xd &P, double alpha, d
         double u_right = resultRight.second;
 
         // Return the closest point (with the smaller alpha value)
-        if (alpha1 < alpha2) {
-            return {alpha1, u_left};  // Closest point was in the left part
-        } else {
-            return {alpha2, u_right};  // Closest point was in the right part
+        if (alpha1 < alpha2)
+        {
+            return {alpha1, u_left}; // Closest point was in the left part
+        }
+        else
+        {
+            return {alpha2, u_right}; // Closest point was in the right part
         }
     }
 }

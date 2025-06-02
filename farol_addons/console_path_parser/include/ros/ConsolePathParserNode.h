@@ -29,6 +29,9 @@ Don't you miss the danger ...
 #include "path_following/StartPF.h"
 #include "path_following/StopPF.h"
 
+#include "dsor_paths/SpawnBezier.h"
+#include "dsor_paths/SetBezierSpeed.h"
+
 // ROS messages and stuff
 #include <auv_msgs/NavigationStatus.h>
 #include <geometry_msgs/Point.h>
@@ -42,6 +45,9 @@ Don't you miss the danger ...
 #include <std_msgs/Float64.h>
 #include <std_msgs/Int8.h>
 #include <std_msgs/String.h>
+
+
+#include <sstream>
 
 #define PI 3.14159265
 #define BUF_SIZE_TIME 80
@@ -131,7 +137,9 @@ private:
     ros::ServiceClient reset_path_client_;
     ros::ServiceClient spawn_arc_client_;
     ros::ServiceClient spawn_line_client_;
+	ros::ServiceClient spawn_bezier_client_;
     ros::ServiceClient set_path_speed_client_;
+	ros::ServiceClient set_path_bezier_speed_client_;
 
     /* Path Following clients - to start and stop the path following algorithm */
     ros::ServiceClient stop_pf_client_;

@@ -26,6 +26,11 @@
 #include "ConstRabbitSpeed.h"
 #include "ConstVehicleSpeed.h"
 
+#include "BezierRabbitSpeed.h"
+#include "BezierVehicleSpeed.h"
+#include "Bezier.h"
+
+
 /* Include the generated services for the paths */
 #include "dsor_paths/ResetPath.h"
 #include "dsor_paths/SetMode.h"
@@ -33,9 +38,11 @@
 #include "dsor_paths/SpawnBernoulli.h"
 #include "dsor_paths/SpawnCircle2D.h"
 #include "dsor_paths/SpawnLine.h"
+#include "dsor_paths/SpawnBezier.h"
 
 /* Services for setting the speed profile of the vehicle*/
 #include "dsor_paths/SetConstSpeed.h"
+#include "dsor_paths/SetBezierSpeed.h"
 
 
 /** 
@@ -117,7 +124,11 @@ class PathNode {
     ros::ServiceServer line_srv_;
     ros::ServiceServer rabbit_const_speed_srv_;
     ros::ServiceServer vehicle_const_speed_srv_;
+    ros::ServiceServer rabbit_bezier_speed_srv_;
+    ros::ServiceServer vehicle_bezier_speed_srv_;
+    ros::ServiceServer bezier_srv_;
 
+    double Tf_val_{0.0};
     /**
      * @brief ROS Timers attributes 
      */
@@ -154,6 +165,10 @@ class PathNode {
     bool LineService(dsor_paths::SpawnLine::Request &req, dsor_paths::SpawnLine::Response &res);
     bool RabbitConstSpeedService(dsor_paths::SetConstSpeed::Request &req, dsor_paths::SetConstSpeed::Response &res);
     bool VehicleConstSpeedService(dsor_paths::SetConstSpeed::Request &req, dsor_paths::SetConstSpeed::Response &res);
+
+    bool RabbitBezierSpeedService(dsor_paths::SetBezierSpeed::Request &req, dsor_paths::SetBezierSpeed::Response &res);
+    bool VehicleBezierSpeedService(dsor_paths::SetBezierSpeed::Request &req, dsor_paths::SetBezierSpeed::Response &res);
+    bool BezierService(dsor_paths::SpawnBezier::Request &req, dsor_paths::SpawnBezier::Response &res);
 
     /** 
      * @brief Auxiliar method to be called inside the callbacks

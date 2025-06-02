@@ -13,7 +13,7 @@ Don't you miss the danger
  */
 class Section {
   public:
-    int type;          ///< 1= WP; 2=Line; 3=Arc; 4=Depth
+    int type;          ///< 1= WP; 2=Line; 3=Arc; 4=Depth; 5=Bezier
     double xi;         ///< initial x of section
     double yi;         ///< initial y of section
     double xc;         ///< x of center of arc (-1 if line or point)
@@ -29,6 +29,12 @@ class Section {
     double gamma_s;    ///< Starting gamma (not normalized)
     double gamma_e;    ///< Ending gamma (not normalized) 
     float depth;       ///< Depth of the section
+
+    int bez_deg;       ///< Bezier Degree order
+    std::vector<double> px;  ///< Dynamic vector for x coordinates of the Bezier control points
+    std::vector<double> py;  ///< Dynamic vector for y coordinates of the Bezier control points
+    double tf;         ///< Final time of arrival for Bezier Curve
+
     Section() {
         type = 0;
         xi = 0;
@@ -46,5 +52,8 @@ class Section {
         gamma_s = 0;
         gamma_e = 0; 
         depth = 0.0;
+
+        bez_deg = 0;
+        tf = 0.0;
     }
 };

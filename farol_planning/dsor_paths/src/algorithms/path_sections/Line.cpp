@@ -35,7 +35,7 @@ Eigen::Vector3d Line::eq_pd(double t) {
   /* Compute the slope and offest of the line */
   slope = this->end_point_ - this->start_point_;
   offset = this->start_point_;
- 
+
   return slope * t + offset;
 }
 
@@ -65,7 +65,7 @@ double Line::getClosestPointGamma(Eigen::Vector3d &coordinate) {
        
     // Line Distance
     double l = (this->end_point_ - this->start_point_).norm();         
-    
+
     // Distance to the begining of the mission
     double ds = (coordinate - this->start_point_).norm(); 
     

@@ -118,6 +118,7 @@ void PathNode::timerIterCallback(const ros::TimerEvent &event) {
   std::optional<double> vd = 0;
   std::optional<double> d_vd = 0;
   double vehicle_speed = 0;
+  double Tf_value = 0.0;
   std::pair<double, double> min_max_gamma_path;
 
   /* If the mode is to use the closest point to the vehicle, than get the gamma of that point */
@@ -150,6 +151,8 @@ void PathNode::timerIterCallback(const ros::TimerEvent &event) {
     /* Get the values for the minimum and maximum values allowed for the path */
     min_max_gamma_path = this->path_->getMinMaxGamma();
 
+    Tf_value = this->Tf_val_; 
+
     /* Check if we have all the data */
     if(pd && d_pd && dd_pd && tangent && curvature && derivative_norm) {
 
@@ -179,6 +182,8 @@ void PathNode::timerIterCallback(const ros::TimerEvent &event) {
 
       msg.gamma_min = min_max_gamma_path.first;
       msg.gamma_max = min_max_gamma_path.second;
+      
+      msg.tf = Tf_value;
 
       /* Publish the message with path info */
       this->path_pub_.publish(msg);

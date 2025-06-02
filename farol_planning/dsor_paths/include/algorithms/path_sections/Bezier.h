@@ -19,7 +19,8 @@ class Bezier : public PathSection {
      *
      * @param Control_points
      */
-    Bezier(Eigen::Matrix2Xd &Control_points, double z);
+    Bezier(const Eigen::VectorXd &px, const  Eigen::VectorXd &py, int bez_deg,double z, double Tf
+    );
 
     /**
      * @brief Path section equation
@@ -57,7 +58,7 @@ class Bezier : public PathSection {
      *
      * @return a double with the gamma corresponding to the closest point
      */
-    double getClosestPointGamma(Eigen::Vector3d &coordinate);
+    double getClosestPointGamma(Eigen::Vector3d &coordinate) override;
 
     /**
      * @brief  Recursive method for getting a specific point on a Bézier curve using the Casteljau's algorithm
@@ -113,6 +114,8 @@ class Bezier : public PathSection {
      */
     Eigen::Matrix2Xd multiply_Bezier(const Eigen::Matrix2Xd &P1, const Eigen::Matrix2Xd &P2);
 
+    double Tf_;
+    
   private:
 
     /** 

@@ -14,6 +14,9 @@ topics:
     bernoulli_path: "/SpawnBernoulliPath"
     circle2d_path: "/SpawnCircle2DPath"
     line_path: "/SpawnLinePath"
+    bezier_path: "/SpawnBezierPath"   # <--- ADD THIS LINE
     speed:
       const_rabbit_speed: "/SetConstVdRabbit"
       const_vehicle_speed: "/SetConstVdVehicle"
+      bezier_rabbit_speed: "/SetBezierVdRabbit"
+      bezier_vehicle_speed: "/SetBezierVdVehicle"

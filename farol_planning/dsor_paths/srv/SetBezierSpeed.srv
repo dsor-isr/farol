@@ -1,0 +1,5 @@
+float64[] px
+float64[] py
+float64 tf
+---
+bool success

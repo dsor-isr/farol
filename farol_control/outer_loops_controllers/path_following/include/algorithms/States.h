@@ -79,6 +79,8 @@ typedef struct {
   double gamma_min{std::numeric_limits<double>::lowest()};
   double gamma_max{std::numeric_limits<double>::max()};
 
+  double tf{0.0};
+
 } PathState;
 
 typedef struct {

@@ -263,6 +263,7 @@ void PathFollowingNode::pathStateCallback(const dsor_paths::PathData &msg) {
   /* Update the bounds of the path following path parameter gamma */
   this->path_state_.gamma_min = msg.gamma_min;
   this->path_state_.gamma_max = msg.gamma_max;
+  this->path_state_.tf = msg.tf;
 }
 
 /**
