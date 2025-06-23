@@ -17,28 +17,28 @@
 button_assignment:
         # Surge input
         surge: {"inputs":[
-                        {"type": "axis", "id": 3, "gain": -100.0, "offset": 0.0}],
+                        {"type": "axis", "id": 3, "gain": -1.0, "offset": 0.0}],
                 "integrate": false}
 
         # Sway input
         sway: {"inputs":[
-                        {"type": "axis", "id": 2, "gain": 100.0, "offset": 0.0}],
+                        {"type": "axis", "id": 2, "gain": 1.0, "offset": 0.0}],
                 "integrate": false}
 
         # Heave input
         heave: {"inputs":[
-                        {"type": "axis", "id": 1, "gain": 100.0, "offset": 0.0}],
+                        {"type": "axis", "id": 1, "gain": 1.0, "offset": 0.0}],
                 "integrate": false}
 
         # Yaw-rate input
         yaw_rate: {"inputs":[
-                {"type": "axis", "id": 3, "gain": 32.0, "offset": 0.0}],
+                {"type": "axis", "id": 0, "gain": 0.32, "offset": 0.0}],
                 "integrate": false}
 
         # Yaw input
         yaw: {"inputs":[
-                {"type": "button", "id": 2, "gain": -10.0, "offset": 0.0},
-                {"type": "button", "id": 1, "gain": 10.0, "offset": 0.0}],
+                {"type": "button", "id": 0, "gain": -5.0, "offset": 0.0},
+                {"type": "button", "id": 2, "gain": 5.0, "offset": 0.0}],
                 "integrate": true}
 
         # Camera angle input
@@ -56,13 +56,15 @@ button_assignment:
                 "integrate": false}
 
         # Gains to affect the input 
-        speed_gains: {"inputs": [
-                        {"type": "button", "id": 2, "gain": 0.25, "offset": 0.0},
-                        {"type": "button", "id": 0, "gain": -0.25, "offset": 0.0}],
-                "integrate": false}
+        # speed_gains: {"inputs": [
+        #                 {"type": "button", "id": 2, "gain": 0.25, "offset": 0.0},
+        #                 {"type": "button", "id": 0, "gain": -0.25, "offset": 0.0}],
+        #         "integrate": false}
 
         # Depth input
-        depth: {"inputs":[],
+        depth: {"inputs":[
+                {"type": "button", "id": 1, "gain": 1.0, "offset": 0.0},
+                {"type": "button", "id": 3, "gain": -1.0, "offset": 0.0}],
                 "integrate": true,
-                "lower_limit": -1,
-                "upper_limit": 2.5}
+                "lower_limit": 0,
+                "upper_limit": 3.5}

@@ -2,18 +2,18 @@ node_frequency: 10 #Hz
 topics:
   publishers:
     # Linear velocity inner-loops
-    surge: "/ref/surge"
-    sway: "/ref/sway"
-    heave: "/ref/heave"
+    surge: "/myellow0/ref/surge"
+    sway: "/myellow0/ref/sway"
+    heave: "/myellow0/ref/heave"
 
     # Angular speed references
-    yaw_rate: "/ref/yaw_rate"
+    yaw_rate: "/myellow0/ref/yaw_rate"
 
     # Orientation references
-    yaw: "/ref/yaw"
+    yaw: "/myellow0/ref/yaw"
 
     # Depth references
-    depth: "/ref/depth"
+    depth: "/myellow0/ref/depth"
 
   subscribers:
-    state: "/nav/filter/state"
+    state: "/myellow0/nav/filter/state"

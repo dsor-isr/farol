@@ -58,14 +58,17 @@ class RemoteControllerNode:
         rospy.loginfo(desired_inputs)
 
         # Publish the linear speed references
-        self.surge_pub.publish(desired_inputs["surge"])
-        self.sway_pub.publish(desired_inputs["sway"])
-        self.heave_pub.publish(desired_inputs["heave"])
+        if abs(desired_inputs["surge"]) > 0.08:
+            self.surge_pub.publish(desired_inputs["surge"])
+        if abs(desired_inputs["sway"]) > 0.08:
+            self.sway_pub.publish(desired_inputs["sway"])
+        if abs(desired_inputs["heave"]) > 0.08:
+            self.heave_pub.publish(desired_inputs["heave"])
 
         # Publish the angular speed references
         if desired_inputs["yaw_rate"] != 0.0:
             self.yaw_rate_pub.publish(desired_inputs["yaw_rate"])
-
+                
             # Override the current desired yaw to the most recent yaw received from the state of the AUV
             # when controlling with yaw-rate
             self.control_assignment.set_desired_state("yaw", self.yaw_state_)
