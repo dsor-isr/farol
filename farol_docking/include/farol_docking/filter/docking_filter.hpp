@@ -271,6 +271,9 @@ class DockingFilter{
         Eigen::Vector3d auv_attitude_; // the attitude of the vehicle in inertial frame read by the ahrs
         Eigen::Vector3d dock_attitude_; // the attitude of the dock in the inertial frame, received over acoustics. only available if the dock has an AHRS 
         bool dock_has_ahrs_{false};
+
+        // vector normal to the terrain in the inertial frame, used to know the relative orientation
+        Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::Zero();
     private:
 };
 

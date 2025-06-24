@@ -23,6 +23,7 @@
 #include <std_msgs/String.h>
 #include <geometry_msgs/PoseStamped.h>  
 #include <geometry_msgs/Point.h>  
+#include <geometry_msgs/Vector3.h>  
 #include <dsor_msgs/Measurement.h>
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
@@ -104,6 +105,9 @@ class DockingFilterNode {
    */
   void reset_callback(const std_msgs::Empty &msg);
 
+
+  void terrain_normal_callback(const geometry_msgs::Vector3 &msg);
+
   /**
    * @brief Function that runs at the node frequency, propagrating the state until 
    *        current time and sending the current state over to ROS
@@ -125,6 +129,7 @@ class DockingFilterNode {
   ros::Subscriber sub_usbl_fix_;
   ros::Subscriber sub_usbl_accoms_;
   ros::Subscriber sub_dock_inertial_pos_;
+  ros::Subscriber sub_terrain_d;
   
  	// Publishers
   ros::Publisher state_pub_;

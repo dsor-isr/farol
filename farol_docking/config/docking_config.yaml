@@ -3,7 +3,7 @@
 filter:
   node_frequency: 10
   debug: true
-  dock_has_ahrs: true
+  dock_has_ahrs: false
   initializer_size: 4
   # outlier_rejection:  ["usbl", "dvl"]
   outlier_rejection:  [] # no outlier rejection
