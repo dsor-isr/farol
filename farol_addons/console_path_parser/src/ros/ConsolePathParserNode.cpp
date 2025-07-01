@@ -48,6 +48,7 @@ ConsolePathParserNode::~ConsolePathParserNode() {
   reset_path_client_.shutdown();
   spawn_arc_client_.shutdown();
   spawn_line_client_.shutdown();
+  spawn_bezier_client_.shutdown();
   start_pf_client_.shutdown();
   stop_pf_client_.shutdown();
   set_path_speed_client_.shutdown();
@@ -99,6 +100,9 @@ void ConsolePathParserNode::initializeServices() {
   std::string pf_stop_name = FarolGimmicks::getParameters<std::string>(nh_private_, "topics/services/pf_stop");
   std::string speed_name = FarolGimmicks::getParameters<std::string>(nh_private_, "topics/services/set_speed");
 
+  std::string bezier_speed_name = FarolGimmicks::getParameters<std::string>(nh_private_, "topics/services/set_bezier_speed");
+  std::string bezier_section_name = FarolGimmicks::getParameters<std::string>(nh_private_, "topics/services/bezier_path");
+
   /* Initiate all the service clients */
   reset_path_client_ = nh_.serviceClient<dsor_paths::ResetPath>(reset_path_name);
   spawn_arc_client_ = nh_.serviceClient<dsor_paths::SpawnArc2D>(arc_section_name);
@@ -106,6 +110,9 @@ void ConsolePathParserNode::initializeServices() {
   start_pf_client_ = nh_.serviceClient<path_following::StartPF>(pf_start_name);
   stop_pf_client_ = nh_.serviceClient<path_following::StopPF>(pf_stop_name);
   set_path_speed_client_ = nh_.serviceClient<dsor_paths::SetConstSpeed>(speed_name);
+  
+  set_path_bezier_speed_client_ = nh_.serviceClient<dsor_paths::SetBezierSpeed>(bezier_speed_name);
+  spawn_bezier_client_ = nh_.serviceClient<dsor_paths::SpawnBezier>(bezier_section_name);
 }
 
 /**
@@ -134,11 +141,6 @@ double ConsolePathParserNode::nodeFrequency() {
   nh_private_.param("node_frequency", node_frequency, 5.0);
   ROS_INFO("Node will run at : %lf [hz]", node_frequency);
   return node_frequency;
-}
-
-void ConsolePathParserNode::createPathFolder() {
-  namespace fs = std::filesystem;
-  fs::create_directories(path_folder);
 }
 
 /* 
@@ -255,7 +257,38 @@ void ConsolePathParserNode::requestPath() {
         /* Increment the number of valid sent sections */
         run++;
       }
+    } else if(it->type == 5) {
+
+      /* TODO: Make sure the Bezier received is valid */
+
+      /* Call the service to spawn Bezier */
+      dsor_paths::SpawnBezier srv;
+
+      srv.request.px = it->px;
+      srv.request.py = it->py;
+      srv.request.bez_deg = it->bez_deg;
+      srv.request.z = 0.0;
+      srv.request.tf = it->tf;
+
+      spawn_bezier_client_.call(srv);
+      
+      /* Call the service to specify the section desired speed for this section */
+      dsor_paths::SetConstSpeed speed_srv;
+      speed_srv.request.speed = 0.5;
+      speed_srv.request.default_speed = 0.5;
+      //set_path_speed_client_.call(speed_srv);
+
+      /* Call the service to specify the section desired speed for this section */
+      dsor_paths::SetBezierSpeed bezier_speed_srv;
+      bezier_speed_srv.request.px = it->px;//it->velocity;
+      bezier_speed_srv.request.py = it->py;//->velocity;
+      bezier_speed_srv.request.tf = it->tf;//it->velocity;
+      set_path_bezier_speed_client_.call(bezier_speed_srv);
+
+      /* Increment the number of valid sent sections */
+      run++;
     }
+    
   }
 
   /* If there was at least one valid section to follow, invoke the path following algorithm */
@@ -456,6 +489,44 @@ void ConsolePathParserNode::parseMission(std::istream &is) {
           newSection.gamma_e = Gamma0 + (2 * PI - ANG_P(psis - psie)) * newSection.radius;
       } else {
         continue;
+      }
+    } 
+    // +.+ Bezier
+    else if (line.compare(0, 6, "BEZIER") == 0) {
+      std::vector<std::string> bezier_str;
+      boost::split(bezier_str,line, boost::is_any_of("\t "));
+
+      if (bezier_str.size() < 2)
+      {
+        ROS_ERROR("Invalid BEZIER command: [%s]", line.c_str());
+        return;
+      }
+      newSection.type = 5;
+      newSection.gamma_s = 0;
+      newSection.gamma_e = 1;
+      
+      int num_points = std::stoi(bezier_str[1]);  
+      newSection.bez_deg = num_points - 1;
+      if (bezier_str.size() != 3 + 2 * num_points) {
+        ROS_ERROR("BEZIER command does not match expected number of points");
+        return;
+      }
+      
+      newSection.px.clear();
+      newSection.py.clear();
+
+      for (int i = 0; i < num_points; i++)
+      {
+        double xPoints = std::stod(bezier_str[2+i]);
+        double yPoints = std::stod(bezier_str[2+num_points + i]);
+
+        newSection.px.push_back(xPoints+xrefpoint);
+        newSection.py.push_back(yPoints+yrefpoint);
+      }
+      newSection.tf = std::stoi(bezier_str[2+2*num_points]);
+      ROS_INFO("newSection.py values:");
+      for (size_t i = 0; i < newSection.py.size(); i++) {
+        ROS_INFO("[%lu]: %lf", i, newSection.py[i]);
       }
     } 
     // +.+ Depth

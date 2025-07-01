@@ -23,4 +23,6 @@ topics:
     pf_start: "/PFStart"
     pf_stop: "/PFStop"
     set_speed: "/SetConstVdVehicle"
+    set_bezier_speed: "/SetBezierVdVehicle"
+    bezier_path: "/SpawnBezierPath"   # <--- ADD THIS LINE
 

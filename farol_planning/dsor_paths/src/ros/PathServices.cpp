@@ -16,6 +16,10 @@ void PathNode::initializeServices() {
   this->line_srv_ = this->nh_.advertiseService(FarolGimmicks::getParameters<std::string>(this->nh_p_, "topics/services/line_path", "/spawn_line_path"), &PathNode::LineService, this);
   this->rabbit_const_speed_srv_ = this->nh_.advertiseService(FarolGimmicks::getParameters<std::string>(this->nh_p_, "topics/services/speed/const_rabbit_speed", "/SetConstVdRabbit"), &PathNode::RabbitConstSpeedService, this);
   this->vehicle_const_speed_srv_ = this->nh_.advertiseService(FarolGimmicks::getParameters<std::string>(this->nh_p_, "topics/services/speed/const_vehicle_speed", "/SetConstVehicleSpeed"), &PathNode::VehicleConstSpeedService, this);
+
+  this->rabbit_bezier_speed_srv_ = this->nh_.advertiseService(FarolGimmicks::getParameters<std::string>(this->nh_p_, "topics/services/speed/bezier_rabbit_speed", "/SetBezierVdRabbit"), &PathNode::RabbitBezierSpeedService, this);
+  this->vehicle_bezier_speed_srv_ = this->nh_.advertiseService(FarolGimmicks::getParameters<std::string>(this->nh_p_, "topics/services/speed/bezier_vehicle_speed", "/SetBezierVehicleSpeed"), &PathNode::VehicleBezierSpeedService, this);
+  this->bezier_srv_ = this->nh_.advertiseService(FarolGimmicks::getParameters<std::string>(this->nh_p_, "topics/services/bezier_path", "/spawn_bezier_path"), &PathNode::BezierService, this);
 }
 
 /**
@@ -32,6 +36,10 @@ void PathNode::shutdownServices() {
   this->line_srv_.shutdown();
   this->rabbit_const_speed_srv_.shutdown();
   this->vehicle_const_speed_srv_.shutdown();
+
+  this->bezier_srv_.shutdown();
+  this->rabbit_bezier_speed_srv_.shutdown();
+  this->vehicle_bezier_speed_srv_.shutdown();
 }
 
 
@@ -302,3 +310,101 @@ bool PathNode::VehicleConstSpeedService(dsor_paths::SetConstSpeed::Request &req,
 }
 
 
+bool PathNode::BezierService(dsor_paths::SpawnBezier::Request &req, dsor_paths::SpawnBezier::Response &res){
+
+  
+
+  // Validate the Bezier section */
+  // TODO: Verify if all control points are valid...*/
+  /*if(req.control_P.cols() != 2) {
+    ROS_INFO("Bezier Dimension != 2 Not added to the path");
+    res.success = false;
+    return true;
+  }*/
+  // Validate the Bezier section
+  if (req.px.size() != req.py.size())
+  {
+    ROS_INFO("Px and Py arrays have different sizes!");
+    // Print the sizes of both arrays
+    ROS_INFO("Px size: %ld, Py size: %ld", req.px.size(), req.py.size());
+    
+    // Print the contents of Px and Py
+    ROS_INFO("Px values: ");
+    for (size_t i = 0; i < req.px.size(); ++i)
+    {
+        ROS_INFO("%f", req.px[i]);
+    }
+
+    ROS_INFO("Py values: ");
+    for (size_t i = 0; i < req.py.size(); ++i)
+    {
+        ROS_INFO("%f", req.py[i]);
+    }
+
+    res.success = false;
+    return true;
+  }
+
+  Eigen::Matrix2Xd control_P(2,req.px.size());
+
+  // Fill the Eigen matrix with Px and Py values
+  for (size_t i = 0; i < req.px.size(); ++i)
+  {
+    control_P(0, i) = req.px[i]; // Set x coordinates
+    control_P(1, i) = req.py[i]; // Set y coordinates
+  }
+
+  bool success = false;
+  double Tf = req.tf;
+  /* Allocate memory for a new Bezier Object */
+  Bezier *section = new Bezier(Eigen::VectorXd::Map(req.px.data(), req.px.size()),
+                             Eigen::VectorXd::Map(req.py.data(), req.py.size()),
+                             req.px.size() - 1, 
+                             0.0, Tf);
+
+  /* Try to add the bezier to the path */
+  success = this->loadSectionIntoPath(section);
+
+  /* Send the update if the path section was added successfully or not */
+  res.success = success;
+  ROS_INFO("Adding Bezier to the path");
+  return true;
+} 
+
+bool PathNode::RabbitBezierSpeedService(dsor_paths::SetBezierSpeed::Request &req, dsor_paths::SetBezierSpeed::Response &res) {
+  
+  /* Get the data from the message */
+  double Tf_val = req.tf;
+  bool success = false;
+
+  /* Create a new Rabbit Speed object */
+  BezierRabbitSpeed * speed = new BezierRabbitSpeed(Eigen::VectorXd::Map(req.px.data(), req.px.size()), Eigen::VectorXd::Map(req.py.data(), req.py.size()), Tf_val);
+
+  /* Try to add the speed object to the path */
+  success = this->loadSpeedIntoPath(speed);
+
+  /* Construct the response back */
+  res.success = success;
+  if(success == true) ROS_INFO("Load rabbit BEZIER speed section");
+
+  return true;
+}
+
+bool PathNode::VehicleBezierSpeedService(dsor_paths::SetBezierSpeed::Request &req, dsor_paths::SetBezierSpeed::Response &res) {
+  
+  /* Get the data from the message */
+  Tf_val_ = req.tf;
+  bool success = false;
+
+  /* Create a new Rabbit Speed object */
+  BezierVehicleSpeed * speed = new BezierVehicleSpeed(Eigen::VectorXd::Map(req.px.data(), req.px.size()), Eigen::VectorXd::Map(req.py.data(), req.py.size()), Tf_val_);
+
+  /* Try to add the speed object to the path */
+  success = this->loadSpeedIntoPath(speed);
+
+  /* Construct the response back */
+  res.success = success;
+  if(success == true) ROS_INFO("Load vehicle BEZIER speed section");
+
+  return true;
+}

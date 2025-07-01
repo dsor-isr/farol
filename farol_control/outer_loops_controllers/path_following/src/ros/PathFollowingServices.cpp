@@ -666,7 +666,7 @@ bool PathFollowingNode::SetPramodService(path_following::SetPF::Request &req,
     this->pf_algorithm_ = new Pramod(controller_gains, this->publishers_[0],
         this->publishers_[1], this->publishers_[2], this->set_path_mode_client_);
     pf_algorithm_->setPFollowingDebugPublisher(nh_p_.advertise<farol_msgs::mPFollowingDebug>(pfollowing_debug_topic,1));
-    res.success = true;
+
 
   } catch (...) {
     ROS_WARN("Some error occured. Please reset the PF node for safety");

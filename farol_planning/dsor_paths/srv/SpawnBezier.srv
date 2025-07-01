@@ -1,0 +1,7 @@
+float64[] px
+float64[] py
+int8 bez_deg
+float64 z
+float64 tf
+---
+bool success

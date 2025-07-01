@@ -11,3 +11,4 @@ float64 d_vd
 float64 vehicle_speed
 float64 gamma_min      # The minimum and maximum value that gamma can achieve for the current path
 float64 gamma_max
+float64 tf             # For bezier curve imlementation the final time of arrival
