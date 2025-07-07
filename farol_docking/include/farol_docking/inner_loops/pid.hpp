@@ -25,6 +25,7 @@
 #include <dsor_msgs/Measurement.h>
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
+#include <farol_docking/PID_Debug.h>
 
 // farol libraries
 #include <farol_gimmicks_library/FarolGimmicks.h>

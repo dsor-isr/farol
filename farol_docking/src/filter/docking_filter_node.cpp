@@ -96,6 +96,10 @@ void DockingFilterNode::loadParams() {
   docking_filter_.initializer_size_ = FarolGimmicks::getParameters<int>(nh_private_, "initializer_size", 4);
   docking_filter_.dock_has_ahrs_ = FarolGimmicks::getParameters<bool>(nh_private_, "dock_has_ahrs", false);
 
+  std::vector<double> aux;
+  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "usbl_instalation_matrix", {});
+  docking_filter_.usbl_instalation_matrix_ << aux[0], aux[1], aux[2];
+
   // Filter covariances
   Eigen::MatrixXd noise;
   noise = load_matrix_parameter(nh_private_, "position/process_noise", Eigen::Matrix3d::Identity());
@@ -239,7 +243,7 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   // publish the estimated state
   state_msg_.header.stamp = ros::Time::now();
   ++state_msg_.header.seq;
-  state_msg_.header.frame_id = dock_frame_id_;
+  state_msg_.header.frame_id = "mdock0";
   Eigen::Vector3d position = state.translation();
   Eigen::Quaterniond quaternion = state.unit_quaternion();
   Eigen::Vector3d rpy = extractRPY(state.so3());//.matrix().eulerAngles(0, 1, 2);

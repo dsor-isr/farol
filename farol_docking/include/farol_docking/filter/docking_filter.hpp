@@ -274,6 +274,8 @@ class DockingFilter{
 
         // vector normal to the terrain in the inertial frame, used to know the relative orientation
         Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::Zero();
+        Eigen::Vector3d usbl_instalation_matrix_ = Eigen::Vector3d::Zero();;
+
     private:
 };
 

@@ -136,6 +136,11 @@ Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){
   t.x() = range * std::cos(rbe_dock(2)) * std::cos(rbe_dock(1));
   t.y() = range * std::cos(rbe_dock(2)) * std::sin(rbe_dock(1));
   t.z() = range * std::sin(rbe_dock(2));
+  
+
+  //TODO: add stuff trabskatuib nenes
+
+
 
   // if dock has ahrs compute the rotation matrix based on the diference of AHRS's euler angles
   if(dock_has_ahrs_){
@@ -167,8 +172,8 @@ Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){
     // do math to extract the relative yaw
     double r1 = -xyz_dock.dot(xyz_auv);
     double r2 = xyz_dock.cross(xyz_auv)(2);
-    double yaw = -std::atan2(r2, r1)
-    ROS_INFO_STREAM(yaw);
+    double yaw = -std::atan2(r2, r1);
+    FAROL_INFO(yaw);
     Eigen::Matrix3d R_auv = (Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ())).toRotationMatrix();
     // compute rotation from dock frame to 
     Sophus::SO3d R_(R_auv.inverse());

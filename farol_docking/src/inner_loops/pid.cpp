@@ -45,6 +45,9 @@ PID::PID(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private) : Con
   yaw_pid.max_out_ = FarolGimmicks::getParameters<double>(nh_private_, "pid/yaw/max_out", 10);
   yaw_pid.controller_name_ = "yaw";
 
+  debug_pub = nh_private_.advertise<farol_docking::PID_Debug>(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/topics/publishers/debug", "/docking_pid_debug"), 5);
+
+
   PID::configure();
 }
 
@@ -55,11 +58,12 @@ void PID::configure() {
 }
 
 bool PID::compute_force(double Dt) {
-  Eigen::Matrix3d R = 
-  (Eigen::AngleAxisd(attitude_(2)/180*M_PI, Eigen::Vector3d::UnitZ()) *  // yaw
-   Eigen::AngleAxisd(attitude_(1)/180*M_PI, Eigen::Vector3d::UnitY()) *  // pitch
-   Eigen::AngleAxisd(attitude_(0)/180*M_PI, Eigen::Vector3d::UnitX())    // roll
-  ).toRotationMatrix();
+  // Eigen::Matrix3d R = 
+  // (Eigen::AngleAxisd(-attitude_(2)/180*M_PI, Eigen::Vector3d::UnitZ()) *  // yaw
+  //  Eigen::AngleAxisd(attitude_(1)/180*M_PI, Eigen::Vector3d::UnitY()) *  // pitch
+  //  Eigen::AngleAxisd(attitude_(0)/180*M_PI, Eigen::Vector3d::UnitX())    // roll
+  // ).toRotationMatrix();
+  Eigen::Matrix3d R = (Eigen::AngleAxisd(-attitude_(2)/180*M_PI, Eigen::Vector3d::UnitZ())).toRotationMatrix();
   Eigen::Vector3d body_pos = R.transpose()* position_;
   Eigen::Vector3d body_ref = R.transpose() * position_ref_;
 
@@ -95,8 +99,8 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
   
   
   // Compute control input
-  float error = state_ref- state;
-  // ROS_INFO_STREAM(controller_name_ << ": "<< state_ref <<" - "<<state <<" and rate: " <<state_rate);
+  float error = state_ref- state; 
+  ROS_INFO_STREAM(controller_name_ << "::  error: " << error <<" state_ref: "<< state_ref <<" - "<<state <<" and rate: " <<state_rate);
   if(angular)
     error = wrapToPi(error);
 

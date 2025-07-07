@@ -104,7 +104,6 @@
   ros::Subscriber sub_docking_state_;
   ros::Subscriber sub_position_ref_;
   ros::Subscriber sub_attitude_ref_;
-  ros::Subscriber sub_flag_;
 
  	// Publishers
   ros::Publisher force_request_pub_;

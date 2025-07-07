@@ -537,6 +537,10 @@ docking/inner_loops:
         publishers:
             force: "/#vehicle#/force_bypass"
             debug: "/#vehicle#/docking/inner_loops/debug"
+    PID:
+        publishers:
+            debug:  "/#vehicle#/docking/inner_loops/pid/debug"
+            
     SMC:
         subscribers:
             gains:  "/#vehicle#/docking/inner_loops/smc/gains"

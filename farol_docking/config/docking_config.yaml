@@ -4,23 +4,24 @@ filter:
   node_frequency: 10
   debug: true
   dock_has_ahrs: false
+  usbl_instalation_matrix: [0.33, 0.0, 0.75]
   initializer_size: 4
   # outlier_rejection:  ["usbl", "dvl"]
   outlier_rejection:  [] # no outlier rejection
 
   position:
-    process_noise: [0.1, 0, 0,
-                    0, 0.1, 0,
-                    0, 0, 0.1]
+    process_noise: [1, 0, 0,
+                    0, 1, 0,
+                    0, 0, 1]
     measurement_noise: [0.1, 0, 0,
                         0, 0.1, 0,
                         0, 0, 0.1]
     outlier_treshold: 4.61
                         
   attitude:
-    process_noise: [0.1, 0, 0,
-                    0, 0.1, 0,
-                    0, 0, 0.1]
+    process_noise: [1, 0, 0,
+                    0, 1, 0,
+                    0, 0, 1]
     measurement_noise: [0.1, 0, 0,
                         0, 0.1, 0,
                         0, 0, 0.1]
