@@ -23,6 +23,7 @@ Eigen::MatrixXd load_matrix_parameter(ros::NodeHandle &_nh, std::string const &p
     return parameter;
 }
 
+
 // Constructor
 DockingFilterNode::DockingFilterNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
   loadParams();
@@ -64,6 +65,7 @@ void DockingFilterNode::initializeSubscribers() {
   sub_usbl_fix_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_fix", "usbl_fix"), 10, &DockingFilterNode::usbl_callback, this);
   sub_usbl_accoms_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_accoms", "usbl_accoms"), 10, &DockingFilterNode::usbl_callback, this);
   sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &DockingFilterNode::reset_callback, this);
+  sub_terrain_d = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/terrain_normal", "bottom_following/D"), 10, &DockingFilterNode::terrain_normal_callback, this);
 }
 
 
@@ -122,6 +124,7 @@ void DockingFilterNode::reset_callback(const std_msgs::Empty &msg){
   docking_filter_.reset();
 }
 
+
 void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) {
   // Measurements from the AHRS -> extract angular velocities
   if (msg.header.frame_id.find("ahrs") != std::string::npos && msg.value.size() == 6) 
@@ -158,6 +161,7 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
     dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
   } 
 }
+
 
 void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
   // if the usbl measurement is made by the vehicle itself
@@ -209,6 +213,12 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
     usbl_state_.reset();
   }
 }
+
+
+void DockingFilterNode::terrain_normal_callback(const geometry_msgs::Vector3 &msg){
+  docking_filter_.terrain_normal_ << msg.x, msg.y, msg.z;
+}
+
 
 void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
 

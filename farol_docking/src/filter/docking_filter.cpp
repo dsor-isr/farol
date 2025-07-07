@@ -137,7 +137,7 @@ Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){
   t.y() = range * std::cos(rbe_dock(2)) * std::sin(rbe_dock(1));
   t.z() = range * std::sin(rbe_dock(2));
 
-  // if dock has ahrs compute the rotation matrix based on the diference of rotation matrix
+  // if dock has ahrs compute the rotation matrix based on the diference of AHRS's euler angles
   if(dock_has_ahrs_){
     // represent auv inertial attitude as a rotation matrix from I to B
     Eigen::Matrix3d R_auv =
@@ -160,18 +160,21 @@ Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){
   // if dock does not have AHRS, compute orientation purely from usbl measurements
   else
   {
-    // Construct SO(3) frame from dock's RBE (X axis points toward AUV)
-    Eigen::AngleAxisd yaw_dock(rbe_dock(1), Eigen::Vector3d::UnitZ());
-    Eigen::AngleAxisd pitch_dock(rbe_dock(2), Eigen::Vector3d::UnitY());
-    Sophus::SO3d R_dock((yaw_dock * pitch_dock).toRotationMatrix());
-
-    // Construct SO(3) frame from AUV's RBE (X axis points toward dock)
-    Eigen::AngleAxisd yaw_auv(wrapToPi(rbe_auv(1)+M_PI), Eigen::Vector3d::UnitZ());
-    Eigen::AngleAxisd pitch_auv(-rbe_auv(2), Eigen::Vector3d::UnitY());
-    Sophus::SO3d R_auv((yaw_auv * pitch_auv).toRotationMatrix());
-
+    // ******************************************************************************************* //
+    // TODO: This is a temporary fix for the case roll and pitch =0
+    Eigen::Vector3d xyz_auv = rbe_to_xyz(rbe_auv);
+    Eigen::Vector3d xyz_dock = rbe_to_xyz(rbe_dock);
+    // do math to extract the relative yaw
+    double r1 = -xyz_dock.dot(xyz_auv);
+    double r2 = xyz_dock.cross(xyz_auv)(2);
+    double yaw = -std::atan2(r2, r1)
+    ROS_INFO_STREAM(yaw);
+    Eigen::Matrix3d R_auv = (Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ())).toRotationMatrix();
     // compute rotation from dock frame to 
-    R = (R_auv * R_dock.inverse()).inverse();
+    Sophus::SO3d R_(R_auv.inverse());
+    R = R_;
+    // ******************************************************************************************* //
+
   }
 
   return Sophus::SE3d(R, t);
