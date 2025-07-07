@@ -15,10 +15,8 @@ InnerLoopNode::InnerLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
 
   // Subscribers
   sub_docking_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 1, &InnerLoopNode::state_callback, this);
-  //sub_filter_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/filter_state", "filter/state"), 1, &InnerLoopNode::state_callback, this);
   sub_position_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_position", "position_ref"), 1, &InnerLoopNode::position_ref_callback, this);
   sub_attitude_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_attitude", "attitude_ref"), 1, &InnerLoopNode::attitude_ref_callback, this);
-  sub_flag_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/flag", "flag"), 2, &InnerLoopNode::flag_callback, this);
 
   // Publishers
   force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/force", "/force_bypass"), 5);
@@ -52,7 +50,6 @@ InnerLoopNode::~InnerLoopNode() {
   sub_filter_state_.shutdown();
   sub_position_ref_.shutdown();
   sub_attitude_ref_.shutdown();
-  sub_flag_.shutdown();
   
   // Stop timer
   timer_.stop();
@@ -85,10 +82,6 @@ void InnerLoopNode::attitude_ref_callback(const farol_docking::Reference3 &msg){
   disable_axis_[5] = msg.disable_axis[2];
 }
 
-void InnerLoopNode::flag_callback(const std_msgs::Int8 &msg){
-  flag_ = msg.data;
-}
-
 
 void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   // compute time interval 
@@ -104,12 +97,6 @@ void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
 
   if (new_time - t_position_ref_ < 0.2){
     controller_->compute_force(Dt);
-    // rotate to body_frame
-    // Eigen::Matrix3d R = (Eigen::AngleAxisd(controller_->attitude_(2)*M_PI/180, Eigen::Vector3d::UnitZ()) *
-    //                     Eigen::AngleAxisd(controller_->attitude_(1)*M_PI/180, Eigen::Vector3d::UnitY()) *
-    //                     Eigen::AngleAxisd(controller_->attitude_(0)*M_PI/180, Eigen::Vector3d::UnitX())).toRotationMatrix();
-    // Eigen::Vector3d force_body = R * controller_->force_;
-    // build ros message
     force_request_msg_.wrench.force.x = controller_->force_[0];
     force_request_msg_.wrench.force.y = controller_->force_[1];
     force_request_msg_.wrench.force.z = controller_->force_[2];
