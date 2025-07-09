@@ -5,11 +5,20 @@
 #include <farol_docking/filter/docking_filter.hpp>  
 
 
-DockingFilter::DockingFilter()
+DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
+    : nh_(*nodehandle), nh_private_(*nodehandle_private)
 {
-    initialized_ = false;
-    measurement_handler_thread_ = std::thread(&DockingFilter::measurement_handler, this);
+  initialized_ = false;
+  measurement_handler_thread_ = std::thread(&DockingFilter::measurement_handler, this);
+  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
+  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
+  terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
+  position_filter_ = std::make_unique<PositionFilter>(&nh_,&nh_private_);
+  attitude_filter_ = std::make_unique<AttitudeFilter>(&nh_,&nh_private_);
+
+
 }
+
 
 DockingFilter::~DockingFilter()
 {
@@ -22,35 +31,48 @@ DockingFilter::~DockingFilter()
 // for matrix types
 void DockingFilter::configure(std::string type, Eigen::MatrixXd noise){
   if(type == "position_process")
-    position_filter_.process_noise_ = noise;
+    position_filter_->process_noise_ = noise;
   else if(type == "position_measurement")
-    position_filter_.measurement_noise_ = noise;
+    position_filter_->measurement_noise_ = noise;
   else if(type == "attitude_process")
-    attitude_filter_.process_noise_ = noise;
-  else if(type == "attitude_measurement") 
-    attitude_filter_.measurement_noise_ = noise;
+    ;// attitude_filter_.process_noise_ = noise;
+  else if(type == "attitude_measurement")
+    ;// attitude_filter_.measurement_noise_ = noise;
 }
 // for usbl rejection configuration
 void DockingFilter::configure(std::string type, std::vector<std::string> outlier_rejection_config){
   if(type == "outlier_rejection"){
     if (std::find(outlier_rejection_config.begin(), outlier_rejection_config.end(), "usbl") != outlier_rejection_config.end()){
-      position_filter_.output_outlier_rejection_ = true;
-      attitude_filter_.output_outlier_rejection_ = true;
+      position_filter_->output_outlier_rejection_ = true;
+      attitude_filter_->output_outlier_rejection_ = true;
     }
     if (std::find(outlier_rejection_config.begin(), outlier_rejection_config.end(), "dvl") != outlier_rejection_config.end())
-      position_filter_.input_outlier_rejection_ = true;
+      position_filter_->input_outlier_rejection_ = true;
     if (std::find(outlier_rejection_config.begin(), outlier_rejection_config.end(), "ahrs") != outlier_rejection_config.end())
-      attitude_filter_.input_outlier_rejection_ = true;
+      attitude_filter_->input_outlier_rejection_ = true;
   }
 }
 
 void DockingFilter::initialize(){
-  // do the median filter and get a Sophus 
-  Sophus::SE3d new_measurement = extract_se3(median(initializer_buffer_));
+  // do the median to account for possible outliers
+  Sophus::Vector6d median_meas = median(initializer_buffer_);
   
-  // split into R³ and SO(3) and initialize each filter
-  position_filter_.initialize(new_measurement.translation());
-  attitude_filter_.initialize(new_measurement.so3());
+  // Separate measurements and convert to xyz vectors
+  Eigen::Vector3d xyz_auv = rbe_to_xyz(median_meas.segment<3>(0));
+  Eigen::Vector3d xyz_dock = rbe_to_xyz(median_meas.segment<3>(3));
+  
+  // do math to extract the relative yaw
+  double r1 = -xyz_dock.dot(xyz_auv);
+  double r2 = xyz_dock.cross(xyz_auv)(2);
+  // Yaw = atan(r2, r1) [from the slides]
+  Sophus::SO3d R((Eigen::AngleAxisd(-std::atan2(r2, r1), Eigen::Vector3d::UnitZ())).toRotationMatrix());
+
+  // average the two usbl relative positions (rotating the auv one to the D frame first) and initialize
+  position_filter_->initialize(0.5*xyz_dock + 0.5 * R.matrix() *xyz_auv);
+
+  // initialize attitude filter with the rotation arround yaw
+  attitude_filter_->initialize(R);
+
   initialized_=true;
 }
 
@@ -59,7 +81,7 @@ void DockingFilter::reset(){
 }
 
 Sophus::SE3d DockingFilter::get_state(){
-  return Sophus::SE3d(attitude_filter_.state_, position_filter_.state_);
+  return Sophus::SE3d(attitude_filter_->state_, position_filter_->state_);
 }
 
 
@@ -89,27 +111,37 @@ void DockingFilter::measurement_handler(){
       // filter is already initialized -> normally process incoming messages
       if(meas.type=="usbl" && meas.data.value.size() == 6){
         // check that the measurements are  valid -> range is ok
-        if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.5 && meas.data.value[3] > 0.5){
-          // Compute SE(3) object from the two USBL vectors
-
-          Sophus::SE3d measurement = extract_se3(meas.data.value);
-          // split into R³ and SO(3) and update each filter
-          if(!position_filter_.update(measurement.translation()))
-            FAROL_WARN("Update Failed on Docking Position Filter");
-          if(!attitude_filter_.update(measurement.so3()))
+        if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
+          
+          // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
+          if(!attitude_filter_->update(meas.data.value, terrain_normal_));
             FAROL_WARN("Update Failed on Docking Attitude Filter");
+          
+          // update using the measurement from the docking station
+          aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(0));
+          aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
+          usbl_pos_dock_pub_.publish(aux_vector3_msg_);
+          if(!position_filter_->update(aux_vec3_))
+            FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
+
+          // update using the measurement from the auv rotated to the body using the matrix
+          aux_vec3_ = attitude_filter_->state_.matrix() * rbe_to_xyz(meas.data.value.segment<3>(0));
+          aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
+          usbl_pos_auv_pub_.publish(aux_vector3_msg_);
+          if(!position_filter_->update(aux_vec3_))
+            FAROL_WARN("Update Failed on Docking Position Filter");
         }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
         // rotate DVL to Dock frame
         Stamped<Eigen::VectorXd> dvl_corrected;
-        dvl_corrected.value = attitude_filter_.state_.matrix() * meas.data.value;
+        dvl_corrected.value = attitude_filter_->state_.matrix() * meas.data.value;
         dvl_corrected.stamp = meas.data.stamp;
-        if(!position_filter_.predict(dvl_corrected))
+        if(!position_filter_->predict(dvl_corrected))
           FAROL_WARN("Predict Failed on Docking Position Filter");
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
-        if(!attitude_filter_.predict(meas.data))
+        if(!attitude_filter_->predict(meas.data))
           FAROL_WARN("Predict Failed on Docking Attitude Filter");
       }else if(meas.type=="ahrs_angles"&& meas.data.value.size() ==3){
         auv_attitude_ = meas.data.value;
@@ -123,116 +155,9 @@ void DockingFilter::measurement_handler(){
 }
 
 
-Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){ 
-  Sophus::SO3d R;
-  Eigen::Vector3d t;
-
-  // Split into dock and auv RBE: [r, bearing, elevation]
-  Eigen::Vector3d rbe_dock = new_measurement.segment<3>(3); // dock sees auv
-  Eigen::Vector3d rbe_auv  = new_measurement.segment<3>(0); // auv sees dock
-
-  // compute translatrion component
-  double range = (rbe_dock(0) + rbe_auv(0))/2;
-  t.x() = range * std::cos(rbe_dock(2)) * std::cos(rbe_dock(1));
-  t.y() = range * std::cos(rbe_dock(2)) * std::sin(rbe_dock(1));
-  t.z() = range * std::sin(rbe_dock(2));
-  
-
-  //TODO: add stuff trabskatuib nenes
-
-
-
-  // if dock has ahrs compute the rotation matrix based on the diference of AHRS's euler angles
-  if(dock_has_ahrs_){
-    // represent auv inertial attitude as a rotation matrix from I to B
-    Eigen::Matrix3d R_auv =
-      (Eigen::AngleAxisd(auv_attitude_[2], Eigen::Vector3d::UnitZ()) *
-      Eigen::AngleAxisd(auv_attitude_[1], Eigen::Vector3d::UnitY()) *
-      Eigen::AngleAxisd(auv_attitude_[0], Eigen::Vector3d::UnitX())).toRotationMatrix();
-        
-    // represent dock inertial attitude as a rotation matrix from I to D
-    Eigen::Matrix3d R_dock =
-      (Eigen::AngleAxisd(dock_attitude_[2], Eigen::Vector3d::UnitZ()) *
-      Eigen::AngleAxisd(dock_attitude_[1], Eigen::Vector3d::UnitY()) *
-      Eigen::AngleAxisd(dock_attitude_[0], Eigen::Vector3d::UnitX())).toRotationMatrix();
-
-    // compute the rotation matrix from D to B
-    Sophus::SO3d R_auv_so3(R_auv);
-    Sophus::SO3d R_dock_so3(R_dock);
-    R = R_dock_so3.inverse() * R_auv_so3;
-  }
-  // FIXME: does not work :( 
-  // if dock does not have AHRS, compute orientation purely from usbl measurements
-  else
-  {
-    // ******************************************************************************************* //
-    // TODO: This is a temporary fix for the case roll and pitch =0
-    Eigen::Vector3d xyz_auv = rbe_to_xyz(rbe_auv);
-    Eigen::Vector3d xyz_dock = rbe_to_xyz(rbe_dock);
-    // do math to extract the relative yaw
-    double r1 = -xyz_dock.dot(xyz_auv);
-    double r2 = xyz_dock.cross(xyz_auv)(2);
-    double yaw = -std::atan2(r2, r1);
-    FAROL_INFO(yaw);
-    Eigen::Matrix3d R_auv = (Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ())).toRotationMatrix();
-    // compute rotation from dock frame to 
-    Sophus::SO3d R_(R_auv.inverse());
-    R = R_;
-    // ******************************************************************************************* //
-
-  }
-
-  return Sophus::SE3d(R, t);
-}
-
-
-
-
-// Sophus::SE3d DockingFilter::extract_se3(Sophus::Vector6d new_measurement){ 
-//   // Make the ranges equal to the average of dock and auv measurements
-//   double range = (new_measurement[0]+new_measurement[3])/2;
-//   new_measurement[0] = range;
-//   new_measurement[3] = range;
-
-//   // Convert (range,bearing,elevation) -> (x,y,z)
-//   Eigen::Vector3d xyz_auv = rbe_to_xyz(new_measurement.segment<3>(0));
-//   Eigen::Vector3d xyz_dock = rbe_to_xyz(new_measurement.segment<3>(3));
-
-//   // Compute translation (AUV in Dock frame) 
-//   Eigen::Vector3d t = xyz_dock;
-
-//   // Normalize both vectors
-//   Eigen::Vector3d v1 = xyz_dock.normalized();    // in Dock frame
-//   Eigen::Vector3d v2 = -xyz_auv.normalized();    // negate to align orientation
-
-//   // Compute rotation that aligns v1 to v2
-//   double cos_theta = v1.dot(v2);
-//   Eigen::Vector3d axis = v1.cross(v2);
-
-//   FAROL_INFO("cos_theta: " << cos_theta);
-//   FAROL_INFO("axis: " << axis);
-
-//   Sophus::SO3d R;
-//   // Handle the case that the vectors are almost aligned
-//   if (axis.norm() < 1e-6) {
-//     if (cos_theta > 0.9999) {
-//       R = Sophus::SO3d();  // identity
-//     } else {
-//       Eigen::Vector3d ortho = v1.unitOrthogonal();
-//       R = Sophus::SO3d(Eigen::AngleAxisd(M_PI, ortho).toRotationMatrix());
-//     }
-//   } else {
-//     axis.normalize();
-//     double theta = std::acos(std::min(std::max(cos_theta, -1.0), 1.0));
-//     Eigen::Vector3d so3_vec = theta * axis;
-//     R = Sophus::SO3d::exp(so3_vec);
-//   }
-//   return Sophus::SE3d(R, t);
-// }
-
 bool DockingFilter::predict(double time){
-  bool ok1 = attitude_filter_.predict(time);
-  bool ok2 = position_filter_.predict(time);
+  bool ok1 = attitude_filter_->predict(time);
+  bool ok2 = position_filter_->predict(time);
   return ok1 && ok2;
 }
 
@@ -242,7 +167,8 @@ bool DockingFilter::predict(double time){
 //           Linear R³ filter
 //#############################################################################################
 
-PositionFilter::PositionFilter(){
+PositionFilter::PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
+    : nh_(*nodehandle), nh_private_(*nodehandle_private){
 }
 
 void PositionFilter::initialize(Eigen::Vector3d measurement){
@@ -330,7 +256,14 @@ bool PositionFilter::update(Eigen::Vector3d measurement) {
 //           Attitude SO(3) filter
 //#############################################################################################
 
-AttitudeFilter::AttitudeFilter(){
+AttitudeFilter::AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
+    : nh_(*nodehandle), nh_private_(*nodehandle_private){
+
+  v1_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_B", "/v1_B"), 5);
+  v1_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_D", "/v1_D"), 5);
+  v2_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_B", "/v2_B"), 5);
+  v2_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_D", "/v2_D"), 5);
+
 }
 
 void AttitudeFilter::initialize(Sophus::SO3d measurement){
@@ -352,7 +285,7 @@ bool AttitudeFilter::predict(Stamped<Eigen::VectorXd> measurement){
   double Dt = measurement.stamp - last_predict_time_;
   
   // simple complementary filter in SO3
-  state_ = state_ * Sophus::SO3d::exp(Dt*last_input_measurement_->value);
+  state_ = state_ * Sophus::SO3d::exp(Dt*(measurement.value - b_hat_));
 
   // save the time of last update and the value of last measurement
   last_input_measurement_ = measurement;
@@ -372,31 +305,43 @@ bool AttitudeFilter::predict(double time){
   double Dt = time - last_predict_time_;
 
   // do the standard kalman filter predict for state and covariance
-  state_ = state_ * Sophus::SO3d::exp(Dt*last_input_measurement_->value);
+  state_ = state_ * Sophus::SO3d::exp(Dt*(last_input_measurement_->value - b_hat_));
 
   last_predict_time_=time;
   return true;
 }
 
 
-bool AttitudeFilter::update(Sophus::SO3d measurement) {
-  double K =0.5;
-  Sophus::SO3d R_err = measurement * state_.inverse();
-  Eigen::Vector3d delta_theta = R_err.log();
-  state_ = Sophus::SO3d::exp(K * delta_theta) * state_;
+bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrain_normal_body) {
+  
+  // Compute the vector directions used for the update
+  Eigen::Vector3d v1_B, v1_D, v2_B, v2_D, omega_mes;
+  v1_B = be_to_xyz(measurement[1], measurement[2]); 
+  v1_D = -1*be_to_xyz(measurement[4], measurement[5]);
+  v2_B = terrain_normal_body; // this is the terrain normal, expressed in the b
+  v2_D = Eigen::Vector3d::UnitZ(); // Dock z axis is aligned with terrain normal
+  
+  // publish for debugging purposes
+  v1_B_pub_.publish(toMsg(v1_B));
+  v1_D_pub_.publish(toMsg(v1_D));
+  v2_B_pub_.publish(toMsg(v2_B));
+  v2_D_pub_.publish(toMsg(v2_D));
 
-  // FAROL_INFO("____________hello__________");
-  // FAROL_INFO("measurement:"<<measurement.matrix());
-  // Sophus::SO3d error_matrix = (state_.inverse() * measurement);
-  // FAROL_INFO("error_matrix:"<< error_matrix.matrix());
-  // Eigen::Vector3d correction = 0.5 * (error_matrix - error_matrix.transpose()).log();
-  // FAROL_INFO("correction:"<<correction);
-  // double kp = 1;
-  // FAROL_INFO("state pre:"<<extractRPY(state_));//.matrix().eulerAngles(0,1,2));
-  // state_ = state_ * Sophus::SO3d::exp(kp* correction);
-  // FAROL_INFO("matrix correction:"<<Sophus::SO3d::exp(kp* correction).matrix().eulerAngles(0,1,2));
-  // FAROL_INFO("state pos:"<<extractRPY(state_));//state_.matrix().eulerAngles(0,1,2));
+  // compute correction term
+  omega_mes = Eigen::Vector3d::Zero();
+  omega_mes += k1_* (v1_B.cross(state_.matrix().transpose() * v1_D));
+  omega_mes += k2_* (v2_B.cross(state_.matrix().transpose() * v2_D));
+
+  // update state
+  state_ = state_ * Sophus::SO3d::exp(kp_ * omega_mes);
+
+  // estimate bias if Ki is not 0
+  b_hat_ -= ki_ * omega_mes;
+
   return true;
 }
+
+
+
 
 

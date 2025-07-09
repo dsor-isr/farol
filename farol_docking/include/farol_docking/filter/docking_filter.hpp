@@ -18,9 +18,31 @@
 #include <boost/lockfree/spsc_queue.hpp>
 #include <optional>
 
+// ros libraries
+#include <ros/ros.h> 
+#include <std_msgs/String.h>
+#include <std_msgs/Int8.h>
+#include <std_msgs/Float64.h>
+#include <geometry_msgs/PoseStamped.h>  
+#include <geometry_msgs/Point.h>  
+#include <geometry_msgs/Quaternion.h>
+#include <geometry_msgs/Vector3.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2_ros/transform_broadcaster.h>
+#include "tf2_ros/message_filter.h"
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <auv_msgs/NavigationStatus.h>
+#include <auv_msgs/BodyForceRequest.h>
+#include <dsor_msgs/Measurement.h>
+#include <farol_msgs/mState.h>
+#include <farol_msgs/mUSBLFix.h>
+
+// farol libraries
+#include <farol_gimmicks_library/FarolGimmicks.h>
+#include <farol_docking/utils/logging_utils.hpp>  
 #include <farol_docking/utils/docking_utils.hpp>  
 #include <farol_docking/utils/median_utils.hpp>  
-#include <farol_docking/utils/logging_utils.hpp>  
 
 
 
@@ -39,7 +61,7 @@ class PositionFilter{
         /**
          * @brief  Contructor Horizontal Filter
          */
-        PositionFilter();
+        PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
 
         /**
          * @brief  Destructor Horizontal Filter
@@ -72,6 +94,12 @@ class PositionFilter{
          * @see Lekkas et al Mahalanobis outlier rejection
          */
         bool update(Eigen::Vector3d measurement);
+
+        // ROS stuff
+        ros::NodeHandle nh_, nh_private_;
+        ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
+        geometry_msgs::Vector3 aux_vector3_msg_;
+        Eigen::Vector3d aux_vec3_;
   
         // Kalman Filter variables
         Eigen::Vector3d state_;
@@ -114,7 +142,7 @@ class AttitudeFilter{
         /**
          * @brief  Contructor Attitude Filter
          */
-        AttitudeFilter();
+        AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
 
 
         /**
@@ -148,16 +176,24 @@ class AttitudeFilter{
         /**
          * @brief  Correct state estimate with a new position measurement
          */
-        bool update(Sophus::SO3d measurement);
+        bool update(Sophus::Vector6d measurement, Eigen::Vector3d terrain_normal_body);
+
+        // ROS stuff
+        ros::NodeHandle nh_, nh_private_;
+        ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_;
+        geometry_msgs::Vector3 aux_vector3_msg_;
+        Eigen::Vector3d aux_vec3_;
   
         // Kalman Filter variables
         Sophus::SO3d state_;
         Eigen::Matrix3d state_cov_;
         Sophus::SO3d initial_state_;
         Eigen::Matrix3d initial_state_cov_;
+
+        Eigen::Vector3d b_hat_;
         
-        Eigen::Matrix3d process_noise_;
-        Eigen::Matrix3d measurement_noise_;
+        // Estimator gains
+        double k1_, k2_, kp_, ki_;
         
         Eigen::Vector3d innovation_vector_;
         Eigen::Matrix3d innovation_matrix_;
@@ -188,7 +224,8 @@ class DockingFilter{
         /**
          * @brief  Contructor for the Filter Algorithm
          */
-        DockingFilter();
+        
+        DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
 
         /**
          * @brief  Destructor for the Filter Algorithm
@@ -241,9 +278,17 @@ class DockingFilter{
   
 
         // ------------------------------------- Variables  ------------------------------------ //
+
+        // ROS stuff
+        ros::NodeHandle nh_, nh_private_;
+        ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
+        geometry_msgs::Vector3 aux_vector3_msg_;
+        Eigen::Vector3d aux_vec3_;
+
+
         // Filters
-        PositionFilter position_filter_;
-        AttitudeFilter attitude_filter_;
+        std::unique_ptr<PositionFilter> position_filter_;
+        std::unique_ptr<AttitudeFilter> attitude_filter_;
 
         // outlier rejection configuration
         std::vector<std::string> outlier_rejection_;
@@ -273,7 +318,7 @@ class DockingFilter{
         bool dock_has_ahrs_{false};
 
         // vector normal to the terrain in the inertial frame, used to know the relative orientation
-        Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::Zero();
+        Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::UnitZ();
         Eigen::Vector3d usbl_instalation_matrix_ = Eigen::Vector3d::Zero();;
 
     private:

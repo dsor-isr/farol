@@ -32,6 +32,7 @@ DockingFilterNode::DockingFilterNode(ros::NodeHandle *nodehandle, ros::NodeHandl
   initializeServices();
   initializeTimer();
   timer_.start();
+  docking_filter_= std::make_unique<DockingFilter>(&nh_,&nh_private_);
 }
 
 // Destructor
@@ -93,39 +94,45 @@ void DockingFilterNode::loadParams() {
   debug_ = FarolGimmicks::getParameters<bool>(nh_private_, "debug", false);
   
   // Algorithm related parameters
-  docking_filter_.initializer_size_ = FarolGimmicks::getParameters<int>(nh_private_, "initializer_size", 4);
-  docking_filter_.dock_has_ahrs_ = FarolGimmicks::getParameters<bool>(nh_private_, "dock_has_ahrs", false);
+  docking_filter_->initializer_size_ = FarolGimmicks::getParameters<int>(nh_private_, "initializer_size", 4);
+  docking_filter_->dock_has_ahrs_ = FarolGimmicks::getParameters<bool>(nh_private_, "dock_has_ahrs", false);
 
   std::vector<double> aux;
   aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "usbl_instalation_matrix", {});
-  docking_filter_.usbl_instalation_matrix_ << aux[0], aux[1], aux[2];
+  docking_filter_->usbl_instalation_matrix_ << aux[0], aux[1], aux[2];
 
   // Filter covariances
   Eigen::MatrixXd noise;
   noise = load_matrix_parameter(nh_private_, "position/process_noise", Eigen::Matrix3d::Identity());
-  docking_filter_.configure("position_process", noise);
+  docking_filter_->configure("position_process", noise);
   noise = load_matrix_parameter(nh_private_, "position/measurement_noise", Eigen::Matrix3d::Identity());
-  docking_filter_.configure("position_measurement", noise);
+  docking_filter_->configure("position_measurement", noise);
   noise = load_matrix_parameter(nh_private_, "attitude/process_noise", Eigen::Matrix3d::Identity());
-  docking_filter_.configure("attitude_process", noise);
+  docking_filter_->configure("attitude_process", noise);
   noise = load_matrix_parameter(nh_private_, "attitude/measurement_noise", Eigen::Matrix3d::Identity());
-  docking_filter_.configure("attitude_measurement", noise);
+  docking_filter_->configure("attitude_measurement", noise);
 
 
   // outlier rejection config
   std::vector<std::string> outlier_rejection_config;
   outlier_rejection_config = FarolGimmicks::getParameters<std::vector<std::string>>(nh_private_, "outlier_rejection", {});
-  docking_filter_.configure("outlier_rejection", outlier_rejection_config);
+  docking_filter_->configure("outlier_rejection", outlier_rejection_config);
 
   // outlier rejection treshold value
-  docking_filter_.position_outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_treshold", 4.61);
-  docking_filter_.attitude_outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_treshold", 2.71);
+  docking_filter_->position_outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_treshold", 4.61);
+  docking_filter_->attitude_outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_treshold", 2.71);
+
+  // load attitude filter parameters
+  docking_filter_->attitude_filter_->k1_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/k1", 0.5);
+  docking_filter_->attitude_filter_->k2_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/k2", 0.5);
+  docking_filter_->attitude_filter_->kp_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/kp", 1);
+  docking_filter_->attitude_filter_->ki_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/ki", 0);
 
 }
 
 
 void DockingFilterNode::reset_callback(const std_msgs::Empty &msg){
-  docking_filter_.reset();
+  docking_filter_->reset();
 }
 
 
@@ -134,13 +141,13 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   if (msg.header.frame_id.find("ahrs") != std::string::npos && msg.value.size() == 6) 
   {
     // drop message if filter not initialized
-    if(!docking_filter_.initialized_) 
+    if(!docking_filter_->initialized_) 
       return; 
     // send measurement into the docking filter   
-    if( docking_filter_.measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[3], msg.value[4], msg.value[5]), msg.header.stamp.toSec(), "ahrs_rates")) &&
-        docking_filter_.measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], msg.value[2]), msg.header.stamp.toSec(), "ahrs_angles")))
+    if( docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[3], msg.value[4], msg.value[5]), msg.header.stamp.toSec(), "ahrs_rates")) &&
+        docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], msg.value[2]), msg.header.stamp.toSec(), "ahrs_angles")))
     {
-      docking_filter_.measurements_buffer_cond_var_.notify_one();
+      docking_filter_->measurements_buffer_cond_var_.notify_one();
     }
     // no space on buffer, tenso
     else{
@@ -151,12 +158,12 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
   {
-    if(!docking_filter_.initialized_) // keep only last message if not initialized
+    if(!docking_filter_->initialized_) // keep only last message if not initialized
       return;
       
     // send measurement into the docking filter   
-    if(docking_filter_.measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], msg.value[2]), msg.header.stamp.toSec(), "dvl"))){
-      docking_filter_.measurements_buffer_cond_var_.notify_one();
+    if(docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], msg.value[2]), msg.header.stamp.toSec(), "dvl"))){
+      docking_filter_->measurements_buffer_cond_var_.notify_one();
     }
     // no space on buffer, tenso
     else{
@@ -196,9 +203,9 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_state_.set(3, true);
       
       // if the dock has an ahrs we need to go get that little bitch
-      if(docking_filter_.dock_has_ahrs_)
-        if(docking_filter_.measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.ahrs_roll, msg.ahrs_pitch, msg.ahrs_yaw), msg.header.stamp.toSec(), "dock_attitude")))
-          docking_filter_.measurements_buffer_cond_var_.notify_one();
+      if(docking_filter_->dock_has_ahrs_)
+        if(docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.ahrs_roll, msg.ahrs_pitch, msg.ahrs_yaw), msg.header.stamp.toSec(), "dock_attitude")))
+          docking_filter_->measurements_buffer_cond_var_.notify_one();
    
     }
     usbl_time_ = msg.header.stamp;
@@ -207,8 +214,8 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
   // check if a full usbl set has been received
   if(usbl_state_.all()){
     // add new measurement to the buffer
-    if(docking_filter_.measurements_buffer_.push(Measurement(usbl_set_, usbl_time_.toSec(), "usbl"))){
-      docking_filter_.measurements_buffer_cond_var_.notify_one();
+    if(docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, usbl_time_.toSec(), "usbl"))){
+      docking_filter_->measurements_buffer_cond_var_.notify_one();
     }
     // no space on buffer, tenso
     else{
@@ -220,14 +227,14 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
 
 
 void DockingFilterNode::terrain_normal_callback(const geometry_msgs::Vector3 &msg){
-  docking_filter_.terrain_normal_ << msg.x, msg.y, msg.z;
+  docking_filter_->terrain_normal_ << msg.x, msg.y, msg.z;
 }
 
 
 void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
 
   // Proper initialization of the filter using the median of the first 5 measurements
-  if(!docking_filter_.initialized_){
+  if(!docking_filter_->initialized_){
     return;
   }
 
@@ -235,19 +242,18 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   // if(!docking_filter_.predict(event.current_real.toSec())){
   // return;
   // }
-  docking_filter_.predict(event.current_real.toSec());
+  docking_filter_->predict(event.current_real.toSec());
 
-
-  Sophus::SE3d state = docking_filter_.get_state();
+  state_ = docking_filter_->get_state();
 
   // publish the estimated state
   state_msg_.header.stamp = ros::Time::now();
   ++state_msg_.header.seq;
   state_msg_.header.frame_id = "mdock0";
-  Eigen::Vector3d position = state.translation();
-  Eigen::Quaterniond quaternion = state.unit_quaternion();
-  Eigen::Vector3d rpy = extractRPY(state.so3());//.matrix().eulerAngles(0, 1, 2);
-  Eigen::Vector3d dframe_velocity = state.so3().matrix().inverse() * dvl_velocity_;
+  Eigen::Vector3d position = state_.translation();
+  Eigen::Quaterniond quaternion = state_.unit_quaternion();
+  Eigen::Vector3d rpy = extractRPY(state_.so3());//.matrix().eulerAngles(0, 1, 2);
+  Eigen::Vector3d dframe_velocity = state_.so3().matrix().inverse() * dvl_velocity_;
   state_msg_.local_position.x = position[0];
   state_msg_.local_position.y = position[1];
   state_msg_.local_position.z = position[2];
@@ -268,64 +274,6 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   state_msg_.orientation_rate.y = 180/M_PI*ahrs_velocity_[1];
   state_msg_.orientation_rate.z = 180/M_PI*ahrs_velocity_[2];
   state_pub_.publish(state_msg_);
-
-
-  // publish state in the inertial NED reference frame 
-  // console_state_msg_.header.stamp = ros::Time::now();
-  // inertial_pos_ = Rot2D(-dock_pose_(3)) * statevec_.head(2) + dock_pose_.head(2);
-  // console_state_msg_.X = inertial_pos_(1);    // East
-  // console_state_msg_.Y = inertial_pos_(0);    // North
-  // console_state_msg_.Yaw = radiansToDegrees360(wrapToPi(-dock_pose_(3) + statevec_));
-  // console_state_msg_.Z = statevec_ + dock_pose_(2);
-  // console_state_pub_.publish(console_state_msg_);
-
-  // publish debug msg
-  // if(debug_){
-  //   debug_msg_.header.stamp = ros::Time::now();
-
-  //   // horizontal filter debug info
-  //   inertial_pos_ = Rot2D(-dock_pose_(3)) * observations_.head<2>() + dock_pose_.head(2);
-  //   debug_msg_.h_meas_x = observations_(0);
-  //   debug_msg_.h_meas_y = observations_(1);
-  //   debug_msg_.h_meas_x_NED = inertial_pos_(0);
-  //   debug_msg_.h_meas_y_NED = inertial_pos_(1);
-  //   debug_msg_.h_mahalanobis = docking_filter_.mahalanobis_distance_;
-  //   debug_msg_.h_outlier_rejected = docking_filter_.outlier_rejected_;
-  //   debug_msg_.h_innovation_vec[0] = docking_filter_.innovation_vector_(0);
-  //   debug_msg_.h_innovation_vec[1] = docking_filter_.innovation_vector_(1);
-  //   debug_msg_.h_innovation_mat[0] = docking_filter_.innovation_matrix_(0);
-  //   debug_msg_.h_innovation_mat[1] = docking_filter_.innovation_matrix_(1);
-  //   debug_msg_.h_innovation_mat[2] = docking_filter_.innovation_matrix_(2);
-  //   debug_msg_.h_innovation_mat[3] = docking_filter_.innovation_matrix_(3);
-  //   debug_msg_.h_k[0] = docking_filter_.K_(0);
-  //   debug_msg_.h_k[1] = docking_filter_.K_(1);
-  //   debug_msg_.h_k[2] = docking_filter_.K_(2);
-  //   debug_msg_.h_k[3] = docking_filter_.K_(3);
-  //   debug_msg_.h_k[4] = docking_filter_.K_(4);
-  //   debug_msg_.h_k[5] = docking_filter_.K_(5);
-  //   debug_msg_.h_k[6] = docking_filter_.K_(6);
-  //   debug_msg_.h_k[7] = docking_filter_.K_(7);
-
-  //   // vertical filter debug info
-  //   debug_msg_.v_meas_z = observations_(2);
-  //   debug_msg_.v_meas_z_NED = prev_depth_;
-  //   debug_msg_.v_mahalanobis = docking_filter_.mahalanobis_distance_;
-  //   debug_msg_.v_outlier_rejected = docking_filter_.outlier_rejected_;
-  //   debug_msg_.v_innovation_vec = docking_filter_.innovation_vector_;
-  //   debug_msg_.v_innovation_mat = docking_filter_.innovation_matrix_;
-  //   debug_msg_.v_k = docking_filter_.K_;
-
-  //   // rotational filter debug info
-  //   debug_msg_.r_meas_yaw = observations_(3);
-  //   debug_msg_.r_meas_yaw_NED = radiansToDegrees360(wrapToPi(-dock_pose_(3) + observations_(3)));
-  //   debug_msg_.r_mahalanobis = docking_filter_.mahalanobis_distance_;
-  //   debug_msg_.r_outlier_rejected = docking_filter_.outlier_rejected_;
-  //   debug_msg_.r_innovation_vec = docking_filter_.innovation_vector_;
-  //   debug_msg_.r_innovation_mat = docking_filter_.innovation_matrix_;
-  //   debug_msg_.r_k = docking_filter_.K_;
-    
-  //   debug_pub_.publish(debug_msg_);
-  // }
   return;
 }
 

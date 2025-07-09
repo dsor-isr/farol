@@ -64,7 +64,11 @@ struct Reference {
 // }
 
   
-
+inline geometry_msgs::Vector3 toMsg(const Eigen::Vector3d& v) {
+  geometry_msgs::Vector3 msg;
+  msg.x = v.x(); msg.y = v.y(); msg.z = v.z();
+  return msg;
+}
 
 /**
  * @brief Converts an array in spherical coordinates to cartesian coordinates 
@@ -80,6 +84,14 @@ inline Eigen::Vector3d rbe_to_xyz(Eigen::Vector3d rbe) {
     xyz(0) = rbe(0) * cos(rbe(2)) * cos(rbe(1));
     xyz(1) = rbe(0) * cos(rbe(2)) * sin(rbe(1));
     xyz(2) = rbe(0) * sin(rbe(2));
+    return xyz;
+}
+
+inline Eigen::Vector3d be_to_xyz(double bearing, double elevation) {
+    Eigen::Vector3d xyz; 
+    xyz(0) = cos(elevation) * cos(bearing);
+    xyz(1) = cos(elevation) * sin(bearing);
+    xyz(2) = sin(elevation);
     return xyz;
 }
 
@@ -143,17 +155,3 @@ inline Eigen::Vector3d extractRPY(const Sophus::SO3d& R) {
     wrapToPi(yaw)
   );
   }
-
-// /**
-//  * @brief Brief one-line description of what the function does.
-//  * 
-//  * Detailed explanation of the function's behavior, purpose, and any side effects.
-//  *
-//  * @param[in]  input_name  Description of the input parameter.
-//  * @param[out] output_name Description of the output parameter (if any).
-//  * @return ReturnType Description of the return value.
-//  *
-//  * @note Optional notes about limitations, assumptions, etc.
-//  * @warning Optional warning about misuse or important constraints.
-//  * @see Optional references to related functions/classes/files.
-//  */

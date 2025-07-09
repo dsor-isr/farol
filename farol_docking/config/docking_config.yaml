@@ -19,12 +19,11 @@ filter:
     outlier_treshold: 4.61
                         
   attitude:
-    process_noise: [1, 0, 0,
-                    0, 1, 0,
-                    0, 0, 1]
-    measurement_noise: [0.1, 0, 0,
-                        0, 0.1, 0,
-                        0, 0, 0.1]
+    gains:
+      k1: 0.5
+      k2: 0.5
+      kp: 1
+      ki: 0
     outlier_treshold: 2.71
   
 

@@ -495,8 +495,13 @@ docking/filter:
         publishers:
             state: "/#vehicle#/docking/filter/state"
             state_console: "/#vehicle#/State_docking"
-            debug: "/#vehicle#/docking/filter/debug"
-            
+            debug:
+                usbl_pos_dock: "/#vehicle#/docking/filter/debug/usbl_pos_dock"
+                usbl_pos_auv: "/#vehicle#/docking/filter/debug/usbl_pos_auv"
+                v1_B: "/#vehicle#/docking/filter/debug/v1_B"
+                v1_D: "/#vehicle#/docking/filter/debug/v1_D"
+                v2_B: "/#vehicle#/docking/filter/debug/v2_B"
+                v2_D: "/#vehicle#/docking/filter/debug/v2_D"
 
 docking/outer_loop:      
     topics:

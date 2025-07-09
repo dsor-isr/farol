@@ -28,7 +28,8 @@
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <auv_msgs/NavigationStatus.h>
-//#include <farol_docking/FilterDebug.h>
+#include <farol_docking/dState.h>
+
 
 // farol libraries
 #include <farol_gimmicks_library/FarolGimmicks.h>
@@ -138,9 +139,7 @@ class DockingFilterNode {
 
   // ROS messages
   auv_msgs::NavigationStatus state_msg_;
-  farol_msgs::mState console_state_msg_;
-  geometry_msgs::Point usbl_debug_msg;
-  //farol_docking::FilterDebug debug_msg_;
+  // farol_docking::dState state_msg_;
   
  	// ROS node iteration timer
  	ros::Timer timer_;    
@@ -162,6 +161,8 @@ class DockingFilterNode {
   std::string dock_frame_id_;
   
   // Filter Algorithm object
-  DockingFilter docking_filter_;
+  std::unique_ptr<DockingFilter> docking_filter_;
+  // to hold the state
+  Sophus::SE3d state_;
 
 };
