@@ -492,6 +492,7 @@ docking/filter:
             position: "/#vehicle#/measurement/position"
             dock_pose: "/#vehicle#/docking/dock_pose"
             filter_state: "/#vehicle#/nav/filter/state"
+            reset: "/#vehicle#/docking/filter/reset"
         publishers:
             state: "/#vehicle#/docking/filter/state"
             state_console: "/#vehicle#/State_docking"

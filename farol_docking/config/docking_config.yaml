@@ -13,9 +13,9 @@ filter:
     process_noise: [1, 0, 0,
                     0, 1, 0,
                     0, 0, 1]
-    measurement_noise: [0.1, 0, 0,
-                        0, 0.1, 0,
-                        0, 0, 0.1]
+    measurement_noise: [0.0001, 0, 0,
+                        0, 0.0001, 0,
+                        0, 0, 0.0001]
     outlier_treshold: 4.61
                         
   attitude:
@@ -48,7 +48,7 @@ outer_loop:
 
 
 docking_helper:
-  sim_usbl: true
+  sim_usbl: false
   outliers: false
   noise: false
 

@@ -8,15 +8,13 @@
 DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
     : nh_(*nodehandle), nh_private_(*nodehandle_private)
 {
-  initialized_ = false;
-  measurement_handler_thread_ = std::thread(&DockingFilter::measurement_handler, this);
-  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
-  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
-  terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
   position_filter_ = std::make_unique<PositionFilter>(&nh_,&nh_private_);
   attitude_filter_ = std::make_unique<AttitudeFilter>(&nh_,&nh_private_);
 
-
+  initialized_ = false;
+  usbl_pos_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
+  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
+  terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
 }
 
 
@@ -26,6 +24,11 @@ DockingFilter::~DockingFilter()
   measurements_buffer_cond_var_.notify_one();
   if(measurement_handler_thread_.joinable())
     measurement_handler_thread_.join();
+}
+
+void DockingFilter::start()
+{
+  measurement_handler_thread_ = std::thread(&DockingFilter::measurement_handler, this);
 }
 
 // for matrix types
@@ -65,14 +68,16 @@ void DockingFilter::initialize(){
   double r1 = -xyz_dock.dot(xyz_auv);
   double r2 = xyz_dock.cross(xyz_auv)(2);
   // Yaw = atan(r2, r1) [from the slides]
-  Sophus::SO3d R((Eigen::AngleAxisd(-std::atan2(r2, r1), Eigen::Vector3d::UnitZ())).toRotationMatrix());
-
+  double yaw = std::atan2(r2, r1);
+  Sophus::SO3d R((Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ())).toRotationMatrix());
+  
   // average the two usbl relative positions (rotating the auv one to the D frame first) and initialize
-  position_filter_->initialize(0.5*xyz_dock + 0.5 * R.matrix() *xyz_auv);
+  position_filter_->initialize(xyz_dock);
 
   // initialize attitude filter with the rotation arround yaw
   attitude_filter_->initialize(R);
 
+  initializer_buffer_.clear();
   initialized_=true;
 }
 
@@ -114,22 +119,23 @@ void DockingFilter::measurement_handler(){
         if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
           
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
-          if(!attitude_filter_->update(meas.data.value, terrain_normal_));
+          if(!attitude_filter_->update(meas.data.value, terrain_normal_))
             FAROL_WARN("Update Failed on Docking Attitude Filter");
+            
           
           // update using the measurement from the docking station
-          aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(0));
+          aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(3));
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_dock_pub_.publish(aux_vector3_msg_);
           if(!position_filter_->update(aux_vec3_))
             FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
 
           // update using the measurement from the auv rotated to the body using the matrix
-          aux_vec3_ = attitude_filter_->state_.matrix() * rbe_to_xyz(meas.data.value.segment<3>(0));
+          aux_vec3_ = attitude_filter_->state_.matrix() * -1*rbe_to_xyz(meas.data.value.segment<3>(0));
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_auv_pub_.publish(aux_vector3_msg_);
-          if(!position_filter_->update(aux_vec3_))
-            FAROL_WARN("Update Failed on Docking Position Filter");
+          // if(!position_filter_->update(aux_vec3_))
+            // FAROL_WARN("Update Failed on Docking Position Filter using auv measurement");
         }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
@@ -186,6 +192,10 @@ bool PositionFilter::predict(Stamped<Eigen::VectorXd> measurement){
     last_input_measurement_ = measurement;
     return false;
   }
+  if(last_predict_time_<0){
+    last_predict_time_ = measurement.stamp;
+    return false;
+  }
 
   // compute time that passed since last predict 
   double Dt = measurement.stamp - last_predict_time_;
@@ -197,12 +207,16 @@ bool PositionFilter::predict(Stamped<Eigen::VectorXd> measurement){
   // save the time of last update and the value of last measurement
   last_input_measurement_ = measurement;
   last_predict_time_ = measurement.stamp;
+
   return true;
 }
 
 // predict up until a certain time
 bool PositionFilter::predict(double time){
   if (!last_input_measurement_) {
+    return false;
+  }
+  if(last_predict_time_<0){
     return false;
   }
 
@@ -217,6 +231,7 @@ bool PositionFilter::predict(double time){
   state_cov_ = state_cov_ +  Dt*process_noise_;
 
   last_predict_time_=time;
+
   return true;
 }
 
@@ -245,6 +260,7 @@ bool PositionFilter::update(Eigen::Vector3d measurement) {
   K_ = state_cov_ * innovation_matrix_.inverse();
   state_ = state_ + K_ * innovation_vector_;
   state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
+
   return true;
 }
 
@@ -263,6 +279,11 @@ AttitudeFilter::AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nod
   v1_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_D", "/v1_D"), 5);
   v2_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_B", "/v2_B"), 5);
   v2_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_D", "/v2_D"), 5);
+  
+  sub_kp_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/kp", "filter_attitude_kp"), 10, &AttitudeFilter::kp_callback, this);
+  sub_ki_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ki", "filter_attitude_ki"), 10, &AttitudeFilter::ki_callback, this);
+  sub_k1_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/k1", "filter_attitude_k1"), 10, &AttitudeFilter::k1_callback, this);
+  sub_k2_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/k2", "filter_attitude_k2"), 10, &AttitudeFilter::k2_callback, this);
 
 }
 
@@ -280,6 +301,11 @@ bool AttitudeFilter::predict(Stamped<Eigen::VectorXd> measurement){
     last_input_measurement_ = measurement;
     return false;
   }
+  if(last_predict_time_<0){
+    last_predict_time_ = measurement.stamp;
+    return false;
+  }
+
 
   // compute time that passed since last predict 
   double Dt = measurement.stamp - last_predict_time_;
@@ -294,6 +320,10 @@ bool AttitudeFilter::predict(Stamped<Eigen::VectorXd> measurement){
 }
 bool AttitudeFilter::predict(double time){
   if (!last_input_measurement_) {
+    return false;
+  }
+
+  if(last_predict_time_<0){
     return false;
   }
 
@@ -316,8 +346,8 @@ bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrai
   
   // Compute the vector directions used for the update
   Eigen::Vector3d v1_B, v1_D, v2_B, v2_D, omega_mes;
-  v1_B = be_to_xyz(measurement[1], measurement[2]); 
-  v1_D = -1*be_to_xyz(measurement[4], measurement[5]);
+  v1_B = -1*be_to_xyz(measurement[1], measurement[2]); 
+  v1_D = be_to_xyz(measurement[4], measurement[5]);
   v2_B = terrain_normal_body; // this is the terrain normal, expressed in the b
   v2_D = Eigen::Vector3d::UnitZ(); // Dock z axis is aligned with terrain normal
   
@@ -326,6 +356,12 @@ bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrai
   v1_D_pub_.publish(toMsg(v1_D));
   v2_B_pub_.publish(toMsg(v2_B));
   v2_D_pub_.publish(toMsg(v2_D));
+
+  // ROS_WARN_STREAM("v1_B: " << v1_B);
+  // ROS_WARN_STREAM("v1_D: " << v1_D);
+  // ROS_WARN_STREAM("R^T * v1_D: " <<  state_.matrix().transpose() * v1_D);
+  // ROS_WARN_STREAM("matrix: " << state_.matrix().transpose());
+  // ROS_WARN_STREAM("product: " <<v1_B.cross(state_.matrix().transpose() * v1_D));
 
   // compute correction term
   omega_mes = Eigen::Vector3d::Zero();
@@ -340,6 +376,23 @@ bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrai
 
   return true;
 }
+
+void AttitudeFilter::kp_callback(const std_msgs::Float64 &msg){
+  kp_ = msg.data;
+}
+
+void AttitudeFilter::ki_callback(const std_msgs::Float64 &msg){
+  ki_ = msg.data;
+}
+
+void AttitudeFilter::k1_callback(const std_msgs::Float64 &msg){
+  k1_ = msg.data;
+}
+
+void AttitudeFilter::k2_callback(const std_msgs::Float64 &msg){
+  k2_ = msg.data;
+}
+
 
 
 

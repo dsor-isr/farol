@@ -100,7 +100,7 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
   
   // Compute control input
   float error = state_ref- state; 
-  ROS_INFO_STREAM(controller_name_ << "::  error: " << error <<" state_ref: "<< state_ref <<" - "<<state <<" and rate: " <<state_rate);
+  // ROS_INFO_STREAM(controller_name_ << "::  error: " << error <<" state_ref: "<< state_ref <<" - "<<state <<" and rate: " <<state_rate);
   if(angular)
     error = wrapToPi(error);
 

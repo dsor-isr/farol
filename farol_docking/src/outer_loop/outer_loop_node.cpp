@@ -350,7 +350,6 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   }else if(state_ =="terminal"){
     force_request_msg_.disable_axis = {false, false, false, true, true, false};
     force_request_pub_.publish(force_request_msg_);
-    ROS_INFO_STREAM("jhakdj");
   }
   
   

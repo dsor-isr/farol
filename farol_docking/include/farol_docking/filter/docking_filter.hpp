@@ -17,6 +17,7 @@
 #include <thread>
 #include <boost/lockfree/spsc_queue.hpp>
 #include <optional>
+#include <chrono>
 
 // ros libraries
 #include <ros/ros.h> 
@@ -100,7 +101,8 @@ class PositionFilter{
         ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
-  
+
+        
         // Kalman Filter variables
         Eigen::Vector3d state_;
         Eigen::Matrix3d state_cov_;
@@ -117,7 +119,7 @@ class PositionFilter{
         double outlier_threshold_;
 
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
-        double last_predict_time_;
+        double last_predict_time_{-1.0};
 
         bool output_outlier_rejection_{true};
         bool input_outlier_rejection_{true};
@@ -178,11 +180,18 @@ class AttitudeFilter{
          */
         bool update(Sophus::Vector6d measurement, Eigen::Vector3d terrain_normal_body);
 
+        void kp_callback(const std_msgs::Float64 &msg);
+        void ki_callback(const std_msgs::Float64 &msg);
+        void k1_callback(const std_msgs::Float64 &msg);
+        void k2_callback(const std_msgs::Float64 &msg);
+
         // ROS stuff
         ros::NodeHandle nh_, nh_private_;
         ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
+        ros::Subscriber sub_kp_, sub_ki_, sub_k1_, sub_k2_;
+
   
         // Kalman Filter variables
         Sophus::SO3d state_;
@@ -202,7 +211,7 @@ class AttitudeFilter{
         double outlier_threshold_;
 
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
-        double last_predict_time_;
+        double last_predict_time_{-1.0};
 
         bool output_outlier_rejection_{true};
         bool input_outlier_rejection_{true};
@@ -231,6 +240,11 @@ class DockingFilter{
          * @brief  Destructor for the Filter Algorithm
          */
         ~DockingFilter();
+
+        /**
+         * @brief  Start measurement handler thread
+         */
+        void start(); 
 
         /**
          * @brief  Change the process and measurement noises, or the ubsl

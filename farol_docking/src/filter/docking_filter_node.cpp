@@ -26,13 +26,14 @@ Eigen::MatrixXd load_matrix_parameter(ros::NodeHandle &_nh, std::string const &p
 
 // Constructor
 DockingFilterNode::DockingFilterNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
+  docking_filter_= std::make_unique<DockingFilter>(&nh_,&nh_private_);
   loadParams();
   initializeSubscribers();
   initializePublishers();
   initializeServices();
   initializeTimer();
   timer_.start();
-  docking_filter_= std::make_unique<DockingFilter>(&nh_,&nh_private_);
+  docking_filter_->start(); 
 }
 
 // Destructor
@@ -107,10 +108,10 @@ void DockingFilterNode::loadParams() {
   docking_filter_->configure("position_process", noise);
   noise = load_matrix_parameter(nh_private_, "position/measurement_noise", Eigen::Matrix3d::Identity());
   docking_filter_->configure("position_measurement", noise);
-  noise = load_matrix_parameter(nh_private_, "attitude/process_noise", Eigen::Matrix3d::Identity());
-  docking_filter_->configure("attitude_process", noise);
-  noise = load_matrix_parameter(nh_private_, "attitude/measurement_noise", Eigen::Matrix3d::Identity());
-  docking_filter_->configure("attitude_measurement", noise);
+  //noise = load_matrix_parameter(nh_private_, "attitude/process_noise", Eigen::Matrix3d::Identity());
+  //docking_filter_->configure("attitude_process", noise);
+  //noise = load_matrix_parameter(nh_private_, "attitude/measurement_noise", Eigen::Matrix3d::Identity());
+  //docking_filter_->configure("attitude_measurement", noise);
 
 
   // outlier rejection config

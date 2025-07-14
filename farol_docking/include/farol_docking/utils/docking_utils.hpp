@@ -134,7 +134,9 @@ inline double sigma_e(double input) {
     return input;
 }
 
-
+// gets a rotation matrix from B to I and outputs the angles measured from I to B
+// which is the standard for representing eulçer angles. The rotation matric from 
+// B to I is the standard when it comes to rotation matrices.
 inline Eigen::Vector3d extractRPY(const Sophus::SO3d& R) {
     Eigen::Matrix3d rot = R.matrix();
   double pitch;
