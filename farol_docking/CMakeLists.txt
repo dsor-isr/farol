@@ -15,6 +15,7 @@ find_package(catkin REQUIRED
     farol_gimmicks_library
     cmake_modules
     waypoint
+    inner_loops_pid
 )
  
 ## Generate messages in the 'msg' folder

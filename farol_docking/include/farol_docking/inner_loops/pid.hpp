@@ -26,6 +26,9 @@
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <farol_docking/PID_Debug.h>
+#include <inner_loops_pid/ChangeInnerGains.h>
+#include <inner_loops_pid/ChangeInnerGainsRequest.h>
+#include <inner_loops_pid/ChangeInnerGainsResponse.h>
 
 // farol libraries
 #include <farol_gimmicks_library/FarolGimmicks.h>
@@ -86,9 +89,13 @@ public:
   */
   bool compute_torque(double Dt);
 
+
+  bool changeGainsService(inner_loops_pid::ChangeInnerGains::Request &req, inner_loops_pid::ChangeInnerGains::Response &res);
+
   double gains_;
   ros::Subscriber sub_gains_;
   ros::Publisher debug_pub;
+  ros::ServiceServer change_gains_srv_;
 
 
   PositionPID x_pid, y_pid, z_pid, roll_pid, pitch_pid, yaw_pid;

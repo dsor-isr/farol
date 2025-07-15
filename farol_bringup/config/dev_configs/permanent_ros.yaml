@@ -546,6 +546,8 @@ docking/inner_loops:
     PID:
         publishers:
             debug:  "/#vehicle#/docking/inner_loops/pid/debug"
+        services:
+            change_inner_gains: "/#vehicle#/docking/PID/change_gains"
             
     SMC:
         subscribers:

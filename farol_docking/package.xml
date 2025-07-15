@@ -31,6 +31,7 @@ Code to perform autonomous docking of medusa AUV
  <depend>farol_msgs</depend>
  <depend>dsor_msgs</depend>
  <depend>waypoint</depend>
+ <depend>inner_loops_pid</depend>
  <depend>farol_gimmicks_library</depend>
  <depend>tf2</depend>
  <depend>tf2_ros</depend>

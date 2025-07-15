@@ -69,28 +69,42 @@ inner_loops:
       max_out:  20.0 
       min_out: -20.0
     z:
-      kp: 30.0000
-      ki: 3.8889
-      kd: 102.7778
+      kp: 12.5
+      ki: 0.8
+      kd: 12.0
       max_out:  20.0 
       min_out: -20.0
-    roll:
-      kp: 0.732
-      ki: 0.24 
-      kd: 0.628 
-      max_out:  5.0 
-      min_out: -5.0
-    pitch:
-      kp: 0.732
-      ki: 0.24 
-      kd: 0.628 
-      max_out:  5.0 
-      min_out: -5.0
     yaw:
-      kp: 17.2500
-      ki: 3.0000
-      kd: 33.7500
+      kp: 0.20
+      ki: 0.0005
+      kd: 0.133
       max_out:  5.0 
       min_out: -5.0
+    roll:
+      kp: 0.0
+      ki: 0.0 
+      kd: 0.0 
+      max_out:  0.01 
+      min_out: -0.01
+    pitch:
+      kp: 0.0
+      ki: 0.0 
+      kd: 0.0 
+      max_out:  0.01 
+      min_out: -0.01
+    
+
+    # roll:
+    #   kp: 0.732
+    #   ki: 0.24 
+    #   kd: 0.628 
+    #   max_out:  5.0 
+    #   min_out: -5.0
+    # pitch:
+    #   kp: 0.732
+    #   ki: 0.24 
+    #   kd: 0.628 
+    #   max_out:  5.0 
+    #   min_out: -5.0
     
     

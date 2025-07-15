@@ -45,24 +45,18 @@ PID::PID(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private) : Con
   yaw_pid.max_out_ = FarolGimmicks::getParameters<double>(nh_private_, "pid/yaw/max_out", 10);
   yaw_pid.controller_name_ = "yaw";
 
-  debug_pub = nh_private_.advertise<farol_docking::PID_Debug>(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/topics/publishers/debug", "/docking_pid_debug"), 5);
+  debug_pub = nh_private_.advertise<farol_docking::PID_Debug>(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/publishers/debug", "/docking_pid_debug"), 5);
+  change_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "PID/services/change_inner_gains", "/docking/PID/inner_forces/change_inner_gains"), &PID::changeGainsService, this);
 
-
-  PID::configure();
 }
-
 
 void PID::configure() {
   // set up the parameters value
   // reset the controller
 }
 
+
 bool PID::compute_force(double Dt) {
-  // Eigen::Matrix3d R = 
-  // (Eigen::AngleAxisd(-attitude_(2)/180*M_PI, Eigen::Vector3d::UnitZ()) *  // yaw
-  //  Eigen::AngleAxisd(attitude_(1)/180*M_PI, Eigen::Vector3d::UnitY()) *  // pitch
-  //  Eigen::AngleAxisd(attitude_(0)/180*M_PI, Eigen::Vector3d::UnitX())    // roll
-  // ).toRotationMatrix();
   Eigen::Matrix3d R = (Eigen::AngleAxisd(-attitude_(2)/180*M_PI, Eigen::Vector3d::UnitZ())).toRotationMatrix();
   Eigen::Vector3d body_pos = R.transpose()* position_;
   Eigen::Vector3d body_ref = R.transpose() * position_ref_;
@@ -81,6 +75,45 @@ bool PID::compute_torque(double Dt) {
   return true;
 }
 
+bool PID::changeGainsService( inner_loops_pid::ChangeInnerGains::Request &req, inner_loops_pid::ChangeInnerGains::Response &res) {
+  
+  bool control_changed = false;
+
+  if(req.inner_type == "yaw"){
+    yaw_pid.p_gain_ = req.kp;
+    yaw_pid.i_gain_ = req.ki;
+    yaw_pid.d_gain_ = req.kd;
+    control_changed = true;
+  }else if(req.inner_type == "x"){
+    x_pid.p_gain_ = req.kp;
+    x_pid.i_gain_ = req.ki;
+    x_pid.d_gain_ = req.kd;
+    control_changed = true;
+  }else if(req.inner_type == "y"){
+    y_pid.p_gain_ = req.kp;
+    y_pid.i_gain_ = req.ki;
+    y_pid.d_gain_ = req.kd;
+    control_changed = true;
+  }else if(req.inner_type == "z"){
+    z_pid.p_gain_ = req.kp;
+    z_pid.i_gain_ = req.ki;
+    z_pid.d_gain_ = req.kd;
+    control_changed = true;
+  }
+
+  if (!control_changed) {
+    res.success = false;
+    res.message += "Bad control name " + req.inner_type;
+  } else {
+    res.success = true;
+    res.message += "New " + req.inner_type + " gains are" +
+                   " kp: " + std::to_string(req.kp) +
+                   " ki: " + std::to_string(req.ki) +
+                   " kd: " + std::to_string(req.kd);
+  }
+
+  return true;
+}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

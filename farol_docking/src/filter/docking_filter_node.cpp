@@ -163,14 +163,14 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
       return;
       
     // send measurement into the docking filter   
-    if(docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], msg.value[2]), msg.header.stamp.toSec(), "dvl"))){
+    if(docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], -msg.value[2]), msg.header.stamp.toSec(), "dvl"))){
       docking_filter_->measurements_buffer_cond_var_.notify_one();
     }
     // no space on buffer, tenso
     else{
       ROS_WARN_STREAM("Dropping DVL measurements. Oh no, not good :(");
     }
-    dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
+    dvl_velocity_ << msg.value[0],msg.value[1],-msg.value[2];
   } 
 }
 
