@@ -133,7 +133,7 @@ class DockingFilterNode {
   ros::Subscriber sub_terrain_d;
   
  	// Publishers
-  ros::Publisher state_pub_;
+  ros::Publisher state_pub_, body_velocity_pub_;
   // ros::Publisher console_state_pub_;
   // ros::Publisher debug_pub_;
 
@@ -164,5 +164,7 @@ class DockingFilterNode {
   std::unique_ptr<DockingFilter> docking_filter_;
   // to hold the state
   Sophus::SE3d state_;
+
+  Eigen::Vector3d r_dvl_{0.45, 0.0, -0.2};
 
 };

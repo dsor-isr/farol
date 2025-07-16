@@ -74,7 +74,7 @@ void DockingFilterNode::initializeSubscribers() {
 void DockingFilterNode::initializePublishers() {
   ROS_INFO("Initializing Publishers for DockingFilterNode");
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "docking/filter/state"), 10);
-  // console_state_pub_ = nh_private_.advertise<farol_msgs::mState>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state_console", "State_docking"), 10);
+  body_velocity_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/body_velocity", "docking/filter/debug/body_velocity"), 10);
 }
 
 
@@ -161,16 +161,21 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   {
     if(!docking_filter_->initialized_) // keep only last message if not initialized
       return;
-      
+
+    // added - sign because navquest DVL is stoopid
+    dvl_velocity_ << msg.value[0],msg.value[1],-msg.value[2];
+    // rotate 
+    dvl_velocity_ = dvl_velocity_ - ahrs_velocity_.cross(r_dvl_);
+    body_velocity_pub_.publish(toMsg(dvl_velocity_));
+
     // send measurement into the docking filter   
-    if(docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], -msg.value[2]), msg.header.stamp.toSec(), "dvl"))){
+    if(docking_filter_->measurements_buffer_.push(Measurement(dvl_velocity_, msg.header.stamp.toSec(), "dvl"))){
       docking_filter_->measurements_buffer_cond_var_.notify_one();
     }
     // no space on buffer, tenso
     else{
       ROS_WARN_STREAM("Dropping DVL measurements. Oh no, not good :(");
     }
-    dvl_velocity_ << msg.value[0],msg.value[1],-msg.value[2];
   } 
 }
 

@@ -503,6 +503,7 @@ docking/filter:
                 v1_D: "/#vehicle#/docking/filter/debug/v1_D"
                 v2_B: "/#vehicle#/docking/filter/debug/v2_B"
                 v2_D: "/#vehicle#/docking/filter/debug/v2_D"
+                body_velocity: "/#vehicle#/docking/filter/debug/body_velocity"
 
 docking/outer_loop:      
     topics:
