@@ -207,6 +207,8 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
       	timer_.stop();
       	timer_.start();
 
+				std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
       	triggerSerialization();
     }
     else{

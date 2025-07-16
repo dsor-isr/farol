@@ -20,6 +20,8 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
  #include <farol_gimmicks_library/FarolGimmicks.h>
 
  #include <ctime>
+ #include <chrono>
+ #include <thread>
 
  #define SOUND_SPEED 1513.0
  #define SLACK_TIME 1000000.0
