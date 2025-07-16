@@ -163,7 +163,7 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
       return;
 
     // added - sign because navquest DVL is stoopid
-    dvl_velocity_ << msg.value[0],msg.value[1],-msg.value[2];
+    dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
     // rotate 
     dvl_velocity_ = dvl_velocity_ - ahrs_velocity_.cross(r_dvl_);
     body_velocity_pub_.publish(toMsg(dvl_velocity_));
