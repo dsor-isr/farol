@@ -96,9 +96,16 @@ class PositionFilter{
          */
         bool update(Eigen::Vector3d measurement);
 
+        void Q_callback(const std_msgs::Float64 &msg);
+        
+        void R_callback(const std_msgs::Float64 &msg);
+        
+
         // ROS stuff
         ros::NodeHandle nh_, nh_private_;
         ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
+        ros::Subscriber sub_Q_;
+        ros::Subscriber sub_R_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
 
@@ -333,7 +340,8 @@ class DockingFilter{
 
         // vector normal to the terrain in the inertial frame, used to know the relative orientation
         Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::UnitZ();
-        Eigen::Vector3d usbl_instalation_matrix_ = Eigen::Vector3d::Zero();;
+        Eigen::Vector3d dock_usbl_instalation_offset = Eigen::Vector3d::Zero();
+        Eigen::Vector3d auv_usbl_instalation_offset = Eigen::Vector3d::Zero();
 
     private:
 };

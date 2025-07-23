@@ -153,6 +153,7 @@ private:
   // Soft - sums the output of the forces given by the PIDs and the ones received from external topics
   // Hard - discards the values from the PIDs and only uses the ones received from external topics
   bool forces_hard_bypass_;
+  std::array<bool, 6> disable_axis_; 
   double timeout_ref_;
 
   ros::Subscriber st_sub_; // State subscriber

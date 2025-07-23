@@ -99,8 +99,10 @@ void DockingFilterNode::loadParams() {
   docking_filter_->dock_has_ahrs_ = FarolGimmicks::getParameters<bool>(nh_private_, "dock_has_ahrs", false);
 
   std::vector<double> aux;
-  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "usbl_instalation_matrix", {});
-  docking_filter_->usbl_instalation_matrix_ << aux[0], aux[1], aux[2];
+  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "dock_usbl_instalation_offset", {});
+  docking_filter_->dock_usbl_instalation_offset << aux[0], aux[1], aux[2];
+  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "auv_usbl_instalation_offset", {});
+  docking_filter_->auv_usbl_instalation_offset << aux[0], aux[1], aux[2];
 
   // Filter covariances
   Eigen::MatrixXd noise;

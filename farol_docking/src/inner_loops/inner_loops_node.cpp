@@ -102,6 +102,7 @@ void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
     force_request_msg_.wrench.force.z = controller_->force_[2];
   }
   else{
+    controller_->reset_xyz();
     force_request_msg_.wrench.force.x=0;
     force_request_msg_.wrench.force.y=0;
     force_request_msg_.wrench.force.z=0; 
@@ -113,6 +114,7 @@ void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
     force_request_msg_.wrench.torque.y = controller_->torque_[1];
     force_request_msg_.wrench.torque.z = controller_->torque_[2];
   }else{
+    controller_->reset_rpy();
     force_request_msg_.wrench.torque.x=0;
     force_request_msg_.wrench.torque.y=0;
     force_request_msg_.wrench.torque.z=0; 
@@ -122,7 +124,6 @@ void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
     force_request_msg_.disable_axis = {disable_axis_[0], disable_axis_[1], disable_axis_[2], disable_axis_[3], disable_axis_[4], disable_axis_[5]};
     force_request_pub_.publish(force_request_msg_);
   }
-
 }
 
 

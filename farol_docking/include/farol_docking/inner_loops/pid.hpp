@@ -75,8 +75,10 @@ public:
    *
    */
   void configure();
-  
-  
+
+  void reset_xyz();
+  void reset_rpy();
+
   /**
   * @brief  Controller for position in R3
   *
@@ -91,8 +93,9 @@ public:
 
 
   bool changeGainsService(inner_loops_pid::ChangeInnerGains::Request &req, inner_loops_pid::ChangeInnerGains::Response &res);
-
+  void reset_callback(const std_msgs::Empty &msg);
   double gains_;
+  ros::Subscriber sub_reset_;
   ros::Subscriber sub_gains_;
   ros::Publisher debug_pub;
   ros::ServiceServer change_gains_srv_;

@@ -45,15 +45,27 @@ PID::PID(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private) : Con
   yaw_pid.max_out_ = FarolGimmicks::getParameters<double>(nh_private_, "pid/yaw/max_out", 10);
   yaw_pid.controller_name_ = "yaw";
 
-  debug_pub = nh_private_.advertise<farol_docking::PID_Debug>(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/publishers/debug", "/docking_pid_debug"), 5);
-  change_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_, "PID/services/change_inner_gains", "/docking/PID/inner_forces/change_inner_gains"), &PID::changeGainsService, this);
+  debug_pub = nh_private_.advertise<farol_docking::PID_Debug>(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/publishers/debug", "medusa_amarelo_zero/docking/pid/debug"), 5);
+  change_gains_srv_ = nh_.advertiseService(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/services/change_inner_gains", "medusa_amarelo_zero/docking/PID/inner_forces/change_inner_gains"), &PID::changeGainsService, this);
+  sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "PID/subscribers/reset", "medusa_amarelo_zero/docking/inner_loops/pid/reset"), 1, &PID::reset_callback, this);
 
 }
 
-void PID::configure() {
-  // set up the parameters value
-  // reset the controller
+void PID::configure() {/* Done in the constructor */}
+
+void PID::reset_xyz(){
+  x_pid.u_prev_ = 0;
+  y_pid.u_prev_ = 0;
+  z_pid.u_prev_ = 0;
 }
+
+
+void PID::reset_rpy(){
+  yaw_pid.u_prev_ = 0;
+  pitch_pid.u_prev_ = 0;
+  roll_pid.u_prev_ = 0;
+}
+
 
 
 bool PID::compute_force(double Dt) {
@@ -75,6 +87,13 @@ bool PID::compute_torque(double Dt) {
   return true;
 }
 
+void PID::reset_callback(const std_msgs::Empty &msg) {
+  PID::reset_xyz();
+  PID::reset_rpy();
+}
+
+
+
 bool PID::changeGainsService( inner_loops_pid::ChangeInnerGains::Request &req, inner_loops_pid::ChangeInnerGains::Response &res) {
   
   bool control_changed = false;
@@ -84,21 +103,25 @@ bool PID::changeGainsService( inner_loops_pid::ChangeInnerGains::Request &req, i
     yaw_pid.i_gain_ = req.ki;
     yaw_pid.d_gain_ = req.kd;
     control_changed = true;
+    PID::reset_rpy();
   }else if(req.inner_type == "x"){
     x_pid.p_gain_ = req.kp;
     x_pid.i_gain_ = req.ki;
     x_pid.d_gain_ = req.kd;
     control_changed = true;
+    PID::reset_xyz();
   }else if(req.inner_type == "y"){
     y_pid.p_gain_ = req.kp;
     y_pid.i_gain_ = req.ki;
     y_pid.d_gain_ = req.kd;
     control_changed = true;
+    PID::reset_xyz();
   }else if(req.inner_type == "z"){
     z_pid.p_gain_ = req.kp;
     z_pid.i_gain_ = req.ki;
     z_pid.d_gain_ = req.kd;
     control_changed = true;
+    PID::reset_xyz();
   }
 
   if (!control_changed) {
@@ -106,14 +129,15 @@ bool PID::changeGainsService( inner_loops_pid::ChangeInnerGains::Request &req, i
     res.message += "Bad control name " + req.inner_type;
   } else {
     res.success = true;
-    res.message += "New " + req.inner_type + " gains are" +
+    res.message += "[Integrators Reset] + New " + req.inner_type + " gains are" +
                    " kp: " + std::to_string(req.kp) +
                    " ki: " + std::to_string(req.ki) +
                    " kd: " + std::to_string(req.kd);
   }
-
   return true;
 }
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,7 +154,7 @@ float PositionPID::compute(float state, float state_rate, float state_ref, float
     state_ref = state_ref / 180*M_PI;
   }
   
-  
+  ROS_INFO_STREAM("P: " << p_gain_ <<", D: " << d_gain_ << ", I: " << i_gain_);
   // Compute control input
   float error = state_ref- state; 
   // ROS_INFO_STREAM(controller_name_ << "::  error: " << error <<" state_ref: "<< state_ref <<" - "<<state <<" and rate: " <<state_rate);

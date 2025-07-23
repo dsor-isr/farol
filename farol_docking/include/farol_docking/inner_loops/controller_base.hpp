@@ -21,6 +21,8 @@ public:
      *
      */
     virtual void configure() = 0;
+    virtual void reset_xyz() = 0;
+    virtual void reset_rpy() = 0;
     
     /**
     * @brief  Timer iteration callback

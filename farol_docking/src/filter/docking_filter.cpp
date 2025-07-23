@@ -125,6 +125,7 @@ void DockingFilter::measurement_handler(){
           
           // update using the measurement from the docking station
           aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(3));
+          aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_dock_pub_.publish(aux_vector3_msg_);
           if(!position_filter_->update(aux_vec3_))
@@ -132,6 +133,7 @@ void DockingFilter::measurement_handler(){
 
           // update using the measurement from the auv rotated to the body using the matrix
           aux_vec3_ = attitude_filter_->state_.matrix() * -1*rbe_to_xyz(meas.data.value.segment<3>(0));
+          aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_auv_pub_.publish(aux_vector3_msg_);
           // if(!position_filter_->update(aux_vec3_))
@@ -175,6 +177,8 @@ bool DockingFilter::predict(double time){
 
 PositionFilter::PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
     : nh_(*nodehandle), nh_private_(*nodehandle_private){
+  sub_Q_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/Q", "medusa_amarelo_zero/docking/filter/position/R"), 10, &PositionFilter::Q_callback, this);
+  sub_R_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/R", "medusa_amarelo_zero/docking/filter/position/Q"), 10, &PositionFilter::R_callback, this);
 }
 
 void PositionFilter::initialize(Eigen::Vector3d measurement){
@@ -183,6 +187,15 @@ void PositionFilter::initialize(Eigen::Vector3d measurement){
   Eigen::Vector3d variance = 0.1*measurement;
   state_cov_ = variance.asDiagonal();
 }
+
+void PositionFilter::Q_callback(const std_msgs::Float64 &msg){
+  process_noise_ = msg.data*Eigen::Matrix3d::Identity();
+}
+
+void PositionFilter::R_callback(const std_msgs::Float64 &msg){
+  measurement_noise_ = msg.data*Eigen::Matrix3d::Identity();
+}
+
 
 
 // TODO: make this using the proper integration method with the exponential 

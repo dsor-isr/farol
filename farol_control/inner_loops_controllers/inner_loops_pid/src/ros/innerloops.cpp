@@ -192,6 +192,7 @@ void Innerloops::timerCallback(const ros::TimerEvent &event) {
       output_msg.wrench.torque.x += force_bypass_.wrench.torque.x;
       output_msg.wrench.torque.y += force_bypass_.wrench.torque.y;
       output_msg.wrench.torque.z += force_bypass_.wrench.torque.z;
+      output_msg.disable_axis = {disable_axis_[0], disable_axis_[1], disable_axis_[2], disable_axis_[3], disable_axis_[4], disable_axis_[5]};
     } else {
 
       // If hard bypass - ignore completely the inner-loops
@@ -201,6 +202,7 @@ void Innerloops::timerCallback(const ros::TimerEvent &event) {
       output_msg.wrench.torque.x = force_bypass_.wrench.torque.x;
       output_msg.wrench.torque.y = force_bypass_.wrench.torque.y;
       output_msg.wrench.torque.z = force_bypass_.wrench.torque.z;
+      output_msg.disable_axis = {disable_axis_[0], disable_axis_[1], disable_axis_[2], disable_axis_[3], disable_axis_[4], disable_axis_[5]};
     }
     
   }
@@ -221,6 +223,13 @@ void Innerloops::forceBypassCallback(const auv_msgs::BodyForceRequest &msg) {
   force_bypass_.wrench.torque.x = msg.wrench.torque.x;
   force_bypass_.wrench.torque.y = msg.wrench.torque.y;
   force_bypass_.wrench.torque.z = msg.wrench.torque.z;
+  disable_axis_[0] = msg.disable_axis[0];
+  disable_axis_[1] = msg.disable_axis[1];
+  disable_axis_[2] = msg.disable_axis[2];
+  disable_axis_[3] = msg.disable_axis[3];
+  disable_axis_[4] = msg.disable_axis[4];
+  disable_axis_[5] = msg.disable_axis[5];
+
 }
 
 void Innerloops::StateCallback(const auv_msgs::NavigationStatus &msg) {

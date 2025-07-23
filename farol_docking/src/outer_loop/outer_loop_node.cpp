@@ -145,6 +145,12 @@ void OuterLoopNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
 
 
 void OuterLoopNode::start_callback(const std_msgs::Empty &msg){  
+  // this should make it go straight into homing phase, hopefully
+  if(got_docking_state_){
+    state_ = "skibidi";
+    check_state_transition(ros::Time::now().toSec());
+  }
+
   state_ = "approaching";
   phase_msg_.data = state_;
   docking_state_pub.publish(phase_msg_);
@@ -157,7 +163,7 @@ void OuterLoopNode::start_callback(const std_msgs::Empty &msg){
     wp_srv_.request.yaw = wrapToPi((dock_heading_.value()+180)/180*M_PI);
     wp_client.call(wp_srv_);
   }// here we know the dock heading based on usbl
-  else if (got_acomms_){
+  else if (got_docking_state_){
     wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + homing_dist_*cos(dock_heading_.value()/180*M_PI);
     wp_srv_.request.y = homing_target_point_[1]; //dock_position_[1] + homing_dist_*sin(dock_heading_.value()/180*M_PI);
     wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
@@ -174,7 +180,6 @@ void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
   flag_ = msg.data;
   if(msg.data == 0){
     state_ = "idle";
-    got_acomms_=false;
     got_docking_state_=false;
   } 
   

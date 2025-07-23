@@ -87,6 +87,10 @@
    */
   void flag_callback(const std_msgs::Int8 &msg);
 
+
+
+  
+
   /**
    * @brief  Timer iteration callback
    *
@@ -104,6 +108,7 @@
   ros::Subscriber sub_docking_state_;
   ros::Subscriber sub_position_ref_;
   ros::Subscriber sub_attitude_ref_;
+
 
  	// Publishers
   ros::Publisher force_request_pub_;

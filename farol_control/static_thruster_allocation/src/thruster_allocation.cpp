@@ -91,6 +91,11 @@ void ThrustAllocation::thrusterAllocation(const auv_msgs::BodyForceRequest &msg)
             float(msg.wrench.torque.x),
             float(msg.wrench.torque.y), 
             float(msg.wrench.torque.z);
+  // if disable axis is set then that force is 0 
+  for (int i = 0; i < 6; ++i) {
+    if (msg.disable_axis[i])
+      ft_req[i] = 0.0;
+  }
 
   // Compute the force necessary for each thruster
   Eigen::VectorXd thr_thrust = b_inv_ * ft_req;
