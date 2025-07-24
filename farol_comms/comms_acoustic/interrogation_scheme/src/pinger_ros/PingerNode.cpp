@@ -126,6 +126,7 @@ void AcousticPinger::initializeTimer() {
       std_msgs::String payload_data;
       payload_data.data = msg.payload + ":vehicle" + std::to_string(msg.source_address) ; 
       pub_deserialization.publish(payload_data);
+      ROS_INFO_STREAM("PINGER::scheme/payload_to_deserialize: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
 
       // compute range
       tlastRECVIMS = msg.timestamp;
@@ -207,6 +208,8 @@ void AcousticPinger::triggerSerialization()
     im.ack  = replier_ack;
     im.payload =  msg.data;
     pub_im.publish(im);
+    ROS_INFO_STREAM("PINGER::modem/send: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+
 
     // Storing times
     tlastRECVIMS = 0;
@@ -227,6 +230,7 @@ void AcousticPinger::triggerSerialization()
 
     // request the serializer to serialize the data to be sent
     triggerSerialization();
+    ROS_INFO_STREAM("PINGER::TRIGGER_SEREALIZATION: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
 
     // Send Message to Modem after a slack time
     unsigned long int tping = tlastRECVIMS + round(tslack*1000000);

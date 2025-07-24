@@ -22,7 +22,8 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
  #include <ctime>
  #include <chrono>
  #include <thread>
-
+ #include <iomanip>
+ 
  #define SOUND_SPEED 1513.0
  #define SLACK_TIME 1000000.0
 

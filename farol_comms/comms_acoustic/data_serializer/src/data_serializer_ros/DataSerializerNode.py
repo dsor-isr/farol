@@ -124,6 +124,13 @@ class DataSerializerNode():
         channel_ind = channel_info[0]
         latch_qty = channel_info[1]
         
+        a =""
+        try:
+            a = str(msg_data.header.seq)
+        except:
+            pass
+        rospy.loginfo("DATA_SERIALIZER::generic_callback::"+str(channel_info)+": ["+a+"] : " +str(rospy.Time.now().to_sec()))
+
         # +.+ collect list of serial strings for each field in the channel
         s = []
         fields = self._data_channels[channel_ind]['fields']
@@ -196,6 +203,14 @@ class DataSerializerNode():
                 # populate and publish
                 roslib.message.fill_message_args(msg,[field_dict])
                 self._pubs[ind].publish(msg)
+                a =""
+                try:
+                    a = str(msg_data.header.seq)
+                except:
+                    pass
+                rospy.loginfo("DATA_SERIALIZER::DESERIALIZE&PUBLISH: [" +a+ "] : " +str(rospy.Time.now().to_sec()))
+                
+                
     
     """
     ###########################################################################################
@@ -208,6 +223,12 @@ class DataSerializerNode():
         s = ''.join(self._serial_data)
         # print("TRIGGER SERIALIZATION: " + f + " " + s)
         self._to_modem_pub.publish(std_msgs.msg.String(SerializerAlgorithms.payload_to_bytes(f+s)))
+        a =""
+        try:
+            a = str(msg_data.header.seq)
+        except:
+            pass
+        rospy.loginfo("DATA_SERIALIZER::/serializer/payload_to_transmit: [" +a+ "] : " +str(rospy.Time.now().to_sec()))
         
         # +.+ clear serial data and channel flag indicators if latching is over
         if sys.version_info[0] == 2: 

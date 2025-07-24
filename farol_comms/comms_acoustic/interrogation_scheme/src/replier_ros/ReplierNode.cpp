@@ -136,6 +136,8 @@ void ReplierNode::triggerSerialization(){
 	reply_ims_.payload = msg.data;
 
 	im_pub_.publish(reply_ims_);
+	ROS_INFO_STREAM("REPLIER::/modem/send: [" <<reply_ims_.header.seq <<"] : " << std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+
 }
 
 void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
@@ -207,9 +209,11 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
       	timer_.stop();
       	timer_.start();
 
-				std::this_thread::sleep_for(std::chrono::milliseconds(200));
+			std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
-      	triggerSerialization();
+			triggerSerialization();
+    	ROS_INFO_STREAM("REPLIER::TRIGGER_SEREALIZATION: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+
     }
     else{
       	reply_ims_.header.stamp = ros::Time(0);

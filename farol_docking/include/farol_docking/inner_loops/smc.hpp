@@ -49,6 +49,8 @@ public:
    */
   void configure();
   
+  void reset_xyz();
+  void reset_rpy();
   
   /**
   * @brief  Controller for position in R3

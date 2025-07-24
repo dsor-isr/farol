@@ -25,6 +25,12 @@ void SMC::configure() {
   // reset the controller
 }
 
+void SMC::reset_xyz(){}
+
+
+void SMC  ::reset_rpy(){}
+
+
 
 // INTEGRAL SLIDING MODE CONTROLLER IN R3
 bool SMC::compute_force(double Dt) {

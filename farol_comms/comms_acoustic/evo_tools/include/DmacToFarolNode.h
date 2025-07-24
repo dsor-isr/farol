@@ -23,6 +23,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico
 #include <Eigen/Eigen>
 #include <Eigen/Dense>
 #include <math.h>
+#include <iomanip>
 
 class DmacToFarolNode
 {
