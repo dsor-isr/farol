@@ -149,6 +149,7 @@ void OuterLoopNode::start_callback(const std_msgs::Empty &msg){
   if(got_docking_state_){
     state_ = "skibidi";
     check_state_transition(ros::Time::now().toSec());
+    return;
   }
 
   state_ = "approaching";
@@ -213,10 +214,12 @@ void OuterLoopNode::check_state_transition(double time_now){
   }
   
   // if has acomms and is close to target point
-  if(state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4) )
+  // if(state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4) )
   // or has acomms and was searching for acomms
-  if ((state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2) || ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4))) ||
-      (state_ == "search_acomms" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4) )){
+  // if ((state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2) || ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4))) ||
+  //     (state_ == "search_acomms" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-homing_dist_, 0.0) ).norm() < 4) ));
+      
+  if (state_=="skibidi"){
     flag_msg_.data = 10;
     flag_pub_.publish(flag_msg_);
     state_ = "homing";

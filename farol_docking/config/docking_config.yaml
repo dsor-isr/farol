@@ -4,8 +4,8 @@ filter:
   node_frequency: 10
   debug: true
   dock_has_ahrs: false
-  dock_usbl_instalation_offset: [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
-  auv_usbl_instalation_offset: [0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
+  dock_usbl_instalation_offset: [0.0,0.0,0.0] # [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
+  auv_usbl_instalation_offset: [0.0,0.0,0.0] # [0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
   # outlier_rejection:  ["usbl", "dvl"]
   outlier_rejection:  [] # no outlier rejection
@@ -18,15 +18,16 @@ filter:
                         0, 10, 0,
                         0, 0, 10]
     outlier_treshold: 4.61
+    update_delay: 1.8
                         
   attitude:
     gains:
-      k1: 0.5
-      k2: 0.5
+      k1: 0.6
+      k2: 0.4
       kp: 1
       ki: 0
     outlier_treshold: 2.71
-  
+    update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done 
 
 outer_loop:
   node_frequency: 10

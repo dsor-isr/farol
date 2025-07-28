@@ -94,7 +94,7 @@ class PositionFilter{
          * @param[in] measurement A new position measurement in R³
          * @see Lekkas et al Mahalanobis outlier rejection
          */
-        bool update(Eigen::Vector3d measurement);
+        bool update(Stamped<Eigen::VectorXd> measurement);
 
         void Q_callback(const std_msgs::Float64 &msg);
         
@@ -124,6 +124,18 @@ class PositionFilter{
 
         double mahalanobis_distance_;
         double outlier_threshold_;
+
+        // shit for the retroactive update
+        Eigen::Vector3d state_at_last_update_;
+        Eigen::Matrix3d state_cov_at_last_update_;
+        double time_at_last_update_;
+        double update_delay_;
+        std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
+
+        // Eigen::Vector3d state_at_prev_ping_;
+        // double time_of_last_ping_;
+        // double time_of_prev_ping_;
+        
 
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
         double last_predict_time_{-1.0};
@@ -185,7 +197,7 @@ class AttitudeFilter{
         /**
          * @brief  Correct state estimate with a new position measurement
          */
-        bool update(Sophus::Vector6d measurement, Eigen::Vector3d terrain_normal_body);
+        bool update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body);
 
         void kp_callback(const std_msgs::Float64 &msg);
         void ki_callback(const std_msgs::Float64 &msg);
@@ -217,6 +229,18 @@ class AttitudeFilter{
         double mahalanobis_distance_;
         double outlier_threshold_;
 
+        // shit for the retroactive update
+        Sophus::SO3d state_at_last_update_;
+        double time_at_last_update_;
+        double update_delay_;
+        std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
+
+        // Sophus::SO3d state_at_prev_ping_;
+        // double time_of_last_ping_;
+        // double time_of_prev_ping_;
+        // double update_delay_;
+
+        // some other shit idk man 
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
         double last_predict_time_{-1.0};
 
@@ -263,7 +287,7 @@ class DockingFilter{
         /**
          * @brief  initialize the filter with an initial measurement
          */
-        void initialize();
+        void initialize(double stamp);
 
         /**
          * @brief  Reset the filter to the initial position
@@ -305,7 +329,7 @@ class DockingFilter{
         ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
-
+        Stamped<Eigen::VectorXd> aux_stamped_;
 
         // Filters
         std::unique_ptr<PositionFilter> position_filter_;

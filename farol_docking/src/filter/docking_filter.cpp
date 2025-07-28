@@ -56,7 +56,7 @@ void DockingFilter::configure(std::string type, std::vector<std::string> outlier
   }
 }
 
-void DockingFilter::initialize(){
+void DockingFilter::initialize(double stamp){
   // do the median to account for possible outliers
   Sophus::Vector6d median_meas = median(initializer_buffer_);
   
@@ -73,9 +73,16 @@ void DockingFilter::initialize(){
   
   // average the two usbl relative positions (rotating the auv one to the D frame first) and initialize
   position_filter_->initialize(xyz_dock);
+  position_filter_->state_at_last_update_ = xyz_dock;
+  position_filter_->state_cov_at_last_update_ = position_filter_->initial_state_cov_;
+  position_filter_->time_at_last_update_ = stamp;
+
 
   // initialize attitude filter with the rotation arround yaw
   attitude_filter_->initialize(R);
+  attitude_filter_->state_at_last_update_ = R;
+  attitude_filter_->time_at_last_update_ = stamp;
+
 
   initializer_buffer_.clear();
   initialized_=true;
@@ -109,7 +116,7 @@ void DockingFilter::measurement_handler(){
           initializer_buffer_.push_back(meas.data.value);
           // if buffer has already enough measurements for initalization
           if(initializer_buffer_.size()>=initializer_size_){
-            DockingFilter::initialize();
+            DockingFilter::initialize(meas.data.stamp);
           }
         }
       }else{
@@ -119,16 +126,19 @@ void DockingFilter::measurement_handler(){
         if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
           
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
-          if(!attitude_filter_->update(meas.data.value, terrain_normal_))
+          if(!attitude_filter_->update(meas.data, terrain_normal_))
             FAROL_WARN("Update Failed on Docking Attitude Filter");
-            
           
           // update using the measurement from the docking station
           aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(3));
           aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_dock_pub_.publish(aux_vector3_msg_);
-          if(!position_filter_->update(aux_vec3_))
+          ROS_INFO_STREAM("DOCKING::aux_vec3_: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+
+          aux_stamped_.value = aux_vec3_;
+          aux_stamped_.stamp = meas.data.stamp;
+          if(!position_filter_->update(aux_stamped_))
             FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
 
           // update using the measurement from the auv rotated to the body using the matrix
@@ -136,8 +146,12 @@ void DockingFilter::measurement_handler(){
           aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_auv_pub_.publish(aux_vector3_msg_);
-          // if(!position_filter_->update(aux_vec3_))
-            // FAROL_WARN("Update Failed on Docking Position Filter using auv measurement");
+
+          /* Uncomment to use these updates as well*/
+          // aux_stamped_.value = aux_vec3_;
+          // aux_stamped_.stamp = meas.data.stamp;
+          // if(!position_filter_->update(aux_stamped_))
+            // FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
         }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
@@ -147,14 +161,16 @@ void DockingFilter::measurement_handler(){
         dvl_corrected.stamp = meas.data.stamp;
         if(!position_filter_->predict(dvl_corrected))
           FAROL_WARN("Predict Failed on Docking Position Filter");
+        position_filter_->input_meas_buffer_.emplace_back(dvl_corrected);
+        
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
         if(!attitude_filter_->predict(meas.data))
           FAROL_WARN("Predict Failed on Docking Attitude Filter");
+        attitude_filter_->input_meas_buffer_.emplace_back(meas.data);
+
       }else if(meas.type=="ahrs_angles"&& meas.data.value.size() ==3){
         auv_attitude_ = meas.data.value;
-      }else if(meas.type=="dock_attitude"&& meas.data.value.size() ==3){
-        dock_attitude_ = meas.data.value;
       }else
         FAROL_WARN("Invalid measurement type in measurement handler");
       }
@@ -249,35 +265,101 @@ bool PositionFilter::predict(double time){
 }
 
 
-bool PositionFilter::update(Eigen::Vector3d measurement) {
+bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
+  state_ = state_at_last_update_;
+  state_cov_ = state_cov_at_last_update_;
 
+  double Dt; 
+  double time = time_at_last_update_;
+  double time_to_update = measurement.stamp - update_delay_;
+  int pop_count=0;
+  Stamped<Eigen::VectorXd> aux;
+
+  // advance state until correct time to do the update at
+  if(!input_meas_buffer_.empty())
+    aux = input_meas_buffer_.front();
+  while(!input_meas_buffer_.empty() && aux.stamp<time_to_update){
+    Dt = aux.stamp-time;
+    state_ = state_ + Dt*aux.value;
+    state_cov_ = state_cov_ +  Dt*process_noise_;
+
+    time = aux.stamp;
+    input_meas_buffer_.pop_front();
+    pop_count++;
+
+    if(!input_meas_buffer_.empty())
+      aux = input_meas_buffer_.front();
+  }
+
+  // // ----------------------   perform the update at this time      --------------------------
   outlier_rejected_ = 0;
-  innovation_vector_ = measurement - state_;
+  innovation_vector_ = measurement.value - state_;
   innovation_matrix_ = state_cov_ + measurement_noise_;
   Eigen::FullPivLU<Eigen::MatrixXd> lu(innovation_matrix_);
   if (!lu.isInvertible()) {
     FAROL_WARN("Docking Position: Innovation Matrix is not invertible");
     return false;
   }
-
-  // Outlier rejection based on mahalanobis distance (Lekkas et al)
-  // if(output_outlier_rejection_){
-  //   mahalanobis_distance_ = std::sqrt(innovation_vector_.transpose() * innovation_matrix_.inverse() * innovation_vector_);
-  //   if (mahalanobis_distance_ > outlier_threshold_) {
-  //     FAROL_WARN("Docking Position: Measurement rejected as outlier (Mahalanobis distance = " << mahalanobis_distance_ << ")");
-  //     outlier_rejected_ = 1;
-  //     return false; // Skip this update
-  //   }
-  // }
+  //TODO: maybe espetar aqui um mahalanobiszinho
 
   K_ = state_cov_ * innovation_matrix_.inverse();
   state_ = state_ + K_ * innovation_vector_;
   state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
 
+  // -------------------------------------------------------------------------------------
+ 
+  // from time_to_update till present:
+  if(!input_meas_buffer_.empty())
+    aux = input_meas_buffer_.front();
+  while(!input_meas_buffer_.empty()){
+    Dt = aux.stamp-time;
+    state_ = state_ + Dt*aux.value;
+    state_cov_ = state_cov_ +  Dt*process_noise_;
+
+    time = aux.stamp;
+    input_meas_buffer_.pop_front();
+    pop_count++;
+    if(!input_meas_buffer_.empty())
+      aux = input_meas_buffer_.front();
+  }
+
+  // save current state and current time
+  state_at_last_update_ = state_;
+  state_cov_at_last_update_ = state_cov_;
+  time_at_last_update_ = time;
+
   return true;
 }
 
 
+
+// bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
+
+//   outlier_rejected_ = 0;
+//   innovation_vector_ = measurement.value - state_;
+//   innovation_matrix_ = state_cov_ + measurement_noise_;
+//   Eigen::FullPivLU<Eigen::MatrixXd> lu(innovation_matrix_);
+//   if (!lu.isInvertible()) {
+//     FAROL_WARN("Docking Position: Innovation Matrix is not invertible");
+//     return false;
+//   }
+
+//   // Outlier rejection based on mahalanobis distance (Lekkas et al)
+//   // if(output_outlier_rejection_){
+//   //   mahalanobis_distance_ = std::sqrt(innovation_vector_.transpose() * innovation_matrix_.inverse() * innovation_vector_);
+//   //   if (mahalanobis_distance_ > outlier_threshold_) {
+//   //     FAROL_WARN("Docking Position: Measurement rejected as outlier (Mahalanobis distance = " << mahalanobis_distance_ << ")");
+//   //     outlier_rejected_ = 1;
+//   //     return false; // Skip this update
+//   //   }
+//   // }
+
+//   K_ = state_cov_ * innovation_matrix_.inverse();
+//   state_ = state_ + K_ * innovation_vector_;
+//   state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
+
+//   return true;
+// }
 
 
 
@@ -355,12 +437,34 @@ bool AttitudeFilter::predict(double time){
 }
 
 
-bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrain_normal_body) {
+bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body) {
+  state_ = state_at_last_update_;
+  double Dt; 
+  double time = time_at_last_update_;
+  double time_to_update = measurement.stamp - update_delay_;
+  int pop_count=0;
+  Stamped<Eigen::VectorXd> aux;
   
+  // Advance state until correct time to do the update at
+  if(!input_meas_buffer_.empty())
+    aux = input_meas_buffer_.front();
+  while(!input_meas_buffer_.empty() && aux.stamp<time_to_update){
+    Dt = aux.stamp-time;
+    state_ = state_ * Sophus::SO3d::exp(Dt*(aux.value - b_hat_));
+    time = aux.stamp;
+    input_meas_buffer_.pop_front();
+    pop_count++;
+
+    if(!input_meas_buffer_.empty())
+      aux = input_meas_buffer_.front();
+  }
+
+
+  /* ----------------------   Perform the update at this time      -------------------------- */
   // Compute the vector directions used for the update
   Eigen::Vector3d v1_B, v1_D, v2_B, v2_D, omega_mes;
-  v1_B = -1*be_to_xyz(measurement[1], measurement[2]); 
-  v1_D = be_to_xyz(measurement[4], measurement[5]);
+  v1_B = -1*be_to_xyz(measurement.value[1], measurement.value[2]); 
+  v1_D = be_to_xyz(measurement.value[4], measurement.value[5]);
   v2_B = terrain_normal_body; // this is the terrain normal, expressed in the b
   v2_D = Eigen::Vector3d::UnitZ(); // Dock z axis is aligned with terrain normal
   
@@ -369,12 +473,6 @@ bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrai
   v1_D_pub_.publish(toMsg(v1_D));
   v2_B_pub_.publish(toMsg(v2_B));
   v2_D_pub_.publish(toMsg(v2_D));
-
-  // ROS_WARN_STREAM("v1_B: " << v1_B);
-  // ROS_WARN_STREAM("v1_D: " << v1_D);
-  // ROS_WARN_STREAM("R^T * v1_D: " <<  state_.matrix().transpose() * v1_D);
-  // ROS_WARN_STREAM("matrix: " << state_.matrix().transpose());
-  // ROS_WARN_STREAM("product: " <<v1_B.cross(state_.matrix().transpose() * v1_D));
 
   // compute correction term
   omega_mes = Eigen::Vector3d::Zero();
@@ -387,8 +485,56 @@ bool AttitudeFilter::update(Sophus::Vector6d measurement, Eigen::Vector3d terrai
   // estimate bias if Ki is not 0
   b_hat_ -= ki_ * omega_mes;
 
+  /* ------------------------------------------------------------------------------------- */
+
+  // Advance state until current time
+  while(!input_meas_buffer_.empty()){
+    Dt = aux.stamp-time;
+    state_ = state_ * Sophus::SO3d::exp(Dt*(aux.value - b_hat_));
+    time = aux.stamp;
+    input_meas_buffer_.pop_front();
+    pop_count++;
+    if(!input_meas_buffer_.empty())
+      aux = input_meas_buffer_.front();
+  }
+
+  // save current state and current time
+  state_at_last_update_ = state_;
+  time_at_last_update_ = time;
+
   return true;
 }
+
+
+// bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body) {
+  
+//   // Compute the vector directions used for the update
+//   Eigen::Vector3d v1_B, v1_D, v2_B, v2_D, omega_mes;
+//   v1_B = -1*be_to_xyz(measurement.value[1], measurement.value[2]); 
+//   v1_D = be_to_xyz(measurement.value[4], measurement.value[5]);
+//   v2_B = terrain_normal_body; // this is the terrain normal, expressed in the b
+//   v2_D = Eigen::Vector3d::UnitZ(); // Dock z axis is aligned with terrain normal
+  
+//   // publish for debugging purposes
+//   v1_B_pub_.publish(toMsg(v1_B));di
+//   v1_D_pub_.publish(toMsg(v1_D));
+//   v2_B_pub_.publish(toMsg(v2_B));
+//   v2_D_pub_.publish(toMsg(v2_D));
+
+//   // compute correction term
+//   omega_mes = Eigen::Vector3d::Zero();
+//   omega_mes += k1_* (v1_B.cross(state_.matrix().transpose() * v1_D));
+//   omega_mes += k2_* (v2_B.cross(state_.matrix().transpose() * v2_D));
+
+//   // update state
+//   state_ = state_ * Sophus::SO3d::exp(kp_ * omega_mes);
+
+//   // estimate bias if Ki is not 0
+//   b_hat_ -= ki_ * omega_mes;
+
+//   return true;
+// }
+
 
 void AttitudeFilter::kp_callback(const std_msgs::Float64 &msg){
   kp_ = msg.data;

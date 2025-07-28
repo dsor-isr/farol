@@ -35,5 +35,6 @@ Code to perform autonomous docking of medusa AUV
  <depend>farol_gimmicks_library</depend>
  <depend>tf2</depend>
  <depend>tf2_ros</depend>
+ <depend>topic_tools</depend>
 
 </package>

@@ -67,7 +67,7 @@ void DockingFilterNode::initializeSubscribers() {
   sub_usbl_fix_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_fix", "usbl_fix"), 10, &DockingFilterNode::usbl_callback, this);
   sub_usbl_accoms_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_accoms", "usbl_accoms"), 10, &DockingFilterNode::usbl_callback, this);
   sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &DockingFilterNode::reset_callback, this);
-  sub_terrain_d = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/terrain_normal", "bottom_following/D"), 10, &DockingFilterNode::terrain_normal_callback, this);
+  sub_terrain_d_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/terrain_normal", "bottom_following/D"), 10, &DockingFilterNode::terrain_normal_callback, this);
 }
 
 
@@ -131,6 +131,10 @@ void DockingFilterNode::loadParams() {
   docking_filter_->attitude_filter_->kp_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/kp", 1);
   docking_filter_->attitude_filter_->ki_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/ki", 0);
 
+
+  docking_filter_->position_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "position/update_delay", 0.0);
+  docking_filter_->attitude_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/update_delay", 0.0);
+
 }
 
 
@@ -147,15 +151,12 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
     if(!docking_filter_->initialized_) 
       return; 
     // send measurement into the docking filter   
-    if( docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[3], msg.value[4], msg.value[5]), msg.header.stamp.toSec(), "ahrs_rates")) &&
-        docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[0], msg.value[1], msg.value[2]), msg.header.stamp.toSec(), "ahrs_angles")))
-    {
-      docking_filter_->measurements_buffer_cond_var_.notify_one();
-    }
+    if( docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.value[3], msg.value[4], msg.value[5]), msg.header.stamp.toSec(), "ahrs_rates")))
+        docking_filter_->measurements_buffer_cond_var_.notify_one();
     // no space on buffer, tenso
-    else{
+    else
       ROS_WARN_STREAM("Dropping AHRS measurements. Oh no, not good :(");
-    }
+
     ahrs_velocity_ << msg.value[3],msg.value[4],msg.value[5];
   } 
   // Measurements from the DVL -> extract linear velocities
@@ -171,13 +172,12 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
     body_velocity_pub_.publish(toMsg(dvl_velocity_));
 
     // send measurement into the docking filter   
-    if(docking_filter_->measurements_buffer_.push(Measurement(dvl_velocity_, msg.header.stamp.toSec(), "dvl"))){
+    if(docking_filter_->measurements_buffer_.push(Measurement(dvl_velocity_, msg.header.stamp.toSec(), "dvl")))
       docking_filter_->measurements_buffer_cond_var_.notify_one();
-    }
+    
     // no space on buffer, tenso
-    else{
+    else
       ROS_WARN_STREAM("Dropping DVL measurements. Oh no, not good :(");
-    }
   } 
 }
 
@@ -189,47 +189,61 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
     if(msg.type == 0){
       usbl_set_.segment<1>(0) << msg.range;
       usbl_state_.set(0, true);
+      usbl_times_[0] = ros::Time::now().toSec();
+      ROS_INFO_STREAM("DOCKING::usbl_set_0: "<< std::fixed << std::setprecision(6)<<usbl_times_[0]);
     }
     // if its a message with bearing and elevation
     else if (msg.type == 1){
+       if(ignore_first_be_auv_){
+        ignore_first_be_auv_=false;
+        return;
+      }
       usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
       usbl_state_.set(1, true);
+      usbl_times_[1] = ros::Time::now().toSec();
+      ROS_INFO_STREAM("DOCKING::usbl_set_1: "<< std::fixed << std::setprecision(6)<<usbl_times_[1]);
     }
-    usbl_time_ = msg.header.stamp;
     
   // if the usbl measurement was made by the dock and then received via accoustic comms
   }else{
     // if its a message with range
-    dock_frame_id_ = msg.header.frame_id;
     if(msg.type == 0){
       usbl_set_.segment<1>(3) << msg.range;
       usbl_state_.set(2, true);
+      usbl_times_[2] = ros::Time::now().toSec();
+      ROS_INFO_STREAM("DOCKING::msg.range: "<< std::fixed << std::setprecision(6)<<usbl_times_[2]);
     }
     // if its a message with bearing and elevation
     else if (msg.type == 1){
+      if(ignore_first_be_dock_){
+        ignore_first_be_dock_=false;
+        return;
+      }
       usbl_set_.segment<2>(4) << msg.bearing_body, msg.elevation_body;
       usbl_state_.set(3, true);
-      
-      // if the dock has an ahrs we need to go get that little bitch
-      if(docking_filter_->dock_has_ahrs_)
-        if(docking_filter_->measurements_buffer_.push(Measurement(Eigen::Vector3d(msg.ahrs_roll, msg.ahrs_pitch, msg.ahrs_yaw), msg.header.stamp.toSec(), "dock_attitude")))
-          docking_filter_->measurements_buffer_cond_var_.notify_one();
-   
+      usbl_times_[3] = ros::Time::now().toSec();
+      ROS_INFO_STREAM("DOCKING::msg.be: "<< std::fixed << std::setprecision(6)<<usbl_times_[3]);
     }
-    usbl_time_ = msg.header.stamp;
   }
 
   // check if a full usbl set has been received
   if(usbl_state_.all()){
-    // add new measurement to the buffer
-    if(docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, usbl_time_.toSec(), "usbl"))){
-      docking_filter_->measurements_buffer_cond_var_.notify_one();
+    // check if timestamps of all message match, aka they are all from this interrogration cycle
+    if((*std::max_element(usbl_times_.begin(), usbl_times_.end()) - *std::min_element(usbl_times_.begin(), usbl_times_.end())) < 0.35){
+      // push measurement into the buffer
+      // timestamp is chosen to be the usbl_angles from the auv, which is usually the last message to be received
+      if(docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, usbl_times_[1], "usbl")))
+        docking_filter_->measurements_buffer_cond_var_.notify_one();
+      else // no space on buffer, tenso
+        ROS_WARN_STREAM("Dropping USBL measurements. Oh no, not good :(");
+    }else{
+      ROS_ERROR_STREAM("usbl_messages are from diferent times, diference is "<< (*std::max_element(usbl_times_.begin(), usbl_times_.end()) - *std::min_element(usbl_times_.begin(), usbl_times_.end())) << " seconds." );
+      usbl_state_.set(std::distance(usbl_times_.begin(), std::min_element(usbl_times_.begin(), usbl_times_.end())), false);
     }
-    // no space on buffer, tenso
-    else{
-      ROS_WARN_STREAM("Dropping USBL measurements. Oh no, not good :(");
-    }
+    //TODO: perhaps change to droping just some messages which are from the past interrogation cycle? 
+    
     usbl_state_.reset();
+    ROS_INFO_STREAM("DOCKING::usbl_reset: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
   }
 }
 
@@ -250,7 +264,7 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   // if(!docking_filter_.predict(event.current_real.toSec())){
   // return;
   // }
-  docking_filter_->predict(event.current_real.toSec());
+  // docking_filter_->predict(event.current_real.toSec());
 
   state_ = docking_filter_->get_state();
 

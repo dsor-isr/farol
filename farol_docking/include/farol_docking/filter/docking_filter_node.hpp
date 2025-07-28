@@ -29,6 +29,7 @@
 #include <farol_msgs/mUSBLFix.h>
 #include <auv_msgs/NavigationStatus.h>
 #include <farol_docking/dState.h>
+#include <topic_tools/shape_shifter.h>
 
 
 // farol libraries
@@ -106,7 +107,6 @@ class DockingFilterNode {
    */
   void reset_callback(const std_msgs::Empty &msg);
 
-
   void terrain_normal_callback(const geometry_msgs::Vector3 &msg);
 
   /**
@@ -130,7 +130,8 @@ class DockingFilterNode {
   ros::Subscriber sub_usbl_fix_;
   ros::Subscriber sub_usbl_accoms_;
   ros::Subscriber sub_dock_inertial_pos_;
-  ros::Subscriber sub_terrain_d;
+  ros::Subscriber sub_terrain_d_;
+  ros::Subscriber sub_modem_send_;
   
  	// Publishers
   ros::Publisher state_pub_, body_velocity_pub_;
@@ -152,6 +153,7 @@ class DockingFilterNode {
   // USBL stuff
   std::bitset<4> usbl_state_;   // keeps track of all the messages that need to be received for an usbl set to be completed
   Sophus::Vector6d usbl_set_;   // holds the set of usbl measurement [auv(range, bearing, elevation), dock(range, bearing, elevation)]
+  std::array<double, 4> usbl_times_; 
   ros::Time usbl_time_;   // timestamp from the last received usbl message, or a least the time of the latest measured thing
   Eigen::Vector3d dvl_velocity_, ahrs_velocity_;  // save dvl velocity
 
@@ -166,5 +168,7 @@ class DockingFilterNode {
   Sophus::SE3d state_;
 
   Eigen::Vector3d r_dvl_{0.45, 0.0, -0.2};
+  bool ignore_first_be_dock_{true};
+  bool ignore_first_be_auv_{true};
 
 };

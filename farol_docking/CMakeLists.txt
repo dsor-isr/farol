@@ -2,20 +2,21 @@ cmake_minimum_required(VERSION 3.1.0)
 project(farol_docking)
 
 find_package(catkin REQUIRED
-    COMPONENTS
-    std_msgs 
-    auv_msgs
-    dsor_msgs
-    farol_msgs
-    message_generation
-    roscpp
-    tf2
-    tf2_geometry_msgs
-    tf2_ros
-    farol_gimmicks_library
-    cmake_modules
-    waypoint
-    inner_loops_pid
+  COMPONENTS
+  std_msgs 
+  auv_msgs
+  dsor_msgs
+  farol_msgs
+  message_generation
+  roscpp
+  tf2
+  tf2_geometry_msgs
+  tf2_ros
+  farol_gimmicks_library
+  cmake_modules
+  waypoint
+  inner_loops_pid
+  topic_tools
 )
  
 ## Generate messages in the 'msg' folder
@@ -46,6 +47,7 @@ catkin_package(
   farol_gimmicks_library
   dsor_msgs
   message_runtime
+  topic_tools
   # GeographicLib
   )
     
@@ -71,7 +73,7 @@ target_link_libraries(outer_loop ${catkin_LIBRARIES})
 
 add_executable(inner_loops src/inner_loops/inner_loops_node.cpp src/inner_loops/smc.cpp src/inner_loops/pid.cpp)
 add_dependencies(inner_loops ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(inner_loops ${catkin_LIBRARIES})
+target_link_libraries(inner_loops ${catkin_LIBRARIES} )
 
 
 install(DIRECTORY include/${PROJECT_NAME}/
