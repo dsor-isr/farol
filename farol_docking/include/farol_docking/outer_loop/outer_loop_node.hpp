@@ -179,7 +179,7 @@
   bool got_docking_state_{false};
   bool got_acomms_{false};
   double time_last_acomms_{-1.0};
-  double acomms_timeout_{20.0}, homing_dist_, acomms_search_radius_;
+  double acomms_timeout_{20.0}, homing_dist_,terminal_dist_, acomms_search_radius_;
   int acomms_n_min_fix_;
   int n_fixes_;
   

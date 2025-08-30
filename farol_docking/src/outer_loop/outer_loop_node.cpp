@@ -10,6 +10,7 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   // Parameters
   node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 10);
   homing_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "homing_dist", 5);
+  terminal_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "terminal_dist_", 1);
   acomms_timeout_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_timeout", 20);
   acomms_search_radius_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_search_radius", 10);
   acomms_n_min_fix_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_n_min_fix", 10);
@@ -242,7 +243,7 @@ void OuterLoopNode::check_state_transition(double time_now){
   }
 
   // got to close, change to terminal, open loop control
-  if( state_!="idle" && state_!="terminal" && got_docking_state_ && docking_state_.norm() < 0.5){
+  if( state_!="idle" && state_!="terminal" && got_docking_state_ && docking_state_.norm() < terminal_dist_){
     state_ = "terminal";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
@@ -356,8 +357,10 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
     attitude_pub_.publish(ref_3d_msg_);
     
   }else if(state_ =="terminal"){
-    force_request_msg_.disable_axis = {false, false, false, true, true, false};
-    force_request_pub_.publish(force_request_msg_);
+    // force_request_msg_.disable_axis = {false, false, false, true, true, false};
+    // force_request_pub_.publish(force_request_msg_);
+    ref_msg_.data = u_terminal_;
+    surge_ref_pub_.publish(ref_msg_);
   }
   
   

@@ -235,11 +235,6 @@ class AttitudeFilter{
         double update_delay_;
         std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
 
-        // Sophus::SO3d state_at_prev_ping_;
-        // double time_of_last_ping_;
-        // double time_of_prev_ping_;
-        // double update_delay_;
-
         // some other shit idk man 
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
         double last_predict_time_{-1.0};
