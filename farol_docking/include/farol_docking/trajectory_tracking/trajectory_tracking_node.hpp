@@ -35,6 +35,7 @@
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <farol_docking/Reference3.h>
+#include <farol_docking/SE3Ref.h>
 
 // farol libraries
 #include <farol_gimmicks_library/FarolGimmicks.h>
@@ -77,8 +78,9 @@
    *
    * @Param event
    */
-  void position_ref_callback(const farol_docking::Reference3 &msg);
-  void attitude_ref_callback(const farol_docking::Reference3 &msg);
+  void se3_ref_callback(const farol_docking::SE3Ref & msg)
+  // void position_ref_callback(const farol_docking::Reference3 &msg);
+  // void attitude_ref_callback(const farol_docking::Reference3 &msg);
 
   /**
    * @brief  Timer iteration callback
@@ -135,7 +137,7 @@
 
   double last_it_time_;
 
-  double t_position_ref_{-1.0}, t_attitude_ref_{-1.0};
+  double t_ref_{-1.0};
 
   std::array<bool, 6> disable_axis_; 
 

@@ -2,7 +2,7 @@
 // Author: Ravi Regalo
 // Source: Instituto Superior Técnico
 // Description: Handles core filtering logic for docking using exponential smoothing
-#include <farol_docking/inner_loops/inner_loops_node.hpp>  
+#include <farol_docking/inner_loops/trajectory_tracking_node.hpp>  
 
 // Constructor
 InnerLoopNode::InnerLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
@@ -28,14 +28,14 @@ InnerLoopNode::InnerLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   // Timer
   timer_ =nh_.createTimer(ros::Duration(1.0/p_node_frequency_), &InnerLoopNode::timerIterCallback, this);
 
-  // start controller
-  if (controller_type_ == "smc") {
-    controller_ = std::make_unique<SMC>(&nh_,&nh_private_);
-  } else if (controller_type_ == "pid") {
-    controller_ = std::make_unique<PID>(&nh_,&nh_private_);
+  // instatiate the selected controller
+  if (controller_type_ == "se3_tracker") {
+    controller_.reset(new Se3Tracker(&nh_, &nh_private_));
+  // } else if (controller_type_ == "smc_tracker") {
+    // controller_.reset(new SMCTracker(&nh_, &nh_private_));
   } else {
-    ROS_ERROR_STREAM("Unknown controller type");
-    // InnerLoopNode::~InnerLoopNode();
+    ROS_FATAL_STREAM("Unknown controller type: " << controller_type_);
+    ros::shutdown();
   }
 }
 
@@ -62,68 +62,59 @@ InnerLoopNode::~InnerLoopNode() {
 
 void InnerLoopNode::state_callback(const auv_msgs::NavigationStatus &msg){
   // if the message cooresponds to the selected reference frame
-  if(msg.header.frame_id.find(reference_frame_) != std::string::npos){
-    controller_->setState(msg);
+  if(msg.header.frame_id.find("dock") != std::string::npos){
+    controller_->position_ << msg.local_position.x,msg.local_position.y,msg.local_position.z;  
+    controller_->R_ = (Sophus::SO3d::rotZ(msg.local_attitude.yaw)*Sophus::SO3d::rotY(msg.local_attitude.pitch)*Sophus::SO3d::rotX(msg.local_attitude.roll)).matrix(); 
   }
+  controller_->v_ << msg.body_velocity.x, msg.body_velocity.y, msg.body_velocity.z; 
+  controller_->w_ <<  msg.orientation_rate.x,msg.orientation_rate.y,msg.orientation_rate.z; 
 }
 
-void InnerLoopNode::position_ref_callback(const farol_docking::Reference3 &msg){
-  controller_->setReference(Eigen::Vector3d(msg.value.x, msg.value.y, msg.value.z), "position");
-  t_position_ref_ = ros::Time::now().toSec();
+
+void InnerLoopNode::se3_ref_callback(const farol_msgs::SE3Ref::ConstPtr& msg)
+{
+  controller_->p_d_   = Eigen::Vector3d(msg->p.x,  msg->p.y,  msg->p.z);
+  controller_->pd_d_  = Eigen::Vector3d(msg->pd.x, msg->pd.y, msg->pd.z);
+  controller_->pdd_d_ = Eigen::Vector3d(msg->pdd.x,msg->pdd.y,msg->pdd.z);
+
+  const auto& q = msg->q;
+  Eigen::Quaterniond qd(q.w, q.x, q.y, q.z);
+  qd.normalize();
+  controller_->R_d_ = qd.toRotationMatrix();
+
+  controller_->w_d_   = Eigen::Vector3d(msg->wd.x,  msg->wd.y,  msg->wd.z);
+  controller_->wdd_d_ = Eigen::Vector3d(msg->wdd.x, msg->wdd.y, msg->wdd.z);
+
+  t_ref_ = msg->header.stamp.toSec();
   disable_axis_[0] = msg.disable_axis[0];
   disable_axis_[1] = msg.disable_axis[1];
   disable_axis_[2] = msg.disable_axis[2];
-}
-void InnerLoopNode::attitude_ref_callback(const farol_docking::Reference3 &msg){
-  controller_->setReference(Eigen::Vector3d(msg.value.x, msg.value.y, msg.value.z), "attitude");
-  t_attitude_ref_ = ros::Time::now().toSec();
-  disable_axis_[3] = msg.disable_axis[0];
-  disable_axis_[4] = msg.disable_axis[1];
-  disable_axis_[5] = msg.disable_axis[2];
+  disable_axis_[3] = msg.disable_axis[3];
+  disable_axis_[4] = msg.disable_axis[4];
+  disable_axis_[5] = msg.disable_axis[5];
 }
 
 
-void InnerLoopNode::timerIterCallback(const ros::TimerEvent &event) {
-  // compute time interval 
-  double new_time = ros::Time::now().toSec();
-  double Dt = new_time - last_it_time_;
-  last_it_time_ = new_time;
-  if(first_it_){
-    first_it_=false;  
-    return; 
-  }
-  if(t_attitude_ref_ < 0 || t_position_ref_ < 0)
-    return;
+void InnerLoopNode::timerIterCallback(const ros::TimerEvent &ev)
+{
+  double tnow = ros::Time::now().toSec();
+  double Dt   = tnow - last_it_time_;
+  last_it_time_ = tnow;
+  if (first_it_) { first_it_=false; return; }
 
-  if (new_time - t_position_ref_ < 0.2){
-    controller_->compute_force(Dt);
-    force_request_msg_.wrench.force.x = controller_->force_[0];
-    force_request_msg_.wrench.force.y = controller_->force_[1];
-    force_request_msg_.wrench.force.z = controller_->force_[2];
-  }
-  else{
-    controller_->reset_xyz();
-    force_request_msg_.wrench.force.x=0;
-    force_request_msg_.wrench.force.y=0;
-    force_request_msg_.wrench.force.z=0; 
-  }
+  // Make sure both pos & att references have been received recently (you already check t_position_ref_ / t_attitude_ref_)
+  if (tnow - t_ref_ > 0.2) return;
 
-  if (new_time - t_attitude_ref_ < 0.2){
-    controller_->compute_torque(Dt);
-    force_request_msg_.wrench.torque.x = controller_->torque_[0];
-    force_request_msg_.wrench.torque.y = controller_->torque_[1];
-    force_request_msg_.wrench.torque.z = controller_->torque_[2];
-  }else{
-    controller_->reset_rpy();
-    force_request_msg_.wrench.torque.x=0;
-    force_request_msg_.wrench.torque.y=0;
-    force_request_msg_.wrench.torque.z=0; 
-  }
+  controller_->compute_wrench(Dt);                
 
-  if (new_time - t_attitude_ref_ < 0.2 || new_time - t_position_ref_ < 0.2){
-    force_request_msg_.disable_axis = {disable_axis_[0], disable_axis_[1], disable_axis_[2], disable_axis_[3], disable_axis_[4], disable_axis_[5]};
-    force_request_pub_.publish(force_request_msg_);
-  }
+  // Publish your existing wrench message
+  force_request_msg_.wrench.force.x  = controller_->force_(0);
+  force_request_msg_.wrench.force.y  = controller_->force_(1);
+  force_request_msg_.wrench.force.z  = controller_->force_(2);
+  force_request_msg_.wrench.torque.x = controller_->torque_(0);
+  force_request_msg_.wrench.torque.y = controller_->torque_(1);
+  force_request_msg_.wrench.torque.z = controller_->torque_(2);
+  wrench_pub_.publish(force_request_msg_);
 }
 
 
