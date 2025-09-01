@@ -96,7 +96,7 @@ modem_to_body_rot_matrix_ << cos(p_installation_matrix_[2])*cos(p_installation_m
 */
 void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
 {
-    ROS_INFO_STREAM("DMAC2FAROL::FIX_RECV: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+    // ROS_INFO_STREAM("DMAC2FAROL::FIX_RECV: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
     // Start building the farol usbl fix message
     farol_msgs::mUSBLFix farol_usbl_fix_msg;
 
@@ -185,7 +185,7 @@ void DmacToFarolNode::fixCallback(const dmac::mUSBLFix &dmac_usbl_fix_msg)
       }
       // publish message with just angles to a diferent topic, so that it is not overwritten if sent acoustically
       usbl_azimuth_farol_pub_.publish(farol_usbl_fix_msg);
-      ROS_INFO_STREAM("DMAC2FAROL::/sensors/usbl_azimuth: [" <<farol_usbl_fix_msg.header.seq <<"] : " << std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+    //   ROS_INFO_STREAM("DMAC2FAROL::/sensors/usbl_azimuth: [" <<farol_usbl_fix_msg.header.seq <<"] : " << std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
 
     }
     // Publishing the new message farol usbl fix message

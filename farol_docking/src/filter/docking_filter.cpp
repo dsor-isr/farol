@@ -134,7 +134,7 @@ void DockingFilter::measurement_handler(){
           aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_dock_pub_.publish(aux_vector3_msg_);
-          ROS_INFO_STREAM("DOCKING::aux_vec3_: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+          // ROS_INFO_STREAM("DOCKING::aux_vec3_: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
 
           aux_stamped_.value = aux_vec3_;
           aux_stamped_.stamp = meas.data.stamp;

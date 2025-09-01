@@ -4,8 +4,8 @@ filter:
   node_frequency: 10
   debug: true
   dock_has_ahrs: false
-  dock_usbl_instalation_offset: [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
-  auv_usbl_instalation_offset: [0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
+  dock_usbl_instalation_offset: [0,0,0] # [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
+  auv_usbl_instalation_offset: [0,0,0] #[0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
   # outlier_rejection:  ["usbl", "dvl"]
   outlier_rejection:  [] # no outlier rejection
@@ -48,12 +48,49 @@ outer_loop:
   max_accl: [0.1, 0.1, 0.1 ]
   u_terminal: 0.05
 
+trajectory_tracking:
+  type: "se3_tracker"
+  
+  se3:
+    # Gains (acceleration domain!)
+    Kpv:  [0.64, 0.64, 0.36]     # = [ωn^2] per axis
+    Kdv:  [1.28, 1.28, 0.96]     # = [2 ζ ωn]
+    Kiv:  [0.032, 0.032, 0.018]  # small I for bias/current
+    # Kiv:  [0.0, 0.0, 0.0]  # small I for bias/current
 
+    KpR:  [0.0, 0.0, 1.00]       # yaw only active
+    KdW:  [0.0, 0.0, 1.60]
+    # KiR:  [0.0, 0.0, 0.05]
+    KiR:  [0.0, 0.0, 0.0]
+
+    # Derivative filters (Hz)
+    fc_v: [5.0, 5.0, 4.0]
+    fc_w: [5.0, 5.0, 5.0]
+
+    # Anti-windup (start off; turn on if you hit limits)
+    kaw_v: [0.0, 0.0, 0.0]
+    kaw_w: [0.0, 0.0, 0.0]
+
+    # Model (match Gazebo hydros; use per-axis mass if you enabled it)
+    M_diag: [49.3, 50.0, 99.3] # if you added m_vec_ (recommended)
+    Jdiag: [1.0, 1.0, 4.64]
+
+    Dlin:  [0.2, 55.1, 6.4369]   # positive magnitudes (controller adds +D v)
+    Dang:  [0.0, 0.0, 4.14]
+
+    # Wrench limits (pre-allocator)
+    Fmin: [-36, -36, -36]
+    Fmax: [ 36,  36,  36]
+    Mmin: [-3,  -1,  -1]
+    Mmax: [ 3,   1,   1]
 
 docking_helper:
   sim_usbl: false
   outliers: false
   noise: false
+
+
+
 
 inner_loops:
   reference_frame: "dock"

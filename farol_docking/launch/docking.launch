@@ -3,7 +3,7 @@
 
   <arg name="filter"  				  default="false" />
   <arg name="outer_loop"  			default="false" />
-  <arg name="inner_loops"       default="false" /> 
+  <arg name="trajectory_tracking"       default="false" /> 
   <arg name="docking_helper"    default="false" /> 
 
   <group ns="docking">
@@ -18,8 +18,8 @@
       <node pkg="farol_docking" type="outer_loop" name="outer_loop" respawn="false" output="screen"/>
     </group>
 
-    <group if="$(arg inner_loops)">
-      <node pkg="farol_docking" type="inner_loops" name="inner_loops" respawn="false" output="screen"/>
+    <group if="$(arg trajectory_tracking)">
+      <node pkg="farol_docking" type="trajectory_tracking" name="trajectory_tracking" respawn="false" output="screen"/>
     </group>
 
     <group if="$(arg docking_helper)">

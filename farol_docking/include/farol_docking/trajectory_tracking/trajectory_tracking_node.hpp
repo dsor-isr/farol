@@ -41,106 +41,152 @@
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <farol_docking/utils/docking_utils.hpp>
 #include <farol_docking/utils/logging_utils.hpp>
-#include <farol_docking/inner_loops/smc.hpp>
-#include <farol_docking/inner_loops/pid.hpp>
+#include <farol_docking/trajectory_tracking/se3_tracker.hpp>
 
 
-/**
- * @brief  Interface between ROS and the docking controller algorithm
- */
- class InnerLoopNode {
- public:
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
-   /**
-    * @brief Sets up ROS params publishers, subscribers and timer
-    *
-    * @param[in] nodehandle
-    * @param[in] nodehandle_private
-    */
- 	InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
 
-  /**
-   * @brief  Destructor
-   */
- 	~InnerLoopNode();
+class InnerLoopNode {
+  public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
- private:
 
-  /**
-   * @brief Callback to State messages from the nav_filter and the docking_filter
-   * @param msg state message
-   *
-   */
-  void state_callback(const auv_msgs::NavigationStatus &msg);
+    InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
+    ~InnerLoopNode();
 
-  /**
-   * @brief  Timer iteration callback
-   *
-   * @Param event
-   */
-  void se3_ref_callback(const farol_docking::SE3Ref & msg)
-  // void position_ref_callback(const farol_docking::Reference3 &msg);
-  // void attitude_ref_callback(const farol_docking::Reference3 &msg);
 
-  /**
-   * @brief  Timer iteration callback
-   *
-   * @Param event
-   */
-  void flag_callback(const std_msgs::Int8 &msg);
+    // Callbacks
+    void state_callback(const auv_msgs::NavigationStatus &msg);
+    void se3_ref_callback(const farol_docking::SE3Ref &msg);
+    void timerIterCallback(const ros::TimerEvent& event);
+
+
+  private:
+    // ROS
+    ros::NodeHandle nh_;
+    ros::NodeHandle nh_private_;
+    ros::Subscriber sub_state_;
+    ros::Subscriber sub_se3_ref_;
+    ros::Publisher force_request_pub_;
+    ros::Timer timer_;
+
+
+    // Params
+    double p_node_frequency_{20.0};
+    bool debug_{false};
+    std::string controller_type_{"se3_tracker"};
+    std::string reference_frame_{"map"};
+
+
+    // Time/state
+    bool first_it_{true};
+    double last_it_time_{0.0};
+    double t_ref_{-1.0};
+
+
+    // Axis disable flags
+    std::array<bool,6> disable_axis_{{false,false,false,false,false,false}};
+
+
+    // Controller
+    std::unique_ptr<ControllerBase> controller_;
+};
+
+// /**
+//  * @brief  Interface between ROS and the docking controller algorithm
+//  */
+//  class InnerLoopNode {
+//  public:
+//   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+//    /**
+//     * @brief Sets up ROS params publishers, subscribers and timer
+//     *
+//     * @param[in] nodehandle
+//     * @param[in] nodehandle_private
+//     */
+//  	InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
+
+//   /**
+//    * @brief  Destructor
+//    */
+//  	~InnerLoopNode();
+
+//  private:
+
+//   /**
+//    * @brief Callback to State messages from the nav_filter and the docking_filter
+//    * @param msg state message
+//    *
+//    */
+//   void state_callback(const auv_msgs::NavigationStatus &msg);
+
+//   /**
+//    * @brief  Timer iteration callback
+//    *
+//    * @Param event
+//    */
+//   void se3_ref_callback(const farol_docking::SE3Ref & msg)
+//   // void position_ref_callback(const farol_docking::Reference3 &msg);
+//   // void attitude_ref_callback(const farol_docking::Reference3 &msg);
+
+//   /**
+//    * @brief  Timer iteration callback
+//    *
+//    * @Param event
+//    */
+//   void flag_callback(const std_msgs::Int8 &msg);
 
 
 
   
 
-  /**
-   * @brief  Timer iteration callback
-   *
-   * @Param event
-   */
-  void timerIterCallback(const ros::TimerEvent& event);
+//   /**
+//    * @brief  Timer iteration callback
+//    *
+//    * @Param event
+//    */
+//   void timerIterCallback(const ros::TimerEvent& event);
 
 
-  // ROS node handlers
- 	ros::NodeHandle nh_;
- 	ros::NodeHandle nh_private_;
+//   // ROS node handlers
+//  	ros::NodeHandle nh_;
+//  	ros::NodeHandle nh_private_;
 
- 	// Subscribers
-  ros::Subscriber sub_filter_state_;
-  ros::Subscriber sub_docking_state_;
-  ros::Subscriber sub_position_ref_;
-  ros::Subscriber sub_attitude_ref_;
-
-
- 	// Publishers
-  ros::Publisher force_request_pub_;
-  ros::Publisher debug_pub_;
-
-  // ROS messages
-  std_msgs::Float64 ref_msg_;
-  std_msgs::Int8 flag_msg_;
-  auv_msgs::BodyForceRequest force_request_msg_;
-
-  // Timer
-  ros::Timer timer_;
-
-  // ROS Parameters
-  double p_node_frequency_;
-  bool debug_;
-  std::string controller_type_;
-  std::string reference_frame_;
+//  	// Subscribers
+//   ros::Subscriber sub_filter_state_;
+//   ros::Subscriber sub_docking_state_;
+//   ros::Subscriber sub_position_ref_;
+//   ros::Subscriber sub_attitude_ref_;
 
 
- 	// Problem variables ˇˇˇˇ
-  int flag_;
-  bool first_it_{true};
+//  	// Publishers
+//   ros::Publisher force_request_pub_;
+//   ros::Publisher debug_pub_;
 
-  double last_it_time_;
+//   // ROS messages
+//   std_msgs::Float64 ref_msg_;
+//   std_msgs::Int8 flag_msg_;
+//   auv_msgs::BodyForceRequest force_request_msg_;
 
-  double t_ref_{-1.0};
+//   // Timer
+//   ros::Timer timer_;
 
-  std::array<bool, 6> disable_axis_; 
+//   // ROS Parameters
+//   double p_node_frequency_;
+//   bool debug_;
+//   std::string controller_type_;
+//   std::string reference_frame_;
 
-  std::unique_ptr<ControllerBase> controller_;
 
-};
+//  	// Problem variables ˇˇˇˇ
+//   int flag_;
+//   bool first_it_{true};
+
+//   double last_it_time_;
+
+//   double t_ref_{-1.0};
+
+//   std::array<bool, 6> disable_axis_; 
+
+//   std::unique_ptr<ControllerBase> controller_;
+
+// };

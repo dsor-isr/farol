@@ -129,7 +129,7 @@ class DataSerializerNode():
             a = str(msg_data.header.seq)
         except:
             pass
-        rospy.loginfo("DATA_SERIALIZER::generic_callback::"+str(channel_info)+": ["+a+"] : " +str(rospy.Time.now().to_sec()))
+        # rospy.loginfo("DATA_SERIALIZER::generic_callback::"+str(channel_info)+": ["+a+"] : " +str(rospy.Time.now().to_sec()))
 
         # +.+ collect list of serial strings for each field in the channel
         s = []
@@ -208,7 +208,7 @@ class DataSerializerNode():
                     a = str(msg_data.header.seq)
                 except:
                     pass
-                rospy.loginfo("DATA_SERIALIZER::DESERIALIZE&PUBLISH: [" +a+ "] : " +str(rospy.Time.now().to_sec()))
+                # rospy.loginfo("DATA_SERIALIZER::DESERIALIZE&PUBLISH: [" +a+ "] : " +str(rospy.Time.now().to_sec()))
                 
                 
     
@@ -228,7 +228,7 @@ class DataSerializerNode():
             a = str(msg_data.header.seq)
         except:
             pass
-        rospy.loginfo("DATA_SERIALIZER::/serializer/payload_to_transmit: [" +a+ "] : " +str(rospy.Time.now().to_sec()))
+        # rospy.loginfo("DATA_SERIALIZER::/serializer/payload_to_transmit: [" +a+ "] : " +str(rospy.Time.now().to_sec()))
         
         # +.+ clear serial data and channel flag indicators if latching is over
         if sys.version_info[0] == 2: 

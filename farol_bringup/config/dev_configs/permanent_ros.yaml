@@ -539,14 +539,13 @@ docking/outer_loop:
             waypoint: "/#vehicle#/controls/send_wp_standard"
             
 
-docking/inner_loops:
+docking/trajectory_tracking:
     topics:
         subscribers:
             filter_state: "/#vehicle#/nav/filter/state"
             docking_state: "/#vehicle#/docking/filter/state"
             flag: "/#vehicle#/Flag"
-            ref_position: "/#vehicle#/ref/position"
-            ref_attitude: "/#vehicle#/ref/attitude"
+            trajectory: "/#vehicle#/docking/trajectory"
 
         publishers:
             force: "/#vehicle#/force_bypass"

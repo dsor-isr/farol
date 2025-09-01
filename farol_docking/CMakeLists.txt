@@ -71,9 +71,9 @@ add_dependencies(outer_loop ${catkin_EXPORTED_TARGETS})
 add_dependencies(outer_loop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(outer_loop ${catkin_LIBRARIES})
 
-add_executable(inner_loops src/inner_loops/inner_loops_node.cpp src/inner_loops/smc.cpp src/inner_loops/pid.cpp)
-add_dependencies(inner_loops ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(inner_loops ${catkin_LIBRARIES} )
+add_executable(trajectory_tracking src/trajectory_tracking/trajectory_tracking_node.cpp src/trajectory_tracking/se3_tracker.cpp)
+add_dependencies(trajectory_tracking ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(trajectory_tracking ${catkin_LIBRARIES} )
 
 
 install(DIRECTORY include/${PROJECT_NAME}/

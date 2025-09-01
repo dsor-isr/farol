@@ -190,7 +190,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<1>(0) << msg.range;
       usbl_state_.set(0, true);
       usbl_times_[0] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::usbl_set_0: "<< std::fixed << std::setprecision(6)<<usbl_times_[0]);
+      // ROS_INFO_STREAM("DOCKING::usbl_set_0: "<< std::fixed << std::setprecision(6)<<usbl_times_[0]);
     }
     // if its a message with bearing and elevation
     else if (msg.type == 1){
@@ -201,7 +201,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
       usbl_state_.set(1, true);
       usbl_times_[1] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::usbl_set_1: "<< std::fixed << std::setprecision(6)<<usbl_times_[1]);
+      // ROS_INFO_STREAM("DOCKING::usbl_set_1: "<< std::fixed << std::setprecision(6)<<usbl_times_[1]);
     }
     
   // if the usbl measurement was made by the dock and then received via accoustic comms
@@ -211,7 +211,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<1>(3) << msg.range;
       usbl_state_.set(2, true);
       usbl_times_[2] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::msg.range: "<< std::fixed << std::setprecision(6)<<usbl_times_[2]);
+      // ROS_INFO_STREAM("DOCKING::msg.range: "<< std::fixed << std::setprecision(6)<<usbl_times_[2]);
     }
     // if its a message with bearing and elevation
     else if (msg.type == 1){
@@ -222,7 +222,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<2>(4) << msg.bearing_body, msg.elevation_body;
       usbl_state_.set(3, true);
       usbl_times_[3] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::msg.be: "<< std::fixed << std::setprecision(6)<<usbl_times_[3]);
+      // ROS_INFO_STREAM("DOCKING::msg.be: "<< std::fixed << std::setprecision(6)<<usbl_times_[3]);
     }
   }
 
@@ -243,7 +243,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
     //TODO: perhaps change to droping just some messages which are from the past interrogation cycle? 
     
     usbl_state_.reset();
-    ROS_INFO_STREAM("DOCKING::usbl_reset: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
+    // ROS_INFO_STREAM("DOCKING::usbl_reset: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
   }
 }
 
