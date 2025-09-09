@@ -66,7 +66,7 @@ add_executable(docking_filter src/filter/docking_filter_node.cpp src/filter/dock
 add_dependencies(docking_filter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(docking_filter ${catkin_LIBRARIES})
 
-add_executable(outer_loop src/outer_loop/outer_loop_node.cpp )
+add_executable(outer_loop src/outer_loop/outer_loop_node.cpp src/outer_loop/trajectory.cpp )
 add_dependencies(outer_loop ${catkin_EXPORTED_TARGETS})
 add_dependencies(outer_loop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(outer_loop ${catkin_LIBRARIES})

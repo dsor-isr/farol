@@ -526,7 +526,7 @@ docking/outer_loop:
         publishers:
             ref_surge: "/#vehicle#/ref/surge"
             ref_yaw: "/#vehicle#/ref/yaw"
-            ref_sway: "/#vehicle#/ref/sway"
+            se3_ref: "/#vehicle#/docking/trajectory"
             ref_depth: "/#vehicle#/ref/depth"
             ref_position: "/#vehicle#/ref/position"
             ref_attitude: "/#vehicle#/ref/attitude"
@@ -535,6 +535,7 @@ docking/outer_loop:
             phase: "/#vehicle#/docking/phase"
             mission_string: "/#vehicle#/addons/Mission_String"
             force: "/#vehicle#/force_bypass"
+
         services:
             waypoint: "/#vehicle#/controls/send_wp_standard"
             
@@ -550,16 +551,3 @@ docking/trajectory_tracking:
         publishers:
             force: "/#vehicle#/force_bypass"
             debug: "/#vehicle#/docking/inner_loops/debug"
-    PID:
-        subscribers:
-            reset:  "/#vehicle#/docking/inner_loops/pid/reset"
-        publishers:
-            debug:  "/#vehicle#/docking/inner_loops/pid/debug"
-        services:
-            change_inner_gains: "/#vehicle#/docking/PID/change_gains"
-            
-    SMC:
-        subscribers:
-            gains:  "/#vehicle#/docking/inner_loops/smc/gains"
-        publishers:
-            debug:  "/#vehicle#/docking/inner_loops/smc/debug"

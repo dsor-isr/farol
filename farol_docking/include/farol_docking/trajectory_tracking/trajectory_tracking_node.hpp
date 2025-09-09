@@ -45,13 +45,13 @@
 
 
 
-class InnerLoopNode {
+class TrajectoryTrackingNode {
   public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 
-    InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
-    ~InnerLoopNode();
+    TrajectoryTrackingNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
+    ~TrajectoryTrackingNode();
 
 
     // Callbacks
@@ -94,7 +94,7 @@ class InnerLoopNode {
 // /**
 //  * @brief  Interface between ROS and the docking controller algorithm
 //  */
-//  class InnerLoopNode {
+//  class TrajectoryTrackingNode {
 //  public:
 //   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 //    /**
@@ -103,12 +103,12 @@ class InnerLoopNode {
 //     * @param[in] nodehandle
 //     * @param[in] nodehandle_private
 //     */
-//  	InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
+//  	TrajectoryTrackingNode(ros::NodeHandle* nodehandle, ros::NodeHandle *nodehandle_private);
 
 //   /**
 //    * @brief  Destructor
 //    */
-//  	~InnerLoopNode();
+//  	~TrajectoryTrackingNode();
 
 //  private:
 

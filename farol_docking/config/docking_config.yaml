@@ -1,5 +1,8 @@
 # TODO: all of this should be a in a vehicle specific docking.yaml
 
+###############################
+# DOCKING FILTER 
+###############################
 filter:
   node_frequency: 10
   debug: true
@@ -29,6 +32,11 @@ filter:
     outlier_treshold: 2.71
     update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done 
 
+
+
+###############################
+# DOCKING OUTER LOOP STATE MACHINE
+###############################
 outer_loop:
   node_frequency: 10
   # initial estimate of the docking position, at least one of utm/lat_lon and one of depth/altitude must be specified
@@ -39,15 +47,29 @@ outer_loop:
   # this is the orientation of dock opening, so its the direction oposite to the D frame 
   # dock_heading: 150 
   safe_depth_aproach: 1
+  aproach_dist: 5.0
 
-  terminal_dist: 0.8
-  homing_dist: 3
-  acomms_timeout: 20
-  acomms_n_min_fix: 3
-  acomms_search_radius: 10 
-  max_accl: [0.1, 0.1, 0.1 ]
-  u_terminal: 0.05
+  terminal_dist: 0.2    # distance [m] to ignore filter 
+  acomms_timeout: 20    # time [s] after which returns to "search_acomms"
+  acomms_n_min_fix: 3   # idk to be fair
+  acomms_search_radius: 10  # radius around the docking station to seach for acomms
+  
+  ## Trajectory parameters
+  homing_dist: 3        # distance [m] along the x-axis where to place homin point
+  u_terminal: 0.05      # terminal velocity
+  v_max_u: 0.2  # [m/s]
+  v_max_v: 0.2  # [m/s]
+  a_max_t: 0.5  # [m/s²]
+  w_max: 0.2    # [m/s]
+  a_w_max: 0.5  # [m/s²]
+  r_max: 0.5    # [rad/s]
+  a_r_max: 1.0  # [rad/s²]
 
+
+
+###############################
+# TRAJECTORY TRACKING CONTROLLER
+###############################
 trajectory_tracking:
   type: "se3_tracker"
   
@@ -84,79 +106,15 @@ trajectory_tracking:
     Mmin: [-3,  -1,  -1]
     Mmax: [ 3,   1,   1]
 
+
+
+###############################
+# DOCKING HELPER NODE 
+###############################
 docking_helper:
   sim_usbl: false
   outliers: false
   noise: false
 
 
-
-
-inner_loops:
-  reference_frame: "dock"
-  type: "pid"
-  pid:
-    x:
-      kp: 7.2000
-      ki: 0.4667
-      kd: 36.000
-      max_out:  20.0 
-      min_out: -20.0
-    y:
-      kp: 15.0
-      ki: 1.0
-      kd: 30.0
-      max_out:  20.0 
-      min_out: -20.0
-    z:
-      kp: 6.0000
-      ki: 0.3889
-      kd: 30.0000
-      max_out:  20.0 
-      min_out: -20.0
-    yaw:
-      kp: 9.7200
-      ki: 1.8900
-      kd: 18.6000
-
-      # kp: 4.3200
-      # ki: 0.5600
-      # kd: 10.2000
-
-      # kp: 1.0800
-      # ki: 0.0700
-      # kd: 1.8000
-
-      # kp: 0.20
-      # ki: 0.0005
-      # kd: 0.133
-      max_out:  5.0 
-      min_out: -5.0
-    roll:
-      kp: 0.0
-      ki: 0.0 
-      kd: 0.0 
-      max_out:  0.01 
-      min_out: -0.01
-    pitch:
-      kp: 0.0
-      ki: 0.0 
-      kd: 0.0 
-      max_out:  0.01 
-      min_out: -0.01
-    
-
-    # roll:
-    #   kp: 0.732
-    #   ki: 0.24 
-    #   kd: 0.628 
-    #   max_out:  5.0 
-    #   min_out: -5.0
-    # pitch:
-    #   kp: 0.732
-    #   ki: 0.24 
-    #   kd: 0.628 
-    #   max_out:  5.0 
-    #   min_out: -5.0
-    
     

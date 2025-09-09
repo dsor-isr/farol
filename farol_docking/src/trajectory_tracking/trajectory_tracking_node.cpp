@@ -14,7 +14,7 @@
 static inline double deg2rad(double d){ return d*M_PI/180.0; }
 
 
-InnerLoopNode::InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
+TrajectoryTrackingNode::TrajectoryTrackingNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
 : nh_(*nodehandle), nh_private_(*nodehandle_private)
 {
 
@@ -25,13 +25,13 @@ InnerLoopNode::InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   reference_frame_ = FarolGimmicks::getParameters<std::string>(nh_private_, "reference_frame", "dock");
 
   // Subscribers
-  sub_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 1, &InnerLoopNode::state_callback, this);
-  sub_se3_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/trajectory", "docking/trajectory"), 1, &InnerLoopNode::se3_ref_callback, this);
+  sub_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 1, &TrajectoryTrackingNode::state_callback, this);
+  sub_se3_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/trajectory", "docking/trajectory"), 1, &TrajectoryTrackingNode::se3_ref_callback, this);
   // Publishers
   force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/force", "/force_bypass"), 5);
 
   // Timer
-  timer_ = nh_.createTimer(ros::Duration(1.0/p_node_frequency_), &InnerLoopNode::timerIterCallback, this);
+  timer_ = nh_.createTimer(ros::Duration(1.0/p_node_frequency_), &TrajectoryTrackingNode::timerIterCallback, this);
 
   // Controller
   if(controller_type_ == "se3_tracker") {
@@ -42,13 +42,13 @@ InnerLoopNode::InnerLoopNode(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   }
 }
 
-InnerLoopNode::~InnerLoopNode(){
+TrajectoryTrackingNode::~TrajectoryTrackingNode(){
   force_request_pub_.shutdown();
 }
 
 
 
-void InnerLoopNode::state_callback(const auv_msgs::NavigationStatus &msg)
+void TrajectoryTrackingNode::state_callback(const auv_msgs::NavigationStatus &msg)
 {
   // Position in selected frame (adjust field names to your message)
   controller_->position_ << msg.local_position.x, msg.local_position.y, msg.local_position.z;
@@ -70,7 +70,7 @@ void InnerLoopNode::state_callback(const auv_msgs::NavigationStatus &msg)
 }
 
 
-void InnerLoopNode::se3_ref_callback(const farol_docking::SE3Ref &msg)
+void TrajectoryTrackingNode::se3_ref_callback(const farol_docking::SE3Ref &msg)
 {
   controller_->p_d_ = {msg.p.x, msg.p.y, msg.p.z};
   controller_->pd_d_ = {msg.pd.x, msg.pd.y, msg.pd.z};
@@ -85,7 +85,7 @@ void InnerLoopNode::se3_ref_callback(const farol_docking::SE3Ref &msg)
   controller_->wdd_d_ = {msg.wdd.x, msg.wdd.y, msg.wdd.z};
 
 
-  t_ref_ = msg.header.stamp.toSec();
+  t_ref_ = ros::Time::now().toSec(); //msg.header.stamp.toSec();
   // Optional axis disables
   if(msg.disable_axis.size() == 6){
     for(int i=0;i<6;++i) disable_axis_[i] = msg.disable_axis[i];
@@ -93,7 +93,7 @@ void InnerLoopNode::se3_ref_callback(const farol_docking::SE3Ref &msg)
 }
 
 
-void InnerLoopNode::timerIterCallback(const ros::TimerEvent &)
+void TrajectoryTrackingNode::timerIterCallback(const ros::TimerEvent &)
 {
   const double now = ros::Time::now().toSec();
   const double dt = first_it_ ? 0.0 : (now - last_it_time_);
@@ -135,7 +135,7 @@ int main(int argc, char** argv)
   ros::init(argc, argv, "trajectory_tracking");
   ros::NodeHandle nh;
   ros::NodeHandle nh_private("~");
-  InnerLoopNode node(&nh, &nh_private);
+  TrajectoryTrackingNode node(&nh, &nh_private);
   ros::spin();
   return 0;
 }
@@ -144,7 +144,7 @@ int main(int argc, char** argv)
 
 
 // // Constructor
-// InnerLoopNode::InnerLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
+// TrajectoryTrackingNode::TrajectoryTrackingNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodehandle_private):nh_(*nodehandle), nh_private_(*nodehandle_private) {
 
 //   // Parameters
 //   p_node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 10);
@@ -153,9 +153,9 @@ int main(int argc, char** argv)
 //   reference_frame_ = FarolGimmicks::getParameters<std::string>(nh_private_, "reference_frame", "dock");
 
 //   // Subscribers
-//   sub_docking_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 1, &InnerLoopNode::state_callback, this);
-//   sub_position_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_position", "position_ref"), 1, &InnerLoopNode::position_ref_callback, this);
-//   sub_attitude_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_attitude", "attitude_ref"), 1, &InnerLoopNode::attitude_ref_callback, this);
+//   sub_docking_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/docking_state", "docking/state"), 1, &TrajectoryTrackingNode::state_callback, this);
+//   sub_position_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_position", "position_ref"), 1, &TrajectoryTrackingNode::position_ref_callback, this);
+//   sub_attitude_ref_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/ref_attitude", "attitude_ref"), 1, &TrajectoryTrackingNode::attitude_ref_callback, this);
 
 //   // Publishers
 //   force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/force", "/force_bypass"), 5);
@@ -165,7 +165,7 @@ int main(int argc, char** argv)
 //   // ...
 
 //   // Timer
-//   timer_ =nh_.createTimer(ros::Duration(1.0/p_node_frequency_), &InnerLoopNode::timerIterCallback, this);
+//   timer_ =nh_.createTimer(ros::Duration(1.0/p_node_frequency_), &TrajectoryTrackingNode::timerIterCallback, this);
 
 //   // instatiate the selected controller
 //   if (controller_type_ == "se3_tracker") {
@@ -179,7 +179,7 @@ int main(int argc, char** argv)
 // }
 
 // // Destructor
-// InnerLoopNode::~InnerLoopNode() {
+// TrajectoryTrackingNode::~TrajectoryTrackingNode() {
 
 //   // Shutdown publishers
 //   force_request_pub_.shutdown();
@@ -199,7 +199,7 @@ int main(int argc, char** argv)
 // }
 
 
-// void InnerLoopNode::state_callback(const auv_msgs::NavigationStatus &msg){
+// void TrajectoryTrackingNode::state_callback(const auv_msgs::NavigationStatus &msg){
 //   // if the message cooresponds to the selected reference frame
 //   if(msg.header.frame_id.find("dock") != std::string::npos){
 //     controller_->position_ << msg.local_position.x,msg.local_position.y,msg.local_position.z;  
@@ -210,7 +210,7 @@ int main(int argc, char** argv)
 // }
 
 
-// void InnerLoopNode::se3_ref_callback(const farol_msgs::SE3Ref::ConstPtr& msg)
+// void TrajectoryTrackingNode::se3_ref_callback(const farol_msgs::SE3Ref::ConstPtr& msg)
 // {
 //   controller_->p_d_   = Eigen::Vector3d(msg.p.x,  msg.p.y,  msg.p.z);
 //   controller_->pd_d_  = Eigen::Vector3d(msg.pd.x, msg.pd.y, msg.pd.z);
@@ -234,7 +234,7 @@ int main(int argc, char** argv)
 // }
 
 
-// void InnerLoopNode::timerIterCallback(const ros::TimerEvent &ev)
+// void TrajectoryTrackingNode::timerIterCallback(const ros::TimerEvent &ev)
 // {
 //   double tnow = ros::Time::now().toSec();
 //   double Dt   = tnow - last_it_time_;
@@ -267,7 +267,7 @@ int main(int argc, char** argv)
 //   ros::NodeHandle nh, nh_private("~");
 
 //   // Create the node class which will handle everything through the callbacks
-//   InnerLoopNode inner_loops_node(&nh,&nh_private);
+//   TrajectoryTrackingNode inner_loops_node(&nh,&nh_private);
 //   ros::spin();
 
 //   return 0;
