@@ -9,7 +9,7 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
 
   // Parameters
   node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 10);
-  terminal_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "terminal_dist_", 1);
+  terminal_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "terminal_dist_", 0.3);
   acomms_timeout_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_timeout", 20);
   acomms_search_radius_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_search_radius", 10);
   acomms_n_min_fix_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_n_min_fix", 10);
@@ -25,6 +25,7 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   a_w_max_ = FarolGimmicks::getParameters<double>(nh_private_, "a_w_max", 0.5);
   r_max_ = FarolGimmicks::getParameters<double>(nh_private_, "r_max", 0.5);
   a_r_max_ = FarolGimmicks::getParameters<double>(nh_private_, "a_r_max", 1.0);
+  jerk_ratio_ = FarolGimmicks::getParameters<double>(nh_private_, "jerk_ratio", 0.5);
   
 
   double helper;
@@ -266,7 +267,8 @@ void OuterLoopNode::plan_trajectory() {
       v_max_u_, v_max_v_,
       a_max_t_,
       w_max_, a_w_max_,
-      r_max_, a_r_max_
+      r_max_, a_r_max_,
+      jerk_ratio_
   );
 
   if (traj_planned_) {
@@ -350,7 +352,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   }
   else if(state_ =="terminal")
   {
-    ref_msg_.data = u_terminal_;
+    ref_msg_.data = 0.2;
     surge_ref_pub_.publish(ref_msg_);
   }
   

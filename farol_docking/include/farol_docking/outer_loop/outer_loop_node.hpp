@@ -197,6 +197,7 @@
   double a_w_max_{0.5};  // [m/s²]
   double r_max_{0.5};    // [rad/s]
   double a_r_max_{1.0};  // [rad/s²]
+  double jerk_ratio_{1.0};  // [rad/s²]
   tf2::Quaternion q_aux_;
 
 

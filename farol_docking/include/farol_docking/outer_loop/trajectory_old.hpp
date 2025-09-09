@@ -2,6 +2,7 @@
 #include <Eigen/Dense>
 #include <cmath>
 #include <algorithm>
+#include <ros/ros.h> 
 
 class TrajectoryPlanner {
 public:
@@ -99,6 +100,10 @@ private:
   Eigen::Vector2d V_pre_{0.0,0.0};
   Eigen::Vector2d A_pre_{0.0,0.0};
   double L2_=0;
+
+  // store the blend footprint (for debug) and the x at the end of Phase 3
+  double IxF_{0.0}, IyF_{0.0};   // ∫_0^{T3} [cos ψ, sin ψ] dt
+  double x_end_blend_{0.0};       // x at the end of Phase 3
 
   Timeline timeline_;
 
