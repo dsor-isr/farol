@@ -260,7 +260,7 @@ void OuterLoopNode::plan_trajectory() {
       docking_state_[0],
       docking_state_[1],
       docking_state_[2],
-      docking_yaw_,
+      docking_yaw_/180*M_PI,
       homing_dist_,
       u_terminal_,
       v_max_u_, v_max_v_,

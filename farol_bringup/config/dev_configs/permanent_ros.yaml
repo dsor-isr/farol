@@ -546,7 +546,7 @@ docking/trajectory_tracking:
             filter_state: "/#vehicle#/nav/filter/state"
             docking_state: "/#vehicle#/docking/filter/state"
             flag: "/#vehicle#/Flag"
-            trajectory: "/#vehicle#/docking/trajectory"
+            trajectory: "/#vehicle#/docking/trajectory1"
 
         publishers:
             force: "/#vehicle#/force_bypass"
