@@ -32,16 +32,21 @@ void DockingFilter::start()
 }
 
 // for matrix types
-void DockingFilter::configure(std::string type, Eigen::MatrixXd noise){
-  if(type == "position_process")
-    position_filter_->process_noise_ = noise;
-  else if(type == "position_measurement")
-    position_filter_->measurement_noise_ = noise;
+void DockingFilter::configure(std::string type, double noise){
+  if(type == "Q_P"){
+    position_filter_->process_noise_ = noise*Eigen::Matrix3d::Identity();
+    ROS_INFO_STREAM("Process noise is:\n"<<position_filter_->process_noise_);
+  }
+  else if(type == "R_P"){
+    position_filter_->measurement_noise_ = noise*Eigen::Matrix3d::Identity();
+    ROS_INFO_STREAM("Process noise is:\n"<<position_filter_->measurement_noise_);
+  }
   else if(type == "attitude_process")
-    ;// attitude_filter_.process_noise_ = noise;
+  ;// attitude_filter_.process_noise_ = noise;
   else if(type == "attitude_measurement")
     ;// attitude_filter_.measurement_noise_ = noise;
 }
+
 // for usbl rejection configuration
 void DockingFilter::configure(std::string type, std::vector<std::string> outlier_rejection_config){
   if(type == "outlier_rejection"){
@@ -74,7 +79,7 @@ void DockingFilter::initialize(double stamp){
   // average the two usbl relative positions (rotating the auv one to the D frame first) and initialize
   position_filter_->initialize(xyz_dock);
   position_filter_->state_at_last_update_ = xyz_dock;
-  position_filter_->state_cov_at_last_update_ = position_filter_->initial_state_cov_;
+  position_filter_->state_cov_at_last_update_ = position_filter_->state_cov_;
   position_filter_->time_at_last_update_ = stamp;
 
 
@@ -199,9 +204,8 @@ PositionFilter::PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nod
 
 void PositionFilter::initialize(Eigen::Vector3d measurement){
   state_ = measurement;
-  // initial covariance is 10% of the initial measurement
-  Eigen::Vector3d variance = 0.1*measurement;
-  state_cov_ = variance.asDiagonal();
+  state_cov_ = (0.1*measurement.cwiseAbs()).asDiagonal();    // initial covariance is 10% of the initial measurement
+  ROS_INFO_STREAM("Position Filter Initializing with:\nState:\n"<< state_ <<"\nCovariance:\n"<<state_cov_);
 }
 
 void PositionFilter::Q_callback(const std_msgs::Float64 &msg){
@@ -266,12 +270,22 @@ bool PositionFilter::predict(double time){
 
 
 bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
+  ROS_INFO_STREAM("update these nuts-----------------------------------------------------\n");
+  ROS_INFO_STREAM("Pre-rewind");
+  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
+
   state_ = state_at_last_update_;
   state_cov_ = state_cov_at_last_update_;
+  ROS_INFO_STREAM("Post-rewind");
+  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   double Dt; 
   double time = time_at_last_update_;
   double time_to_update = measurement.stamp - update_delay_;
+  ROS_INFO_STREAM("measurement.stamp" << std::fixed << std::setprecision(6) << measurement.stamp);
+  ROS_INFO_STREAM("time" << std::fixed << std::setprecision(6) << time);
+  ROS_INFO_STREAM("time_to_update" << std::fixed << std::setprecision(6) << time_to_update);
+
   int pop_count=0;
   Stamped<Eigen::VectorXd> aux;
 
@@ -286,10 +300,14 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
     time = aux.stamp;
     input_meas_buffer_.pop_front();
     pop_count++;
-
+    
     if(!input_meas_buffer_.empty())
       aux = input_meas_buffer_.front();
   }
+  ROS_INFO_STREAM("poop: "<<pop_count );
+
+  ROS_INFO_STREAM("first roll forward");
+  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   // // ----------------------   perform the update at this time      --------------------------
   outlier_rejected_ = 0;
@@ -301,12 +319,17 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
     return false;
   }
   //TODO: maybe espetar aqui um mahalanobiszinho
-
+  
   K_ = state_cov_ * innovation_matrix_.inverse();
   state_ = state_ + K_ * innovation_vector_;
   state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
+  ROS_INFO_STREAM("K_:\n"<<K_);
+  ROS_INFO_STREAM("state_cov_:\n"<<state_cov_);
 
   // -------------------------------------------------------------------------------------
+
+  ROS_INFO_STREAM("Post-update");
+  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
  
   // from time_to_update till present:
   if(!input_meas_buffer_.empty())
@@ -322,6 +345,11 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
     if(!input_meas_buffer_.empty())
       aux = input_meas_buffer_.front();
   }
+  ROS_INFO_STREAM("poop: "<<pop_count );
+
+
+  ROS_INFO_STREAM("Post-rollback");
+  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   // save current state and current time
   state_at_last_update_ = state_;

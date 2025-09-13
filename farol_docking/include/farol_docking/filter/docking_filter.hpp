@@ -114,7 +114,6 @@ class PositionFilter{
         Eigen::Vector3d state_;
         Eigen::Matrix3d state_cov_;
         Eigen::Vector3d initial_state_;
-        Eigen::Matrix3d initial_state_cov_;
         Eigen::Matrix3d process_noise_;
         Eigen::Matrix3d measurement_noise_;
         
@@ -216,7 +215,6 @@ class AttitudeFilter{
         Sophus::SO3d state_;
         Eigen::Matrix3d state_cov_;
         Sophus::SO3d initial_state_;
-        Eigen::Matrix3d initial_state_cov_;
 
         Eigen::Vector3d b_hat_;
         
@@ -275,7 +273,7 @@ class DockingFilter{
         /**
          * @brief  Change the process and measurement noises, or the ubsl
          */
-        void configure(std::string noise_type, Eigen::MatrixXd noise);
+        void configure(std::string noise_type, double noise);
         void configure(std::string type, std::vector<std::string>);
 
         

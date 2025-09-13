@@ -17,9 +17,9 @@ filter:
     process_noise: [1, 0, 0,
                     0, 1, 0,
                     0, 0, 1]
-    measurement_noise: [10, 0, 0,
-                        0, 10, 0,
-                        0, 0, 10]
+    measurement_noise: [1, 0, 0,
+                        0, 1, 0,
+                        0, 0, 1]
     outlier_treshold: 4.61
     update_delay: 1.8
                         

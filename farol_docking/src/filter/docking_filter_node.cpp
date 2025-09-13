@@ -59,8 +59,6 @@ DockingFilterNode::~DockingFilterNode() {
 
 void DockingFilterNode::initializeSubscribers() {
   ROS_INFO("Initializing Subscribers for DockingFilterNode");
-  //sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "filter/topics/subscribers/reset", "reset"), 10, &DockingFilterNode::resetCallback, this);
-  // sub_tuning_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/tuning", "tuning"), 10, &DockingFilterNode::tuningCallback, this);
   sub_velocity_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/velocity", "velocity"), 10, &DockingFilterNode::measurement_callback, this);
   sub_orientation_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/orientation", "orientation"), 10, &DockingFilterNode::measurement_callback, this);
   sub_position_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/position", "position"), 10, &DockingFilterNode::measurement_callback, this);
@@ -104,16 +102,11 @@ void DockingFilterNode::loadParams() {
   aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "auv_usbl_instalation_offset", {});
   docking_filter_->auv_usbl_instalation_offset << aux[0], aux[1], aux[2];
 
-  // Filter covariances
+  // Filter parameters
   Eigen::MatrixXd noise;
-  noise = load_matrix_parameter(nh_private_, "position/process_noise", Eigen::Matrix3d::Identity());
-  docking_filter_->configure("position_process", noise);
-  noise = load_matrix_parameter(nh_private_, "position/measurement_noise", Eigen::Matrix3d::Identity());
-  docking_filter_->configure("position_measurement", noise);
-  //noise = load_matrix_parameter(nh_private_, "attitude/process_noise", Eigen::Matrix3d::Identity());
-  //docking_filter_->configure("attitude_process", noise);
-  //noise = load_matrix_parameter(nh_private_, "attitude/measurement_noise", Eigen::Matrix3d::Identity());
-  //docking_filter_->configure("attitude_measurement", noise);
+  docking_filter_->configure("Q_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/process_noise", 1));
+  docking_filter_->configure("R_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/measurement_noise", 1));
+
 
 
   // outlier rejection config
@@ -181,8 +174,88 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   } 
 }
 
+void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
+  const double now = ros::Time::now().toSec();
+  const double W = 0.45; // e.g. 0.35; make it a ROS param
 
+  // (Optional) std::lock_guard<std::mutex> lk(usbl_mtx_);
+
+  // 0) Evict stale partials (keep only the most recent window)
+  for (int i = 0; i < 4; ++i) {
+    if (usbl_state_.test(i) && (now - usbl_times_[i] > W)) {
+      usbl_state_.reset(i);
+    }
+  }
+
+  // 1) Map message -> slot and store
+  int slot = -1;
+  if (msg.header.frame_id.find("usbl") != std::string::npos) {
+    // AUV self USBL
+    if (msg.type == 0) { // range
+      usbl_set_.segment<1>(0) << msg.range;
+      slot = 0;
+      // ROS_INFO_STREAM("DOCKING::usbl_range recv=" << std::fixed << std::setprecision(6) << now <<
+                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
+    } else if (msg.type == 1) { // angles
+      if (ignore_first_be_auv_) { ignore_first_be_auv_ = false; return; }
+      usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
+      slot = 1;
+      // ROS_INFO_STREAM("DOCKING::usbl_angles recv=" << std::fixed << std::setprecision(6) << now <<
+                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
+    }
+  } else {
+    // Dock USBL over acoustics
+    if (msg.type == 0) { // range
+      usbl_set_.segment<1>(3) << msg.range;
+      slot = 2;
+      // ROS_INFO_STREAM("DOCKING::dock_range recv=" << std::fixed << std::setprecision(6) << now <<
+                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
+    } else if (msg.type == 1) { // angles
+      if (ignore_first_be_dock_) { ignore_first_be_dock_ = false; return; }
+      usbl_set_.segment<2>(4) << msg.bearing_body, msg.elevation_body;
+      slot = 3;
+      // ROS_INFO_STREAM("DOCKING::dock_angles recv=" << std::fixed << std::setprecision(6) << now <<
+                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
+    }
+  }
+  if (slot < 0) return;
+
+  usbl_state_.set(slot, true);
+  usbl_times_[slot] = now;
+
+  // 2) If full set present, verify window and push
+  if (usbl_state_.all()) {
+    auto [tmin_it, tmax_it] = std::minmax_element(usbl_times_.begin(), usbl_times_.end());
+    const double span = *tmax_it - *tmin_it;
+
+    if (span <= W) {
+      const double t_meas = *tmax_it; // latest reception time is the most reliable
+      if (docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, t_meas, "usbl"))) {
+        docking_filter_->measurements_buffer_cond_var_.notify_one();
+      } else {
+        ROS_WARN_STREAM("Dropping USBL measurements. Buffer full.");
+      }
+      usbl_state_.reset(); // clear for next cycle
+    } else {
+      // Mixed cycles: drop the oldest only; keep the most recent partials
+      const int idx_old = std::distance(usbl_times_.begin(), tmin_it);
+      usbl_state_.reset(idx_old);
+      ROS_DEBUG_STREAM("USBL set spans " << span << "s (> " << W << "s). Dropping oldest slot " << idx_old);
+    }
+  }
+}
+
+/*
 void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
+  const double now = ros::Time::now().toSec();
+  const double W = 0.45;//usbl_window_sec_; // e.g. 0.35; make it a ROS param
+
+  for (int i = 0; i < 4; ++i) {
+    if (usbl_state_.test(i) && (now - usbl_times_[i] > W)) {
+      usbl_state_.reset(i);
+    }
+  }
+  
   // if the usbl measurement is made by the vehicle itself
   if(msg.header.frame_id.find("usbl") != std::string::npos){
     // if its a message with range
@@ -190,7 +263,8 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<1>(0) << msg.range;
       usbl_state_.set(0, true);
       usbl_times_[0] = ros::Time::now().toSec();
-      // ROS_INFO_STREAM("DOCKING::usbl_set_0: "<< std::fixed << std::setprecision(6)<<usbl_times_[0]);
+      ROS_INFO_STREAM("DOCKING::usbl_range: "<< std::fixed << std::setprecision(6)<<usbl_times_[0] <<
+                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
     }
     // if its a message with bearing and elevation
     else if (msg.type == 1){
@@ -201,7 +275,8 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
       usbl_state_.set(1, true);
       usbl_times_[1] = ros::Time::now().toSec();
-      // ROS_INFO_STREAM("DOCKING::usbl_set_1: "<< std::fixed << std::setprecision(6)<<usbl_times_[1]);
+      ROS_INFO_STREAM("DOCKING::usbl_angles: "<< std::fixed << std::setprecision(6)<<usbl_times_[1] <<
+                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
     }
     
   // if the usbl measurement was made by the dock and then received via accoustic comms
@@ -211,7 +286,8 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<1>(3) << msg.range;
       usbl_state_.set(2, true);
       usbl_times_[2] = ros::Time::now().toSec();
-      // ROS_INFO_STREAM("DOCKING::msg.range: "<< std::fixed << std::setprecision(6)<<usbl_times_[2]);
+      ROS_INFO_STREAM("DOCKING::dock_range: "<< std::fixed << std::setprecision(6)<<usbl_times_[2] <<
+                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
     }
     // if its a message with bearing and elevation
     else if (msg.type == 1){
@@ -222,7 +298,8 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
       usbl_set_.segment<2>(4) << msg.bearing_body, msg.elevation_body;
       usbl_state_.set(3, true);
       usbl_times_[3] = ros::Time::now().toSec();
-      // ROS_INFO_STREAM("DOCKING::msg.be: "<< std::fixed << std::setprecision(6)<<usbl_times_[3]);
+      ROS_INFO_STREAM("DOCKING::dock_angles: "<< std::fixed << std::setprecision(6)<<usbl_times_[3] <<
+                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
     }
   }
 
@@ -246,7 +323,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
     // ROS_INFO_STREAM("DOCKING::usbl_reset: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
   }
 }
-
+*/
 
 void DockingFilterNode::terrain_normal_callback(const geometry_msgs::Vector3 &msg){
   docking_filter_->terrain_normal_ << msg.x, msg.y, msg.z;

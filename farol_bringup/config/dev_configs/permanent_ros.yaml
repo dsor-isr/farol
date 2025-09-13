@@ -485,14 +485,14 @@ acomms/pos2sim_modem:
 docking/filter:
     topics:
         subscribers:
+            # Measurements
             usbl_fix: "/#vehicle#/sensors/usbl_fix"
             usbl_accoms: "/#vehicle#/acomms/usbl_fix"
             velocity: "/#vehicle#/measurement/velocity"
             orientation: "/#vehicle#/measurement/orientation"
-            position: "/#vehicle#/measurement/position"
-            dock_pose: "/#vehicle#/docking/dock_pose"
-            filter_state: "/#vehicle#/nav/filter/state"
+            # Stuff
             reset: "/#vehicle#/docking/filter/reset"
+            # Gains
             kp: "/#vehicle#/docking/filter/attitude/kp"
             ki: "/#vehicle#/docking/filter/attitude/ki"
             k1: "/#vehicle#/docking/filter/attitude/k1"
