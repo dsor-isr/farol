@@ -352,8 +352,8 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   }
   else if(state_ =="terminal")
   {
-    ref_msg_.data = 0.2;
-    surge_ref_pub_.publish(ref_msg_);
+    force_request_msg_.wrench.force.x = 5;
+    force_request_pub_.publish(force_request_msg_);
   }
   
   

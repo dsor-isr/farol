@@ -1,14 +1,14 @@
 # TODO: all of this should be a in a vehicle specific docking.yaml
 
 ###############################
-# DOCKING FILTER 
+# DOCKING FILTER
 ###############################
 filter:
   node_frequency: 10
   debug: true
   dock_has_ahrs: false
-  dock_usbl_instalation_offset: [0,0,0] # [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
-  auv_usbl_instalation_offset: [0,0,0] #[0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
+  dock_usbl_instalation_offset: [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
+  auv_usbl_instalation_offset: [0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
   # outlier_rejection:  ["usbl", "dvl"]
   outlier_rejection:  [] # no outlier rejection
@@ -22,7 +22,7 @@ filter:
                         0, 0, 1]
     outlier_treshold: 4.61
     update_delay: 1.8
-                        
+
   attitude:
     gains:
       k1: 0.6
@@ -30,7 +30,7 @@ filter:
       kp: 1
       ki: 0
     outlier_treshold: 2.71
-    update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done 
+    update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done
 
 
 
@@ -44,27 +44,27 @@ outer_loop:
   # dock_lat_lon: [38.765824, 9.092815]
   dock_depth: 2.8
   # dock_altitude: 1
-  # this is the orientation of dock opening, so its the direction oposite to the D frame 
-  # dock_heading: 150 
+  # this is the orientation of dock opening, so its the direction oposite to the D frame
+  # dock_heading: 150
   safe_depth_aproach: 1
   aproach_dist: 5.0
 
-  terminal_dist: 0.2    # distance [m] to ignore filter 
+  terminal_dist: 0.2    # distance [m] to ignore filter
   acomms_timeout: 20    # time [s] after which returns to "search_acomms"
   acomms_n_min_fix: 3   # idk to be fair
   acomms_search_radius: 10  # radius around the docking station to seach for acomms
-  
+
   ## Trajectory parameters
-  homing_dist: 2.5        # distance [m] along the x-axis where to place homin point
+  homing_dist: 3.0        # distance [m] along the x-axis where to place homin point
   u_terminal: 0.05      # terminal velocity
-  v_max_u: 0.2  # [m/s]
-  v_max_v: 0.2  # [m/s]
-  a_max_t: 0.1  # [m/s²]
-  w_max: 0.2    # [m/s]
-  a_w_max: 0.1  # [m/s²]
-  r_max: 0.2    # [rad/s]
-  a_r_max: 0.1  # [rad/s²]
-  jerk_ratio: 0.5 # 1/value*accl is actual jerk 
+  v_max_u: 0.1  # [m/s]
+  v_max_v: 0.1  # [m/s]
+  a_max_t: 0.05  # [m/s²]
+  w_max: 0.1    # [m/s]
+  a_w_max: 0.05  # [m/s²]
+  r_max: 0.1    # [rad/s]
+  a_r_max: 0.05  # [rad/s²]
+  jerk_ratio: 0.2 # 1/value*accl is actual jerk
 
 
 
@@ -73,16 +73,16 @@ outer_loop:
 ###############################
 trajectory_tracking:
   type: "se3_tracker"
-  
+
   se3:
     # Gains (acceleration domain!)
-    Kpv:  [0.64, 0.64, 0.36]     # = [ωn^2] per axis
-    Kdv:  [1.28, 1.28, 0.96]     # = [2 ζ ωn]
-    Kiv:  [0.032, 0.032, 0.018]  # small I for bias/current
-    # Kiv:  [0.0, 0.0, 0.0]  # small I for bias/current
+    Kpv:  [0.16, 0.06, 0.09]     # = [ωn^2] per axis
+    Kdv:  [0.56, 0.336, 0.42]     # = [2 ζ ωn]
+    # Kiv:  [0.032, 0.032, 0.018]  # small I for bias/current
+    Kiv:  [0.0, 0.0, 0.0]  # small I for bias/current
 
-    KpR:  [0.0, 0.0, 1.00]       # yaw only active
-    KdW:  [0.0, 0.0, 1.60]
+    KpR:  [0.0, 0.0, 0.43]       # yaw only active
+    KdW:  [0.0, 0.0, 0.924]
     # KiR:  [0.0, 0.0, 0.05]
     KiR:  [0.0, 0.0, 0.0]
 
@@ -102,15 +102,15 @@ trajectory_tracking:
     Dang:  [0.0, 0.0, 4.14]
 
     # Wrench limits (pre-allocator)
-    Fmin: [-36, -36, -36]
-    Fmax: [ 36,  36,  36]
-    Mmin: [-3,  -1,  -1]
-    Mmax: [ 3,   1,   1]
+    Fmin: [-20, -20, -20]
+    Fmax: [ 20,  20,  20]
+    Mmin: [-2,  -2,  -2]
+    Mmax: [ 2,   2,   2]
 
 
 
 ###############################
-# DOCKING HELPER NODE 
+# DOCKING HELPER NODE
 ###############################
 docking_helper:
   sim_usbl: false
@@ -118,4 +118,3 @@ docking_helper:
   noise: false
 
 
-    

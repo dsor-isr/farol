@@ -141,7 +141,6 @@
   ros::Publisher force_request_pub_;
   ros::Publisher flag_pub_;
   ros::Publisher debug_pub_;
-  ros::Publisher force_pub_;
   ros::Publisher docking_state_pub;
   ros::Publisher mission_string_pub;
 

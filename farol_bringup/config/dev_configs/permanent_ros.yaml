@@ -528,8 +528,6 @@ docking/outer_loop:
             ref_yaw: "/#vehicle#/ref/yaw"
             se3_ref: "/#vehicle#/docking/trajectory"
             ref_depth: "/#vehicle#/ref/depth"
-            ref_position: "/#vehicle#/ref/position"
-            ref_attitude: "/#vehicle#/ref/attitude"
             flag: "/#vehicle#/Flag"
             debug: "/#vehicle#/docking/controller/debug"
             phase: "/#vehicle#/docking/phase"
