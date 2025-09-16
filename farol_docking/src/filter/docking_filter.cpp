@@ -270,21 +270,21 @@ bool PositionFilter::predict(double time){
 
 
 bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
-  ROS_INFO_STREAM("update these nuts-----------------------------------------------------\n");
-  ROS_INFO_STREAM("Pre-rewind");
-  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
+  // ROS_INFO_STREAM("update these nuts-----------------------------------------------------\n");
+  // ROS_INFO_STREAM("Pre-rewind");
+  // ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   state_ = state_at_last_update_;
   state_cov_ = state_cov_at_last_update_;
-  ROS_INFO_STREAM("Post-rewind");
-  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
+  // ROS_INFO_STREAM("Post-rewind");
+  // ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   double Dt; 
   double time = time_at_last_update_;
   double time_to_update = measurement.stamp - update_delay_;
-  ROS_INFO_STREAM("measurement.stamp" << std::fixed << std::setprecision(6) << measurement.stamp);
-  ROS_INFO_STREAM("time" << std::fixed << std::setprecision(6) << time);
-  ROS_INFO_STREAM("time_to_update" << std::fixed << std::setprecision(6) << time_to_update);
+  // ROS_INFO_STREAM("measurement.stamp" << std::fixed << std::setprecision(6) << measurement.stamp);
+  // // ROS_INFO_STREAM("time" << std::fixed << std::setprecision(6) << time);
+  // ROS_INFO_STREAM("time_to_update" << std::fixed << std::setprecision(6) << time_to_update);
 
   int pop_count=0;
   Stamped<Eigen::VectorXd> aux;
@@ -304,10 +304,10 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
     if(!input_meas_buffer_.empty())
       aux = input_meas_buffer_.front();
   }
-  ROS_INFO_STREAM("poop: "<<pop_count );
+  // ROS_INFO_STREAM("poop: "<<pop_count );
 
-  ROS_INFO_STREAM("first roll forward");
-  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
+  // ROS_INFO_STREAM("first roll forward");
+  // ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   // // ----------------------   perform the update at this time      --------------------------
   outlier_rejected_ = 0;
@@ -323,13 +323,13 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   K_ = state_cov_ * innovation_matrix_.inverse();
   state_ = state_ + K_ * innovation_vector_;
   state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
-  ROS_INFO_STREAM("K_:\n"<<K_);
-  ROS_INFO_STREAM("state_cov_:\n"<<state_cov_);
+  // ROS_INFO_STREAM("K_:\n"<<K_);
+  // ROS_INFO_STREAM("state_cov_:\n"<<state_cov_);
 
   // -------------------------------------------------------------------------------------
 
-  ROS_INFO_STREAM("Post-update");
-  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
+  // ROS_INFO_STREAM("Post-update");
+  // ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
  
   // from time_to_update till present:
   if(!input_meas_buffer_.empty())
@@ -345,11 +345,11 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
     if(!input_meas_buffer_.empty())
       aux = input_meas_buffer_.front();
   }
-  ROS_INFO_STREAM("poop: "<<pop_count );
+  // ROS_INFO_STREAM("poop: "<<pop_count );
 
 
-  ROS_INFO_STREAM("Post-rollback");
-  ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
+  // ROS_INFO_STREAM("Post-rollback");
+  // ROS_INFO_STREAM("state_:\n"<<state_<<"\nstate_cov_:"<<state_cov_);
 
   // save current state and current time
   state_at_last_update_ = state_;

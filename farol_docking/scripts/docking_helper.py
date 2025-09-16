@@ -12,7 +12,7 @@ from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Point
 from math import pi
 from tf.transformations import euler_from_quaternion 
-
+from dsor_msgs.msg import Measurement
 
 
 
@@ -118,7 +118,8 @@ def orientation_to_yaw(orientation):
     yaw = (yaw + np.pi) % (2 * np.pi) - np.pi
     return enu_to_ned_yaw(yaw)
 
-
+def enu_to_ned_vec(v):         # NEW: vector mapping ENU->NED
+    return np.array([v[1], v[0], -v[2]])
 
 
 class DockingHelperNode():
@@ -140,10 +141,14 @@ class DockingHelperNode():
         self.range_noise_stddev = 0.05
         self.bearing_noise_stddev = 0.5/180*pi
         self.elevation_noise_stddev = 0.5/180*pi
+        self.w_auv_world = np.zeros(3)
+        self.v_auv_world = np.zeros(3)
         
 
     def initializeSubscribers(self):
         rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/gazebo"), ModelStates, self.gazebo_callback)
+        rospy.Subscriber("/myellow0/measurement/velocity", Measurement, self.measurement_velocity_callback)
+        rospy.Subscriber("/myellow0/measurement/orientation", Measurement, self.measurement_orientation_callback)
     
     def loadParams(self):
         self.sim_usbl = rospy.get_param('~sim_usbl')
@@ -155,6 +160,12 @@ class DockingHelperNode():
         self.pub_usbl_acomms = rospy.Publisher(rospy.get_param('~' + "topics/publishers/usbl_acomms"), mUSBLFix, queue_size=5)
         self.pub_dock_pose = rospy.Publisher(rospy.get_param('~' + "topics/publishers/dock_pose"), mState, queue_size=5)
         self.pub_docking_gt = rospy.Publisher(rospy.get_param('~' + "topics/publishers/docking_state_gt"), NavigationStatus, queue_size=5)
+
+    def measurement_velocity_callback(self, msg):
+        self.v_auv_world = [msg.value[0], msg.value[1], msg.value[2]]
+    
+    def measurement_orientation_callback(self, msg):
+        self.w_auv_world = [msg.value[3], msg.value[4], msg.value[5]]
 
     def gazebo_callback(self, msg):
         try:
@@ -171,6 +182,7 @@ class DockingHelperNode():
             # convert orientation from ENU to  NED
             (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
             self.state_dock = np.array([x, y, z, roll, pitch, yaw])
+
         except:
             pass
     
@@ -275,6 +287,7 @@ class DockingHelperNode():
         msg.Yaw = self.state_dock[3]*180/np.pi 
         msg.Z = self.state_dock[2]
         self.pub_dock_pose.publish(msg)
+
         
         rel_pose = auv_in_dock_frame(self.state, self.state_dock)
         msg = NavigationStatus()
@@ -284,7 +297,16 @@ class DockingHelperNode():
         msg.local_attitude.roll = rel_pose[3]
         msg.local_attitude.pitch = rel_pose[4]
         msg.local_attitude.yaw = rel_pose[5]
+        # NEW: velocities (linear in m/s, angular in deg/s)
+        msg.body_velocity.x = float(self.v_auv_world[0])
+        msg.body_velocity.y = float(self.v_auv_world[1])
+        msg.body_velocity.z = float(self.v_auv_world[2])
+        msg.orientation_rate.x = float(self.w_auv_world[0] * 180.0/np.pi)
+        msg.orientation_rate.y = float(self.w_auv_world[1] * 180.0/np.pi)
+        msg.orientation_rate.z = float(self.w_auv_world[2] * 180.0/np.pi)
+
         self.pub_docking_gt.publish(msg)
+
 
 
 if __name__ == '__main__':

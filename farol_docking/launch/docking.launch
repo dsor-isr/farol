@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
+  <arg name="simulation"    default="false" /> 
   <arg name="filter"  				  default="false" />
   <arg name="outer_loop"  			default="false" />
   <arg name="trajectory_tracking"       default="false" /> 
@@ -8,7 +9,12 @@
 
   <group ns="docking">
     
-    <rosparam command="load" file="$(find farol_docking)/config/docking_config.yaml"/>
+    <rosparam if="$(arg simulation)"
+            command="load" file="$(find farol_docking)/config/docking_sim.yaml"/>
+    
+    <rosparam unless="$(arg simulation)"
+            command="load" file="$(find farol_docking)/config/docking_real.yaml"/>
+
 
 	  <group if="$(arg filter)">
       <node pkg="farol_docking" type="docking_filter" name="filter" respawn="false" output="screen"/>

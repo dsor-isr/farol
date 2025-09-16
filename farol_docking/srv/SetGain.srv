@@ -1,0 +1,5 @@
+string name        # e.g. "Kpv", "Kpv.z", "se3/Kpv", "Jdiag", "Fmax"
+float64[] values   # len=1 -> scalar/all/components; len=3 -> full vector
+---
+bool ok
+string message

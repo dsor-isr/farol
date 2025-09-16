@@ -26,10 +26,10 @@ add_message_files(
   
   
   # Generate services in the 'srv' folder
-  # add_service_files(
-    # 	DIRECTORY srv
-    # )
-    
+add_service_files(
+    DIRECTORY srv
+)
+  
 generate_messages(
   DEPENDENCIES
   std_msgs 
@@ -48,8 +48,7 @@ catkin_package(
   dsor_msgs
   message_runtime
   topic_tools
-  # GeographicLib
-  )
+)
     
 add_compile_options(-std=c++17 -Wall -O3) 
     

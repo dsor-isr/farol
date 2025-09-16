@@ -1,0 +1,120 @@
+# TODO: all of this should be a in a vehicle specific docking.yaml
+
+###############################
+# DOCKING FILTER
+###############################
+filter:
+  node_frequency: 10
+  debug: true
+  dock_has_ahrs: false
+  dock_usbl_instalation_offset: [0,0,0] # position of the USBL in the D-frame measured from D-frame to USBL-frame
+  auv_usbl_instalation_offset: [0,0,0] # position of the USBL in the B-frame measured from B-frame to USBL-frame
+  initializer_size: 4
+  # outlier_rejection:  ["usbl", "dvl"]
+  outlier_rejection:  [] # no outlier rejection
+
+  position:
+    process_noise: [1, 0, 0,
+                    0, 1, 0,
+                    0, 0, 1]
+    measurement_noise: [1, 0, 0,
+                        0, 1, 0,
+                        0, 0, 1]
+    outlier_treshold: 4.61
+    update_delay: 1.8
+
+  attitude:
+    gains:
+      k1: 0.6
+      k2: 0.4
+      kp: 1
+      ki: 0
+    outlier_treshold: 2.71
+    update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done
+
+
+
+###############################
+# DOCKING OUTER LOOP STATE MACHINE
+###############################
+outer_loop:
+  node_frequency: 10
+  # initial estimate of the docking position, at least one of utm/lat_lon and one of depth/altitude must be specified
+  dock_utm: [4290794, 491936]
+  # dock_lat_lon: [38.765824, 9.092815]
+  dock_depth: 2.8
+  # dock_altitude: 1
+  # this is the orientation of dock opening, so its the direction oposite to the D frame
+  # dock_heading: 150
+  safe_depth_aproach: 1
+  aproach_dist: 5.0
+
+  terminal_dist: 0.2    # distance [m] to ignore filter
+  acomms_timeout: 20    # time [s] after which returns to "search_acomms"
+  acomms_n_min_fix: 3   # idk to be fair
+  acomms_search_radius: 10  # radius around the docking station to seach for acomms
+
+  ## Trajectory parameters
+  homing_dist: 3.0        # distance [m] along the x-axis where to place homin point
+  u_terminal: 0.05      # terminal velocity
+  v_max_u: 0.1  # [m/s]
+  v_max_v: 0.1  # [m/s]
+  a_max_t: 0.05  # [m/s²]
+  w_max: 0.1    # [m/s]
+  a_w_max: 0.05  # [m/s²]
+  r_max: 0.1    # [rad/s]
+  a_r_max: 0.05  # [rad/s²]
+  jerk_ratio: 0.2 # 1/value*accl is actual jerk
+
+
+
+###############################
+# TRAJECTORY TRACKING CONTROLLER
+###############################
+trajectory_tracking:
+  type: "se3_tracker"
+
+  se3:
+    # Gains (acceleration domain!)
+    Kpp:  [0.16, 0.06, 0.09]     # = [ωn^2] per axis
+    Kdv:  [0.56, 0.336, 0.42]     # = [2 ζ ωn]
+    # Kiv:  [0.032, 0.032, 0.018]  # small I for bias/current
+    Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
+
+    KpR:  [0.0, 0.0, 0.43]       # yaw only active
+    KdW:  [0.0, 0.0, 0.924]
+    # KiR:  [0.0, 0.0, 0.05]
+    KiR:  [0.0, 0.0, 0.0]
+
+    # Derivative filters (Hz)
+    fc_v: [5.0, 5.0, 4.0]
+    fc_w: [5.0, 5.0, 5.0]
+
+    # Anti-windup (start off; turn on if you hit limits)
+    kaw_v: [0.0, 0.0, 0.0]
+    kaw_w: [0.0, 0.0, 0.0]
+
+    # Model (match Gazebo hydros; use per-axis mass if you enabled it)
+    M_diag: [49.3, 50.0, 99.3] # if you added m_vec_ (recommended)
+    Jdiag: [1.0, 1.0, 4.64]
+
+    Dlin:  [0.2, 55.1, 6.4369]   # positive magnitudes (controller adds +D v)
+    Dang:  [0.0, 0.0, 4.14]
+
+    # Wrench limits (pre-allocator)
+    Fmin: [-20, -20, -20]
+    Fmax: [ 20,  20,  20]
+    Mmin: [-2,  -2,  -2]
+    Mmax: [ 2,   2,   2]
+
+
+
+###############################
+# DOCKING HELPER NODE
+###############################
+docking_helper:
+  sim_usbl: false
+  outliers: false
+  noise: false
+
+

@@ -152,6 +152,8 @@ void OuterLoopNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
 
 
 void OuterLoopNode::start_callback(const std_msgs::Empty &msg){  
+  flag_msg_.data = 10;
+  flag_pub_.publish(flag_msg_);
   // this should make it go straight into homing phase, hopefully
   if(got_docking_state_){
     state_ = "skibidi";
@@ -162,6 +164,8 @@ void OuterLoopNode::start_callback(const std_msgs::Empty &msg){
   state_ = "approaching";
   phase_msg_.data = state_;
   docking_state_pub.publish(phase_msg_);
+  flag_msg_.data = 11;
+  flag_pub_.publish(flag_msg_);
 
   // here we know the dock heading à priori
   if(dock_heading_){
@@ -205,10 +209,13 @@ void OuterLoopNode::check_state_transition(double time_now){
     return;
 
   // reached initial waypoint
-  if( state_ == "approaching" && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2){
+  if( state_ == "z" && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2){
     state_ = "search_acomms";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
+    flag_msg_.data = 12;
+    flag_pub_.publish(flag_msg_);
+    
     // start path_following of circle around the dock
     std::string mission = "3\n";
     // add mission reference point 
@@ -230,7 +237,7 @@ void OuterLoopNode::check_state_transition(double time_now){
       
   if (state_=="skibidi"){
     // publish flag to signal the start of the docking phase
-    flag_msg_.data = 10;
+    flag_msg_.data = 13;
     flag_pub_.publish(flag_msg_);
     // docking state pub
     state_ = "homing";
@@ -245,6 +252,8 @@ void OuterLoopNode::check_state_transition(double time_now){
     state_ = "search_acomms";
     n_fixes_ =0;
     got_docking_state_ =false;
+    flag_msg_.data = 12;
+    flag_pub_.publish(flag_msg_);
   }
 
   // got to close, change to terminal, open loop control
@@ -252,6 +261,8 @@ void OuterLoopNode::check_state_transition(double time_now){
     state_ = "terminal";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
+    flag_msg_.data = 13;
+    flag_pub_.publish(flag_msg_);
   }
 }
 
@@ -352,7 +363,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   }
   else if(state_ =="terminal")
   {
-    force_request_msg_.wrench.force.x = 5;
+    force_request_msg_.wrench.force.x = 3;
     force_request_pub_.publish(force_request_msg_);
   }
   

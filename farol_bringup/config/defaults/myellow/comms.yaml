@@ -2,7 +2,7 @@ modem/modem_config:
     tcp_config/ip: 10.42.10.3
     local_address: 3 
     hasAHRS: false
-    initializer: "{'@ZA': '1', '@ZX': '1'}"
+    initializer: "{'@ZA': '0', '@ZX': '1'}"
 
 pinger:
     tslack: 1.0
