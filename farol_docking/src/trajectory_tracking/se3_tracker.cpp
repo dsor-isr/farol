@@ -13,26 +13,26 @@ Se3Tracker::Se3Tracker(ros::NodeHandle* nh, ros::NodeHandle* pnh)
 		if(v.size()<3) v = {def.x(),def.y(),def.z()};
 		return Eigen::Vector3d(v[0], v[1], v[2]);
 	};
-	Kpp_ = getv("se3/Kpp", Eigen::Vector3d::Constant(50.0));
-	Kdv_ = getv("se3/Kdv", Eigen::Vector3d::Constant(40.0));
+	Kpp_ = getv("se3/Kpp", Eigen::Vector3d::Constant(0.0));
+	Kdv_ = getv("se3/Kdv", Eigen::Vector3d::Constant(0.0));
 	Kip_ = getv("se3/Kip", Eigen::Vector3d::Constant(0.0));
-	KpR_ = getv("se3/KpR", Eigen::Vector3d(0,0,3.0));
-	Kdw_ = getv("se3/Kdw", Eigen::Vector3d(0,0,2.0));
+	KpR_ = getv("se3/KpR", Eigen::Vector3d(0,0,0.0));
+	Kdw_ = getv("se3/Kdw", Eigen::Vector3d(0,0,0.0));
 	KiR_ = getv("se3/KiR", Eigen::Vector3d(0,0,0.0));
 
 
-	fc_v_= getv("se3/fc_v", Eigen::Vector3d::Constant(5.0));
-	fc_w_= getv("se3/fc_w", Eigen::Vector3d::Constant(5.0));
+	fc_v_= getv("se3/fc_v", Eigen::Vector3d::Constant(10.0));
+	fc_w_= getv("se3/fc_w", Eigen::Vector3d::Constant(10.0));
 	kaw_v_=getv("se3/kaw_v", Eigen::Vector3d::Zero());
 	kaw_w_=getv("se3/kaw_w", Eigen::Vector3d::Zero());
 
 
-	M_ = getv("se3/M_diag", Eigen::Vector3d::Constant(50.0));
+	M_ = getv("se3/M_diag", Eigen::Vector3d::Constant(1.0));
 
-	std::vector<double> Jv; nh_private_.param<std::vector<double>>("se3/Jdiag", Jv, {1.0,1.0,3.0});
+	std::vector<double> Jv; nh_private_.param<std::vector<double>>("se3/Jdiag", Jv, {1.0,1.0,1.0});
 	Jdiag_ = Eigen::Vector3d(Jv[0],Jv[1],Jv[2]);
-	Dlin_ = getv("se3/Dlin", Eigen::Vector3d(20,20,20));
-	Dang_ = getv("se3/Dang", Eigen::Vector3d(2,2,4));
+	Dlin_ = getv("se3/Dlin", Eigen::Vector3d(0,0,0));
+	Dang_ = getv("se3/Dang", Eigen::Vector3d(0,0,0));
 
 
 	Fmin_ = getv("se3/Fmin", Eigen::Vector3d::Constant(-1e9));
@@ -47,13 +47,37 @@ Se3Tracker::Se3Tracker(ros::NodeHandle* nh, ros::NodeHandle* pnh)
 
   set_gain_srv_ = nh_private_.advertiseService("/myellow0/docking/trajectory_tracking/set_gain", &Se3Tracker::setGainSrv, this);
 
+  ROS_INFO_STREAM("Trajectory Tracking Controller Parameters:\n--- Gains ---\n"<<
+                  "Kpp: "<< Kpp_ <<
+                  "Kdv: "<< Kdv_ <<
+                  "Kip: "<< Kip_ <<
+                  "KpR: "<< KpR_ <<
+                  "Kdw: "<< Kdw_ <<
+                  "KiR: "<< KiR_ <<
+                  "Kpp: "<< Kpp_ <<
+                  "\n--- Model ---\n" <<
+                  "M: " << M_ <<
+                  "J: " << Jdiag_ <<
+                  "Dlin: " << Dlin_<<
+                  "Dang: " << Dang_<<
+                  "\n--- Saturations ---\n" <<
+                  "Fmin: "<< Fmin_ <<
+                  "Fmax: "<< Fmax_ <<
+                  "Mmin: "<< Mmin_ <<
+                  "Mmax: "<< Mmax_ <<
+                  "\n--- Velocity low pass ---\n" <<
+                  "fc_v: " << fc_v_ <<
+                  "fc_w: " << fc_w_ <<
+                  "\n--- Anti-windup ---\n" <<
+                  "kaw_v: " << kaw_v_ <<
+                  "kaw_w: " << kaw_w_ );
 }
 
 void Se3Tracker::compute_wrench(double dt)
 {
-  if (dt <= 0.0) return;  // guard against zero/negative dt
+  if (dt <= 0.0) return; 
 
-  // Desired body signals (as before)
+  // Desired body signals
   const Eigen::Vector3d v_d    = R_d_.transpose() * pd_d_;
   // (vdot_d is in desired body frame; don't mix it directly later)
   // const Eigen::Vector3d vdot_d = R_d_.transpose() * pdd_d_ - hat(w_d_) * v_d;
@@ -67,13 +91,14 @@ void Se3Tracker::compute_wrench(double dt)
   const Eigen::Vector3d e_w = w_  - Rt*R_d_*w_d_;
 
 
-  // Integrators (won't contribute while Ki=0, but keep updated)
+  // Integrators 
   z_p_ += e_b * dt;
   z_R_ += e_R * dt;
 
   // ---- Filter e_v and e_w (init to first sample) ----
-  static bool first = true;
-  if (first) { e_v_filt_ = e_v; e_w_filt_ = e_w;}// first = false; }
+  e_v_filt_ = e_v; e_w_filt_ = e_w;
+  // static bool first = true;
+  // if (first) { e_v_filt_ = e_v; e_w_filt_ = e_w;} first = false; }
   // for (int i=0; i<3; ++i) {
   //   const double av = alpha(fc_v_(i), dt);
   //   e_v_filt_(i) = av*e_v_filt_(i) + (1.0-av)*e_v(i);

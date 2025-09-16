@@ -76,10 +76,10 @@ trajectory_tracking:
 
   se3:
     # Gains (acceleration domain!)
-    Kpv:  [0.16, 0.06, 0.09]     # = [ωn^2] per axis
+    Kpp:  [0.16, 0.06, 0.09]     # = [ωn^2] per axis
     Kdv:  [0.56, 0.336, 0.42]     # = [2 ζ ωn]
     # Kiv:  [0.032, 0.032, 0.018]  # small I for bias/current
-    Kiv:  [0.0, 0.0, 0.0]  # small I for bias/current
+    Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
 
     KpR:  [0.0, 0.0, 0.43]       # yaw only active
     KdW:  [0.0, 0.0, 0.924]
