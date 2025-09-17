@@ -75,9 +75,11 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
 
   // Services
   wp_client = nh_private_.serviceClient<waypoint::sendWpType1>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/services/waypoint", "/waypoint"));
+  reconfig_srv_ = nh_private_.advertiseService("set_param", &OuterLoopNode::reconfigureParamSrv, this);
 
   // Timer
   timer_ =nh_.createTimer(ros::Duration(1.0/node_frequency_), &OuterLoopNode::timerIterCallback, this);
+
 
 
   phase_msg_.data = state_;
@@ -92,6 +94,52 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
   state_ = "idle";
   phase_msg_.data = state_;
   docking_state_pub.publish(phase_msg_);
+
+  {// Pretty, single-line Eigen formatting
+  const Eigen::IOFormat rowfmt(3, 0, ", ", ", ", "", "", "[", "]");
+
+  // Helper to print optionals
+  auto opt = [](const std::optional<double>& o) -> std::string {
+    return o ? std::to_string(*o) : std::string("unset");
+  };
+
+  // What source set dock_position_ (optional)
+  std::string dock_pos_src = nh_private_.hasParam("dock_utm") ? "utm"
+                            : (nh_private_.hasParam("dock_lat_lon") ? "lat_lon" : "unknown");
+
+  ROS_INFO_STREAM(std::fixed << std::setprecision(3)
+    << "\n[OuterLoopNode] Parameters"
+    << "\n--- Node ---"
+    << "\nnode_frequency: "        << node_frequency_
+    << "\nstate: "                 << state_
+    << "\n--- Acomms ---"
+    << "\nacomms_timeout: "        << acomms_timeout_
+    << "\nacomms_search_radius: "  << acomms_search_radius_
+    << "\nacomms_n_min_fix: "      << acomms_n_min_fix_
+    << "\n--- Dock/Mission ---"
+    << "\ndock_position (" << dock_pos_src << "): "
+    << dock_position_.transpose().format(rowfmt)
+    << "\ndock_altitude: "         << opt(dock_altitude_)
+    << "\ndock_depth: "            << opt(dock_depth_)
+    << "\ndock_heading (deg): "    << opt(dock_heading_)
+    << "\nsafe_depth_approach: "   << opt(safe_depth_approach_)
+    << "\n--- Geom/Phases ---"
+    << "\naproach_dist: "          << aproach_dist_
+    << "\nhoming_dist: "           << homing_dist_
+    << "\nterminal_dist: "         << terminal_dist_
+    << "\ninitial homing_target: " << homing_target_point_.transpose().format(rowfmt)
+    << "\n--- Limits ---"
+    << "\nu_terminal: "            << u_terminal_
+    << "\nv_max_u: "               << v_max_u_
+    << "  v_max_v: "               << v_max_v_
+    << "\na_max_t: "               << a_max_t_
+    << "\nw_max: "                 << w_max_
+    << "  a_w_max: "               << a_w_max_
+    << "\nr_max: "                 << r_max_
+    << "  a_r_max: "               << a_r_max_
+    << "\njerk_ratio: "            << jerk_ratio_
+  );}
+
 }
 
 // Destructor
@@ -194,6 +242,8 @@ void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
   if(msg.data == 0){
     state_ = "idle";
     got_docking_state_=false;
+    phase_msg_.data = state_;
+    docking_state_pub.publish(phase_msg_);
   } 
   
 
@@ -250,7 +300,6 @@ void OuterLoopNode::check_state_transition(double time_now){
   // lost acomms -> got into search acomms mode
   if(time_last_acomms_ > 0 &&  (ros::Time::now().toSec() - time_last_acomms_) > acomms_timeout_){
     state_ = "search_acomms";
-    n_fixes_ =0;
     got_docking_state_ =false;
     flag_msg_.data = 12;
     flag_pub_.publish(flag_msg_);
@@ -369,6 +418,97 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   
   
 }
+
+bool OuterLoopNode::reconfigureParamSrv(farol_docking::SetGain::Request& req,
+                                        farol_docking::SetGain::Response& res)
+{
+  // Guard: only when idle
+  if (state_ != "idle") {
+    res.ok = false;
+    res.message = "Denied: can only reconfigure when state == 'idle' (current: " + state_ + ")";
+    return true;
+  }
+
+  auto expect = [&](size_t n) -> bool {
+    if (req.values.size() != n) {
+      res.ok = false;
+      res.message = "Param '" + req.name + "' expects " + std::to_string(n) + " value(s)";
+      return false;
+    }
+    return true;
+  };
+  auto ok  = [&](const std::string& m){ res.ok = true;  res.message = m; return true; };
+  auto bad = [&](const std::string& m){ res.ok = false; res.message = m; return true; };
+
+  auto set_double = [&](double& dst, const std::string& param)->bool{
+    if (!expect(1)) return false;
+    dst = req.values[0];
+    nh_private_.setParam(param, dst);
+    return true;
+  };
+  // auto set_int = [&](int& dst, const std::string& param)->bool{
+  //   if (!expect(1)) return false;
+  //   dst = static_cast<int>(std::lround(req.values[0]));
+  //   nh_private_.setParam(param, dst);
+  //   return true;
+  // };
+  auto set_optional_double = [&](std::optional<double>& dst, const std::string& param)->bool{
+    if (req.values.empty()) { dst.reset(); nh_private_.deleteParam(param); return true; }
+    if (!expect(1)) return false;
+    dst = req.values[0];
+    nh_private_.setParam(param, *dst);
+    return true;
+  };
+  auto set_vec2 = [&](Eigen::Vector2d& dst, const std::string& param)->bool{
+    if (!expect(2)) return false;
+    dst = Eigen::Vector2d(req.values[0], req.values[1]);
+    nh_private_.setParam(param, std::vector<double>{dst[0], dst[1]});
+    return true;
+  };
+
+  std::string k = req.name;
+  std::transform(k.begin(), k.end(), k.begin(), ::tolower);
+
+  // Timer rate (safe while idle)
+  if (k == "node_frequency" || k == "node_frequency_") {
+    if (!expect(1)) return true;
+    node_frequency_ = std::max(0.1, req.values[0]);
+    nh_private_.setParam("node_frequency", node_frequency_);
+    timer_.stop();
+    timer_ = nh_.createTimer(ros::Duration(1.0 / node_frequency_),
+                             &OuterLoopNode::timerIterCallback, this);
+    return ok("node_frequency set to " + std::to_string(node_frequency_));
+  }
+
+  // Scalars
+  if (k == "terminal_dist" || k == "terminal_dist_") { if(!set_double(terminal_dist_, "terminal_dist_")) return true; return ok("terminal_dist updated"); }
+  if (k == "acomms_timeout")            { if(!set_double(acomms_timeout_, "acomms_timeout")) return true; return ok("acomms_timeout updated"); }
+  if (k == "acomms_search_radius")      { if(!set_double(acomms_search_radius_, "acomms_search_radius")) return true; return ok("acomms_search_radius updated"); }
+  if (k == "acomms_n_min_fix")          { if(!set_double(acomms_n_min_fix_, "acomms_n_min_fix")) return true; return ok("acomms_n_min_fix updated"); }
+  if (k == "aproach_dist")              { if(!set_double(aproach_dist_, "aproach_dist")) return true; return ok("aproach_dist updated"); }
+  if (k == "homing_dist")               { if(!set_double(homing_dist_, "homing_dist")) return true; return ok("homing_dist updated"); }
+  if (k == "u_terminal")                { if(!set_double(u_terminal_, "u_terminal")) return true; return ok("u_terminal updated"); }
+  if (k == "v_max_u")                   { if(!set_double(v_max_u_, "v_max_u")) return true; return ok("v_max_u updated"); }
+  if (k == "v_max_v")                   { if(!set_double(v_max_v_, "v_max_v")) return true; return ok("v_max_v updated"); }
+  if (k == "a_max_t")                   { if(!set_double(a_max_t_, "a_max_t")) return true; return ok("a_max_t updated"); }
+  if (k == "w_max")                     { if(!set_double(w_max_, "w_max")) return true; return ok("w_max updated"); }
+  if (k == "a_w_max")                   { if(!set_double(a_w_max_, "a_w_max")) return true; return ok("a_w_max updated"); }
+  if (k == "r_max")                     { if(!set_double(r_max_, "r_max")) return true; return ok("r_max updated"); }
+  if (k == "a_r_max")                   { if(!set_double(a_r_max_, "a_r_max")) return true; return ok("a_r_max updated"); }
+  if (k == "jerk_ratio")                { if(!set_double(jerk_ratio_, "jerk_ratio")) return true; return ok("jerk_ratio updated"); }
+
+  // Optionals (pass [] to clear)
+  if (k == "dock_altitude")             { if(!set_optional_double(dock_altitude_, "dock_altitude")) return true; return ok(dock_altitude_ ? "dock_altitude set" : "dock_altitude cleared"); }
+  if (k == "dock_depth")                { if(!set_optional_double(dock_depth_, "dock_depth")) return true; return ok(dock_depth_ ? "dock_depth set" : "dock_depth cleared"); }
+  if (k == "dock_heading")              { if(!set_optional_double(dock_heading_, "dock_heading")) return true; return ok(dock_heading_ ? "dock_heading set" : "dock_heading cleared"); }
+
+  // 2-vectors
+  if (k == "dock_lat_lon")              { if(!set_vec2(dock_position_, "dock_lat_lon")) return true; return ok("dock_lat_lon updated"); }
+  if (k == "dock_utm")                  { if(!set_vec2(dock_position_, "dock_utm")) return true; return ok("dock_utm updated"); }
+
+  return bad("Unknown param name: '" + req.name + "'");
+}
+
 
 
 // Main

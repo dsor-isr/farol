@@ -76,15 +76,13 @@ trajectory_tracking:
 
   se3:
     # Gains (acceleration domain!)
-    Kpp:  [0.16, 0.06, 0.09]     # = [ωn^2] per axis
-    Kdv:  [0.56, 0.336, 0.42]     # = [2 ζ ωn]
-    # Kiv:  [0.032, 0.032, 0.018]  # small I for bias/current
+    Kpp:  [0.64, 0.64, 0.64]     # = [ωn^2] per axis
+    Kdv:  [1.12, 1.12, 1.12]     # = [2 ζ ωn]
     Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
 
-    KpR:  [0.0, 0.0, 0.43]       # yaw only active
-    KdW:  [0.0, 0.0, 0.924]
-    # KiR:  [0.0, 0.0, 0.05]
-    KiR:  [0.0, 0.0, 0.0]
+    KpR:  [0.0, 0.0, 2.25]       # yaw only active
+    KdW:  [0.0, 0.0, 2.10]
+    KiR:  [0.0, 0.0, 0.00]
 
     # Derivative filters (Hz)
     fc_v: [5.0, 5.0, 4.0]
@@ -98,8 +96,8 @@ trajectory_tracking:
     M_diag: [49.3, 50.0, 99.3] # if you added m_vec_ (recommended)
     Jdiag: [1.0, 1.0, 4.64]
 
-    Dlin:  [0.2, 55.1, 6.4369]   # positive magnitudes (controller adds +D v)
-    Dang:  [0.0, 0.0, 4.14]
+    # Dlin:  [0.2, 55.1, 6.4369]  
+    # Dang:  [0.0, 0.0, 4.14]
 
     # Wrench limits (pre-allocator)
     Fmin: [-20, -20, -20]

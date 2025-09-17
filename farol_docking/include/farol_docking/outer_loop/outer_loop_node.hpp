@@ -38,6 +38,7 @@
 #include <farol_msgs/mUSBLFix.h>
 #include <farol_docking/Reference3.h>
 #include <farol_docking/SE3Ref.h>
+#include <farol_docking/SetGain.h>
 #include <waypoint/sendWpType1.h>
 
 // farol libraries
@@ -156,6 +157,11 @@
   std_msgs::String phase_msg_;
   std_msgs::String mission_string_msg_;
 
+
+  ros::ServiceServer reconfig_srv_;
+  bool reconfigureParamSrv(farol_docking::SetGain::Request& req,
+                           farol_docking::SetGain::Response& res);
+
   // #farol_docking::ControllerDebug debug_msg_;
   
  	// Timer
@@ -180,8 +186,7 @@
   double acomms_search_radius_;     // radius to search for acoms menoeuvre
   double terminal_dist_;
   double aproach_dist_;            // distace ahead of dock opening to go to
-  int acomms_n_min_fix_;
-  int n_fixes_;
+  double acomms_n_min_fix_;
   
   // For generating trajectory
   TrajectoryPlanner trajectory_;  // trajectory object
