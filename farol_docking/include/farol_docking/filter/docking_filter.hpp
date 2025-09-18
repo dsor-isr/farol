@@ -104,8 +104,9 @@ class PositionFilter{
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
         
-        ros::Publisher  outlier_rejected_pub_;
+        ros::Publisher  outlier_rejected_pub_, outlier_test_value_pub_;
         std_msgs::Int8 int8_aux_msg_;
+        std_msgs::Float64 float64_aux_msg_;
 
 
         
@@ -195,8 +196,9 @@ class AttitudeFilter{
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
         
-        ros::Publisher  outlier_rejected_pub_;
+        ros::Publisher  outlier_rejected_pub_, outlier_test_value_pub_;
         std_msgs::Int8 int8_aux_msg_;
+        std_msgs::Float64 float64_aux_msg_;
 
 
   
@@ -240,8 +242,7 @@ class AttitudeFilter{
         inline bool gate_LOS_on_S2(const Eigen::Vector3d& u_B_raw,
                                     const Eigen::Vector3d& u_D_raw,
                                     const Sophus::SO3d& R_BD,
-                                    const Eigen::Matrix3d& Sigma_u,
-                                    double chi2_gate) {
+                                    const Eigen::Matrix3d& Sigma_u) {
             const Eigen::Vector3d u_B  = u_B_raw.normalized();
             const Eigen::Vector3d u_D  = u_D_raw.normalized();
             const Eigen::Vector3d uhat = (R_BD.matrix().transpose() * u_D).normalized();
@@ -249,7 +250,7 @@ class AttitudeFilter{
             const Eigen::Vector3d r    = Pi * (u_B - uhat);
             const Eigen::Matrix3d S    = Pi * Sigma_u * Pi;        // rank-2
             const double gamma         = r.transpose() * pseudoInverseSym(S) * r;
-            return (gamma <= chi2_gate);
+            return gamma;
         }
 
     private:

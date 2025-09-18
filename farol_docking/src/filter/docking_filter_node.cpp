@@ -126,9 +126,58 @@ void DockingFilterNode::loadParams() {
   if(aux[2] > 0.1)
    docking_filter_->position_filter_->dvl_outlier_rejection_ = true;
   
-  // treshold for gating on outlier rejection test
-  docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_treshold", 0.0);
-  docking_filter_->attitude_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_treshold", 0.0);
+  // threshold for gating on outlier rejection test
+  docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_threshold", 0.0);
+  docking_filter_->attitude_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_threshold", 0.0);
+
+
+  // ---- Summary print ----
+  const Eigen::IOFormat rowfmt(3, 0, ", ", ", ", "[", "]");
+  const bool q_p = nh_private_.param("position/process_noise", true);
+  const bool r_p = nh_private_.param("position/measurement_noise", true);
+  // Re-read the vector param just for display (keeps YAML truth if you set via params)
+  std::vector<double> outlier_vec = nh_private_.param<std::vector<double>>("outlier_rejection",
+                                                                          std::vector<double>{0,0,0});
+  if (outlier_vec.size() < 3) outlier_vec.resize(3, 0.0);
+  ROS_INFO_STREAM(std::fixed << std::setprecision(3)
+    << "\n[DockingFilterNode] Parameters"
+    << "\ndebug: "                  << (debug_ ? "true" : "false")
+    << "\nitializer_size: "        << docking_filter_->initializer_size_
+    << "\ndock_has_ahrs: "          << (docking_filter_->dock_has_ahrs_ ? "true" : "false")
+    << "\nauv_usbl_instalation_offset:  "
+      << docking_filter_->auv_usbl_instalation_offset.transpose().format(rowfmt)
+    << "\ndock_usbl_instalation_offset: "
+      << docking_filter_->dock_usbl_instalation_offset.transpose().format(rowfmt)
+
+    << "\n--- Position Parameters ---"
+    << "\nQ: " << docking_filter_->position_filter_->process_noise_
+    << "\nR: " << docking_filter_->position_filter_->measurement_noise_
+
+    << "\n--- Attitude Gains ---"
+    << "\nk1: " << docking_filter_->attitude_filter_->k1_
+    << "\nk2: " << docking_filter_->attitude_filter_->k2_
+    << "\nkp: " << docking_filter_->attitude_filter_->kp_
+    << "\nki: " << docking_filter_->attitude_filter_->ki_
+
+    << "\n--- Update Delays (s) ---"
+    << "\nposition/update_delay: "  << docking_filter_->position_filter_->update_delay_
+    << "  attitude/update_delay: "  << docking_filter_->attitude_filter_->update_delay_
+
+    << "\n--- Outlier Rejection (switches) ---"
+    << "\npos_usbl: " << (docking_filter_->position_filter_->usbl_outlier_rejection_ ? "on" : "off")
+    << "  att_usbl: " << (docking_filter_->attitude_filter_->usbl_outlier_rejection_ ? "on" : "off")
+    << "  dvl: "      << (docking_filter_->position_filter_->dvl_outlier_rejection_ ? "on" : "off")
+    << "\n(rosparam outlier_rejection vec): ["
+      << (outlier_vec[0]!=0.0 ? "1" : "0") << ", "
+      << (outlier_vec[1]!=0.0 ? "1" : "0") << ", "
+      << (outlier_vec[2]!=0.0 ? "1" : "0") << "]"
+
+    << "\n--- Outlier Thresholds ---"
+    << "\nposition/outlier_treshold: " << docking_filter_->position_filter_->outlier_threshold_
+    << "  attitude/outlier_treshold: " << docking_filter_->attitude_filter_->outlier_threshold_
+  );
+
+
 }
 
 
@@ -385,6 +434,16 @@ bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& r
     vec[2] = v?1.0:0.0;
     nh_private_.setParam("outlier_rejection", vec);
     return ok(std::string("outlier_rejection.dvl=")+(v?"on":"off"));
+  }
+
+  // --- Outlier χ² thresholds (spelling matches your params: 'threshold') ---
+  if (k == "position/outlier_threshold" || k == "position/outlier_threshold") {
+    if (!set_double(docking_filter_->position_filter_->outlier_threshold_, "position/outlier_threshold")) return true;
+    return ok("position/outlier_threshold updated");
+  }
+  if (k == "attitude/outlier_threshold" || k == "attitude/outlier_threshold") {
+    if (!set_double(docking_filter_->attitude_filter_->outlier_threshold_, "attitude/outlier_threshold")) return true;
+    return ok("attitude/outlier_threshold updated");
   }
 
   return bad("Unknown param name: '" + req.name + "'");

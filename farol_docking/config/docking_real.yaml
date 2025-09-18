@@ -15,7 +15,7 @@ filter:
   position:
     process_noise: 1
     measurement_noise: 1
-    outlier_treshold: 4.61 # Choose a gate (3 DoF): 95% -> 7.815, 99% -> 11.345
+    outlier_threshold: 4.61 # Choose a gate (3 DoF): 95% -> 7.815, 99% -> 11.345
     update_delay: 1.8
 
   attitude:
@@ -24,7 +24,7 @@ filter:
       k2: 0.4
       kp: 1
       ki: 0
-    outlier_treshold: 4.61
+    outlier_threshold: 4.61
     update_delay: 0.9     # time in seconds, before all angles are received, when the update should be done
 
 

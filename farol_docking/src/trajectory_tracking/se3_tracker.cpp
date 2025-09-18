@@ -49,28 +49,28 @@ Se3Tracker::Se3Tracker(ros::NodeHandle* nh, ros::NodeHandle* pnh)
 
   ROS_INFO_STREAM("Trajectory Tracking Controller Parameters:\n--- Gains ---\n"<<
                   "Kpp: "<< Kpp_ <<
-                  "Kdv: "<< Kdv_ <<
-                  "Kip: "<< Kip_ <<
-                  "KpR: "<< KpR_ <<
-                  "Kdw: "<< Kdw_ <<
-                  "KiR: "<< KiR_ <<
-                  "Kpp: "<< Kpp_ <<
+                  "\nKdv: "<< Kdv_ <<
+                  "\nKip: "<< Kip_ <<
+                  "\nKpR: "<< KpR_ <<
+                  "\nKdw: "<< Kdw_ <<
+                  "\nKiR: "<< KiR_ <<
+                  "\nKpp: "<< Kpp_ <<
                   "\n--- Model ---\n" <<
-                  "M: " << M_ <<
-                  "J: " << Jdiag_ <<
-                  "Dlin: " << Dlin_<<
-                  "Dang: " << Dang_<<
+                  "\nM: " << M_ <<
+                  "\nJ: " << Jdiag_ <<
+                  "\nDlin: " << Dlin_<<
+                  "\nDang: " << Dang_<<
                   "\n--- Saturations ---\n" <<
-                  "Fmin: "<< Fmin_ <<
-                  "Fmax: "<< Fmax_ <<
-                  "Mmin: "<< Mmin_ <<
-                  "Mmax: "<< Mmax_ <<
+                  "\nFmin: "<< Fmin_ <<
+                  "\nFmax: "<< Fmax_ <<
+                  "\nMmin: "<< Mmin_ <<
+                  "\nMmax: "<< Mmax_ <<
                   "\n--- Velocity low pass ---\n" <<
-                  "fc_v: " << fc_v_ <<
-                  "fc_w: " << fc_w_ <<
+                  "\nfc_v: " << fc_v_ <<
+                  "\nfc_w: " << fc_w_ <<
                   "\n--- Anti-windup ---\n" <<
-                  "kaw_v: " << kaw_v_ <<
-                  "kaw_w: " << kaw_w_ );
+                  "\nkaw_v: " << kaw_v_ <<
+                  "\nkaw_w: " << kaw_w_ );
 }
 
 void Se3Tracker::compute_wrench(double dt)

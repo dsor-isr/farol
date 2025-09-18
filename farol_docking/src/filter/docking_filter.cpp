@@ -114,7 +114,7 @@ void DockingFilter::measurement_handler(){
           
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
           if(!attitude_filter_->update(meas.data, terrain_normal_))
-            FAROL_WARN("Update Failed on Docking Attitude Filter");
+            ROS_WARN_STREAM("Update Failed on Docking Attitude Filter");
           
           // update using the measurement from the docking station
           aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(3));
@@ -126,7 +126,7 @@ void DockingFilter::measurement_handler(){
           aux_stamped_.value = aux_vec3_;
           aux_stamped_.stamp = meas.data.stamp;
           if(!position_filter_->update(aux_stamped_))
-            FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
+            ROS_WARN_STREAM("Update Failed on Docking Position Filter using dock measurement");
 
           // update using the measurement from the auv rotated to the body using the matrix
           aux_vec3_ = attitude_filter_->state_.matrix() * -1*rbe_to_xyz(meas.data.value.segment<3>(0));
@@ -147,19 +147,19 @@ void DockingFilter::measurement_handler(){
         dvl_corrected.value = attitude_filter_->state_.matrix() * meas.data.value;
         dvl_corrected.stamp = meas.data.stamp;
         if(!position_filter_->predict(dvl_corrected))
-          FAROL_WARN("Predict Failed on Docking Position Filter");
+          ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
         position_filter_->input_meas_buffer_.emplace_back(dvl_corrected);
         
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
         if(!attitude_filter_->predict(meas.data))
-          FAROL_WARN("Predict Failed on Docking Attitude Filter");
+          ROS_WARN_STREAM("Predict Failed on Docking Attitude Filter");
         attitude_filter_->input_meas_buffer_.emplace_back(meas.data);
 
       }else if(meas.type=="ahrs_angles"&& meas.data.value.size() ==3){
         auv_attitude_ = meas.data.value;
       }else
-        FAROL_WARN("Invalid measurement type in measurement handler");
+        ROS_WARN_STREAM("Invalid measurement type in measurement handler");
       }
     }
   }
@@ -181,6 +181,7 @@ bool DockingFilter::predict(double time){
 PositionFilter::PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
     : nh_(*nodehandle), nh_private_(*nodehandle_private){
   outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_position", "/outlier_rejected_usbl_position"), 5);  
+  outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_position", "/outlier_test_value_position"), 5);  
   int8_aux_msg_.data = 1;
 }
 
@@ -284,18 +285,17 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   // Prefer Cholesky over LU for SPD matrices
   Eigen::LLT<Eigen::MatrixXd> llt(innovation_matrix_);
   if (llt.info() != Eigen::Success) {
-    FAROL_WARN("Docking Position: Innovation matrix S not SPD (LLT failed).");
+    ROS_WARN_STREAM("Docking Position: Innovation matrix S not SPD (LLT failed).");
     return false;
   }
 
   // --- Mahalanobis (NIS) gating ---
-  const double d2 = innovation_vector_.transpose() * llt.solve(innovation_vector_);
-
-  
-  if (d2 > outlier_threshold_) {
+  float64_aux_msg_.data = innovation_vector_.transpose() * llt.solve(innovation_vector_);
+  outlier_test_value_pub_.publish(float64_aux_msg_);
+  if (float64_aux_msg_.data > outlier_threshold_) {
     outlier_rejected_pub_.publish(int8_aux_msg_);
-    ROS_WARN_STREAM("Docking Position: Outlier rejected. NIS = " << d2);
-    return false;  // skip the update (keep prior)
+    ROS_WARN_STREAM("Docking Position: Outlier rejected. NIS = " << float64_aux_msg_.data);
+    return false;  
   }
 
   // --- Kalman gain ---
@@ -403,7 +403,9 @@ AttitudeFilter::AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nod
   v1_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_D", "/v1_D"), 5);
   v2_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_B", "/v2_B"), 5);
   v2_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_D", "/v2_D"), 5);
-  outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_position", "/outlier_rejected_usbl_position"), 5);  
+  outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_attitude", "/outlier_rejected_usbl_attitude"), 5);  
+  outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_attitude", "/outlier_test_value_attitude"), 5);  
+  int8_aux_msg_.data = 1;
 }
 
 void AttitudeFilter::initialize(Sophus::SO3d measurement){
@@ -507,11 +509,13 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
     omega_mes += k2_ * (v2_B.cross((state_.matrix().transpose() * v2_D).normalized()));
 
     // v1 (LOS) — χ² gate on S²
-    if (gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1, outlier_threshold_)) {
+    float64_aux_msg_.data = gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1);
+    outlier_test_value_pub_.publish(float64_aux_msg_);
+    if (float64_aux_msg_.data <= outlier_threshold_) {
       omega_mes += k1_ * (v1_B.cross((state_.matrix().transpose() * v1_D).normalized()));
     } else {
       outlier_rejected_pub_.publish(int8_aux_msg_);
-      FAROL_WARN("Attitude: LOS pair rejected by χ² gate (DoF=2).");
+      ROS_WARN_STREAM("Attitude: LOS pair rejected by χ² gate (DoF=2). Value: "<<float64_aux_msg_.data);
     }
 
     // if both got rejected (unlikely here, since v2 always contributes), omega_mes can be small
