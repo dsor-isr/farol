@@ -41,10 +41,6 @@ void DockingFilter::configure(std::string type, double noise){
     position_filter_->measurement_noise_ = noise*Eigen::Matrix3d::Identity();
     ROS_INFO_STREAM("Process noise is:\n"<<position_filter_->measurement_noise_);
   }
-  else if(type == "attitude_process")
-  ;// attitude_filter_.process_noise_ = noise;
-  else if(type == "attitude_measurement")
-    ;// attitude_filter_.measurement_noise_ = noise;
 }
 
 void DockingFilter::initialize(double stamp){

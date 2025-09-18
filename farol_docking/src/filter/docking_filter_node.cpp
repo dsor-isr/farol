@@ -104,10 +104,8 @@ void DockingFilterNode::loadParams() {
   docking_filter_->auv_usbl_instalation_offset << aux[0], aux[1], aux[2];
 
   // Filter parameters
-  Eigen::MatrixXd noise;
   docking_filter_->configure("Q_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/process_noise", 1));
   docking_filter_->configure("R_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/measurement_noise", 1));
-
 
   // load attitude filter parameters
   docking_filter_->attitude_filter_->k1_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/k1", 0.5);

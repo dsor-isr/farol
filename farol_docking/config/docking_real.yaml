@@ -13,12 +13,8 @@ filter:
   outlier_rejection:  [1, 1, 0]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
 
   position:
-    process_noise: [1, 0, 0,
-                    0, 1, 0,
-                    0, 0, 1]
-    measurement_noise: [1, 0, 0,
-                        0, 1, 0,
-                        0, 0, 1]
+    process_noise: 1
+    measurement_noise: 1
     outlier_treshold: 4.61 # Choose a gate (3 DoF): 95% -> 7.815, 99% -> 11.345
     update_delay: 1.8
 
@@ -28,10 +24,8 @@ filter:
       k2: 0.4
       kp: 1
       ki: 0
-    outlier_treshold: 2.71
-            # constexpr double CHI2_90_DOF2 = 4.605170186;
-        # constexpr double CHI2_95_DOF2 = 5.991464547;
-    update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done
+    outlier_treshold: 4.61
+    update_delay: 0.9     # time in seconds, before all angles are received, when the update should be done
 
 
 
