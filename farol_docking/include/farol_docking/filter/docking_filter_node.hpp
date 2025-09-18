@@ -36,6 +36,7 @@
 #include <farol_gimmicks_library/FarolGimmicks.h>
 #include <farol_docking/utils/docking_utils.hpp>  
 #include <farol_docking/filter/docking_filter.hpp>  
+#include <farol_docking/SetGain.h> 
 
  
 
@@ -116,7 +117,9 @@ class DockingFilterNode {
    * @param event 
    */
   void timerIterCallback(const ros::TimerEvent& event);
-
+  
+  
+  bool reconfigureNumericSrv(farol_docking::SetGain::Request& req, farol_docking::SetGain::Response& res);
   
   // ROS node handlers
  	ros::NodeHandle nh_;          
@@ -133,11 +136,14 @@ class DockingFilterNode {
   ros::Subscriber sub_terrain_d_;
   ros::Subscriber sub_modem_send_;
   
- 	// Publishers
+  // Publishers
   ros::Publisher state_pub_, body_velocity_pub_;
   // ros::Publisher console_state_pub_;
   // ros::Publisher debug_pub_;
 
+  // ROS Services
+  ros::ServiceServer reconfig_numeric_srv_;
+  
   // ROS messages
   auv_msgs::NavigationStatus state_msg_;
   // farol_docking::dState state_msg_;
@@ -168,7 +174,5 @@ class DockingFilterNode {
   Sophus::SE3d state_;
 
   Eigen::Vector3d r_dvl_{0.45, 0.0, -0.2};
-  bool ignore_first_be_dock_{true};
-  bool ignore_first_be_auv_{true};
 
 };

@@ -13,7 +13,6 @@ Eigen::MatrixXd load_matrix_parameter(ros::NodeHandle &_nh, std::string const &p
         int size = std::sqrt(temp.size()); // Matrix is square, so size = sqrt(vector length)
         if (size * size == temp.size()) {
             Eigen::MatrixXd parameter = Eigen::Map<Eigen::MatrixXd>(temp.data(), size, size);
-            // ROS_IFO_STREAM("Loaded process covariance matrix:\n" << parameter);
         } else {
             ROS_ERROR("Invalid process covariance matrix size.");
         }
@@ -78,6 +77,8 @@ void DockingFilterNode::initializePublishers() {
 
 void DockingFilterNode::initializeServices() {
   ROS_INFO("Initializing Services for DockingFilterNode");
+  reconfig_numeric_srv_ = nh_private_.advertiseService(
+      "reconfigure_param", &DockingFilterNode::reconfigureNumericSrv, this);
 }
 
 
@@ -108,26 +109,28 @@ void DockingFilterNode::loadParams() {
   docking_filter_->configure("R_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/measurement_noise", 1));
 
 
-
-  // outlier rejection config
-  std::vector<std::string> outlier_rejection_config;
-  outlier_rejection_config = FarolGimmicks::getParameters<std::vector<std::string>>(nh_private_, "outlier_rejection", {});
-  docking_filter_->configure("outlier_rejection", outlier_rejection_config);
-
-  // outlier rejection treshold value
-  docking_filter_->position_outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_treshold", 4.61);
-  docking_filter_->attitude_outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_treshold", 2.71);
-
   // load attitude filter parameters
   docking_filter_->attitude_filter_->k1_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/k1", 0.5);
   docking_filter_->attitude_filter_->k2_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/k2", 0.5);
   docking_filter_->attitude_filter_->kp_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/kp", 1);
   docking_filter_->attitude_filter_->ki_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/ki", 0);
 
-
+  // delay to apply measuremts because of the roll-back/forward
   docking_filter_->position_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "position/update_delay", 0.0);
   docking_filter_->attitude_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/update_delay", 0.0);
-
+  
+  // load outlier rejection config
+  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "outlier_rejection", {});
+  if(aux[0] > 0.1)
+    docking_filter_->position_filter_->usbl_outlier_rejection_ = true;
+  if(aux[1] > 0.1)
+   docking_filter_->attitude_filter_->usbl_outlier_rejection_ = true;
+  if(aux[2] > 0.1)
+   docking_filter_->position_filter_->dvl_outlier_rejection_ = true;
+  
+  // treshold for gating on outlier rejection test
+  docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_treshold", 0.0);
+  docking_filter_->attitude_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_treshold", 0.0);
 }
 
 
@@ -176,9 +179,7 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
 
 void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
   const double now = ros::Time::now().toSec();
-  const double W = 0.45; // e.g. 0.35; make it a ROS param
-
-  // (Optional) std::lock_guard<std::mutex> lk(usbl_mtx_);
+  const double W = 0.45; // time window where all usbl messages from the same set must be received
 
   // 0) Evict stale partials (keep only the most recent window)
   for (int i = 0; i < 4; ++i) {
@@ -194,28 +195,18 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
     if (msg.type == 0) { // range
       usbl_set_.segment<1>(0) << msg.range;
       slot = 0;
-      // ROS_INFO_STREAM("DOCKING::usbl_range recv=" << std::fixed << std::setprecision(6) << now <<
-                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
     } else if (msg.type == 1) { // angles
-      if (ignore_first_be_auv_) { ignore_first_be_auv_ = false; return; }
       usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
       slot = 1;
-      // ROS_INFO_STREAM("DOCKING::usbl_angles recv=" << std::fixed << std::setprecision(6) << now <<
-                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
     }
   } else {
     // Dock USBL over acoustics
     if (msg.type == 0) { // range
       usbl_set_.segment<1>(3) << msg.range;
       slot = 2;
-      // ROS_INFO_STREAM("DOCKING::dock_range recv=" << std::fixed << std::setprecision(6) << now <<
-                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
     } else if (msg.type == 1) { // angles
-      if (ignore_first_be_dock_) { ignore_first_be_dock_ = false; return; }
       usbl_set_.segment<2>(4) << msg.bearing_body, msg.elevation_body;
       slot = 3;
-      // ROS_INFO_STREAM("DOCKING::dock_angles recv=" << std::fixed << std::setprecision(6) << now <<
-                        // " pub=" << std::fixed << std::setprecision(6) << msg.header.stamp.toSec());
     }
   }
   if (slot < 0) return;
@@ -245,89 +236,162 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
   }
 }
 
-/*
-void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
-  const double now = ros::Time::now().toSec();
-  const double W = 0.45;//usbl_window_sec_; // e.g. 0.35; make it a ROS param
-
-  for (int i = 0; i < 4; ++i) {
-    if (usbl_state_.test(i) && (now - usbl_times_[i] > W)) {
-      usbl_state_.reset(i);
-    }
-  }
-  
-  // if the usbl measurement is made by the vehicle itself
-  if(msg.header.frame_id.find("usbl") != std::string::npos){
-    // if its a message with range
-    if(msg.type == 0){
-      usbl_set_.segment<1>(0) << msg.range;
-      usbl_state_.set(0, true);
-      usbl_times_[0] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::usbl_range: "<< std::fixed << std::setprecision(6)<<usbl_times_[0] <<
-                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
-    }
-    // if its a message with bearing and elevation
-    else if (msg.type == 1){
-       if(ignore_first_be_auv_){
-        ignore_first_be_auv_=false;
-        return;
-      }
-      usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
-      usbl_state_.set(1, true);
-      usbl_times_[1] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::usbl_angles: "<< std::fixed << std::setprecision(6)<<usbl_times_[1] <<
-                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
-    }
-    
-  // if the usbl measurement was made by the dock and then received via accoustic comms
-  }else{
-    // if its a message with range
-    if(msg.type == 0){
-      usbl_set_.segment<1>(3) << msg.range;
-      usbl_state_.set(2, true);
-      usbl_times_[2] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::dock_range: "<< std::fixed << std::setprecision(6)<<usbl_times_[2] <<
-                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
-    }
-    // if its a message with bearing and elevation
-    else if (msg.type == 1){
-      if(ignore_first_be_dock_){
-        ignore_first_be_dock_=false;
-        return;
-      }
-      usbl_set_.segment<2>(4) << msg.bearing_body, msg.elevation_body;
-      usbl_state_.set(3, true);
-      usbl_times_[3] = ros::Time::now().toSec();
-      ROS_INFO_STREAM("DOCKING::dock_angles: "<< std::fixed << std::setprecision(6)<<usbl_times_[3] <<
-                        "\n "<<std::fixed << std::setprecision(6)<<msg.header.stamp.toSec());
-    }
-  }
-
-  // check if a full usbl set has been received
-  if(usbl_state_.all()){
-    // check if timestamps of all message match, aka they are all from this interrogration cycle
-    if((*std::max_element(usbl_times_.begin(), usbl_times_.end()) - *std::min_element(usbl_times_.begin(), usbl_times_.end())) < 0.35){
-      // push measurement into the buffer
-      // timestamp is chosen to be the usbl_angles from the auv, which is usually the last message to be received
-      if(docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, usbl_times_[1], "usbl")))
-        docking_filter_->measurements_buffer_cond_var_.notify_one();
-      else // no space on buffer, tenso
-        ROS_WARN_STREAM("Dropping USBL measurements. Oh no, not good :(");
-    }else{
-      ROS_ERROR_STREAM("usbl_messages are from diferent times, diference is "<< (*std::max_element(usbl_times_.begin(), usbl_times_.end()) - *std::min_element(usbl_times_.begin(), usbl_times_.end())) << " seconds." );
-      usbl_state_.set(std::distance(usbl_times_.begin(), std::min_element(usbl_times_.begin(), usbl_times_.end())), false);
-    }
-    //TODO: perhaps change to droping just some messages which are from the past interrogation cycle? 
-    
-    usbl_state_.reset();
-    // ROS_INFO_STREAM("DOCKING::usbl_reset: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
-  }
-}
-*/
 
 void DockingFilterNode::terrain_normal_callback(const geometry_msgs::Vector3 &msg){
   docking_filter_->terrain_normal_ << msg.x, msg.y, msg.z;
 }
+
+bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& req,
+                                              farol_docking::SetGain::Response& res)
+{
+  auto expect = [&](size_t n)->bool{
+    if (req.values.size() != n) {
+      res.ok = false; res.message = "Param '"+req.name+"' expects "
+                                   + std::to_string(n) + " value(s)";
+      return false;
+    }
+    return true;
+  };
+  auto ok  = [&](const std::string& m){ res.ok = true;  res.message = m; return true; };
+  auto bad = [&](const std::string& m){ res.ok = false; res.message = m; return true; };
+
+  auto set_double = [&](double& dst, const std::string& param)->bool{
+    if (!expect(1)) return false;
+    dst = req.values[0];
+    nh_private_.setParam(param, dst);
+    return true;
+  };
+  auto set_int = [&](int& dst, const std::string& param)->bool{
+    if (!expect(1)) return false;
+    dst = static_cast<int>(std::lround(req.values[0]));
+    nh_private_.setParam(param, dst);
+    return true;
+  };
+  auto set_bool = [&](bool& dst, const std::string& param)->bool{
+    if (!expect(1)) return false;
+    dst = (req.values[0] != 0.0);
+    nh_private_.setParam(param, dst);
+    return true;
+  };
+  auto set_vec3 = [&](Eigen::Vector3d& dst, const std::string& param)->bool{
+    if (!expect(3)) return false;
+    dst = Eigen::Vector3d(req.values[0], req.values[1], req.values[2]);
+    nh_private_.setParam(param, std::vector<double>{dst.x(), dst.y(), dst.z()});
+    return true;
+  };
+
+  std::string k = req.name;
+  std::transform(k.begin(), k.end(), k.begin(), ::tolower);
+
+  // --- Node basics ---
+  if (k == "node_frequency" || k == "node_frequency_") {
+    if (!expect(1)) return true;
+    node_frequency_ = std::max(0.1, req.values[0]);
+    nh_private_.setParam("node_frequency", node_frequency_);
+    timer_.stop();
+    timer_ = nh_.createTimer(ros::Duration(1.0 / node_frequency_),
+                             &DockingFilterNode::timerIterCallback, this);
+    timer_.start();
+    return ok("node_frequency set to " + std::to_string(node_frequency_));
+  }
+  if (k == "debug") {
+    if (!set_bool(debug_, "debug")) return true;
+    return ok(std::string("debug=") + (debug_ ? "true" : "false"));
+  }
+
+  // --- Interface params you loaded in loadParams() ---
+  if (k == "initializer_size") {
+    if (!set_int(docking_filter_->initializer_size_, "initializer_size")) return true;
+    return ok("initializer_size updated");
+  }
+  if (k == "dock_has_ahrs") {
+    if (!set_bool(docking_filter_->dock_has_ahrs_, "dock_has_ahrs")) return true;
+    return ok("dock_has_ahrs updated");
+  }
+  if (k == "dock_usbl_instalation_offset") {
+    if (!set_vec3(docking_filter_->dock_usbl_instalation_offset, "dock_usbl_instalation_offset")) return true;
+    return ok("dock_usbl_instalation_offset updated");
+  }
+  if (k == "auv_usbl_instalation_offset") {
+    if (!set_vec3(docking_filter_->auv_usbl_instalation_offset, "auv_usbl_instalation_offset")) return true;
+    return ok("auv_usbl_instalation_offset updated");
+  }
+
+  // --- Filter toggles (you forward via .configure) ---
+  if (k == "position/process_noise" || k == "q_p") {
+    bool on = (req.values.size() ? (req.values[0] != 0.0) : false);
+    nh_private_.setParam("position/process_noise", on);
+    docking_filter_->configure("Q_P", on);
+    return ok(std::string("Q_P=") + (on?"on":"off"));
+  }
+  if (k == "position/measurement_noise" || k == "r_p") {
+    bool on = (req.values.size() ? (req.values[0] != 0.0) : false);
+    nh_private_.setParam("position/measurement_noise", on);
+    docking_filter_->configure("R_P", on);
+    return ok(std::string("R_P=") + (on?"on":"off"));
+  }
+
+  // --- Attitude (Mahony-like) gains ---
+  if (k == "attitude/gains/k1") { if(!set_double(docking_filter_->attitude_filter_->k1_, "attitude/gains/k1")) return true; return ok("attitude/gains/k1 updated"); }
+  if (k == "attitude/gains/k2") { if(!set_double(docking_filter_->attitude_filter_->k2_, "attitude/gains/k2")) return true; return ok("attitude/gains/k2 updated"); }
+  if (k == "attitude/gains/kp") { if(!set_double(docking_filter_->attitude_filter_->kp_, "attitude/gains/kp")) return true; return ok("attitude/gains/kp updated"); }
+  if (k == "attitude/gains/ki") { if(!set_double(docking_filter_->attitude_filter_->ki_, "attitude/gains/ki")) return true; return ok("attitude/gains/ki updated"); }
+
+  // --- Update delays (sec) ---
+  if (k == "position/update_delay") { if(!set_double(docking_filter_->position_filter_->update_delay_, "position/update_delay")) return true; return ok("position/update_delay updated"); }
+  if (k == "attitude/update_delay") { if(!set_double(docking_filter_->attitude_filter_->update_delay_, "attitude/update_delay")) return true; return ok("attitude/update_delay updated"); }
+
+  // --- Outlier rejections (now numeric/bool) ---
+  // Option A: set ALL three at once with a 3-vector [pos_usbl, att_usbl, dvl]
+  if (k == "outlier_rejection") {
+    if (!expect(3)) return true;
+    const bool pos_usbl = (req.values[0] != 0.0);
+    const bool att_usbl = (req.values[1] != 0.0);
+    const bool dvl      = (req.values[2] != 0.0);
+    nh_private_.setParam("outlier_rejection", std::vector<double>{
+      pos_usbl?1.0:0.0, att_usbl?1.0:0.0, dvl?1.0:0.0
+    });
+    docking_filter_->position_filter_->usbl_outlier_rejection_  = pos_usbl;
+    docking_filter_->attitude_filter_->usbl_outlier_rejection_  = att_usbl;
+    docking_filter_->position_filter_->dvl_outlier_rejection_   = dvl;
+    return ok("outlier_rejection vector updated");
+  }
+  // Option B: set individual entries with a single value
+  if (k == "outlier_rejection.pos_usbl") {
+    if (!expect(1)) return true;
+    const bool v = (req.values[0] != 0.0);
+    docking_filter_->position_filter_->usbl_outlier_rejection_ = v;
+    // keep param vector in sync if it exists
+    std::vector<double> vec = nh_private_.param<std::vector<double>>("outlier_rejection", {0,0,0});
+    if (vec.size() < 3) vec.resize(3,0.0);
+    vec[0] = v?1.0:0.0;
+    nh_private_.setParam("outlier_rejection", vec);
+    return ok(std::string("outlier_rejection.pos_usbl=")+(v?"on":"off"));
+  }
+  if (k == "outlier_rejection.att_usbl") {
+    if (!expect(1)) return true;
+    const bool v = (req.values[0] != 0.0);
+    docking_filter_->attitude_filter_->usbl_outlier_rejection_ = v;
+    std::vector<double> vec = nh_private_.param<std::vector<double>>("outlier_rejection", {0,0,0});
+    if (vec.size() < 3) vec.resize(3,0.0);
+    vec[1] = v?1.0:0.0;
+    nh_private_.setParam("outlier_rejection", vec);
+    return ok(std::string("outlier_rejection.att_usbl=")+(v?"on":"off"));
+  }
+  if (k == "outlier_rejection.dvl") {
+    if (!expect(1)) return true;
+    const bool v = (req.values[0] != 0.0);
+    docking_filter_->position_filter_->dvl_outlier_rejection_ = v;
+    std::vector<double> vec = nh_private_.param<std::vector<double>>("outlier_rejection", {0,0,0});
+    if (vec.size() < 3) vec.resize(3,0.0);
+    vec[2] = v?1.0:0.0;
+    nh_private_.setParam("outlier_rejection", vec);
+    return ok(std::string("outlier_rejection.dvl=")+(v?"on":"off"));
+  }
+
+  return bad("Unknown param name: '" + req.name + "'");
+}
+
 
 
 void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {

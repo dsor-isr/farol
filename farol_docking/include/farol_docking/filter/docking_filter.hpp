@@ -96,11 +96,6 @@ class PositionFilter{
          */
         bool update(Stamped<Eigen::VectorXd> measurement);
 
-        void Q_callback(const std_msgs::Float64 &msg);
-        
-        void R_callback(const std_msgs::Float64 &msg);
-        
-
         // ROS stuff
         ros::NodeHandle nh_, nh_private_;
         ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
@@ -108,6 +103,10 @@ class PositionFilter{
         ros::Subscriber sub_R_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
+        
+        ros::Publisher  outlier_rejected_pub_;
+        std_msgs::Int8 int8_aux_msg_;
+
 
         
         // Kalman Filter variables
@@ -120,10 +119,7 @@ class PositionFilter{
         Eigen::Vector3d innovation_vector_;
         Eigen::Matrix3d innovation_matrix_;
         Eigen::Matrix3d K_;
-
-        double mahalanobis_distance_;
-        double outlier_threshold_;
-
+        
         // shit for the retroactive update
         Eigen::Vector3d state_at_last_update_;
         Eigen::Matrix3d state_cov_at_last_update_;
@@ -131,18 +127,13 @@ class PositionFilter{
         double update_delay_;
         std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
 
-        // Eigen::Vector3d state_at_prev_ping_;
-        // double time_of_last_ping_;
-        // double time_of_prev_ping_;
-        
-
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
         double last_predict_time_{-1.0};
-
-        bool output_outlier_rejection_{true};
-        bool input_outlier_rejection_{true};
-        int outlier_rejected_{0};
-
+        
+        
+        bool usbl_outlier_rejection_{true};
+        bool dvl_outlier_rejection_{true};
+        double outlier_threshold_;
     private:
 };
 
@@ -198,17 +189,15 @@ class AttitudeFilter{
          */
         bool update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body);
 
-        void kp_callback(const std_msgs::Float64 &msg);
-        void ki_callback(const std_msgs::Float64 &msg);
-        void k1_callback(const std_msgs::Float64 &msg);
-        void k2_callback(const std_msgs::Float64 &msg);
-
         // ROS stuff
         ros::NodeHandle nh_, nh_private_;
         ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
-        ros::Subscriber sub_kp_, sub_ki_, sub_k1_, sub_k2_;
+        
+        ros::Publisher  outlier_rejected_pub_;
+        std_msgs::Int8 int8_aux_msg_;
+
 
   
         // Kalman Filter variables
@@ -225,21 +214,44 @@ class AttitudeFilter{
         Eigen::Matrix3d innovation_matrix_;
 
         double mahalanobis_distance_;
-        double outlier_threshold_;
-
+        
         // shit for the retroactive update
         Sophus::SO3d state_at_last_update_;
         double time_at_last_update_;
         double update_delay_;
         std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
-
+        
         // some other shit idk man 
         std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
         double last_predict_time_{-1.0};
+        
 
-        bool output_outlier_rejection_{true};
-        bool input_outlier_rejection_{true};
-        int outlier_rejected_{0};
+        bool usbl_outlier_rejection_{true};
+        double outlier_threshold_;
+        inline Eigen::Matrix3d projectorOnTangent(const Eigen::Vector3d& u_hat_unit) {
+            return Eigen::Matrix3d::Identity() - u_hat_unit * u_hat_unit.transpose();
+        }
+        inline Eigen::Matrix3d pseudoInverseSym(const Eigen::Matrix3d& A, double eps = 1e-9) {
+            Eigen::JacobiSVD<Eigen::Matrix3d> svd(A, Eigen::ComputeFullU | Eigen::ComputeFullV);
+            Eigen::Vector3d s = svd.singularValues(), s_inv = Eigen::Vector3d::Zero();
+            for (int i = 0; i < 3; ++i) if (s[i] > eps) s_inv[i] = 1.0 / s[i];
+            return svd.matrixV() * s_inv.asDiagonal() * svd.matrixU().transpose();
+        }
+        inline bool gate_LOS_on_S2(const Eigen::Vector3d& u_B_raw,
+                                    const Eigen::Vector3d& u_D_raw,
+                                    const Sophus::SO3d& R_BD,
+                                    const Eigen::Matrix3d& Sigma_u,
+                                    double chi2_gate) {
+            const Eigen::Vector3d u_B  = u_B_raw.normalized();
+            const Eigen::Vector3d u_D  = u_D_raw.normalized();
+            const Eigen::Vector3d uhat = (R_BD.matrix().transpose() * u_D).normalized();
+            const Eigen::Matrix3d Pi   = projectorOnTangent(uhat);
+            const Eigen::Vector3d r    = Pi * (u_B - uhat);
+            const Eigen::Matrix3d S    = Pi * Sigma_u * Pi;        // rank-2
+            const double gamma         = r.transpose() * pseudoInverseSym(S) * r;
+            return (gamma <= chi2_gate);
+        }
+
     private:
 };
 
@@ -319,10 +331,11 @@ class DockingFilter{
 
         // ROS stuff
         ros::NodeHandle nh_, nh_private_;
-        ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
+        ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_, outlier_rejected_usbl_pos_pub_, outlier_rejected_usbl_att_pub_;
         geometry_msgs::Vector3 aux_vector3_msg_;
         Eigen::Vector3d aux_vec3_;
         Stamped<Eigen::VectorXd> aux_stamped_;
+        
 
         // Filters
         std::unique_ptr<PositionFilter> position_filter_;
@@ -330,8 +343,6 @@ class DockingFilter{
 
         // outlier rejection configuration
         std::vector<std::string> outlier_rejection_;
-        double position_outlier_threshold_;
-        double attitude_outlier_threshold_;
         
         // filter configurations
         bool initialized_{false};
@@ -348,7 +359,7 @@ class DockingFilter{
 
         // initializer buffer
         std::vector<Eigen::VectorXd> initializer_buffer_; // really will be Vector6d, containing [auv(r,b,e), dock(r,b,e)]
-        long unsigned int initializer_size_{4};
+        int initializer_size_{4};
 
         // Inertial attitudes
         Eigen::Vector3d auv_attitude_; // the attitude of the vehicle in inertial frame read by the ahrs

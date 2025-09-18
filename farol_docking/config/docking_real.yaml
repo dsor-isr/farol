@@ -10,8 +10,7 @@ filter:
   dock_usbl_instalation_offset: [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
   auv_usbl_instalation_offset: [0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
-  # outlier_rejection:  ["usbl", "dvl"]
-  outlier_rejection:  [] # no outlier rejection
+  outlier_rejection:  [1, 1, 0]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
 
   position:
     process_noise: [1, 0, 0,
@@ -20,7 +19,7 @@ filter:
     measurement_noise: [1, 0, 0,
                         0, 1, 0,
                         0, 0, 1]
-    outlier_treshold: 4.61
+    outlier_treshold: 4.61 # Choose a gate (3 DoF): 95% -> 7.815, 99% -> 11.345
     update_delay: 1.8
 
   attitude:
@@ -30,6 +29,8 @@ filter:
       kp: 1
       ki: 0
     outlier_treshold: 2.71
+            # constexpr double CHI2_90_DOF2 = 4.605170186;
+        # constexpr double CHI2_95_DOF2 = 5.991464547;
     update_delay: 0.9 # time in seconds, before all angles are received, when the update should be done
 
 
