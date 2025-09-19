@@ -96,6 +96,7 @@ void DockingFilterNode::loadParams() {
   // Algorithm related parameters
   docking_filter_->initializer_size_ = FarolGimmicks::getParameters<int>(nh_private_, "initializer_size", 4);
   docking_filter_->dock_has_ahrs_ = FarolGimmicks::getParameters<bool>(nh_private_, "dock_has_ahrs", false);
+  realistify_ = FarolGimmicks::getParameters<bool>(nh_private_, "realistify", false);
 
   std::vector<double> aux;
   aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "dock_usbl_instalation_offset", {});
@@ -118,7 +119,9 @@ void DockingFilterNode::loadParams() {
   docking_filter_->attitude_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/update_delay", 0.0);
   
   // load outlier rejection config
-  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "outlier_rejection", {});
+  aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "outlier_rejection", {0.0, 0.0, 0.0});
+  if (aux.size() != 3) 
+    aux = {0.0, 0.0, 0.0};
   if(aux[0] > 0.1)
     docking_filter_->position_filter_->usbl_outlier_rejection_ = true;
   if(aux[1] > 0.1)
@@ -133,8 +136,6 @@ void DockingFilterNode::loadParams() {
 
   // ---- Summary print ----
   const Eigen::IOFormat rowfmt(3, 0, ", ", ", ", "[", "]");
-  const bool q_p = nh_private_.param("position/process_noise", true);
-  const bool r_p = nh_private_.param("position/measurement_noise", true);
   // Re-read the vector param just for display (keeps YAML truth if you set via params)
   std::vector<double> outlier_vec = nh_private_.param<std::vector<double>>("outlier_rejection",
                                                                           std::vector<double>{0,0,0});
@@ -176,8 +177,6 @@ void DockingFilterNode::loadParams() {
     << "\nposition/outlier_treshold: " << docking_filter_->position_filter_->outlier_threshold_
     << "  attitude/outlier_treshold: " << docking_filter_->attitude_filter_->outlier_threshold_
   );
-
-
 }
 
 
@@ -268,6 +267,25 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
 
     if (span <= W) {
       const double t_meas = *tmax_it; // latest reception time is the most reliable
+
+      if(realistify_){
+          // your existing condition
+          if(std::abs(usbl_set_[4]) < M_PI/2.0 || usbl_set_[2] < -0.15){
+            usbl_state_.reset();
+            return;
+          }
+          std::array<double,6> z;
+          for(int k=0;k<6;++k) z[k] = usbl_set_[k];
+          UsblFlags F;
+          realistify_usbl(z, rng_, P_, &F);
+          if(F.reset) {
+            usbl_state_.reset();  // you said you’ll ignore on reset
+            return;
+          } else {
+              for(int k=0;k<6;++k) usbl_set_[k] = z[k]; // commit noisy/outlier values
+          }
+      }
+
       if (docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, t_meas, "usbl"))) {
         docking_filter_->measurements_buffer_cond_var_.notify_one();
       } else {

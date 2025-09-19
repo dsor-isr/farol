@@ -510,6 +510,7 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
 
     // v1 (LOS) — χ² gate on S²
     float64_aux_msg_.data = gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1);
+    ROS_INFO_STREAM(float64_aux_msg_.data);
     outlier_test_value_pub_.publish(float64_aux_msg_);
     if (float64_aux_msg_.data <= outlier_threshold_) {
       omega_mes += k1_ * (v1_B.cross((state_.matrix().transpose() * v1_D).normalized()));

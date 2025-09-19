@@ -239,7 +239,7 @@ class AttitudeFilter{
             for (int i = 0; i < 3; ++i) if (s[i] > eps) s_inv[i] = 1.0 / s[i];
             return svd.matrixV() * s_inv.asDiagonal() * svd.matrixU().transpose();
         }
-        inline bool gate_LOS_on_S2(const Eigen::Vector3d& u_B_raw,
+        inline double gate_LOS_on_S2(const Eigen::Vector3d& u_B_raw,
                                     const Eigen::Vector3d& u_D_raw,
                                     const Sophus::SO3d& R_BD,
                                     const Eigen::Matrix3d& Sigma_u) {
