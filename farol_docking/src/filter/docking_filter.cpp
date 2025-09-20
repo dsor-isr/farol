@@ -15,6 +15,7 @@ DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   usbl_pos_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
   usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
   terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
+  dvl_filt_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/dvl_filt", "/myellow0/docking/filter/debug/dvl_filt"), 5);
 
 
   // DVL mini-KF params (make these ROS params later)
@@ -162,6 +163,7 @@ void DockingFilter::measurement_handler(){
           // fallback: use raw corrected velocity
           v_smoothed = dvl_corrected.value;
         }
+        dvl_filt_pub_.publish(toMsg(v_smoothed));
 
         // 3) Use smoothed (possibly rejected-measurement) velocity for prediction
         Stamped<Eigen::VectorXd> dvl_smoothed;

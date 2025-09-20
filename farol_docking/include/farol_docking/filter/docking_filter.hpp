@@ -332,7 +332,7 @@ class DockingFilter{
 
 		// ROS stuff
 		ros::NodeHandle nh_, nh_private_;
-		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_, outlier_rejected_usbl_pos_pub_, outlier_rejected_usbl_att_pub_;
+		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_, dvl_filt_pub_;
 		geometry_msgs::Vector3 aux_vector3_msg_;
 		Eigen::Vector3d aux_vec3_;
 		Stamped<Eigen::VectorXd> aux_stamped_;

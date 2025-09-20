@@ -204,8 +204,8 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
   {
-    if(!docking_filter_->initialized_) // keep only last message if not initialized
-      return;
+    // if(!docking_filter_->initialized_) // keep only last message if not initialized
+      ;//return;
 
     // added - sign because navquest DVL is stoopid
     dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
