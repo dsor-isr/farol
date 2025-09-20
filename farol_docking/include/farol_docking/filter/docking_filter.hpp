@@ -372,75 +372,130 @@ class DockingFilter{
 		Eigen::Vector3d dock_usbl_instalation_offset = Eigen::Vector3d::Zero();
 		Eigen::Vector3d auv_usbl_instalation_offset = Eigen::Vector3d::Zero();
 
-	private:
 		struct DvlMiniKF {
+			// State x = [v; a] in R^6  (v: m/s, a: m/s^2)
 			bool initialized = false;
 			double last_stamp = -1.0;
 
-			Eigen::Vector3d x = Eigen::Vector3d::Zero();      // velocity estimate
-			Eigen::Matrix3d P = Eigen::Matrix3d::Identity();  // covariance
+			Eigen::Matrix<double,6,1> x = Eigen::Matrix<double,6,1>::Zero();
+			Eigen::Matrix<double,6,6> P = Eigen::Matrix<double,6,6>::Identity();
 
-			Eigen::Matrix3d Q = 0.1 * Eigen::Matrix3d::Identity(); // process noise (m^2/s^2)/s
-			Eigen::Matrix3d R = 0.04 * Eigen::Matrix3d::Identity(); // meas noise (σ=0.2 m/s)^2
-			double chi2_gate = 7.815; // 95% gate, DoF=3
+			// Noise (tunable)
+			// Q models continuous-time acceleration random walk; discretized inside step()
+			double q_acc = 0.5;                 // (m/s^2)^2 per second (process PSD for acceleration)
+			Eigen::Matrix3d R = 0.04 * Eigen::Matrix3d::Identity(); // meas noise on velocity (m/s)^2
 
+			// Constraints
+			double a_max = 1.5;     // m/s^2  (max physical acceleration)
+			double chi2_gate = 7.815;  // DoF=3, 95%
+
+			// Telemetry
 			double nis = 0.0;
 			int rejected = 0;
 
-			void configure(double q, double r, double chi2) {
-				Q = q * Eigen::Matrix3d::Identity();
-				R = r * Eigen::Matrix3d::Identity();
+			void configure(double q_acc_in, double r_meas, double amax, double chi2) {
+				q_acc = q_acc_in;
+				R = r_meas * Eigen::Matrix3d::Identity();
+				a_max = amax;
 				chi2_gate = chi2;
 			}
 
-			void reset() {
-				initialized = false; last_stamp = -1.0;
-				x.setZero(); P.setIdentity();
-				nis = 0.0; rejected = 0;
+			static inline void clamp_vec_norm(Eigen::Vector3d& v, double vmax) {
+				double n = v.norm();
+				if (n > vmax && vmax > 0.0) v *= (vmax / n);
+			}
+			static inline void clamp_vec_componentwise(Eigen::Vector3d& v, double vmax) {
+				if (vmax <= 0.0) return;
+				for (int i=0;i<3;++i) v[i] = std::clamp(v[i], -vmax, vmax);
 			}
 
-			// One-step predict/update with gating. Returns true on success.
+			// One step with constraints; returns true unless S not SPD (we keep prior if gated)
 			bool step(const Stamped<Eigen::VectorXd>& z, Eigen::Vector3d& v_out) {
+				const Eigen::Vector3d z_v = z.value.head<3>(); // measured velocity in Dock frame
+
 				if (!initialized) {
-					x = z.value;
+					x << z_v, Eigen::Vector3d::Zero();
 					last_stamp = z.stamp;
 					initialized = true;
-					v_out = x;
+					v_out = x.head<3>();
 					return true;
 				}
-				double dt = std::max(0.0, z.stamp - last_stamp);
+
+				const double dt = std::max(0.0, z.stamp - last_stamp);
 				last_stamp = z.stamp;
 
-				// Predict: x = x; P = P + dt*Q
-				P += dt * Q;
+				// --- Predict: x+ = F x,  P+ = F P Fᵀ + Qd
+				Eigen::Matrix<double,6,6> F = Eigen::Matrix<double,6,6>::Identity();
+				// v_k+1 = v_k + dt * a_k
+				F.block<3,3>(0,3) = dt * Eigen::Matrix3d::Identity();
 
-				// Innovation (H = I)
-				Eigen::Vector3d nu = z.value - x;
-				Eigen::Matrix3d S = P + R;
+				// Discretized Q for constant-accel with a random-walk acceleration PSD = q_acc
+				// Qd = [ (1/3)dt^3 I, (1/2)dt^2 I; (1/2)dt^2 I, dt I ] * q_acc
+				Eigen::Matrix<double,6,6> Qd = Eigen::Matrix<double,6,6>::Zero();
+				Qd.block<3,3>(0,0) = (dt*dt*dt/3.0) * q_acc * Eigen::Matrix3d::Identity();
+				Qd.block<3,3>(0,3) = (dt*dt/2.0)    * q_acc * Eigen::Matrix3d::Identity();
+				Qd.block<3,3>(3,0) = (dt*dt/2.0)    * q_acc * Eigen::Matrix3d::Identity();
+				Qd.block<3,3>(3,3) = dt             * q_acc * Eigen::Matrix3d::Identity();
+
+				// Predict
+				Eigen::Matrix<double,6,1> x_pred = F * x;
+				Eigen::Matrix<double,6,6> P_pred = F * P * F.transpose() + Qd;
+
+				// --- Innovation (H = [I3  0]) on velocity only
+				Eigen::Matrix<double,3,6> H = Eigen::Matrix<double,3,6>::Zero();
+				H.block<3,3>(0,0) = Eigen::Matrix3d::Identity();
+
+				Eigen::Vector3d nu = z_v - x_pred.head<3>();
+				Eigen::Matrix3d S  = H * P_pred * H.transpose() + R;
 
 				Eigen::LLT<Eigen::Matrix3d> llt(S);
 				if (llt.info() != Eigen::Success) {
-					// jitter and bail
-					P += 1e-9 * Eigen::Matrix3d::Identity();
-					v_out = x;
+					// keep previous estimate, slightly inflate P to avoid sticking
+					P += 1e-9 * Eigen::Matrix<double,6,6>::Identity();
+					v_out = x.head<3>();
 					return false;
 				}
 
-				nis = nu.transpose() * llt.solve(nu);   // χ²
+				nis = nu.transpose() * llt.solve(nu);
 				if (nis > chi2_gate) {
-					++rejected;            // reject measurement, keep prior
-					v_out = x;
+					++rejected;
+					// Reject measurement: keep prediction, but enforce acceleration constraint on predicted a
+					x = x_pred;
+					P = P_pred;
+					// clamp acceleration magnitude
+					Eigen::Vector3d a = x.tail<3>();
+					clamp_vec_norm(a, a_max);
+					x.tail<3>() = a;
+					v_out = x.head<3>();
 					return true;
 				}
 
-				// Update with Joseph form
-				Eigen::Matrix3d K = P * llt.solve(Eigen::Matrix3d::Identity());
-				x = x + K * nu;
+				// --- Update (Joseph form)
+				Eigen::Matrix<double,6,3> K = P_pred * H.transpose() * llt.solve(Eigen::Matrix3d::Identity());
+				Eigen::Matrix<double,6,1> x_new = x_pred + K * nu;
 
-				const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
-				P = (I - K) * P * (I - K).transpose() + K * R * K.transpose();
+				const Eigen::Matrix<double,6,6> I6 = Eigen::Matrix<double,6,6>::Identity();
+				Eigen::Matrix<double,6,6> P_new =
+					(I6 - K*H) * P_pred * (I6 - K*H).transpose() + K * R * K.transpose();
 
-				v_out = x;
+				// --- Enforce physical constraints
+				// 1) Clamp acceleration magnitude
+				Eigen::Vector3d a_new = x_new.tail<3>();
+				clamp_vec_norm(a_new, a_max);
+				x_new.tail<3>() = a_new;
+
+				// 2) Velocity slew-rate limit: |Δv| ≤ a_max * dt  (componentwise for simplicity)
+				Eigen::Vector3d v_pred = x_pred.head<3>();
+				Eigen::Vector3d v_new  = x_new.head<3>();
+				Eigen::Vector3d dv     = v_new - v_pred;
+				clamp_vec_componentwise(dv, a_max * dt);
+				x_new.head<3>() = v_pred + dv;
+
+				// Commit
+				x = x_new;
+				P = P_new;
+
+				v_out = x.head<3>();
 				return true;
 			}
 		};

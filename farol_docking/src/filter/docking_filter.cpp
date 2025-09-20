@@ -19,11 +19,11 @@ DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
 
 
   // DVL mini-KF params (make these ROS params later)
-  double q_dvl = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/q_proc", 0.1);   // (m/s)^2 per second
-  double r_dvl = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/r_meas", 0.04);  // (m/s)^2, e.g., (0.2)^2
-  double gate  = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/chi2_gate", 7.815); // 95%, dof=3
-
-  dvl_kf_.configure(q_dvl, r_dvl, gate);
+  double q_acc   = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/q_acc",   0.01);   // (m/s^2)^2/s
+  double r_meas  = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/r_meas",  0.04);  // (m/s)^2
+  double amax    = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/a_max",   0.2);   // m/s^2
+  double gate    = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/chi2",    4.1); // DoF=3, 95%
+  dvl_kf_.configure(q_acc, r_meas, amax, gate);
 }
 
 

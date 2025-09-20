@@ -459,9 +459,26 @@ bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& r
     return ok("attitude/outlier_threshold updated");
   }
 
+  // --- DVL KF Outlier rejection params
+  if (k == "dvl_kf/q_acc") {
+    docking_filter_->dvl_kf_.q_acc = req.values[0];
+    return ok("dvl_kf/q_acc updated");
+  }
+  if (k == "dvl_kf/q_acc") {
+    docking_filter_->dvl_kf_.R = req.values[0] * Eigen::Matrix3d::Identity();
+    return ok("dvl_kf/q_acc updated");
+  }
+  if (k == "dvl_kf/a_max") {
+    docking_filter_->dvl_kf_.a_max = req.values[0];
+    return ok("dvl_kf/a_max updated");
+  }
+  if (k == "dvl_kf/gate") {
+    docking_filter_->dvl_kf_.chi2_gate = req.values[0];
+    return ok("dvl_kf/gate updated");
+  }
+
   return bad("Unknown param name: '" + req.name + "'");
 }
-
 
 
 void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
