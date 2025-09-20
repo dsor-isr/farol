@@ -13,8 +13,8 @@ filter:
   outlier_rejection:  [1, 1, 0]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
 
   position:
-    process_noise: 1
-    measurement_noise: 1
+    process_noise: 0.01
+    measurement_noise: 0.1
     outlier_threshold: 4.61 # Choose a gate (3 DoF): 95% -> 7.815, 99% -> 11.345
     update_delay: 1.8
 

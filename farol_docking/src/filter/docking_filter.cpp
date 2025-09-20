@@ -15,6 +15,14 @@ DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   usbl_pos_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
   usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
   terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
+
+
+  // DVL mini-KF params (make these ROS params later)
+  double q_dvl = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/q_proc", 0.1);   // (m/s)^2 per second
+  double r_dvl = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/r_meas", 0.04);  // (m/s)^2, e.g., (0.2)^2
+  double gate  = FarolGimmicks::getParameters<double>(nh_private_, "dvl_kf/chi2_gate", 7.815); // 95%, dof=3
+
+  dvl_kf_.configure(q_dvl, r_dvl, gate);
 }
 
 
@@ -142,14 +150,28 @@ void DockingFilter::measurement_handler(){
         }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
-        // rotate DVL to Dock frame
+        // 1) Rotate raw DVL velocity into Dock frame
         Stamped<Eigen::VectorXd> dvl_corrected;
         dvl_corrected.value = attitude_filter_->state_.matrix() * meas.data.value;
         dvl_corrected.stamp = meas.data.stamp;
-        if(!position_filter_->predict(dvl_corrected))
+
+        // 2) Mini-KF step with χ² gating (DoF=3)
+        Eigen::Vector3d v_smoothed;
+        if (!dvl_kf_.step(dvl_corrected, v_smoothed)) {
+          ROS_WARN_STREAM("DVL mini-KF step failed (S not SPD or jitter applied).");
+          // fallback: use raw corrected velocity
+          v_smoothed = dvl_corrected.value;
+        }
+
+        // 3) Use smoothed (possibly rejected-measurement) velocity for prediction
+        Stamped<Eigen::VectorXd> dvl_smoothed;
+        dvl_smoothed.value = v_smoothed;
+        dvl_smoothed.stamp = dvl_corrected.stamp;
+
+        if(!position_filter_->predict(dvl_smoothed))
           ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
-        position_filter_->input_meas_buffer_.emplace_back(dvl_corrected);
-        
+
+        position_filter_->input_meas_buffer_.emplace_back(dvl_smoothed);
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
         if(!attitude_filter_->predict(meas.data))
@@ -272,6 +294,7 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   // // ----------------------   perform the update at this time      --------------------------
   // Innovation
   innovation_vector_ = measurement.value - state_;
+  ROS_INFO_STREAM("innovation_vector_:" <<innovation_vector_);
 
   // If H != I, use:
   // Eigen::MatrixXd H = ...;
@@ -290,11 +313,12 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   }
 
   // --- Mahalanobis (NIS) gating ---
-  float64_aux_msg_.data = innovation_vector_.transpose() * llt.solve(innovation_vector_);
+  const double nis = innovation_vector_.dot( llt.solve(innovation_vector_) );
+  float64_aux_msg_.data = nis;
   outlier_test_value_pub_.publish(float64_aux_msg_);
-  if (float64_aux_msg_.data > outlier_threshold_) {
+  if (nis > outlier_threshold_) {
     outlier_rejected_pub_.publish(int8_aux_msg_);
-    ROS_WARN_STREAM("Docking Position: Outlier rejected. NIS = " << float64_aux_msg_.data);
+    ROS_WARN_STREAM("[Position] Outlier rejected with NIS = " << float64_aux_msg_.data);
     return false;  
   }
 
@@ -346,49 +370,6 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   return true;
 }
 
-
-// OLD UPDATE CODE
-  // outlier_rejected_ = 0;
-  // innovation_vector_ = measurement.value - state_;
-  // innovation_matrix_ = state_cov_ + measurement_noise_;
-  // Eigen::FullPivLU<Eigen::MatrixXd> lu(innovation_matrix_);
-  // if (!lu.isInvertible()) {
-  //   FAROL_WARN("Docking Position: Innovation Matrix is not invertible");
-  //   return false;
-  // }
-  // //TODO: add mahalanobis rejetion outliers
-  
-  // K_ = state_cov_ * innovation_matrix_.inverse();
-  // state_ = state_ + K_ * innovation_vector_;
-  // state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
-
-// bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
-
-//   outlier_rejected_ = 0;
-//   innovation_vector_ = measurement.value - state_;
-//   innovation_matrix_ = state_cov_ + measurement_noise_;
-//   Eigen::FullPivLU<Eigen::MatrixXd> lu(innovation_matrix_);
-//   if (!lu.isInvertible()) {
-//     FAROL_WARN("Docking Position: Innovation Matrix is not invertible");
-//     return false;
-//   }
-
-//   // Outlier rejection based on mahalanobis distance (Lekkas et al)
-//   // if(output_outlier_rejection_){
-//   //   mahalanobis_distance_ = std::sqrt(innovation_vector_.transpose() * innovation_matrix_.inverse() * innovation_vector_);
-//   //   if (mahalanobis_distance_ > outlier_threshold_) {
-//   //     FAROL_WARN("Docking Position: Measurement rejected as outlier (Mahalanobis distance = " << mahalanobis_distance_ << ")");
-//   //     outlier_rejected_ = 1;
-//   //     return false; // Skip this update
-//   //   }
-//   // }
-
-//   K_ = state_cov_ * innovation_matrix_.inverse();
-//   state_ = state_ + K_ * innovation_vector_;
-//   state_cov_ = (Eigen::Matrix3d::Identity() - K_) * state_cov_;
-
-//   return true;
-// }
 
 
 
@@ -510,13 +491,12 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
 
     // v1 (LOS) — χ² gate on S²
     float64_aux_msg_.data = gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1);
-    ROS_INFO_STREAM(float64_aux_msg_.data);
     outlier_test_value_pub_.publish(float64_aux_msg_);
     if (float64_aux_msg_.data <= outlier_threshold_) {
       omega_mes += k1_ * (v1_B.cross((state_.matrix().transpose() * v1_D).normalized()));
     } else {
       outlier_rejected_pub_.publish(int8_aux_msg_);
-      ROS_WARN_STREAM("Attitude: LOS pair rejected by χ² gate (DoF=2). Value: "<<float64_aux_msg_.data);
+      ROS_WARN_STREAM("[Attitude] Outlier rejected with test value = "<<float64_aux_msg_.data);
     }
 
     // if both got rejected (unlikely here, since v2 always contributes), omega_mes can be small
@@ -548,59 +528,3 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
 
   return true;
 }
-
-//OLD UPDATE CODE
-  // // Compute the vector directions used for the update
-  // Eigen::Vector3d v1_B, v1_D, v2_B, v2_D, omega_mes;
-  // v1_B = -1*be_to_xyz(measurement.value[1], measurement.value[2]); 
-  // v1_D = be_to_xyz(measurement.value[4], measurement.value[5]);
-  // v2_B = terrain_normal_body; // this is the terrain normal, expressed in the b
-  // v2_D = Eigen::Vector3d::UnitZ(); // Dock z axis is aligned with terrain normal
-  
-  // // publish for debugging purposes
-  // v1_B_pub_.publish(toMsg(v1_B));
-  // v1_D_pub_.publish(toMsg(v1_D));
-  // v2_B_pub_.publish(toMsg(v2_B));
-  // v2_D_pub_.publish(toMsg(v2_D));
-
-  // // compute correction term
-  // omega_mes = Eigen::Vector3d::Zero();
-  // omega_mes += k1_* (v1_B.cross(state_.matrix().transpose() * v1_D));
-  // omega_mes += k2_* (v2_B.cross(state_.matrix().transpose() * v2_D));
-
-  // // update state
-  // state_ = state_ * Sophus::SO3d::exp(kp_ * omega_mes);
-
-  // // estimate bias if Ki is not 0
-  // b_hat_ -= ki_ * omega_mes;
-
-// bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body) {
-  
-//   // Compute the vector directions used for the update
-//   Eigen::Vector3d v1_B, v1_D, v2_B, v2_D, omega_mes;
-//   v1_B = -1*be_to_xyz(measurement.value[1], measurement.value[2]); 
-//   v1_D = be_to_xyz(measurement.value[4], measurement.value[5]);
-//   v2_B = terrain_normal_body; // this is the terrain normal, expressed in the b
-//   v2_D = Eigen::Vector3d::UnitZ(); // Dock z axis is aligned with terrain normal
-  
-//   // publish for debugging purposes
-//   v1_B_pub_.publish(toMsg(v1_B));di
-//   v1_D_pub_.publish(toMsg(v1_D));
-//   v2_B_pub_.publish(toMsg(v2_B));
-//   v2_D_pub_.publish(toMsg(v2_D));
-
-//   // compute correction term
-//   omega_mes = Eigen::Vector3d::Zero();
-//   omega_mes += k1_* (v1_B.cross(state_.matrix().transpose() * v1_D));
-//   omega_mes += k2_* (v2_B.cross(state_.matrix().transpose() * v2_D));
-
-//   // update state
-//   state_ = state_ * Sophus::SO3d::exp(kp_ * omega_mes);
-
-//   // estimate bias if Ki is not 0
-//   b_hat_ -= ki_ * omega_mes;
-
-//   return true;
-// }
-
-

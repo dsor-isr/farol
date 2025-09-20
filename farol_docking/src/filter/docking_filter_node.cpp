@@ -382,25 +382,20 @@ bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& r
     return ok("auv_usbl_instalation_offset updated");
   }
 
-  // --- Filter toggles (you forward via .configure) ---
-  if (k == "position/process_noise" || k == "q_p") {
-    bool on = (req.values.size() ? (req.values[0] != 0.0) : false);
-    nh_private_.setParam("position/process_noise", on);
-    docking_filter_->configure("Q_P", on);
-    return ok(std::string("Q_P=") + (on?"on":"off"));
+  if (k == "position/measurement_noise" || k == "R") {
+    docking_filter_->configure("R_P", req.values[0]);
+    return ok("position/gains/R updated");
   }
-  if (k == "position/measurement_noise" || k == "r_p") {
-    bool on = (req.values.size() ? (req.values[0] != 0.0) : false);
-    nh_private_.setParam("position/measurement_noise", on);
-    docking_filter_->configure("R_P", on);
-    return ok(std::string("R_P=") + (on?"on":"off"));
+  if (k == "position/process_noise" || k == "Q") {
+    docking_filter_->configure("Q_P", req.values[0]);
+    return ok("position/gains/Q updated");
   }
 
   // --- Attitude (Mahony-like) gains ---
-  if (k == "attitude/gains/k1") { if(!set_double(docking_filter_->attitude_filter_->k1_, "attitude/gains/k1")) return true; return ok("attitude/gains/k1 updated"); }
-  if (k == "attitude/gains/k2") { if(!set_double(docking_filter_->attitude_filter_->k2_, "attitude/gains/k2")) return true; return ok("attitude/gains/k2 updated"); }
-  if (k == "attitude/gains/kp") { if(!set_double(docking_filter_->attitude_filter_->kp_, "attitude/gains/kp")) return true; return ok("attitude/gains/kp updated"); }
-  if (k == "attitude/gains/ki") { if(!set_double(docking_filter_->attitude_filter_->ki_, "attitude/gains/ki")) return true; return ok("attitude/gains/ki updated"); }
+  if (k == "attitude/gains/k1" || k=="Ku") { if(!set_double(docking_filter_->attitude_filter_->k1_, "attitude/gains/k1")) return true; return ok("attitude/gains/k1 updated"); }
+  if (k == "attitude/gains/k2"|| k=="Kb") { if(!set_double(docking_filter_->attitude_filter_->k2_, "attitude/gains/k2")) return true; return ok("attitude/gains/k2 updated"); }
+  if (k == "attitude/gains/kp"|| k=="Kp") { if(!set_double(docking_filter_->attitude_filter_->kp_, "attitude/gains/kp")) return true; return ok("attitude/gains/kp updated"); }
+  if (k == "attitude/gains/ki"|| k=="Ki") { if(!set_double(docking_filter_->attitude_filter_->ki_, "attitude/gains/ki")) return true; return ok("attitude/gains/ki updated"); }
 
   // --- Update delays (sec) ---
   if (k == "position/update_delay") { if(!set_double(docking_filter_->position_filter_->update_delay_, "position/update_delay")) return true; return ok("position/update_delay updated"); }
@@ -495,6 +490,9 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   state_msg_.local_position.x = position[0];
   state_msg_.local_position.y = position[1];
   state_msg_.local_position.z = position[2];
+  state_msg_.position_variance.north = docking_filter_->position_filter_->state_cov_(0, 0);
+  state_msg_.position_variance.east = docking_filter_->position_filter_->state_cov_(1,1);
+  state_msg_.position_variance.depth = docking_filter_->position_filter_->state_cov_(2,2);
   state_msg_.local_orientation.x = quaternion.x();
   state_msg_.local_orientation.y = quaternion.y();
   state_msg_.local_orientation.z = quaternion.z();

@@ -28,7 +28,6 @@
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <auv_msgs/NavigationStatus.h>
-#include <farol_docking/dState.h>
 #include <topic_tools/shape_shifter.h>
 
 
@@ -158,7 +157,6 @@ class DockingFilterNode {
   
   // ROS messages
   auv_msgs::NavigationStatus state_msg_;
-  // farol_docking::dState state_msg_;
   
  	// ROS node iteration timer
  	ros::Timer timer_;    

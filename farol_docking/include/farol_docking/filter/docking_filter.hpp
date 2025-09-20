@@ -264,114 +264,189 @@ class AttitudeFilter{
  * @note bitches
  */
 class DockingFilter{
-    public:
-        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+	public:
+		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
-        /**
-         * @brief  Contructor for the Filter Algorithm
-         */
-        
-        DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
+		/**
+		 * @brief  Contructor for the Filter Algorithm
+		 */
+		
+		DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
 
-        /**
-         * @brief  Destructor for the Filter Algorithm
-         */
-        ~DockingFilter();
+		/**
+		 * @brief  Destructor for the Filter Algorithm
+		 */
+		~DockingFilter();
 
-        /**
-         * @brief  Start measurement handler thread
-         */
-        void start(); 
+		/**
+		 * @brief  Start measurement handler thread
+		 */
+		void start(); 
 
-        /**
-         * @brief  Change the process and measurement noises, or the ubsl
-         */
-        void configure(std::string noise_type, double noise);
-        void configure(std::string type, std::vector<std::string>);
+		/**
+		 * @brief  Change the process and measurement noises, or the ubsl
+		 */
+		void configure(std::string noise_type, double noise);
+		void configure(std::string type, std::vector<std::string>);
 
-        
-        /**
-         * @brief  initialize the filter with an initial measurement
-         */
-        void initialize(double stamp);
+		
+		/**
+		 * @brief  initialize the filter with an initial measurement
+		 */
+		void initialize(double stamp);
 
-        /**
-         * @brief  Reset the filter to the initial position
-         */
-        void reset();
+		/**
+		 * @brief  Reset the filter to the initial position
+		 */
+		void reset();
 
-        /**
-         * @brief  Recovers the current state
-         */
-        Sophus::SE3d get_state();
+		/**
+		 * @brief  Recovers the current state
+		 */
+		Sophus::SE3d get_state();
 
 
-        /**
-         * @brief   Run to process every measurement once they are received by the filter structure.
-         *          Waits on a conditional variable in order to acess a SPSC buffer. 
-         *          This is where most of the action happens has measurements are processed whenever possible.
-         *          UPDATE actions are handled here.
-         *          PREDICT actions that are based on measurements are also handled here
-         */
-        void measurement_handler();
+		/**
+		 * @brief   Run to process every measurement once they are received by the filter structure.
+		 *          Waits on a conditional variable in order to acess a SPSC buffer. 
+		 *          This is where most of the action happens has measurements are processed whenever possible.
+		 *          UPDATE actions are handled here.
+		 *          PREDICT actions that are based on measurements are also handled here
+		 */
+		void measurement_handler();
 
-        /**
-         * @brief   Predict the state evolution based on the process 
-         *          model, aka last velocity 
-         */
-        bool predict(double time);
-        
+		/**
+		 * @brief   Predict the state evolution based on the process 
+		 *          model, aka last velocity 
+		 */
+		bool predict(double time);
+		
 
-        /**
-         * @brief  Extract the position and orientation from the set of usbl measurements 
-         */
-        Sophus::SE3d extract_se3(Sophus::Vector6d new_measurement);
-  
+		/**
+		 * @brief  Extract the position and orientation from the set of usbl measurements 
+		 */
+		Sophus::SE3d extract_se3(Sophus::Vector6d new_measurement);
 
-        // ------------------------------------- Variables  ------------------------------------ //
 
-        // ROS stuff
-        ros::NodeHandle nh_, nh_private_;
-        ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_, outlier_rejected_usbl_pos_pub_, outlier_rejected_usbl_att_pub_;
-        geometry_msgs::Vector3 aux_vector3_msg_;
-        Eigen::Vector3d aux_vec3_;
-        Stamped<Eigen::VectorXd> aux_stamped_;
-        
+		// ------------------------------------- Variables  ------------------------------------ //
 
-        // Filters
-        std::unique_ptr<PositionFilter> position_filter_;
-        std::unique_ptr<AttitudeFilter> attitude_filter_;
+		// ROS stuff
+		ros::NodeHandle nh_, nh_private_;
+		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_, outlier_rejected_usbl_pos_pub_, outlier_rejected_usbl_att_pub_;
+		geometry_msgs::Vector3 aux_vector3_msg_;
+		Eigen::Vector3d aux_vec3_;
+		Stamped<Eigen::VectorXd> aux_stamped_;
+		
 
-        // outlier rejection configuration
-        std::vector<std::string> outlier_rejection_;
-        
-        // filter configurations
-        bool initialized_{false};
-        double t_last_predict_;     // Time of last predict
-        double t_last_update_;      // Time of last update
-        
-        // buffer to store all incoming measurements
-        boost::lockfree::spsc_queue<Measurement, boost::lockfree::capacity<16>> measurements_buffer_;
-        std::mutex measurements_buffer_mutex_;
-        std::condition_variable measurements_buffer_cond_var_;
-        // thread to process all incoming messages
-        std::thread measurement_handler_thread_;
-        std::atomic<bool> running_{true};
+		// Filters
+		std::unique_ptr<PositionFilter> position_filter_;
+		std::unique_ptr<AttitudeFilter> attitude_filter_;
 
-        // initializer buffer
-        std::vector<Eigen::VectorXd> initializer_buffer_; // really will be Vector6d, containing [auv(r,b,e), dock(r,b,e)]
-        int initializer_size_{4};
+		// outlier rejection configuration
+		std::vector<std::string> outlier_rejection_;
+		
+		// filter configurations
+		bool initialized_{false};
+		double t_last_predict_;     // Time of last predict
+		double t_last_update_;      // Time of last update
+		
+		// buffer to store all incoming measurements
+		boost::lockfree::spsc_queue<Measurement, boost::lockfree::capacity<16>> measurements_buffer_;
+		std::mutex measurements_buffer_mutex_;
+		std::condition_variable measurements_buffer_cond_var_;
+		// thread to process all incoming messages
+		std::thread measurement_handler_thread_;
+		std::atomic<bool> running_{true};
 
-        // Inertial attitudes
-        Eigen::Vector3d auv_attitude_; // the attitude of the vehicle in inertial frame read by the ahrs
-        Eigen::Vector3d dock_attitude_; // the attitude of the dock in the inertial frame, received over acoustics. only available if the dock has an AHRS 
-        bool dock_has_ahrs_{false};
+		// initializer buffer
+		std::vector<Eigen::VectorXd> initializer_buffer_; // really will be Vector6d, containing [auv(r,b,e), dock(r,b,e)]
+		int initializer_size_{4};
 
-        // vector normal to the terrain in the inertial frame, used to know the relative orientation
-        Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::UnitZ();
-        Eigen::Vector3d dock_usbl_instalation_offset = Eigen::Vector3d::Zero();
-        Eigen::Vector3d auv_usbl_instalation_offset = Eigen::Vector3d::Zero();
+		// Inertial attitudes
+		Eigen::Vector3d auv_attitude_; // the attitude of the vehicle in inertial frame read by the ahrs
+		Eigen::Vector3d dock_attitude_; // the attitude of the dock in the inertial frame, received over acoustics. only available if the dock has an AHRS 
+		bool dock_has_ahrs_{false};
 
-    private:
+		// vector normal to the terrain in the inertial frame, used to know the relative orientation
+		Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::UnitZ();
+		Eigen::Vector3d dock_usbl_instalation_offset = Eigen::Vector3d::Zero();
+		Eigen::Vector3d auv_usbl_instalation_offset = Eigen::Vector3d::Zero();
+
+	private:
+		struct DvlMiniKF {
+			bool initialized = false;
+			double last_stamp = -1.0;
+
+			Eigen::Vector3d x = Eigen::Vector3d::Zero();      // velocity estimate
+			Eigen::Matrix3d P = Eigen::Matrix3d::Identity();  // covariance
+
+			Eigen::Matrix3d Q = 0.1 * Eigen::Matrix3d::Identity(); // process noise (m^2/s^2)/s
+			Eigen::Matrix3d R = 0.04 * Eigen::Matrix3d::Identity(); // meas noise (σ=0.2 m/s)^2
+			double chi2_gate = 7.815; // 95% gate, DoF=3
+
+			double nis = 0.0;
+			int rejected = 0;
+
+			void configure(double q, double r, double chi2) {
+				Q = q * Eigen::Matrix3d::Identity();
+				R = r * Eigen::Matrix3d::Identity();
+				chi2_gate = chi2;
+			}
+
+			void reset() {
+				initialized = false; last_stamp = -1.0;
+				x.setZero(); P.setIdentity();
+				nis = 0.0; rejected = 0;
+			}
+
+			// One-step predict/update with gating. Returns true on success.
+			bool step(const Stamped<Eigen::VectorXd>& z, Eigen::Vector3d& v_out) {
+				if (!initialized) {
+					x = z.value;
+					last_stamp = z.stamp;
+					initialized = true;
+					v_out = x;
+					return true;
+				}
+				double dt = std::max(0.0, z.stamp - last_stamp);
+				last_stamp = z.stamp;
+
+				// Predict: x = x; P = P + dt*Q
+				P += dt * Q;
+
+				// Innovation (H = I)
+				Eigen::Vector3d nu = z.value - x;
+				Eigen::Matrix3d S = P + R;
+
+				Eigen::LLT<Eigen::Matrix3d> llt(S);
+				if (llt.info() != Eigen::Success) {
+					// jitter and bail
+					P += 1e-9 * Eigen::Matrix3d::Identity();
+					v_out = x;
+					return false;
+				}
+
+				nis = nu.transpose() * llt.solve(nu);   // χ²
+				if (nis > chi2_gate) {
+					++rejected;            // reject measurement, keep prior
+					v_out = x;
+					return true;
+				}
+
+				// Update with Joseph form
+				Eigen::Matrix3d K = P * llt.solve(Eigen::Matrix3d::Identity());
+				x = x + K * nu;
+
+				const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
+				P = (I - K) * P * (I - K).transpose() + K * R * K.transpose();
+
+				v_out = x;
+				return true;
+			}
+		};
+
+	DvlMiniKF dvl_kf_;
+
+
 };
 
