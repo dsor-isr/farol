@@ -355,6 +355,9 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   // Advance along segments up to t_eff
   integrate_to(t_eff, x, P, j, t);
 
+  const Eigen::Vector3d x_pre = x;
+  const Eigen::Matrix3d P_pre = P;
+
   // ------------------- USBL update with robust χ² gate (no adaptation) -----
   const Eigen::Vector3d nu = measurement.value - x;
   ROS_INFO_STREAM("inovation: " << nu);
@@ -388,19 +391,27 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
 
   Eigen::Matrix3d K = P * llt_upd.solve(Eigen::Matrix3d::Identity());
   k_pub_.publish(toMsg(K.diagonal()));
-
-  x = x + K * nu;
+  Eigen::Vector3d dx = K * nu;      // <-- compute update increment explicitly
+  ROS_INFO_STREAM("x_ore: " << x);
+  
+  x = x + dx;
+  ROS_INFO_STREAM("x_after: " << x);
 
   const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
   P = (I - K) * P * (I - K).transpose() + K * R0_ * K.transpose();
-  // tiny floor to avoid overconfidence
   P.diagonal() = P.diagonal().cwiseMax(Eigen::Vector3d::Constant(p_floor_));
 
+  // ====== NEW: fold the update back into the snapshot ======
+  const Eigen::Matrix3d dP = P - P_pre;
+  const Eigen::Vector3d dX = x - x_pre;
+  snap_x_ += dX;
+  snap_P_ += dP;
   // ------------------- end of update block ----------------------------------
 
- 
   // replay from t_eff to present
   integrate_to(t_now, x, P, j, t);
+  ROS_INFO_STREAM("x_afetrafter: " << x);
+
 
   // overwrite present
   state_ = x; state_cov_ = P;
