@@ -8,9 +8,9 @@ filter:
   debug: true
   dock_has_ahrs: false
   dock_usbl_instalation_offset: [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
-  auv_usbl_instalation_offset: [0.187, 0.0, -0.397] # position of the USBL in the B-frame measured from B-frame to USBL-frame
+  auv_usbl_instalation_offset: [0.187, 0.0, -0.197] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
-  outlier_rejection:  [1, 1, 1]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
+  outlier_rejection:  [0, 0, 0]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
 
   position:
     process_noise: 0.0001

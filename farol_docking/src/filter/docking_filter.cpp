@@ -172,7 +172,6 @@ void DockingFilter::measurement_handler(){
         dvl_filt_pub_.publish(toMsg(v_smoothed));
 
         if(dvl_outlier_rejection_){
-          ROS_INFO_STREAM("kakakak");
           dvl_corrected.value = v_smoothed;
         }
         if(!position_filter_->push_input_and_predict(dvl_corrected))
@@ -358,6 +357,7 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
 
   // ------------------- USBL update with robust χ² gate (no adaptation) -----
   const Eigen::Vector3d nu = measurement.value - x;
+  ROS_INFO_STREAM("inovation: " << nu);
 
   // 1) Build a *stable* S just for gating.
   //    Use a lightly "faded" P so huge P^- doesn't make NIS artificially tiny.

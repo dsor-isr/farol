@@ -280,7 +280,7 @@ class SquareMinJerkTraj(TrajBase):
         ydd = uy * a
 
         yaw = 0.0
-        return (x-self.x_off, y, self.z, xd, yd, 0.0, xdd, ydd, 0.0, yaw, (0,0,0), (0,0,0))
+        return (x+self.x_off, y, self.z, xd, yd, 0.0, xdd, ydd, 0.0, yaw, (0,0,0), (0,0,0))
 
 
 class OscYMinJerkTraj(TrajBase):
@@ -377,7 +377,7 @@ def main(args):
         vmax = float(rospy.get_param("~speed", 0.1))
         vmax = min(vmax, 1.0)
         traj = CircleTraj(R=R, speed=vmax, z=z_const,
-                          center=(float(rospy.get_param("~cx", -2.5)),
+                          center=(float(rospy.get_param("~cx", -2.75)),
                                   float(rospy.get_param("~cy", 0.0))),
                           heading_mode=("tangent" if mode=="circle_tangent" else "fixed"))
     elif mode == "square_scurve":
@@ -385,10 +385,10 @@ def main(args):
         vmax  = float(rospy.get_param("~vmax", 0.1))
         amax  = float(rospy.get_param("~amax", 0.05))
         jmax  = float(rospy.get_param("~jmax", 0.02))
-        xoff  = float(rospy.get_param("~x_off", 2.5))
+        xoff  = float(rospy.get_param("~x_off", -2.75))
         traj = SquareMinJerkTraj(Lside, vmax, amax, jmax, z_const, xoff)
     elif mode == "osc_y_minjerk":
-        x_const  = float(rospy.get_param("~x", -2.5))
+        x_const  = float(rospy.get_param("~x", -2.75))
         y_center = float(rospy.get_param("~y_center", 0.0))
         amp      = float(rospy.get_param("~amplitude", 0.75))
         vmax  = float(rospy.get_param("~vmax", 0.10))
@@ -402,7 +402,7 @@ def main(args):
           axis   = rospy.get_param("~axis", "y")
         amp    = float(rospy.get_param("~amplitude", 0.75)) 
         freq   = float(rospy.get_param("~freq_hz", 0.05))
-        x0     = float(rospy.get_param("~x0", -2.5))
+        x0     = float(rospy.get_param("~x0", -2.75))
         y0     = float(rospy.get_param("~y0", 0.0))
         traj = SinusoidTraj(axis, x0, y0, amp, freq, z_const)
     else:
