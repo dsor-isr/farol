@@ -39,16 +39,16 @@
 
 struct UsblParams {
     // nominal noise (1σ)
-    double sr = 0.001;                  // m
-    double sb = 0.1 * M_PI/180.0;      // rad
-    double se = 0.1 * M_PI/180.0;      // rad
+    double sr = 0.05;                  // m
+    double sb = 1 * M_PI/180.0;      // rad
+    double se = 1 * M_PI/180.0;      // rad
     // outlier noise (1σ)
     double SR = 1.0;                   // m
     double SB = 25.0 * M_PI/180.0;     // rad
     double SE = 15.0 * M_PI/180.0;     // rad
     // event probabilities (per sensor triplet)
     double p_outlier = 0.1;
-    double p_dropout = 0.1;          
+    double p_dropout = 0.0000001;          
 };
 
 /**

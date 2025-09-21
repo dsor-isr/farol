@@ -60,7 +60,6 @@ void DockingFilterNode::initializeSubscribers() {
   ROS_INFO("Initializing Subscribers for DockingFilterNode");
   sub_velocity_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/velocity", "velocity"), 10, &DockingFilterNode::measurement_callback, this);
   sub_orientation_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/orientation", "orientation"), 10, &DockingFilterNode::measurement_callback, this);
-  sub_position_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/position", "position"), 10, &DockingFilterNode::measurement_callback, this);
   sub_usbl_fix_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_fix", "usbl_fix"), 10, &DockingFilterNode::usbl_callback, this);
   sub_usbl_accoms_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_accoms", "usbl_accoms"), 10, &DockingFilterNode::usbl_callback, this);
   sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 10, &DockingFilterNode::reset_callback, this);
@@ -105,8 +104,8 @@ void DockingFilterNode::loadParams() {
   docking_filter_->auv_usbl_instalation_offset << aux[0], aux[1], aux[2];
 
   // Filter parameters
-  docking_filter_->configure("Q_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/process_noise", 1));
-  docking_filter_->configure("R_P", FarolGimmicks::getParameters<bool>(nh_private_, "position/measurement_noise", 1));
+  docking_filter_->configure("Q_P", FarolGimmicks::getParameters<double>(nh_private_, "position/process_noise", 0.01));
+  docking_filter_->configure("R_P", FarolGimmicks::getParameters<double>(nh_private_, "position/measurement_noise", 0.1));
 
   // load attitude filter parameters
   docking_filter_->attitude_filter_->k1_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/k1", 0.5);
@@ -127,7 +126,7 @@ void DockingFilterNode::loadParams() {
   if(aux[1] > 0.1)
    docking_filter_->attitude_filter_->usbl_outlier_rejection_ = true;
   if(aux[2] > 0.1)
-   docking_filter_->position_filter_->dvl_outlier_rejection_ = true;
+   docking_filter_->dvl_outlier_rejection_ = true;
   
   // threshold for gating on outlier rejection test
   docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_threshold", 0.0);
@@ -167,7 +166,7 @@ void DockingFilterNode::loadParams() {
     << "\n--- Outlier Rejection (switches) ---"
     << "\npos_usbl: " << (docking_filter_->position_filter_->usbl_outlier_rejection_ ? "on" : "off")
     << "  att_usbl: " << (docking_filter_->attitude_filter_->usbl_outlier_rejection_ ? "on" : "off")
-    << "  dvl: "      << (docking_filter_->position_filter_->dvl_outlier_rejection_ ? "on" : "off")
+    << "  dvl: "      << (docking_filter_->dvl_outlier_rejection_ ? "on" : "off")
     << "\n(rosparam outlier_rejection vec): ["
       << (outlier_vec[0]!=0.0 ? "1" : "0") << ", "
       << (outlier_vec[1]!=0.0 ? "1" : "0") << ", "
@@ -204,8 +203,8 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
   {
-    // if(!docking_filter_->initialized_) // keep only last message if not initialized
-      ;//return;
+    if(!docking_filter_->initialized_) // keep only last message if not initialized
+      return;
 
     // added - sign because navquest DVL is stoopid
     dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
@@ -413,7 +412,7 @@ bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& r
     });
     docking_filter_->position_filter_->usbl_outlier_rejection_  = pos_usbl;
     docking_filter_->attitude_filter_->usbl_outlier_rejection_  = att_usbl;
-    docking_filter_->position_filter_->dvl_outlier_rejection_   = dvl;
+    docking_filter_->dvl_outlier_rejection_   = dvl;
     return ok("outlier_rejection vector updated");
   }
   // Option B: set individual entries with a single value
@@ -441,7 +440,7 @@ bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& r
   if (k == "outlier_rejection.dvl") {
     if (!expect(1)) return true;
     const bool v = (req.values[0] != 0.0);
-    docking_filter_->position_filter_->dvl_outlier_rejection_ = v;
+    docking_filter_->dvl_outlier_rejection_ = v;
     std::vector<double> vec = nh_private_.param<std::vector<double>>("outlier_rejection", {0,0,0});
     if (vec.size() < 3) vec.resize(3,0.0);
     vec[2] = v?1.0:0.0;

@@ -10,11 +10,11 @@ filter:
   dock_usbl_instalation_offset: [0,0,0] # position of the USBL in the D-frame measured from D-frame to USBL-frame
   auv_usbl_instalation_offset: [0,0,0] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
-  outlier_rejection:  [0,0,0] # no outlier rejection
+  outlier_rejection:  [0,0,0]
 
   position:
-    process_noise: 1
-    measurement_noise: 1
+    process_noise: 0.0001
+    measurement_noise: 0.2
     outlier_threshold: 4.61 # Choose a gate (3 DoF): 90% -> 4.61 95% -> 7.815, 99% -> 11.345
     update_delay: 1.8  # time in seconds, before all angles are received, when the update should be done
 
@@ -22,7 +22,7 @@ filter:
     gains:
       k1: 0.6
       k2: 0.4
-      kp: 1
+      kp: 0.8
       ki: 0
     outlier_threshold: 4.61
     update_delay: 0.9     # time in seconds, before all angles are received, when the update should be done
@@ -75,8 +75,8 @@ trajectory_tracking:
     Kdv:  [1.12, 1.12, 1.12]     # = [2 ζ ωn]
     Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
 
-    KpR:  [0.0, 0.0, 2.25]       # yaw only active
-    KdW:  [0.0, 0.0, 2.10]
+    KpR:  [0.0, 0.0, 1.0]       # yaw only active
+    KdW:  [0.0, 0.0, 1.4]
     KiR:  [0.0, 0.0, 0.00]
 
     # Derivative filters (Hz)

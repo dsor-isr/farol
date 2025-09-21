@@ -56,86 +56,123 @@
  * @note bitches
  */
 class PositionFilter{
-    public:
-        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+	public:
+		EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
-        /**
-         * @brief  Contructor Horizontal Filter
-         */
-        PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
+		/**
+		 * @brief  Contructor Horizontal Filter
+		 */
+		PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
 
-        /**
-         * @brief  Destructor Horizontal Filter
-         */
-        virtual ~PositionFilter() = default;
+		/**
+		 * @brief  Destructor Horizontal Filter
+		 */
+		virtual ~PositionFilter() = default;
 
-        /**
-         * @brief  Reset the filter to the initial position
-         */
-        void reset();
-        
-        /**
-         * @brief  initialize the filter with an initial measurement
-         */
-        void initialize(Eigen::Vector3d initial_measurement);
-        
+		/**
+		 * @brief  Reset the filter to the initial position
+		 */
+		void reset();
+		
+		/**
+		 * @brief  initialize the filter with an initial measurement
+		 */
+		void initialize(Eigen::Vector3d initial_measurement);
+		
 
-        /**
-         * @brief   Predict the state evolution based on the process 
-         *          modeln and velocity measurements
-         */
-        bool predict(Stamped<Eigen::VectorXd> measurement);
-        bool predict(double time);
-
-
-        /**
-         * @brief  Correct state estimate with a new position measurement
-         *      Does also outlier rejection based on mahalanobis distance
-         * @param[in] measurement A new position measurement in R³
-         * @see Lekkas et al Mahalanobis outlier rejection
-         */
-        bool update(Stamped<Eigen::VectorXd> measurement);
-
-        // ROS stuff
-        ros::NodeHandle nh_, nh_private_;
-        ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
-        ros::Subscriber sub_Q_;
-        ros::Subscriber sub_R_;
-        geometry_msgs::Vector3 aux_vector3_msg_;
-        Eigen::Vector3d aux_vec3_;
-        
-        ros::Publisher  outlier_rejected_pub_, outlier_test_value_pub_;
-        std_msgs::Int8 int8_aux_msg_;
-        std_msgs::Float64 float64_aux_msg_;
+		/**
+		 * @brief   Predict the state evolution based on the process 
+		 *          modeln and velocity measurements
+		 */
+		bool predict(Stamped<Eigen::VectorXd> measurement);
+		bool predict(double time);
 
 
-        
-        // Kalman Filter variables
-        Eigen::Vector3d state_;
-        Eigen::Matrix3d state_cov_;
-        Eigen::Vector3d initial_state_;
-        Eigen::Matrix3d process_noise_;
-        Eigen::Matrix3d measurement_noise_;
-        
-        Eigen::Vector3d innovation_vector_;
-        Eigen::Matrix3d innovation_matrix_;
-        Eigen::Matrix3d K_;
-        
-        // shit for the retroactive update
-        Eigen::Vector3d state_at_last_update_;
-        Eigen::Matrix3d state_cov_at_last_update_;
-        double time_at_last_update_;
-        double update_delay_;
-        std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
+		/**
+		 * @brief  Correct state estimate with a new position measurement
+		 *      Does also outlier rejection based on mahalanobis distance
+		 * @param[in] measurement A new position measurement in R³
+		 * @see Lekkas et al Mahalanobis outlier rejection
+		 */
+		bool update(Stamped<Eigen::VectorXd> measurement);
 
-        std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
-        double last_predict_time_{-1.0};
-        
-        
-        bool usbl_outlier_rejection_{true};
-        bool dvl_outlier_rejection_{true};
-        double outlier_threshold_;
-    private:
+		// ROS stuff
+		ros::NodeHandle nh_, nh_private_;
+		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_;
+		ros::Subscriber sub_Q_;
+		ros::Subscriber sub_R_;
+		geometry_msgs::Vector3 aux_vector3_msg_;
+		Eigen::Vector3d aux_vec3_;
+		
+		ros::Publisher  outlier_rejected_pub_, outlier_test_value_pub_, r_scale_pub_, k_pub_;
+		std_msgs::Int8 int8_aux_msg_;
+		std_msgs::Float64 float64_aux_msg_;
+
+
+		
+		// Kalman Filter variables
+		Eigen::Vector3d state_;
+		Eigen::Matrix3d state_cov_;
+		Eigen::Vector3d initial_state_;
+		Eigen::Matrix3d process_noise_;
+		Eigen::Matrix3d measurement_noise_;
+		
+		Eigen::Vector3d innovation_vector_;
+		Eigen::Matrix3d innovation_matrix_;
+		Eigen::Matrix3d K_;
+		
+		// shit for the retroactive update
+		Eigen::Vector3d state_at_last_update_;
+		Eigen::Matrix3d state_cov_at_last_update_;
+		double time_at_last_update_;
+		double update_delay_;
+		std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
+
+		std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
+		double last_predict_time_{-1.0};
+		
+		
+		bool usbl_outlier_rejection_{false};
+		double outlier_threshold_;
+		// --- Adaptive-R state (initialized in constructor) ---
+		Eigen::Matrix3d R0_ = Eigen::Matrix3d::Identity();  // nominal measurement covariance (m^2)
+		double r_scale_     = 1.0;     // adaptive scalar: R = r_scale_ * R0_
+		double nis_target_  = 3.0;     // m = 3 (USBL is 3-DoF)
+		double nis_beta_    = 0.2;    // adaptation rate (0.02..0.08 typical)
+		double r_min_       = 0.0001;     // lower bound on scale
+		double r_max_       = 1000.0;    // upper bound on scale
+		double clip_c_      = 1.0;     // clip on log step to avoid jumps
+		double hard_gate_   = 16.27;   // chi^2(3) 99.9% – hard reject safety net
+		double p_floor_     = 2.5e-3;  // (0.05 m)^2 covariance floor per axis
+
+		struct InputNode {
+			double stamp;                 // input timestamp
+			Eigen::Vector3d u;            // input velocity (Dock frame)
+			Eigen::Vector3d x_snap;       // state after predicting to 'stamp'
+			Eigen::Matrix3d P_snap;       // covariance after predicting to 'stamp'
+		};
+
+		struct Input {
+			double stamp;
+			Eigen::Vector3d u;
+		};
+		std::deque<Input> buf_;          // last ~2 s of inputs
+		double window_sec_{2.0};         // keep a little margin
+
+		// Sliding “front-of-window” snapshot (state at buf_.front().stamp)
+		double snap_time_{-1.0};
+		Eigen::Vector3d snap_x_ = Eigen::Vector3d::Zero();
+		Eigen::Matrix3d snap_P_ = Eigen::Matrix3d::Identity();
+
+		bool push_input_and_predict(const Stamped<Eigen::VectorXd>& meas);
+		bool integrate_to(double t_target, Eigen::Vector3d& x,Eigen::Matrix3d& P,int& j,double& t);
+
+		// Integrate (x,P,t) forward to 't_target' using piecewise-constant inputs in buf_,
+		// starting from segment index 'j' (segment active at time 't').
+		// On return: (x,P,t) advanced to min(t_target, last stamp), and 'j' points to the
+		// active segment at the new time. Returns false if buf_ is empty or t_target < t.
+
+
 };
 
 
@@ -228,7 +265,7 @@ class AttitudeFilter{
         double last_predict_time_{-1.0};
         
 
-        bool usbl_outlier_rejection_{true};
+        bool usbl_outlier_rejection_{false};
         double outlier_threshold_;
         inline Eigen::Matrix3d projectorOnTangent(const Eigen::Vector3d& u_hat_unit) {
             return Eigen::Matrix3d::Identity() - u_hat_unit * u_hat_unit.transpose();
@@ -332,9 +369,10 @@ class DockingFilter{
 
 		// ROS stuff
 		ros::NodeHandle nh_, nh_private_;
-		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_, terrain_normal_pub_, dvl_filt_pub_;
+		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_,usbl_yaw_auv_pub_, terrain_normal_pub_, dvl_filt_pub_;
 		geometry_msgs::Vector3 aux_vector3_msg_;
 		Eigen::Vector3d aux_vec3_;
+		std_msgs::Float64 float_aux_msg_;
 		Stamped<Eigen::VectorXd> aux_stamped_;
 		
 
@@ -371,6 +409,8 @@ class DockingFilter{
 		Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::UnitZ();
 		Eigen::Vector3d dock_usbl_instalation_offset = Eigen::Vector3d::Zero();
 		Eigen::Vector3d auv_usbl_instalation_offset = Eigen::Vector3d::Zero();
+
+		bool dvl_outlier_rejection_{false};
 
 		struct DvlMiniKF {
 			// State x = [v; a] in R^6  (v: m/s, a: m/s^2)

@@ -14,6 +14,7 @@ DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   initialized_ = false;
   usbl_pos_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
   usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
+  usbl_yaw_auv_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_yaw", "/usbl_yaw"), 5);
   terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
   dvl_filt_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/dvl_filt", "/myellow0/docking/filter/debug/dvl_filt"), 5);
 
@@ -48,6 +49,7 @@ void DockingFilter::configure(std::string type, double noise){
   }
   else if(type == "R_P"){
     position_filter_->measurement_noise_ = noise*Eigen::Matrix3d::Identity();
+    position_filter_->R0_ = position_filter_->measurement_noise_;
     ROS_INFO_STREAM("Process noise is:\n"<<position_filter_->measurement_noise_);
   }
 }
@@ -121,6 +123,10 @@ void DockingFilter::measurement_handler(){
         // check that the measurements are  valid -> range is ok
         if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
           
+          // do math to extract the relative yaw
+          double r1 = -(meas.data.value.segment<3>(3)).dot((meas.data.value.segment<3>(0)));
+          double r2 = (meas.data.value.segment<3>(3)).cross((meas.data.value.segment<3>(0)))(2);
+          float_aux_msg_.data = std::atan2(r2, r1); usbl_yaw_auv_pub_.publish(float_aux_msg_);
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
           if(!attitude_filter_->update(meas.data, terrain_normal_))
             ROS_WARN_STREAM("Update Failed on Docking Attitude Filter");
@@ -165,23 +171,19 @@ void DockingFilter::measurement_handler(){
         }
         dvl_filt_pub_.publish(toMsg(v_smoothed));
 
-        // 3) Use smoothed (possibly rejected-measurement) velocity for prediction
-        Stamped<Eigen::VectorXd> dvl_smoothed;
-        dvl_smoothed.value = v_smoothed;
-        dvl_smoothed.stamp = dvl_corrected.stamp;
-
-        if(!position_filter_->predict(dvl_smoothed))
+        if(dvl_outlier_rejection_){
+          ROS_INFO_STREAM("kakakak");
+          dvl_corrected.value = v_smoothed;
+        }
+        if(!position_filter_->push_input_and_predict(dvl_corrected))
           ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
 
-        position_filter_->input_meas_buffer_.emplace_back(dvl_smoothed);
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
         if(!attitude_filter_->predict(meas.data))
           ROS_WARN_STREAM("Predict Failed on Docking Attitude Filter");
         attitude_filter_->input_meas_buffer_.emplace_back(meas.data);
 
-      }else if(meas.type=="ahrs_angles"&& meas.data.value.size() ==3){
-        auv_attitude_ = meas.data.value;
       }else
         ROS_WARN_STREAM("Invalid measurement type in measurement handler");
       }
@@ -206,12 +208,14 @@ PositionFilter::PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nod
     : nh_(*nodehandle), nh_private_(*nodehandle_private){
   outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_position", "/outlier_rejected_usbl_position"), 5);  
   outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_position", "/outlier_test_value_position"), 5);  
+  r_scale_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/r_scale", "/r_scale"), 5);  
+  k_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/K", "/K"), 5);  
   int8_aux_msg_.data = 1;
 }
 
 void PositionFilter::initialize(Eigen::Vector3d measurement){
   state_ = measurement;
-  state_cov_ = (0.1*measurement.cwiseAbs()).asDiagonal();    // initial covariance is 10% of the initial measurement
+  state_cov_ = 0.05*measurement.norm()*Eigen::Matrix3d::Identity();  // (0.1*measurement.cwiseAbs()).asDiagonal();    // initial covariance is 10% of the initial measurement
   ROS_INFO_STREAM("Position Filter Initializing with:\nState:\n"<< state_ <<"\nCovariance:\n"<<state_cov_);
 }
 
@@ -266,111 +270,365 @@ bool PositionFilter::predict(double time){
 }
 
 
-bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
-  state_ = state_at_last_update_;
-  state_cov_ = state_cov_at_last_update_;
-
-  double Dt; 
-  double time = time_at_last_update_;
-  double time_to_update = measurement.stamp - update_delay_;
-
-  int pop_count=0;
-  Stamped<Eigen::VectorXd> aux;
-
-  // advance state until correct time to do the update at
-  if(!input_meas_buffer_.empty())
-    aux = input_meas_buffer_.front();
-  while(!input_meas_buffer_.empty() && aux.stamp<time_to_update){
-    Dt = aux.stamp-time;
-    state_ = state_ + Dt*aux.value;
-    state_cov_ = state_cov_ +  Dt*process_noise_;
-
-    time = aux.stamp;
-    input_meas_buffer_.pop_front();
-    pop_count++;
-    
-    if(!input_meas_buffer_.empty())
-      aux = input_meas_buffer_.front();
+bool PositionFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas) {
+  // Compute Dt safely (no early returns before we maintain the window & snapshot)
+  double Dt = 0.0;
+  if (last_predict_time_ >= 0.0) {
+    Dt = meas.stamp - last_predict_time_;
+    if (Dt < 0.0) Dt = 0.0; // out-of-order guard
   }
 
-  // // ----------------------   perform the update at this time      --------------------------
-  // Innovation
-  innovation_vector_ = measurement.value - state_;
-  ROS_INFO_STREAM("innovation_vector_:" <<innovation_vector_);
+  // Predict present to this input time
+  if (Dt > 0.0) {
+    state_     = state_ + Dt * meas.value;
+    state_cov_ = state_cov_ + Dt * process_noise_;
+  }
+  last_input_measurement_ = meas;
+  last_predict_time_      = meas.stamp;
 
-  // If H != I, use:
-  // Eigen::MatrixXd H = ...;
-  // innovation_vector_ = measurement.value - H * state_;
+  // Always push the input into the 2 s window
+  buf_.push_back(Input{meas.stamp, meas.value /*, Pv if you carry it */});
+
+  // --------- Snapshot initialization (first time only) ----------
+  if (snap_time_ < 0.0) {
+    // Snapshot is the state at the front of window (which is this sample now)
+    snap_time_ = buf_.front().stamp;   // == meas.stamp
+    snap_x_    = state_;               // <<-- NON-ZERO: your current predicted state
+    snap_P_    = state_cov_;
+  }
+
+  // --------- Trim window and advance snapshot forward -----------
+  const double cutoff = buf_.back().stamp - window_sec_;
+
+  // Pop whole segments strictly before cutoff
+  while (buf_.size() >= 2 && buf_.front().stamp < cutoff && buf_[1].stamp <= cutoff) {
+    double dt = buf_[1].stamp - buf_.front().stamp;
+    if (dt > 0.0) {
+      snap_x_  += dt * buf_.front().u;
+      snap_P_  += dt * process_noise_;
+      snap_time_ += dt;
+    }
+    buf_.pop_front();
+  }
+  // Handle partial first segment crossing the cutoff
+  if (buf_.size() >= 2 && buf_.front().stamp < cutoff && buf_[1].stamp > cutoff) {
+    double dt = cutoff - buf_.front().stamp;
+    if (dt > 0.0) {
+      snap_x_  += dt * buf_.front().u;
+      snap_P_  += dt * process_noise_;
+      snap_time_ += dt;
+    }
+    buf_.front().stamp = cutoff; // keep remainder in window
+  }
+  
+  return true;
+}
 
 
-  // Innovation covariance S
-  // With H = I: S = P + R
-  innovation_matrix_ = state_cov_ + measurement_noise_;
 
-  // Prefer Cholesky over LU for SPD matrices
-  Eigen::LLT<Eigen::MatrixXd> llt(innovation_matrix_);
-  if (llt.info() != Eigen::Success) {
-    ROS_WARN_STREAM("Docking Position: Innovation matrix S not SPD (LLT failed).");
+bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
+  if (buf_.empty() || snap_time_ < 0.0) return false;
+
+  const double t_u   = measurement.stamp - update_delay_;
+  const double t_now = buf_.back().stamp;
+
+  // Still reject if it’s older than the 2 s window
+  if (t_u < snap_time_) {
+    ROS_WARN("USBL older than window; drop or forward-prop.");
+    return false;
+  }
+  // In practice this should rarely trigger, but keep it as a safety net
+  double t_eff = t_u;
+  if (t_u > t_now) {
+    ROS_WARN_THROTTLE(1.0, "USBL t_u > t_now (%.3f > %.3f). Clamping to t_now.", t_u, t_now);
+    t_eff = t_now;
+  }
+  // --- local rollback to 2s-ago snapshot, then integrate to t_eff ---
+  Eigen::Vector3d x = snap_x_;
+  Eigen::Matrix3d P = snap_P_;
+  double t = snap_time_;
+
+  // Find starting index so we can walk segments
+  int j = 0;
+  // Ensure we start at the first segment that can advance time
+  while (j + 1 < (int)buf_.size() && buf_[j+1].stamp <= t) ++j;
+  
+  // Advance along segments up to t_eff
+  integrate_to(t_eff, x, P, j, t);
+
+  // ------------------- USBL update with robust χ² gate (no adaptation) -----
+  const Eigen::Vector3d nu = measurement.value - x;
+
+  // 1) Build a *stable* S just for gating.
+  //    Use a lightly "faded" P so huge P^- doesn't make NIS artificially tiny.
+  //    gamma_gate in (0,1]; 0.5 is a safe, conservative default.
+  const double gamma_gate = 0.5;
+  Eigen::Matrix3d R_gate  = R0_;                 // fixed nominal R (no adaptation)
+  Eigen::Matrix3d S_gate  = gamma_gate * P + R_gate;
+
+  Eigen::LLT<Eigen::Matrix3d> llt_gate(S_gate);
+  if (llt_gate.info() != Eigen::Success) { ROS_WARN("S_gate not SPD"); return false; }
+
+  double nis = nu.dot( llt_gate.solve(nu) );
+  float64_aux_msg_.data = nis; outlier_test_value_pub_.publish(float64_aux_msg_);
+
+  // 2) Hard χ² gate (DoF=3): pick your level
+  //    95%: 7.815  | 97.5%: 9.348  | 99%: 11.345  | 99.9%: 16.27
+  const double gate = hard_gate_;  // e.g., 11.345 or 16.27
+  if (usbl_outlier_rejection_ && nis > gate) {
+    outlier_rejected_pub_.publish(int8_aux_msg_);
+    ROS_WARN_STREAM("[Position] Outlier rejected, NIS=" << nis << " > " << gate);
     return false;
   }
 
-  // --- Mahalanobis (NIS) gating ---
-  const double nis = innovation_vector_.dot( llt.solve(innovation_vector_) );
-  float64_aux_msg_.data = nis;
-  outlier_test_value_pub_.publish(float64_aux_msg_);
-  if (nis > outlier_threshold_) {
-    outlier_rejected_pub_.publish(int8_aux_msg_);
-    ROS_WARN_STREAM("[Position] Outlier rejected with NIS = " << float64_aux_msg_.data);
-    return false;  
-  }
+  // 3) Accepted -> normal KF with the same (non-faded) S_upd = P + R0_
+  Eigen::Matrix3d S_upd = P + R0_;
+  Eigen::LLT<Eigen::Matrix3d> llt_upd(S_upd);
+  if (llt_upd.info() != Eigen::Success) { ROS_WARN("S_upd not SPD"); return false; }
 
-  // --- Kalman gain ---
-  // Compute K = P * S^{-1} via solve (no explicit inverse)
-  Eigen::MatrixXd S_inv = llt.solve(Eigen::MatrixXd::Identity(innovation_matrix_.rows(),
-                                                              innovation_matrix_.cols()));
-  K_ = state_cov_ * S_inv;
+  Eigen::Matrix3d K = P * llt_upd.solve(Eigen::Matrix3d::Identity());
+  k_pub_.publish(toMsg(K.diagonal()));
 
-  // If H != I, replace with:
-  // Eigen::MatrixXd S = H * state_cov_ * H.transpose() + measurement_noise_;
-  // llt = Eigen::LLT<Eigen::MatrixXd>(S);
-  // if (llt.info()!=Eigen::Success) { ... }
-  // K_ = state_cov_ * H.transpose() * llt.solve(Eigen::MatrixXd::Identity(S.rows(), S.cols()));
+  x = x + K * nu;
 
-  // --- State update ---
-  state_ = state_ + K_ * innovation_vector_;
+  const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
+  P = (I - K) * P * (I - K).transpose() + K * R0_ * K.transpose();
+  // tiny floor to avoid overconfidence
+  P.diagonal() = P.diagonal().cwiseMax(Eigen::Vector3d::Constant(p_floor_));
 
-  // --- Covariance update (Joseph form) ---
-  // With H = I:
-  const Eigen::MatrixXd I = Eigen::MatrixXd::Identity(state_cov_.rows(), state_cov_.cols());
-  state_cov_ = (I - K_) * state_cov_ * (I - K_).transpose() + K_ * measurement_noise_ * K_.transpose();
+  // ------------------- end of update block ----------------------------------
 
-  // If H != I, use: P = (I - K H) P (I - K H)^T + K R K^T
+ 
+  // replay from t_eff to present
+  integrate_to(t_now, x, P, j, t);
 
-
-  // -------------------------------------------------------------------------------------
-
-  // from time_to_update till present:
-  if(!input_meas_buffer_.empty())
-    aux = input_meas_buffer_.front();
-  while(!input_meas_buffer_.empty()){
-    Dt = aux.stamp-time;
-    state_ = state_ + Dt*aux.value;
-    state_cov_ = state_cov_ +  Dt*process_noise_;
-
-    time = aux.stamp;
-    input_meas_buffer_.pop_front();
-    pop_count++;
-    if(!input_meas_buffer_.empty())
-      aux = input_meas_buffer_.front();
-  }
-
-  // save current state and current time
-  state_at_last_update_ = state_;
-  state_cov_at_last_update_ = state_cov_;
-  time_at_last_update_ = time;
+  // overwrite present
+  state_ = x; state_cov_ = P;
 
   return true;
 }
+
+
+bool PositionFilter::integrate_to(double t_target,Eigen::Vector3d& x,Eigen::Matrix3d& P,int& j,double& t)
+{
+  if (buf_.empty() || t_target < t) return false;
+
+  const int n = static_cast<int>(buf_.size());
+
+  // Make sure j indexes the active segment for time t: buf_[j].stamp <= t < next_stamp
+  while (j + 1 < n && buf_[j+1].stamp <= t) ++j;
+
+  auto seg_u   = [&](int k) -> const Eigen::Vector3d& { return buf_[k].u; };
+  auto seg_end = [&](int k) -> double {
+    return (k + 1 < n) ? buf_[k+1].stamp : buf_.back().stamp;
+  };
+
+  const double eps = 1e-12;
+
+  while (t < t_target - eps && j < n) {
+    double end = seg_end(j);
+    // advance up to either segment end or target
+    double dt = std::min(end, t_target) - t;
+    if (dt > eps) {
+    x += dt * seg_u(j);
+    P += dt * process_noise_;
+    // If you carry DVL velocity covariance per segment, add it here:
+    // P += (dt*dt) * buf_[j].Pv;
+    t += dt;
+    }
+
+    // If we exactly hit the segment end, move to the next segment
+    if (j + 1 < n && std::abs(t - end) <= eps) {
+    ++j;
+    // continue with next segment's u
+    } else {
+    // we're at t_target or at the end of the last segment
+    break;
+    }
+  }
+  return true;
+}
+
+
+
+
+
+
+
+
+
+// bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
+//   state_ = state_at_last_update_;
+//   state_cov_ = state_cov_at_last_update_;
+
+//   double Dt; 
+//   double time = time_at_last_update_;
+//   double time_to_update = measurement.stamp - update_delay_;
+
+//   int pop_count=0;
+//   Stamped<Eigen::VectorXd> aux;
+
+//   // advance state until correct time to do the update at
+//   if(!input_meas_buffer_.empty())
+//     aux = input_meas_buffer_.front();
+//   while(!input_meas_buffer_.empty() && aux.stamp<time_to_update){
+//     Dt = aux.stamp-time;
+//     state_ = state_ + Dt*aux.value;
+//     state_cov_ = state_cov_ +  Dt*process_noise_;
+
+//     time = aux.stamp;
+//     input_meas_buffer_.pop_front();
+//     pop_count++;
+    
+//     if(!input_meas_buffer_.empty())
+//       aux = input_meas_buffer_.front();
+//   }
+
+
+//   {// ==== BEGIN: Adaptive-R USBL update (drop-in) ===============================
+
+//   // Innovation (pre-fit)
+//   innovation_vector_ = measurement.value - state_;
+//   ROS_INFO_STREAM("innovation_vector_:" << innovation_vector_);
+
+//   // Build S with adaptive R = r_scale_ * R0_
+//   measurement_noise_ = r_scale_ * R0_;
+//   innovation_matrix_ = state_cov_ + measurement_noise_;
+
+//   // Cholesky factorization (SPD expected)
+//   Eigen::LLT<Eigen::Matrix3d> llt(innovation_matrix_);
+//   if (llt.info() != Eigen::Success) {
+//     ROS_WARN_STREAM("Docking Position: S not SPD (LLT failed).");
+//     return false;
+//   }
+
+//   // NIS (νᵀ S⁻¹ ν)
+//   double nis = innovation_vector_.dot( llt.solve(innovation_vector_) );
+//   float64_aux_msg_.data = nis;
+//   outlier_test_value_pub_.publish(float64_aux_msg_);
+
+//   // Hard reject for insane outliers (independent of adaptation)
+//   if (nis > hard_gate_) {
+//     outlier_rejected_pub_.publish(int8_aux_msg_);
+//     ROS_WARN_STREAM("[Position] Hard reject, NIS=" << nis << " (gate " << hard_gate_ << ")");
+//     return false;
+//   }
+
+//   // --- Adaptive-R (covariance matching toward target m=3) ---------------------
+//   // Multiplicative update in log-domain with clipping & bounds
+//   double log_step = std::log( std::max(1e-12, nis / nis_target_) );
+//   log_step = std::clamp(log_step, -clip_c_, clip_c_);
+//   r_scale_ *= std::exp(nis_beta_ * log_step);
+//   r_scale_ = std::clamp(r_scale_, r_min_, r_max_);
+
+//   // Rebuild S with updated R so K is consistent THIS step
+//   measurement_noise_ = r_scale_ * R0_;
+//   innovation_matrix_ = state_cov_ + measurement_noise_;
+//   llt.compute(innovation_matrix_);
+//   if (llt.info() != Eigen::Success) {
+//     ROS_WARN_STREAM("Docking Position: S not SPD after R adaptation.");
+//     return false;
+//   }
+
+//   // Kalman gain via solve (no explicit inverse)
+//   Eigen::Matrix3d S_inv = llt.solve(Eigen::Matrix3d::Identity());
+//   K_ = state_cov_ * S_inv;
+
+//   // State update
+//   state_ = state_ + K_ * innovation_vector_;
+
+//   // Covariance update (Joseph form) + tiny floor to avoid over-confidence
+//   const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
+//   state_cov_ = (I - K_) * state_cov_ * (I - K_).transpose() + K_ * measurement_noise_ * K_.transpose();
+//   state_cov_.diagonal() = state_cov_.diagonal().cwiseMax(Eigen::Vector3d::Constant(p_floor_));
+
+//   // ==== END: Adaptive-R USBL update ===========================================
+//   }
+
+
+//   /*{// // ----------------------   perform the update at this time      --------------------------
+//   // Innovation
+//   innovation_vector_ = measurement.value - state_;
+//   ROS_INFO_STREAM("innovation_vector_:" <<innovation_vector_);
+
+//   // If H != I, use:
+//   // Eigen::MatrixXd H = ...;
+//   // innovation_vector_ = measurement.value - H * state_;
+
+
+//   // Innovation covariance S
+//   // With H = I: S = P + R
+//   innovation_matrix_ = state_cov_ + measurement_noise_;
+
+//   // Prefer Cholesky over LU for SPD matrices
+//   Eigen::LLT<Eigen::MatrixXd> llt(innovation_matrix_);
+//   if (llt.info() != Eigen::Success) {
+//     ROS_WARN_STREAM("Docking Position: Innovation matrix S not SPD (LLT failed).");
+//     return false;
+//   }
+
+//   // --- Mahalanobis (NIS) gating ---
+//   const double nis = innovation_vector_.dot( llt.solve(innovation_vector_) );
+//   float64_aux_msg_.data = nis;
+//   outlier_test_value_pub_.publish(float64_aux_msg_);
+//   if (nis > outlier_threshold_) {
+//     outlier_rejected_pub_.publish(int8_aux_msg_);
+//     ROS_WARN_STREAM("[Position] Outlier rejected with NIS = " << float64_aux_msg_.data);
+//     return false;  
+//   }
+
+//   // --- Kalman gain ---
+//   // Compute K = P * S^{-1} via solve (no explicit inverse)
+//   Eigen::MatrixXd S_inv = llt.solve(Eigen::MatrixXd::Identity(innovation_matrix_.rows(),
+//                                                               innovation_matrix_.cols()));
+//   K_ = state_cov_ * S_inv;
+
+//   // If H != I, replace with:
+//   // Eigen::MatrixXd S = H * state_cov_ * H.transpose() + measurement_noise_;
+//   // llt = Eigen::LLT<Eigen::MatrixXd>(S);
+//   // if (llt.info()!=Eigen::Success) { ... }
+//   // K_ = state_cov_ * H.transpose() * llt.solve(Eigen::MatrixXd::Identity(S.rows(), S.cols()));
+
+//   // --- State update ---
+//   state_ = state_ + K_ * innovation_vector_;
+
+//   // --- Covariance update (Joseph form) ---
+//   // With H = I:
+//   const Eigen::MatrixXd I = Eigen::MatrixXd::Identity(state_cov_.rows(), state_cov_.cols());
+//   state_cov_ = (I - K_) * state_cov_ * (I - K_).transpose() + K_ * measurement_noise_ * K_.transpose();
+
+//   // If H != I, use: P = (I - K H) P (I - K H)^T + K R K^T
+
+
+//   // -------------------------------------------------------------------------------------
+//   }*/
+
+//   // from time_to_update till present:
+//   if(!input_meas_buffer_.empty())
+//     aux = input_meas_buffer_.front();
+//   while(!input_meas_buffer_.empty()){
+//     Dt = aux.stamp-time;
+//     state_ = state_ + Dt*aux.value;
+//     state_cov_ = state_cov_ +  Dt*process_noise_;
+
+//     time = aux.stamp;
+//     input_meas_buffer_.pop_front();
+//     pop_count++;
+//     if(!input_meas_buffer_.empty())
+//       aux = input_meas_buffer_.front();
+//   }
+
+//   // save current state and current time
+//   state_at_last_update_ = state_;
+//   state_cov_at_last_update_ = state_cov_;
+//   time_at_last_update_ = time;
+
+//   return true;
+// }
+
+
+
+
 
 
 
@@ -492,13 +750,13 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
     omega_mes += k2_ * (v2_B.cross((state_.matrix().transpose() * v2_D).normalized()));
 
     // v1 (LOS) — χ² gate on S²
-    float64_aux_msg_.data = gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1);
-    outlier_test_value_pub_.publish(float64_aux_msg_);
-    if (float64_aux_msg_.data <= outlier_threshold_) {
-      omega_mes += k1_ * (v1_B.cross((state_.matrix().transpose() * v1_D).normalized()));
-    } else {
+    double test = gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1);
+    float64_aux_msg_.data = test; outlier_test_value_pub_.publish(float64_aux_msg_);
+    if (usbl_outlier_rejection_ && float64_aux_msg_.data > outlier_threshold_) {
       outlier_rejected_pub_.publish(int8_aux_msg_);
       ROS_WARN_STREAM("[Attitude] Outlier rejected with test value = "<<float64_aux_msg_.data);
+    } else {
+      omega_mes += k1_ * (v1_B.cross((state_.matrix().transpose() * v1_D).normalized()));
     }
 
     // if both got rejected (unlikely here, since v2 always contributes), omega_mes can be small

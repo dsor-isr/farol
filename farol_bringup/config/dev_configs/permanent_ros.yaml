@@ -506,6 +506,7 @@ docking/filter:
             debug:
                 usbl_pos_dock: "/#vehicle#/docking/filter/debug/usbl_pos_dock"
                 usbl_pos_auv: "/#vehicle#/docking/filter/debug/usbl_pos_auv"
+                usbl_yaw: "/#vehicle#/docking/filter/debug/usbl_yaw"
                 v1_B: "/#vehicle#/docking/filter/debug/v1_B"
                 v1_D: "/#vehicle#/docking/filter/debug/v1_D"
                 v2_B: "/#vehicle#/docking/filter/debug/v2_B"
