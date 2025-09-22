@@ -157,3 +157,14 @@ inline Eigen::Vector3d extractRPY(const Sophus::SO3d& R) {
     wrapToPi(yaw)
   );
   }
+
+
+
+inline Eigen::Matrix3d rpyToRot(double roll, double pitch, double yaw)
+{
+    const Eigen::AngleAxisd Rx(roll,  Eigen::Vector3d::UnitX());
+    const Eigen::AngleAxisd Ry(pitch, Eigen::Vector3d::UnitY());
+    const Eigen::AngleAxisd Rz(yaw,   Eigen::Vector3d::UnitZ());
+    // ZYX order: yaw -> pitch -> roll
+    return (Rz * Ry * Rx).toRotationMatrix();
+}

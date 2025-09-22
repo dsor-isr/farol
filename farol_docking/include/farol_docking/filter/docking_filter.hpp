@@ -421,11 +421,13 @@ class DockingFilter{
 		bool dock_has_ahrs_{false};
 
 		// vector normal to the terrain in the inertial frame, used to know the relative orientation
-		Eigen::Vector3d terrain_normal_ = Eigen::Vector3d::UnitZ();
+		Eigen::Vector3d inertial_attitude_;
+		Eigen::Vector3d Z_D_body_ = Eigen::Vector3d::UnitZ();
 		Eigen::Vector3d dock_usbl_instalation_offset = Eigen::Vector3d::Zero();
 		Eigen::Vector3d auv_usbl_instalation_offset = Eigen::Vector3d::Zero();
 
 		bool dvl_outlier_rejection_{false};
+		Stamped<Eigen::VectorXd> dvl_corrected_;
 
 		struct DvlMiniKF {
 			// State x = [v; a] in R^6  (v: m/s, a: m/s^2)

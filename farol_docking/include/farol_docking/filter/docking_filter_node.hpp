@@ -28,6 +28,7 @@
 #include <farol_msgs/mState.h>
 #include <farol_msgs/mUSBLFix.h>
 #include <auv_msgs/NavigationStatus.h>
+#include <sensor_msgs/Imu.h>
 #include <topic_tools/shape_shifter.h>
 
 
@@ -120,6 +121,8 @@ class DockingFilterNode {
   void reset_callback(const std_msgs::Empty &msg);
 
   void terrain_normal_callback(const geometry_msgs::Vector3 &msg);
+  void imu_raw_callback(const sensor_msgs::Imu &msg);
+
 
   /**
    * @brief Function that runs at the node frequency, propagrating the state until 
@@ -145,7 +148,7 @@ class DockingFilterNode {
   ros::Subscriber sub_usbl_accoms_;
   ros::Subscriber sub_dock_inertial_pos_;
   ros::Subscriber sub_terrain_d_;
-  ros::Subscriber sub_modem_send_;
+  ros::Subscriber sub_imu_raw_, sub_imu_raw_sim_;
   
   // Publishers
   ros::Publisher state_pub_, body_velocity_pub_;
@@ -164,6 +167,7 @@ class DockingFilterNode {
   // ROS parameters
   double node_frequency_; 
   bool debug_;
+  bool use_terrain_{false};
   
   // Measurements stuff
   // USBL stuff

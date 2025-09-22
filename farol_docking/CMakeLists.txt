@@ -7,6 +7,8 @@ find_package(catkin REQUIRED
   auv_msgs
   dsor_msgs
   farol_msgs
+  sensor_msgs
+  drivers_msgs
   message_generation
   roscpp
   tf2

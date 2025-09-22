@@ -23,6 +23,8 @@ Code to perform autonomous docking of medusa AUV
  <depend>message_runtime</depend> 
 
  <depend>std_msgs</depend>
+ <depend>sensors_msgs</depend>
+ <depend>drivers_msgs</depend>
  <depend>tf2_geometry_msgs</depend>
  <depend>roscpp</depend>
  <depend>geographiclib-tools</depend>

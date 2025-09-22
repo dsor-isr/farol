@@ -16,7 +16,7 @@ DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 1);
   usbl_yaw_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_yaw", "/usbl_yaw"), 1);
   terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 1);
-  dvl_filt_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/dvl_filt", "/myellow0/docking/filter/debug/dvl_filt"), 1);
+  dvl_filt_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/dvl_filtered", "/myellow0/docking/filter/dvl_filtered"), 1);
 
 
   // DVL mini-KF params (make these ROS params later)
@@ -128,7 +128,7 @@ void DockingFilter::measurement_handler(){
           double r2 = rbe_to_xyz(meas.data.value.segment<3>(3)).cross(rbe_to_xyz(meas.data.value.segment<3>(0)))(2);
           float_aux_msg_.data = std::atan2(r2, r1)*180.0/M_PI; usbl_yaw_pub_.publish(float_aux_msg_);
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
-          if(!attitude_filter_->update(meas.data, terrain_normal_))
+          if(!attitude_filter_->update(meas.data, Z_D_body_))
             ROS_WARN_STREAM("Update Failed on Docking Attitude Filter");
           
           // update using the measurement from the docking station
@@ -162,15 +162,14 @@ void DockingFilter::measurement_handler(){
         dvl_filt_pub_.publish(toMsg(v_smoothed));
 
         // Rotate DVL velocity into Dock frame
-        Stamped<Eigen::VectorXd> dvl_corrected;
         if(dvl_outlier_rejection_){
-          dvl_corrected.value = attitude_filter_->state_.matrix()* v_smoothed;
+          dvl_corrected_.value = attitude_filter_->state_.matrix()* v_smoothed;
         }else{
-          dvl_corrected.value = attitude_filter_->state_.matrix() * meas.data.value;
+          dvl_corrected_.value = attitude_filter_->state_.matrix() * meas.data.value;
         }
-        dvl_corrected.stamp = meas.data.stamp;
+        dvl_corrected_.stamp = meas.data.stamp;
 
-        if(!position_filter_->push_input_and_predict(dvl_corrected))
+        if(!position_filter_->push_input_and_predict(dvl_corrected_))
           ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
 
       }

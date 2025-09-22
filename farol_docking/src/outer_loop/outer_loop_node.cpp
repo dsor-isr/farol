@@ -9,13 +9,14 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
 
   // Parameters
   node_frequency_ = FarolGimmicks::getParameters<double>(nh_private_, "node_frequency", 10);
-  terminal_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "terminal_dist_", 0.3);
   acomms_timeout_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_timeout", 20);
   acomms_search_radius_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_search_radius", 10);
   acomms_n_min_fix_ = FarolGimmicks::getParameters<double>(nh_private_, "acomms_n_min_fix", 10);
   
   aproach_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "aproach_dist", 5);
-
+  
+  terminal_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "terminal_dist", 0.3);
+  terminal_thrust_ = FarolGimmicks::getParameters<double>(nh_private_, "terminal_thrust", 1);
   homing_dist_ = FarolGimmicks::getParameters<double>(nh_private_, "homing_dist", 2.5);
   u_terminal_ = FarolGimmicks::getParameters<double>(nh_private_, "u_terminal", 0.05);
   v_max_u_ = FarolGimmicks::getParameters<double>(nh_private_, "v_max_u", 0.2);
@@ -412,7 +413,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   }
   else if(state_ =="terminal")
   {
-    force_request_msg_.wrench.force.x = 3;
+    force_request_msg_.wrench.force.x = terminal_thrust_;
     force_request_pub_.publish(force_request_msg_);
   }
   

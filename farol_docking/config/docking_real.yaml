@@ -7,14 +7,14 @@ filter:
   node_frequency: 10
   debug: true
   dock_has_ahrs: false
-  dock_usbl_instalation_offset: [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
-  auv_usbl_instalation_offset: [0.187, 0.0, -0.097] # position of the USBL in the B-frame measured from B-frame to USBL-frame
+  dock_usbl_instalation_offset: [-0.2, 0.0, -0.1] # [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
+  auv_usbl_instalation_offset: [0.0, 0.0, 0.0] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
-  outlier_rejection:  [0, 0, 0]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
+  outlier_rejection:  [1, 0, 1]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
 
   position:
     process_noise: 0.01
-    measurement_noise: 0.2
+    measurement_noise: 0.05
     outlier_threshold: 4.61 # Choose a gate (3 DoF): 95% -> 7.815, 99% -> 11.345
     update_delay: 1.8
 
@@ -44,14 +44,15 @@ outer_loop:
   safe_depth_aproach: 1
   aproach_dist: 5.0
 
-  terminal_dist: 1.0    # distance [m] to ignore filter
+  terminal_dist: 1.2    # distance [m] to ignore filter
+  terminal_thrust: 1.5    # distance [m] to ignore filter
   acomms_timeout: 20    # time [s] after which returns to "search_acomms"
   acomms_n_min_fix: 3   # idk to be fair
   acomms_search_radius: 10  # radius around the docking station to seach for acomms
 
   ## Trajectory parameters
-  homing_dist: 2.75        # distance [m] along the x-axis where to place homin point
-  u_terminal: 0.05      # terminal velocity
+  homing_dist: 2.5        # distance [m] along the x-axis where to place homin point
+  u_terminal: 0.035      # terminal velocity
   v_max_u: 0.1  # [m/s]
   v_max_v: 0.1  # [m/s]
   a_max_t: 0.05  # [m/s²]
@@ -71,13 +72,13 @@ trajectory_tracking:
 
   se3:
     # Gains (acceleration domain!)
-    Kpp:  [0.64, 0.64, 0.64]     # = [ωn^2] per axis
-    Kdv:  [1.12, 1.12, 1.12]     # = [2 ζ ωn]
+    Kpp:  [0.36, 0.36, 0.36]     # = [ωn^2] per axis
+    Kdv:  [0.84, 0.84, 0.84]     # = [2 ζ ωn]
     Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
 
-    KpR:  [0.0, 0.0, 1.44]       # yaw only active
-    KdW:  [0.0, 0.0, 1.68]
-    KiR:  [0.0, 0.0, 0.00]
+    KpR:  [0.0, 0.0, 0.64]       # yaw only active
+    KdW:  [0.0, 0.0, 1.12]
+    KiR:  [0.0, 0.0, 0.00]    
 
     # Derivative filters (Hz)
     # fc_v: [5.0, 5.0, 4.0]

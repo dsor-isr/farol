@@ -185,6 +185,7 @@
   double acomms_timeout_{20.0};     // timeout to reset manoeuvre if no fixes are received
   double acomms_search_radius_;     // radius to search for acoms menoeuvre
   double terminal_dist_;
+  double terminal_thrust_;
   double aproach_dist_;            // distace ahead of dock opening to go to
   double acomms_n_min_fix_;
   

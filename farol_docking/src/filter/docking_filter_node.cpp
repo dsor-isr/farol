@@ -64,6 +64,7 @@ void DockingFilterNode::initializeSubscribers() {
   sub_usbl_accoms_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_accoms", "usbl_accoms"), 2, &DockingFilterNode::usbl_callback, this);
   sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 2, &DockingFilterNode::reset_callback, this);
   sub_terrain_d_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/terrain_normal", "bottom_following/D"), 2, &DockingFilterNode::terrain_normal_callback, this);
+  sub_imu_raw_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/imu_raw", "myellow0/drivers/imu/data_raw"), 2, &DockingFilterNode::imu_raw_callback, this);
 }
 
 
@@ -114,8 +115,8 @@ void DockingFilterNode::loadParams() {
   docking_filter_->attitude_filter_->ki_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/gains/ki", 0);
 
   // delay to apply measuremts because of the roll-back/forward
-  docking_filter_->position_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "position/update_delay", 0.0);
-  docking_filter_->attitude_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/update_delay", 0.0);
+  docking_filter_->position_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "position/update_delay", 1.0);
+  docking_filter_->attitude_filter_->update_delay_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/update_delay", 1.0);
   
   // load outlier rejection config
   aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "outlier_rejection", {0.0, 0.0, 0.0});
@@ -129,8 +130,8 @@ void DockingFilterNode::loadParams() {
    docking_filter_->dvl_outlier_rejection_ = true;
   
   // threshold for gating on outlier rejection test
-  docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_threshold", 0.0);
-  docking_filter_->attitude_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_threshold", 0.0);
+  docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_threshold", 4.61);
+  docking_filter_->attitude_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_threshold", 4.61);
 
 
   // ---- Summary print ----
@@ -199,6 +200,7 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
       ROS_WARN_STREAM("Dropping AHRS measurements. Oh no, not good :(");
 
     ahrs_velocity_ << msg.value[3],msg.value[4],msg.value[5];
+    docking_filter_->terrain_normal_ = rpyToRot(msg.value[0],msg.value[1],msg.value[2]).transpose()*Eigen::Vector3d::UnitZ();
   } 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
@@ -300,10 +302,18 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
   }
 }
 
-
+// [TODO]: actually use this lmao 
 void DockingFilterNode::terrain_normal_callback(const geometry_msgs::Vector3 &msg){
-  docking_filter_->terrain_normal_ << msg.x, msg.y, msg.z;
+  if(use_terrain_)
+    docking_filter_->Z_D_body_ << msg.x, msg.y, msg.z;
 }
+
+// Instead I just use accelerametre like a fliping G 
+void DockingFilterNode::imu_raw_callback(const sensor_msgs::Imu &msg){
+  docking_filter_->Z_D_body_ << -msg.linear_acceleration.x, -msg.linear_acceleration.y, -msg.linear_acceleration.z;
+  docking_filter_->Z_D_body_.normalize();
+}
+
 
 bool DockingFilterNode::reconfigureNumericSrv(farol_docking::SetGain::Request& req,
                                               farol_docking::SetGain::Response& res)
@@ -502,7 +512,7 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   Eigen::Vector3d position = state_.translation();
   Eigen::Quaterniond quaternion = state_.unit_quaternion();
   Eigen::Vector3d rpy = extractRPY(state_.so3());//.matrix().eulerAngles(0, 1, 2);
-  Eigen::Vector3d dframe_velocity = state_.so3().matrix().inverse() * dvl_velocity_;
+  Eigen::Vector3d dframe_velocity = state_.so3().matrix().inverse() * docking_filter_->dvl_corrected_.value;
   state_msg_.local_position.x = position[0];
   state_msg_.local_position.y = position[1];
   state_msg_.local_position.z = position[2];
@@ -516,9 +526,9 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   state_msg_.local_attitude.roll = 180/M_PI*rpy[0];
   state_msg_.local_attitude.pitch = 180/M_PI*rpy[1];
   state_msg_.local_attitude.yaw = 180/M_PI*rpy[2];
-  state_msg_.body_velocity.x = dvl_velocity_[0];
-  state_msg_.body_velocity.y = dvl_velocity_[1];
-  state_msg_.body_velocity.z = dvl_velocity_[2];
+  state_msg_.body_velocity.x = docking_filter_->dvl_corrected_.value[0];
+  state_msg_.body_velocity.y = docking_filter_->dvl_corrected_.value[1];
+  state_msg_.body_velocity.z = docking_filter_->dvl_corrected_.value[2];
   state_msg_.seafloor_velocity.x = dframe_velocity[0];
   state_msg_.seafloor_velocity.y = dframe_velocity[1];
   state_msg_.seafloor_velocity.z = dframe_velocity[2];
