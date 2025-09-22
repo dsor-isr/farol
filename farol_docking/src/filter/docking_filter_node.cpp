@@ -200,7 +200,6 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
       ROS_WARN_STREAM("Dropping AHRS measurements. Oh no, not good :(");
 
     ahrs_velocity_ << msg.value[3],msg.value[4],msg.value[5];
-    docking_filter_->terrain_normal_ = rpyToRot(msg.value[0],msg.value[1],msg.value[2]).transpose()*Eigen::Vector3d::UnitZ();
   } 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
