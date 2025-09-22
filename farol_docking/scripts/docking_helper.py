@@ -294,9 +294,9 @@ class DockingHelperNode():
         msg.local_position.x = rel_pose[0]
         msg.local_position.y = rel_pose[1]
         msg.local_position.z = rel_pose[2]
-        msg.local_attitude.roll = rel_pose[3]
-        msg.local_attitude.pitch = rel_pose[4]
-        msg.local_attitude.yaw = rel_pose[5]
+        msg.local_attitude.roll = rel_pose[3]* 180.0/np.pi
+        msg.local_attitude.pitch = rel_pose[4]* 180.0/np.pi
+        msg.local_attitude.yaw = rel_pose[5]* 180.0/np.pi
         # NEW: velocities (linear in m/s, angular in deg/s)
         msg.body_velocity.x = float(self.v_auv_world[0])
         msg.body_velocity.y = float(self.v_auv_world[1])

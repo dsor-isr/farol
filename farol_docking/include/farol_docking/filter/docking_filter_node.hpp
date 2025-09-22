@@ -47,7 +47,7 @@ struct UsblParams {
     double SB = 25.0 * M_PI/180.0;     // rad
     double SE = 15.0 * M_PI/180.0;     // rad
     // event probabilities (per sensor triplet)
-    double p_outlier = 0.1;
+    double p_outlier = 0.0000001;
     double p_dropout = 0.0000001;          
 };
 

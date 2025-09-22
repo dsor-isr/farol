@@ -12,11 +12,11 @@ DockingFilter::DockingFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodeh
   attitude_filter_ = std::make_unique<AttitudeFilter>(&nh_,&nh_private_);
 
   initialized_ = false;
-  usbl_pos_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 5);
-  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 5);
-  usbl_yaw_auv_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_yaw", "/usbl_yaw"), 5);
-  terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 5);
-  dvl_filt_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/dvl_filt", "/myellow0/docking/filter/debug/dvl_filt"), 5);
+  usbl_pos_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_dock", "/usbl_pos_dock"), 1);
+  usbl_pos_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_pos_auv", "/usbl_pos_auv"), 1);
+  usbl_yaw_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_yaw", "/usbl_yaw"), 1);
+  terrain_normal_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/terrain_normal", "/terrain_normal"), 1);
+  dvl_filt_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/dvl_filt", "/myellow0/docking/filter/debug/dvl_filt"), 1);
 
 
   // DVL mini-KF params (make these ROS params later)
@@ -123,10 +123,10 @@ void DockingFilter::measurement_handler(){
         // check that the measurements are  valid -> range is ok
         if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
           
-          // do math to extract the relative yaw
-          double r1 = -(meas.data.value.segment<3>(3)).dot((meas.data.value.segment<3>(0)));
-          double r2 = (meas.data.value.segment<3>(3)).cross((meas.data.value.segment<3>(0)))(2);
-          float_aux_msg_.data = std::atan2(r2, r1); usbl_yaw_auv_pub_.publish(float_aux_msg_);
+          // do math to extract the relative yaw assuming pitch=roll=0 (for debug only)
+          double r1 = -rbe_to_xyz(meas.data.value.segment<3>(3)).dot(rbe_to_xyz(meas.data.value.segment<3>(0)));
+          double r2 = rbe_to_xyz(meas.data.value.segment<3>(3)).cross(rbe_to_xyz(meas.data.value.segment<3>(0)))(2);
+          float_aux_msg_.data = std::atan2(r2, r1)*180.0/M_PI; usbl_yaw_pub_.publish(float_aux_msg_);
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
           if(!attitude_filter_->update(meas.data, terrain_normal_))
             ROS_WARN_STREAM("Update Failed on Docking Attitude Filter");
@@ -136,8 +136,6 @@ void DockingFilter::measurement_handler(){
           aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_dock_pub_.publish(aux_vector3_msg_);
-          // ROS_INFO_STREAM("DOCKING::aux_vec3_: "<< std::fixed << std::setprecision(6)<<ros::Time::now().toSec());
-
           aux_stamped_.value = aux_vec3_;
           aux_stamped_.stamp = meas.data.stamp;
           if(!position_filter_->update(aux_stamped_))
@@ -148,7 +146,6 @@ void DockingFilter::measurement_handler(){
           aux_vec3_ = dock_usbl_instalation_offset + aux_vec3_ - auv_usbl_instalation_offset; 
           aux_vector3_msg_.x = aux_vec3_[0]; aux_vector3_msg_.y = aux_vec3_[1]; aux_vector3_msg_.z = aux_vec3_[2];
           usbl_pos_auv_pub_.publish(aux_vector3_msg_);
-
           /* Uncomment to use these updates as well*/
           // aux_stamped_.value = aux_vec3_;
           // aux_stamped_.stamp = meas.data.stamp;
@@ -157,44 +154,34 @@ void DockingFilter::measurement_handler(){
         }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
-        // 1) Rotate raw DVL velocity into Dock frame
-        Stamped<Eigen::VectorXd> dvl_corrected;
-        dvl_corrected.value = attitude_filter_->state_.matrix() * meas.data.value;
-        dvl_corrected.stamp = meas.data.stamp;
 
-        // 2) Mini-KF step with χ² gating (DoF=3)
+        // Smooth and outlier rejction always runs but only commit if flag active
         Eigen::Vector3d v_smoothed;
-        if (!dvl_kf_.step(dvl_corrected, v_smoothed)) {
+        if (!dvl_kf_.step(meas.data, v_smoothed))
           ROS_WARN_STREAM("DVL mini-KF step failed (S not SPD or jitter applied).");
-          // fallback: use raw corrected velocity
-          v_smoothed = dvl_corrected.value;
-        }
         dvl_filt_pub_.publish(toMsg(v_smoothed));
 
+        // Rotate DVL velocity into Dock frame
+        Stamped<Eigen::VectorXd> dvl_corrected;
         if(dvl_outlier_rejection_){
-          dvl_corrected.value = v_smoothed;
+          dvl_corrected.value = attitude_filter_->state_.matrix()* v_smoothed;
+        }else{
+          dvl_corrected.value = attitude_filter_->state_.matrix() * meas.data.value;
         }
+        dvl_corrected.stamp = meas.data.stamp;
+
         if(!position_filter_->push_input_and_predict(dvl_corrected))
           ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
 
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
-        if(!attitude_filter_->predict(meas.data))
-          ROS_WARN_STREAM("Predict Failed on Docking Attitude Filter");
-        attitude_filter_->input_meas_buffer_.emplace_back(meas.data);
-
+          if(!attitude_filter_->push_input_and_predict(meas.data))
+            ROS_WARN_STREAM("Attitude push_input_and_predict failed");
       }else
         ROS_WARN_STREAM("Invalid measurement type in measurement handler");
       }
     }
   }
-}
-
-
-bool DockingFilter::predict(double time){
-  bool ok1 = attitude_filter_->predict(time);
-  bool ok2 = position_filter_->predict(time);
-  return ok1 && ok2;
 }
 
 
@@ -205,10 +192,10 @@ bool DockingFilter::predict(double time){
 
 PositionFilter::PositionFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
     : nh_(*nodehandle), nh_private_(*nodehandle_private){
-  outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_position", "/outlier_rejected_usbl_position"), 5);  
-  outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_position", "/outlier_test_value_position"), 5);  
-  r_scale_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/r_scale", "/r_scale"), 5);  
-  k_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/K", "/K"), 5);  
+  outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_position", "/outlier_rejected_usbl_position"), 1);  
+  outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_position", "/outlier_test_value_position"), 1);  
+  r_scale_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/r_scale", "/r_scale"), 1);  
+  k_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/K", "/K"), 1);  
   int8_aux_msg_.data = 1;
 }
 
@@ -216,56 +203,6 @@ void PositionFilter::initialize(Eigen::Vector3d measurement){
   state_ = measurement;
   state_cov_ = 0.05*measurement.norm()*Eigen::Matrix3d::Identity();  // (0.1*measurement.cwiseAbs()).asDiagonal();    // initial covariance is 10% of the initial measurement
   ROS_INFO_STREAM("Position Filter Initializing with:\nState:\n"<< state_ <<"\nCovariance:\n"<<state_cov_);
-}
-
-// TODO: make this using the proper integration method with the exponential 
-// Predict up until a certain measurement
-bool PositionFilter::predict(Stamped<Eigen::VectorXd> measurement){
-  if (!last_input_measurement_) {
-    last_input_measurement_ = measurement;
-    return false;
-  }
-  if(last_predict_time_<0){
-    last_predict_time_ = measurement.stamp;
-    return false;
-  }
-
-  // compute time that passed since last predict 
-  double Dt = measurement.stamp - last_predict_time_;
-  
-  // do the standard kalman filter predict for state and covariance
-  state_ = state_ + Dt*measurement.value;
-  state_cov_ = state_cov_ +  Dt*process_noise_;
-
-  // save the time of last update and the value of last measurement
-  last_input_measurement_ = measurement;
-  last_predict_time_ = measurement.stamp;
-
-  return true;
-}
-
-// predict up until a certain time
-bool PositionFilter::predict(double time){
-  if (!last_input_measurement_) {
-    return false;
-  }
-  if(last_predict_time_<0){
-    return false;
-  }
-
-  // if too much time without measurments just stop updating 
-  if(time -last_input_measurement_->stamp > 20)
-    return false;
-
-  // compute time since last was an update
-  double Dt = time - last_predict_time_;
-  // do the standard kalman filter predict for state and covariance
-  state_ = state_ + Dt*last_input_measurement_->value;
-  state_cov_ = state_cov_ +  Dt*process_noise_;
-
-  last_predict_time_=time;
-
-  return true;
 }
 
 
@@ -282,7 +219,6 @@ bool PositionFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas
     state_     = state_ + Dt * meas.value;
     state_cov_ = state_cov_ + Dt * process_noise_;
   }
-  last_input_measurement_ = meas;
   last_predict_time_      = meas.stamp;
 
   // Always push the input into the 2 s window
@@ -473,151 +409,177 @@ bool PositionFilter::integrate_to(double t_target,Eigen::Vector3d& x,Eigen::Matr
 AttitudeFilter::AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private)
     : nh_(*nodehandle), nh_private_(*nodehandle_private){
 
-  v1_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_B", "/v1_B"), 5);
-  v1_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_D", "/v1_D"), 5);
-  v2_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_B", "/v2_B"), 5);
-  v2_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_D", "/v2_D"), 5);
-  outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_attitude", "/outlier_rejected_usbl_attitude"), 5);  
-  outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_attitude", "/outlier_test_value_attitude"), 5);  
+  v1_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_B", "/v1_B"), 1);
+  v1_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v1_D", "/v1_D"), 1);
+  v2_B_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_B", "/v2_B"), 1);
+  v2_D_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/v2_D", "/v2_D"), 1);
+  outlier_rejected_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_rejected_usbl_attitude", "/outlier_rejected_usbl_attitude"), 1);  
+  outlier_test_value_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/outlier_test_value_attitude", "/outlier_test_value_attitude"), 1);  
   int8_aux_msg_.data = 1;
 }
 
 void AttitudeFilter::initialize(Sophus::SO3d measurement){
   state_ = measurement;
-  // // initial covariance is 10% of the initial measurement
-  // Eigen::Vector3d variance = 0.1*measurement.log();
-  // state_cov_ = variance.asDiagonal();
 }
 
-
-
-bool AttitudeFilter::predict(Stamped<Eigen::VectorXd> measurement){
-  if (!last_input_measurement_) {
-    last_input_measurement_ = measurement;
-    return false;
-  }
-  if(last_predict_time_<0){
-    last_predict_time_ = measurement.stamp;
-    return false;
+bool AttitudeFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas)
+{
+  // meas.value is ω (3x1), meas.stamp is time
+  double Dt = 0.0;
+  if (last_predict_time_ >= 0.0) {
+    Dt = meas.stamp - last_predict_time_;
+    if (Dt < 0.0) Dt = 0.0; // guard
   }
 
+  // Predict the "present" state forward to this measurement time
+  if (Dt > 0.0) {
+    state_ = state_ * Sophus::SO3d::exp(Dt * (meas.value - b_hat_));
+  }
+  last_predict_time_      = meas.stamp;
 
-  // compute time that passed since last predict 
-  double Dt = measurement.stamp - last_predict_time_;
-  
-  // simple complementary filter in SO3
-  state_ = state_ * Sophus::SO3d::exp(Dt*(measurement.value - b_hat_));
+  // Push into 2 s window
+  buf_.push_back(GyroInput{meas.stamp, meas.value});
 
-  // save the time of last update and the value of last measurement
-  last_input_measurement_ = measurement;
-  last_predict_time_ = measurement.stamp;
+  // Initialize snapshot the first time
+  if (snap_time_ < 0.0) {
+    snap_time_ = meas.stamp;
+    snap_R_    = state_;     // snapshot attitude equals current predicted
+    snap_b_    = b_hat_;     // snapshot bias equals current bias
+  }
+
+  // Trim window to keep only last 2 s, advancing the snapshot to the new front
+  const double cutoff = buf_.back().stamp - window_sec_;
+
+  // pop full segments strictly before cutoff
+  while (buf_.size() >= 2 && buf_.front().stamp < cutoff && buf_[1].stamp <= cutoff) {
+    double dt = buf_[1].stamp - buf_.front().stamp;
+    if (dt > 0.0) {
+      snap_R_   = snap_R_ * Sophus::SO3d::exp(dt * (buf_.front().w - snap_b_));
+      snap_time_ += dt;
+    }
+    buf_.pop_front();
+  }
+  // partial segment crossing cutoff
+  if (buf_.size() >= 2 && buf_.front().stamp < cutoff && buf_[1].stamp > cutoff) {
+    double dt = cutoff - buf_.front().stamp;
+    if (dt > 0.0) {
+      snap_R_   = snap_R_ * Sophus::SO3d::exp(dt * (buf_.front().w - snap_b_));
+      snap_time_ += dt;
+    }
+    buf_.front().stamp = cutoff; // keep the remainder
+  }
+
   return true;
 }
-bool AttitudeFilter::predict(double time){
-  if (!last_input_measurement_) {
-    return false;
+
+bool AttitudeFilter::integrate_to(double t_target,
+                                  Sophus::SO3d& R,
+                                  int& j,
+                                  double& t,
+                                  const Eigen::Vector3d& b) // bias to use during replay
+{
+  if (buf_.empty() || t_target < t) return false;
+
+  const int n = static_cast<int>(buf_.size());
+  // ensure j indexes the active segment for time t
+  while (j + 1 < n && buf_[j+1].stamp <= t) ++j;
+
+  auto seg_w   = [&](int k) -> const Eigen::Vector3d& { return buf_[k].w; };
+  auto seg_end = [&](int k) -> double {
+    return (k + 1 < n) ? buf_[k+1].stamp : buf_.back().stamp;
+  };
+
+  const double eps = 1e-12;
+  while (t < t_target - eps && j < n) {
+    double end = seg_end(j);
+    double dt  = std::min(end, t_target) - t;
+    if (dt > eps) {
+      R = R * Sophus::SO3d::exp(dt * (seg_w(j) - b));
+      t += dt;
+    }
+    if (j + 1 < n && std::abs(t - end) <= eps) {
+      ++j;
+    } else break;
   }
-
-  if(last_predict_time_<0){
-    return false;
-  }
-
-  // if too much time without measurments just stop updating 
-  if(time -last_input_measurement_->stamp > 20)
-    return false;
-
-  // compute time since last was an update
-  double Dt = time - last_predict_time_;
-
-  // do the standard kalman filter predict for state and covariance
-  state_ = state_ * Sophus::SO3d::exp(Dt*(last_input_measurement_->value - b_hat_));
-
-  last_predict_time_=time;
   return true;
 }
 
 
-bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body) {
-  state_ = state_at_last_update_;
-  double Dt; 
-  double time = time_at_last_update_;
-  double time_to_update = measurement.stamp - update_delay_;
-  int pop_count=0;
-  Stamped<Eigen::VectorXd> aux;
-  
-  // Advance state until correct time to do the update at
-  if(!input_meas_buffer_.empty())
-    aux = input_meas_buffer_.front();
-  while(!input_meas_buffer_.empty() && aux.stamp<time_to_update){
-    Dt = aux.stamp-time;
-    state_ = state_ * Sophus::SO3d::exp(Dt*(aux.value - b_hat_));
-    time = aux.stamp;
-    input_meas_buffer_.pop_front();
-    pop_count++;
+bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body)
+{
+  if (buf_.empty() || snap_time_ < 0.0) return false;
 
-    if(!input_meas_buffer_.empty())
-      aux = input_meas_buffer_.front();
+  // Time bookkeeping
+  const double t_u   = measurement.stamp - update_delay_;   // when this measurement "belongs"
+  const double t_now = buf_.back().stamp;
+  if (t_u < snap_time_) {
+    ROS_WARN("Attitude USBL older than 2 s window; dropping.");
+    return false;
+  }
+  const double t_eff = std::min(t_u, t_now);
+
+  // Start from the snapshot and replay to t_eff
+  Sophus::SO3d R = snap_R_;
+  Eigen::Vector3d b = snap_b_;
+  double t = snap_time_;
+  int j = 0;
+  while (j + 1 < (int)buf_.size() && buf_[j+1].stamp <= t) ++j;
+  integrate_to(t_eff, R, j, t, b);
+
+  // ---------- Mahony correction AT t_eff (your existing gating logic) ----------
+  // Build v's
+  Eigen::Vector3d v1_B = (-1.0 * be_to_xyz(measurement.value[1], measurement.value[2])).normalized();
+  Eigen::Vector3d v1_D = (      be_to_xyz(measurement.value[4], measurement.value[5])).normalized();
+  Eigen::Vector3d v2_B = terrain_normal_body.normalized();
+  Eigen::Vector3d v2_D = Eigen::Vector3d::UnitZ();
+
+  v1_B_pub_.publish(toMsg(v1_B)); v1_D_pub_.publish(toMsg(v1_D));
+  v2_B_pub_.publish(toMsg(v2_B)); v2_D_pub_.publish(toMsg(v2_D));
+
+  Eigen::Vector3d omega_mes = Eigen::Vector3d::Zero();
+
+  // v2 (terrain) always contributes
+  omega_mes += k2_ * (v2_B.cross((R.matrix().transpose() * v2_D).normalized()));
+
+  // v1 (LOS) — χ² gate on S² (unchanged)
+  const double sigma_v1 = 0.05; // rad
+  const Eigen::Matrix3d Sigma_v1 = (sigma_v1*sigma_v1) * Eigen::Matrix3d::Identity();
+  double test = gate_LOS_on_S2(v1_B, v1_D, R, Sigma_v1);
+  float64_aux_msg_.data = test; outlier_test_value_pub_.publish(float64_aux_msg_);
+  if (usbl_outlier_rejection_ && test > outlier_threshold_) {
+    outlier_rejected_pub_.publish(int8_aux_msg_);
+    ROS_WARN_STREAM("[Attitude] LOS outlier rejected, test="<<test);
+    // Even if LOS was rejected, terrain term might be nonzero; if it is ~0, skip.
+    if (omega_mes.isZero(1e-12)) return false;
+  } else {
+    omega_mes += k1_ * (v1_B.cross((R.matrix().transpose() * v1_D).normalized()));
   }
 
+  // If still very small, skip update
+  if (omega_mes.isZero(1e-12)) return false;
 
-  /* ----------------------   Perform the update at this time      -------------------------- */
+  // Save pre-update at t_eff
+  Sophus::SO3d R_pre = R;
+  Eigen::Vector3d b_pre = b;
 
-    // If you don’t have detailed covariances, start isotropic (≈ 3° for LOS)
-    const double sigma_v1 = 0.05;  // radians
-    const Eigen::Matrix3d Sigma_v1 = (sigma_v1 * sigma_v1) * Eigen::Matrix3d::Identity();
+  // Apply Mahony correction (right-invariant on SO(3))
+  R = R * Sophus::SO3d::exp(kp_ * omega_mes);
+  b = b - ki_ * omega_mes;
 
-    // Compute the vector directions used for the update
-    Eigen::Vector3d v1_B = -1.0 * be_to_xyz(measurement.value[1], measurement.value[2]).normalized();
-    Eigen::Vector3d v1_D =        be_to_xyz(measurement.value[4], measurement.value[5]).normalized();
-    Eigen::Vector3d v2_B = terrain_normal_body.normalized();      // terrain normal in body
-    Eigen::Vector3d v2_D = Eigen::Vector3d::UnitZ();              // dock Z
+  // ---------- Fold the correction back into the snapshot ----------
+  // dR maps snapshot attitude to the corrected attitude at t_eff
+  Sophus::SO3d dR = R * R_pre.inverse();
+  Eigen::Vector3d db = b - b_pre;
 
-    // publish for debugging purposes (unchanged)
-    v1_B_pub_.publish(toMsg(v1_B)); v1_D_pub_.publish(toMsg(v1_D));
-    v2_B_pub_.publish(toMsg(v2_B)); v2_D_pub_.publish(toMsg(v2_D));
+  snap_R_ = dR * snap_R_;  // left-multiply snapshot so future replays include the correction
+  snap_b_ += db;           // keep snapshot bias consistent
 
-    // correction term (v2 always contributes; v1 only if it passes the gate)
-    Eigen::Vector3d omega_mes = Eigen::Vector3d::Zero();
+  // ---------- Replay from t_eff to present with the (possibly updated) bias ----------
+  integrate_to(t_now, R, j, t, b);
 
-    // v2 (terrain normal) — no gating
-    omega_mes += k2_ * (v2_B.cross((state_.matrix().transpose() * v2_D).normalized()));
-
-    // v1 (LOS) — χ² gate on S²
-    double test = gate_LOS_on_S2(v1_B, v1_D, state_, Sigma_v1);
-    float64_aux_msg_.data = test; outlier_test_value_pub_.publish(float64_aux_msg_);
-    if (usbl_outlier_rejection_ && float64_aux_msg_.data > outlier_threshold_) {
-      outlier_rejected_pub_.publish(int8_aux_msg_);
-      ROS_WARN_STREAM("[Attitude] Outlier rejected with test value = "<<float64_aux_msg_.data);
-    } else {
-      omega_mes += k1_ * (v1_B.cross((state_.matrix().transpose() * v1_D).normalized()));
-    }
-
-    // if both got rejected (unlikely here, since v2 always contributes), omega_mes can be small
-    if (omega_mes.isZero(1e-12)) {
-      return false;  // skip update
-    }
-
-    // update state
-    state_ = state_ * Sophus::SO3d::exp(kp_ * omega_mes);
-
-    // estimate bias if Ki is not 0
-    b_hat_ -= ki_ * omega_mes;
-  /* ------------------------------------------------------------------------------------- */
-
-  // Advance state until current time
-  while(!input_meas_buffer_.empty()){
-    Dt = aux.stamp-time;
-    state_ = state_ * Sophus::SO3d::exp(Dt*(aux.value - b_hat_));
-    time = aux.stamp;
-    input_meas_buffer_.pop_front();
-    pop_count++;
-    if(!input_meas_buffer_.empty())
-      aux = input_meas_buffer_.front();
-  }
-
-  // save current state and current time
-  state_at_last_update_ = state_;
-  time_at_last_update_ = time;
+  // Commit present
+  state_ = R;
+  b_hat_ = b;
 
   return true;
 }

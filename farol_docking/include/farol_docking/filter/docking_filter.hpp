@@ -185,112 +185,127 @@ class PositionFilter{
  * @note bitches
  */
 class AttitudeFilter{
-    public:
-        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+	public:
 
-        /**
-         * @brief  Contructor Attitude Filter
-         */
-        AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
-
-
-        /**
-         * @brief  Desctructor Attitude Filter
-         */
-        virtual ~AttitudeFilter() = default;
-
-        /**
-         * @brief  Reset the filter
-         */
-        void reset();
-        
-        /**
-         * @brief  initialize the filter with an initial measurement
-         */
-        void initialize(Sophus::SO3d initial_measurement);
-
-        /**
-         * @brief   Predict the state evolution based on the process 
-         *          modeln and velocity measurements
-         */
-        void add_input_measurement(Stamped<Eigen::Vector3d> input_measurement);
-
-        /**
-         * @brief   Predict the state evolution based on the process 
-         *          modeln and velocity measurements
-         */
-        bool predict(Stamped<Eigen::VectorXd> measurement);
-        bool predict(double time);
-
-        /**
-         * @brief  Correct state estimate with a new position measurement
-         */
-        bool update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body);
-
-        // ROS stuff
-        ros::NodeHandle nh_, nh_private_;
-        ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_;
-        geometry_msgs::Vector3 aux_vector3_msg_;
-        Eigen::Vector3d aux_vec3_;
-        
-        ros::Publisher  outlier_rejected_pub_, outlier_test_value_pub_;
-        std_msgs::Int8 int8_aux_msg_;
-        std_msgs::Float64 float64_aux_msg_;
+		/**
+		 * @brief  Contructor Attitude Filter
+		 */
+		AttitudeFilter(ros::NodeHandle* nodehandle, ros::NodeHandle* nodehandle_private);
 
 
-  
-        // Kalman Filter variables
-        Sophus::SO3d state_;
-        Eigen::Matrix3d state_cov_;
-        Sophus::SO3d initial_state_;
+		/**
+		 * @brief  Desctructor Attitude Filter
+		 */
+		virtual ~AttitudeFilter() = default;
 
-        Eigen::Vector3d b_hat_;
-        
-        // Estimator gains
-        double k1_, k2_, kp_, ki_;
-        
-        Eigen::Vector3d innovation_vector_;
-        Eigen::Matrix3d innovation_matrix_;
+		/**
+		 * @brief  Reset the filter
+		 */
+		void reset();
+		
+		/**
+		 * @brief  initialize the filter with an initial measurement
+		 */
+		void initialize(Sophus::SO3d initial_measurement);
 
-        double mahalanobis_distance_;
-        
-        // shit for the retroactive update
-        Sophus::SO3d state_at_last_update_;
-        double time_at_last_update_;
-        double update_delay_;
-        std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
-        
-        // some other shit idk man 
-        std::optional<Stamped<Eigen::VectorXd>> last_input_measurement_;
-        double last_predict_time_{-1.0};
-        
+		/**
+		 * @brief   Predict the state evolution based on the process 
+		 *          modeln and velocity measurements
+		 */
+		void add_input_measurement(Stamped<Eigen::Vector3d> input_measurement);
 
-        bool usbl_outlier_rejection_{false};
-        double outlier_threshold_;
-        inline Eigen::Matrix3d projectorOnTangent(const Eigen::Vector3d& u_hat_unit) {
-            return Eigen::Matrix3d::Identity() - u_hat_unit * u_hat_unit.transpose();
-        }
-        inline Eigen::Matrix3d pseudoInverseSym(const Eigen::Matrix3d& A, double eps = 1e-9) {
-            Eigen::JacobiSVD<Eigen::Matrix3d> svd(A, Eigen::ComputeFullU | Eigen::ComputeFullV);
-            Eigen::Vector3d s = svd.singularValues(), s_inv = Eigen::Vector3d::Zero();
-            for (int i = 0; i < 3; ++i) if (s[i] > eps) s_inv[i] = 1.0 / s[i];
-            return svd.matrixV() * s_inv.asDiagonal() * svd.matrixU().transpose();
-        }
-        inline double gate_LOS_on_S2(const Eigen::Vector3d& u_B_raw,
-                                    const Eigen::Vector3d& u_D_raw,
-                                    const Sophus::SO3d& R_BD,
-                                    const Eigen::Matrix3d& Sigma_u) {
-            const Eigen::Vector3d u_B  = u_B_raw.normalized();
-            const Eigen::Vector3d u_D  = u_D_raw.normalized();
-            const Eigen::Vector3d uhat = (R_BD.matrix().transpose() * u_D).normalized();
-            const Eigen::Matrix3d Pi   = projectorOnTangent(uhat);
-            const Eigen::Vector3d r    = Pi * (u_B - uhat);
-            const Eigen::Matrix3d S    = Pi * Sigma_u * Pi;        // rank-2
-            const double gamma         = r.transpose() * pseudoInverseSym(S) * r;
-            return gamma;
-        }
+		/**
+		 * @brief   Predict the state evolution based on the process 
+		 *          modeln and velocity measurements
+		 */
+		bool predict(Stamped<Eigen::VectorXd> measurement);
+		bool predict(double time);
 
-    private:
+		/**
+		 * @brief  Correct state estimate with a new position measurement
+		 */
+		bool update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body);
+
+		// ROS stuff
+		ros::NodeHandle nh_, nh_private_;
+		ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_;
+		geometry_msgs::Vector3 aux_vector3_msg_;
+		Eigen::Vector3d aux_vec3_;
+		
+		ros::Publisher  outlier_rejected_pub_, outlier_test_value_pub_;
+		std_msgs::Int8 int8_aux_msg_;
+		std_msgs::Float64 float64_aux_msg_;
+
+
+
+		// Kalman Filter variables
+		Sophus::SO3d state_;
+		Eigen::Matrix3d state_cov_;
+		Sophus::SO3d initial_state_;
+
+		Eigen::Vector3d b_hat_;
+		
+		// Estimator gains
+		double k1_, k2_, kp_, ki_;
+		
+		Eigen::Vector3d innovation_vector_;
+		Eigen::Matrix3d innovation_matrix_;
+
+		double mahalanobis_distance_;
+		
+		// shit for the retroactive update
+		Sophus::SO3d state_at_last_update_;
+		double time_at_last_update_;
+		double update_delay_;
+		std::deque<Stamped<Eigen::VectorXd>> input_meas_buffer_;
+		
+		// some other shit idk man 
+		bool usbl_outlier_rejection_{false};
+		double outlier_threshold_;
+		inline Eigen::Matrix3d projectorOnTangent(const Eigen::Vector3d& u_hat_unit) {
+				return Eigen::Matrix3d::Identity() - u_hat_unit * u_hat_unit.transpose();
+		}
+		inline Eigen::Matrix3d pseudoInverseSym(const Eigen::Matrix3d& A, double eps = 1e-9) {
+				Eigen::JacobiSVD<Eigen::Matrix3d> svd(A, Eigen::ComputeFullU | Eigen::ComputeFullV);
+				Eigen::Vector3d s = svd.singularValues(), s_inv = Eigen::Vector3d::Zero();
+				for (int i = 0; i < 3; ++i) if (s[i] > eps) s_inv[i] = 1.0 / s[i];
+				return svd.matrixV() * s_inv.asDiagonal() * svd.matrixU().transpose();
+		}
+		inline double gate_LOS_on_S2(const Eigen::Vector3d& u_B_raw,
+																const Eigen::Vector3d& u_D_raw,
+																const Sophus::SO3d& R_BD,
+																const Eigen::Matrix3d& Sigma_u) {
+				const Eigen::Vector3d u_B  = u_B_raw.normalized();
+				const Eigen::Vector3d u_D  = u_D_raw.normalized();
+				const Eigen::Vector3d uhat = (R_BD.matrix().transpose() * u_D).normalized();
+				const Eigen::Matrix3d Pi   = projectorOnTangent(uhat);
+				const Eigen::Vector3d r    = Pi * (u_B - uhat);
+				const Eigen::Matrix3d S    = Pi * Sigma_u * Pi;        // rank-2
+				const double gamma         = r.transpose() * pseudoInverseSym(S) * r;
+				return gamma;
+		}
+
+		bool push_input_and_predict(const Stamped<Eigen::VectorXd>& meas);
+		bool integrate_to(double t_target, Sophus::SO3d& R, int& j, double& t, const Eigen::Vector3d& b);
+
+  private:
+		// ===== 2 s rolling window over gyro (AHRS rates) =====
+		struct GyroInput {
+			double stamp;
+			Eigen::Vector3d w;  // body rates [rad/s]
+		};
+		std::deque<GyroInput> buf_;
+		double window_sec_   = 2.0;
+
+		// Snapshot (state at window start)
+		double      snap_time_ = -1.0;
+		Sophus::SO3d snap_R_;         // attitude at snap_time_
+		Eigen::Vector3d snap_b_ = Eigen::Vector3d::Zero(); // bias at snap_time_
+
+		// Bookkeeping for "present" prediction (optional but handy)
+		double last_predict_time_ = -1.0;
+		
+
 };
 
 
@@ -369,7 +384,7 @@ class DockingFilter{
 
 		// ROS stuff
 		ros::NodeHandle nh_, nh_private_;
-		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_,usbl_yaw_auv_pub_, terrain_normal_pub_, dvl_filt_pub_;
+		ros::Publisher usbl_pos_dock_pub_, usbl_pos_auv_pub_,usbl_yaw_pub_, terrain_normal_pub_, dvl_filt_pub_;
 		geometry_msgs::Vector3 aux_vector3_msg_;
 		Eigen::Vector3d aux_vec3_;
 		std_msgs::Float64 float_aux_msg_;
