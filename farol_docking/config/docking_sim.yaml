@@ -14,9 +14,9 @@ filter:
 
   position:
     process_noise: 0.01
-    measurement_noise: 0.2
-    outlier_threshold: 4.61 # Choose a gate (3 DoF): 90% -> 4.61 95% -> 7.815, 99% -> 11.345
-    update_delay: 1.8  # time in seconds, before all angles are received, when the update should be done
+    measurement_noise: 0.01
+    outlier_threshold: 4.0 # Choose a gate (3 DoF): 90% -> 4.61 95% -> 7.815, 99% -> 11.345
+    update_delay: 2.1 #1.8  # time in seconds, before all angles are received, when the update should be done
 
   attitude:
     gains:
@@ -24,10 +24,10 @@ filter:
       k2: 0.4
       kp: 0.8
       ki: 0
-    outlier_threshold: 4.61
-    update_delay: 0.9     # time in seconds, before all angles are received, when the update should be done
+    outlier_threshold: 6.0
+    update_delay: 1.0 #0.9     # time in seconds, before all angles are received, when the update should be done
 
-  realistify: false
+  realistify: true
 
 ###############################
 # DOCKING OUTER LOOP STATE MACHINE
@@ -44,13 +44,14 @@ outer_loop:
   safe_depth_aproach: 1
   aproach_dist: 5.0
 
-  terminal_dist: 0.2    # distance [m] to ignore filter
+  terminal_dist: 1.0    # distance [m] to ignore filter
+  terminal_thrust: 1.5    # distance [m] to ignore filter
   acomms_timeout: 20    # time [s] after which returns to "search_acomms"
   acomms_n_min_fix: 3   # idk to be fair
   acomms_search_radius: 10  # radius around the docking station to seach for acomms
 
   ## Trajectory parameters
-  homing_dist: 3.0        # distance [m] along the x-axis where to place homin point
+  homing_dist: 2.5        # distance [m] along the x-axis where to place homin point
   u_terminal: 0.05      # terminal velocity
   v_max_u: 0.1  # [m/s]
   v_max_v: 0.1  # [m/s]

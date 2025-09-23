@@ -56,32 +56,20 @@ void DockingFilter::configure(std::string type, double noise){
 }
 
 void DockingFilter::initialize(double stamp){
-  // do the median to account for possible outliers
+  // Compute the median to account for possible outliers
   Sophus::Vector6d median_meas = median(initializer_buffer_);
   
-  // Separate measurements and convert to xyz vectors
-  Eigen::Vector3d xyz_auv = rbe_to_xyz(median_meas.segment<3>(0));
-  Eigen::Vector3d xyz_dock = rbe_to_xyz(median_meas.segment<3>(3));
-  
+  // Initialize Mahony with yaw correspondent to pitch = roll = 0 which can be computed a priori
   // do math to extract the relative yaw
-  double r1 = -xyz_dock.dot(xyz_auv);
-  double r2 = xyz_dock.cross(xyz_auv)(2);
-  // Yaw = atan(r2, r1) [from the slides]
-  double yaw = std::atan2(r2, r1);
+  double yaw =0;
+  if (auto _yaw = yaw_from_two_usbl_rbe(median_meas.segment<3>(0), median_meas.segment<3>(3))){yaw = _yaw.value();}
   Sophus::SO3d R((Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ())).toRotationMatrix());
-  
-  // average the two usbl relative positions (rotating the auv one to the D frame first) and initialize
-  position_filter_->initialize(xyz_dock);
-  position_filter_->state_at_last_update_ = xyz_dock;
-  position_filter_->state_cov_at_last_update_ = position_filter_->state_cov_;
-  position_filter_->time_at_last_update_ = stamp;
-
-
-  // initialize attitude filter with the rotation arround yaw
   attitude_filter_->initialize(R);
-  attitude_filter_->state_at_last_update_ = R;
-  attitude_filter_->time_at_last_update_ = stamp;
 
+  // Initialize EKF with dock angles and average of ranges
+  // Separate measurements and convert to xyz vectors
+  median_meas[3] = (median_meas[0] + median_meas[3])/2;
+  position_filter_->initialize(rbe_to_xyz(median_meas.segment<3>(3)));
 
   initializer_buffer_.clear();
   initialized_=true;
@@ -299,7 +287,7 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   const Eigen::Vector3d x_pre = x;
   const Eigen::Matrix3d P_pre = P;
 
-  // ------------------- USBL update with robust χ² gate (no adaptation) -----
+  // ------------------- USBL update -----------------------------------------
   const Eigen::Vector3d nu = measurement.value - x;
 
   // 1) Build a *stable* S just for gating.
@@ -312,19 +300,18 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   Eigen::LLT<Eigen::Matrix3d> llt_gate(S_gate);
   if (llt_gate.info() != Eigen::Success) { ROS_WARN("S_gate not SPD"); return false; }
 
+  // Compute Normalized Inovation Squared
   double nis = nu.dot( llt_gate.solve(nu) );
   float64_aux_msg_.data = nis; outlier_test_value_pub_.publish(float64_aux_msg_);
-
-  // 2) Hard χ² gate (DoF=3): pick your level
-  //    95%: 7.815  | 97.5%: 9.348  | 99%: 11.345  | 99.9%: 16.27
-  const double gate = hard_gate_;  // e.g., 11.345 or 16.27
-  if (usbl_outlier_rejection_ && nis > gate) {
+  // Gate test on NIS with threshold
+  if (usbl_outlier_rejection_ && outlier_reject_cnt_<outlier_reject_max_ && nis > outlier_threshold_) {
     outlier_rejected_pub_.publish(int8_aux_msg_);
-    ROS_WARN_STREAM("[Position] Outlier rejected, NIS=" << nis << " > " << gate);
+    ROS_WARN_STREAM("[Position] Outlier rejected, NIS=" << nis << " > " << outlier_threshold_);
+    outlier_reject_cnt_++;
     return false;
   }
-
-  // 3) Accepted -> normal KF with the same (non-faded) S_upd = P + R0_
+  outlier_reject_cnt_=0;
+  // Proceed with outlier computations
   Eigen::Matrix3d S_upd = P + R0_;
   Eigen::LLT<Eigen::Matrix3d> llt_upd(S_upd);
   if (llt_upd.info() != Eigen::Success) { ROS_WARN("S_upd not SPD"); return false; }
@@ -332,18 +319,19 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
   Eigen::Matrix3d K = P * llt_upd.solve(Eigen::Matrix3d::Identity());
   k_pub_.publish(toMsg(K.diagonal()));
   
-  Eigen::Vector3d dx = K * nu;      // <-- compute update increment explicitly
+  Eigen::Vector3d dx = K * nu;      
   x = x + dx;
 
   const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
   P = (I - K) * P * (I - K).transpose() + K * R0_ * K.transpose();
   P.diagonal() = P.diagonal().cwiseMax(Eigen::Vector3d::Constant(p_floor_));
 
-  // ====== NEW: fold the update back into the snapshot ======
+  // Fold the update back into the 2s-snapshot 
   const Eigen::Matrix3d dP = P - P_pre;
   const Eigen::Vector3d dX = x - x_pre;
   snap_x_ += dX;
   snap_P_ += dP;
+
   // ------------------- end of update block ----------------------------------
 
   // replay from t_eff to present
@@ -377,20 +365,18 @@ bool PositionFilter::integrate_to(double t_target,Eigen::Vector3d& x,Eigen::Matr
     // advance up to either segment end or target
     double dt = std::min(end, t_target) - t;
     if (dt > eps) {
-    x += dt * seg_u(j);
-    P += dt * process_noise_;
-    // If you carry DVL velocity covariance per segment, add it here:
-    // P += (dt*dt) * buf_[j].Pv;
-    t += dt;
+      x += dt * seg_u(j);
+      P += dt * process_noise_;
+      // If you carry DVL velocity covariance per segment, add it here:
+      // P += (dt*dt) * buf_[j].Pv;
+      t += dt;
     }
 
     // If we exactly hit the segment end, move to the next segment
     if (j + 1 < n && std::abs(t - end) <= eps) {
-    ++j;
-    // continue with next segment's u
+      ++j;    // continue with next segment's u
     } else {
-    // we're at t_target or at the end of the last segment
-    break;
+      break;  // we're at t_target or at the end of the last segment
     }
   }
   return true;
@@ -547,15 +533,17 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
   const Eigen::Matrix3d Sigma_v1 = (sigma_v1*sigma_v1) * Eigen::Matrix3d::Identity();
   double test = gate_LOS_on_S2(v1_B, v1_D, R, Sigma_v1);
   float64_aux_msg_.data = test; outlier_test_value_pub_.publish(float64_aux_msg_);
-  if (usbl_outlier_rejection_ && test > outlier_threshold_) {
+  if (usbl_outlier_rejection_ && outlier_reject_cnt_<outlier_reject_max_ && test > outlier_threshold_) {
     outlier_rejected_pub_.publish(int8_aux_msg_);
     ROS_WARN_STREAM("[Attitude] LOS outlier rejected, test="<<test);
+    outlier_reject_cnt_++;
     // Even if LOS was rejected, terrain term might be nonzero; if it is ~0, skip.
     if (omega_mes.isZero(1e-12)) return false;
   } else {
     Eigen::Vector3d omega1 = k1_ * (v1_B.cross((R.matrix().transpose() * v1_D).normalized()));
     omega_1_pub_.publish(toMsg(omega1));
     omega_mes += omega1;
+    outlier_reject_cnt_=0;
   }
 
   // If still very small, skip update

@@ -134,6 +134,8 @@ class PositionFilter{
 		
 		bool usbl_outlier_rejection_{false};
 		double outlier_threshold_;
+		int outlier_reject_cnt_{0};
+		int outlier_reject_max_{5};
 		// --- Adaptive-R state (initialized in constructor) ---
 		Eigen::Matrix3d R0_ = Eigen::Matrix3d::Identity();  // nominal measurement covariance (m^2)
 		double r_scale_     = 1.0;     // adaptive scalar: R = r_scale_ * R0_
@@ -157,7 +159,7 @@ class PositionFilter{
 			Eigen::Vector3d u;
 		};
 		std::deque<Input> buf_;          // last ~2 s of inputs
-		double window_sec_{2.0};         // keep a little margin
+		double window_sec_{2.5};         // keep a little margin
 
 		// Sliding “front-of-window” snapshot (state at buf_.front().stamp)
 		double snap_time_{-1.0};
@@ -262,6 +264,8 @@ class AttitudeFilter{
 		// some other shit idk man 
 		bool usbl_outlier_rejection_{false};
 		double outlier_threshold_;
+		int outlier_reject_cnt_{0};
+		int outlier_reject_max_{5};
 		inline Eigen::Matrix3d projectorOnTangent(const Eigen::Vector3d& u_hat_unit) {
 				return Eigen::Matrix3d::Identity() - u_hat_unit * u_hat_unit.transpose();
 		}
@@ -295,7 +299,7 @@ class AttitudeFilter{
 			Eigen::Vector3d w;  // body rates [rad/s]
 		};
 		std::deque<GyroInput> buf_;
-		double window_sec_   = 2.0;
+		double window_sec_{2.5};
 
 		// Snapshot (state at window start)
 		double      snap_time_ = -1.0;

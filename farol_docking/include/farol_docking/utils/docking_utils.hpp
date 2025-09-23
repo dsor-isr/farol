@@ -175,13 +175,6 @@ inline Eigen::Matrix3d rpyToRot(double roll, double pitch, double yaw)
 
 inline std::optional<double> yaw_from_two_usbl_rbe(const Eigen::Vector3d& rbe_B, const Eigen::Vector3d& rbe_D)
 {
-  auto rbe_to_xyz = [](const Eigen::Vector3d& rbe)->Eigen::Vector3d{
-    const double r = rbe[0], b = rbe[1], e = rbe[2];
-    const double ce = std::cos(e), se = std::sin(e);
-    const double cb = std::cos(b), sb = std::sin(b);
-    return Eigen::Vector3d(r*ce*cb, r*ce*sb, r*se);
-  };
-
   const Eigen::Vector2d pB = rbe_to_xyz(rbe_B).head<2>();
   const Eigen::Vector2d pD = rbe_to_xyz(rbe_D).head<2>();
   const double nB = pB.norm(), nD = pD.norm();
