@@ -224,7 +224,7 @@ class AttitudeFilter{
 		/**
 		 * @brief  Correct state estimate with a new position measurement
 		 */
-		bool update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body);
+		bool update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d Z_D_in_B);
 
 		// ROS stuff
 		ros::NodeHandle nh_, nh_private_;

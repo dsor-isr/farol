@@ -120,6 +120,8 @@ void DockingFilter::measurement_handler(){
       }else{
       // filter is already initialized -> normally process incoming messages
       if(meas.type=="usbl" && meas.data.value.size() == 6){
+        ROS_INFO_STREAM("test1");
+        
         // check that the measurements are  valid -> range is ok
         if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
           
@@ -128,8 +130,11 @@ void DockingFilter::measurement_handler(){
           double r2 = rbe_to_xyz(meas.data.value.segment<3>(3)).cross(rbe_to_xyz(meas.data.value.segment<3>(0)))(2);
           float_aux_msg_.data = std::atan2(r2, r1)*180.0/M_PI; usbl_yaw_pub_.publish(float_aux_msg_);
           // update the attitude filter using both usbl measurments and terrain normal estimate from bottom following
-          if(!attitude_filter_->update(meas.data, Z_D_body_))
-            ROS_WARN_STREAM("Update Failed on Docking Attitude Filter");
+          ROS_INFO_STREAM("test2");
+
+          // if(!attitude_filter_->update(meas.data, Z_D_body_))
+          //   ROS_WARN_STREAM("Update Failed on Docking Attitude Filter");
+          ROS_INFO_STREAM("test3");
           
           // update using the measurement from the docking station
           aux_vec3_ = rbe_to_xyz(meas.data.value.segment<3>(3));
@@ -138,8 +143,11 @@ void DockingFilter::measurement_handler(){
           usbl_pos_dock_pub_.publish(aux_vector3_msg_);
           aux_stamped_.value = aux_vec3_;
           aux_stamped_.stamp = meas.data.stamp;
-          if(!position_filter_->update(aux_stamped_))
-            ROS_WARN_STREAM("Update Failed on Docking Position Filter using dock measurement");
+          ROS_INFO_STREAM("test4");
+
+          // if(!position_filter_->update(aux_stamped_))
+          //   ROS_WARN_STREAM("Update Failed on Docking Position Filter using dock measurement");
+          ROS_INFO_STREAM("test5");
 
           // update using the measurement from the auv rotated to the body using the matrix
           aux_vec3_ = attitude_filter_->state_.matrix() * -1*rbe_to_xyz(meas.data.value.segment<3>(0));
@@ -151,15 +159,19 @@ void DockingFilter::measurement_handler(){
           // aux_stamped_.stamp = meas.data.stamp;
           // if(!position_filter_->update(aux_stamped_))
             // FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
+          ROS_INFO_STREAM("test6");
+
         }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
+        ROS_INFO_STREAM("test7");
 
         // Smooth and outlier rejction always runs but only commit if flag active
         Eigen::Vector3d v_smoothed;
         if (!dvl_kf_.step(meas.data, v_smoothed))
           ROS_WARN_STREAM("DVL mini-KF step failed (S not SPD or jitter applied).");
         dvl_filt_pub_.publish(toMsg(v_smoothed));
+        ROS_INFO_STREAM("test8");
 
         // Rotate DVL velocity into Dock frame
         if(dvl_outlier_rejection_){
@@ -168,14 +180,17 @@ void DockingFilter::measurement_handler(){
           dvl_corrected_.value = attitude_filter_->state_.matrix() * meas.data.value;
         }
         dvl_corrected_.stamp = meas.data.stamp;
+        ROS_INFO_STREAM("test9");
 
-        if(!position_filter_->push_input_and_predict(dvl_corrected_))
-          ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
+        // if(!position_filter_->push_input_and_predict(dvl_corrected_))
+        //   ROS_WARN_STREAM("Predict Failed on Docking Position Filter");
+        ROS_INFO_STREAM("test10");
 
       }
       else if(meas.type=="ahrs_rates" && meas.data.value.size() ==3){
-          if(!attitude_filter_->push_input_and_predict(meas.data))
-            ROS_WARN_STREAM("Attitude push_input_and_predict failed");
+        ROS_INFO_STREAM("test11");
+          // if(!attitude_filter_->push_input_and_predict(meas.data))
+          //   ROS_WARN_STREAM("Attitude push_input_and_predict failed");
       }else
         ROS_WARN_STREAM("Invalid measurement type in measurement handler");
       }
@@ -206,6 +221,7 @@ void PositionFilter::initialize(Eigen::Vector3d measurement){
 
 
 bool PositionFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas) {
+  ROS_INFO_STREAM("pos_pred1");
   // Compute Dt safely (no early returns before we maintain the window & snapshot)
   double Dt = 0.0;
   if (last_predict_time_ >= 0.0) {
@@ -254,13 +270,15 @@ bool PositionFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas
     }
     buf_.front().stamp = cutoff; // keep remainder in window
   }
-  
+  ROS_INFO_STREAM("pos_pred2");
   return true;
 }
 
 
 
 bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
+  ROS_INFO_STREAM("pos_up1");
+
   if (buf_.empty() || snap_time_ < 0.0) return false;
 
   const double t_u   = measurement.stamp - update_delay_;
@@ -295,7 +313,6 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
 
   // ------------------- USBL update with robust χ² gate (no adaptation) -----
   const Eigen::Vector3d nu = measurement.value - x;
-  ROS_INFO_STREAM("inovation: " << nu);
 
   // 1) Build a *stable* S just for gating.
   //    Use a lightly "faded" P so huge P^- doesn't make NIS artificially tiny.
@@ -326,11 +343,9 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
 
   Eigen::Matrix3d K = P * llt_upd.solve(Eigen::Matrix3d::Identity());
   k_pub_.publish(toMsg(K.diagonal()));
-  Eigen::Vector3d dx = K * nu;      // <-- compute update increment explicitly
-  ROS_INFO_STREAM("x_ore: " << x);
   
+  Eigen::Vector3d dx = K * nu;      // <-- compute update increment explicitly
   x = x + dx;
-  ROS_INFO_STREAM("x_after: " << x);
 
   const Eigen::Matrix3d I = Eigen::Matrix3d::Identity();
   P = (I - K) * P * (I - K).transpose() + K * R0_ * K.transpose();
@@ -345,11 +360,10 @@ bool PositionFilter::update(Stamped<Eigen::VectorXd> measurement) {
 
   // replay from t_eff to present
   integrate_to(t_now, x, P, j, t);
-  ROS_INFO_STREAM("x_afetrafter: " << x);
-
 
   // overwrite present
   state_ = x; state_cov_ = P;
+  ROS_INFO_STREAM("pos_up2");
 
   return true;
 }
@@ -397,10 +411,6 @@ bool PositionFilter::integrate_to(double t_target,Eigen::Vector3d& x,Eigen::Matr
 
 
 
-
-
-
-
 //#############################################################################################
 //           Attitude SO(3) filter
 //#############################################################################################
@@ -423,6 +433,7 @@ void AttitudeFilter::initialize(Sophus::SO3d measurement){
 
 bool AttitudeFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas)
 {
+  ROS_INFO_STREAM("att_pred1");
   // meas.value is ω (3x1), meas.stamp is time
   double Dt = 0.0;
   if (last_predict_time_ >= 0.0) {
@@ -435,7 +446,7 @@ bool AttitudeFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas
     state_ = state_ * Sophus::SO3d::exp(Dt * (meas.value - b_hat_));
   }
   last_predict_time_      = meas.stamp;
-
+  ROS_INFO_STREAM("att_pred2");
   // Push into 2 s window
   buf_.push_back(GyroInput{meas.stamp, meas.value});
 
@@ -446,8 +457,11 @@ bool AttitudeFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas
     snap_b_    = b_hat_;     // snapshot bias equals current bias
   }
 
+  ROS_INFO_STREAM("att_pred3");
+
   // Trim window to keep only last 2 s, advancing the snapshot to the new front
   const double cutoff = buf_.back().stamp - window_sec_;
+  ROS_INFO_STREAM("att_pred4");
 
   // pop full segments strictly before cutoff
   while (buf_.size() >= 2 && buf_.front().stamp < cutoff && buf_[1].stamp <= cutoff) {
@@ -458,6 +472,8 @@ bool AttitudeFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas
     }
     buf_.pop_front();
   }
+  ROS_INFO_STREAM("att_pred5");
+
   // partial segment crossing cutoff
   if (buf_.size() >= 2 && buf_.front().stamp < cutoff && buf_[1].stamp > cutoff) {
     double dt = cutoff - buf_.front().stamp;
@@ -467,6 +483,7 @@ bool AttitudeFilter::push_input_and_predict(const Stamped<Eigen::VectorXd>& meas
     }
     buf_.front().stamp = cutoff; // keep the remainder
   }
+  ROS_INFO_STREAM("att_pred6");
 
   return true;
 }
@@ -504,8 +521,9 @@ bool AttitudeFilter::integrate_to(double t_target,
 }
 
 
-bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d terrain_normal_body)
+bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3d Z_D_in_B)
 {
+  ROS_INFO_STREAM("att_up1");
   if (buf_.empty() || snap_time_ < 0.0) return false;
 
   // Time bookkeeping
@@ -529,7 +547,7 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
   // Build v's
   Eigen::Vector3d v1_B = (-1.0 * be_to_xyz(measurement.value[1], measurement.value[2])).normalized();
   Eigen::Vector3d v1_D = (      be_to_xyz(measurement.value[4], measurement.value[5])).normalized();
-  Eigen::Vector3d v2_B = terrain_normal_body.normalized();
+  Eigen::Vector3d v2_B = Z_D_in_B.normalized();
   Eigen::Vector3d v2_D = Eigen::Vector3d::UnitZ();
 
   v1_B_pub_.publish(toMsg(v1_B)); v1_D_pub_.publish(toMsg(v1_D));
@@ -537,8 +555,8 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
 
   Eigen::Vector3d omega_mes = Eigen::Vector3d::Zero();
 
-  // v2 (terrain) always contributes
-  omega_mes += k2_ * (v2_B.cross((R.matrix().transpose() * v2_D).normalized()));
+  // v2 always contributes
+  // omega_mes += k2_ * (v2_B.cross((R.matrix().transpose() * v2_D).normalized()));
 
   // v1 (LOS) — χ² gate on S² (unchanged)
   const double sigma_v1 = 0.05; // rad
@@ -579,6 +597,7 @@ bool AttitudeFilter::update(Stamped<Eigen::VectorXd> measurement, Eigen::Vector3
   // Commit present
   state_ = R;
   b_hat_ = b;
+  ROS_INFO_STREAM("att_up2");
 
   return true;
 }

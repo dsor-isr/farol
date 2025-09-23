@@ -64,7 +64,7 @@ void DockingFilterNode::initializeSubscribers() {
   sub_usbl_accoms_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/usbl_accoms", "usbl_accoms"), 2, &DockingFilterNode::usbl_callback, this);
   sub_reset_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/reset", "reset"), 2, &DockingFilterNode::reset_callback, this);
   sub_terrain_d_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/terrain_normal", "bottom_following/D"), 2, &DockingFilterNode::terrain_normal_callback, this);
-  sub_imu_raw_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/imu_raw", "myellow0/drivers/imu/data_raw"), 2, &DockingFilterNode::imu_raw_callback, this);
+  // sub_imu_raw_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/imu_raw", "myellow0/drivers/imu/data_raw"), 2, &DockingFilterNode::imu_raw_callback, this);
 }
 
 
