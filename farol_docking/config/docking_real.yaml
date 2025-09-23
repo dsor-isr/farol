@@ -10,7 +10,8 @@ filter:
   dock_usbl_instalation_offset: [-0.2, 0.0, -0.1] # [-0.323, 0.0, -0.684] # position of the USBL in the D-frame measured from D-frame to USBL-frame
   auv_usbl_instalation_offset: [0.0, 0.0, 0.0] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
-  outlier_rejection:  [1, 0, 1]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
+  outlier_rejection:  [1, 1, 1]  # bool_array[USBL-position, USBL-attitude, DVL(not implemented)]
+  use_dvl_filt_in_controller: false
 
   position:
     process_noise: 0.01
@@ -77,7 +78,7 @@ trajectory_tracking:
     Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
 
     KpR:  [0.0, 0.0, 0.64]       # yaw only active
-    KdW:  [0.0, 0.0, 1.12]
+    Kdw:  [0.0, 0.0, 1.12]
     KiR:  [0.0, 0.0, 0.00]    
 
     # Derivative filters (Hz)

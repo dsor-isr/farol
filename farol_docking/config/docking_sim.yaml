@@ -11,6 +11,7 @@ filter:
   auv_usbl_instalation_offset: [0,0,0] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
   outlier_rejection:  [0,0,0]
+  use_dvl_filt_in_controller: false
 
   position:
     process_noise: 0.01
@@ -77,7 +78,7 @@ trajectory_tracking:
     Kip:  [0.0, 0.0, 0.0]  # small I for bias/current
 
     KpR:  [0.0, 0.0, 1.0]       # yaw only active
-    KdW:  [0.0, 0.0, 1.4]
+    Kdw:  [0.0, 0.0, 1.4]
     KiR:  [0.0, 0.0, 0.00]
 
     # Derivative filters (Hz)

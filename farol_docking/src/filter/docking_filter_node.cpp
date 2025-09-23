@@ -129,6 +129,8 @@ void DockingFilterNode::loadParams() {
   if(aux[2] > 0.1)
    docking_filter_->dvl_outlier_rejection_ = true;
   
+  use_dvl_filt_in_controller_ = FarolGimmicks::getParameters<bool>(nh_private_, "use_dvl_filt_in_controller", false);
+
   // threshold for gating on outlier rejection test
   docking_filter_->position_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "position/outlier_threshold", 4.61);
   docking_filter_->attitude_filter_->outlier_threshold_ = FarolGimmicks::getParameters<double>(nh_private_, "attitude/outlier_threshold", 4.61);
@@ -207,7 +209,6 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
     if(!docking_filter_->initialized_) // keep only last message if not initialized
       return;
 
-    // added - sign because navquest DVL is stoopid
     dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
     // rotate 
     dvl_velocity_ = dvl_velocity_ - ahrs_velocity_.cross(r_dvl_);
@@ -511,7 +512,12 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   Eigen::Vector3d position = state_.translation();
   Eigen::Quaterniond quaternion = state_.unit_quaternion();
   Eigen::Vector3d rpy = extractRPY(state_.so3());//.matrix().eulerAngles(0, 1, 2);
-  Eigen::Vector3d dframe_velocity = state_.so3().matrix().inverse() * docking_filter_->dvl_corrected_.value;
+  Eigen::Vector3d dframe_velocity;
+  if(use_dvl_filt_in_controller_){
+    dframe_velocity = state_.so3().matrix().inverse() * docking_filter_->dvl_corrected_.value;
+  }else{
+    dframe_velocity = state_.so3().matrix().inverse() * dvl_velocity_;
+  }
   state_msg_.local_position.x = position[0];
   state_msg_.local_position.y = position[1];
   state_msg_.local_position.z = position[2];
@@ -525,9 +531,15 @@ void DockingFilterNode::timerIterCallback(const ros::TimerEvent &event) {
   state_msg_.local_attitude.roll = 180/M_PI*rpy[0];
   state_msg_.local_attitude.pitch = 180/M_PI*rpy[1];
   state_msg_.local_attitude.yaw = 180/M_PI*rpy[2];
-  state_msg_.body_velocity.x = docking_filter_->dvl_corrected_.value[0];
-  state_msg_.body_velocity.y = docking_filter_->dvl_corrected_.value[1];
-  state_msg_.body_velocity.z = docking_filter_->dvl_corrected_.value[2];
+  if(use_dvl_filt_in_controller_){
+    state_msg_.body_velocity.x = docking_filter_->dvl_corrected_.value[0];
+    state_msg_.body_velocity.y = docking_filter_->dvl_corrected_.value[1];
+    state_msg_.body_velocity.z = docking_filter_->dvl_corrected_.value[2];
+  }else{
+    state_msg_.body_velocity.x = dvl_velocity_[0];
+    state_msg_.body_velocity.y = dvl_velocity_[1];
+    state_msg_.body_velocity.z = dvl_velocity_[2];
+  }
   state_msg_.seafloor_velocity.x = dframe_velocity[0];
   state_msg_.seafloor_velocity.y = dframe_velocity[1];
   state_msg_.seafloor_velocity.z = dframe_velocity[2];

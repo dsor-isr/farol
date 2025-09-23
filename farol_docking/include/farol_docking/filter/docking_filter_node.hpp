@@ -166,7 +166,7 @@ class DockingFilterNode {
 
   // ROS parameters
   double node_frequency_; 
-  bool debug_;
+  bool debug_, use_dvl_filt_in_controller_;
   bool use_terrain_{false};
   
   // Measurements stuff
