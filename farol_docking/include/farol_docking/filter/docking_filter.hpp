@@ -228,7 +228,7 @@ class AttitudeFilter{
 
 		// ROS stuff
 		ros::NodeHandle nh_, nh_private_;
-		ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_;
+		ros::Publisher v1_B_pub_, v2_B_pub_, v1_D_pub_,v2_D_pub_, omega_1_pub_, omega_2_pub_;
 		geometry_msgs::Vector3 aux_vector3_msg_;
 		Eigen::Vector3d aux_vec3_;
 		
@@ -428,6 +428,7 @@ class DockingFilter{
 
 		bool dvl_outlier_rejection_{false};
 		Stamped<Eigen::VectorXd> dvl_corrected_;
+		
 
 		struct DvlMiniKF {
 			// State x = [v; a] in R^6  (v: m/s, a: m/s^2)
