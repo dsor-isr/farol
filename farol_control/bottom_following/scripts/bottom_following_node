@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import bottom_following_ros.BottomFollowingNode
+
+if __name__ == '__main__':
+ bottom_following_ros.BottomFollowingNode.main()

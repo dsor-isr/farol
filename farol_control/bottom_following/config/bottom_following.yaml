@@ -1,0 +1,20 @@
+bottom_following:
+  node_frequency: 10
+  start_num: 0
+  alpha: 27      # Degrees measured from vertical body axis
+  oulier_rejection: false
+  
+  # ξ=0.7, ω0=0.08 (must be 5 times slower than speed inner-loop)
+  kp: 0.1120
+  ki: 0.0064
+
+  topics:
+    publishers:
+      surge: "/bluerov_heavy0/ref/surge"
+      sway: "/bluerov_heavy0/ref/sway"
+      heave: "/bluerov_heavy0/ref/heave"
+    subscribers:
+      speed: "/bluerov_heavy0/measurement/velocity"
+      altimeter: "/bluerov_heavy0/measurement/position"
+      dvl_beams: "/bluerov_heavy0/drivers/dvl/data"
+      dvl_beams_sim: "/bluerov_heavy0/dvl"

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+ <name>bottom_following</name>
+ <version>1.0.0</version>
+ <description>
+ ADD HERE A SMALL DESCRIPTION OF THE NODE'S OBJECTIVE
+ </description>
+
+ <license>MIT</license>
+
+ <author email="ravi.regalo@tecnico.ulisboa.pt">Ravi Regalo</author>
+ <maintainer email="ravi.regalo@tecnico.ulisboa.pt">Ravi Regalo</maintainer>
+
+ <buildtool_depend>catkin</buildtool_depend>
+
+ <!-- Add here ROS dependencies -->
+ <depend>std_msgs</depend> 
+ <depend>rospy</depend>
+ <depend>farol_msgs</depend>
+ <depend>dsor_msgs</depend>
+ <depend>message_generation</depend>
+ <depend>message_runtime</depend>  
+ <depend>geometry_msgs</depend>
+ <depend>auv_msgs</depend>
+
+</package>
