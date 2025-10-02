@@ -15,6 +15,7 @@
   <arg name="waypoint"                    default="false" />
   <arg name="path_following"              default="false" />
   <arg name="vehicle_stabilizer"          default="false" />
+  <arg name="bottom_following"          default="false" />
   
   <group ns="controls">
 
@@ -47,6 +48,12 @@
     <!-- vehicle_stabilizer: node that stabilizes the vehicle according to pre-defined references in configuration files -->
     <group if="$(arg vehicle_stabilizer)">
         <node pkg="vehicle_stabilizer" type="vehicle_stabilizer_node" name="vehicle_stabilizer" respawn="true" output="screen" />
+    </group>
+
+    <!-- vehicle_stabilizer: node that stabilizes the vehicle according to pre-defined references in configuration files -->
+    <group if="$(arg bottom_following)">
+        <rosparam command="load" file="$(find bottom_following)/config/bottom_following.yaml"/>
+        <node pkg="bottom_following" type="bottom_following_node" name="bottom_following" respawn="true" output="screen" />
     </group>
 
   </group>

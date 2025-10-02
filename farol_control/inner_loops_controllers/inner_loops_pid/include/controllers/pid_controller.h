@@ -1,6 +1,7 @@
 #ifndef PID_CONTROLLER_H
 #define PID_CONTROLLER_H
 
+#include <ros/ros.h>
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -93,6 +94,66 @@ public:
    * @return
    */
   float computeCommand(float error_p, float ref_value, float duration, bool debug);
+  float computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency);
+  
+  float computeCommandSpeed(float speed, float speed_ref, float Dt, bool debug); 
+  float computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug,  std::string controller_name);
+  //float computeCommandVertical(float z, float z_rate, float z_ref, float Dt, bool direction, bool debug);
+
+  
+  double N_r;
+  double I_z;
+  double u_max;
+  double u_min;
+  double a;
+  double alpha;
+  double beta;
+  double w_n;
+  double qsi;
+  double pole;
+  double delta;
+  double Dt;
+  double K_r;
+  double K_d;
+  double K_p;
+  double K_i;
+  double k_a;
+  double K_a;
+  double A;
+  double B;
+  double yaw_rate_dot;
+  double yaw_rate_prev;
+  double yaw_dot;
+  double yaw_prev;
+  double g;
+  double g_filter;
+  double error;
+  double u_d;
+  double u_dot;
+  double u_sat;
+  double g_prev;
+  double g_filter_prev;
+  double u_prev;
+  double u_sat_prev;
+  double altitude_rate_prev;
+  double h_dot_dot;
+  double h_dot_dot_filter;
+  double h_dot_dot_filter_prev;
+
+  // Speed controllers variables
+  double speed_prev_{0};
+  double speed_dot_prev_{0};
+  double speed_dot_filter_prev_{0};
+  // Atittude controllers variables
+  double attitude_rate_prev_{0};
+  double attitude_prev_{0};
+  double attitude_rate_dot_filter_prev_{0};
+  // All controllers variables
+  bool first_it;
+  double ref_prev_{0};
+  double u_prev_{0};
+  double u_sat_prev_{0};
+
 
   /**
    * @brief  Reset function. Sets the integral error term to 0.
@@ -149,20 +210,20 @@ public:
 
 protected:
   // Controller PID Gains
-  float p_gain_, i_gain_, d_gain_;
+  float p_gain_{0.0}, i_gain_{0.0}, d_gain_{0.0};
   // Controller feedforwad gains
-  float ff_gain_, ff_d_gain_, ff_lin_drag_gain_, ff_quad_drag_gain_;
+  float ff_gain_{0.0}, ff_d_gain_{0.0}, ff_lin_drag_gain_{0.0}, ff_quad_drag_gain_{0.0};
   // Max and Min output/error values
   float max_error_, max_out_, min_error_, min_out_;
   // Integral error
-  float integral_;
+  float integral_{0.0};
   // Previous error and reference value
   float pre_error_, prev_ref_value_;
   
   // Low pass filter object
   bool has_lpf_{false};
   std::unique_ptr<LowPassFilter> lpf_; 
-
+    
   // Debug message
   farol_msgs::mPidDebug msg_debug_;
 
@@ -183,6 +244,8 @@ private:
    * @return
    */
   float sat(float u, float low, float high);
+
+  float wrapToPi(float angle);
 };
 
 #endif // PID_CONTROLLER_H

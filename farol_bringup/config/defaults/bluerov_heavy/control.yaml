@@ -1,5 +1,5 @@
 vehicle_stabilizer:
-  references: {'depth': 0.0, 'pitch': 0.0, 'roll': 0.0}
+  references: {'depth': 'null', 'pitch': 'null', 'roll': 'null'}
 
 static_thruster_allocation:
   thrusters:
@@ -42,40 +42,41 @@ inner_loops_pid:
     min_turn_radius: 5.0
     turn_radius_speed_t_max: 10.0
 
-
-    # Yaw Params
+    
     controllers:
+        #### Attitude Controllers ####
         roll:
             enabled: true
-            kp: 0.012
-            ki: 0.031
-            kd: 0.0215
-            max_err:  60.0 # deg
-            min_err: -60.0 # deg  
-            max_out:  7.0  # N.m
-            min_out: -7.0
-        pitch:
-            enabled: true
-            # kp: 26
-            # ki: 1.0
-            # kd: 5.0
-            kp: 0.02
-            ki: 0.0045
-            kd: 0.04
-            max_err:  60.0 # deg
-            min_err: -60.0 # deg  
-            max_out:  7.0  # N.m
-            min_out: -7.0
-        yaw:
-            enabled: true
-            kp: 0.0035
-            ki: 0.00001
-            kd: 0.006
+            kp: 0.6579
+            ki: 0.9137
+            kd: 0.7707
             max_err:  60.0 # deg
             min_err: -60.0 # deg  
             max_out:  10.0  # N.m
             min_out: -10.0
-        # Yaw Rate Params
+            debug: true
+        pitch:
+            enabled: true
+            kp: 0.6579
+            ki: 0.9137
+            kd: 0.7707
+            max_err:  60.0 # deg
+            min_err: -60.0 # deg  
+            max_out:  10.0  # N.m
+            min_out: -10.0
+            debug: true
+        yaw:
+            enabled: true
+            kp: 0.63072
+            ki: 0.16352
+            kd: 1.15640
+            max_err:  179.0 # deg
+            min_err: -179.0 # deg  
+            max_out:  10.0  # N.m
+            min_out: -10.0
+            debug: true
+        
+        #### Attitude Rate  Controllers ####
         yaw_rate:
             enabled: true
             kp: 0.16
@@ -84,44 +85,47 @@ inner_loops_pid:
             min_err: -3.0 # deg  
             max_out:  10.0 # N.m
             min_out: -10.0
-        # Surge Params
+            debug: true
+
+        #### Speed Controllers ####
         surge:
             enabled: true
-            # kp: 26.0
-            # ki: 1.0
-            kp: 18.0
-            ki: 0.2
+            kp: 1.415
+            ki: 7.547
             max_ref:  0.7  # m/s
             min_ref: -0.7  # m/s
             max_err:  0.2  # m/s
             min_err: -0.2  # m/s  
             max_out:  25.0 # N
             min_out: -25.0
-        # Sway Params
+            debug: true
+
         sway:
             enabled: true
-            # kp: 26.0
-            # ki: 1.0
-            kp: 15.0
-            ki: 0.5 
+            kp: -1.078
+            ki: 8.62
             max_ref:  0.5  # m/s
             min_ref: -0.5  # m/s
             max_err:  0.2  # m/s
             min_err: -0.2  # m/s  
             max_out:  25.0 # N
             min_out: -25.0
-        # Heave params
+            debug: true
+
         heave:
             enabled: true
-            kp: 26.0
-            ki: 5.0
-            max_ref:  0.7  # m/s
-            min_ref: -0.7  # m/s
-            max_err:  0.2  # m/s
-            min_err: -0.2  # m/s  
-            max_out:  15.0 # N
-            min_out: -15.0
-        # Depth Params
+            kp: 2.866
+            ki: 3.981
+            kff: 1.65   # compensate gw
+            max_ref:  1.0  # m/s
+            min_ref: -1.0  # m/s
+            max_err:  2.0  # m/s
+            min_err: -2.0  # m/s  
+            max_out: 20.0 # N
+            min_out: -20.0
+            debug: true
+        
+        #### Vertical Controllers ####
         depth:
             enabled: true
             kp: 16.0 # 5.0
@@ -132,7 +136,7 @@ inner_loops_pid:
             max_out:  20.0 # N
             min_out: -20.0
             min_alt: 0.1 # m
-        # Altitude Params
+
         altitude:
             enabled: true
             kp: 16.0 

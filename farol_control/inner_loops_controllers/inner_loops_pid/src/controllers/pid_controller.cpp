@@ -26,6 +26,13 @@ PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kf
         max_error_(max_error), max_out_(max_out), min_error_(min_error), min_out_(min_out) {
   reset();
   disable = true;
+
+  yaw_rate_prev = 0;
+  yaw_prev = 0;
+  g_filter_prev = 0;
+  u_prev = 0;
+  u_sat_prev = 0;
+  first_it = true;
 }
 
 PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kff_d, float Kff_lin_drag, float Kff_quad_drag,  
@@ -38,6 +45,284 @@ PID_Controller::PID_Controller(float Kp, float Ki, float Kd, float Kff, float Kf
   lpf_ = std::make_unique<LowPassFilter>(lpf_dt, 2*M_PI*lpf_fc);
 }
 
+// TODO: convert to ComputeCommandVertical
+float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate, float altitude_ref, float duration, float frequency) {
+
+  // PID Controller Gains
+  // double Zw = -4.1879;
+  // double Zww = -40.9649;  
+  //ROS_WARN_STREAM("Low pass filter cutoff frequency must be higher than 0.");
+  
+  double mw = 29.9081;
+  double dw = -1.1130;
+  double ksi = 0.7;
+  double w0 = 0.5;
+  double p = 10 * ksi * w0;
+
+  double a = 10;
+  double A = std::exp(-a * duration);
+  double B = 1 - A;
+
+  K_p = mw * (2 * ksi * w0 * p + w0 * w0);
+  K_i = mw * w0 * w0 * p;
+  K_d = mw * (2 * ksi * w0 + p) - dw;
+  K_a = 1 / duration;
+
+  u_max = 40.0; // N.m
+  u_min = -40.0; // N.-m
+
+  Dt = duration;
+  // Dt = 1.0 / frequency;
+  
+  //ROS_INFO_STREAM("ALtitude: "<<altitude<<"| Altitude_rate: "<< altitude_rate);
+  // Compute control input
+  error = altitude_ref - altitude;
+
+  // compute derivative of altitude_rate  
+  if (first_it)
+    h_dot_dot = 0;
+  else 
+    h_dot_dot = (altitude_rate - altitude_rate_prev) / Dt;
+  
+  h_dot_dot_filter = A*h_dot_dot_filter_prev + h_dot_dot*B;
+  
+  // add all terms
+  g = K_d * h_dot_dot_filter + K_p * altitude_rate;
+  u_d = K_i * error - g;
+  ROS_INFO_STREAM("u_d: "<<u_d);
+
+  // integrate with anti wind-up
+  u_dot = u_d - K_a * (u_prev - u_sat_prev);
+  double u;
+  u = u_prev + u_dot * duration;
+  ROS_INFO_STREAM("u: "<<u);
+
+  if (u < u_min) {
+    u_sat = u_min;
+  } else if (u > u_max) {
+    u_sat = u_max;
+  } else {
+    u_sat = u;
+  }
+  //ROS_INFO_STREAM("u_sat: "<<u_sat);
+
+  // Update new prev values
+  altitude_rate_prev = altitude_rate;
+  h_dot_dot_filter_prev = h_dot_dot_filter;
+  g_filter_prev = g_filter;
+  u_prev = u;
+  u_sat_prev = u_sat;
+  
+  first_it = false;
+
+  // return output
+  return -u_sat;
+}
+
+// Speed Controllers
+float PID_Controller::computeCommandSpeed(float speed, float speed_ref, float Dt, bool debug) {
+
+  // Don't return nothing if controller is disabled
+  if (disable || Dt < 0.05 || Dt > 0.2)
+    return 0.0;
+
+  // // filter reference signal through low pass if it exists
+  // if (has_lpf_) {
+  //   ref_d_value = lpf_->update((ref_value - ref_prev_) / Dt);
+  // }
+  // else {
+  //   ref_d_value = (ref_value - ref_prev_) / Dt;
+  // }
+  float error = speed_ref- speed;
+  float error_sat = sat(speed_ref - speed , min_error_, max_error_);
+
+  // compute derivative of speed by 1st order aproximation  
+  float speed_dot;
+  //ROS_INFO_STREAM("ff_gain_:" << ff_gain_);
+  if (first_it){
+    speed_dot = 0;
+    u_prev_ = ff_gain_;
+    u_sat_prev_ = u_prev_;
+  } // actually ff_gain_ is gw, starting the integrator at gw is good
+  else {
+    speed_dot = (speed-speed_prev_)/Dt;//(speed-speed_prev_)>0.05 ? (speed-speed_prev_)/Dt : 0;
+  }
+  //ROS_INFO_STREAM("speed_dot:" << speed_dot);
+
+  // aply a low pass filter because previous computation amplifies noise
+  double speed_dot_filter;
+  double a = 31.4;                      // pole of the low pass filter
+  double lpf_A = std::exp(-a * Dt);   // descretization of the filter
+  double lpf_B = 1 - A;               // descretization of the filter
+  speed_dot_filter = lpf_A*speed_dot_filter_prev_ + speed_dot*lpf_B;
+  //ROS_INFO_STREAM("speed_dot_filter:" << speed_dot_filter);
+
+  // // LPF from chatgpt
+  // double speed_dot_filter;
+  // double a = 10;                      // pole of the low pass filter
+  // double alpha = (2 * a) / (Dt + a);
+  // double beta  = (Dt - a) / (Dt + a);
+  // speed_dot_filter = alpha*(speed - speed_prev_) - beta*speed_dot_filter_prev_;
+  // ROS_INFO_STREAM("speed_dot_filter:" << speed_dot_filter);
+
+  // value of the ouput before integration with anti-windup
+  
+  double tau_d;
+  tau_d =  i_gain_ * error - p_gain_ * speed_dot;
+  //ROS_INFO_STREAM("tau_d:" << tau_d);
+
+  // integration with anti windup
+  double K_a = 1/Dt;
+  u_dot = tau_d - K_a * (u_prev_ - u_sat_prev_);
+  //ROS_INFO_STREAM("u_dot:" << u_dot);
+  double u;
+  u = u_prev_ + u_dot * Dt;
+  //ROS_INFO_STREAM("u:" << u);
+  // aply the saturation
+  if (u < min_out_) {
+    u_sat = min_out_;
+  } else if (u > max_out_) {
+    u_sat = max_out_;
+  } else {
+    u_sat = u;
+  }
+  //ROS_INFO_STREAM("u_sat:" << u_sat);
+
+
+  if (true) {
+    msg_debug_.ref = speed_ref;
+    msg_debug_.ref_d = (speed_ref - ref_prev_) / Dt;
+    if (has_lpf_) {
+      msg_debug_.ref_d_filtered = 0;
+    } else {
+      msg_debug_.ref_d_filtered = (speed_ref - ref_prev_) / Dt;
+    }
+    msg_debug_.error = error;
+    msg_debug_.error_saturated = error_sat;
+
+    msg_debug_.ffTerm = speed_dot;
+    msg_debug_.ffDTerm = speed_dot_filter;
+    msg_debug_.ffDragTerm = tau_d;
+    msg_debug_.pTerm = u_dot;
+    msg_debug_.iTerm = 0;
+    msg_debug_.dTerm = 0;
+    msg_debug_.output = 0;
+  }
+
+  // update previous values
+  speed_prev_ = speed;
+  speed_dot_prev_ = speed_dot;
+  speed_dot_filter_prev_ = speed_dot_filter;
+  
+  u_prev_ = u;
+  u_sat_prev_ = u_sat;
+  ref_prev_ = speed_ref;
+  first_it=false;
+  
+  return u_sat;
+}
+
+// Attitude Controllers
+float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate, float attitude_ref, float Dt, bool debug, std::string controller_name) {
+  if (disable || Dt < 0.05 || Dt > 0.2)
+    return 0.0;
+  
+  
+  // // filter reference signal through low pass if it exists
+  // if (has_lpf_) {
+  //   ref_d_value = lpf_->update((ref_value - prev_ref_value_) / Dt);
+  // }
+  // else {
+  //   ref_d_value = (ref_value - prev_ref_value_) / Dt;
+  // }
+  
+  // convert degrees to radians
+  attitude = attitude / 180*M_PI;
+  attitude_rate = attitude_rate / 180*M_PI;
+  attitude_ref = attitude_ref / 180*M_PI;
+
+  // Compute control input
+  float error = wrapToPi(attitude_ref- attitude);
+
+  
+  // if first iteration dont compute derivative
+  double attitude_rate_dot=0, attitude_dot=0, attitude_rate_dot_filter=0;
+  if (first_it) {
+    attitude_rate_dot = 0;
+    attitude_dot = 0;
+  } else {
+    attitude_rate_dot = (attitude_rate - attitude_rate_prev_) / Dt;
+    // aply a low pass filter because previous computation amplifies noise
+    double a = 31.4;                      // pole of the low pass filter
+    double lpf_A = std::exp(-a * Dt);   // descretization of the filter
+    double lpf_B = 1 - lpf_A;               // descretization of the filter
+    attitude_rate_dot_filter = lpf_A*attitude_rate_dot_filter_prev_ + attitude_rate_dot*lpf_B;
+
+    //attitude_dot = wrapToPi(attitude - attitude_prev)/Dt;
+    attitude_dot = attitude_rate;
+  }
+
+  // adding up all PID terms
+  double tau_d;
+  tau_d =  i_gain_ * error - p_gain_ * attitude_dot - d_gain_*attitude_rate_dot_filter;
+
+  // integration with anti windup
+  double K_a = 1/Dt;
+  u_dot = tau_d - K_a * (u_prev_ - u_sat_prev_);
+  double u;
+  u = u_prev_ + u_dot * Dt;
+  //if(controller_name == "pitch"){
+  //  ROS_INFO_STREAM("u: " << u);
+  //}
+
+  // aply the saturation
+  double u_sat;
+  if (u < min_out_) {
+    u_sat = min_out_;
+  } else if (u > max_out_) {
+    u_sat = max_out_;
+  } else {
+    u_sat = u;
+  }
+
+  if (true) {
+    msg_debug_.ref = attitude_ref;
+    msg_debug_.ref_d = (attitude_ref - ref_prev_) / Dt;
+    if (has_lpf_) {
+      msg_debug_.ref_d_filtered = 0;
+    } else {
+      msg_debug_.ref_d_filtered = (attitude_ref - ref_prev_) / Dt;
+    }
+    msg_debug_.error = error;
+    msg_debug_.error_saturated = error;
+
+    msg_debug_.ffTerm = attitude_dot;
+    msg_debug_.ffDTerm = attitude_rate_dot_filter;
+    msg_debug_.ffDragTerm = tau_d;
+    msg_debug_.pTerm = p_gain_;
+    msg_debug_.iTerm = i_gain_;
+    msg_debug_.dTerm = d_gain_;
+    msg_debug_.output = 0;
+  }
+
+  // Update prev values
+  attitude_rate_prev_ = attitude_rate;
+  attitude_prev_ = attitude;
+  attitude_rate_dot_filter_prev_ = attitude_rate_dot_filter;
+
+  u_prev_ = u;
+  u_sat_prev_ = u_sat;
+  ref_prev_ = attitude_ref;
+  first_it=false;
+
+  //if(controller_name == "pitch"){
+  //  ROS_INFO_STREAM("u_sat: " << u_sat);
+  //}
+  // return output
+  return u_sat;
+}
+
+// Default controller
 float PID_Controller::computeCommand(float error_p, float ref_value, float duration, bool debug) {
   float ref_d_value;
 
@@ -118,9 +403,13 @@ float PID_Controller::computeCommand(float error_p, float ref_value, float durat
 
 
 void PID_Controller::reset() {
+  // General controllers
   integral_ = 0;
   pre_error_ = 0;
   prev_ref_value_ = 0;
+  // my controllers
+  u_prev_=ff_gain_;
+  u_sat_prev_=ff_gain_;
 }
 
 void PID_Controller::setFFGains(const float &kff, const float &kff_d, const float &kff_lin_drag,
@@ -161,3 +450,10 @@ float PID_Controller::sat(float u, float low, float high) {
   if (u > high) return high;
   return u;
 }
+
+float PID_Controller::wrapToPi(float angle) {
+  while (angle > M_PI) angle -= 2 * M_PI;
+  while (angle < -M_PI) angle += 2 * M_PI;
+  return angle;
+}
+

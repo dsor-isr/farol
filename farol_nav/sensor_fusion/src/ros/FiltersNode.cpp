@@ -297,8 +297,12 @@ void FiltersNode::measurementCallback(const dsor_msgs::Measurement &msg) {
   m.base_frame = false;
   FilterGimmicks::measurement m_h, m_v, m_r;
   sensorSplit(m, m_h, m_v, m_r);
-  
-  if(m.sensor_config == "Hposition" || m.sensor_config == "Hvelocity" || m.sensor_config == "acceleration"){
+
+  if(m.sensor_config == "Hvelocity"){
+    hFilter_.newMeasurement(m_h);
+    vFilter_.newMeasurement(m_v);
+  }
+  else if(m.sensor_config == "Hposition" || m.sensor_config == "acceleration"){
     hFilter_.newMeasurement(m_h);
   }
   else if(m.sensor_config == "Vposition" || m.sensor_config == "Vvelocity" || m.sensor_config == "altitude"){
@@ -525,18 +529,37 @@ void FiltersNode::sensorSplit(const FilterGimmicks::measurement &m_in,
     m_horizontal.outlier_tolerance = m_in.outlier_tolerance;
     m_horizontal.reject_counter = m_in.reject_counter;
     m_horizontal.outlier_increase = m_in.outlier_increase;
+
+    m_vertical.config(1) = 1;
+    m_vertical.noise = m_in.noise;
+    m_vertical.outlier_tolerance = m_in.outlier_tolerance;
+    m_vertical.reject_counter = m_in.reject_counter;
+    m_vertical.outlier_increase = m_in.outlier_increase;
+
     if(m_in.value.size() > 0){
       m_horizontal.value.resize(2);
+      m_vertical.value.resize(1);
       // +.+ if the measurements ara expressed in body frame
       if(p_dvl_body_frame_){
+        Eigen::VectorXd inertial_velocity;
+        // Build Rotation matrix
+        Eigen::Matrix3d R;
+        R = Eigen::AngleAxisd(DEG2RAD(state_.orientation.z), Eigen::Vector3d::UnitZ()) *
+            Eigen::AngleAxisd(DEG2RAD(state_.orientation.y), Eigen::Vector3d::UnitY()) *
+            Eigen::AngleAxisd(DEG2RAD(state_.orientation.x), Eigen::Vector3d::UnitX());
+        inertial_velocity = R*m_in.value;
+
         // +.+ Convert velocities form the body to the inercial frame
-        m_horizontal.value(0) = cos(DEG2RAD(state_.orientation.z))*m_in.value(0)  - sin(DEG2RAD(state_.orientation.z))*m_in.value(1);
-        m_horizontal.value(1) = sin(DEG2RAD(state_.orientation.z))*m_in.value(0)  + cos(DEG2RAD(state_.orientation.z))*m_in.value(1);
-        }else{
+        m_horizontal.value(0) = inertial_velocity(0);// cos(DEG2RAD(state_.orientation.z))*m_in.value(0)  - sin(DEG2RAD(state_.orientation.z))*m_in.value(1);
+        m_horizontal.value(1) = inertial_velocity(1);//sin(DEG2RAD(state_.orientation.z))*m_in.value(0)  + cos(DEG2RAD(state_.orientation.z))*m_in.value(1);
+        m_vertical.value(0) = inertial_velocity(2);//m_in.value(2);
+      }else{
         // +.+ If in Inercial frame
         m_horizontal.value = m_in.value.segment<2>(0);  
+        m_vertical.value(0) = m_in.value(2);
       }
     }
+
   }
   else if (m_in.sensor_config == "Vvelocity"){
     // TODO: This is not being used - copy this "Hvelocity" to use the vz from the dvl
