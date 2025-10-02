@@ -31,6 +31,7 @@
     tlastSENDIMS = 0;
     lastRECVTime_modem = 0;
     lastRECVTime_ros = ros::Time(0);
+    replier_ack = false;
 
     // update next maximum range because it depends on the timeout
     range_max = (timeouts.front() - tslack)/2.0*SOUND_SPEED;
@@ -141,6 +142,7 @@ void AcousticPinger::initializeTimer() {
         range_msg.source_id = msg.source_address;
         range_msg.source_name = msg.source_name;
         pub_range.publish(range_msg);
+        replier_ack = true;
         ROS_WARN("Range to node %d is %.3f of max value %.3f with frame %s", msg.source_address, range, range_max, msg.header.frame_id.c_str());
       }
       // Schedule next ping
@@ -199,7 +201,7 @@ void AcousticPinger::triggerSerialization()
       im.timestamp_undefined =true;
     else
       im.timestamp_undefined = false;
-    im.ack  = false;
+    im.ack  = replier_ack;
     im.payload =  msg.data;
     pub_im.publish(im);
 
@@ -245,9 +247,11 @@ void AcousticPinger::triggerSerialization()
 
   void AcousticPinger::Timer(const ros::TimerEvent& e){
     if(waiting_for_serializer)
-      ROS_WARN("Ro reply from serializer in %.3fs", timeouts.front());
+      ROS_WARN("No reply from serializer in %.3fs", timeouts.front());
     else
       ROS_WARN("No reply from destination modem [%d] in %.3fs", modems.front(), timeouts.front());
+      replier_ack = false;
+
     waiting_for_serializer = false;
     tlastRECVIMS = 0;
     pingNextNode();

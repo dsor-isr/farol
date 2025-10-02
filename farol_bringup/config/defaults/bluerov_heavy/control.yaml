@@ -196,8 +196,8 @@ path_following:
            0.00, 0.50]
       kz: 0.2
     pramod:
-      kp: 0.02
-      ki: 0.0005
+      kp: 0.14
+      ki: 0.01
     samson:
       k1: 1.0
       k2: 0.3
@@ -205,10 +205,10 @@ path_following:
       theta: 0.8
       k_delta: 1.0
     relative_heading:
-       kx: 0.05
-       ky: 0.05
-       kz: 0.2
-       yaw_offset: 0.0
-       p_sat: [10.0, 10.0]
+      kx: 0.05
+      ky: 0.05
+      kz: 0.2
+      yaw_offset: 0.0
+      p_sat: [10.0, 10.0]
     brevik:
       delta_h: 10

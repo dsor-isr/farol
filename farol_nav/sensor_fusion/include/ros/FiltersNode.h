@@ -35,6 +35,7 @@
 #include <std_srvs/Empty.h>
 #include <std_srvs/SetBool.h>
 #include "sensor_fusion/SetVCurrentVelocity.h"
+#include <dsor_msgs/DoubleValue.h>
 
 // @.@ Farol Messages
 #include <farol_msgs/Currents.h>
@@ -108,12 +109,14 @@ private:
   ros::Publisher state_sensors_pub_;           ///< "State" with only information from the most recent sensors publisher
 	ros::Publisher vc_meas_velocity_pub_;        ///< measurement msg with changed values for virtual currents 
   ros::Publisher vc_meas_position_pub_;        ///< measurement msg with changed values for virtual currents
+  ros::Publisher biased_orientation_pub_;       ///< measurement msg with changed values for heading bias
 
   // @.@ Services
   ros::ServiceServer set_vcurrent_velocity_srv_;  ///< Service to set a virtual current velocity 
   ros::ServiceServer reset_vcurrent_srv_;         ///< Service to stop a virtual current simulation 
+  ros::ServiceServer set_bias_heading_srv_;       ///< Service to set up a bias in the heading measurements 
+  ros::ServiceServer reset_bias_heading_srv_;     ///< Service to stop said bias
 
-	
   // @.@ Timer
 	ros::Timer timer_;                           ///< Principal timer iterator
   ros::Timer list_cleaner_timer_;              ///< Clear measurement list 
@@ -169,6 +172,10 @@ private:
   double sensor_vy_{0};
   double v_time_{-1};
   farol_msgs::mState state_sensors_;
+
+  // Heading biasing service variables
+  bool bias_flag_{false};
+  double bias_val_{0.0};
 
 	// @.@ Encapsulation the gory details of initializing subscribers, publishers and services
 	
@@ -333,7 +340,7 @@ private:
    * @param res service Response
    */
   /* -------------------------------------------------------------------------*/
-  bool resetVCurrentService(std_srvs::SetBool::Request &req, std_srvs::SetBool::Response &res);
+  bool resetVCurrentService(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res);
 
   /* -------------------------------------------------------------------------*/
   /**
@@ -356,6 +363,28 @@ private:
    */
   /* -------------------------------------------------------------------------*/
   void sensorsState(const dsor_msgs::Measurement &msg);
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief Function to handle set_vcurrent_velocity service. Sets the virtual currents
+   *        velocity to the value requested by the service
+   *
+   * @param req service Request
+   * @param res service Response
+   */
+  /* -------------------------------------------------------------------------*/
+  bool setHeadingBiasService(dsor_msgs::DoubleValue::Request &req, dsor_msgs::DoubleValue::Response &res);
+
+  /* -------------------------------------------------------------------------*/
+  /**
+   * @brief Function to handle reset_vcurrent service. Sets to the default values all
+   *        variables used for simulating the virtual currents 
+   *
+   * @param req service Request
+   * @param res service Response
+   */
+  /* -------------------------------------------------------------------------*/
+  bool resetHeadingBiasService(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res);
 
 };
 #endif //CATKIN_WS_FILTERSNODE_H

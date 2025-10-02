@@ -20,5 +20,6 @@
  <depend>std_msgs</depend> 
  <depend>rospy</depend>
  <depend>farol_msgs</depend>
+ <depend>mission_planner</depend>
 
 </package>

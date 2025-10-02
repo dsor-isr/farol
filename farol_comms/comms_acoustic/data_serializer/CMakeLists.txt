@@ -6,6 +6,7 @@ find_package(catkin REQUIRED
  std_msgs
  farol_msgs
  rospy
+ mission_planner
 )
 
 catkin_python_setup()

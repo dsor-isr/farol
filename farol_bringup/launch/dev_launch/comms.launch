@@ -13,6 +13,7 @@
     <arg name="dmac"                 default="false"      />
     <arg name="pinger"               default="false"      />
     <arg name="replier"              default="false"      />
+    <arg name="silent"               default="false"      />
     <arg name="data_serializer"      default="false"      />
     <arg name="pos2sim_modem"        default="false"      />
     <arg name="dmac2farol"           default="false"      />
@@ -39,6 +40,11 @@
             <node pkg="interrogation_scheme" type="replier_sync_node"  name="replier" output="screen" />
         </group>
 
+        <!-- Silent Scheme -->
+        <group if="$(arg silent)">
+            <node pkg="interrogation_scheme" type="silent_sync_node"  name="silent" output="screen" />
+        </group>
+
         <!-- Data Serializer -->
         <group if="$(arg data_serializer)">
             <node pkg="data_serializer" type="data_serializer_node" name="data_serializer" respawn="false" output="screen" />    
@@ -56,7 +62,9 @@
 
         <!-- Position Simulator for Modem -->
         <group if="$(arg pos2sim_modem)">
-            <node pkg="evo_tools" type="pos2simmodem.py" name="pos2sim_modem" respawn="false" output="screen"    />
+            <node pkg="evo_tools" type="pos2simmodem.py" name="pos2sim_modem" respawn="false" output="screen">
+                <param name="name_vehicle_id"   value="$(arg name)$(arg vehicle_id)"/>
+            </node>
         </group>
     </group> 
 </launch>

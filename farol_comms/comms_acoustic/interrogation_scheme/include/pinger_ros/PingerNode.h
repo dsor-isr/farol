@@ -138,6 +138,7 @@ private:
   double range_max;
   bool waiting_for_serializer;
   bool ENABLE_;
+  bool replier_ack;
 
   // Time variables
   unsigned long int lastRECVTime_modem;

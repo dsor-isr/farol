@@ -12,6 +12,12 @@ Description: Please check the documentation of this package for more info.
  {
  	ROS_INFO("in class constructor of ReplierNode");
  	loadParams();
+
+	 // Create timeouts queue
+    for (int i=0; i<timeout_list.size(); ++i){
+      timeouts.push(timeout_list[i]);
+    }
+
 	initializeSubscribers();
  	initializePublishers();
  
@@ -80,6 +86,7 @@ Description: Please check the documentation of this package for more info.
 
 	p_modem_id_ = FarolGimmicks::getParameters<int>(nh_private_, "modem_id");
 	p_tslack_ = FarolGimmicks::getParameters<double>(nh_private_,"tslack");
+	timeout_list = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "timeout_list");
 
 }
 
@@ -106,6 +113,7 @@ void ReplierNode::triggerSerialization(){
 	ROS_ERROR("compressing timeout replying anyway");
 	reply_ims_.payload = "N";
 	modem_id_last_send_ims_ = 0;
+	pinger_ack = false;
 	
  }
  /*
@@ -133,11 +141,18 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
 	// +.+ checks if the dmac message has the modem address we are expecting
 	if (msg.source_address == modem_id_last_send_ims_){
 		range_ = ((msg.timestamp - t_last_send_ims_) - p_tslack_ * SLACK_TIME) / (2 * SLACK_TIME) * SOUND_SPEED;
+
+		timeouts.push(timeouts.front());
+    	timeouts.pop();
 	
 
 		// +.+ Discard very strange measurements
-		// TODO: Change the range max to use a timeout parameter
-		if (fabs(range_) < (5.0 - p_tslack_) / 2.0 * SOUND_SPEED){
+
+		// update next maximum range because it depends on the timeout
+
+    	range_max = (timeouts.front() - p_tslack_)/2.0*SOUND_SPEED;	
+
+		if (fabs(range_) < range_max){
 			// +.+ Declaration of dmac::mUSBLFix message
 			farol_msgs::mUSBLFix range_msg;
 
@@ -156,6 +171,9 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
 			// +.+ name of the modem that sent the message
 			range_msg.source_name = msg.source_name;
 
+			// Acknowledge received from pinger
+			pinger_ack = true;
+
 			// +.+ publish dmac::mUSBLFix message, range only measurement in this case
 			range_pub_.publish(range_msg);
         	ROS_WARN("From modem %d to %d the range is %.1fm",p_modem_id_, msg.source_address, range_);
@@ -173,7 +191,7 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
       	// populate message
      	reply_ims_.header.stamp = ros::Time::now();
      	reply_ims_.type = reply_ims_.DMAC_IMS;
-     	reply_ims_.ack = false;
+     	reply_ims_.ack = pinger_ack;
       	reply_ims_.destination_address = msg.source_address;
       	reply_ims_.timestamp = msg.timestamp + round(p_tslack_ * SLACK_TIME);
       	reply_ims_.timestamp_undefined =false;
@@ -216,4 +234,3 @@ void ReplierNode::replyCallback(const dmac::DMACPayload &msg){
 
  	return 0;
  }
-
