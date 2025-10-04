@@ -178,7 +178,7 @@ void OuterLoopNode::state_callback(const auv_msgs::NavigationStatus &msg){
     if (!got_docking_state_){
     homing_target_point_ << dock_position_[0] + aproach_dist_*cos((inertial_yaw_-docking_yaw_)/180*M_PI), dock_position_[1] + aproach_dist_*sin((inertial_yaw_-docking_yaw_)/180*M_PI);
       // if state is approaching or search_acomms we go directly to the homing tarteg point in order to start homing
-      if(state_ == "aproaching" || state_=="search_acomms"){
+      if(state_ == "approaching" || state_=="search_acomms"){
         wp_srv_.request.x = homing_target_point_[0];
         wp_srv_.request.y = homing_target_point_[1];
         wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
@@ -260,7 +260,7 @@ void OuterLoopNode::check_state_transition(double time_now){
     return;
 
   // reached initial waypoint
-  if( state_ == "z" && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2){
+  if( state_ == "approaching" && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2){
     state_ = "search_acomms";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
@@ -280,13 +280,14 @@ void OuterLoopNode::check_state_transition(double time_now){
 
   }
   
+
   // if has acomms and is close to target point
-  // if(state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) )
+  if(state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) )
   // or has acomms and was searching for acomms
-  // if ((state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2) || ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4))) ||
-  //     (state_ == "search_acomms" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) ));
+  if ( (state_== "skibidi") || (state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2) || ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4))) ||
+      (state_ == "search_acomms" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) )){
       
-  if (state_=="skibidi"){
+  // if (state_=="skibidi"){
     // publish flag to signal the start of the docking phase
     flag_msg_.data = 13;
     flag_pub_.publish(flag_msg_);
@@ -385,7 +386,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   {
     return;
   }
-  else if(state_=="aproaching")
+  else if(state_=="approaching")
   {
     // set the depth reference 
     if(dock_altitude_)
@@ -414,6 +415,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   else if(state_ =="terminal")
   {
     force_request_msg_.wrench.force.x = terminal_thrust_;
+    //TODO put here buoyancy and shit
     force_request_pub_.publish(force_request_msg_);
   }
   

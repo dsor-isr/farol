@@ -271,7 +271,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
 
       if(realistify_){
           // your existing condition
-          if(std::abs(usbl_set_[4]) < M_PI/2.0 || usbl_set_[2] < -0.15){
+          if(std::abs(usbl_set_[4]) < M_PI/2.0){
             usbl_state_.reset();
             return;
           }

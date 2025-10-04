@@ -282,7 +282,7 @@ controls/path_following:
             path: "/#vehicle#/PathData"
             vc: "/#vehicle#/PF/vc"
         publishers:
-            surge: "/#vehicle#/ref/surge_"
+            surge: "/#vehicle#/ref/surge"
             sway: "/#vehicle#/ref/sway"
             heave: "/#vehicle#/ref/heave"
             roll: "/#vehicle#/ref/roll"
@@ -491,6 +491,7 @@ docking/filter:
             usbl_accoms: "/#vehicle#/acomms/usbl_fix"
             velocity: "/#vehicle#/measurement/velocity"
             orientation: "/#vehicle#/measurement/orientation"
+            imu_raw: "/#vehicle#/drivers/imu/data_raw"
             # Stuff
             reset: "/#vehicle#/docking/filter/reset"
             # Gains

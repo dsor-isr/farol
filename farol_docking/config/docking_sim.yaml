@@ -10,13 +10,13 @@ filter:
   dock_usbl_instalation_offset: [0,0,0] # position of the USBL in the D-frame measured from D-frame to USBL-frame
   auv_usbl_instalation_offset: [0,0,0] # position of the USBL in the B-frame measured from B-frame to USBL-frame
   initializer_size: 4
-  outlier_rejection:  [0,0,0]
+  outlier_rejection:  [1,1,0]
   use_dvl_filt_in_controller: false
 
   position:
     process_noise: 0.01
     measurement_noise: 0.01
-    outlier_threshold: 4.0 # Choose a gate (3 DoF): 90% -> 4.61 95% -> 7.815, 99% -> 11.345
+    outlier_threshold: 4.61 # Choose a gate (3 DoF): 90% -> 4.61 95% -> 7.815, 99% -> 11.345
     update_delay: 2.1 #1.8  # time in seconds, before all angles are received, when the update should be done
 
   attitude:
@@ -25,7 +25,7 @@ filter:
       k2: 0.4
       kp: 0.8
       ki: 0
-    outlier_threshold: 6.0
+    outlier_threshold: 4.61
     update_delay: 1.0 #0.9     # time in seconds, before all angles are received, when the update should be done
 
   realistify: true
@@ -43,7 +43,7 @@ outer_loop:
   # this is the orientation of dock opening, so its the direction oposite to the D frame
   # dock_heading: 150
   safe_depth_aproach: 1
-  aproach_dist: 5.0
+  aproach_dist: 10.0
 
   terminal_dist: 1.0    # distance [m] to ignore filter
   terminal_thrust: 1.5    # distance [m] to ignore filter
@@ -52,9 +52,9 @@ outer_loop:
   acomms_search_radius: 10  # radius around the docking station to seach for acomms
 
   ## Trajectory parameters
-  homing_dist: 2.5        # distance [m] along the x-axis where to place homin point
+  homing_dist: 5       # distance [m] along the x-axis where to place homin point
   u_terminal: 0.05      # terminal velocity
-  v_max_u: 0.1  # [m/s]
+  v_max_u: 0.3  # [m/s]
   v_max_v: 0.1  # [m/s]
   a_max_t: 0.05  # [m/s²]
   w_max: 0.1    # [m/s]

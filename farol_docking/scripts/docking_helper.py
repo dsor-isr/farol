@@ -146,7 +146,8 @@ class DockingHelperNode():
         
 
     def initializeSubscribers(self):
-        rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/gazebo"), ModelStates, self.gazebo_callback)
+        # rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/gazebo"), ModelStates, self.gazebo_callback)
+        rospy.Subscriber("/gazebo/model_states", ModelStates, self.gazebo_callback)
         rospy.Subscriber("/myellow0/measurement/velocity", Measurement, self.measurement_velocity_callback)
         rospy.Subscriber("/myellow0/measurement/orientation", Measurement, self.measurement_orientation_callback)
     

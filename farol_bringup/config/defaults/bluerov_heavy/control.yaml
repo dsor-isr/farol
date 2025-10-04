@@ -67,9 +67,9 @@ inner_loops_pid:
             debug: true
         yaw:
             enabled: true
-            kp: 0.63072
-            ki: 0.16352
-            kd: 1.15640
+            kp: 1.728 #0.63072
+            ki: 0.672 #0.16352
+            kd: 0.96 #1.15640
             max_err:  179.0 # deg
             min_err: -179.0 # deg  
             max_out:  10.0  # N.m
@@ -211,4 +211,4 @@ path_following:
       yaw_offset: 0.0
       p_sat: [10.0, 10.0]
     brevik:
-      delta_h: 10
+      delta_h: 0.6

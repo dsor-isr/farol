@@ -40,16 +40,22 @@
 
 struct UsblParams {
     // nominal noise (1σ)
-    double sr = 0.000001;                  // m
-    double sb = 0.000001 * M_PI/180.0;      // rad
-    double se = 0.000001 * M_PI/180.0;      // rad
-    // outlier noise (1σ)
-    double SR = 0.5;                   // m
-    double SB = 15.0 * M_PI/180.0;     // rad
-    double SE = 15.0 * M_PI/180.0;     // rad
+    double sr = 0.000001;                    // m
+    double sb = 0.000001 * M_PI/180.0;       // rad
+    double se = 0.000001 * M_PI/180.0;       // rad
+
+    // legacy scales (used as defaults for the bounds)
+    double SR = 0.5;                         // m
+    double SB = 15.0 * M_PI/180.0;           // rad
+    double SE = 15.0 * M_PI/180.0;           // rad
+
+    // NEW: outlier magnitudes are |d| ~ U([lo, hi]); sign is ± with p=0.5
+    double R_lo = 1, R_hi = 5;             // meters
+    double B_lo = 80* M_PI/180.0, B_hi = 100* M_PI/180.0;             // radians
+    double E_lo = 80* M_PI/180.0, E_hi = 100* M_PI/180.0;             // radians
+
     // event probabilities (per sensor triplet)
-    double p_outlier = 0.1;
-    double p_dropout = 0.1;          
+    double p_outlier = 0.00000000001;
 };
 
 /**
@@ -222,26 +228,41 @@ inline void realistify_usbl(std::array<double,6>& z,
 {
     auto bern = [&](double p){ return std::bernoulli_distribution(std::clamp(p,0.0,1.0))(rng); };
     auto nrm  = [&](double s){ return std::normal_distribution<double>(0.0, s)(rng); };
+    auto magU = [&](double lo, double hi){
+        if (hi < lo) std::swap(lo, hi);
+        return std::uniform_real_distribution<double>(lo, hi)(rng);
+    };
+    auto sgn  = [&](){ return bern(0.5) ? 1.0 : -1.0; };
 
     for(int s=0; s<2; ++s){
         int i = 3*s; // r,b,e indices
 
-        // emulate dropout without NaN: just request a reset
-        if(bern(P.p_dropout)){
-            if(flags){
-                flags->reset = true;
-                (s==0 ? flags->reset1 : flags->reset2) = true;
-            }
-            continue; // leave values unchanged; your code will reset/ignore
-        }
 
         const bool out = bern(P.p_outlier);
-        const double sr = out ? P.SR : P.sr;
-        const double sb = out ? P.SB : P.sb;
-        const double se = out ? P.SE : P.se;
 
-        z[i+0] += nrm(sr);
-        z[i+1]  = wrapPi(z[i+1] + nrm(sb));   // bearing
-        z[i+2]  = clampElev(z[i+2] + nrm(se)); // elevation
+        if(out){
+            ROS_INFO_STREAM("ouitlier ssss");
+            // OUTLIERS: add ± magnitude with magnitude ~ Uniform([lo, hi])
+            z[i+0] += sgn() * magU(P.R_lo, P.R_hi);                    // range
+            z[i+1]  = wrapPi(   z[i+1] + sgn() * magU(P.B_lo, P.B_hi)); // bearing
+            z[i+2]  = clampElev( z[i+2] + sgn() * magU(P.E_lo, P.E_hi)); // elevation
+            // If you still want tiny nominal noise on top, add nrm(P.s*) here too.
+        }else{
+            // nominal Gaussian noise
+            z[i+0] += nrm(P.sr);
+            z[i+1]  = wrapPi(   z[i+1] + nrm(P.sb));
+            z[i+2]  = clampElev( z[i+2] + nrm(P.se));
+        }
+
+        // emulate dropout without NaN: just request a reset
+        // if(bern(P.p_dropout)){
+        //     if(flags){
+        //         flags->reset = true;
+        //         (s==0 ? flags->reset1 : flags->reset2) = true;
+        //     }
+        //     continue; // leave values unchanged; your code will reset/ignore
+        // }
+        // Optional: if range must remain ≥ 0, uncomment:
+        // z[i+0] = std::max(0.0, z[i+0]);
     }
 }
