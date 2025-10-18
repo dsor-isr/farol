@@ -228,9 +228,9 @@ double RosController::computeCommand() {
     *force_or_torque_ptr_ += pid_c_->computeCommandSpeed(*state_ptr_, ref_value_, (tnow - last_cmd_).toSec(), debug_);
   }
   // TODO: this shoul be for altitude and depth 
-  else if (controller_name_ == "altitude") {
-    *force_or_torque_ptr_ += pid_c_->computeCommandAltitude(*state_ptr_, *altitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
-  } 
+  // else if (controller_name_ == "altitude") {
+  //   *force_or_torque_ptr_ += pid_c_->computeCommandAltitude(*state_ptr_, *altitude_rate_ptr_, ref_value_, (tnow - last_cmd_).toSec(), frequency_);
+  // } 
   else {
     *force_or_torque_ptr_ += (positive_output_ ? 1 : -1) * pid_c_->computeCommand(error, ref_value_, (tnow - last_cmd_).toSec(), debug_);
   }

@@ -251,7 +251,7 @@ void Innerloops::StateCallback(const auv_msgs::NavigationStatus &msg) {
   yaw_rate_ = msg.orientation_rate.z;
 
   depth_ = msg.position.depth;
-  //altitude_ = msg.altitude;
+  altitude_ = msg.altitude;
 
   surge_ = msg.body_velocity.x;
   sway_ = msg.body_velocity.y;

@@ -43,9 +43,11 @@ Se3Tracker::Se3Tracker(ros::NodeHandle* nh, ros::NodeHandle* pnh)
 
 	// 4‑DoF selection: zero Mx, My
 	Ssel_.setZero();
-	Ssel_.diagonal() << 1,1,1,0,0,1;
+	// Ssel_.diagonal() << 1,1,1,0,0,1;
+  Ssel_.diagonal() << 1,1,1,1,1,1;
 
   set_gain_srv_ = nh_private_.advertiseService("/myellow0/docking/trajectory_tracking/set_gain", &Se3Tracker::setGainSrv, this);
+  // set_gain_srv_ = nh_private_.advertiseService("/bluerov_heavy0/docking/trajectory_tracking/set_gain", &Se3Tracker::setGainSrv, this);
 
   ROS_INFO_STREAM("Trajectory Tracking Controller Parameters:\n--- Gains ---\n"<<
                   "Kpp: "<< Kpp_ <<

@@ -449,7 +449,7 @@ class DockingFilter{
 
 			// Constraints
 			double a_max = 1.5;     // m/s^2  (max physical acceleration)
-			double chi2_gate = 7.815;  // DoF=3, 95%
+			double chi2_gate = 0.2;  // DoF=3, 95%
 
 			// Telemetry
 			double nis = 0.0;
@@ -519,7 +519,7 @@ class DockingFilter{
 				}
 
 				nis = nu.transpose() * llt.solve(nu);
-				if (nis > chi2_gate) {
+				if (nis > 0.2) {
 					++rejected;
 					// Reject measurement: keep prediction, but enforce acceleration constraint on predicted a
 					x = x_pred;
@@ -543,7 +543,7 @@ class DockingFilter{
 				// --- Enforce physical constraints
 				// 1) Clamp acceleration magnitude
 				Eigen::Vector3d a_new = x_new.tail<3>();
-				clamp_vec_norm(a_new, a_max);
+				// clamp_vec_norm(a_new, a_max);
 				x_new.tail<3>() = a_new;
 
 				// 2) Velocity slew-rate limit: |Δv| ≤ a_max * dt  (componentwise for simplicity)

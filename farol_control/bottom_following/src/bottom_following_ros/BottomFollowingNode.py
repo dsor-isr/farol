@@ -5,7 +5,7 @@ Developers: Ravi Regalo -> @tecnico.ulisboa.pt Instituto Superior Tecnico
 """
 import rospy
 from bottom_following_algorithms.BottomFollowing import BottomFollowing
-from bottom_following_algorithms.OutlierRejection import OutlierRejection
+# from bottom_following_algorithms.OutlierRejection import OutlierRejection
 from bottom_following.msg import BottomFollowingDebug
 from std_msgs.msg import Float64, Bool, Int8, Empty
 from geometry_msgs.msg import Vector3
@@ -13,7 +13,8 @@ from rospy_tutorials.msg import Floats
 from math import pi, sqrt, acos, atan2
 from auv_msgs.msg import NavigationStatus
 from dsor_msgs.msg import Measurement
-from a50_dvl.msg import DVL
+from farol_docking.msg import SE3Ref
+# from a50_dvl.msg import DVL
 from uuv_sensor_ros_plugins_msgs.msg import DVL as DVL_sim
 import numpy as np
 np.set_printoptions(precision=3, suppress=True)
@@ -34,8 +35,8 @@ class BottomFollowingNode():
 		self.h = [None, None, None, None, None]
 		self.body_velocity = [None, None, None]
 		self.attitude = [None, None, None]
-		self.outlier_rejector_altimeter = OutlierRejection(10, 5.0, 1)
-		self.outlier_rejector_dvl = OutlierRejection(10, 5.0, 4)
+		# self.outlier_rejector_altimeter = OutlierRejection(10, 5.0, 1)
+		# self.outlier_rejector_dvl = OutlierRejection(10, 5.0, 4)
 		
 		# Controller references and reference timestamps
 		self.v_ref=0
@@ -59,6 +60,7 @@ class BottomFollowingNode():
 		
 		# ROS messages objects for publishing
 		self.debug_msg = BottomFollowingDebug()
+		self.attitude_ref_msg = SE3Ref()
 
 		"""
 		Initializing subscribers, publishers and loading parameters 
@@ -91,7 +93,7 @@ class BottomFollowingNode():
 		# Altimeter sub
 		rospy.Subscriber(rospy.get_param('~/topics/subscribers/altimeter', "/bluerov_heavy0/measurement/position"), Measurement, self.altitude_callback)
 		# DVL sub
-		rospy.Subscriber(rospy.get_param('~/topics/subscribers/dvl_beams', '/bluerov_heavy0/drivers/dvl/data'), DVL, self.dvl_ranges_callback)
+		# rospy.Subscriber(rospy.get_param('~/topics/subscribers/dvl_beams', '/bluerov_heavy0/drivers/dvl/data'), DVL, self.dvl_ranges_callback)
 		# from simulation only
 		rospy.Subscriber(rospy.get_param('~/topics/subscribers/dvl_beams_sim', '/bluerov_heavy0/dvl'), DVL_sim, self.dvl_ranges_sim_callback)
 		# body_velocity sub
@@ -101,7 +103,7 @@ class BottomFollowingNode():
 		# Speed ref sub
 		rospy.Subscriber(rospy.get_param('~/topics/subscribers/speed_ref', '/bluerov_heavy0/ref/surge_'), Float64, self.v_ref_callback)
 		# Heading ref sub
-		rospy.Subscriber(rospy.get_param('~/topics/subscribers/yaw_ref', '/bluerov_heavy0/ref/yaw'), Float64, self.heading_ref_callback)
+		rospy.Subscriber(rospy.get_param('~/topics/subscribers/yaw_ref', '/bluerov_heavy0/ref/yaw_'), Float64, self.heading_ref_callback)
 		# desired distance from terrain sub
 		rospy.Subscriber(rospy.get_param('~/topics/subscribers/distance_ref', '/bluerov_heavy0/bottom_following/ref/distance'), Float64, self.d_ref_callback)
 		# controller gain sub
@@ -129,7 +131,7 @@ class BottomFollowingNode():
 		self.D_pub = rospy.Publisher(rospy.get_param('~/topics/publishers/D', '/bluerov_heavy0/bottom_following/D'), Vector3, queue_size=10)
 		self.D_dot_pub = rospy.Publisher(rospy.get_param('~/topics/publishers/D_dot', '/bluerov_heavy0/bottom_following/D_dot'), Vector3, queue_size=10)
 		self.debug_pub = rospy.Publisher(rospy.get_param('~/topics/publishers/debug', '/bluerov_heavy0/bottom_following/debug'), BottomFollowingDebug, queue_size=10)
-			
+		self.attitude_ref_pub = rospy.Publisher(rospy.get_param('~/topics/publishers/attitude', '/bluerov_heavy0/docking/trajectory'), SE3Ref, queue_size=1)
 
 	"""
 	Function to set up the timer
@@ -288,9 +290,18 @@ class BottomFollowingNode():
 					self.surge_ref_pub.publish(Float64(V_ref_B[0]))
 					self.sway_ref_pub.publish(Float64(V_ref_B[1]))
 					self.heave_ref_pub.publish(Float64(V_ref_B[2]))
-					
-					self.roll_ref_pub.publish(Float64(attitude_ref[0]*180/pi))
-					self.pitch_ref_pub.publish(Float64(attitude_ref[1]*180/pi))
+
+					self.attitude_ref_msg.q.x = attitude_ref[0]
+					self.attitude_ref_msg.q.y = attitude_ref[1]
+					self.attitude_ref_msg.q.z = attitude_ref[2]
+					self.attitude_ref_msg.q.w = attitude_ref[3]
+					self.attitude_ref_msg.disable_axis[0] = True
+					self.attitude_ref_msg.disable_axis[1] = True
+					self.attitude_ref_msg.disable_axis[2] = True
+					self.attitude_ref_msg.disable_axis[3] = False
+					self.attitude_ref_msg.disable_axis[4] = False
+					self.attitude_ref_msg.disable_axis[5] = False
+					self.attitude_ref_pub.publish(self.attitude_ref_msg)
 						
 			
 			# Debugging message

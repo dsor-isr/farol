@@ -201,13 +201,17 @@ class FishProfileNode:
         self._publish_refs(pitch_deg=pitch_deg, roll_deg=roll_deg)
 
     def _publish_refs(self, pitch_deg, roll_deg):
-        self.pub_depth.publish(Float64(self.depth_ref))      # meters
-        if(abs(pitch_deg) >0):
-            self.pub_pitch.publish(Float64(pitch_deg))           # degrees
-        if(self.yaw_rate_raw >0):
+        self.pub_depth.publish(Float64(self.depth_ref))      
+        if(abs(pitch_deg) >0.001):
+            self.pub_pitch.publish(Float64(pitch_deg))
+        else:
+            self.pub_pitch.publish(Float64(0.0))        
+        if(self.yaw_rate_raw >0.1):
             self.pub_roll.publish(Float64(-20))
-        if(self.yaw_rate_raw <0):
-            self.pub_roll.publish(Float64(20))             # degrees
+        elif(self.yaw_rate_raw <-0.1):
+            self.pub_roll.publish(Float64(20))             
+        else:
+            self.pub_roll.publish(Float64(0.0))  
     # -----------------------------------------------------------------------
 
 

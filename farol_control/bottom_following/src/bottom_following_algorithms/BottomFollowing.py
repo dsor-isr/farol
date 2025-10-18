@@ -180,7 +180,7 @@ class BottomFollowing:
         y_B_des = np.cross(n.T, xc.T).T; y_B_des /= np.linalg.norm(y_B_des)
         x_B_des = np.cross(y_B_des.T, z_B_des.T).T
         R_des = np.hstack((x_B_des, y_B_des, z_B_des))
-        attitude_ref = R.from_matrix(R_des).as_euler('xyz', degrees=False)
+        attitude_ref =  R.from_matrix(R_des).as_quat()
 
         # ----- Velocity: priority to normal correction, then tangential -----
         # Normal regulation (note the sign: dot(d)= - n^T V_I)
@@ -195,7 +195,8 @@ class BottomFollowing:
         if norm > u_max:
             # Prioritize normal correction: keep V_D, add as much tangential as fits
             V_T_ref = V_D + (u_max - min(u_max, np.linalg.norm(V_D))) * (V_P/np.linalg.norm(V_P) if np.linalg.norm(V_P)>1e-9 else 0)
-
+        
+        print(V_T_ref)
         return V_T_ref, attitude_ref
 
     # ------- Helpers -------

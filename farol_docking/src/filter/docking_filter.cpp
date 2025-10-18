@@ -111,7 +111,7 @@ void DockingFilter::measurement_handler(){
       if(meas.type=="usbl" && meas.data.value.size() == 6){
         
         // check that the measurements are  valid -> range is ok
-        if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
+        // if (std::abs(meas.data.value[0] - meas.data.value[3]) < 2 && meas.data.value[0] > 0.01 && meas.data.value[3] > 0.01){
           
           // do math to extract the relative yaw assuming pitch=roll=0 (for debug only)
           if (auto yaw = yaw_from_two_usbl_rbe(meas.data.value.segment<3>(0), meas.data.value.segment<3>(3))){
@@ -146,7 +146,7 @@ void DockingFilter::measurement_handler(){
           // if(!position_filter_->update(aux_stamped_))
             // FAROL_WARN("Update Failed on Docking Position Filter using dock measurement");
 
-        }
+        // }
       }
       else if(meas.type=="dvl" && meas.data.value.size() == 3){
 

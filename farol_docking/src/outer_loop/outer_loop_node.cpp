@@ -56,18 +56,23 @@ OuterLoopNode::OuterLoopNode(ros::NodeHandle *nodehandle, ros::NodeHandle *nodeh
     dock_heading_ = helper;
   if(nh_private_.getParam("safe_depth_approach", helper))
     safe_depth_approach_ = helper;
-
+  if(nh_private_.getParam("safe_altitude_approach", helper))
+    safe_altitude_approach_ = helper;
+  else
+    safe_altitude_approach_ = 2.0;
   // Subscribers
   sub_docking_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/state", "docking_state"), 10, &OuterLoopNode::state_callback, this);
   sub_inertial_state_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/filter_state", "/nav/filter/state"), 10, &OuterLoopNode::state_callback, this);
   sub_start_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/enable", "enable"), 10, &OuterLoopNode::start_callback, this);
   sub_flag_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/flag", "flag"), 10, &OuterLoopNode::flag_callback, this);
+  sub_force_ = nh_.subscribe(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/subscribers/force_bypass", "/myellow0/force_bypass"), 10, &OuterLoopNode::force_callback, this);
 
 
   // Publishers
   flag_pub_ = nh_private_.advertise<std_msgs::Int8>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/flag", "flag"), 1);
   surge_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_surge", "ref/surge"), 1);
   depth_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_depth", "ref/depth"), 1);
+  altitude_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_altitude", "/myellow0/ref/altitude_safety"), 1);
   yaw_ref_pub_ = nh_private_.advertise<std_msgs::Float64>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/ref_yaw", "ref/yaw"), 1);
   force_request_pub_ = nh_private_.advertise<auv_msgs::BodyForceRequest>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/force", "/force_bypass"), 1);
   docking_state_pub = nh_private_.advertise<std_msgs::String>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/phase", "/docking_state"), 1);
@@ -159,6 +164,7 @@ OuterLoopNode::~OuterLoopNode() {
   sub_inertial_state_.shutdown();
   sub_start_.shutdown();
   sub_flag_.shutdown();
+  sub_force_.shutdown();
 
   // stop timer
   timer_.stop();
@@ -170,71 +176,60 @@ OuterLoopNode::~OuterLoopNode() {
 
 
 void OuterLoopNode::state_callback(const auv_msgs::NavigationStatus &msg){
+  // ROS_INFO_STREAM(msg.header.frame_id);
+
   if(msg.header.frame_id.find("dock") != std::string::npos){
     docking_state_ << msg.local_position.x,msg.local_position.y,msg.local_position.z; 
     docking_yaw_ = msg.local_attitude.yaw;
     
     // update the homing target point based on known dock heading
-    if (!got_docking_state_){
-    homing_target_point_ << dock_position_[0] + aproach_dist_*cos((inertial_yaw_-docking_yaw_)/180*M_PI), dock_position_[1] + aproach_dist_*sin((inertial_yaw_-docking_yaw_)/180*M_PI);
-      // if state is approaching or search_acomms we go directly to the homing tarteg point in order to start homing
-      if(state_ == "approaching" || state_=="search_acomms"){
-        wp_srv_.request.x = homing_target_point_[0];
-        wp_srv_.request.y = homing_target_point_[1];
-        wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
-        wp_client.call(wp_srv_);
-      }
-    }
+    // if (!got_docking_state_){
+    // homing_target_point_ << dock_position_[0] + aproach_dist_*cos((inertial_yaw_-docking_yaw_)/180*M_PI), dock_position_[1] + aproach_dist_*sin((inertial_yaw_-docking_yaw_)/180*M_PI);
+    //   // if state is approaching or search_acomms we go directly to the homing tarteg point in order to start homing
+    //   // if(state_ == "approaching" || state_=="search_acomms"){
+    //   //   wp_srv_.request.x = homing_target_point_[0];
+    //   //   wp_srv_.request.y = homing_target_point_[1];
+    //   //   wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
+    //   //   wp_client.call(wp_srv_);
+    //   // }
+    // }
     got_docking_state_ =true;
+    time_last_acomms_ = ros::Time::now().toSec();
 
   }else{
-    inertial_state_ << msg.position.north,msg.position.east,msg.position.depth;
+    inertial_state_ << msg.position.north,msg.position.east,msg.altitude;
     inertial_yaw_ = msg.orientation.z;
   }
-}
-
-
-void OuterLoopNode::usbl_callback(const farol_msgs::mUSBLFix &msg){
-  // store accoms timing in order to know if we lost acomms and need to go search for acomms
-  time_last_acomms_ = ros::Time::now().toSec();
 }
 
 
 void OuterLoopNode::start_callback(const std_msgs::Empty &msg){  
   flag_msg_.data = 10;
   flag_pub_.publish(flag_msg_);
-  // this should make it go straight into homing phase, hopefully
+  
+  // this should make it go straight into homing phase
   if(got_docking_state_){
     state_ = "skibidi";
+    phase_msg_.data = state_;
+    docking_state_pub.publish(phase_msg_);
     check_state_transition(ros::Time::now().toSec());
     return;
   }
 
+  // do a path following towards the homing point
   state_ = "approaching";
   phase_msg_.data = state_;
   docking_state_pub.publish(phase_msg_);
   flag_msg_.data = 11;
   flag_pub_.publish(flag_msg_);
-
-  // here we know the dock heading à priori
-  if(dock_heading_){
-    // send initial waypoint to go to the dock position
-    wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + aproach_dist_*cos(dock_heading_.value()/180*M_PI);
-    wp_srv_.request.y = homing_target_point_[1]; //dock_position_[1] + aproach_dist_*sin(dock_heading_.value()/180*M_PI);
-    wp_srv_.request.yaw = wrapToPi((dock_heading_.value()+180)/180*M_PI);
-    wp_client.call(wp_srv_);
-  }// here we know the dock heading based on usbl
-  else if (got_docking_state_){
-    wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + aproach_dist_*cos(dock_heading_.value()/180*M_PI);
-    wp_srv_.request.y = homing_target_point_[1]; //dock_position_[1] + aproach_dist_*sin(dock_heading_.value()/180*M_PI);
-    wp_srv_.request.yaw = wrapToPi(((inertial_yaw_-docking_yaw_)+180)/180*M_PI);
-    wp_client.call(wp_srv_);
-  } // here we dont know dock heading
-  else{
-    wp_srv_.request.x = homing_target_point_[0];//dock_position_[0] + aproach_dist_;
-    wp_srv_.request.y = homing_target_point_[1];
-    wp_client.call(wp_srv_);
-  }
+  // start path_following towards homing point
+  std::string mission = "3\n";
+  // add mission reference point 
+  mission += std::to_string(inertial_state_[1]) + " " + std::to_string(inertial_state_[0]) + "\n";
+  // add line 
+  mission += "LINE 0.00 0.00 " + std::to_string(homing_target_point_[1]-inertial_state_[1]) +  " " + std::to_string(homing_target_point_[0]-inertial_state_[0]) + " 0.5 -1\n" ;
+  mission_string_msg_.data = mission;
+  mission_string_pub.publish(mission_string_msg_);
 }
 
 
@@ -246,13 +241,12 @@ void OuterLoopNode::flag_callback(const std_msgs::Int8 &msg){
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
   } 
-  
-
-  if(state_ == "search_acomms" && msg.data == 4 && !got_docking_state_){
-    // restarts start_path following of circle
-  }
 }     
 
+void OuterLoopNode::force_callback(const auv_msgs::BodyForceRequest &msg){
+  if (state_== "homing")
+    terminal_force_ <<  msg.wrench.force.x, msg.wrench.force.y, msg.wrench.force.z, msg.wrench.torque.z;
+}
 
 void OuterLoopNode::check_state_transition(double time_now){
   // reached waypoint and got acomms -> go into homing mode
@@ -261,6 +255,15 @@ void OuterLoopNode::check_state_transition(double time_now){
 
   // reached initial waypoint
   if( state_ == "approaching" && (inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2){
+    state_ = "diving";
+    phase_msg_.data = state_;
+    docking_state_pub.publish(phase_msg_);
+    flag_msg_.data = 14;
+    flag_pub_.publish(flag_msg_);
+
+    // Do nothing, let pf hanfle waypoint setting while the vehicle goes down
+  }
+  if( state_ == "diving" && abs(inertial_state_[2] - safe_altitude_approach_.value())  < 0.1){
     state_ = "search_acomms";
     phase_msg_.data = state_;
     docking_state_pub.publish(phase_msg_);
@@ -282,12 +285,11 @@ void OuterLoopNode::check_state_transition(double time_now){
   
 
   // if has acomms and is close to target point
-  if(state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) )
-  // or has acomms and was searching for acomms
-  if ( (state_== "skibidi") || (state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2) || ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4))) ||
-      (state_ == "search_acomms" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) )){
+  if( (state_ == "approaching" && got_docking_state_ && ((docking_state_.segment<2>(0) - Eigen::Vector2d(-aproach_dist_, 0.0) ).norm() < 4) ) ||
+    (state_ != "homing" && got_docking_state_ && (((inertial_state_.segment<2>(0) - homing_target_point_).norm() < 2))) ||
+    (state_ == "search_acomms" && got_docking_state_ ) ||
+    (state_== "skibidi")){
       
-  // if (state_=="skibidi"){
     // publish flag to signal the start of the docking phase
     flag_msg_.data = 13;
     flag_pub_.publish(flag_msg_);
@@ -300,7 +302,7 @@ void OuterLoopNode::check_state_transition(double time_now){
   }
   
   // lost acomms -> got into search acomms mode
-  if(time_last_acomms_ > 0 &&  (ros::Time::now().toSec() - time_last_acomms_) > acomms_timeout_){
+  if(state_ == "homing" && time_last_acomms_ > 0 &&  (ros::Time::now().toSec() - time_last_acomms_) > acomms_timeout_){
     state_ = "search_acomms";
     got_docking_state_ =false;
     flag_msg_.data = 12;
@@ -389,12 +391,7 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   else if(state_=="approaching")
   {
     // set the depth reference 
-    if(dock_altitude_)
-    {
-      ref_msg_.data = dock_altitude_.value()+2;
-      // floor_dist_pub.publish(ref_msg_);  
-    }
-    else  if(dock_depth_)
+    if(dock_depth_)
     {
       ref_msg_.data = std::min(0.2,dock_depth_.value()-2);  
       depth_ref_pub_.publish(ref_msg_);
@@ -405,6 +402,16 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
       depth_ref_pub_.publish(ref_msg_);
     } 
   }
+  else if(state_=="diving")
+  {
+    ref_msg_.data = safe_altitude_approach_.value(); 
+    altitude_ref_pub_.publish(ref_msg_);
+  }
+  else if(state_=="search_acomms")
+  {
+    ref_msg_.data = safe_altitude_approach_.value(); 
+    altitude_ref_pub_.publish(ref_msg_);
+  }
   else if(state_=="homing")
   {
     if (eval_trajectory(new_time_)){
@@ -414,7 +421,11 @@ void OuterLoopNode::timerIterCallback(const ros::TimerEvent &event) {
   }
   else if(state_ =="terminal")
   {
-    force_request_msg_.wrench.force.x = terminal_thrust_;
+    force_request_msg_.wrench.force.x =terminal_force_[0]+ terminal_thrust_;
+    force_request_msg_.wrench.force.y =terminal_force_[1];
+    force_request_msg_.wrench.force.z =terminal_force_[2];
+    force_request_msg_.wrench.torque.z =terminal_force_[3];
+    force_request_msg_.disable_axis = {false, false, false, true, true, false};
     //TODO put here buoyancy and shit
     force_request_pub_.publish(force_request_msg_);
   }

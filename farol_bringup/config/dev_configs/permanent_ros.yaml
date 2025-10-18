@@ -521,7 +521,7 @@ docking/outer_loop:
             velocity: "/#vehicle#/measurement/velocity"
             orientation: "/#vehicle#/measurement/orientation"
             filter_state: "/#vehicle#/nav/filter/state"
-            state: "/#vehicle#/docking/filter/state"
+            state: "/#vehicle#/docking/filter/state_gt"
             enable: "/#vehicle#/docking/enable"
             flag: "/#vehicle#/Flag"
             acomms: "/#vehicle#/acomms/usbl_fix"

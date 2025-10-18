@@ -148,8 +148,10 @@ class DockingHelperNode():
     def initializeSubscribers(self):
         # rospy.Subscriber(rospy.get_param('~' + "topics/subscribers/gazebo"), ModelStates, self.gazebo_callback)
         rospy.Subscriber("/gazebo/model_states", ModelStates, self.gazebo_callback)
-        rospy.Subscriber("/myellow0/measurement/velocity", Measurement, self.measurement_velocity_callback)
-        rospy.Subscriber("/myellow0/measurement/orientation", Measurement, self.measurement_orientation_callback)
+        # rospy.Subscriber("/myellow0/measurement/velocity", Measurement, self.measurement_velocity_callback)
+        # rospy.Subscriber("/myellow0/measurement/orientation", Measurement, self.measurement_orientation_callback)
+        rospy.Subscriber("/bluerov_heavy0/measurement/velocity", Measurement, self.measurement_velocity_callback)
+        rospy.Subscriber("/bluerov_heavy0/measurement/orientation", Measurement, self.measurement_orientation_callback)
     
     def loadParams(self):
         self.sim_usbl = rospy.get_param('~sim_usbl')
@@ -168,18 +170,37 @@ class DockingHelperNode():
     def measurement_orientation_callback(self, msg):
         self.w_auv_world = [msg.value[3], msg.value[4], msg.value[5]]
 
+    # def gazebo_callback(self, msg):
+    #     try:
+    #         (roll, pitch, yaw) = euler_from_quaternion([msg.pose[1].orientation.x, msg.pose[1].orientation.y, msg.pose[1].orientation.z, msg.pose[1].orientation.w])
+    #         # convert position from ENU to NED
+    #         (x,y,z) = (msg.pose[1].position.y, msg.pose[1].position.x, -msg.pose[1].position.z)
+    #         # convert orientation from ENU to  NED
+    #         (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
+    #         self.state = np.array([x, y, z, roll, pitch, yaw])
+            
+    #         (roll, pitch, yaw) = euler_from_quaternion([msg.pose[2].orientation.x, msg.pose[2].orientation.y, msg.pose[2].orientation.z, msg.pose[2].orientation.w])
+    #         # convert position from ENU to NED
+    #         (x,y,z) = (msg.pose[2].position.y, msg.pose[2].position.x, -msg.pose[2].position.z)
+    #         # convert orientation from ENU to  NED
+    #         (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
+    #         self.state_dock = np.array([x, y, z, roll, pitch, yaw])
+
+    #     except:
+    #         pass
+
     def gazebo_callback(self, msg):
         try:
-            (roll, pitch, yaw) = euler_from_quaternion([msg.pose[1].orientation.x, msg.pose[1].orientation.y, msg.pose[1].orientation.z, msg.pose[1].orientation.w])
+            (roll, pitch, yaw) = euler_from_quaternion([msg.pose[3].orientation.x, msg.pose[3].orientation.y, msg.pose[3].orientation.z, msg.pose[3].orientation.w])
             # convert position from ENU to NED
-            (x,y,z) = (msg.pose[1].position.y, msg.pose[1].position.x, -msg.pose[1].position.z)
+            (x,y,z) = (msg.pose[3].position.y, msg.pose[3].position.x, -msg.pose[3].position.z)
             # convert orientation from ENU to  NED
             (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
             self.state = np.array([x, y, z, roll, pitch, yaw])
             
-            (roll, pitch, yaw) = euler_from_quaternion([msg.pose[2].orientation.x, msg.pose[2].orientation.y, msg.pose[2].orientation.z, msg.pose[2].orientation.w])
+            (roll, pitch, yaw) = euler_from_quaternion([msg.pose[4].orientation.x, msg.pose[4].orientation.y, msg.pose[4].orientation.z, msg.pose[4].orientation.w])
             # convert position from ENU to NED
-            (x,y,z) = (msg.pose[2].position.y, msg.pose[2].position.x, -msg.pose[2].position.z)
+            (x,y,z) = (msg.pose[4].position.y, msg.pose[4].position.x, -msg.pose[4].position.z)
             # convert orientation from ENU to  NED
             (roll, pitch, yaw) =(roll, -pitch, wrap_to_pi(-yaw+pi/2))
             self.state_dock = np.array([x, y, z, roll, pitch, yaw])
@@ -292,6 +313,7 @@ class DockingHelperNode():
         
         rel_pose = auv_in_dock_frame(self.state, self.state_dock)
         msg = NavigationStatus()
+        msg.header.frame_id = "dock"
         msg.local_position.x = rel_pose[0]
         msg.local_position.y = rel_pose[1]
         msg.local_position.z = rel_pose[2]

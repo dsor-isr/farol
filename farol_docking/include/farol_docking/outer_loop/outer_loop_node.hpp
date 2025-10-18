@@ -136,7 +136,7 @@
  	// Publishers
   ros::Publisher surge_ref_pub_;
   ros::Publisher sway_ref_pub_;
-  ros::Publisher yaw_ref_pub_;
+  ros::Publisher yaw_ref_pub_,altitude_ref_pub_;
   ros::Publisher depth_ref_pub_;
   ros::Publisher se3_ref_pub_;
   ros::Publisher force_request_pub_;
@@ -175,7 +175,7 @@
   
   // A priori information on the positionof the dock
   Eigen::Vector2d dock_position_;
-  std::optional<double> dock_depth_, dock_altitude_, dock_heading_, safe_depth_approach_;
+  std::optional<double> dock_depth_, dock_altitude_, dock_heading_, safe_depth_approach_,safe_altitude_approach_;
   
   double new_time_, last_update_time_, Dt_;
   bool first_it_;
@@ -208,6 +208,7 @@
 
   // to save the vehicle states docking and intertial 
   Eigen::Vector3d docking_state_, inertial_state_; 
+  Eigen::Vector4d terminal_force_;
   double inertial_yaw_, docking_yaw_;
   
   // i dont remember what this is for

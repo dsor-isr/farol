@@ -72,6 +72,8 @@ void DockingFilterNode::initializePublishers() {
   ROS_INFO("Initializing Publishers for DockingFilterNode");
   state_pub_ = nh_private_.advertise<auv_msgs::NavigationStatus>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/state", "docking/filter/state"), 1);
   body_velocity_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/body_velocity", "docking/filter/debug/body_velocity"), 1);
+  usbl_meas_dock_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_meas_dock", "docking/filter/debug/usbl_meas_dock"), 1);
+  usbl_meas_auv_pub_ = nh_private_.advertise<geometry_msgs::Vector3>(FarolGimmicks::getParameters<std::string>(nh_private_, "topics/publishers/debug/usbl_meas_auv", "docking/filter/debug/usbl_meas_auv"), 1);
 }
 
 
@@ -97,6 +99,8 @@ void DockingFilterNode::loadParams() {
   docking_filter_->initializer_size_ = FarolGimmicks::getParameters<int>(nh_private_, "initializer_size", 4);
   docking_filter_->dock_has_ahrs_ = FarolGimmicks::getParameters<bool>(nh_private_, "dock_has_ahrs", false);
   realistify_ = FarolGimmicks::getParameters<bool>(nh_private_, "realistify", false);
+  outage_bearing_dock_ = FarolGimmicks::getParameters<double>(nh_private_, "outage_bearing_dock", 2.0944);
+  outage_elevation_auv_ = FarolGimmicks::getParameters<double>(nh_private_, "outage_elevation_auv", 0.1);
 
   std::vector<double> aux;
   aux = FarolGimmicks::getParameters<std::vector<double>>(nh_private_, "dock_usbl_instalation_offset", {});
@@ -206,11 +210,14 @@ void DockingFilterNode::measurement_callback(const dsor_msgs::Measurement &msg) 
   // Measurements from the DVL -> extract linear velocities
   else if (msg.header.frame_id.find("dvl") != std::string::npos && msg.value.size() == 3) 
   {
-    if(!docking_filter_->initialized_) // keep only last message if not initialized
-      return;
+    // if(!docking_filter_->initialized_) // keep only last message if not initialized
+    //   return;
 
     dvl_velocity_ << msg.value[0],msg.value[1],msg.value[2];
-    // rotate 
+    if(realistify_)
+      corruptDvlMeasurement(dvl_velocity_, current_range_);
+
+    // remove term due to DVL placement
     dvl_velocity_ = dvl_velocity_ - ahrs_velocity_.cross(r_dvl_);
     body_velocity_pub_.publish(toMsg(dvl_velocity_));
 
@@ -242,6 +249,7 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
     if (msg.type == 0) { // range
       usbl_set_.segment<1>(0) << msg.range;
       slot = 0;
+      current_range_ =msg.range;
     } else if (msg.type == 1) { // angles
       usbl_set_.segment<2>(1) << msg.bearing_body, msg.elevation_body;
       slot = 1;
@@ -270,25 +278,28 @@ void DockingFilterNode::usbl_callback(const farol_msgs::mUSBLFix &msg) {
       const double t_meas = *tmax_it; // latest reception time is the most reliable
 
       if(realistify_){
-          // your existing condition
-          if(std::abs(usbl_set_[4]) < M_PI/2.0){
+          // check if in chi_C 
+          // ROS_INFO_STREAM("usbl_set_[4]: "<<usbl_set_[4] <<"\nusbl_set_[2]: "<<usbl_set_[2]);
+          // ROS_INFO_STREAM("outage_elevation_auv_: "<<outage_elevation_auv_ );
+          // ROS_INFO_STREAM( (usbl_set_[2] < outage_elevation_auv_) );
+          // ROS_INFO_STREAM( (std::abs(usbl_set_[4]) < outage_bearing_dock_ && usbl_set_[2] < outage_elevation_auv_) );
+          if(std::abs(usbl_set_[4]) < outage_bearing_dock_ || usbl_set_[2] > outage_elevation_auv_){
             usbl_state_.reset();
             return;
           }
-          std::array<double,6> z;
-          for(int k=0;k<6;++k) z[k] = usbl_set_[k];
-          UsblFlags F;
-          realistify_usbl(z, rng_, P_, &F);
-          if(F.reset) {
-            usbl_state_.reset();  // you said you’ll ignore on reset
-            return;
-          } else {
-              for(int k=0;k<6;++k) usbl_set_[k] = z[k]; // commit noisy/outlier values
-          }
+          // optionally inject outliers
+          Eigen::Vector3d aux = usbl_set_.segment<3>(3);
+          inject_outliers_rbe(&aux);
+          usbl_set_.segment<3>(3) = aux;
+          aux = usbl_set_.segment<3>(0);
+          inject_outliers_rbe(&aux);
+          usbl_set_.segment<3>(0) = aux;
       }
 
       if (docking_filter_->measurements_buffer_.push(Measurement(usbl_set_, t_meas, "usbl"))) {
         docking_filter_->measurements_buffer_cond_var_.notify_one();
+        usbl_meas_dock_pub_.publish(toMsg(usbl_set_.segment<3>(3)));
+        usbl_meas_auv_pub_.publish(toMsg(usbl_set_.segment<3>(0)));
       } else {
         ROS_WARN_STREAM("Dropping USBL measurements. Buffer full.");
       }

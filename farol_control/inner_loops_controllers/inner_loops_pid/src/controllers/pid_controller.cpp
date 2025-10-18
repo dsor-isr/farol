@@ -68,8 +68,8 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   K_d = mw * (2 * ksi * w0 + p) - dw;
   K_a = 1 / duration;
 
-  u_max = 40.0; // N.m
-  u_min = -40.0; // N.-m
+  u_max = 10.0; // N.m
+  u_min = -10.0; // N.-m
 
   Dt = duration;
   // Dt = 1.0 / frequency;
@@ -77,7 +77,8 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   //ROS_INFO_STREAM("ALtitude: "<<altitude<<"| Altitude_rate: "<< altitude_rate);
   // Compute control input
   error = altitude_ref - altitude;
-
+  ROS_INFO_STREAM("altitude: "<<altitude);
+  ROS_INFO_STREAM("altitude_ref: "<<altitude_ref);
   // compute derivative of altitude_rate  
   if (first_it)
     h_dot_dot = 0;
@@ -116,7 +117,7 @@ float PID_Controller::computeCommandAltitude(float altitude, float altitude_rate
   first_it = false;
 
   // return output
-  return -u_sat;
+  return u_sat;
 }
 
 // Speed Controllers
@@ -133,6 +134,7 @@ float PID_Controller::computeCommandSpeed(float speed, float speed_ref, float Dt
   // else {
   //   ref_d_value = (ref_value - ref_prev_) / Dt;
   // }
+  
   float error = speed_ref- speed;
   float error_sat = sat(speed_ref - speed , min_error_, max_error_);
 
@@ -141,8 +143,8 @@ float PID_Controller::computeCommandSpeed(float speed, float speed_ref, float Dt
   //ROS_INFO_STREAM("ff_gain_:" << ff_gain_);
   if (first_it){
     speed_dot = 0;
-    u_prev_ = ff_gain_;
-    u_sat_prev_ = u_prev_;
+    // u_prev_ = ff_gain_;
+    // u_sat_prev_ = u_prev_;
   } // actually ff_gain_ is gw, starting the integrator at gw is good
   else {
     speed_dot = (speed-speed_prev_)/Dt;//(speed-speed_prev_)>0.05 ? (speed-speed_prev_)/Dt : 0;
@@ -264,7 +266,7 @@ float PID_Controller::computeCommandAttitude(float attitude, float attitude_rate
 
   // adding up all PID terms
   double tau_d;
-  tau_d =  i_gain_ * error - p_gain_ * attitude_dot - d_gain_*attitude_rate_dot_filter;
+  tau_d =  i_gain_ * error - p_gain_ * attitude_dot - d_gain_*attitude_rate_dot_filter + ff_gain_*((attitude_ref - ref_prev_))/Dt;
 
   // integration with anti windup
   double K_a = 1/Dt;
