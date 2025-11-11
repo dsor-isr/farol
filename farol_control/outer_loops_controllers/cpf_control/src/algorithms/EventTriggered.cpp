@@ -1,6 +1,7 @@
 #include "EventTriggered.h"
 #include <cmath>
 
+
 /**
  * @brief  Constructor for the EventTriggered CPF class. Receive the adjency matrix
  * as a parameter
@@ -202,7 +203,7 @@ bool EventTriggered::reset() {
   delete[] this->vehicles_data_;
 
   /* Alocate memory for the array of estimated gammas */
-  this->vehicles_data_ = new VehicleInfo[this->getNetworkSize()];
+  this->vehicles_data_ = new VehicleInfo[this->getNetworkSize()]();
 
   /* Inform the reset was made with success*/
   return true;

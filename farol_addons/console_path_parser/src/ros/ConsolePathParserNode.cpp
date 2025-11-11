@@ -21,8 +21,6 @@ ConsolePathParserNode::ConsolePathParserNode(
     initializePublishers();
     initializeServices();
     initializeTimer();
-
-    createPathFolder();
   }
 
 /**
@@ -507,7 +505,7 @@ void ConsolePathParserNode::parseMission(std::istream &is) {
       
       int num_points = std::stoi(bezier_str[1]);  
       newSection.bez_deg = num_points - 1;
-      if (bezier_str.size() != 3 + 2 * num_points) {
+      if (bezier_str.size() != static_cast<size_t>(3 + 2 * num_points)) {
         ROS_ERROR("BEZIER command does not match expected number of points");
         return;
       }

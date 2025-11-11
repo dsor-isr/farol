@@ -187,7 +187,6 @@ bool WaypointNode::sendWpStandardService(
     waypoint::sendWpType1::Request &req,
     waypoint::sendWpType1::Response &res) {
 
-  ROS_INFO("Sending Waypoint");
 
   // create pointer to new controller
   WaypointController *aux_wp = new WpStandard(u_ref_pub_, yaw_ref_pub_);
@@ -220,7 +219,6 @@ bool WaypointNode::sendWpLooseService(
     waypoint::sendWpType1::Request &req,
     waypoint::sendWpType1::Response &res) {
 
-  ROS_INFO("Sending Waypoint");
   // create pointer to new controller
   WaypointController *aux_wp = new WpLoose(u_ref_pub_, yaw_ref_pub_);
   // set the gains
@@ -252,7 +250,6 @@ bool WaypointNode::sendWpHeadingService(
     waypoint::sendWpType1::Request &req,
     waypoint::sendWpType1::Response &res) {
 
-  ROS_INFO("Sending Waypoint");
   // create pointer to new controller
   WaypointController *aux_wp =
       new WpHeading(u_ref_pub_, v_ref_pub_, yaw_rate_ref_pub_);
