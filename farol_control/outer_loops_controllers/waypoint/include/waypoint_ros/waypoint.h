@@ -24,6 +24,7 @@ Developers: DSOR Team -> @irt.ist.pt Instituto Superior Tecnico */
 #include <wp_heading.h>
 #include <wp_loose.h>
 #include <wp_standard.h>
+#include <wp_mplan.h>
 
 /**
  * @brief  ROS node class
@@ -61,7 +62,7 @@ private:
   ros::ServiceServer wp_standard_srv_; ///< standard waypoint service
   ros::ServiceServer wp_loose_srv_;    ///< loose waypoint service
   ros::ServiceServer wp_heading_srv_;  ///< heading waypoint service
-
+  ros::ServiceServer wp_mplan_srv_;    ///< mplan waypoint service
   // Timers
   ros::Timer timer_; ///< main loop timer
 
@@ -91,6 +92,7 @@ private:
   std::string wp_standard_topic_;
   std::string wp_loose_topic_;
   std::string wp_heading_topic_;
+  std::string wp_mplan_topic_;
 
   // Turn Radius Flag Boolean
   bool turn_radius_flag_{false};
@@ -191,7 +193,16 @@ private:
    */
   bool sendWpHeadingService(waypoint::sendWpType1::Request &req,
                             waypoint::sendWpType1::Response &res);
-
+  /**
+   * @brief  Callback function of motion planning waypoint service. Starts main loop
+   *
+   * @param req
+   * @param res
+   *
+   * @return
+   */
+  bool sendWpMplanService(waypoint::sendWpType1::Request &req,
+                             waypoint::sendWpType1::Response &res);
   /**
    * @brief  Substitutes the waypoint controller pointer
    *

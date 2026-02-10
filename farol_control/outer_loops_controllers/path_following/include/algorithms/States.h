@@ -80,6 +80,7 @@ typedef struct {
   double gamma_max{std::numeric_limits<double>::max()};
 
   double tf{0.0};
+  int type{0};
 
 } PathState;
 

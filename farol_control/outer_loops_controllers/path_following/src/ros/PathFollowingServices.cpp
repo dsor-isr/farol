@@ -42,6 +42,8 @@ void PathFollowingNode::initializeServices() {
   /* Get the service name for waypoint*/
   std::string wp_service_name = FarolGimmicks::getParameters<std::string>(
       this->nh_p_, "topics/services/wp_standard", "/controls/send_wp_standard");
+  std::string wp_service_name_mplan = FarolGimmicks::getParameters<std::string>(
+      this->nh_p_, "topics/services/wp_mplan", "/controls/send_wp_mplan");
 
   /* Get the service name for reset_dr*/
   std::string reset_dr_service_name = FarolGimmicks::getParameters<std::string>(
@@ -85,6 +87,7 @@ void PathFollowingNode::initializeServices() {
   
   /* Setup the waypoint client needed when mission finishes */
   this->wp_standard_client_ = nh_.serviceClient<waypoint::sendWpType1>(wp_service_name);
+  this->wp_mplan_client_ = nh_.serviceClient<waypoint::sendWpType1>(wp_service_name_mplan);
   
   /* Setup the reset DeadReckoning client needed when mission finishes */
   this->dr_reset_client_ = nh_.serviceClient<std_srvs::Trigger>(reset_dr_service_name);

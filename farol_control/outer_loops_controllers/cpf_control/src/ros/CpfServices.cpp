@@ -31,6 +31,8 @@ bool CpfNode::StartService(cpf_control::StartStop::Request &req, cpf_control::St
     ROS_INFO("CPF will start.");
     timer_.start();
     res.success = true;
+    gamma_ = 0.0;
+    vd_ = 0.0;
   } else {
     ROS_ERROR("For some reason the CPF algorithm is not instantiated. Restart this node");
     timer_.stop();

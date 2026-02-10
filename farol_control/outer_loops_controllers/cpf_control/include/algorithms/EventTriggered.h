@@ -3,7 +3,7 @@
 #include "CPFControl.h"
 #include <vector>
 #include <array>
-
+#include <ros/ros.h>
 /** 
  *  @brief     Auxiliar structure to hold information regarding one vehicle
  *  @author    Marcelo Jacinto

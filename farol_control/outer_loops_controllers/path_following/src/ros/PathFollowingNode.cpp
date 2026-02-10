@@ -264,6 +264,12 @@ void PathFollowingNode::pathStateCallback(const dsor_paths::PathData &msg) {
   this->path_state_.gamma_min = msg.gamma_min;
   this->path_state_.gamma_max = msg.gamma_max;
   this->path_state_.tf = msg.tf;
+  if (msg.tf > 0) {
+    this->path_state_.type = 5; // Bezier path
+  } else {
+    this->path_state_.type = 0;
+  }
+  
 }
 
 /**
@@ -353,7 +359,11 @@ void PathFollowingNode::timerIterCallback(const ros::TimerEvent &event) {
   /* Check if we have reached the end of the path */
   if (this->pf_algorithm_->stop()) {
     /* Ask waypoint algorithm to hold position */
-    this->sendWaypoint(WP_FINISH);
+    if (this->path_state_.type == 5) { // If we are in a Bezier section, hold position on the spot, otherwise hold position after the vehicle
+      this->sendWaypointBezier(WP_FINISH);
+    } else {
+      this->sendWaypoint(WP_FINISH);
+    }
     /* Reset the DR postion to the 2d state filter position */
     this->sendResetDeadReckoning();
 
@@ -370,6 +380,17 @@ void PathFollowingNode::sendWaypoint(double value) {
   srv.request.x = value;
   srv.request.y = value;
   wp_standard_client_.call(srv);
+}
+/**
+ * @brief  Auxiliar method to send a hold position waypoint on a Bézier case
+ *
+ * @param value -3 to hold the pos after the vehicle, -1 to hold position on the spot
+ */
+void PathFollowingNode::sendWaypointBezier(double value) {
+  waypoint::sendWpType1 srv;
+  srv.request.x = value;
+  srv.request.y = value;
+  wp_mplan_client_.call(srv);
 }
 
 /**

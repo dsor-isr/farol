@@ -522,10 +522,6 @@ void ConsolePathParserNode::parseMission(std::istream &is) {
         newSection.py.push_back(yPoints+yrefpoint);
       }
       newSection.tf = std::stoi(bezier_str[2+2*num_points]);
-      ROS_INFO("newSection.py values:");
-      for (size_t i = 0; i < newSection.py.size(); i++) {
-        ROS_INFO("[%lu]: %lf", i, newSection.py[i]);
-      }
     } 
     // +.+ Depth
     else if (line.compare(0, 5, "DEPTH") == 0) {
@@ -862,7 +858,7 @@ void ConsolePathParserNode::depthCallback(const ros::TimerEvent &event) {
   if (DesiredDepth >= 0) {
     depth.data = DesiredDepth;
     depth_pub_.publish(depth);
-    ROS_INFO_THROTTLE(10.0, "Desired Depth: %f", depth.data);
+    //ROS_INFO_THROTTLE(10.0, "Desired Depth: %f", depth.data);
   } else {
     depth.data = -DesiredDepth;
     altitude_pub_.publish(depth);

@@ -12,3 +12,4 @@ float64 vehicle_speed
 float64 gamma_min      # The minimum and maximum value that gamma can achieve for the current path
 float64 gamma_max
 float64 tf             # For bezier curve imlementation the final time of arrival
+int32 type             # Only used in the bezier implementation for waypoint alternative

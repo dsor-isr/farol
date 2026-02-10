@@ -135,6 +135,7 @@ class PathFollowingNode {
      */
     ros::ServiceClient set_path_mode_client_;
     ros::ServiceClient wp_standard_client_;
+    ros::ServiceClient wp_mplan_client_;
     ros::ServiceClient reset_path_client_;
     ros::ServiceClient dr_reset_client_;         
 
@@ -235,6 +236,11 @@ class PathFollowingNode {
      * @brief Service to send a waypoint when the path following stops
      */
     void sendWaypoint(double value);
+     
+    /**
+     * @brief Service to send a waypoint when the path following stops doing a Bezier path
+     */
+    void sendWaypointBezier(double value);
     
     /**
      * @brief Service to reset the DeadReckoning position when the path following stops

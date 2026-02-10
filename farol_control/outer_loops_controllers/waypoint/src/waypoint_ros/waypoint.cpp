@@ -72,6 +72,8 @@ void WaypointNode::loadParams() {
       nh_p_, "topics/services/wp_loose", "/controls/send_wp_loose");
   wp_heading_topic_ = FarolGimmicks::getParameters<std::string>(
       nh_p_, "topics/services/wp_heading", "/controls/send_wp_heading");
+  wp_mplan_topic_ = FarolGimmicks::getParameters<std::string>(
+      nh_p_, "topics/services/wp_mplan", "/controls/send_wp_mplan");
 }
 
 void WaypointNode::initializeSubscribers() {
@@ -101,6 +103,8 @@ void WaypointNode::initializeServices() {
       wp_loose_topic_, &WaypointNode::sendWpLooseService, this);
   wp_heading_srv_ = nh_.advertiseService(
       wp_heading_topic_, &WaypointNode::sendWpHeadingService, this);
+  wp_mplan_srv_ = nh_.advertiseService(
+      wp_mplan_topic_, &WaypointNode::sendWpMplanService, this);
 }
 
 void WaypointNode::initializeTimer() {
@@ -272,6 +276,38 @@ bool WaypointNode::sendWpHeadingService(
     res.message += "New waypoint reference: (" +
                    std::to_string(wp_ref_.eta1[0]) + "," +
                    std::to_string(wp_ref_.eta1[1]) + "," + std::to_string(wp_ref_.eta2[2]) + ")";
+    FarolGimmicks::publishValue<std_msgs::Int8, const int>(flag_pub_, 4);
+    if (!timer_.hasStarted()) {
+      timer_.start();
+    }
+  }
+  return true;
+}
+
+bool WaypointNode::sendWpMplanService(
+    waypoint::sendWpType1::Request &req,
+    waypoint::sendWpType1::Response &res) {
+
+
+  // create pointer to new controller
+  WaypointController *aux_wp = new WpMplan(u_ref_pub_, yaw_ref_pub_);
+  // set the gains
+  aux_wp->setGains(std::vector<double>{cdist_, ku_, ks_});
+  // substitute node pointer of the controller
+  createWaypoint(aux_wp);
+
+  // set the new waypoint reference, change the flag value and start the main
+  // loop
+  if (!decodeWaypoint(req.x, req.y)) {
+    res.message += "Stop signal sent";
+    ROS_WARN("Flag set to 0: waypoint node couldn't decode waypoint.");
+    FarolGimmicks::publishValue<std_msgs::Int8, const int>(flag_pub_, 0);
+    timer_.stop();
+  } else {
+    res.success = true;
+    res.message += "New waypoint reference: (" +
+                   std::to_string(wp_ref_.eta1[0]) + "," +
+                   std::to_string(wp_ref_.eta1[1]) + ")";
     FarolGimmicks::publishValue<std_msgs::Int8, const int>(flag_pub_, 4);
     if (!timer_.hasStarted()) {
       timer_.start();

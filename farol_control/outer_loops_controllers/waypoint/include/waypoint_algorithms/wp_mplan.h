@@ -1,5 +1,5 @@
-#ifndef WP_STANDARD_H
-#define WP_STANDARD_H
+#ifndef WP_MPLAN_H
+#define WP_MPLAN_H
 
 #include <wp_controller.h>
 
@@ -7,7 +7,7 @@
  * @brief  Waypoint controller using surge and yaw, where the nose of
  * the vehicle points to the desired position
  */
-class WpStandard : public WaypointController {
+class WpMplan : public WaypointController {
 private:
   ros::Publisher surge_pub_;
   ros::Publisher yaw_pub_;
@@ -15,10 +15,11 @@ private:
   void calculateRef(Vehicle_t state, WPref_t wp_ref, bool turn_radius_flag) override;
 
   void publish() override;
-
+ // Add this:
+  int calculate_ref_counter_ = 0;
 public:
-  WpStandard(ros::Publisher surge_pub, ros::Publisher yaw_pub);
-  virtual ~WpStandard() {}
+  WpMplan(ros::Publisher surge_pub, ros::Publisher yaw_pub);
+  virtual ~WpMplan() {}
 };
 
 #endif /* WP_STANDARD_H */

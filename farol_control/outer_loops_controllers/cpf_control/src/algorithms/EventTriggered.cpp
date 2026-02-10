@@ -199,6 +199,7 @@ bool EventTriggered::reset() {
   this->first_broadcast_ = true;
   this->time_first_broadcast_ = 0.0;
 
+  ROS_INFO("Resetting the Event Triggered CPF controller");
   /* Free the old memory used to store the vehicle data */
   delete[] this->vehicles_data_;
 
