@@ -20,9 +20,11 @@ addons/console_path_parser:
             reset_path: "/#vehicle#/ResetPath"
             arc2d_path: "/#vehicle#/SpawnArc2DPath"
             line_path: "/#vehicle#/SpawnLinePath"
+            bezier_path: "/#vehicle#/SpawnBezierPath"
             pf_start: "/#vehicle#/PFStart"
             pf_stop: "/#vehicle#/PFStop"
             set_speed: "/#vehicle#/SetConstVdVehicle"
+            set_bezier_speed: "/#vehicle#/SetBezierVdVehicle"
 
 addons/console_server:
     PORT: 7080
@@ -372,9 +374,13 @@ planning/dsor_paths:
             bernoulli_path: "/#vehicle#/SpawnBernoulliPath"
             circle2d_path: "/#vehicle#/SpawnCircle2DPath"
             line_path: "/#vehicle#/SpawnLinePath"
+            bezier_path: "/#vehicle#/SpawnBezierPath"
             speed:
                 const_rabbit_speed: "/#vehicle#/SetConstVdRabbit"
                 const_vehicle_speed: "/#vehicle#/SetConstVdVehicle"
+                bezier_rabbit_speed: "/#vehicle#/SetBezierVdRabbit"
+                bezier_vehicle_speed: "/#vehicle#/SetBezierVdVehicle"
+
 
 ## --------------------------- ## 
 #  farol_comms                #
