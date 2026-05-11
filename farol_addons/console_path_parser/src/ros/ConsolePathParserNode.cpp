@@ -265,7 +265,6 @@ void ConsolePathParserNode::requestPath() {
       srv.request.px = it->px;
       srv.request.py = it->py;
       srv.request.bez_deg = it->bez_deg;
-      srv.request.z = 0.0;
       srv.request.tf = it->tf;
 
       spawn_bezier_client_.call(srv);
